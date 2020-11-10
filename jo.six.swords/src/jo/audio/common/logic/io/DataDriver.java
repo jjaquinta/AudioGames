@@ -16,6 +16,7 @@ import jo.audio.util.IIOBean;
 import jo.util.beans.URIBean;
 import jo.util.utils.DebugUtils;
 import jo.util.utils.io.FileUtils;
+import jo.util.utils.obj.StringUtils;
 
 public abstract class DataDriver<T extends IIOBean>
 {
@@ -94,6 +95,8 @@ public abstract class DataDriver<T extends IIOBean>
     public void save(IIOBean bean)
     {
         trace("Put "+bean.getClass().getSimpleName()+" #"+bean.hashCode()+" in cache as "+bean.getURI());
+        if (StringUtils.isTrivial(bean.getURI()))
+            System.out.println("Quack");
         mCache.put(bean.getURI(), (T)bean);
         mCacheFetch.put(bean.getURI(), System.currentTimeMillis());            
         if (DriverLogic.isSingleThreaded())

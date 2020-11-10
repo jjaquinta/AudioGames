@@ -681,7 +681,7 @@
      		"Welcome to Heroic Iceland, a game of high adventure and challenge. You will manage a team of up to six mercenaries to explore mystical mythical Iceland, fight dangerous monsters, and bring back their gold. You can say 'help' at any time to get suggestions about what you can say. To get to know your team, say 'who'."
          ],
          "At the end of this message you will hear this short tone":[
-     		"<<speech: <break time=\"1s\"/> >>At the end of this message you will hear this short tone. <<speech:<audio  src=\"https://s3.amazonaws.com/tsatsatzu-alexa/sound/beeps/DEEK.mp3\"/> >> This means that you can say 'more' for additional info. Try it now. "
+     		"<<speech: <break time=\"1s\"/> >>At the end of this message you see three dots. This means that you can say 'more' for additional info. Try it now. "
          ],
          "You can say north south east or west to travel in that direction":[
      		"You can say 'north', 'south', 'east', or 'west' to travel in that direction. "
@@ -1430,7 +1430,7 @@
      		"%s looks to the sky, maybe picking out shapes in the clouds."
          ],         
          "MORE_SOUND":[
-     		"<<speech:<audio src=\"https://s3.amazonaws.com/tsatsatzu-alexa/sound/beeps/DEEK.mp3\"/> >>"
+     		"..."
          ],         
          "INTRO_SOUND":[
          	"<<speech:<audio src=\"https://s3.amazonaws.com/tsatsatzu-alexa/sound/sixswords/sm1.mp3\"/> >>"
@@ -2019,7 +2019,7 @@
      		"Try saying 'what is a' and then the creature or object you would like more information on."
          ],         
          "HELP_BASE_ONE":[
-     		"You can move by stating the direction you wish to move. If you hear a tone like this <<speech:<audio  src=\"https://s3.amazonaws.com/tsatsatzu-alexa/sound/beeps/DEEK.mp3\"/> >> at the end of a reply, that means you can say 'more' for additional information."
+     		"You can move by stating the direction you wish to move. If you see three dots at the end of a reply, that means you can say 'more' for additional information."
          ],         
          "HELP_BASE_TWO":[
      		"Say 'who' to list your companions and 'activate Diana' to make one companion your current active companion."

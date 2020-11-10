@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.json.simple.JSONObject;
 
+import jo.audio.util.FromJSONLogic;
 import jo.audio.util.IIOBean;
 import jo.audio.util.ToJSONLogic;
 import jo.util.logic.CSVLogic;
@@ -38,6 +39,7 @@ public class SLDataBean implements IIOBean
     @Override
     public void fromJSON(JSONObject o)
     {
+        FromJSONLogic.fromJSON(this, o);
     }
 
     private static final String[] mUserColumns = {

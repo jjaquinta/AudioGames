@@ -17,6 +17,9 @@ import java.util.Date;
 import java.util.Properties;
 import java.util.StringTokenizer;
 
+import org.json.simple.JSONObject;
+
+import jo.audio.util.ToJSONLogic;
 import jo.audio.util.model.data.AudioResponseBean;
 import jo.util.utils.DebugUtils;
 import jo.util.utils.obj.StringUtils;
@@ -42,6 +45,7 @@ public class HttpClient
         mServerThread.start();
     }
     
+    @SuppressWarnings("unused")
     private void stop()
     {
         mPleaseStop = true;
@@ -156,7 +160,7 @@ public class HttpClient
     private void handleRequest(Socket soc, Properties headers, String protocol, Reader rdr) throws Exception
     {
         StringTokenizer st = new StringTokenizer(protocol, " ");
-        String method = st.nextToken();
+        /*String method =*/ st.nextToken();
         String path = st.nextToken();
         String language = headers.getProperty("Content-Language", "en_US");
         int o = path.indexOf("text=");
@@ -165,28 +169,41 @@ public class HttpClient
             response = RequestLogic.performLaunchRequest(language);
         else
             response = RequestLogic.performIntentRequest(URLDecoder.decode(path.substring(o + 5), "utf-8"), language);
-        printResponse(soc, response);
+        printResponse(soc, headers, response);
     }
     
-    public void printResponse(Socket soc, AudioResponseBean response) throws IOException
+    public void printResponse(Socket soc, Properties headers, AudioResponseBean response) throws IOException
     {
-        String outputSpeechText;
-        if (!StringUtils.isTrivial(response.getCardContent()) && (response.getCardContent().trim().length() > 0))
+        String accept = headers.getProperty("Accept", "text/html");
+        byte[] data;
+        if ("application/json".equals(accept))
         {
-            outputSpeechText = toPlainText(response.getCardContent());
+            JSONObject json = ToJSONLogic.toJSONFromBean(response);
+            String jsonText = json.toJSONString();
+            data = jsonText.getBytes("utf-8");
+            accept = "application/json; charset=UTF-8";
         }
         else
         {
-            outputSpeechText = response.getOutputSpeechText();
-            Properties props = new Properties();
-            outputSpeechText = parseProps(outputSpeechText, props);
+            String outputSpeechText;
+            if (!StringUtils.isTrivial(response.getCardContent()) && (response.getCardContent().trim().length() > 0))
+            {
+                outputSpeechText = toPlainText(response.getCardContent());
+            }
+            else
+            {
+                outputSpeechText = response.getOutputSpeechText();
+                Properties props = new Properties();
+                outputSpeechText = parseProps(outputSpeechText, props);
+            }
+            String html = toHTML(outputSpeechText);
+            data = html.getBytes("utf-8");
+            accept = "text/html; charset=UTF-8";
         }
-        String html = toHTML(outputSpeechText);
-        byte[] data = html.getBytes("utf-8");
         OutputStream os = soc.getOutputStream();
         Writer wtr = new OutputStreamWriter(os);
         returnHeaders(wtr, "200");
-        wtr.write("Content-Type: text/html; charset=UTF-8\n");
+        wtr.write("Content-Type: "+accept+"\n");
         wtr.write("Content-Length: "+data.length+"\n");
         wtr.write("\n");
         wtr.flush();

@@ -1,0 +1,1 @@
+java -cp jo_six_swords.jar jo.audio.companions.tools.gui.client.CompClient 

@@ -4,9 +4,31 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SpeechBuffer
+import org.json.simple.IJSONAble;
+import org.json.simple.JSONObject;
+
+import jo.util.utils.obj.IntegerUtils;
+
+public class SpeechBuffer implements IJSONAble
 {
     private Map<Integer, StringBuffer> mText = new HashMap<>();
+    
+    @Override
+    public void fromJSON(JSONObject json)
+    {
+        mText.clear();
+        for (String key : json.keySet())
+            mText.put(IntegerUtils.parseInt(key), new StringBuffer(json.getString(key)));
+    }
+    
+    @Override
+    public JSONObject toJSON()
+    {
+        JSONObject json = new JSONObject();
+        for (Integer key : mText.keySet())
+            json.put(key.toString(), mText.get(key).toString());
+        return json;
+    }
     
     public void append(String txt)
     {
