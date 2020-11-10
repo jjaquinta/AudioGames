@@ -1,0 +1,20 @@
+{
+	"include": [
+	  "rooms/misc.json",
+	  "rooms/mine.json",
+	  "rooms/town.json",
+	  "rooms/castle.json",
+	  "rooms/dungeon.json",
+	  "rooms/tri.json",
+	  "rooms/den.json",
+	  "rooms/temple.json",
+	  "rooms/dock.json",
+	  "rooms/ruin.json",
+	  "rooms/player.json",
+	  "rooms/bard.json",
+	  "rooms/house.json",
+	  "rooms/giants.json",
+	  "rooms/dragons.json",
+	  "rooms/wizard.json"
+	]
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?eclipse.and.import?>
+<project basedir="." default="jar" name="jo_six_swords_xtra">
+	<target name="jar">
+		<mkdir dir="dist"/>
+		<jar destfile="./dist/jo_six_swords.jar">
+			<fileset dir="./bin" excludes="jo/audio/companions/service/images/*.png"/>
+			<fileset dir="C:/Users/JoJaquinta/git/ttg/jo.util/bin"/>
+			<fileset dir="C:/Users/JoJaquinta/git/ttg/jo.util.ui.swing/bin"/>
+			<zipgroupfileset dir="./lib" includes="*.jar"/>
+			<manifest>
+				<attribute name="Main-Class" value="jo.audio.companions.tools.gui.client.CompClient"/>
+			</manifest>
+		</jar>
+	</target>
+</project>

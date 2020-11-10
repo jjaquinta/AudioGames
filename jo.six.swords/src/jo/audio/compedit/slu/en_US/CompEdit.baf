@@ -1,0 +1,82 @@
+SETTYPE	set type to {type}
+SETTYPE	set type {type}
+SETTYPE	type {type}
+SETMONSTER	set monster to {monster}
+SETMONSTER	set monster {monster}
+SETMONSTER	monster {monster}
+SETMONSTER	monster
+DIG	dig {dir}
+DIG	tunnel {dir}
+SOUTH	south
+SOUTH	s.
+NORTH	north
+NORTH	n.
+LINK	link {dir} to {name}
+LINK	connect {dir} to {name}
+SETDIMENSION	set dimension to {dim}
+SETDIMENSION	dimension {dim}
+SETDIMENSION	dimension
+SETDIMENSION	dim
+SETDIMENSION	d
+SETLOCATION	set location to {nsdegrees} {nsdname} {nsminutes} {nsmname} {nsdir} {ewdegrees} {ewdname} {ewminutes} {ewmname} {ewdir}
+SETLOCATION	location {nsdegrees} {nsdname} {nsminutes} {nsmname} {nsdir} {ewdegrees} {ewdname} {ewminutes} {ewmname} {ewdir}
+SETLOCATION	set location to {nsdegrees} {nsdname} {nsminutes} {nsmname} {nsdir}
+SETLOCATION	location {nsdegrees} {nsdname} {nsminutes} {nsmname} {nsdir}
+SETLOCATION	set location to {ewdegrees} {ewdname} {ewminutes} {ewmname} {ewdir}
+SETLOCATION	location {ewdegrees} {ewdname} {ewminutes} {ewmname} {ewdir}
+SETLOCATION	location
+CHALLENGEUP	increase challenge
+CHALLENGEUP	challenge up
+CHALLENGEUP	challenge +
+EAST	east
+EAST	e.
+LOAD	load {name}
+LOAD	load feature {name}
+ENABLE	enable
+ENABLE	en
+WEST	west
+WEST	w.
+CHALLENGEDOWN	decrease challenge
+CHALLENGEDOWN	challenge down
+CHALLENGEDOWN	challenge -
+NEW	new feature {name}
+NEW	new {name}
+NEW	new
+MOVE	go {dir}
+MOVE	move {dir}
+MOVE	run {dir}
+MOVE	walk {dir}
+MOVE	let's go {dir}
+MOVE	how about {dir}
+MOVE	i want to go {dir}
+MOVE	run away
+SETDESC	what is the description
+SETDESC	set description to {description}
+SETDESC	description {description}
+SETDESC	desc {description}
+SETDESC	describe {description}
+MORE	more
+MORE	tell me more
+LIST	list
+LIST	list features
+LIST	features
+LOOK	look
+LOOK	where am i
+LOOK	what is here
+LOOK	what's here
+LOOK	what can i see
+LOOK	what's around here
+LOOK	l.
+SETNAME	set name to {name}
+SETNAME	name {name}
+SETNAME	set room name to {name}
+SETNAME	room name {name}
+UNLINK	unlink {dir}
+UNLINK	erase {dir}
+DISABLE	disable
+DISABLE	dis
+SETFEATURENAME	set feature name to {name}
+SETFEATURENAME	what's the feature name
+SETFEATURENAME	what's this feature name
+SETFEATURENAME	feature name {name}
+SETFEATURENAME	feature {name}

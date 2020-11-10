@@ -1,0 +1,82 @@
+    {
+    "PLAINS":
+            [ "GIANT", "GIANT", "GIANT",
+                "MINE", "TEMPLE", "MINE",
+                "RUIN", "DEN", "RUIN",
+                "DEN", "TEMPLE", "MINE",
+                "TEMPLE", "GIANT", "GIANT",
+                "GIANT", "GROVE", "GIANT"
+            ],
+    "HILLS":
+            [ "GIANT", "GIANT", "GIANT",
+                "MINE", "TEMPLE", "MINE",
+                "RUIN", "DEN", "RUIN",
+                "DEN", "GIANT", "GIANT",
+                "GIANT", "GROVE", "GROVE",
+                "GROVE", "GROVE", "GIANT"
+            ],
+    "MOUNTAINS":
+            [ "GIANT", "GIANT", "TEMPLE",
+                "MINE", "TEMPLE", "MINE",
+                "RUIN", "DEN", "RUIN",
+                "DEN", "TEMPLE", "GIANT",
+                "GIANT", "GROVE", "GROVE",
+                "GROVE", "GROVE", "GIANT"
+            ],
+    "ARTIC":
+            [ "GIANT", "GIANT", "GIANT",
+                "MINE", "TEMPLE", "MINE",
+                "RUIN", "DEN", "RUIN",
+                "DEN", "TEMPLE", "MINE",
+                "TEMPLE", "GROVE", "GROVE",
+                "GROVE", "GROVE", "GIANT"
+            ],
+    "FOREST":
+            [ "TEMPLE", "MINE", "TEMPLE",
+                "MINE", "TEMPLE", "MINE",
+                "GIANT", "GIANT", "GIANT",
+                "DEN", "TEMPLE", "MINE",
+                "TEMPLE", "GIANT", "GIANT",
+                "GIANT", "GROVE", "GIANT"
+            ],
+    "DESERT":
+            [ "TEMPLE", "MINE", "TEMPLE",
+                "MINE", "TEMPLE", "MINE",
+                "RUIN", "DEN", "RUIN",
+                "DEN", "TEMPLE", "MINE",
+                "TEMPLE", "MINE", "GIANT",
+                "GIANT", "GROVE", "GIANT"
+            ],
+    "JUNGLE":
+            [ "TEMPLE", "MINE", "TEMPLE",
+                "MINE", "TEMPLE", "MINE",
+                "GIANT", "GIANT", "GIANT",
+                "DEN", "TEMPLE", "MINE",
+                "TEMPLE", "GIANT", "GIANT",
+                "GIANT", "GROVE", "GIANT"
+            ],
+    "SWAMP":
+            [ "TEMPLE", "MINE", "TEMPLE",
+                "GIANT", "GIANT", "GIANT",
+                "RUIN", "DEN", "RUIN",
+                "DEN", "TEMPLE", "MINE",
+                "TEMPLE", "GIANT", "GIANT",
+                "GIANT", "GROVE", "GIANT"
+            ],
+    "FRESHWATER":
+            [ "TEMPLE", "MINE", "TEMPLE",
+                "MINE", "TEMPLE", "MINE",
+                "RUIN", "DEN", "RUIN",
+                "DEN", "TEMPLE", "MINE",
+                "TEMPLE", "MINE", "TEMPLE",
+                "GROVE", "TEMPLE", "GIANT"
+            ],
+    "SALTWATER":
+            [ "TEMPLE", "MINE", "TEMPLE",
+                "MINE", "TEMPLE", "MINE",
+                "RUIN", "DEN", "RUIN",
+                "DEN", "TEMPLE", "MINE",
+                "TEMPLE", "MINE", "TEMPLE",
+                "GROVE", "TEMPLE", "GIANT"
+            ]
+    }

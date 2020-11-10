@@ -1,0 +1,150 @@
+{
+   "roomTypes":[
+      {
+         "name":{
+            "ident":"GATEHOUSE"
+         },
+         "description":{
+            "ident":"HIGH_WALLS_ARCH_ABOVE_YOU_A_PORTCULLIS_IS_POISED_READY_TO_CUT_OFF_ACCESS_"
+         },
+         "ID":"castleGatehouse",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"COURTYARD"
+         },
+         "description":{
+            "ident":"THIS_IS_A_WIDE_COBBLED_EXPANSE_"
+         },
+         "ID":"castleCourtyard",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"OFFICE"
+         },
+         "description":{
+            "ident":"THE_BUSINESS_OF_THE_CASTLE_IS_CONDUCTED_IN_THIS_ROOM_"
+         },
+         "ID":"castleOffice",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"LIBRARY_NAME"
+         },
+         "description":{
+            "ident":"LIBRARY_DESC"
+         },
+         "ID":"castleLibrary",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"NEXT_CHAPTER_NAME"
+         },
+         "description":{
+            "ident":"NEXT_CHAPTER_DESC"
+         },
+         "params": {
+         	"northDesc": { "ident": "NEXT_CHAPTER" },
+         	"northLock": { "expr": "@function(library, next)" },
+         	"postEnter": "function(library, read)"
+         },
+         "ID":"castleLibraryNextChapter",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"PICK_CHAPTER_NAME"
+         },
+         "description":{
+            "ident":"PICK_CHAPTER_DESC"
+         },
+         "ID":"castleLibraryPickChapter",
+         "params": {
+         	"ordinalDirections": true
+         },
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"PICK_CHAPTERS_NAME"
+         },
+         "description":{
+            "ident":"PICK_CHAPTERS_DESC"
+         },
+         "ID":"castleLibraryPickChapters",
+         "params": {
+         	"ordinalDirections": true
+         },
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"PICK_NAME"
+         },
+         "description":{
+            "ident":"PICK_DESC"
+         },
+         "ID":"castleLibraryPick",
+         "type":"scenic"
+      }
+   ],
+   "text":{
+      "en_US":{
+         "NEXT_CHAPTER":[
+            "Next Chapter"
+         ],
+         "LIBRARY_NAME":[
+            "Library"
+         ],
+         "LIBRARY_DESC":[
+            "The walls of this room are lined with books containing the chapters of Red Queen."
+         ],
+         "NEXT_CHAPTER_NAME":[
+            "Next Chapter"
+         ],
+         "NEXT_CHAPTER_DESC":[
+            ""
+         ],
+         "PICK_NAME":[
+            "Pick Chapter"
+         ],
+         "PICK_DESC":[
+            ""
+         ],
+         "PICK_CHAPTERS_NAME":[
+            "Chapter %d to %d"
+         ],
+         "PICK_CHAPTERS_DESC":[
+            ""
+         ],
+         "PICK_CHAPTER_NAME":[
+            "Chapter %d to %d"
+         ],
+         "PICK_CHAPTER_DESC":[
+            ""
+         ],
+         "OFFICE":[
+            "Office"
+         ],
+         "THE_BUSINESS_OF_THE_CASTLE_IS_CONDUCTED_IN_THIS_ROOM_":[
+            "The business of the castle is conducted in this room."
+         ],
+         "HIGH_WALLS_ARCH_ABOVE_YOU_A_PORTCULLIS_IS_POISED_READY_TO_CUT_OFF_ACCESS_":[
+            "High walls arch above you. A portcullis is poised, ready to cut off access."
+         ],
+         "GATEHOUSE":[
+            "Gatehouse"
+         ],
+         "THIS_IS_A_WIDE_COBBLED_EXPANSE_":[
+            "This is a wide cobbled expanse."
+         ],
+         "COURTYARD":[
+            "Courtyard"
+         ]
+      }
+   }
+}

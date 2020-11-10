@@ -1,0 +1,102 @@
+{
+   "roomTypes":[
+      {
+         "name":{
+            "ident":"DOCK_LANDING"
+         },
+         "description":{
+            "ident":"DOCK_LANDING_DESC"
+         },
+         "ID":"dockLanding",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"DOCK_PIER"
+         },
+         "description":{
+            "ident":"DOCK_PIER_DESC"
+         },
+         "ID":"dockPier",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"DOCK_BOATWAY"
+         },
+         "description":{
+            "ident":"DOCK_BOATWAY_DESC"
+         },
+         "ID":"dockBoatway",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"DOCK_BOAT"
+         },
+         "description":{
+            "ident":"DOCK_BOAT_DESC"
+         },
+         "ID":"dockBoat",
+         "params":{
+            "effects":[
+               {
+                  "amount":0,
+                  "id":"debit"
+               },
+               {
+                  "id":"response",
+                  "message":"CASH_REGISTER"
+               },
+               {
+                  "id":"response",
+                  "message":"BOSUN_WHISTLE"
+               },
+               {
+                  "args":[
+                     "XXX"
+                  ],
+                  "id":"response",
+                  "message":"room$DOCK_BOAT_LAUNCH"
+               },
+               {
+                  "location":"X,Y,Z",
+                  "id":"teleport"
+               }
+            ]
+         },
+         "type":"scenic"
+      }
+   ],
+   "text":{
+      "en_US":{
+      	 "SOUND_DOCK":[
+      	 	"[[background-sound=https://s3.amazonaws.com/tsatsatzu-alexa/sound/fantasy/103605__floating-tree__waves-at-the-dock.mp3]]"
+      	 ],
+         "DOCK_BOAT_DESC":[
+            "This is a boat for %s."
+         ],
+         "DOCK_PIER":[
+            "Pier"
+         ],
+         "DOCK_LANDING_DESC":[
+            "There is a stout pier here between the land and the water.{{room$SOUND_DOCK}}"
+         ],
+         "DOCK_PIER_DESC":[
+            "A sturdy pier leads out across the water.{{room$SOUND_DOCK}}"
+         ],
+         "DOCK_BOATWAY_DESC":[
+            "A short dock leads to a boat bound for %s. The price posted is %d.{{room$SOUND_DOCK}}"
+         ],
+         "DOCK_LANDING":[
+            "Dock Landing"
+         ],
+         "DOCK_BOAT":[
+            "Boat for %s"
+         ],
+         "DOCK_BOATWAY":[
+            "Dock for %s"
+         ]
+      }
+   }
+}

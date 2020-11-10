@@ -1,0 +1,3906 @@
+
+Achaierai Other Very Rare 1d8 
+Large (16 
+ft tall) 
+180 ft 
+8 
+8 
+3 1d8/1d8/1d10 None Poison cloud 35% None Average CE 7 2,750 259 
+1d10x1,000 cp (5%), 
+1d12x1,000 sp (25%), 
+1d6x1,000 ep (25%), 
+1d8x1,000 gp (25%), 1d12 
+gems (15%), 1d8 jewelry 
+(10%) and 3 magic items 
+and 1 scroll (25%). 
+
+Aerial Servant Other Very Rare 1 
+Large (8 ft 
+tall) 
+240 ft flying 
+(AA: level 
+VI) 
+3 16 1 8d4 
+66% chance 
+of surprise 
++1 or better weapon 
+to hit 
+Standard None Semi-N 9 5,250+20/hp 259 None 
+
+Afreet Other Very Rare 1 Large 
+90 ft, 240 ft 
+flying (AA: 
+level V) 
+2 10 1 3d8 See Page None Standard None Very LE 7 7,000+12/hp 259 None 
+
+Albertosaurus Dinosaur Common 1 or 4d6 Large 150 ft 7 8 1 2d6 None None Standard 15% Animal N 5 500+8/hp 227 None 
+
+Allosaurus Dinosaur Uncommon 1 or 2d8 Large 150 ft 6 15 1 3d6 None None Standard 15% Animal N 7 1,750+18/hp 227 None 
+
+Al-Mi`raj Other Very Rare 2d10 Small 180 ft 7 1 1 1d4 None None See Page 5% Animal N 1 5+1/hp 260 None 
+
+Ankheg Other Rare 1d6 
+Large (10 
+ft+) 
+120 ft, 60 ft 
+burrowing 
+2 3 to 8 1 3d6 Squirt acid None Standard 15% Non-N Varies Varies 261 None 
+
+Anklyosaurus Dinosaur Uncommon 1d4+1 Large 60 ft 0 9 1 3d6 None None Standard None Animal N 5 750+12/hp 229 None 
+
+Annis Other Very Rare 1d3 
+Large (8 ft 
+approx) 
+150 ft 0 9 3 1d8+8/1d8+8/1d8+1 See Page Immune to illusions Standard 20% 
+Average to 
+exceptional 
+CE 7 1,200+10/hp 261 
+(in lair) 1d20x1,000 cp 
+(25%), 1d8x1,000 sp (35%), 
+1d6x1,000 ep (10%), 
+1d6x1,000 gp (40%), 1d8 
+gems (30%), 1d6 jewelry 
+(25%), any 2 magic items 
+and one potion (15%). 
+
+Ant, Giant 
+Soldier 
+Other Very Rare 2d4 Small 180 ft 3 3 2 2d4/3d4 Poison None Standard 10% Animal N 2 50+2/hp 261 
+(In lair only) 3d4 gems 
+(50%); 2d4 potions (40%). 
+
+Ant, Giant 
+Worker 
+Other Rare 1d100 Small 180 ft 3 2 1 1d6 None None Standard 10% Animal N 2 30+1/hp 261 
+(In lair only) 3d4 gems 
+(50%); 2d4 potions (40%). 
+
+Apatosaurus Dinosaur Common 4d10 Large 90 ft 7 30 1 1d10 None None Standard None Animal N 9 2,500+35/hp 228 None 
+
+Ape, Carnivorous Animal Very Rare 2d4 Large 120 ft 6 5 3 1d4/1d4/1d8 Mangle None Standard 10% Low N 3 125+4/hp 245 None 
+
+Ape, Normal Animal Rare 1d4 Medium 120 ft 6 4+1 3 1d3/1d3/1d6 Mangle None Standard None Low N 3 110+4/hp 245 None 
+
+Archaeopteryx Dinosaur Uncommon 4d12 Small 
+300 ft flying 
+10 0.5 1 1d2 None None Standard None Animal N 1 5+1/hp 231 None 
+
+Archelon Dinosaur Uncommon 1d4 Large 
+150 ft 
+swimming 
+3 7 1 3d4 None None Standard None Animal N 5 475+10/hp 230 None 
+
+Argentinosaurus Dinosaur Uncommon 4d6 Large 90 ft 7 38 1 1d12 None None Standard None Animal N 9 2,500+35/hp 228 None 
+
+Assagim (Least 
+Devil; Nipheribu, 
+Ashashimu, 
+Nishershimu) 
+Devil Common 10d10 Medium 60 ft 9 1 
+2 1d2/1d2 None Regenerate 1hp/round Standard None Semi-LE 1 18+1/hp 221 None 
+
+Aurumvorax Other Very Rare 1 Small 
+90 ft, 30 ft 
+burrowing 
+0 12 1 2d4 See Page See Page Standard 25% Animal N 8 2,250+16/hp 261 
+The aurumvorax does not 
+hoard treasure and places 
+no value on it. However, its 
+lair might contain treasure 
+assigned by the GM this 
+would be appropriate in 
+cases where it has slain a 
+creature carrying treasure 
+and dragged that creature 
+back to its lair. 
+
+Axe Beak 
+(Phorusrhacid) 
+Animal Uncommon 1d6 Large 180 ft 6 3 3 1d3/1d3/2d4 None None Standard None Animal N 2 50+2/hp 245 None 
+
+Babau Demon Uncommon 
+1d3 or 
+1d6 (in 
+the 
+Abyss) 
+Medium 
+(7 ft tall) 
+150 ft -3 7+14 
+3 
+1d4+1/1d4+1/2d4 
+See Page See Page 50% 20% Very CE 8 2,000+12/hp 213 
+If encountered in their lair, 
+babau will have amassed a 
+hoard made up of 
+1d12x1000 cp (20%), 
+1d6x1000 sp (30%), 
+1d4x1000 ep (10%), 1d6 
+gems (25%) and 1d3 
+jewelry (20%). In addition, 
+they may (10%) have 1d2 
+magical items. 
+
+Babbler Other Very Rare 1d4 
+Large (8 ft 
+tall) 
+60 ft  
+6 5 3 1d6/1d6/1d8 See Page None Standard 15% Average CE 3 100+5/hp 262 
+(in lair) 1d12x1,000 cp 
+(20%), 1d6x1,000 sp (35%), 
+1d6x1,000 ep (10%), 
+1d6x1,000 gp (40%), 1d4 
+gems (30%), 1d3 jewelry 
+(25%), one magic item and 
+one potion (10%). 
+
+Baboon Animal Common 10d4 Small 120 ft 7 1+1 1 1d4 None Climbing Standard 10% Low N 2 30+1/hp 246 None 
+
+Badger, Giant Animal Very Rare 1d4+1 Medium 
+60 ft, 30 ft 
+swimming 
+4 3 3 1d3/1d3/1d6 None None Standard 10% Semi-N 2 50+2/hp 246 None 
+
+Badger, Ordinary Animal Uncommon 1d4+1 Small 
+60 ft, 30 ft 
+swimming 
+4 1+2 3 1d2/1d2/1d3 None None Standard 10% Semi-N 2 30+1/hp 246 None 
+
+Barghest Other Very Rare 1d2 Medium 150 ft 2 
+6+6 
+2 2d4 + a variable amount See Page See Page 
+30% and 
+higher 
+None 
+High and 
+higher 
+LE 7 
+1,250+10/hp and 
+higher 
+262 
+None on the Prime 
+Material Plane. 
+
+Barracuda Animal Uncommon 2d6 
+Small to 
+Large 
+30 ft 
+swimming 
+6 1 to 3 1 2d4 None None Standard None Non-N 1 to 2 10+1/hp to 50+2/hp 247 None 
+
+Basilisk Other Rare 1d4 
+Medium 
+(6 ft+) 
+60 ft 4 6 
+1 
+1d10 
+Petrifying 
+gaze 
+None Standard 40% Animal N 7 1,000+8/hp 262 
+1d10x1,000 cp (5%), 
+1d12x1,000 sp (25%), 
+1d6x1,000 ep (25%), 
+1d8x1,000 gp (25%), 1d12 
+gems (15%), 1d8 jewelry 
+(15%), 3 magic items and 1 
+scroll (10%). 
+
+Batrachian Humanoid Rare 10d8 
+Small to 
+Medium 
+30 ft 
+6 1 1 1d8 Hop Camouflage Standard 20% 
+Low to 
+average 
+CE 1 18+1/hp 196 
+2d6 gp per individual, plus 
+if encountered in their lair, 
+a 20% chance of 1d3 pieces 
+of jewelry and a 10% 
+chance of 1d3 magic items. 
+
+Batrachian, 
+Anuran 
+Humanoid Rare 10d10 
+Small to 
+Medium 
+30 ft 
+6 1 3 1d2/1d2/1d4+1 Hop Camouflage Standard 20% Low CE 1 15+1/hp 196 
+2d6 gp per individual, plus 
+if encountered in their lair, 
+a 20% chance of 1d3 pieces 
+of jewelry and a 10% 
+chance of 1d3 magic items. 
+
+Batrachian, Eft Humanoid Very Rare 
+14d8 
+Small 150 ft 8 1d2hp 1 1d2 None None Standard 100% Animal N 1 1 196 None 
+
+Batrachian, 
+Female 
+Humanoid Rare 
+7d8 
+Small 
+30 ft 
+6 1d6hp 3 1d2/1d2/1d4 Hop Camouflage Standard 80% 
+Low to 
+average 
+CE 1 10+1/hp 196 
+2d6 gp per individual, plus 
+if encountered in their lair, 
+a 20% chance of 1d3 pieces 
+of jewelry and a 10% 
+chance of 1d3 magic items. 
+
+Bear, Black Animal Common 1d3 Medium 120 ft 7 3+3 3 1d3/1d3/1d6 Hug: 2d4 None Standard 10% Semi-N 3 75+3/hp 247 None 
+Bear, Brown Animal Uncommon 1d6 
+Large (9 
+ft) 
+120 ft 6 5+5 3 1d6/1d6/1d8 Hug: 2d6 None Standard 10% Semi-N 4 160+6/hp 247 None 
+
+Banshee 
+(Groaning Spirit) 
+[Turn As Type 
+13] 
+Undead Very Rare 1 Medium 150 ft 0 7 1 1d8 See Page 
++1 weapon or better 
+to hit 
+50% 10% Exceptional CE 6 665+8/hp 239 None 
+
+Barbed Devil 
+(Lesser Devil; 
+Hamatula, 
+Barbicale) 
+Devil Uncommon 
+1d2 or 
+3d4 
+Medium 120 ft 0 8 3 2d4/2d4/3d4 See Page See Page 35% 50% Very LE 8 1,425+10/hp 221 
+Barbed devils do not carry 
+treasure of any sort, nor 
+can they be dissuaded from 
+their tasks through bribery 
+of any kind. 
+
+
+Bat, Giant Animal Uncommon 3d6 Small 
+10 ft 
+4 1d4 hp 1 1d2 Rabies 1% 
+Missile attacks suffer -
+3 unless attacker has 
+13 dexterity or above 
+Standard 10% Animal N 1 5+1/hp 246 None 
+
+Bat, Mobat Animal Rare 1d8 Medium 
+30 ft 
+2 
+4 
+1 2d4 See Page See Page Standard 15% Low N (E) 3(4 HD) or 5(6 HD) 
+135+3/hp(4 HD) or 
+300+6/hp(6 HD) 
+246 
+In lair only: 1d12x1,000 cp 
+(20%); 1d6x1,000 sp (30%); 
+1d4x1,000 ep (10%); 1d6 
+gems (25%); 1d3 jewelry 
+(20%); any 2 magic (10%). 
+
+Bat, Ordinary Animal Common 1d100x10 Small 
+10 ft 
+4 0.5 1 1 
+Swarm 
+(cause 
+confusion or 
+put out 
+torches) 
+None Standard 10% Animal N 1 1 246 None 
+
+Bear, Polar Animal Rare 1d6 
+Large (14 
+ft) 
+120 ft
+6 8+8 3 1d10/1d10/2d6 Hug: 3d6 None Standard None Semi-N 6 600+12/hp 247 None 
+
+Bear, Cave Animal Uncommon 1d2 
+Large (12 
+ft) 
+120 ft 6 6+6 3 1d8/1d8/1d12 Hug: 2d8 None Standard 10% Semi-N 5 225+8/hp 247 None 
+
+Bearded Devil 
+(Lesser Devil; 
+Barbazu, 
+Tothmys, 
+Thissuzim) 
+Devil Common 
+1d2 or 
+1d6+4 
+Medium 150 ft 1 6+6 
+3 
+1d2/1d2/1d8 
+See Page See Page 45% 15% Average LE 7 1,125+10/hp 222 None 
+
+Bee, Giant, 
+Bumblebee 
+Other Rare 
+1 (1d6+6 
+in lair) 
+Medium 
+60 ft, 240 ft 
+flying (AA: 
+level II) 
+5 6+4 1 1d6 Poison None Standard 10% Semi-N 4 300+8/hp 263 
+Giant bee hives or nests 
+will always contain honey 
+worth 10d10 gold pieces. 
+There is a 15% chance that 
+a hive will contain royal 
+jelly. If it does, the royal 
+jelly can be fashioned into 
+2d3 potions of extra 
+healing by a magic user of 
+7th or higher level or a 
+magic user of 12th level or 
+higher may make it into an 
+unguent which preserves 
+the appearance of youth. 
+Regular application of this 
+unguent for 1 year makes 
+the user appear 2d3 years 
+younger. Such an unguent 
+is typically worth 
+3d6x1,000 gp to wealthy 
+noblewomen. 
+
+Giant 
+Soldier 
+Honeybee 
+Other Very Rare 
+1 (3d6 in 
+lair) 
+Medium 
+120 ft, 300 
+ft flying (AA: 
+level III) 
+5 4+2 1 1d4 Poison None Standard 90% Semi-N 3 150+5/hp 263 
+Giant bee hives or nests 
+will always contain honey 
+worth 10d10 gold pieces. 
+There is a 15% chance that 
+a hive will contain royal 
+jelly. If it does, the royal 
+jelly can be fashioned into 
+2d3 potions of extra 
+healing by a magic user of 
+7th or higher level or a 
+magic user of 12th level or 
+higher may make it into an 
+unguent which preserves 
+the appearance of youth. 
+Regular application of this 
+unguent for 1 year makes 
+the user appear 2d3 years 
+younger. Such an unguent 
+is typically worth 
+3d6x1,000 gp to wealthy 
+noblewomen. 
+
+Bee, Giant, 
+Worker 
+Honeybee 
+Other Rare 
+1d10 
+(20d10 in 
+lair) 
+Medium 
+90 ft, 300 ft 
+flying (AA: 
+level IV) 
+6 3+1 1 1d3 Poison None Standard 20% Semi-N 3 100+4/hp 263 
+Giant bee hives or nests 
+will always contain honey 
+worth 10d10 gold pieces. 
+There is a 15% chance that 
+a hive will contain royal 
+jelly. If it does, the royal 
+jelly can be fashioned into 
+2d3 potions of extra 
+healing by a magic user of 
+7th or higher level or a 
+magic user of 12th level or 
+higher may make it into an 
+unguent which preserves 
+the appearance of youth. 
+Regular application of this 
+unguent for 1 year makes 
+the user appear 2d3 years 
+younger. Such an unguent 
+is typically worth 
+3d6x1,000 gp to wealthy 
+noblewomen. 
+
+Beetle, Giant 
+Bombardier 
+Other Common 3d4 Medium 90 ft 4 2+2 1 2d6 Acid cloud Firing cloud Standard None Non-N 3 65+2/hp 263 None 
+
+Beetle, Giant 
+Boring 
+Other Common 3d6 Large 60 ft 3 5 1 5d4 None None Standard 40% Non-N 3 110+4/hp 263 
+In Lair: 1d12x1,000 cp 
+(20%); 1d6x1,000 sp (30%); 
+1d4x1,000 ep (10%); 
+2d4x100 gp (40%); 1d6x10 
+pp (50%); 3d8 gems (55%); 
+1d12 jewelry (45%); 2d4 
+potions (40%); 1d4 scrolls 
+(50%); Any 2 magic items 
+(10%). 
+
+Beetle, Giant 
+Death Watch 
+Other Very Rare 1 Large 120 ft 3 9+1 1 2d6 See Page See Page Standard 10% Non-N 7 1,100+12/hp 263 None 
+
+Beetle, Giant Fire Other Common 3d4 Small 120 ft 4 1+2 1 2d4 None None Standard None Non-N 1 30+1/hp 263 None 
+
+Beetle, Giant 
+Rhinoceros 
+Other Uncommon 1d6 Large 60 ft 2 12 2 3d8/2d8 None None Standard None Non-N 7 1,300+6/hp 263 None 
+
+Beetle, Giant 
+Stag 
+Other Common 2d6 Large 60 ft 3 7 3 4d4/1d10/1d10 None None Standard None Non-N 4 225+8/hp 263 None 
+
+Beetle, Giant 
+Water 
+Other Common 1d12 Medium 
+30 ft, 120 ft 
+swimming 
+3 4 1 3d6 None None Standard None Non-N 3 75+3/hp 263 None 
+
+Behir Other Rare 1d2 Large 150 ft 4 12 7 
+2d4/1d6/1d6/1d6/1d6/1d6/1d6 
+Lightning 
+bolt 
+Immune to electricity 
+and poison 
+Standard None Low NE 7 2,750+16/hp 264 
+Inside the beast's stomach 
+will be 10d4 gems (60%), 
+1d8 jewelry (30%), and a 
+misc. magic item that can 
+survive its digestive juices 
+(10%). 
+
+Bird, Giant Animal Very Rare 1d20 Medium 
+30 ft, 360 ft 
+flying (AA: 
+level IV) 
+7 4 3 1d6/1d6/2d6 See Page None Standard 20% Animal N 4 105+3/hp 247 None 
+Bird, Huge Animal Rare 1d20 Small 
+30 ft, 360 ft 
+flying (AA: 
+level IV) 
+5 2 3 1d4/1d4/2 See Page None Standard 20% Animal N 2 40+1/hp 247 None 
+Bird, Normal Animal Common 1d20 Small 
+30 ft, 360 ft 
+flying (AA: 
+level IV) 
+6 1 3 1d2/1d2/1 See Page None Standard 20% Animal N 1 15+1/hp 247 None 
+Blindheim Other Very Rare 1d4 Small 90 ft 3 4+2 1 1d8 Blinding None Standard 5% Animal CE 3 110+5/hp 264 
+In lair only: 2d6x1,000 cp 
+(20%), 1d6x1,000 sp (35%), 
+1d6x1,000 ep (20%), 1d4 
+gems (20%), 1d4 jewelry 
+(25%), random magic item 
+or weapon (15%). 
+
+Blink Dog Other Rare 4d4 
+Medium 
+(3 ft at 
+shoulder) 
+120 ft 5 4 1 1d6 
+Rear attack 
+75% of time 
+Teleporting Standard 20% Average LG 4 175+5/hp 265 
+In lair only: 2d6x1,000 cp 
+(20%), 1d6x1,000 sp (30%), 
+1d6x1,000 ep (15%), 1d6 
+gems (20%), 1d4 jewelry 
+(25%), random magic item 
+or weaponx2 (15%). 
+
+Boar, Giant Animal Uncommon 2d4 Large 120 ft 6 7 1 3d6 None None Standard 20% Animal N 4 225+8/hp 248 None 
+Boar, Warthog Animal Common 1d6 Small 120 ft 7 3 2 2d4/2d4 None None Standard 20% Animal N 3 50+2/hp 248 None 
+Boar, Wild Animal Common 1d12 Medium 150 ft 7 3+3 1 3d4 None None Standard 20% Animal N 3 75+3/hp 248 None 
+
+Bone Devil 
+(Lesser Devil; 
+Osyluth, 
+Gerotephys, 
+Calcinnim) 
+Devil Uncommon 
+1d2 or 
+2d4 
+Large 150 ft -1 9 1 3d4 See Page See Page 40% 55% Very LE 7 2,800+12/hp 222 None 
+Brachiosaurus Dinosaur Uncommon 4d8 Large 90 ft 7 36 1 1d12 None None Standard None Animal N 9 2,500+35/hp 228 None 
+Brownie 
+Sylvan or 
+Faerie 
+Rare 4d4 Small 120 ft 3 1d4 hp 1 1d3 See Page See Page See Page 20% High LG 2 50+1/hp 233 
+1d8x1,000 cp (5%), 
+1d12x1,000 sp (25%), 
+1d6x1,000 ep (20%), 
+1d10x1,000 gp (30%), 1d12 
+gems (20%), 1d8 jewelry 
+(5%), any 2 magic items 
+plus one potion and one 
+scroll (15%). 
+
+
+
+
+Bugbear Humanoid Uncommon 6d6 
+Large (7 ft 
+tall) 
+90 ft 5 3+1 1 2d8 or by weapon 
+Surprise on a 
+1-3 on 1d6 
+None Standard 25% 
+Low to 
+average 
+CE 3 135+4/hp 196 
+4d6 silver, 2d4 gold for 
+individuals; 1d8x1,000 cp, 
+1d3x1,000 gp, 1d8 gems 
+(30% chance), 1d4 jewelry 
+(20% chance), 
+miscellaneous magic 
+weapon (10% chance). 
+
+Bulette Other Very Rare 1d2 Large 
+140 ft, 30 ft 
+burrowing 
+-2/4/6 9 3 3d6/3d6/4d12 8 ft jump None Standard None Animal N 8 2,000+12/hp 265 None 
+
+Camarasaurus Dinosaur Common 5d10 Large 90 ft 7 18 1 1d8 None None Standard None Animal N 8 2,000+30/hp 228 None 
+
+Camel Animal Common 1d12 Large 
+210 ft  
+7 3 1 1d4 Spit None Standard None Animal N 2 50+2/hp 248 None 
+
+Caryatid Column Other Very Rare 1d12 Medium 60 ft 5 5 1 2d4 None See Page 
+All saves 
+at +4 
+None Non-N 5 110+3/hp 266 None 
+
+Cat, Domestic Animal Common 1 or 2d6 Small 50 ft 6 1d2 hp 1 1d2-1 Rear claws None Standard 75% Animal N 1 3+1/hp 248 None 
+
+Giant Lynx Animal Rare 1d4 Medium 120 ft 5 2+2 3 1d2/1d2/1d4 
+Rear claws; 
+surprises on 
+a 1d4 
+Thief skills Standard 5% Animal N 3 90+3/hp 248 None 
+
+Cat, Wild Animal Uncommon 
+1 or 
+1d4+1 
+Small 180 ft 5 1d6 hp 3 1/1/1d2 Rear claws None Standard 5% Animal N 1 10+1/hp 248 None 
+
+Caterwaul Other Rare 1 Medium 
+180 ft 
+6 4+2 3 1d4/1d4/1d6 Screech See Page Standard 20% Low CE 5 400+5/hp 266 
+1d6x1,000 gp (50%), 1d8 
+gems (40%), 5d6 jewelry 
+(40%), 2d4 potions + 1 
+magic item (40%). 
+
+Cattle, Buffalo Animal Uncommon 4d6 Large 150 ft 7 5 2 1d8/1d8 Charge Head is AC 3 Standard None Animal N 3 110+4/hp 249 None 
+
+Cattle, Bull Animal Common 
+1
+Large 150 ft 7 4 2 1d6/1d6 Charge None Standard None Animal N 3 75+3/hp 249 None 
+
+Cattle, Wild Animal Common 20d10 Large 150 ft 7 2-4 1 1d4 Stampede None Standard None Animal N 1 10+1/hp 249 None 
+
+
+Centaur 
+Sylvan or 
+Faerie 
+Rare 4d6 Large 180 ft 5 4 2 1d6/1d6 None None Standard 5% Average 
+N to 
+CG 
+3 75+3/hp 234 
+Individuals: 2d4 gp (90%), 
+1d4 gems (50%); Lair: 
+1d8x1,000 cp (10%), 
+1d12x1,000 sp (15%), 
+1d8x1,000 ep (15%), 
+1d6x1,000 gp (50%), 
+3d6x100 pp (30%), 2d10 
+gems (55%), 1d12 jewelry 
+(50%), 2 magic items (15%), 
+1d4 magic scrolls and 1 
+magic potion (50%). 
+
+Centipede, Giant Other Very Rare 1d4 Medium 180 ft 5 3 1 1d3 Poison None Standard 15% Non-N 3 125+3/hp 267 None 
+
+Centrosaurus Dinosaur Rare 1d6 Large 120 ft 3/7 7 1 1d8 None None Standard None Animal N 4 200+4/hp 229 None 
+
+Ceratosaurus Dinosaur Uncommon 1d4 Large 150 ft 5 8 3 1d6/1d6/4d4 None None Standard None Animal N 4 200+6/hp 229 None 
+
+Cetiosaurus Dinosaur Common 5d10 Large 90 ft 7 20 1 1d8 None None Standard None Animal N 8 2,000+30/hp 228 None 
+
+Charonosaurus Dinosaur Uncommon 2d10 Large 150 ft 7 15 1 2d8 None None Standard None Animal N 7 2,000+16/hp 228 None 
+
+Chimera Other Rare 1d4 Large 
+90 ft, 180 ft 
+flying (AA: 
+level II) 
+4 9 6 1d3/1d3/1d4/1d4/2d4/3d4 
+Breathing 
+fire to a 60 ft 
+for 3d8 
+damage. 
+None Standard 40% Semi-CE 7 1,300+12/hp 267 
+1d20x1,000 sp (10%) , 
+1d12x1,000 ep (15%) , 
+1d10x1,000 gp (40%), 
+1d8x100 pp (35%), 3d10 
+gems (20%), 1d10 jewelry 
+(10%), 3 magic items (no 
+magic weapons) and 1 
+magic scroll and 1 magic 
+potion (30%). 
+
+Cockatrice Other Uncommon 1d6 Small 
+60 ft, 180 ft 
+flying (AA: 
+level IV) 
+6 5 1 1d3 
+Touch 
+petrifies 
+None Standard 40% Animal N 4 170+4/hp 267 
+1d10x1,000 cp (5%), 
+1d12x1,000 sp (25%), 
+1d6x1,000 ep (25%), 
+1d8x1,000 gp (25%), 1d12 
+gems (15%), 1d8 jewelry 
+(10%) and 3 magic items 
+and 1 magic scroll (35%). 
+
+Coeurl Other Very Rare 1d4 Large 150 ft 2 6+6 2 2d4/2d4 None Save at +6 Standard 25% Average N 6 400+6/hp 268 
+1d8x1,000 cp (15%), 
+2d6x1,000 sp (20%), 
+1d6x1,000 ep (5%), 
+1d8x1,000 gp (35%), 2d6 
+gems (15%), 1d8 jewelry 
+(10%) and 2 magic items 
+(25%). 
+
+Coffer Corpse 
+[Turn As Type 7] 
+Undead Rare 1 Medium 60 ft 8 2 1 1d6 or by weapon None 
+Can only be hit by 
+magical weapons 
+Standard 80% Low CE 2 30+2/hp 239 
+1d8x1,000 cp (50%), 
+1d6x1,000 sp (25%), 
+1d4x1,000 ep (25%), 
+1d3x1,000 gp (25%), 1d8 
+gems (30%), 1d4 jewelry 
+(20%), sword, armour, or 
+misc. weapon (10%). 
+
+Compsognathus Dinosaur Common 8d4 Small 180 ft 7 1+2 1 1d6 None None Standard None Animal N 1 15+1/hp 230 None 
+Couatl Other Very Rare 1d4 Medium 
+60 ft, 180 ft 
+flying (AA: 
+level VI) 
+5 9 2 1d3/2d4 
+Poison, 
+magic use 
+Ethereal Standard 10% Genius LG 8 2,000+12/hp 268 
+1d8x1,000 cp (50%), 
+1d6x1,000 sp (25%), 
+1d4x1,000 ep (25%), 
+1d3x1,000 gp (25%), 
+3d4x100 pp (30%), 2d19 
+gems (55%), 1d12 jewelry 
+(50%), any 1 magic item 
+(15%). 
+
+Crabmen Other Rare 2d6 
+Large (9 ft 
+tall) 
+90 ft, 60 ft 
+swimming 
+4 3 2 1d4/1d4 None None Standard 20% 
+Low to 
+average 
+N 2 40+2/hp 268 3d8 sp per individual. 
+
+Crocodile, Giant Animal Rare 1 Large 
+60 ft, 120 ft 
+swimming 
+3 7 2 3d6/2d10 None None Standard None Animal N 5 225+8/hp 249 None 
+
+Crocodile, 
+Normal 
+Animal Common 3d8 Large 
+60 ft, 120 ft 
+swimming 
+4 3 2 2d4/1d12 None None Standard None Animal N 2 50+2/hp 249 None 
+
+Crustacean, 
+Giant Crab 
+Animal Rare 2d6 Large 90 ft 3 3 2 2d4/2d4 None None Standard None Non-N 3 75+3/hp 250 None 
+
+Crustacean, 
+Giant Crayfish 
+Animal Uncommon 2d6 Large 
+60 ft, 120 ft 
+swim 
+4 4+4 2 2d6/2d6 None None Standard None Non-N 3 110+4/hp 250 None 
+
+Crypt Thing Other Very Rare 1 Medium 120 ft 3 6 1 1d8 See Page See Page Standard 100% Very N 4 160+4/hp 269 
+1d3x1,000 cp (20%), 
+1d4x1,000 sp (25%), 
+1d4x1,000 ep (25%), 
+1d4x1,000 gp (30%), 
+1d6x100pp (30%), 10d6 
+gems (55%), 5d6 jewelry 
+(50%), 3 magic items (50%). 
+
+Cyclops Giant Very Rare 1d2 
+Large (20 
+ft tall) 
+150 ft 2 13 1 6d6 or 4d10 
+Rock 
+throwing 
+None Standard 80% Low CE 7 3,300+17/hp 201 
+1d10x1,000 cp (5%), 
+1d12x1,000 sp (25%), 
+1d6x1,000 ep (25%), 
+1d8x1,000 gp (25%), 1d12 
+gems (15%), 1d8 jewelry 
+(10%), 3 magic items (25%), 
+2d8 potions and 1 scroll 
+(40%). 
+
+Dakon Other Uncommon 6d10 Medium 60 ft 5 1+1 2 1d10/1d10 None None Standard 50% Average LN 2 25+2/hp 269 
+2d6x1,000 cp (5%), 
+2d6x1,000 sp (30%), 
+1d4x1,000 ep (20%), 
+1d10x1,000 gp (45%), 
+1d10x100pp (40%), 3d12 
+gems (25%), 1d10 jewelry 
+(10%), any 3 maps or magic 
++ 1 scroll (35%). 
+
+Dark Creeper Other Rare 
+1 
+Small (4 ft 
+tall) 
+90 ft 
+0 
+1+1 1 1d4 (dagger) See Page None Standard 20% Average CN 3 50+2/hp 269 
+Solitary dark creepers tend 
+to carry their treasure with 
+them, concealed within the 
+many loose folds of their 
+dark clothing. There is a 
+20% chance a dark creeper 
+will carry a magic dagger, 
+15% chance of a magic ring, 
+and 10% chance of either 
+1d4 gems of random value 
+or 1d3 items of random 
+jewelry. Lair treasure 
+probabilities for a lone dark 
+creeper are 50% for a 
+magic dagger, 10% for a 
+magic ring, 30% for gems 
+or jewelry. To generate 
+treasure for a dark creeper 
+village, multiply individual 
+treasure chances by the 
+number of males, adding 
+5d20 pp and 5d12 gp. 
+
+Dark Stalker Other Very Rare 1 Medium 90 ft 
+0 
+2+1 1 1d6 (short sword) See Page See Page Standard 20% Average CN 4 200+3/hp 269 
+Dark stalkers carry their 
+treasure in their robes like 
+dark creepers: 30% chance 
+of magic short sword, 10% 
+of magical rings (worn if 
+possible), 10% chance of 
+either 2d4 gems or 1d2 
+items of jewelry to be 
+determined randomly by 
+GM. 
+
+Deinonychus Dinosaur Uncommon 1 or 2d4 Large 120 ft 6 5 3 1d3/1d3/2d6 None None Standard None Animal N 3 120+5/hp 230 None 
+
+Demon, Class A 
+(Vrock) 
+Demon Common 
+1d3 or 
+1d6 (in 
+the 
+Abyss) 
+Large 
+120 ft, 180 
+ft flying (AA: 
+level IV) 
+0 8 
+5 
+1d4/1d4/1d8/1d6 See Page See Page 50% 5% Low CE 7 1,275+10/hp 214 
+If encountered in their lair, 
+they will possess a hoard of 
+1d8x1,000 cp (50%), 
+1d6x1,000 sp (25%), 
+1d4x1,000 ep (25%), 
+1d3x1,000 gp (25%), 1d8 
+gems (30%), 1d4 jewelry 
+(20%) and possibly a 
+magical weapon (10%). 
+
+Demon, Class B 
+(Hezrou) 
+Demon Common 
+1d3 or 
+1d6 (in 
+the 
+Abyss) 
+Large 
+60 ft 
+-2 9 3 1d3/1d3/4d4 See Page See Page 55% 10% Low CE 8 2,000+12/hp 214 
+If encountered in their lair, 
+hezrou will have a pile of 
+treasure including 
+1d12x1,000 cp (20%), 
+1d6x1,000 sp (30%), 
+1d4x1,000 ep (10%), 1d6 
+gems (25%) and 1d3 
+jewelry (20%). In addition, 
+they might (10%) have 1d2 
+random magical items. 
+
+Demon, Class C 
+(Glabrezu) 
+Demon Uncommon 
+1d3 or 
+1d6 (in 
+the 
+Abyss) 
+Large 90 ft -4 10 
+5 
+2d6/2d6/1d3/1d3/1d4+1 See Page See Page 60% 15% Average CE 8 2,400+14/hp 214 
+If encountered in their lair, 
+glabrezu will have a cache 
+of treasure made up of 
+1d8x1,000 cp (10%), 
+1d12x1,000 sp (15%), 
+1d8x1,000 ep (15%), 
+1d6x1,000 gp (50%), 1d10 
+gems (30%), 1d6 jewelry 
+(25%), and 3 random magic 
+items, including one potion 
+(15%). 
+
+Demon, Class D 
+(Nalfeshnee and 
+others) 
+Demon Uncommon 
+1d3 or 
+1d6 (in 
+the 
+Abyss) 
+Large 
+90 ft, 120 ft 
+flying (AA: 
+level III) 
+-1 11 2 1d4/2d4 
++2 to hit, 
+also see page 
++1 or better magic 
+weapon to hit 
+65% 15% Very CE 9 3,000+16/hp 215 
+In the Abyss, these demons 
+hoard the treasure they 
+have acquired through 
+service or other means. An 
+individual nalfeshnee's 
+trove will include 
+1d10x1,000 cp (5%), 
+1d12x1,000 sp (15%), 
+1d6x1,000 ep (25%), 
+1d8x1,000 gp (25%), 1d12 
+gems (15%), and 1d8 
+jewelry (10%). In addition, 
+they have a 25% chance of 
+possessing 3 random magic 
+items and 1 scroll. 
+
+Demon, Class E 
+(Marilith and 
+others) 
+Demon Rare 
+1d3 or 
+1d6 (in 
+the 
+Abyss) 
+Large 120 ft -7 7+7 
+7 
+2d4/2d4/2d4/2d4/2d4/2d4/1d6 See Page 
++1 or better magic 
+weapon to hit 
+80% 10% High CE 9 3,000+12/hp 215 
+On their home plane, these 
+demons hoard the treasure 
+they have acquired through 
+service or other means. 
+Their cache will include 
+10d4x1000 gp (50%), 
+1d20x100 pp (50%), 5d4 
+gems (30%), 1d10 jewelry 
+(10%), and 4 random 
+magical items and a scroll 
+(35%). 
+
+Demon, Class F 
+(Balor and 
+others) 
+Demon Rare 
+1d3 or 
+1d6 (in 
+the 
+Abyss) 
+Large 
+60 ft, 150 ft 
+flying (AA: 
+level III) 
+-2 8+8 2 1d12+1/3d6 
++1 or better magic 
+weapon to hit 
+75% 20% High CE 9 3,600+12/hp 216 
+If encountered in their lair, 
+they will have a cache of 
+treasure equal to 
+1d20x1,000 sp (10%), 
+1d12x1,000 ep (15%), 
+1d10x1,000 gp (40%), 
+1d8x100 pp (35%), 3d10 
+gems (20%), and 1d10 
+jewelry (10%). They may 
+(30%) also have 1 potion, 1 
+scroll, and 3 other magical 
+items (no weapons). 
+
+Demonette Demon Rare 1 Medium 
+120 ft, 120 
+ft flying (AA: 
+level IV) 
+5 6+1d6 1 
+1d8 
+bonus 
+See Page 
+Iron or +1 or better 
+magic weapon to hit 
+30% 15% 
+Very to 
+genius 
+CE 9 4,050+14/hp 216 
+Demonettes normally care 
+little for coins. They love 
+gems, jewelry and magical 
+items however. If found in 
+their lair, a demonette will 
+have a cache that contains 
+1d4 random scrolls (50%), 
+2d4 random potions (40%), 
+1d8x10 gems (90%), 5d6 
+jewelry (80%) and 1d6 
+other random magical 
+items (excluding potions 
+and scrolls, 70%). 
+
+Demoniac Demon Very rare 1 
+Medium 
+to Large 
+150 ft 6 
+5 to 8 
+(1d4+4) 
+2 
+By weapon type + strength 
+bonus 
+See Page See Page 5%-20% 
+See 
+Page 
+Low to 
+exceptional 
+CE 7 1,275+10/hp 217 
+Demoniacs normally care 
+little for coins. They love 
+gems, jewelry and magical 
+items however. If found in 
+their lair, a demoniac will 
+have a cache that contains 
+1d4 random scrolls (50%), 
+2d4 random potions (40%), 
+1d8x10 gems (90%), 5d6 
+jewelry (80%) and 1d6 
+other random magical 
+items (excluding potions 
+and scrolls, 70% ... the GM 
+should re-roll items that 
+are not appropriate to the 
+demoniac's class(es). If the 
+second roll yields an item 
+that the demoniac still 
+could not use, it should be 
+allowed to stand). 
+
+Devilcat (Lesser 
+Devil) 
+
+Devil Rare 1 Large 120 ft 6 7+2 3 1d4+1/1d4+1/2d6 None See Page 20% 30% Average LE 6 1,000+10/hp 223 None 
+
+Diceratus Dinosaur Very Rare 1d3 Large 120 ft 3/7 8 1 1d10 None None Standard None Animal N 5 500+8/hp 229 None 
+
+Dilophosaurus Dinosaur Uncommon 1d4+1 Large 150 ft 7 5 1 3d4 None None Standard None Animal N 3 120+5/hp 230 None 
+
+Dimetrodon Dinosaur Uncommon 3d6 Large 90 ft 7 7 1 1d10 None None Standard None Animal N 4 100+6/hp 230 None 
+
+Diplodocus Dinosaur Common 5d10 Large 90 ft 7 25 1 1d8 None None Standard None Animal N 9 2,500+35/hp 228 None 
+
+Dog, War Animal Uncommon 1d4 Medium 120 ft 6 2+2 1 2d4 None None Standard None Semi-N 2 50+2/hp 250 None 
+
+Dog, Wild Animal Common 4d4 Small 150 ft 7 1 1 1d4 None None Standard None Semi-N 1 10+1/hp 250 None 
+
+Doppelganger Other Very Rare 3d4 Medium 90 ft 5 4 1 1d12 
+Stealth 
+(surprises 
+with 1-4 on 
+1d6) 
+See Page See Page 20% Very N 4 285+3/hp 271 
+1d10x1,000 cp (5%), 
+1d12x1,000 sp (25%), 
+1d6x1,000 ep (25%), 
+1d8x1,000 gp (25%), 1d12 
+gems (15%), 1d8 jewelry 
+(10%), 1 scroll and any 3 
+magic items (25%). 
+
+Dracolisk Other Very Rare 1d2 
+Large (20 
+ft) 
+90 ft, 150 ft 
+flying (AA: 
+level III) 
+3 7+3 3 1d6/1d6/3d4 See Page None Standard 60% 
+Low to 
+average 
+CE 7 1,000+10/hp 271 
+1d10x1,000 cp (25%), 
+1d8x1,000 sp (25%), 
+1d6x1,000 gp (25%), 
+1d6x100 pp (25%), 3d6 
+gems (50%), 3d4 jewelry 
+(50%) and any three magic 
+items (25%). 
+
+Dragon Turtle Other Very Rare 1 Large 
+90 ft 
+swimming 
+0 13 3 2d6/2d6/4d8 Steam cloud None Standard 5% Very N 10 7,000+18/hp 271 
+(For a typical individual) 
+5d6x1,000 cp (25%), 
+1d100x1,000 sp (40%), 
+1d4x10,000 ep (40%), 
+1d6x10,000 gp (55%), 
+5d10x100 pp (25%), 1d100 
+gems (50%), 1d4x10 
+jewelry (50%), 4 magic 
+items plus 1 potion and 1 
+scroll (15%), 2d4 potions 
+(40%), 1d4 scrolls (50%). 
+
+Dragon, Black Dragon Uncommon 1d4 
+Large (30 
+ft long) 
+120 ft, flying 
+240 ft (AA: 
+level II) 
+3 6 to 8 3 1d4/1d4/3d6 See Page See Page Standard 30% Average CE 7 
+660+6/hp or 
+1,065+8/hp or 
+1,650+10/hp 
+208 
+(For a typical individual) 
+5d6x1,000 cp (25%), 
+1d100x1,000 sp (40%), 
+1d4x10,000 ep (40%), 
+1d6x10,000 gp (55%), 
+5d10x100 pp (25%), 1d100 
+gems (50%), 1d4x10 
+jewelry (50%), 4 magic 
+items plus 1 potion and 1 
+scroll (15%). 
+
+Dragon, Blue Dragon Rare 1d4 
+Large (42 
+ft long) 
+90 ft, flying 
+240 ft (AA: 
+level II) 
+2 8 to 10 3 1d6/1d6/3d8 See Page See Page Standard 50% Very LE 7 
+1,650+10/hp or 
+2,400+12/hp or 
+3,000+13/hp 
+208 
+(For a typical individual) 
+5d6x1,000 cp (25%), 
+1d100x1,000 sp (40%), 
+1d4x10,000 ep (40%), 
+1d6x10,000 gp (55%), 
+5d10x100 pp (25%), 1d100 
+gems (50%), 1d4x10 
+jewelry (50%), 4 magic 
+items plus 1 potion and 1 
+scroll (15%), 2d4 potions 
+(40%). 
+
+Dragon, Brass Dragon Uncommon 1d4 
+Large (30 
+ft long) 
+120 ft, flying 
+240 ft (AA: 
+level II) 
+3 6 to 8 3 1d4/1d4/4d4 See Page See Page Standard 25% High 
+CG or 
+CN 
+6 
+660+6/hp or 
+1,065+8/hp or 
+1,650+10/hp 
+208 
+(For a typical individual) 
+5d6x1,000 cp (25%), 
+1d100x1,000 sp (40%), 
+1d4x10,000 ep (40%), 
+1d6x10,000 gp (55%), 
+5d10x100 pp (25%), 1d100 
+gems (50%), 1d4x10 
+jewelry (50%), 4 magic 
+items plus 1 potion and 1 
+scroll (15%). 
+
+Dragon, Bronze Dragon Rare 1d4 
+Large (42 
+ft long) 
+90 ft, flying 
+240 ft (AA: 
+level II) 
+2 8 to 10 3 1d6/1d6/4d6 See Page See Page Standard 45% Exceptional LG 7 
+1,650+10/hp or 
+2,400+12/hp or 
+3,000+13/hp 
+209 
+(For a typical individual) 
+5d6x1,000 cp (25%), 
+1d100x1,000 sp (40%), 
+1d4x10,000 ep (40%), 
+1d6x10,000 gp (55%), 
+5d10x100 pp (25%), 1d100 
+gems (50%), 1d4x10 
+jewelry (50%), 4 magic 
+items plus 1 potion and 1 
+scroll (15%), 2d4 potions 
+(40%), 1d4 scrolls (50%). 
+
+Dragon, Copper Dragon 
+Uncommon 
+1d4 
+Large (36 
+ft long) 
+90 ft, flying 
+240 ft (AA: 
+level II) 
+1 7 to 9 3 1d4/1d4/3d6+2 See Page See Page Standard 35% High CG 7 
+1,065+8/hp or 
+1,650+10/hp or 
+2,400+12/hp 
+210 
+(For a typical individual) 
+5d6x1,000 cp (25%), 
+1d100x1,000 sp (40%), 
+1d4x10,000 ep (40%), 
+1d6x10,000 gp (55%), 
+5d10x100 pp (25%), 1d100 
+gems (50%), 1d4x10 
+jewelry (50%), 4 magic 
+items plus 1 potion and 1 
+scroll (15%), 2d4 potions 
+(40%). 
+
+Dragon, Gold Dragon Very Rare 1d3 
+Large (54 
+ft long) 
+120 ft, flying 
+300 ft (AA: 
+level II) 
+-2 10 to 12 3 1d8/1d8/6d6 See Page See Page Standard 65% Genius LG 8 
+3,000+13/hp or 
+3,700+14/hp or 
+5,150+16/hp 
+210 
+(For a typical individual) 
+5d6x1,000 cp (25%), 
+1d100x1,000 sp (40%), 
+1d4x10,000 ep (40%), 
+2d6x10,000 gp (55%), 
+10d10x100 pp (25%), 7d20 
+gems (50%), 1d6x10 
+jewelry (50%), 4 magic 
+items plus 1 potion and 1 
+scroll (15%), 2d4 potions 
+(40%), 1d4 scrolls (50%). 
+
+Dragon, Green Dragon Rare 1d4 
+Large (36 
+ft long) 
+90 ft, flying 
+240 ft (AA: 
+level II) 
+2 7 to 9 3 1d6/1d6/2d10 See Page See Page Standard 40% 
+Average to 
+very 
+LE 7 
+1,065+8/hp or 
+1,650+10/hp or 
+2,400+12/hp 
+211 
+(For a typical individual) 
+5d6x1,000 cp (25%), 
+1d100x1,000 sp (40%), 
+1d4x10,000 ep (40%), 
+1d6x10,000 gp (55%), 
+5d10x100 pp (25%), 1d100 
+gems (50%), 1d4x10 
+jewelry (50%), 4 magic 
+items plus 1 potion and 1 
+scroll (15%), 2d4 potions 
+(40%), 1d4 scrolls (50%). 
+
+Dragon, Red Dragon Rare 1d4 
+Large (48 
+ft long) 
+90 ft, flying 
+240 ft (AA: 
+level II) 
+-1 9 to 11 3 1d8/1d8/3d10 See Page See Page Standard 60% Exceptional CE 7 
+2,400+12/hp or 
+3,000+13/hp or 
+3,700+14/hp 
+211 
+(For a typical individual) 
+5d6x1,000 cp (25%), 
+1d100x1,000 sp (40%), 
+1d4x10,000 ep (40%), 
+1d6x10,000 gp (55%), 
+5d10x100 pp (25%), 1d100 
+gems (50%), 1d4x10 
+jewelry (50%), 4 magic 
+items plus 1 potion and 1 
+scroll (15%), 2d4 potions 
+(40%), 1d4 scrolls (50%). 
+
+Dragon, Silver Dragon Very rare 1d4 
+Large (48 
+ft long) 
+90 ft, flying 
+240 ft (AA: 
+level II) 
+-1 9 to 11 3 1d6/1d6/5d6 See Page See Page Standard 55% Exceptional LG 7 
+2,400+12/hp or 
+3,000+13/hp or 
+3,700+14/hp 
+212 
+(For a typical individual) 
+5d6x1,000 cp (25%), 
+1d100x1,000 sp (40%), 
+1d4x10,000 ep (40%), 
+1d6x10,000 gp (55%), 
+5d10x100 pp (25%), 1d100 
+gems (50%), 1d4x10 
+jewelry (50%), 4 magic 
+items plus 1 potion and 1 
+scroll (15%), 1d4 scrolls 
+(50%). 
+
+Dragon, White Dragon Uncommon 1d4 
+Large (24 
+ft long) 
+120 ft, flying 
+300 ft (AA: 
+level II) 
+3 5 to 7 3 1d4/1d4/2d8 See Page See Page Standard 30% Low CE 6 
+440+4/hp or 
+660+6/hp or 
+1,065+8/hp 
+212 
+(For a typical individual) 
+1d12x1,000 cp (15%), 
+1d20x1,000 sp (25%), 
+1d6x1,000 ep (25%), 
+1d8x1,000 gp (25%), 1d12 
+gems (15%), 1d8 jewelry 
+(10%), 3 magic items plus 
+2d4 potions and 1 scroll 
+(25%). 
+
+Dretch Demon Common 
+2d4 or 
+5d4 (in 
+the 
+Abyss) 
+Small 90 ft 2 4 3 1d4/1d4/1d4+1 See Page See Page 30% 15% Low CE 4 175+4/hp 217 
+Dretch are not intelligent 
+enough to hoard treasure 
+socially. Individually they 
+will carry some coinage, as 
+follows: 3d8 cp, 3d6 sp, 
+2d6 ep, and 2d4 gp. 
+
+Dryad 
+Sylvan or 
+Faerie 
+Very Rare 1d6 Medium 120 ft 10 2 1 1d2 Charm See Page 50% 10% High N 2 30+10/hp 234 
+2d4x100 gp (100%), 10d4 
+gems (50%). 
+
+Dunkleosteus Dinosaur Common 1d2 Large 
+210 ft 
+swimming 
+6 10 1 5d4 None None Standard None Animal N 6 1,000+12/hp 230 None 
+
+Dwarf 
+Demi-Human 
+Common 40d10 
+Small (4 ft 
+tall) 
+60 ft 4 1 1 1d8 or by weapon See Page 
+Save at 4 levels higher 
+(see page) 
+Save at 4 
+levels 
+higher 
+(see 
+page) 
+0.5 Very LG (N) 2 30+1/hp 194 
+Individual 2d4x5 gp; lair 
+10d4x1,000 gp (50%), 
+1d20x100 pp (50%), 5d4 
+gems (30%), 1d4x20 gems 
+(50%), 1d10 jewelry (25%), 
+any 4 magic items (15%). 
+
+Edmontosaurus Dinosaur Uncommon 2d12 Large 150 ft 6 12 1 1d12 None None Standard None Animal N 7 1,200+16/hp 228 None 
+
+Eel, Giant Electric Animal Rare 1d4 Medium 120 ft swim 9 2 1 1d4 Electricity None Standard None Non-N 2 40+2/hp 250 None 
+
+Eel, Giant Moray Animal Uncommon 1d4 Large 90 ft swim 6 5 1 3d6 None None Standard None Non-N 4 110+4/hp 250 None 
+
+Eel, Giant Weed Animal Very Rare 1d4 Small 150 ft swim 8 1d6 hp 1 1 Poison None Standard None Non-N 1 30+1/hp 250 
+In lair: 1d4x1,000 cp (30%), 
+1d10x1,000 sp (50%), 
+1d3x1,000 ep (20%), 
+1d8x1,000 gp (45%), 
+2d8x100 pp (60%), 6d6 
+gems (50%), 2d6 jewelry 
+50%. 
+
+Ekivu (Fly 
+Demon) 
+Demon Common 
+1d3 or 
+1d6 (in 
+the 
+Abyss) 
+Medium 
+50 ft, 210 ft 
+flying (AA: 
+level III) 
+-1 7+2 3 2d4/2d4/1d4 See Page See Page 40% 5% Average CE 7 1,275+10/hp 218 
+If encountered in their lair, 
+they will possess a hoard of 
+1d8x1,000 cp (50%), 
+1d6x1,000 sp (25%), 
+1d4x1,000 ep (25%), 
+1d3x1000 gp (25%), 1d8 
+gems (30%), 1d4 jewelry 
+(20%) and possibly a 
+magical weapon (10%). 
+
+Elasmosaurus Dinosaur Uncommon 1d2 Large 
+150 ft 
+swimming 
+6 16 1 4d8 None None Standard None Animal N 7 2,000+16/hp 230 None 
+
+Elemental, Air Other Very Rare 1 Large 
+360 ft flying 
+(AA: level 
+VI) 
+2 8 1 2d10 See Page 
+Hit only by +2 or 
+better magic weapons 
+Standard None Low N 6, 8 or 9 
+900+12/hp, 
+2,000+16/hp or 
+3,650+20/hp 
+272 None 
+
+Elemental, Earth Other Very Rare 1 Large 60 ft 2 8 1 4d8 See Page 
+Hit only by +2 or 
+better magic weapons 
+Standard None Low N 6, 8 or 9 
+900+12/hp, 
+2,000+16/hp or 
+3,650+20/hp 
+272 None 
+
+Elemental, Fire Other Very Rare 1 Large 120 ft 2 8 1 3d8 See Page 
+Hit only by +2 or 
+better magic weapons 
+Standard None Low N 6, 8 or 9 
+900+12/hp, 
+2,000+16/hp or 
+3,650+20/hp 
+272 None 
+
+Elemental, Water Other Very Rare 1 Large 
+60 ft, 180 ft 
+swimming 
+2 8 1 5d6 See Page 
+Hit only by +2 or 
+better magic weapons 
+Standard None Low N 6, 8 or 9 
+900+12/hp, 
+2,000+16/hp or 
+3,650+20/hp 
+272 None 
+
+Elephant, African Animal Common 1d12 Large 150 ft 6 11 5 2d8/2d8/2d6/2d6/2d6 None None Standard None Animal N 7 1,400+14/hp 251 
+Ivory is worth 1d6x100gp 
+per tusk. An elephant tusk 
+is hugely encumbering. 
+
+Elephant, Asian Animal Common 1d12 Large 150 ft 5 10 5 2d8/2d8/2d6/2d6/2d6 None None Standard None Animal N 7 1,100+13/hp 251 
+Ivory is worth 1d6x100gp 
+per tusk. An elephant tusk 
+is hugely encumbering. 
+
+Elephant, 
+Mammoth 
+Animal Very Rare 1d12 Large 150 ft 6 13 5 3d6/3d6/2d8/2d8/2d8 None None Standard None Animal N 7 2,300+17/hp 251 
+Ivory is worth 1d6x100gp 
+per tusk. An elephant tusk 
+is hugely encumbering. 
+
+Elephant, 
+Mastodon 
+Animal Very Rare 1d12 Large 150 ft 6 12 5 2d8/2d8/2d6/2d6/2d6 None None Standard None Animal N 7 1,900+16/hp 251 
+Ivory is worth 1d6x100gp 
+per tusk. An elephant tusk 
+is hugely encumbering. 
+
+Elf 
+Demi-Human 
+Uncommon 20d10 Medium 120 ft 5 1+1 1 1d8 or by weapon 
++1 to hit with 
+pulled bow 
+or sword 
+See Page 
+90% to 
+sleep or 
+charm 
+only 
+10% High CG 2 30+1/hp 194 
+1d6 pp per individual. 
+Typically elves will wear 
+scale, ring, or chain armour 
+and shield. They will be 
+usually armed with spears, 
+swords, and bows. Higher 
+level fi ghter / magic users 
+and fi ghter / magic user / 
+clerics have a 10% chance 
+per level per class to 
+possess some sort of 
+usable magic item. 
+
+Erinyes (Lesser 
+Devil; She-Devils) 
+Devil Uncommon 
+1d3 or 
+4d4 
+Medium 
+60 ft, 210 ft 
+flying (AA: 
+level IV) 
+2 6+6 1 2d4 + poison (see page) See Page See Page 30% 20% Average LE 6 875+8/hp 223 
+If encountered in their 
+hellish aeries, these devils 
+may have a treasure hoard 
+made up of 2d4x1,000 gp 
+(40%), 1d6x10 pp (50%), 
+4d8 gems (55%) and 1d12 
+jewelry (45%). 
+
+Ettercap Other Rare 1d2 Medium 120 ft 6 5+1 3 1d4/1d4/1d8 Poison See Page Standard 30% Semi-NE 4 150+5/hp 273 None 
+
+Ettin Giant Very rare 1d4 
+Large (13 
+ft + tall) 
+120 ft 3 10 2 2d8/3d6 See Page See Page Standard 20% Low CE 7 1,370+14/hp 204 
+Individual: 2d10 gp, 1d6 
+gems (25%), 1d4 jewelry 
+(20%) 2 magic items; Lair: 
+2d6x1,000 gp (70%). 
+
+Euparkeria Dinosaur Uncommon 5d8 Small 180 ft 9 1d4 hp 3 1d2/1d2/1d4 None None Standard None Animal N 3 110+5/hp 230 None 
+
+Executioner's 
+Hood 
+Other Rare 1 Small 60 ft 6 3 to 6 1 1d4 See Page See Page Standard None Semi-NE 4 250+4/hp 273 None 
+
+Eye of the Deep Other Very Rare 1 Large 
+60 ft 
+swimming 
+5 11 3 2d4/2d4/1d6 See Page None Standard 20% Very LE 9 3,000+16/hp 273 
+2d6x1,000 gp (50%), 
+1d4x1,000 pp (40%), 4d10 
+gems (40%), 2d6 jewelry 
+(35%). 
+
+Faun 
+Sylvan or 
+Faerie 
+Uncommon 2d4 Medium 180 ft 5 5 1 2d4 See Page See Page 50% 40% Very N 5 110+4/hp 234 
+3d6x100 pp (30%), 2d10 
+gems (55%), 1d12 jewelry 
+(50%), 1d12 potions (40%), 
+2 misc. magic items (60%). 
+
+Giant Gar Animal Rare 1d6 Large 300 ft swim 3 8 1 2d10 See Page None Standard None Non-N 6 575+10/hp 251 None 
+
+Giant, Pike Animal Rare 1d8 Large 300 ft swim 5 5 1 3d6 
+Surprise on a 
+1-4 on 1d6 
+None Standard None Non-N 4 90+4/hp 251 None 
+
+Leviathan Animal Very Rare 1 Huge 300 ft swim 6 6 1 5d4 
+Swallow 
+whole 
+None Standard None Non-N 9 5,000+24/hp 251 None 
+
+Giant Blow Fly Other Rare 1d12 Medium 
+90 ft, 300 ft 
+flying (AA: 
+level III) 
+6 3 1 1d8+1 See Page Jump Standard None Non-N 3 40+3/hp 274 None 
+
+Giant 
+Horsefly 
+Other Very Rare 1d6 
+Large (9 ft 
+long) 
+90 ft, 300 ft 
+flying (AA: 
+level III) 
+5 6 1 2d6 See Page Jump Standard None Non-N 4 165+6/hp 274 None 
+
+Frog, Giant Animal Uncommon 5d8 
+Small to 
+Medium 
+30 ft, 
+swimming 
+90 ft 
+7 1 to 3 1 1d3, 1d6 or 2d4 See Page None Standard None Non-N 1, 2 or 3 
+10+5/hp, 30+10/hp 
+or 50+15/hp 
+251 None 
+
+Gargoyle Other Uncommon 2d8 Medium 
+90 ft, 150 ft 
+flying (AA: 
+level IV) 
+5 4+4 4 1d3/1d3/1d6/1d4 None 
++1 or better weapon 
+to hit 
+Standard 20% Low CE 4 155+4/hp 274 None 
+
+Gelatinous Cube Other Uncommon 1 
+Large 
+(typically 
+10 ft 
+cube) 
+60 ft 8 4 1 2d4 
+Paralyzing 
+touch, 
+surprise on a 
+1-3 on 1d6 
+See Page See Page None Non-N 3 150+4/hp 274 
+Gelatinous Cubes will 
+sometimes sweep up 
+inorganic substances 
+(including metal items such 
+as coins, glass or ceramic 
+items such as potion 
+bottles, etc.). These 
+incidental items are 
+sometimes kept in the 
+body of the Cube for many 
+days before being ejected. 
+Such items form the 
+creature's treasure. 
+
+Genie Other Very Rare 1 Large 
+90 ft, 240 ft 
+flying (AA: 
+level VI) 
+4 7+3 1 2d8 See Page None Standard None 
+Average to 
+high 
+CG 5 350+8/hp 275 None 
+
+Ghast [Turn As 
+Type 6] 
+Undead Rare 1d6 Medium 150 ft 4 4 3 1d4/1d4/1d8 
+Paralyzation, 
+Stench 
+Standard undead 
+immunities 
+Standard 10% Very CE 4 195+4/hp 239 
+1d8x1,000 cp (50%); 
+1d6x1,000 sp (25%); 
+1d4x1,000 ep (25%); 
+d12x1,000 gp (65%); 
+1d6x1,000 pp (30%); 3d8 
+gems (50%); 2d6 jewelry 
+(50%); a magic weapon or 
+armour (25%); 1d4 scrolls 
+(50%). 
+
+Ghost [Turn As 
+Type 11] 
+Undead Very Rare 1 Medium 
+90 ft 
+hovering 
+0  
+10+4 1 1d4 
+Wither; 
+Magic Jar 
+Magic weapons or 
+special metals 
+required to hit when 
+manifest; immune to 
+spells when ethereal 
+unless the caster is 
+also ethereal. 
+As 
+Special 
+Defenses 
+25% High Any E 8 4,200+14/hp 240 
+1d10x1,000 cp (5%); 
+2d6x1,000 sp (30%); 
+1d6x1,000 ep (25%); 
+2d4x1,000 gp (25%); 2d6 
+gems (15%); 1d6 jewelry 
+(20%); 1d3-1 scrolls (30%); 
+1d8 potions (40%); 1d4-1 
+any other magic items 
+(25%). 
+
+Ghoul [Turn As 
+Type 3] 
+Undead Uncommon 4d6 Medium 90 ft loping 6 2 3 1d3/1d3/1d6 Paralyzation 
+Immune to sleep and 
+charm spells 
+Standard 20% Low CE 3 70+2/hp 240 
+1d8x1,000 cp (50%); 
+1d6x1,000 sp (25%); 
+1d4x1,000 ep (25%); 
+1d3x1,000 gp (25%); 2d4 
+gems (30%); 1d4 jewelry 
+(20%); magic weapon or 
+armour (10%); 1d4 scrolls 
+(10%). 
+
+Giant, Cloud Giant Rare 1d6 
+Large (18 
+ft tall) 
+150 ft 2 12+1d6+1 1 6d6 See Page See Page Standard 40% 
+Average up 
+to very 
+NE or 
+NG 
+8 3,520+16/hp 202 
+10d4x100 gp, 4d6 + 6 gems 
+(15%), 1d8 jewelry (10%), 4 
+magic items (25%). 
+
+Giant, Fire Giant Uncommon 1d8 
+Large (12 
+ft tall) 
+120 ft 3 11+1d4+1 1 5d6 See Page See Page Standard 35% 
+Low up to 
+average 
+LE 7 2,720+16/hp 202 
+10d4x100 gp, 1d12 gems 
+(15%), 1d8 jewelry (10%), 4 
+magic items (25%). 
+
+Giant, Frost Giant Rare 1d8 
+Large 
+(15ft tall) 
+120 ft 4 10+1d4 1 4d6 See Page See Page Standard 30% 
+Low up to 
+average 
+CE 7 1,820+14/hp 203 
+10d4x100 gp, 1d12 gems 
+(15%), 1d8 jewelry (10%), 4 
+magic items (25%). 
+
+Giant, Hill Giant Common 1d10 
+Large (10 
+ft 6 in tall) 
+120 ft 4 8+1d2 1 2d8 See Page See Page Standard 25% Low CE 6 1,200+12/hp 203 
+2d10x100 gp, 1d10 gems 
+(30%), 1d6 jewelry (25%), 3 
+magic items (15%). 
+Giant, Stone Giant Uncommon 1d8 
+Large (12 
+ft tall) 
+120 ft 0 9+1d4 1 3d6 See Page See Page Standard 30% Average N 7 1,500+14/hp 204 
+2d10x100 gp, 1d10 gems 
+(30%), 1d6 jewelry (25%), 3 
+magic items (15%). 
+
+Giant, Storm Giant Rare 1d4 
+Large (21 
+ft tall) 
+150 ft 1 15+1d6+1 1 7d6 See Page See Page Standard 30% Exceptional CG 9 6,000+20/hp 204 
+10d4x100 gp, 4d6 + 6 gems 
+(15%), 1d8 jewelry (10%), 4 
+magic items (25%). 
+
+Gnoll Humanoid Uncommon 20d10 Large 90 ft 5 2 1 2d4 or by weapon None None Standard 20% 
+Low to 
+average 
+CE 2 30+2/hp 197 
+Individual 2d6 ep, 2d4 gp; 
+Lair 1d8x1,000 cp (60%), 
+1d6x1,000 sp (50%), 
+1d8x1,000 ep (35%), 
+1d6x1,000 gp (50%), 5d4 
+gems (30%), 1d6 jewelry 
+(25%), 2d4 potions (40%). 
+
+Gnoll, Flind Humanoid Rare 2d12 Medium 120 ft 5 2+3 1 2d4 or by weapon Disarm None Standard 20% Average CE 2 40+4/hp 197 
+1d6 gp per individual; in 
+lair: 1d6x1,000 cp (30%); 
+1d6x1,000 sp (25%); 
+2d4x1,000 ep (35%); 
+1d10x1,000 gp (45%); 
+1d4x100 pp (20%); 5d8 
+gems (50%); 4d12 jewelry 
+(65%); 25% chance of any 3 
+maps or magic. 
+
+Gnome 
+Demi-Human 
+Rare 40d10 Small 60 ft 5 1 1 1d6 or by weapon See Page 
+Save at 4 levels higher 
+(see page) 
+See Page 50% Very 
+N to 
+LG 
+1 10+1/hp 195 6d4 gp per individual. 
+
+Goblin Humanoid Uncommon 40d10 
+Small (4 ft 
+tall) 
+60 ft 6 1-1 1 1d6 or by weapon None None Standard 40% 
+Average 
+(low) 
+LE 1 10+1/hp 198 
+Individual 3d6 sp ; Lair 
+1d12x1,000 cp (75%), 
+1d6x1,000 sp (50%), 1d6 
+gems (25%), 1d3 jewelry 
+(20%), 2d4 potions (40%). 
+
+Golem, Clay Golem Very Rare 1 
+Large (8 ft 
+tall) 
+70 ft 7 50hp 1 3d10 See Page See Page See Page None Non-N 7 2,800 231 None 
+
+Golem, Flesh Golem Very Rare 1 
+Large (7 
+1/2 ft tall) 
+80 ft 9 40hp 2 2d8/2d8 See Page See Page See Page None Semi-N 7 2,180 231 None 
+
+Golem, Iron Golem Very Rare 1 
+Large (12 
+ft tall) 
+60 ft 3 80hp 1 4d10 See Page See Page See Page None Non-N 9 8,550 231 None 
+
+Golem, Stone Golem Very Rare 1 
+Large (9 
+1/2 ft tall) 
+60 ft 5 60hp 1 3d8 See Page See Page See Page None Non-N 8 4,040 231 None 
+
+Gorgimera Other Very Rare 1 Large 
+120 ft, 150 
+ft flying (AA: 
+level II) 
+3 10+1 5 1d3/1d3/2d4/2d6/3d4 
+Breathing 
+fire to a 60 ft 
+for 3d8 
+damage. The 
+gorgon's 
+head 
+breathes a 
+cloud of 
+petrifying 
+gas in a cone 
+30 ft long 
+and 10 ft 
+radius at the 
+base. 
+None Standard 30% Semi-CE 8 2,250+14/hp 267 
+1d20x1,000 sp (20%) , 
+1d12x1,000 ep (25%) , 
+1d20x1,000 gp (50%), 
+1d10x100 pp (40%), 4d10 
+gems (25%), 1d12 jewelry 
+(15%), 3 magic items (no 
+magic weapons) and 1 
+magic scroll and 1 magic 
+potion (40%). 
+Gorgon Other Rare 1d4 Large 120 ft 2 8 1 2d6 
+Petrifying 
+breath 
+None Standard 40% Animal N 7 1,500+10/hp 275 
+(In lair only) 1d8x1,000 cp 
+(10%), 1d12x1,000 sp 
+(25%), 1d6x1,000 ep (25%), 
+1d8x1,000 gp (25%), 1d10 
+gems (15%), 1d8 jewelry 
+(10%), any four magic 
+items (25%). 
+
+Gorgosaurus Dinosaur Uncommon 1 or 2d8 Large 150 ft 6 14 1 3d6 None None Standard 15% Animal N 7 1,500+18/hp 227 None 
+
+Grey Ooze Other Rare 1d3 
+Medium 
+to large 
+10 ft 8 3+3 1 2d8 See Page See Page See Page None Animal N 4 75+3/hp 276 None 
+
+Griffon Other Uncommon 2d6 Large 
+120 ft, 300 
+ft flying (AA: 
+level IV) 
+3 7 3 1d4/1d4/2d8 None None Standard 25% Semi-N 7 225+8/hp 276 
+1d12x1,000 cp (20%), 
+1d6x1,000 sp (30%), 
+1d4x1,000 ep (10%), 1d6 
+gems (25%), 1d3 jewelry 
+(20%), 2 magic items (10%), 
+2d4 potions (40%). 
+
+Grimlock Humanoid Uncommon 20d10 Medium 120 ft 5 2 1 1d6 or by weapon None See Page Special 75% Average NE 2 28+2/hp 199 
+1d6x1,000 cp (25%), 
+1d4x1,000 sp (25%), 
+2d10x100 gp (25%), 1d8 
+gems (25%), 1d4 jewelry 
+(25%) and 1 magic item 
+(10%, armour or weapon 
+only). 
+
+Halfling 
+Demi-Human 
+Rare 30d10 Small 90 ft 7 1d6 hp 1 1d6 or by weapon 
++3 to hit with 
+bow or sling 
+Save at 4 levels higher 
+(see page) 
+See Page 70% Very LG 1 5+1/hp 195 3d8 sp per individual. 
+
+Harpy Other Rare 2d6 Medium 
+60 ft, 150 ft 
+flying (AA: 
+level IV) 
+7 3 3 1d3/1d3/1d6 
+Singing and 
+charm 
+None Standard 25% Low CE 3 50+3/hp 276 
+1d12x1,000 cp (20%), 
+1d6x1,000 sp (30%), 
+1d4x1,000 ep (10%), 1d6 
+gems (25%), 1d3 jewelry 
+(20%), any 2 magic items 
+(10%). 
+
+Hell Hound Other Very Rare 2d4 Medium 120 ft 4 4 to 7 1 1d10 Breathe fire See Page Standard 30% Low LE 4, 5, 6, 7 
+75+4/hp, 110+5/hp, 
+160+6/hp, 225+8/hp 
+277 
+1d12x1,000 cp (20%), 
+1d6x1,000 sp (30%), 
+1d4x1,000 ep (10%), 1d6 
+gems (25%), 1d3 jewelry 
+(25%), 2 magic items (10%). 
+
+Hippogriff Other Rare 2d8 Large 
+180 ft, 360 
+ft flying (AA: 
+level IV) 
+5 3+3 3 1d6/1d6/1d10 None None Standard 10% Semi-N 4 150+3/hp 277 5d4 gems (50%). 
+
+Hippopotamus Animal Uncommon 2d6 Large 
+90 ft, 120 ft 
+swimming 
+6 8 1 2d6 or 3d6 See Page None Standard None Animal N 5 600+12/hp 252 None 
+
+Hobgoblin Humanoid Uncommon 20d10 
+Medium 
+(6 1/2 ft 
+tall) 
+90 ft 5 1+1 1 1d8 or by weapon None None Standard 25% Average LE 2 20+2/hp 199 
+Individual 3d12 cp, 2d8 gp; 
+Lair 1d8x1,000 cp (75%), 
+1d12x1,000 sp (60%), 
+1d8x1,000 ep (35%), 
+1d6x1,000 gp (50%), 5d4 
+gems (50%), 1d6 jewelry 
+(25%), 1 potion (15%). 
+
+Homonculus Other Very Rare 1 
+Small (18 
+in) 
+60 ft 
+6 2 1 1d3 
+Bite causes 
+sleep 
+See Page See Page None See Page 
+See 
+Page 
+2 81+2/hp 277 None 
+
+Horned Devil 
+(Greater Devil; 
+Cornugon, 
+Malibranchai) 
+Devil Uncommon 
+1d2 or 
+1d4+1 
+Large 
+90 ft, 180 ft 
+flying (AA: 
+level III) 
+-5 5+5 
+4 
+1d4/1d4/1d4+1/1d3 
+See Page 
++1 or better magic 
+weapon to hit 
+50% 55% High LE 7 1,320+6/hp 223 
+If a horned devil lair is 
+found, it may contain a 
+hoard of 3d6x100 pp (30%), 
+2d10 gems (55%), 1d12 
+jewelry (50%) and perhaps 
+even a random magic item 
+(15%). 
+
+Horse, Draft Animal Common 1 Large 120 ft 7 3 1 1d3 None None Standard None Animal N 2 20+2/hp 252 None 
+
+Horse, Heavy Animal Uncommon 1 Large 150 ft 7 3+3 3 1d8/1d8/1d3 None None Standard None Animal N 2 20+2/hp 252 None 
+
+Horse, Light Animal Uncommon 1 Large 240 ft 7 2 2 1d4/1d4 None None Standard None Animal N 2 20+2/hp 252 None 
+
+Horse, Medium Animal Uncommon 1 Large 180 ft 7 2+2 3 1d6/1d6/1d3 None None Standard None Animal N 2 20+2/hp 252 None 
+
+Horse, Pony Animal Uncommon 1 Large 120 ft 7 1+1 1 1d2 None None Standard None Animal N 2 20+2/hp 252 None 
+
+Horse, Wild Animal Uncommon 5d6 Large 240 ft 7 2 1 1d3 None None Standard None Animal N 2 20+2/hp 252 None 
+
+Hydra Other Uncommon 1 Large 90 ft 5 5 5 
+1d6/1d6/1d6/1d6/1d6 
+None None Standard 20% Semi-N 5 up to 9 
+110+5/hp up to 
+5,000+20/hp 
+278 
+1d8x1,000 cp (50%), 
+1d6x1,000 p (25%), 
+1d4x1,000 ep (25%), 
+1d3x1,000 gp (25%), 1d8 
+gems (30%), 1d4 jewelry 
+(20%), sword, armour or 
+misc. weapon (10%). 
+
+Hyena, Giant Animal Very Rare 1d6 Large 180 ft 5 4 1 2d6 None None Standard None Animal N 6 160+6/hp 253 None 
+
+Hyena, Huge Animal Rare 2d6 Medium 120 ft 6 3 1 2d4+1 None None Standard None Animal N 4 75+3/hp 253 None 
+
+Hyena, Normal Animal Common 2d6 Medium 120 ft 7 2 1 2d4 None None Standard None Animal N 3 50+2/hp 253 None 
+
+Hypacrosaurus Dinosaur Uncommon 5d8 Large 150 ft 7 9 1 1d6 None None Standard None Animal N 5 750+10/hp 228 None 
+
+Ice Devil (Greater 
+Devil) 
+Devil Uncommon 1 or 1d4 Large 60 ft -4 11 
+4 
+1d4/1d4/2d4/3d4 
+See Page 
++2 or better magic 
+weapon to hit 
+55% 60% High LE 8 4,400+16/hp 224 
+If their lair is plundered, ice 
+devils will have a buried 
+cache containing 
+2d4x1,000 gp (40%), 
+1d6x10 pp (50%), 4d8 gems 
+(55%) , and 1d12 jewelry 
+(45%). 
+
+Iguanodon Dinosaur Common 3d6 Large 150 ft 4 6 3 1d3/1d3/2d4 None None Standard None Animal N 5 500+10/hp 229 None 
+
+Imp (Lesser 
+Devil) 
+Devil Very rare 1 Small 
+60 ft, 180 ft 
+flying (AA: 
+level V) 
+2 2+2 Tail 1d4 + poison (see page) See Page See Page 25% None Average LE 7 275+3/hp 224 
+Imps normally possess no 
+treasure of any kind. If 
+encountered in their lair in 
+the lower planes however, 
+they might have a small 
+hoard of 1d4x1,000 cp 
+(25%) and 1d3x1,000 sp 
+(20%). 
+
+Indricotherium Animal Rare 1d3 Large 120 ft 5 14 2 5d4 None None Standard None Animal N 7 1,800+18/hp 253 None 
+
+Invisible Stalker Other Very Rare 1 
+Large (8 ft 
+tall) 
+120 ft 3 8 1 2d8 
+Surprise on 
+1-5 on 1d6 
+Invisibility 30% None High N 7 1,100+10/hp 278 None 
+
+Jackal, Giant Animal Very Rare 1d4 Medium 180 ft 5 4 1 1d8 None None Standard 25% Animal N 3 75+3/hp 253 None 
+
+Jackal, Huge Animal Rare 1d6 Small 150 ft 6 2 1 1d4+1 None None Standard 25% Animal N 2 30+1/hp 253 None 
+
+Jackal, Normal Animal Common 1d6 Small 120 ft 7 1 1 1d4 None None Standard 25% Animal N 1 10+1/hp 253 None 
+
+Jackalwere Other Rare 1d4 
+Small 
+(medium) 
+120 ft 4 4 1 2d8 or by weapon 
+Gaze causes 
+sleep 
+Iron or +1 weapon to 
+hit 
+Standard 30% Very CE 4 75+4/hp 279 
+1d12x1,000 cp (20%), 
+1d6x1,000 sp (30%), 
+1d4x1,000 ep (10%), 1d6 
+gems (25%), 1d3 jewelry 
+(20%), any 2 magic items 
+(10%). 
+
+Kobold Humanoid Uncommon 40d10 
+Small (3 ft 
+tall) 
+60 ft 7 1d4 hp 1 1d4 or by weapon None None Standard 40% 
+Average 
+(low) 
+LE 1 5+1/hp 200 
+Individual 3d6 cp; Lair 
+1d4x1,000 cp (50%), 
+1d3x1,000 sp (30%), 1d4 
+gems (50%). 
+
+Kraken Other Very Rare 1 Large 
+210 ft 
+swimming 
+5/0 20 9 2d6/2d6/2d6/2d6/2d6/2d6/2d6/2d6/5d4 See Page See Page Standard 75% Genius NE 10 17,500+30/hp 279 
+12d4x1,000 gp (50%), 
+1d8x1,000 pp (50%), 9d6 
+gems (55%), 2d10 jewelry 
+(45%), 4 magic items + 1d6 
+scrolls + 2d4 potions (50%). 
+
+Kullule (Demonic 
+Hordling) 
+Demon Rare 4d4 Small 30 ft 7 1 3 1d2/1d2/1d4 None 
++1 or better magic 
+weapon to hit 
+Standard None Semi-CE 1 18+1/hp 218 None 
+
+Lamia Other Very Rare 1 Medium 240 ft 3 9 1 1d4 See Page None Standard 60% High CE 7 1,500+12/hp 279 
+1d8x1,000 cp (10%), 
+1d12x1,000 sp (15%), 
+1d8x1,000 ep (15%), 
+1d6x1,000 gp (50%), 1d10 
+gems (30%), 1d6 jewelry 
+(25%), any 2 magic item + 1 
+potion (15%). 
+
+Lammasu Other Rare 1d8 Large 
+120 ft, 240 
+ft flying (AA: 
+level III) 
+6 7+7 2 1d6+1/1d6+1 See Page See Page 30% 25% Genius LG 8 875+10/hp 280 
+2d4x1,000 gp (45%), 
+1d8x100pp (60%), 4d8 
+gems (50%), 2d6 jewelry 
+(40%), 2d4 potions (40%), 1 
+misc magic (20%). 
+
+Leech, Giant Other Uncommon 4d4 Small 30 ft 9 1 to 4 1 
+1d4 (1 HD), 1d6 (2-3 HD) or 1d8 
+(4 HD) 
+See Page None Standard None Non-N 2 50+3/hp 280 None 
+
+Lemure (Least 
+Devil) 
+Devil Common 5d6 Medium 30 ft 7 3 1 1d3 None See Page Standard 100% Semi-LE 3 65+3/hp 224 None 
+
+Lich [Turn As 
+Type 12] 
+Undead Very Rare 1 Medium 60 ft 0 12 1 2d6 + paralyzation 
+Spell use (as 
+Magic User, 
+Cleric or 
+both) at at 
+least 18th 
+level of 
+ability; fear. 
++1 or better weapon 
+to hit; immune to cold, 
+electrical, poison, 
+paralysation, 
+polymorph, and death 
+magic, as well as 
+sleep, charm, hold and 
+other mental based 
+attacks; spells that 
+drain attributes or 
+statistics also have no 
+effect. 
+Standard 95% 
+Genius or 
+higher 
+Any E 10 
+at least 
+10,000+16/hp 
+240 
+(1d4+1)x1,000 cp (30%); 
+(d4+1)x1,000 sp (25%); 
+1d6x1,000 ep (40%); 
+(1d8+1)x1,000 gp (45%); 
+1d4x1,000 pp (25%); 5d8 
+gems (55%); 8d4 jewelry 
+(45%); any 3 magic items 
+save potions (40%). 
+
+Lion Animal Common 2d6 Large 120 ft 5 5+3 3 1d6/1d6/1d10 Rear claws Only surprised on 1 Standard 25% Semi-N 4 250+6/hp 253 None 
+
+Cougar Animal Common 1d2 Medium 150 ft 6 3+2 3 1d4/1d4/1d6 Rear claws Only surprised on 1 Standard 15% Semi-N 3 100+3/hp 253 None 
+
+Lion, Prehistoric Animal Rare 2d4 Large 120 ft 5 6+3 3 2d4/2d4/2d6 Rear claws Only surprised on 1 Standard 25% Semi-N 4 300+6/hp 253 None 
+
+Lizard Man Humanoid Rare 10d4 
+Medium 
+(7 ft tall) 
+60 ft, 
+swimming 
+120 ft 
+5 2+1 3 1d2/1d2/1d8 See Page None Standard 30% 
+Low 
+(average) 
+N 2 20+2/hp 200 
+Lair 1d8x1,000 cp (10%), 
+1d12x1,000 sp (15%), 
+1d8x1,000 ep (15%), 
+1d6x1,000 gp (50%), 1d10 
+gems (30%), 1d6 jewelry 
+(25%), 2 magic items or 1 
+potion (15%). 
+
+Lizard, Giant Other Uncommon 2d6 
+Large (20 
+ft long) 
+150 ft 5 3+1 1 1d8+1 See Page None Standard None Non-N 3 120+4/hp 280 None 
+
+Lizard, Giant 
+Cave 
+Other Uncommon 1d6 
+Large (20 
+ft long) 
+120 ft 5 6 1 2d6 See Page None Standard None Non-N 7 375+6/hp 280 
+In lair: 1d4x1,000 cp (30%), 
+2d4x1,000 sp (40%), 
+1d3x1,000 ep (25%), 1d4 
+gems (50%). 
+
+Lizard, Giant Fire Other Very Rare 1d4 
+Large (30 
+ft long) 
+90 ft 3 10 3 1d8/1d8/2d8 See Page See Page Standard 40% Animal N 7 1,500+14/hp 280 
+In lair: 1d8x1,000 cp (45%), 
+1d6x1,000 sp (30%), 
+1d6x1,000 ep (25%), 
+1d4x1,000 gp (33%), 
+1d4x100 pp (10%), 2d4 
+gems (30%), 1d6 jewelry 
+(20%), Magic 
+Sword/Armor/Weapon 
+(12%), 2d4 potions (50%), 
+1d6 scrolls (40%). 
+
+Lizard, Giant 
+Monitor 
+Other Rare 1d6 
+Large (40 
+ft long) 
+60 ft 5 8 3 2d6/2d6/3d6 See Page None Standard None Non-N 6 925+10/hp 280 
+In lair: 4d6 cp (90%), 3d6 sp 
+(80%), 3d6 ep (70%), 2d6 
+gp (60%), 1d6 pp (50%), 
+2d6 gems (40%), 1d2 magic 
+items (10%). 
+
+Locathah Other Rare 20d10 Medium 120 ft 6 2 1 1d8 None None Standard 10% Very N 2 30+1/hp 281 
+In lair: 1d4x1,000 cp (30%), 
+1d6x1,000 sp (20%), 
+1d8x1,000 ep (30%), 
+1d10x1,000 gp (40%), 
+1d6x100 pp (25%), 3d12 
+gems (65%), 4d10 jewelry 
+(50%), 3 random magic 
+sword/armor/misc. Item 
+(33%). 
+
+Lurker Above Other Rare 1 Large 
+10 ft, 90 ft 
+flying 
+6 10 1 1d6 See Page None Standard 95% Non-N 7 1,500+4/hp 282 
+1d10x1,000 cp (25%), 
+1d8x1,000 sp (25%), 
+1d6x1,000 gp (25%), 1d6 
+gems (25%), 1d3 jewelry 
+(25%) and any two Magic 
+Items (10%). 
+
+Manticore Other Uncommon 1d4 Large 
+120 ft, 180 
+ft flying (AA: 
+level II) 
+4 6+3 3 1d3/1d3/1d8 Tail spikes None Standard 20% Low LE 6 525+8/hp 282 
+1d10x1,000 cp (5%), 
+1d12x1,000 sp (25%), 
+1d6x1,000 ep (25%), 
+1d8x1,000 gp (25%), 1d12 
+gems, 1d8 jewelry, 3 misc. 
+magic and 1 scroll (25%). 
+
+Medusa Other Rare 1d3 Medium 90 ft 5 6+1 1 1d6 
+Poison, 
+petrification 
+Non Standard 50% 
+Very to 
+high 
+NE 5 750+6/hp 282 
+1d6x1,000 sp (30%), 
+1d2x1,000 ep (25%), 
+2d6x1,000 gp (70%), 10d4 
+gems (50%), 1 misc magic + 
+1 potion (60%). 
+
+Mephit, Fire Other Very Rare 1 
+Medium 
+(5 ft tall) 
+120 ft, 240 
+ft flying (AA: 
+level IV) 
+5 3+1 2 1d3/1d3 
+Breath 
+weapon 
+See Page Standard None Average 
+E 
+(Any) 
+3 155+4/hp 282 3d12pp per individual. 
+
+Mephit, Lava Other Very Rare 1 
+Medium 
+(5 ft tall) 
+120 ft, 240 
+ft flying (AA: 
+level IV) 
+6 3 2 1d4/1d4 
+Breath 
+weapon 
+See Page Standard None Average 
+E 
+(Any) 
+3 110+3/hp 282 3d12pp per individual. 
+
+Mephit, Smoke Other Very Rare 1 
+Medium 
+(5 ft tall) 
+120 ft, 240 
+ft flying (AA: 
+level IV) 
+4 3 2 1d2/1d2 
+Breath 
+weapon 
+See Page Standard None Average 
+E 
+(Any) 
+3 100+3/hp 282 3d12pp per individual. 
+
+Mephit, Steam Other Very Rare 1 
+Medium 
+(5 ft tall) 
+120 ft, 240 
+ft flying (AA: 
+level IV) 
+7 3+3 2 1d4/1d4 
+Breath 
+weapon 
+See Page Standard None Average 
+E 
+(Any) 
+3 170+4/hp 282 3d12pp per individual. 
+
+
+Merman Other Uncommon 20d10 Medium 
+10 ft, 180 ft 
+swimming 
+7 1+1 1 1d8 None None Standard 25% Average N 2 30+1/hp 284 
+1d12x1,000 cp (20%), 
+1d6x1,000 sp (30%), 
+1d4x1,000 ep (10%), 
+2d4x1,000 gp (40%), 
+1d6x1,000 pp (50%), 5d8 
+gems (55%), 1d12 jewelry 
+(45%), 2 magic items (10%). 
+
+Minotaur Other Rare 1d8 Large 120 ft 6 6+3 2 2d4/1d4 None Surprised only on a 1 Standard 20% Low CE 5 225+6/hp 284 
+1d12x1,000 cp (20%), 
+1d6x1,000 sp (30%), 
+1d4x1,000 ep (10%), 1d6 
+gems (25%), 1d3 jewelry 
+(20%), any 2 magic items 
+(10%). 
+
+Mongrelman Other Rare 10d10 Medium 90 ft 5 0+1d4 1 
+1d4 (1 HD), 1d6 (2 HD), 1d8 (3 
+HD), 1d10 (4 HD) 
+None Camouflage Standard 40% 
+Low to 
+average 
+LN 
+1 (1 HD), 2 (2 HD), 3 
+(3 HD), 3 (4 HD) 
+20+1/hp (1 HD), 
+30+2/hp (2 HD), 
+50+3/hp (3 HD), 
+100+4/hp (4 HD) 
+285 
+(in lair) 2d6x1,000 cp 
+(20%), 1d6x1,000 sp (35%), 
+1d4x1,000 ep (10%), 1d4 
+gems (25%), 1d3 jewelry 
+(20%), any two magic items 
+plus two potions (10%). 
+
+Monoclonius Dinosaur Uncommon 1d6 Large 120 ft 4/7 8 1 1d8 None None Standard None Animal N 5 400+8/hp 229 None 
+
+Mosasaurus Dinosaur Uncommon 1d3 Large 
+150 ft 
+swimming 
+6 12 1 4d8 None None Standard None Animal N 6 1,200+16/hp 230 None 
+
+Mule Animal Common 1 Large 120 ft 7 3 3 1d2/1d6/1d6 None None Standard None Semi-N 2 20+2/hp 254 None 
+
+Mummy [Turn As 
+Type 8] 
+Undead Rare 2d4 Medium 60 ft 3 6+3 1 1d12 Fear See Page See Page 80% Low LE 6 985+8/hp 241 
+1d8x1,000 cp (10%), 
+1d12x1,000 sp (15%), 
+1d8x1,000 ep (15%), 
+1d6x1,000 gp (50%), 1d10 
+gems (30%), 1d6 jewelry 
+(25%), any 2 magic item + 1 
+potion (15%). 
+
+Naga, Guardian Other Very Rare 1d2 
+Large (20 
+ft long) 
+150 ft 3 11 to 12 2 1d6/2d8 See Page None Standard 75% Exceptional LG 8 1,500+16/hp 285 
+5d6x1cp (25%), 1d%x1,000 
+sp (15%), 10d4x1,000 ep 
+(40%), 10d6x1,000 gp 
+(55%), 5d10x100 pp (25%), 
+1d% gems (50%), 10d4 
+jewelry (50%), any 4 magic 
+item + 1 potion + 1 scroll 
+(15%). 
+
+Naga, Spirit Other Rare 1d3 
+Large (15 
+ft long) 
+120 ft 4 9 to 10 1 1d3 See Page None Standard 60% High CE 7 2,750+14/hp 285 
+1d8x1,000 cp (50%), 
+1d6x1,000 sp (25%), 
+1d4x1,000 ep (25%), 
+1d4x1,000 gp (25%), 1d8 
+gems (30%), 1d4 jewelry 
+(20%), sword, armour, or 
+misc. weapon + 1d4 scrolls 
++ 1 misc. magic + 1 potion 
+(55%). 
+
+Naga, Water Other Uncommon 1d4 
+Medium 
+(10 ft 
+long) 
+90 ft, 180 ft 
+swimming 
+5 7 to 8 1 1d4 See Page None Standard 45% Very N 6 1,350+10/hp 285 
+1d8x1,000 cp (10%), 
+1d12x1,000 sp (15%), 
+1d8x1,000 ep (15%), 
+1d6x1,000 gp (50%), 1d10 
+gems (30%), 1d6 jewelry 
+(25%), any 2 magic item + 1 
+potion (15%). 
+
+Necrophidius Other Very Rare 1 
+Large (15 
+ft long) 
+90 ft 2 2 1 1d8 
+Paralyzation 
+(and see 
+page) 
+Immune to poison 
+(and see page) 
+See Page None Average N 3 125+2/hp 286 
+None, unless set to guard a 
+specifi c treasure by its 
+master. 
+
+
+Night Hag Other Very Rare 1d2 Medium 90 ft 10 8 1 2d6 See Page See Page 65% None Exceptional NE 7 1,850+10/hp 287 
+A periapt that gives the 
+possessor +2 on all saving 
+throws, and cures diseases 
+the possessor contracts. 
+With each use by a good 
+creature, the periapt 
+decays; after ten uses, it 
+vanishes. 
+
+Nightmare Other Very Rare 1 Large 
+150 ft, 360 
+ft flying (AA: 
+level IV) 
+-4 6+6 3 1d6+4/1d6+4/2d4 
+Burning 
+hooves 
+Noxious smoke Standard 50% Very NE 6 525+8/hp 288 None 
+
+Nilbog Other Very Rare 4d10 
+Small (4 ft 
+tall) 
+60 ft 6 1-1 1 1d6 or by weapon None See Page Standard 35% Average LE 3 55+1/hp 288 
+1d10x1,000 cp (25%), 
+2d4x1,000 sp (33%), 
+1d6x1,000 ep (15%), 2d4 
+gems (30%), 2d4 jewelry 
+(25%), 2 magic scrolls + 1 
+potion (25%). 
+
+Nixie 
+Sylvan or 
+Faerie 
+Rare 10d10 
+Small (4 ft 
+tall) 
+60 ft, 
+swimming 
+120 ft 
+7 1d4 hp 1 1d4 Charm None 25% 95% Very N 1 35+1/hp 235 
+Carried: magic dagger or 
+javelin, 10%. Lair: 
+1d10x1,000 cp (25%), 
+1d6x1,000 sp (25%), 
+1d6x1,000 ep (15%), 
+1d2x1,000 gp (5%), 4d6 
+gems (45%), 2d4 jewelry 
+(30%), 2 random scrolls 
+(10%). 
+
+Nothosaurus Dinosaur Uncommon 1d4 Large 
+90 ft 
+swimming 
+5 10 1 3d6 None None Standard None Animal N 6 1,000+12/hp 230 None 
+
+
+
+Nymph 
+Sylvan or 
+Faerie 
+Very Rare 1d4 Medium 120 ft 9 3 1 1d2 or by weapon See Page See Page 50% 95% Exceptional N 3 105+3/hp 236 
+4d10 gems, 1d3 potions 
+(75%). 
+
+Octopus Animal Rare 1 Large 
+180 ft 
+swimming 
+7 8 8 1d4+1/1d4+1/1d4+1/1d4+1/1d4+1/1d4+1/1d4+1/4d4 Constriction See Page Standard 40% Non-N 5 500+10/hp 255 None 
+
+Ogre Giant Common 2d10 
+Large (9 ft 
++ tall) 
+90 ft 5 4+1 1 1d10 or by weapon None None Standard 20% Low CE 3 95+5/hp 205 
+Individual: 20d4 gp; Lair: 
+1d3x1,000 gp (30%), 5d8 
+gems (40%), 2 magic items 
+(10%), 2d4 potions (40%). 
+
+Ogre Mage Giant Rare 1d6 
+Large (9 ft 
++ tall) 
+90 ft, 150 ft 
+flying (AA: 
+level III) 
+4 5+2 1 1d12 or by weapon See Page See Page Standard 25% 
+Average to 
+high 
+CE 5 750+6/hp 205 
+2d10x1,000 gp (50%), 
+1d10x1,000 pp (50%), 3d6 
+gems (25%), 1d6 jewelry 
+(25%), 1d6 potions (100%) 
+and 1d6 magic items (25%). 
+
+Orc Humanoid Common 30d10 
+Medium 
+(6 ft tall) 
+90 ft 6 1 1 1d8 or by weapon None None Standard 35% 
+Average 
+(low) 
+LE 1 10+1/hp 200 
+Individual 2d6 ep ; Lair 
+1d12x1,000 cp (50%), 
+1d6x1,000 sp (40%), 1d6 
+gems (25%), 1d3 jewelry 
+(20%), 2d4 potions (40%). 
+
+Ornitholestes Dinosaur Common 5d4 Medium 120 ft 7 2+3 1 1d8 None None Standard None Animal N 2 25+2/hp 230 None 
+
+Otyugh, Greater Other Rare 1 Large 60 ft 0 9 to 12 3 1d12/1d12/1d4+1 Grab, disease Never surprised Standard 75% Average N 
+6 (9 HD), 6 (10 HD), 
+6 (11 HD), 7 (12 HD) 
+1,000+12/hp (9 HD), 
+1,500+14/hp (10 
+HD), 1,500+14/hp 
+(11 HD), 
+2,000+16/hp (12 
+HD) 
+289 
+Otyughs possess little in 
+the way of treasure; what 
+meagre sums might be 
+found in their lairs are 
+either the remains of 
+previous victims or have 
+been accidentally 
+discarded. 
+
+Otyugh, Lesser Other Uncommon 1d2 Medium 60 ft 3 6 to 8 3 1d8/1d8/1d4+1 Grab, disease Never surprised Standard 75% Low N 
+4 (6 HD), 4 (7 HD), 5 
+(8 HD) 
+275+6/hp (6 HD), 
+400+8/hp (7 HD), 
+650+10/hp (8 HD) 
+289 
+Otyughs possess little in 
+the way of treasure; what 
+meagre sums might be 
+found in their lairs are 
+either the remains of 
+previous victims or have 
+been accidentally 
+discarded. 
+
+Owlbear Other Rare 1d4+1 
+Large (8 ft 
+tall) 
+120 ft 5 5+2 3 1d6/1d6/1d4 Hug None Standard 30% Low N 3 225+8/hp 288 
+1d12x1,000 cp, 1d6x1,000 
+sp, 1d6 gems (25%), 1d3 
+pieces of jewelry (20%). 
+
+Pegasus Other Very Rare 1d10 Large 
+240 ft, 480 
+ft flying (AA: 
+level IV) 
+6 4 3 1d8/1d8/1d3 None None Standard 15% Average CG 3 75+3/hp 289 None 
+
+Pentaceratops Dinosaur Uncommon 10d100 Large 120 ft 3/7 12 1 2d6 None None Standard None Animal N 7 1,000+18/hp 229 None 
+
+Phoenix Other Very Rare 1 Medium 
+60 ft, 400 ft 
+flying (AA: 
+III) 
+-3 20 2 1d8/1d8 See Page See Page 50% None Genius NG 9 8,000+30/hp 290 None 
+
+Piercer Other Uncommon 3d6 
+Small to 
+medium 
+10 ft 3 1 to 4 1 1d6, 1d6, 3d6 or 4d6 95% surprise None Standard None Non-N 1, 2, 3 or 4 
+10+1/hp, 30+2/hp, 
+50+3/hp or 80+4/hp 
+291 None 
+
+
+Pit Fiend 
+(Greater Devil) 
+Devil Rare 1 or 1d3 Large 
+60 ft, 150 ft 
+flying (AA: 
+level III) 
+-3 13 
+2 
+1d8+6/1d6+7 
+constriction 
+See Page 
++2 or better magic 
+weapon to hit 
+65% 65% Exceptional LE 10 7,900+18/hp 226 
+If encountered in their 
+nethermost lair, they are 
+liable to have a hoard of 
+2d4x1,000 gp (40%), 10d6 
+pp (50%), 4d8 gems (55%), 
+and 1d12 jewelry (45%). 
+Individual pit fiends will 
+typically carry only 3d8 
+copper pieces. 
+
+Pixie 
+Sylvan or 
+Faerie 
+Very Rare 5d4 Small 
+60 ft, flying 
+120 ft (AA: 
+level V) 
+5 1d4 hp 1 1d4 See Page See Page 25% 5% Exceptional N 3 50+1/hp 236 
+2d4x1,000 gp (40%), 
+1d6x1,000 pp (50%), 4d8 
+gems (55%), 1d12 jewelry 
+(45%), 2d4 potions (40%), 
+1d4 scrolls (50%), 1 misc. 
+magic (60%). 
+
+Plateosaurus Dinosaur Common 5d4 Large 120 ft 5 8 1 1d4 None None Standard None Animal N 5 475+10/hp 229 None 
+
+Plesiosaurus Dinosaur Common 1d3 Large 
+150 ft 
+swimming 
+6 20 1 5d4 None None Standard None Animal N 9 5,000+25/hp 230 None 
+
+Portuguese Man 
+O War, Giant 
+Animal Uncommon 1d10 Medium 
+10 ft 
+swimming 
+9 1 to 4 1 1d10 Paralyzation Transparent Standard None Non-N 
+2(HD 1)...3(HD 
+2)...4(HD 3)...4(HD 
+4) 
+45+1/hp(HD 
+1)...80+2/hp(HD 
+2)...110+3/hp(HD 
+3)...150+4/hp(HD 4) 
+254 None 
+
+Pseudo-Dragon Other Very Rare 1 
+Small (18 
+in) 
+60 ft, 240 ft 
+flying (AA: 
+level V) 
+2 2 1 1d3 Poison sting Chameleon power 35% 5% Average NG 3 200+2/hp 291 
+50% chance 1d4 gems (lair: 
+50% chance of 10d4 gems). 
+
+Pteranodon Dinosaur Common 2d10 Large 
+240 ft flying, 
+(AA: lvl IV) 
+7 4 1 1d8 None None Standard None Animal N 3 75+4/hp 231 None 
+
+Pterodactyl Dinosaur Common 3d12 Small 
+240 ft flying, 
+(AA: lvl IV) 
+8 1+2 1 1d6 None None Standard None Animal N 1 15+1/hp 231 None 
+
+Purple Worm Other Rare 1d2 Large 90 ft 6 15 2 2d12/2d4 See Page None Standard 30% Non-N 9 5,000+20/hp 291 
+1d8x1,000 cp (50%), 
+1d6x1,000 sp (25%), 
+1d4x1,000 ep (25%), 
+1d4x1,000 gp (25%), 1d20 
+gems (50%), 1d4 jewelry 
+(20%), sword, armour, or 
+misc. weapon (10%). 
+
+Quasit Demon Very rare 1 Small 150 ft 2 3 2 claws/1 bite 1d2/1d2/1d4 See Page See Page 25% None Low CE 5 325+3/hp 218 None 
+
+Quetzalcoatlus Dinosaur Rare 1d2 Large 
+180 ft flying, 
+(AA: lvl IV) 
+6 7 1 2d8 None None Standard None Animal N 4 400+6/hp 231 None 
+
+Quickling 
+Sylvan or 
+Faerie 
+Very Rare 4d4 Small 1,000 ft -3 2d6 hp 3 1d4/1d4/1d4 See Page See Page See Page 10% 
+High to 
+genius 
+CE 4 
+200+3/hp and 
+higher 
+237 
+2d4 gems (50%), one 
+miscellaneous magic item 
+plus two potions and a 
+scroll (60%). 
+
+Rakshasa Other Very Rare 1d4 Medium 150 ft -4 7 3 1d3/1d3/1d4+1 See Page See Page See Page 25% Very LE 7 1,000+8/hp 292 
+1d20x1,000 sp (10%), 
+1d12x1,000 ep (15%), 
+1d10x1,000 gp (40%), 
+1d8x100 pp (35%), 3d10 
+gems (20%), 1d10 jewelry 
+(10%), 3 magic items 
+except weapons + 1 potion 
++ scroll (30%). 
+
+Rat, Giant Animal Common 5d10 Small 120 ft 7 1d4 hp 1 1d3 None 
+5% chance of causing 
+a disease unless save 
+vs poison. 
+Standard 10% Semi-N 1 7+1/hp 254 None 
+
+Rat, Huge Animal Common 4d20 Small 120 ft 8 1 hp 1 1 None 
+5% chance of causing 
+a disease unless save 
+vs poison. 
+Standard 10% Semi-N 1 5+1/hp 254 None 
+
+Remorhaz Other Very Rare 1 
+Large (21 
+ft to 42 ft 
+length) 
+120 ft 
+2
+7 to 14 1 6d6 See Page See Page 75% 20% Animal N 
+HD7: 6, HD8: 6, 
+HD9: 7, HD10: 7, 
+HD11: 7, HD12: 8, 
+HD13: 8, HD14: 8 
+HD7: 625+8/hp, 
+HD8: 950+10/hp, 
+HD9: 1,400+12/hp, 
+HD10: 1,700+13/hp, 
+HD11: 2,100+14/hp, 
+HD12: 3,000+16/hp , 
+HD13: 3,500+17/hp, 
+HD14: 4,200+18/hp 
+292 None 
+
+Rhamphorynchus Dinosaur Uncommon 2d12 Large 
+210 ft flying, 
+(AA: lvl IV) 
+7 2+4 1 1d8 None None Standard None Animal N 2 50+2/hp 231 None 
+
+Rhinoceros 
+Animal Common 1d6 Large 120 ft 6 8 1 2d4 or 2d6 Charge None Standard None Amimal N 7 550+10/hp 255 None 
+
+Woolly Rhinoceros
+Animal Common 1d4 Large 120 ft 5 10 1 2d6 Charge None Standard None Amimal N 7 900+12/hp 255 None 
+
+Roc Other Rare 1d2 
+Large (60 
+ft + 
+wingspan) 
+30 ft, 300 ft 
+flying (AA: 
+level II) 
+4 18 2 3d6/3d6 None None Standard 10% Animal N 8 3,010+25/hp 292 
+1d12x1,000 cp (20%), 
+1d6x1,000 sp (30%), 
+1d4x1,000 ep (10%), 1d6 
+gems (25%), 1d33 jewelry 
+(20%), 2 magic items (10%). 
+
+Roper Other Rare 1d4 Large 30 ft 0 11 1 2d10+2 See Page See Page 80% 93% Exceptional CE 9 2,700+16/hp 293 
+Ropers do not hoard 
+treasure but their acidic 
+bile cannot dissolve 
+platinum or gemstones. 
+Cutting open the gizzard of 
+a roper has a 40% chance 
+of yielding 3d6 (3-18) 
+platinum pieces and 30% 
+chance of 4d6 (4-24) gems. 
+
+Roper, Quartz Other Rare 1 
+Medium 
+(5 ft) 
+10 ft 0 6 1 1d10 See Page See Page Standard 93% High CE 5 525+6/hp 293 
+Ropers do not hoard 
+treasure but their acidic 
+bile cannot dissolve 
+platinum or gemstones. 
+Cutting open the gizzard of 
+a roper has a 40% chance 
+of yielding 3d6 (3-18) 
+platinum pieces and 30% 
+chance of 4d6 (4-24) gems. 
+
+
+Sahuagin, Baron Other Very Rare 1 Medium 
+120 ft, 240 
+ft swimming 
+3 6+6 1 1d8 See Page See Page Standard 100% High LE 4 300+8/hp 294 
+Individuals :1d6 pp each; 
+Lair: 2d6x1,000 gp (75%), 
+3d6x100 pp (50%), 3d8 
+gems (50%), 2d6 jewelry 
+(50%), 1 miscellaneous 
+magic and 1 potion (50%). 
+
+Sahuagin, 
+Female 
+Other Uncommon 30d4 Medium 
+120 ft, 240 
+ft swimming 
+6 2 1 1d8 See Page See Page Standard 100% High LE 2 20+2/hp 294 
+Individuals :1d6 pp each; 
+Lair: 2d6x1,000 gp (75%), 
+3d6x100 pp (50%), 3d8 
+gems (50%), 2d6 jewelry 
+(50%), 1 miscellaneous 
+magic and 1 potion (50%). 
+
+Sahuagin, Guard Other Uncommon 3d6 Medium 
+120 ft, 240 
+ft swimming 
+5 3+3 1 1d8 See Page See Page Standard 25% High LE 3 50+4/hp 294 
+Individuals :1d6 pp each; 
+Lair: 2d6x1,000 gp (75%), 
+3d6x100 pp (50%), 3d8 
+gems (50%), 2d6 jewelry 
+(50%), 1 miscellaneous 
+magic and 1 potion (50%). 
+
+Sahuagin, 
+Hatchling 
+Other Uncommon 10d4 Small 
+120 ft, 240 
+ft swimming 
+7 1 1 1d4 See Page See Page Standard 100% High LE 1 10+1/hp 294 
+Individuals :1d6 pp each; 
+Lair: 2d6x1,000 gp (75%), 
+3d6x100 pp (50%), 3d8 
+gems (50%), 2d6 jewelry 
+(50%), 1 miscellaneous 
+magic and 1 potion (50%). 
+
+Sahuagin, King Other Very Rare 1 Medium 
+120 ft, 240 
+ft swimming 
+1 10+10 4 1d8 See Page See Page Standard 100% Exceptional LE 6 1,250+14/hp 294 
+Individuals :1d6 pp each; 
+Lair: 2d6x1,000 gp (75%), 
+3d6x100 pp (50%), 3d8 
+gems (50%), 2d6 jewelry 
+(50%), 1 miscellaneous 
+magic and 1 potion (50%). 
+
+Sahuagin, 
+Priestess 
+Other Very Rare 1d4+1 Medium 
+120 ft, 240 
+ft swimming 
+5 2 to 6 1 1d8 See Page See Page Standard 100% Exceptional LE Variable Variable 294 
+Individuals :1d6 pp each; 
+Lair: 2d6x1,000 gp (75%), 
+3d6x100 pp (50%), 3d8 
+gems (50%), 2d6 jewelry 
+(50%), 1 miscellaneous 
+magic and 1 potion (50%). 
+
+Sahuagin, Prince Other Very Rare 1 Medium 
+120 ft, 240 
+ft swimming 
+2 8+8 2 1d8 See Page See Page Standard 100% High LE 5 500+12/hp 294 
+Individuals :1d6 pp each; 
+Lair: 2d6x1,000 gp (75%), 
+3d6x100 pp (50%), 3d8 
+gems (50%), 2d6 jewelry 
+(50%), 1 miscellaneous 
+magic and 1 potion (50%). 
+
+Sahuagin, 
+Warchief 
+Other Rare 1 Medium 
+120 ft, 240 
+ft swimming 
+4 4+4 1 1d8 See Page See Page Standard 25% High LE 4 100+5/hp 294 
+Individuals :1d6 pp each; 
+Lair: 2d6x1,000 gp (75%), 
+3d6x100 pp (50%), 3d8 
+gems (50%), 2d6 jewelry 
+(50%), 1 miscellaneous 
+magic and 1 potion (50%). 
+
+Sahuagin, 
+Warrior 
+Other Uncommon 20d4 Medium 
+120 ft, 240 
+ft swimming 
+5 2+2 1 1d8 See Page See Page Standard 25% High LE 2 30+3/hp 294 
+Individuals :1d6 pp each; 
+Lair: 2d6x1,000 gp (75%), 
+3d6x100 pp (50%), 3d8 
+gems (50%), 2d6 jewelry 
+(50%), 1 miscellaneous 
+magic and 1 potion (50%). 
+
+
+Saurolophus 
+Dinosaur 
+Uncommon 
+4d8 
+Large 
+150 ft 
+7 
+8 
+1 
+1d8 
+None 
+None 
+Standard 
+None 
+Animal 
+N 
+5 
+500+10/hp 
+228.
+
+
+Saurophaganax Dinosaur Uncommon 1 or 2d8 Large 150 ft 6 16 1 3d8 None None Standard 15% Animal 8 2,250+20/hp 227 None
+
+Scorpion, Huge Other Uncommon 1d4 Small 120 ft 4 4+4 3 1d8/1d8/1d3 Poison sting None Standard 25% Non-N 4 125+5/hp 295 
+(lair only) 1d8x1,000 cp 
+(10%), 1d12x1,000 sp 
+(15%), 1d8x1,000 ep (15%), 
+1d6x1,000 gp (30%), 1d10 
+gems (10%), 1d6 jewelry 
+(5%), 2 misc. magic + 1 
+potion (5%). 
+
+Scorpion, Large Other Common 1d6 Small 90 ft 5 2+2 3 1d4/1d4/1d2 Poison sting None Standard 25% Non-N 3 75+3/hp 295 
+(lair only) 1d8x1,000 cp 
+(10%), 1d12x1,000 sp 
+(15%), 1d8x1,000 ep (15%), 
+1d6x1,000 gp (30%), 1d10 
+gems (10%), 1d6 jewelry 
+(5%), 2 misc. magic + 1 
+potion (5%). 
+
+Sea Hag Other Rare 1d3 Medium 
+90 ft, 150 ft 
+swimming 
+7 3 
+2 
+1d3+3/1d3+3 See Page See Page 50% 50% Average CE 5 410+2/hp 295 
+1d10x1,000 cp (25%), 
+1d8x1,000 sp (25%), 
+1d6x1,000 go (25%), 1d6 
+gems (25%), 1d3 jewelry 
+(25%) and any two magic 
+items (10%). 
+Sea Serpent Other Uncommon 1d2 
+Large (50 
+ft long) 
+120 ft 
+swimming 
+5 10 2 1d6/3d6 
+Poison, 
+constrict 
+None None 5% Animal N 7 1,000+12/hp 296 None 
+Shadow [Turn As 
+Type 4] 
+Undead Rare 2d10+1 Medium 120 ft 7 3+1 1 1d6 
+Drains 
+strength, 
+dexterity or 
+constitution 
++1 or better weapon 
+to hit; immune to cold, 
+poison, and 
+paralysation, as well 
+as sleep, charm, hold 
+and other mental 
+attacks. 
+Standard 40% Low CE 4 250+4/hp 242 
+2d10x1,000 sp (10%); 
+2d6x1,000 ep (15%); 
+2d4x1,000 gp (45%); 
+1d6x1,000 pp (33%); 4d8 
+gems (20%); 2d4 jewelry 
+(8%); any 3 magic items 
+(33%). 
+Shaitan (Greater 
+Devil; Styx Fiend) 
+Devil Very Rare 1d2 Medium 
+60 ft, 150 ft 
+flying (AA: 
+level IV) 
+-1 6+6 1 2d4 See Page See Page 50% 60% High LE 7 1,275+8/hp 225 
+If encountered in their 
+hellish lairs, Shaitan are 
+likely to have 2d4x1,000 gp 
+(40% chance), 1d6x10 pp 
+(50%), 4d8 gems (55%) and 
+1d12 jewelry (45%). 
+Individual shaitan will 
+sometimes be found 
+carrying 1d4 gems (50% 
+chance) as well. 
+Shambling 
+Mound 
+Other Rare 1d3 Large 60 ft 0 8 to 11 2 2d8/2d8 Suffocation See Page See Page 30% Low N Variable Variable 296 
+1d8x1,000 cp (50%), 
+1d6x1,000 sp (25%), 
+1d4x1,000 ep (25%), 
+1d3x1,000 gp (25%), 1d8 
+gems (30%), 1d4 jewelry 
+(20%), sword, armour, or 
+misc. weapon + 1d4 scrolls 
++ 1 misc. magic item + 1 
+potion (60%). 
+Shantungosaurus Dinosaur Uncommon 3d10 Large 150 ft 6 10 1 1d10 None None Standard None Animal N 7 1,500+14/hp 228 None 
+
+Shark Animal Common 3d4 
+Medium 
+to Large 
+240 ft 
+swimming 
+6 3 1 1d4+1 None None Standard None Non-N 3 50+2/hp or more 255 None 
+Shedu Other Rare 2d4 Large 
+120 ft, 240 
+ft flying (AA: 
+level IV) 
+4 9+9 2 1d6/1d6 See Page See Page 25% 25% Exceptional LG 7 1,950+14/hp 296 
+10d4x1,000 gp (50%), 
+1d20x100 pp (50%), 5d4 
+gems (30%), 1d10 jewelry 
+(25%), any 4 magic item + 1 
+scroll (35%).
+ 
+Shub Demon Common 
+1d4 or 
+3d4 (in 
+the 
+Abyss) 
+Medium 120 ft 1 5+1 
+2 
+1d6+1/1d6+1 See Page See Page 40% 20% Average CE 5 425+6/hp 219 
+Shub love treasure, and will 
+try to steal or swindle to 
+get it. Most Shub will have 
+some coins in a sack or 
+pouch (2d12x10 ep, 2d4x5 
+gp). If encountered in their 
+lair, Shub may have 
+1d4x1,000 cp (25%), 
+1d3x1,000 sp (20%) and 
+1d4 random gems (50%). 
+Skeleton [Turn 
+As Type 1] 
+Undead Rare 3d10 Medium 120 ft 7 1 1 1d6 None 
+Immune to cold, sleep, 
+charm, hold and other 
+mental based attacks. 
+Standard None None N 1 15+1/hp 242 None 
+
+Skeleton Warrior Other Very Rare 1 Medium 60 ft 2 
+9+2 
+1 1d8+3 See Page See Page 90% 5% Exceptional NE 7 2,000+16/hp 297 
+1d8x1,000 cp (50%), 
+1d6x1,000 sp (25%), 
+1d4x1,000 ep (25%), 
+1d3x1,000 gp (25%), 1d8 
+gems (30%), 1d4 jewelry 
+(20%), sword, armour, or 
+misc. weapon + 1d4 scrolls 
++ 1 misc. magic item + 1 
+potion (60%). 
+
+Slug, Giant Other Uncommon 1 Large 60 ft 8 12 1 1d12 Spit acid See Page Standard None Non-N 7 2,000+16/hp 298 None 
+Snake, Giant 
+Adder 
+Other Uncommon 1d6 Large 150 ft 5 4+2 1 1d4 Poison None Standard None Animal N 4 155+4/hp 298 None 
+Snake, Giant 
+Amphisbaena 
+Other Very Rare 1d3 
+Medium 
+(6 ft long) 
+120 ft 3 6 2 1d4/1d4 Poison None Standard None Animal N 5 475+6/hp 298 None 
+
+Snake, Giant Boa Other Uncommon 1d2 Large 90 ft 5 6+1 2 1d4/2d4 Constriction None Standard None Animal N 5 345+8/hp 298 None 
+
+Snake, Giant 
+Cobra 
+Other Rare 1d4 Large 120 ft 5 4+2 1 1d4 See Page None Standard None Animal N 4 190+4/hp 298 None 
+
+Soul Worm Devil Common 10d4 Medium 60 ft 7 1 1 1d4+1 None None Standard 100% Low Any E 1 10+1/hp 226 None 
+
+Spectre [Turn As 
+Type 9] 
+Undead Rare 1d6 Medium 
+150 ft
+2 7+3 1 1d8 Level drain 
++1 or better weapon 
+to hit; immune to cold, 
+poison, paralysation, 
+and elemental spells, 
+as well as sleep, 
+charm, hold and other 
+mental attacks. 
+Standard 20% High LE 7 1,815+10/hp 243 
+3d4 gems (50%); 3d4x1,000 
+gp (70%); 1 misc. magic 
+item (60%); 1d2 potions 
+(70%). 
+
+Sphinx, Andro Other Very Rare 1 
+Large (12 
+ft long) 
+180 ft, 240 
+ft flying (AA: 
+level III) 
+-1 10 2 1d10+1/1d10+1 See Page None Standard 50% Very N/NG 7 1,500+4/hp 299 
+10d8 gems (85%), 5d6 
+jewelry (75%), 2d4 magic 
+items (70%). 
+
+Sphinx, Crio Other Very Rare 1d2 
+Large (9 ft 
+long) 
+160 ft, 240 
+ft flying (AA: 
+level III) 
+-2 9 3 1d8/1d8/1d10 See Page None Standard 20% Average N 7 900+4/hp 299 
+3d6x1,000 sp (10%), 
+2d6x1,000 ep (15%), 
+1d8x1,000 gp (40%), 
+1d8x100pp (30%), 3d8 
+gems (15%), 1d12 jewelry 
+(10%), any three magic plus 
+one potion and one scroll 
+(25%). 
+
+Sphinx, Gyno Other Rare 1 
+Large (10 
+ft long) 
+150 ft, 240 
+ft flying (AA: 
+level III) 
+0 7 3 1d6/1d6/1d12 See Page None Standard 30% Very CN/CG 6 650+8/hp 299 
+2d4x1,000 gp (40%), 
+1d6x1,000 pp (50%), 4d8 
+gems (50%), 2d6 jewelry 
+(35%), 1 misc. magic plus 
+one potion (50%). 
+
+Sphinx, Hieraco Other Uncommon 1 
+Large (7 ft 
+long) 
+140 ft, 220 
+ft flying (AA: 
+level III) 
+0 8 3 1d8+1/1d8+1/1d8+1 None None Standard 40% Average CN/CE 6 600+12/hp 300 
+1d12x1,000 cp (5%), 
+1d10x1,000 sp (25%), 
+1d6x1,000 ep (25%), 
+1d6x1,000 gp (25%), 2d6 
+gems (10%), 1d8 jewelry 
+(10%), any three magic plus 
+one scroll (25%). 
+Spider, Giant Other Uncommon 1d8 Large 
+30 ft, 120 ft 
+in web 
+4 4+4 1 1d8 Poison, webs None Standard 75% Low CE 4 325+5/hp 300 
+2d6x1,000 cp (20%), 
+1d6x1,000 sp (25%), 
+1d4x1,000 ep (10%), 1d6 
+gems (25%), 1d3 jewelry 
+(15%), 1d3 magic items 
+(10%). 
+Spider, Giant 
+Water 
+Other Common 1 Large 
+140 ft 
+underwater 
+7 3+3 1 1d4+1 Poison None Standard 40% Semi-N 4 200+4/hp 301 
+1d8x1,000 cp (30%), 
+1d8x1,000 sp (30%), 
+1d8x1,000 ep (30%), 1d3 
+gems (20%), 1d6 jewelry 
+(30%), 1d2 magic items 
+(10%). 
+Spider, Huge Other Common 2d6 Medium 180 ft 6 2+2 1 1d6 See Page None Standard 50% Animal N 3 150+3/hp 301 
+4d6 cp (90%), 3d6 sp (80%), 
+2d6 ep (70%), 2d6 gp 
+(60%), 1d6 pp (50%), 1d3 
+gems (40%). 
+Spider, Large Other Common 2d12 Small 
+60 ft, 150 ft 
+in web 
+6 1+1 1 1d4 See Page None Standard 50% Animal N 2 75+2/hp 301 
+4d6 cp (90%), 3d6 sp (80%), 
+2d6 ep (70%), 2d6 gp 
+(60%), 1d6 pp (50%). 
+
+Spider, Phase Other Very Rare 1 Large 
+60 ft, 120 ft 
+in web 
+7 5+5 1 1d4+1 See Page See Page Standard 75% Low N 5 700+6/hp 301 
+1d10x1,000 cp (20%), 
+1d10x1,000 sp (20%), 
+1d10x1,000 ep (20%), 
+1d10x1,000 gp (20%), 
+1d10x100 pp (20%), 1d4 
+gems (10%), 1d10 jewelry 
+(10%), any three magic 
+items plus one scroll (15%). 
+
+Spiked Devil 
+(Least Devil; 
+Spined Fiend) 
+Devil Common 
+2d4 or 
+5d4 
+Small 
+60 ft, 180 ft 
+flying (AA: 
+level IV) 
+3 3+3 
+2
+1d4/1d4 See Page See Page 25% 10% Low LE 4 240+4/hp 226 
+These devils rarely have 
+any sort of treasure or 
+possessions beyond their 
+weapon. Only when serving 
+as a messenger are they 
+likely to possess something 
+of value. In these cases, the 
+GM should decide what, if 
+anything the spiked devil is 
+carrying. 
+
+Sprite 
+Sylvan or 
+Faerie 
+Rare 10d10 Small 
+90 ft, flying 
+180 ft (AA: 
+level III) 
+6 1 1 1d8 See Page See Page Standard 20% Very NG 3 50+1/hp 237 
+In lair: 1d10x1,000 cp 
+(25%), 1d6x1,000 sp (25%), 
+1d6x1,000 ep (15%), 
+1d2x1,000 gp (5%), 4d6 
+gems (45%), 2d4 jewelry 
+(30%), 2 random scrolls 
+(10%). 
+Squealer Other Very Rare 
+1 or 
+1d3+1 
+Large 120 ft 6 12 3 1d6+6/1d4/1d4 See Page Camouflage Standard 20% Semi-N 9 2,000+16/hp 302 
+The squealer does not 
+hoard treasure and places 
+no value on it. However, its 
+lair might contain treasure 
+assigned by the GM—this 
+would be appropriate in 
+cases where it has slain a 
+creature carrying treasure 
+and dragged that creature 
+back to its lair. 
+Squid, Giant Animal Rare 1 Large 
+180 ft 
+swimming 
+3/7 12 9 1d6(x8)/5d4 Constriction See Page Standard 40% Non-N 7 2,000+16/hp 255 None 
+Stegosaurus Dinosaur Common 2d4 Large 60 ft 3 10 1 2d8 None None Standard None Animal N 4 150+6/hp 229 None 
+Stirge Other Uncommon 3d10 Small 
+30 ft, 180 ft 
+flying (AA: 
+level IV) 
+8 1+1 1 1d3 See Page None Standard 55% Animal N 2 35+2/hp 302 
+1d8x1,000 cp (10%), 
+1d12x1,000 sp (15%), 
+1d8x1,000 ep (15%), 
+1d6x1,000 gp (50%), 2d6 
+gems (50%), 1d6 jewelry 
+(25%), 1d2 magic items + 1 
+potion (15%). 
+Stunjelly Other Uncommon 1 Large 30 ft 8 4 1 2d4 See Page See Page Standard 95% Non-N 4 150+4/hp 302 
+Stunjellies carry only what 
+they have consumed. 
+Styracosaurus Dinosaur Uncommon 1d20 Large 120 ft 2/7 9 1 1d10 None None Standard None Animal N 5 550+8/hp 229 None 
+
+Succubus Demon Rare 1 Medium 
+120 ft, 180 
+ft flying (AA: 
+level IV) 
+0 6 2 1d3/1d3 Energy drain 
++1 or better magic 
+weapon to hit 
+70% 5% Exceptional CE 7 2,100+6/hp 219 
+If encountered in their lair, 
+a succubus will have 
+3d6x1,000 pp (30%), 2d10 
+gems (55%), 1d12 jewelry 
+(50%) and perhaps a 
+random magic item (15%). 
+
+Tarbosaurus Dinosaur Uncommon 1 or 2d6 Large 150 ft 5 18 1 3d8 None None Standard 15% Animal N 9 3,500+20/hp 227 None 
+Telmatosaurus Dinosaur Uncommon 6d10 Large 150 ft 9 4 1 1d6 None None Standard None Animal N 3 75+4/hp 228 None 
+Tick, Giant Other Rare 3d4 Small 30 ft 4 3 1 1d4 See Page None Standard None Non-N 2 50+2/hp 303 None 
+Tiger Animal Uncommon 1d4 Large 120 ft 6 5+5 3 1d6/1d6/1d10 See Page Surprised only on 1 Standard 7% Animal N 4 250+6/hp 256 None 
+Tiger, Smilodon Animal Rare 1d2 Large 120 ft 6 7+2 3 1d8/1d8/2d6 See Page Surprised only on 1 Standard 15% Animal N 5 525+10/hp 256 None 
+
+Titan Other Very Rare 1 
+Large (18 
+ft or 
+more) 
+210 ft
+2 
+17 1 7d6
+Spells See Page 60% 10% 
+Genius or 
+Supra-
+Genius 
+CG Variable Variable 303 
+1d10x1,000 cp (5%), 
+1d12x1,000 sp (25%), 
+1d6x1,000 ep (25%), 
+1d12x1,000 gp (40%), 
+1d6x1,000 pp (50%), 2d20 
+gems (50%), 1d8 jewelry 
+(10%), any 3 magic item + 1 
+scroll (25%). 
+
+Toad, Giant Animal Common 1d12 Medium 
+60 ft
+6 2+4 1 2d4 None None Standard None Animal N 2 20+2/hp 256 None 
+
+Toad, Giant 
+Poisonous 
+Animal Uncommon 1d8 Medium 
+60 ft
+7 2 1 1d4+1 
+Poisonous 
+bite that kills 
+unless 
+poison save. 
+None Standard None Animal N 2 50+2/hp 256 None 
+
+Treant 
+Sylvan or 
+Faerie 
+Rare 1d20 Large 120 ft 0 
+7-12 
+2 2d8/2d8
+Animate 
+trees 
+Cannot be surprised Standard 10% Very CG 7...8...9...10...11...12 
+7HD: 
+1,295+8/hp...8HD: 
+1,600+10/hp...9HD: 
+2,050+12/hp...10HD: 
+2,350+13/hp...11HD: 
+2,750+14/hp...12HD: 
+3,600+16/hp 
+238 
+10d4 gems (50%); 2d4 
+potions (40%). 
+
+Tree, Animated 
+Sylvan or 
+Faerie 
+Rare 1d2 Large 30 ft 0 12 2 4d6/4d6 None None Standard 100% Non-N 7 
+1,300+16/hp (none 
+if animated by a 
+treant) 
+238 None 
+Triceratops Dinosaur Common 1d20 Large 120 ft 3/7 16 1 3d6 None None Standard None Animal N 8 2,000+20/hp 229 None 
+
+Triton Other Rare 10d6 Medium 
+150 ft, 150 
+ft swimming 
+4 3 1 1d8 See Page None 90% 25% High + NG Variable 
+Normal warrior 
+110+2/hp, Leader 
+(4HD) 145+3/hp, 
+Leader (5HD) 
+190+4/hp, Leader 
+(6HD) 280+6/hp, 
+Leader (9HD) 
+1,000+12/hp 
+304 
+In lair only: 1d12x1000cp 
+(20%); 1d6x1000sp (30%); 
+1d4x1000ep (10%); 1d6 
+gems (25%); 1d3 jewelry 
+(20%); any 2 magic items 
+(10%); 2d4x1000gp (40%); 
+1d6x1000pp (50%); 4d8 
+gems (55%); 1d12 jewelry 
+(45%); 2d4 potions (40%); 
+1d4 scrolls (50%); 1 
+miscellaneous magic and 1 
+potion (60%). 
+
+Troglodyte Humanoid Common 10d10 Medium 120 ft 5 2 3 1d3/1d3/1d4+1 
+Repulsive 
+Odor 
+See Page Standard 15% Low CE 2 20+2/hp 201 
+Individual 2d6 ep; Lair 
+1d6x1,000 cp (25%), 
+1d6x1,000 sp (30%), 
+1d6x1,000 ep (35%), 
+1d10x1,000 gp (40%), 
+1d4x100 pp (25%), 4d10 
+gems (60%), 3d10 jewelry 
+(50%), 3 magic items (30%). 
+Troll Giant Uncommon 1d12 
+Large (9 ft 
++ tall) 
+120 ft 4 6+6 3 1d4+4/1d4+4/2d6 See Page Regeneration Standard 40% Low CE 6 525+8/hp 206 
+Lair 1d8x1,000 cp (10%), 
+1d12x1,000 sp (15%), 
+1d8x1,000 ep (15%), 
+1d6x1,000 gp (50%), 1d10 
+gems (30%), 1d6 jewelry 
+(25%), 2 magic items or 1 
+potion (15%). 
+Troll, Giant Giant Rare 1d12 
+Large (10 
+ft tall) 
+120 ft 4 8 1 2d8 None Regeneration Standard 33% Low CE 6 750+10/hp 206 
+2d6x1,000 cp (20%), 
+1d6x1,000 sp (35%), 
+1d4x1,000 ep (15%), 1d6 
+gems (25%), 1d4 jewelry 
+(25%), any 2 maps or magic 
+(10%). 
+Troll, Giant Two-
+Headed 
+Giant Very rare 1d3 
+Large (10 
+ft tall) 
+120 ft 4 10 4 1d6/1d6/1d10/1d10 None Regeneration Standard 35% Average CE 7 1,750+15/hp 206 
+1d8x1,000 cp (20%), 
+1d10x1,000 sp (30%), 
+1d10x1,000 ep (15%), 
+1d6x1,000 gp (60%), 2d6 
+gems (35%), 1d6 jewelry 
+(20%), any 2 maps or magic 
+plus 1 potion (25%). 
+Troll, Ice Giant Rare 1d6 
+Large (9 ft 
+tall) 
+90 ft 8 2 2 1d8/1d8 None 
+Regeneration, 
+impervious to cold, 
+magical weapons to 
+hit 
+Standard 10% Semi-CE 2 45+2/hp 206 
+1d10x1,000 cp (10%), 
+1d20x1,000 sp (20%), 
+1d6x1,000 ep (10%), 
+1d8x1,000 gp (40%), 1d12 
+gems (25%), 1d8 jewelry 
+(25%). 
+Troll, Spectral Giant Very rare 1d2 
+Large (8 ft 
+tall) 
+150 ft 2 5+5 3 1d6/1d3/1d3 
+Strength 
+point drain 
+Regeneration, 
+impervious to cold, 
+magical weapons to 
+hit, invisibility 
+30% None Very CE 6 625+6/hp 207 None 
+
+Turtle, Giant Sea Animal Uncommon 1d3 Large 
+10 ft, 150 ft 
+swimming 
+2 
+15 1 4d4 
+Overturn 
+boats 
+None Standard None Animal N 7 2,400+20/hp 256 None 
+
+Turtle, Giant 
+Snapping 
+Animal Uncommon 1d4 Large 
+30 ft, 120 ft 
+swimming 
+0 
+10 1 6d4 
+Surprise on a 
+1-4 on 1d6 
+None Standard None Animal N 7 1,500+14/hp 256 None 
+Tyrannosaurus Dinosaur Uncommon 1 or 2d6 Large 150 ft 5 20 1 3d10 None None Standard 15% Animal N 9 5,000+25/hp 227 None 
+
+Uduk Demon Uncommon 
+1d3 or 
+1d6 (in 
+the 
+Abyss) 
+Medium 
+90 ft 
+-3 6+6 3 1d6/1d6/2d6 See Page See Page 45% 10% Very CE 7 1,725+10/hp 220 
+If encountered in their lair, 
+uduk will have a pile of 
+treasure including 
+1d12x1,000 cp (20%), 
+1d6x1,000 sp (30%), 
+1d4x1,000 ep (10%), 1d6 
+gems (25%) and 1d3 
+jewelry (20%). In addition, 
+they might (10%) have 1d2 
+random magical items. 
+
+Unicorn 
+Sylvan or 
+Faerie 
+Rare 1d4+1 Large 240 ft 2 4+4 
+3 
+1d6/1d6/1d12 Charge 
+Save as level 11 magic 
+user; immune to 
+charm, hold, death 
+magic, and poison; 
+never surprised within 
+240 ft; surprise 1-5 on 
+d6; dimension door 
+1/day (360 ft range) 
+Standard 5% Average CG 5 440+4/hp 238 
+20d4 gems (50%); 1 
+miscellaneous magic item 
+and 1 potion (60%). 
+Vampire [Turn As 
+Type 10] 
+Undead Rare 1d4 Medium 
+120 ft or 
+180 ft flying 
+(AA: level V) 
+1 8+3 1 1d6+4 See Page See Page See Page 25% Exceptional CE 8 3,810+12/hp 243 
+1d20x1,000 sp (10%); 
+1d12x1,000 ep (10%); 
+1d10x1,000 gp (40%); 
+1d8x100 pp (35%); 3d10 
+gems (20%); 1d10 jewelry 
+(10%); 3 magic items (30%). 
+Velociraptor Dinosaur Common 4d4 Large 150 ft 6 6 1 3d4 None None Standard None Animal N 6 1,000+12/hp 229 None 
+Vilstrak Other Rare 2d10 Medium 90 ft 2 1d6 2 1d4+1/1d4+1 
+Surprise on 
+1-4 
+None Standard 10% Low NE 1 5+1/hp 304 
+None carried. Lair: 
+2d6x1,000 cp (30%), 
+1d6x1,000 sp (30%), 
+1d6x1,000 ep (10%), 1d6 
+gems (30%), 1d3 jewelry 
+(15%), 1 potion or scroll 
+(10%). 
+Volt Other Uncommon 2d12 Small 
+60 ft
+3 2+1 1 1d4 See Page 
+Immune to electricity 
+and lightning 
+Standard 10% Animal N 2 50+3/hp 304 None 
+
+Vulchling Other Rare 2d8 Medium 
+60 ft, 30 ft 
+flying (AA: 
+level IV) 
+7 1 2 1d4/1d4 None None Standard 30% Low CE 1 10+1/hp 305 
+3d6 each of cp, sp, ep 
+(25%); 1d8 gp (25%). 
+Walrus Animal Uncommon 3d6 Large 
+60 ft, 180 ft 
+swimming 
+5 6 3 1d6/1d6/2d12 None None Standard 20% Animal N 4 160+6/hp 257 
+The ivory tusks of this 
+animal can be sold for 
+1d4+1x100 gp on the 
+market. 
+
+Wasp, Giant Other Rare 
+1d20; 
+1d20+20 
+in lair 
+Medium 
+60 ft, 210 ft 
+flying (AA: 
+level V) 
+4 4 2 1d4/2d4 Poison sting None Standard 25% Non-N 5 300+3/hp 305 20d4 gems (50%). 
+Weasel, Giant Animal Rare 1d8 Medium 150 ft 6 3+3 1 2d6 See Page None Standard 10% Animal N 3 75+3/hp 257 
+Giant weasel pelts for 
+2d6x100 gp or more. 
+Weasel, Huge Animal Uncommon 2d6 Small 150 ft 7 1+1 3 1d8 See Page None Standard 10% Animal N 2 40+2/hp 257 
+Huge weasel pelts sell for 
+1d6x100 gp. 
+Werebear Lycanthrope Rare 1d4 Large 90 ft 2 7+3 3 1d3/1d3/2d4 Hug for 2d8 
+Hit only by silver or 
+magic weapons 
+Standard 10% Exceptional CG 5 850+10/hp 232 
+2d4x1,000 gp (40%), 
+1d6x100 pp (50%), 4d8 
+gems (55%), 1d12 jewelry 
+(50%), 1d4 scrolls + 1 misc. 
+magic + 1 potion (60%). 
+Wereboar Lycanthrope Rare 2d4 Large 120 ft 4 5+2 1 2d6 None 
+Hit only by silver or 
+magic weapons 
+Standard 20% Average N 4 250+6/hp 232 
+1d8x1,000 cp (50%), 
+1d6x1,000 sp (25%), 
+1d4x1,000 ep (25%), 
+1d3x1,000 gp (25%), 1d8 
+gems (30%), 1d4 jewelry 
+(20%), sword, armour, or 
+misc. wpn +2d4 potions 
+(40%). 
+Wererat Lycanthrope Uncommon 4d6 
+Small to 
+medium 
+120 ft 6 3+1 1 1d8 (sword) 
+Surprises on 
+1-4 in 6 
+Hit only by silver or 
+magic weapons 
+Standard 30% Very LE 3 150+4/hp 232 
+1d12x1,000 cp (20%), 
+1d6x1,000 sp (30%), 
+1d4x1,000 ep (10%), 1d6 
+gems (25%), 1d3 jewelry 
+(25%), any 2 magic items 
+(10%). 
+
+Weretiger Lycanthrope Very Rare 1d6 Large 120 ft 3 6+2 3 1d4/1d4/1d12 
+Rake for 
+1d4+1/1d4+1 
+Hit only by silver or 
+magic weapons 
+Standard 15% Average N 4 500+8/hp 232 
+1d8x1,000 cp (10%), 
+1d12x1,000 sp (15%), 
+1d8x1,000 ep (15%), 
+1d6x1,000 gp (50%), 2d6 
+gems (50%), 1d6 jewelry 
+(25%), any 2 magic item + 1 
+potion (15%). 
+
+Werewolf Lycanthrope Common 3d6 Medium 150 ft 5 4+3 1 2d4 
+Surprises on 
+a 1-3 in 6 
+Hit only by silver or 
+magic weapons 
+Standard 25% Average CE 3 200+5/hp 232 
+1d8x1,000 cp (50%), 
+1d6x1,000 sp (25%), 
+1d4x1,000 ep (25%), 
+1d3x1,000 gp (25%), 1d8 
+gems (30%), 1d4 jewelry 
+(20%), sword, armour, or 
+misc. weapon (10%). 
+
+Whale Animal Common 1d8 Large 
+180 ft 
+4 12 1 5d4 None None Standard None Low N Varies Varies 257 
+Whale ambergris from a 
+single whale is worth 
+1d20x1,000gp if properly 
+collected. Whale meat is 
+worth 100gp per hit die of 
+the whale. Additionally, 
+there is a 1% chance each 
+of fi nding cp, sp, ep, pp, 
+gems, jewelry, and magic 
+items within the stomach 
+of a whale. Coins found will 
+number 1d3x1,000 of the 
+types found, gems and 
+jewelry will number 1d20 if 
+found, and magic items will 
+number 1d4. 
+
+Wight [Turn As 
+Type 5] 
+Undead Uncommon 2d8 Medium 120 ft 5 4+3 1 1d4 Level drain 
+Silver or magic 
+weapon required to 
+hit; spell immunities. 
+Standard 70% Average LE 6 590+4/hp 244 
+1d8x1,000 cp (50%); 
+1d6x1,000 sp (25%); 
+1d4x1,000 ep (25%); 
+1d3x1,000 gp (25%); 1d8 
+gems (30%); 1d4 jewelry 
+(20%); 1 magic item 
+(sword, armour, or 
+miscellaneous magic) 
+(10%). 
+
+Will-O-the-Wisp Other Uncommon 1d3 Small 
+180 ft flying 
+(AA: level 
+VI) 
+-8 9 1 2d8 
+Electrical 
+shock 
+Spell immunities Standard 50% Exceptional CE 7 1,400+12/hp 305 
+1d3x1000 cp (20%); 
+1d4x1000 sp (25%); 
+1d4x1000 ep (25%); 
+1d4x1000 gp (30%); 
+1d6x100 pp (30%); 10d6 
+gems (55%); 5d6 jewelry 
+(50%); 1d3 magic items 
+(50%). 
+Wolf Animal Common 3d10 Small 180 ft 7 2+2 1 1d4+1 None None Standard 10% Semi-N 2 50+2/hp 257 None 
+Wolf, Dire Animal Rare 3d4 Medium 180 ft 6 3+3 1 2d4 None None Standard 10% Semi-N 3 75+3/hp 257 None 
+Wolverine Animal Uncommon 1 Small 120 ft 5 3 3 1d4/1d4/1d4+1 
+Musk, +4 to 
+hit 
+None Standard 15% Semi-NE 3 125+2/hp 258 None 
+Wolverine, Giant Animal Rare 1 Medium 150 ft 4 4+4 3 1d6/1d6/2d4 
+Musk, +4 to 
+hit 
+None Standard 15% Semi-NE 4 235+4/hp 258 None 
+
+Worg Animal Rare 3d4 Large 180 ft 6 4+4 1 2d4 None None Standard 10% Low NE 3 75+3/hp 258 None 
+Wraith [Turn As 
+Type 7] 
+Undead Uncommon 2d6 Medium 
+120 ft or 
+240 ft flying 
+(AA: level 
+IV) 
+4 5+3 1 1d6 + level drain Level drain 
+Only hit by silver or 
+magic weapons; 
+immune to certain 
+spells. 
+Standard 25% Very LE 6 550+6/hp 244 
+(in lair only) 1d10x1,000 cp 
+(5%); 1d12x1,000 sp (25%); 
+1d6x1,000 ep (25%); 
+1d8x1,000 gp (25%); 1d12 
+gems (15%); 1d8 jewelry 
+(10%); 3 magic items plus 1 
+scroll (25%). 
+
+Wyvern Other Uncommon 1d6 
+Large (30-
+40 ft long) 
+60 ft, 240 ft 
+flying (AA: 
+level III) 
+3 7+7 2 1d6/2d8 Poison sting None Standard 30% Low NE 6 850+10/hp 305 
+(in lair only) 1d10x1,000 cp 
+(5%); 1d12x1,000 sp (25%); 
+1d6x1,000 ep (25%); 
+1d8x1,000 gp (25%); 1d12 
+gems (15%); 1d8 jewelry 
+(15%); 3 magic items plus 1 
+scroll (25%). 
+
+Xorn Other Very Rare 1d4 Medium 90 ft -2 7+7 4 1d3/1d3/1d3/6d4 
+Surprises 1-5 
+on 1d6 
+Immune to fire and 
+cold. Half damage 
+from electricity. 
+Travel through stone. 
+Standard 40% Average N 7 1,350+10/hp 306 
+1d4x1,000 cp (25%), 
+1d8x1,000 sp (30%), 
+1d2x1,000 ep (25%), 
+2d6x1,000-gp (70%), 5d4 
+gems (50%), 1 misc. magic 
++ 1 potion (60%). 
+
+Yeti Other Very Rare 1d6 
+Large (8 ft 
+tall) 
+150 ft 6 4+4 2 1d6/1d6 See Page Impervious to cold Standard 10% Average N 4 435+5/hp 306 
+None carried. In lair: 
+1d6x1,000 cp (10%), 
+1d10x1,000 sp (35%), 
+1d6x1,000 ep (15%), 
+1d6x1,000 gp (65%), 1d10 
+gems (35%), 2d4 jewelry 
+(30%), 2 random magic 
+items + 2 potions (10%). 
+
+Zombie, Juju 
+[Turn As Type 9] 
+Undead Very Rare 1d6 Medium 90 ft 6 3+12 1 2d6+1 See Page 
+Can only be hit with 
+magic weapons 
+See Page None Low N (E) 3 115+4/hp 245 None 
+
+Zombie, Monster 
+[Turn As Type 6] 
+Undead Very Rare 1d6 Large 90 ft 6 6 1 2d8 None See Page Standard None Non-N 3 145+6/hp 244 None 
+
+Zombie, Normal 
+[Turn As Type 2] 
+Undead Rare 3d8 Medium 60 ft 8 2 1 1d8 None See Page Standard None Non-N 2 30+1/hp 244 None 
+

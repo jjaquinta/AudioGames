@@ -1,0 +1,277 @@
+{
+	"id": "swamp_city",
+	"name": "Swamp City",
+	"enabledBy": "",
+	"author": "Jo Jaquinta",
+	"account": "JOE",
+	"text":{
+      "en_US":{
+         "THRONEPOOL_NAME":[
+     		"Throne Room"
+         ],
+         "THRONEPOOL_DESC":[
+     		"An enormous willow tree shelters this area and a living throne of wood has been sculpted from its roots."
+         ],
+         "ROYALPOOL_NAME":[
+     		"Royal Guards"
+         ],
+         "ROYALPOOL_DESC":[
+     		"Specially fashioned hillocks create defensive positions to protect from attack."
+         ],
+         "GUARDPOOL_NAME":[
+     		"Royal Compound"
+         ],
+         "GUARDPOOL_DESC":[
+     		"The grass here is carefully clipped, and the bog is channeled into neat rows."
+         ],
+         "DADPOOL_NAME":[
+     		"Barracks"
+         ],
+         "DADPOOL_DESC":[
+     		"The thick grass here has many stamped out hollows here Batrachain make their homes."
+         ],
+         "WESTPOOL_NAME":[
+     		"Training Grounds"
+         ],
+         "WESTPOOL_DESC":[
+     		"The swamp becomes a tangled mass at this point. Plenty of small trails and lots of cover ideally suited to weapon training."
+         ],
+         "KIDPOOL_NAME":[
+     		"Play Area"
+         ],
+         "KIDPOOL_DESC":[
+     		"This is the most sheltered portion of the swamp where the youth of the Batrachian can play in safety."
+         ],
+         "MOMPOOL_NAME":[
+     		"Warm Pools"
+         ],
+         "MOMPOOL_DESC":[
+     		"These sun warmed pools are home to the women of the Batrachian."
+         ],
+         "EASTPOOL_NAME":[
+     		"Quiet Mere"
+         ],
+         "EASTPOOL_DESC":[
+     		"This area of the swamp has wide shallow pools, somewhat sheltered by tall willow trees."
+         ],
+         "GATEHOUSE_NAME":[
+     		"Guard Station"
+         ],
+         "GATEHOUSE_DESC":[
+     		"Several paths cross here in a wider, flatter area."
+         ],
+         "GATEHOUSE_ANNOUNCE":[
+     		"The guards spring forward and attack!"
+         ],
+         "ENTRY_NAME":[
+     		"City Entrance"
+         ],
+         "ENTRY_DESC":[
+     		"A mazelike morass of pools and streams stretches out ahead of you, with only a thin path widing its way through semi-solid ground."
+         ],
+         "BATRACHIAN_CITY":[
+     		"Batrachian City"
+         ]
+      }
+	},
+    "monsters":[
+      {
+         "att":"1d6\/1d6\/1d8+1",
+         "move":"30",
+         "ac":"4",
+         "numAtt":"3",
+         "size":"Small",
+         "freq":"Rare",
+         "name":"Batrachian King",
+         "treasure":"8d6",
+         "enc":"1",
+         "type":"Humanoid",
+         "HD":"6",
+         "terrain":""
+      },
+      {
+         "att":"1d4\/1d4\/1d6+1",
+         "move":"30",
+         "ac":"5",
+         "numAtt":"3",
+         "size":"Small",
+         "freq":"Rare",
+         "name":"Guard Batrachian",
+         "treasure":"4d6",
+         "enc":"5d10",
+         "type":"Humanoid",
+         "HD":"4",
+         "terrain":""
+      }
+	],
+	"features": [
+		{
+			"name": { "ident":"BATRACHIAN_CITY" },
+			"location": "744,935,2",
+			"enabledBy": "",
+			"entranceID": "batEntry",
+			"rooms":[
+		      {
+		         "name":{
+		            "ident":"THRONEPOOL_NAME"
+		         },
+		         "description":{
+		            "ident":"THRONEPOOL_DESC"
+		         },
+		         "ID":"batThronepool",
+		         "type":"encounter",
+		         "params": {
+		         	"encounterID": "Batrachian King$1",
+		         	"encounterNumber": "1",
+		         	"waitTime": 900000,
+		         	"postCombat": [ "increment(BATRACHIAN_CITY_KING, 1)" ]
+		         },
+		         "south": "batRoyalpool"
+		      },
+		      {
+		         "name":{
+		            "ident":"ROYALPOOL_NAME"
+		         },
+		         "description":{
+		            "ident":"ROYALPOOL_DESC"
+		         },
+		         "ID":"batRoyalpool",
+		         "type":"encounter",
+		         "params": {
+		         	"encounterID": "Guard Batrachian$1",
+		         	"encounterNumber": "3d10",
+		         	"waitTime": 900000
+		         },
+		         "north": "batThronepool",
+		         "south": "batGuardpool"
+		      },
+		      {
+		         "name":{
+		            "ident":"GUARDPOOL_NAME"
+		         },
+		         "description":{
+		            "ident":"GUARDPOOL_DESC"
+		         },
+		         "ID":"batGuardpool",
+		         "type":"encounter",
+		         "params": {
+		         	"encounterID": "Batrachian$1",
+		         	"encounterNumber": "3d10",
+		         	"waitTime": 900000
+		         },
+		         "north": "batRoyalpool",
+		         "south": "batGatehouse"
+		      },
+		      {
+		         "name":{
+		            "ident":"DADPOOL_NAME"
+		         },
+		         "description":{
+		            "ident":"DADPOOL_DESC"
+		         },
+		         "ID":"batDadpool",
+		         "type":"encounter",
+		         "params": {
+		         	"encounterID": "Batrachian$1",
+		         	"encounterNumber": "6d4",
+		         	"waitTime": 900000
+		         },
+		         "south": "batWestpool"
+		      },
+		      {
+		         "name":{
+		            "ident":"WESTPOOL_NAME"
+		         },
+		         "description":{
+		            "ident":"WESTPOOL_DESC"
+		         },
+		         "ID":"batWestpool",
+		         "type":"encounter",
+		         "params": {
+		         	"encounterID": "Batrachian$1",
+		         	"encounterNumber": "6d4",
+		         	"waitTime": 900000
+		         },
+		         "north": "batDadpool",
+		         "east": "batGatehouse"
+		      },
+		      {
+		         "name":{
+		            "ident":"KIDPOOL_NAME"
+		         },
+		         "description":{
+		            "ident":"KIDPOOL_DESC"
+		         },
+		         "ID":"batKidpool",
+		         "type":"encounter",
+		         "params": {
+		         	"encounterID": "Eft Batrachian$1",
+		         	"encounterNumber": "8d4",
+		         	"waitTime": 900000
+		         },
+		         "south": "batMompool"
+		      },
+		      {
+		         "name":{
+		            "ident":"MOMPOOL_NAME"
+		         },
+		         "description":{
+		            "ident":"MOMPOOL_DESC"
+		         },
+		         "ID":"batMompool",
+		         "type":"encounter",
+		         "params": {
+		         	"encounterID": "Female Batrachian$1",
+		         	"encounterNumber": "4d4",
+		         	"waitTime": 900000
+		         },
+		         "north": "batKidpool",
+		         "south": "batEastpool"
+		      },
+		      {
+		         "name":{
+		            "ident":"EASTPOOL_NAME"
+		         },
+		         "description":{
+		            "ident":"EASTPOOL_DESC"
+		         },
+		         "ID":"batEastpool",
+		         "type":"scenic",
+		         "north": "batMompool",
+		         "west": "batGatehouse"
+		      },
+		      {
+		         "name":{
+		            "ident":"GATEHOUSE_NAME"
+		         },
+		         "description":{
+		            "ident":"GATEHOUSE_DESC"
+		         },
+		         "ID":"batGatehouse",
+		         "type":"encounter",
+		         "params": {
+		         	"encounterID": "Batrachian$1",
+		         	"encounterNumber": "2d4",
+		         	"encounterAnnounce": "GATEHOUSE_ANNOUNCE"
+		         },
+		         "south": "batEntry",
+		         "north": "batGuardpool",
+		         "west": "batWestpool",
+		         "east": "batEastpool"
+		      },
+		      {
+		         "name":{
+		            "ident":"ENTRY_NAME"
+		         },
+		         "description":{
+		            "ident":"ENTRY_DESC"
+		         },
+		         "ID":"batEntry",
+		         "type":"scenic",
+		         "north": "batGatehouse",
+		         "south": "$exit"
+		      }
+			]
+		}
+	]	
+}

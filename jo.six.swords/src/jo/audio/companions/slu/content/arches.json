@@ -1,0 +1,399 @@
+{
+	"id": "triform_arches",
+	"name": "TriForm Arches",
+	"enabledBy": "",
+	"author": "Jo Jaquinta",
+	"account": "JOE",
+	"text":{
+      "en_US":{
+         "TRI_ENTRY_NAME":[
+     		"Arch Field"
+         ],
+         "TRI_ENTRY_DESC":[
+     		"The grass of this field is all blown outward. In the center is a triple conjoined archway shimmering with magical energy."
+         ],
+         "TRI_DISCLAIMER_NAME":[
+     		"Tri Form Arch"
+         ],
+         "TRI_DISCLAIMER_DESC":[
+     		"Beyond this arch lies the premium content area. If you proceed, you will be asked to agree to be charged for access. There is a free trial period, however, and you can cancel at any point. You can continute playing in the free area for as long as you want. Proceed if you are ready to engage in glorious adventure!"
+         ],
+         "TRI_PURCHASE_NAME":[
+     		"Premium Content"
+         ],
+         "TRI_PURCHASE_DESC":[
+     		"<audio src=\"https:\/\/s3.amazonaws.com\/tsatsatzu-alexa\/sound\/misc\/WHOOSH.mp3\"\/>The air shimmers around you and you appear to be somewhere else."
+         ],
+         "TRI_PREMIUM_ARCH_UPSELL":[  
+            "Say yes to accept this monthly subscription for entry to the premium area with many new adventures and areas to explore."
+         ],
+         "TRI_ARCH_NAME":[
+     		"Tri Form Arch"
+         ],
+         "TRI_ARCH_DESC":[
+     		"The triple arch rises high above you. Eldrich light glows from the gateways and what lies beyond does not seem to be simply what is on the other side."
+         ],
+         "TRI_ONE_NAME":[
+     		"Arch One"
+         ],
+         "TRI_ONE_DESC":[
+     		"<audio src=\"https://s3.amazonaws.com/tsatsatzu-alexa/sound/misc/WHOOSH.mp3\"/>The air shimmers around you and you appear to be somewhere else."
+         ],
+         "TRI_TWO_NAME":[
+     		"Arch Two"
+         ],
+         "TRI_TWO_DESC":[
+     		"<audio src=\"https://s3.amazonaws.com/tsatsatzu-alexa/sound/misc/WHOOSH.mp3\"/>The air shimmers around you and you appear to be somewhere else."
+         ],
+         "TRI_THREE_NAME":[
+     		"Arch Three"
+         ],
+         "TRI_THREE_DESC":[
+     		"<audio src=\"https://s3.amazonaws.com/tsatsatzu-alexa/sound/misc/WHOOSH.mp3\"/>The air shimmers around you and you appear to be somewhere else."
+         ],
+         "TRIFORM_VERITAS":[
+     		"Tri Form Arch"
+         ],
+         "TRIFORM_EDO":[
+     		"Tri Form Arch"
+         ],
+         "TRIFORM_SYROS":[
+     		"Tri Form Arch"
+         ],
+         "TRIFORM_LIZARD_ISLES":[
+     		"Tri Form Arch"
+         ]
+      }
+	},
+    "monsters":[
+	],
+	"features": [
+		{
+			"name": { "ident":"TRIFORM_VERITAS" },
+			"location": "93,172,0",
+			"enabledBy": "$lastOperation.flags includes 'premium'",
+			"entranceID": "triEntry",
+			"rooms":[
+		      {
+		         "name":{
+		            "ident":"TRI_ENTRY_NAME"
+		         },
+		         "description":{
+		            "ident":"TRI_ENTRY_DESC"
+		         },
+		         "ID":"triEntry",
+		         "type":"scenic",
+		         "params": {},
+		         "north": "triDisclaimer",
+		         "south": "$exit"
+		      },
+		      {
+		         "name":{
+		            "ident":"TRI_DISCLAIMER_NAME"
+		         },
+		         "description":{
+		            "ident":"TRI_DISCLAIMER_DESC"
+		         },
+		         "ID":"triDisclaimer",
+		         "type":"scenic",
+                 "params":{ 
+		         	"postEnter": {
+		         		"if":["getValue($premium)", "==", true],
+		         		"then":[  
+			               "respond(triform_arches$TRI_PURCHASE_DESC)",
+		                   "teleport(751,927,2)"
+			            ]
+		     		}
+		         },
+		         "north": "triPurchase",
+		         "south": "triEntry"
+		      },
+		      {
+		         "name":{
+		            "ident":"TRI_PURCHASE_NAME"
+		         },
+		         "description":{
+		            "ident":"TRI_PURCHASE_DESC"
+		         },
+		         "ID":"triPurchase",
+		         "type":"scenic",
+                 "params":{ 
+		         	"postEnter": {
+		         		"if":["getValue($premium)", "==", true],
+		         		"then":[  
+			               "respond(triform_arches$TRI_PURCHASE_DESC)",
+		                   "teleport(751,927,2)"
+			            ],
+			            "else":[
+			               "upsell(PREMIUM_SUBSCRIPTION,room$TRI_PREMIUM_ARCH_UPSELL)",
+			               "teleport($triPremiumEntry)"
+			            ]
+		     		}
+		         },
+		         "south": "triEntry"
+		      }
+			]
+		},
+		{
+			"name": { "ident":"TRIFORM_SYROS" },
+			"location": "730,893,2",
+			"enabledBy": "",
+			"entranceID": "triEntry",
+			"rooms":[
+		      {
+		         "name":{
+		            "ident":"TRI_ENTRY_NAME"
+		         },
+		         "description":{
+		            "ident":"TRI_ENTRY_DESC"
+		         },
+		         "ID":"triEntry",
+		         "type":"scenic",
+		         "params": {},
+		         "north": "triArch",
+		         "south": "$exit"
+		      },
+		      {
+		         "name":{
+		            "ident":"TRI_ARCH_NAME"
+		         },
+		         "description":{
+		            "ident":"TRI_ARCH_DESC"
+		         },
+		         "ID":"triArch",
+		         "type":"scenic",
+		         "params": {},
+		         "west": "triOne",
+		         "north": "triTwo",
+		         "east": "triThree",
+		         "south": "triEntry"
+		      },
+		      {
+		         "name":{
+		            "ident":"TRI_ONE_NAME"
+		         },
+		         "description":{
+		            "ident":"TRI_ONE_DESC"
+		         },
+		         "ID":"triOne",
+		         "type":"scenic",
+		         "params": {
+		         	"effects":[
+		         		{ "id": "message", "message": "triform_archesTRI_ONE_DESC" },
+		         		{ "id": "teleport", "location": "1245,441,2" }
+		         	]
+		         },
+		         "east": "triArch"
+		      },
+		      {
+		         "name":{
+		            "ident":"TRI_TWO_NAME"
+		         },
+		         "description":{
+		            "ident":"TRI_TWO_DESC"
+		         },
+		         "ID":"triTwo",
+		         "type":"scenic",
+		         "params": {
+		         	"effects":[
+		         		{ "id": "message", "message": "triform_archesTRI_TWO_DESC" },
+		         		{ "id": "teleport", "location": "1506,1438,2" }
+		         	]
+		         },
+		         "south": "triArch"
+		      },
+		      {
+		         "name":{
+		            "ident":"TRI_THREE_NAME"
+		         },
+		         "description":{
+		            "ident":"TRI_THREE_DESC"
+		         },
+		         "ID":"triThree",
+		         "type":"scenic",
+		         "params": {
+		         	"effects":[
+		         		{ "id": "message", "message": "triform_archesTRI_THREE_DESC" },
+		         		{ "id": "teleport", "location": "103,164,0" }
+		         	]
+		         },
+		         "west": "triArch"
+		      }
+			]
+		},
+		{
+			"name": { "ident":"TRIFORM_EDO" },
+			"location": "1245,441,2",
+			"enabledBy": "",
+			"entranceID": "triEntry",
+			"rooms":[
+		      {
+		         "name":{
+		            "ident":"TRI_ENTRY_NAME"
+		         },
+		         "description":{
+		            "ident":"TRI_ENTRY_DESC"
+		         },
+		         "ID":"triEntry",
+		         "type":"scenic",
+		         "params": {},
+		         "north": "triArch",
+		         "south": "$exit"
+		      },
+		      {
+		         "name":{
+		            "ident":"TRI_ARCH_NAME"
+		         },
+		         "description":{
+		            "ident":"TRI_ARCH_DESC"
+		         },
+		         "ID":"triArch",
+		         "type":"scenic",
+		         "params": {},
+		         "west": "triOne",
+		         "north": "triTwo",
+		         "east": "triThree",
+		         "south": "triEntry"
+		      },
+		      {
+		         "name":{
+		            "ident":"TRI_ONE_NAME"
+		         },
+		         "description":{
+		            "ident":"TRI_ONE_DESC"
+		         },
+		         "ID":"triOne",
+		         "type":"scenic",
+		         "params": {
+		         	"effects":[
+		         		{ "id": "message", "message": "triform_archesTRI_ONE_DESC" },
+		         		{ "id": "teleport", "location": "1506,1438,2" }
+		         	]
+		         },
+		         "east": "triArch"
+		      },
+		      {
+		         "name":{
+		            "ident":"TRI_TWO_NAME"
+		         },
+		         "description":{
+		            "ident":"TRI_TWO_DESC"
+		         },
+		         "ID":"triTwo",
+		         "type":"scenic",
+		         "params": {
+		         	"effects":[
+		         		{ "id": "message", "message": "triform_archesTRI_TWO_DESC" },
+		         		{ "id": "teleport", "location": "103,164,0" }
+		         	]
+		         },
+		         "south": "triArch"
+		      },
+		      {
+		         "name":{
+		            "ident":"TRI_THREE_NAME"
+		         },
+		         "description":{
+		            "ident":"TRI_THREE_DESC"
+		         },
+		         "ID":"triThree",
+		         "type":"scenic",
+		         "params": {
+		         	"effects":[
+		         		{ "id": "message", "message": "triform_archesTRI_THREE_DESC" },
+		         		{ "id": "teleport", "location": "730,893,2" }
+		         	]
+		         },
+		         "west": "triArch"
+		      }
+			]
+		},
+		{
+			"name": { "ident":"TRIFORM_LIZARD_ISLES" },
+			"location": "1506,1438,2",
+			"enabledBy": "",
+			"entranceID": "triEntry",
+			"rooms":[
+		      {
+		         "name":{
+		            "ident":"TRI_ENTRY_NAME"
+		         },
+		         "description":{
+		            "ident":"TRI_ENTRY_DESC"
+		         },
+		         "ID":"triEntry",
+		         "type":"scenic",
+		         "params": {},
+		         "north": "triArch",
+		         "south": "$exit"
+		      },
+		      {
+		         "name":{
+		            "ident":"TRI_ARCH_NAME"
+		         },
+		         "description":{
+		            "ident":"TRI_ARCH_DESC"
+		         },
+		         "ID":"triArch",
+		         "type":"scenic",
+		         "params": {},
+		         "west": "triOne",
+		         "north": "triTwo",
+		         "east": "triThree",
+		         "south": "triEntry"
+		      },
+		      {
+		         "name":{
+		            "ident":"TRI_ONE_NAME"
+		         },
+		         "description":{
+		            "ident":"TRI_ONE_DESC"
+		         },
+		         "ID":"triOne",
+		         "type":"scenic",
+		         "params": {
+		         	"effects":[
+		         		{ "id": "message", "message": "triform_archesTRI_ONE_DESC" },
+		         		{ "id": "teleport", "location": "103,164,0" }
+		         	]
+		         },
+		         "east": "triArch"
+		      },
+		      {
+		         "name":{
+		            "ident":"TRI_TWO_NAME"
+		         },
+		         "description":{
+		            "ident":"TRI_TWO_DESC"
+		         },
+		         "ID":"triTwo",
+		         "type":"scenic",
+		         "params": {
+		         	"effects":[
+		         		{ "id": "message", "message": "triform_archesTRI_TWO_DESC" },
+		         		{ "id": "teleport", "location": "730,893,2" }
+		         	]
+		         },
+		         "south": "triArch"
+		      },
+		      {
+		         "name":{
+		            "ident":"TRI_THREE_NAME"
+		         },
+		         "description":{
+		            "ident":"TRI_THREE_DESC"
+		         },
+		         "ID":"triThree",
+		         "type":"scenic",
+		         "params": {
+		         	"effects":[
+		         		{ "id": "message", "message": "triform_archesTRI_THREE_DESC" },
+		         		{ "id": "teleport", "location": "1245,441,2" }
+		         	]
+		         },
+		         "west": "triArch"
+		      }
+			]
+		}
+	]	
+}

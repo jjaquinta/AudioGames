@@ -1,0 +1,560 @@
+{  
+   "roomTypes":[  
+      {  
+         "name":{  
+            "ident":"WEAPON_SHOP1"
+         },
+         "description":{  
+            "ident":"THIS_SHOP_SELLS_MISSILE_WEAPONS_"
+         },
+         "ID":"shoplauncher",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"CASTLE_SHOP"
+         },
+         "description":{  
+            "ident":"CASTLE_SHOP_DESCRIPTION"
+         },
+         "ID":"shopcastle",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"PERMIT_SHOP"
+         },
+         "description":{  
+            "ident":"PERMIT_SHOP_DESCRIPTION"
+         },
+         "ID":"shoppermit",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"SHIELD_SHOP"
+         },
+         "description":{  
+            "ident":"THIS_SHOP_SELLS_SHIELDS_"
+         },
+         "ID":"shopshield",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"WEAPON_SHOP"
+         },
+         "description":{  
+            "ident":"THIS_SHOP_SELLS_HAND_HELD_WEAPONS_"
+         },
+         "ID":"shophand",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"POTION_SHOP"
+         },
+         "description":{  
+            "ident":"THIS_SHOP_SELLS_POTIONS_"
+         },
+         "ID":"shoppotion",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"{{POST_OFFICE#?0?}}"
+         },
+         "description":{  
+            "ident":"POST_OFFICE_DESCRIPTION"
+         },
+         "ID":"postOffice",
+         "type":"scenic",
+         "params":{  
+            "messageSource":true
+         }
+      },
+      {  
+         "name":{  
+            "ident":"MUNITIONS_SHOP"
+         },
+         "description":{  
+            "ident":"THIS_SHOP_SELLS_AMMUNITION_FOR_WEAPONS_"
+         },
+         "ID":"shopammo",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"HIRING_HALL"
+         },
+         "description":{  
+            "ident":"THIS_IS_THE_FIGHTER_S_GUILD_HIRING_HALL_"
+         },
+         "ID":"fightersguild",
+         "type":"hall"
+      },
+      {  
+         "name":{  
+            "ident":"WEAPON_SHOP0"
+         },
+         "description":{  
+            "ident":"THIS_SHOP_SELLS_HURLED_WEAPONS_"
+         },
+         "ID":"shophurled",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"{{PUB_NAMES#?0?}}"
+         },
+         "description":{  
+            "ident":"PUB_DESCRIPTION"
+         },
+         "ID":"pub",
+         "type":"scenic",
+         "params":{  
+            "moreText":[  
+               "{{RUMORS}}",
+               "{{RUMORS}}",
+               "{{RUMORS}}"
+            ],
+            "prompt":{  
+               "args":[  
+
+               ],
+               "intent":"PUB_PROMPT",
+               "key":"PUB_PROMPT"
+            }
+         }
+      },
+      {  
+         "name":{  
+            "ident":"{{PUB_NAMES#?0?}}"
+         },
+         "description":{  
+            "ident":"PUB_DESCRIPTION"
+         },
+         "ID":"pub_Rommania",
+         "type":"scenic",
+         "params":{  
+            "moreText":[  
+               "{{RUMORS_ROMMANIA}}",
+               "{{RUMORS}}",
+               "{{RUMORS}}"
+            ],
+            "prompt":{  
+               "args":[  
+
+               ],
+               "intent":"PUB_PROMPT",
+               "key":"PUB_PROMPT"
+            }
+         }
+      },
+      {  
+         "name":{  
+            "ident":"ARMOR_SHOP"
+         },
+         "description":{  
+            "ident":"THIS_SHOP_SELLS_ARMOR_"
+         },
+         "ID":"shoparmor",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"SHOP_WINDOW_NAME"
+         },
+         "description":{  
+            "ident":"SHOP_WINDOW_DESC"
+         },
+         "ID":"shop_window",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"SHOP_DISPLAY_NAME"
+         },
+         "description":{  
+            "ident":"SHOP_DISPLAY_DESC"
+         },
+         "ID":"shop_display",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"SHOP_BACK_NAME"
+         },
+         "description":{  
+            "ident":"SHOP_BACK_DESC"
+         },
+         "ID":"shop_back",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"VORTEX_NAME"
+         },
+         "description":{  
+            "ident":"VORTEX_DESC"
+         },
+         "ID":"vortex",
+         "type":"scenic",
+         "north":"$exit",
+         "south":"$exit",
+         "east":"$exit",
+         "west":"$exit",
+         "params":{  
+         	"postEnter": [
+         		"respond(VORTEX_MSG)", 
+         		"dimensionRandom(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 14)"
+         	]
+         }
+      }
+   ],
+   "text":{  
+      "en_US":{  
+         "THIS_SHOP_SELLS_MISSILE_WEAPONS_":[  
+            "This shop sells missile weapons."
+         ],
+         "MUNITIONS_SHOP":[  
+            "Munitions Shop"
+         ],
+         "HIRING_HALL":[  
+            "Hiring Hall"
+         ],
+         "THIS_IS_THE_FIGHTER_S_GUILD_HIRING_HALL_":[  
+            "This is the fighter's guild hiring hall."
+         ],
+         "PUB_DESCRIPTION":[  
+            "This cozy tavern is a great place to have a quiet drink and listen for rumors."
+         ],
+         "DOCK_BOAT_LAUNCH":[  
+            "You take a quick sea voyage to %s."
+         ],
+         "SHIELD_SHOP":[  
+            "Shield Shop"
+         ],
+         "THIS_SHOP_SELLS_HURLED_WEAPONS_":[  
+            "This shop sells hurled weapons."
+         ],
+         "PUB_NAMES":[  
+            "The Red Lion",
+            "The Crown",
+            "The Royal Oak",
+            "The White Hart",
+            "The Railway",
+            "The Swan",
+            "The Plough",
+            "The White Horse",
+            "The Ship",
+            "The Kings Arms",
+            "The George",
+            "The Bell",
+            "The Rose and Crown",
+            "The Kings Head",
+            "The Wheatsheaf",
+            "The Queens Head",
+            "The Victoria",
+            "The Black Horse",
+            "The Castle",
+            "The Star",
+            "The Cross Keys",
+            "The Prince of Whales",
+            "The Anchor",
+            "The Greyhound",
+            "The White Lion",
+            "The Station",
+            "The Coach and Horses",
+            "The Rising Sun",
+            "Chequers",
+            "The Fox and Hounds",
+            "The George and Dragon",
+            "The Bull",
+            "The Angel",
+            "The Bridge",
+            "The Sun",
+            "The Black Bull",
+            "The Hare and Hounds",
+            "The Bulls Head",
+            "The White Swan",
+            "The Three Horseshoes",
+            "The Golden Lion",
+            "The Fox",
+            "The Royal Duck",
+            "The Globe",
+            "The Nags Head",
+            "The Fuzzy Duckling",
+            "The Lamb",
+            "The Bay Horse",
+            "The Masons Arms",
+            "The Village",
+            "The Cock",
+            "The Windmill",
+            "The Blue Bell",
+            "The Green Man",
+            "The Wellington",
+            "The Half Moon",
+            "The Cricketers",
+            "The Black Swan",
+            "The Farmers Arms",
+            "The Queens",
+            "The Albion",
+            "The Horse and Jockey",
+            "The Waggon and Horses",
+            "The Queens Arms",
+            "The Robbing Hood",
+            "The Park",
+            "The Dolphin",
+            "The Travellers Rest",
+            "The Beehive",
+            "The Three Tuns",
+            "The Grapes",
+            "The Black Lion",
+            "The Lord Nelson",
+            "The Fountain",
+            "The Duke of York",
+            "The Vine",
+            "The Lion",
+            "The Butchers Arms",
+            "The Griffin",
+            "The Sportsman",
+            "The Horse and Groom",
+            "The Carpenters Arms",
+            "The Blacksmiths Arms",
+            "The Barley Mow",
+            "The Eagle",
+            "The Green Dragon",
+            "The Falcon",
+            "The Woolpack",
+            "The Horseshoe",
+            "The Talbot",
+            "The Bird In Hand",
+            "The Stag",
+            "The Market",
+            "The Shoulder Of Mutton",
+            "The Halfway House",
+            "The Unicorn",
+            "The Phoenix",
+            "The Foresters Arms",
+            "The Miners Arms",
+            "The Duke of Wellington",
+            "The Bear",
+            "The Roebuck",
+            "The Seven Stars",
+            "The Pheasant",
+            "The Junction",
+            "The Woodman",
+            "The Five Bells",
+            "The Spread Eagle",
+            "The Malt Shovel",
+            "The Gate",
+            "The Gardeners Arms",
+            "The Peacock",
+            "The Rose",
+            "The Cherry Tree",
+            "The Six Bells",
+            "The Albert",
+            "The Dog and Partridge",
+            "The King William IV",
+            "The Tavern",
+            "The Grove",
+            "The Riverside",
+            "The Mill",
+            "The Oddfellows Arms",
+            "The Crown and Anchor",
+            "The Yew Tree",
+            "The Boars Head",
+            "The Hope and Anchor",
+            "The Alexandra",
+            "The Punch Bowl",
+            "The Union",
+            "The Oak",
+            "The Bricklayers Arms",
+            "The Boot",
+            "The Prince Albert",
+            "The Three Crowns",
+            "The Fleece",
+            "The Boat",
+            "The Saracens Head",
+            "The Plough and Harrow",
+            "The Shakespeare",
+            "The Golden Fleece",
+            "The Old Crown",
+            "The Imperial",
+            "The Royal George",
+            "The Stags Head",
+            "The Coach House",
+            "The Royal Standard",
+            "The Cricketers Arms",
+            "The Bush",
+            "The Bluebell",
+            "The Joiners Arms",
+            "The County",
+            "The Abbey",
+            "The Jolly Sailor",
+            "The Holly Bush",
+            "The Ring O Bells",
+            "The Volunteer",
+            "The Bowling Green",
+            "The Raven",
+            "The Elephant and Castle",
+            "The Harbour",
+            "The Star and Garter",
+            "The Dukes Head",
+            "The White Bear",
+            "The Nelson",
+            "The Boathouse",
+            "The Corner House",
+            "The Blue Boar",
+            "The Cottage",
+            "The White House",
+            "The Londra",
+            "The Devonshire Arms",
+            "The Brewers Arms",
+            "The Brown Cow",
+            "The Pack Horse",
+            "The Harrow",
+            "The Mitre",
+            "The Buck",
+            "The Dog",
+            "The Red Cow",
+            "The Hollybush",
+            "The Priory",
+            "The Two Brewers",
+            "The Rock",
+            "The Cross",
+            "The Last Orders",
+            "The Highwayman",
+            "The Waterfront",
+            "The Walnut Tree",
+            "The Queen Victoria",
+            "The Victory",
+            "The Crooked Billet",
+            "The Waterside",
+            "The Dog and Gun",
+            "The Salutation",
+            "The Black Boy",
+            "The Ferry",
+            "The Pear Tree",
+            "The Stable",
+            "The Plume Of Feathers",
+            "The Old Ship",
+            "The Old Mill",
+            "The Lounge",
+            "The Mount Pleasant",
+            "The Blue Anchor",
+            "The Manor",
+            "The Grey Horse",
+            "The Huntsman",
+            "The Elm Tree",
+            "The Marine",
+            "The Mermaid",
+            "The Bakers Arms",
+            "The Turks Head",
+            "The Orange Tree",
+            "The Midland",
+            "The Old House at Home",
+            "The Marquis Of Granby",
+            "The Old Bell",
+            "The Welcome",
+            "The Turtle Bay",
+            "The Black Dog",
+            "The Wheel",
+            "The Old Red Lion",
+            "The Smugglers",
+            "The Eight Bells",
+            "The Compasses",
+            "The Duke",
+            "The Bank",
+            "The Jubilee",
+            "The Lodge",
+            "The Lamb and Flag",
+            "The Fox and Goose",
+            "The Tiger",
+            "The Dun Cow",
+            "The Lighthouse",
+            "The Kingfisher",
+            "The Manor House",
+            "The Brewery Tap"
+         ],
+         "CASTLE_SHOP":[  
+            "Land Deeds"
+         ],
+         "CASTLE_SHOP_DESCRIPTION":[  
+            "The clerk here sell deeds to create or extend strongholds."
+         ],
+         "PERMIT_SHOP":[  
+            "Building Permits"
+         ],
+         "PERMIT_SHOP_DESCRIPTION":[  
+            "The clerk here sell permits to add features to strongholds."
+         ],
+         "POST_OFFICE":[  
+            "Post Office",
+            "General Post Office",
+            "Mail Depot"
+         ],
+         "THIS_SHOP_SELLS_SHIELDS_":[  
+            "This shop sells shields."
+         ],
+         "WEAPON_SHOP1":[  
+            "Weapon Shop"
+         ],
+         "THIS_SHOP_SELLS_POTIONS_":[  
+            "This shop sells magical potions."
+         ],
+         "WEAPON_SHOP0":[  
+            "Weapon Shop"
+         ],
+         "THIS_SHOP_SELLS_ARMOR_":[  
+            "This shop sells armor."
+         ],
+         "THIS_SHOP_SELLS_HAND_HELD_WEAPONS_":[  
+            "This shop sells hand held weapons."
+         ],
+         "THIS_SHOP_SELLS_AMMUNITION_FOR_WEAPONS_":[  
+            "This shop sells ammunition for weapons."
+         ],
+         "ARMOR_SHOP":[  
+            "Armor Shop"
+         ],
+         "POTION_SHOP":[  
+            "Potion Shop"
+         ],
+         "WEAPON_SHOP":[  
+            "Weapon Shop"
+         ],
+         "POST_OFFICE_DESCRIPTION":[  
+            "Packages for foreign parts lie here awaiting someone to volunteer to deliver them."
+          ],
+         "SHOP_WINDOW_NAME":[
+            "Window"
+          ],
+         "SHOP_WINDOW_DESC":[
+            "Several items are on shelves for sale here."
+          ],
+         "SHOP_DISPLAY_NAME":[
+            "Display Case"
+          ],
+         "SHOP_DISPLAY_DESC":[
+            "Several items are on display here for sale."
+          ],
+         "SHOP_BACK_NAME":[
+            "Back Room"
+          ],
+         "SHOP_BACK_DESC":[
+            "Select items are available here for sale to discerning customers."
+          ],
+         "VORTEX_NAME":[
+            "Magical Vortex"
+          ],
+         "VORTEX_DESC":[
+            "Wild magical energy swirls and coursucates all around you."
+          ],
+         "VORTEX_MSG":[
+            "The vortex sucks you in! <audio src=\"https:\/\/s3.amazonaws.com\/tsatsatzu-alexa\/sound\/fantasy\/250589__univ-lyon3__onoro-julian-2014-2015-vortex.mp3\"\/> You feel you have crossed dimensions."
+         ]
+      }
+   }
+}

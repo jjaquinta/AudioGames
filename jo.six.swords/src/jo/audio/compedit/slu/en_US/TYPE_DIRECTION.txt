@@ -1,0 +1,8 @@
+n.
+east
+south
+north
+w.
+west
+e.
+s.

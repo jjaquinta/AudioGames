@@ -1,0 +1,125 @@
+HIRE	hire {whom}
+HIRE	higher {whom}
+HIRE	recruit {whom}
+HIRE	select {whom}
+SOUTH	south
+UNEQUIP	unequip
+UNEQUIP	unequip {what}
+UNEQUIP	remove {what}
+UNEQUIP	take {what}
+UNEQUIP	stop wearing {what}
+UNEQUIP	take off {what}
+UNEQUIP	stop using {what}
+UNEQUIP	unequip {whom} with {what}
+UNEQUIP	tell {whom} to remove {what}
+UNEQUIP	take {what} from {whom}
+UNEQUIP	ask {whom} not to wear {what}
+UNEQUIP	ask {whom} not to wield {what}
+UNEQUIP	ask {whom} not to use {what}
+UNEQUIP	ask {whom} to stop wearing {what}
+UNEQUIP	ask {whom} to stop wielding {what}
+UNEQUIP	ask {whom} to stop using {what}
+NORTH	north
+BUY	buy {what}
+BUY	by {what}
+BUY	i want to buy {what}
+BUY	purchase {what}
+BUY	pick up {what}
+BUY	get {what}
+ABOUT	about
+ABOUT	about me
+ABOUT	give me information about {whom}
+ABOUT	i want to know more about {whom}
+ABOUT	tell me about my companions
+ABOUT	about {whom}
+ABOUT	about myself
+ABOUT	tell me about myself
+ABOUT	tell me about {whom}
+ABOUT	about companions
+ABOUT	tell me about companions
+ABOUT	about six swords
+ABOUT	tell me about six swords
+INVENTORY	inventory {whom}
+INVENTORY	inventory {type}
+INVENTORY	list my {type}
+INVENTORY	inventory
+SLEEP	sleep
+SLEEP	rest
+EAST	east
+WHEREIS	where is {thing}
+WHEREIS	directions to {thing}
+WHATIS	what's {thing}
+WHATIS	what's a {thing}
+WHATIS	what is {thing}
+WHATIS	what is a {thing}
+WEST	west
+FIRE	fire {whom}
+FIRE	release {whom}
+FIRE	say goodbye to {whom}
+FIRE	part ways with {whom}
+FIRE	let {whom} go
+ENTER	enter
+ENTER	go in
+ENTER	inside
+FIGHT	fight
+FIGHT	attack
+FIGHT	combat
+FIGHT	ready
+NEWS	news
+NEWS	new features
+NEWS	updates
+NEWS	today's news
+WHATCANIBUY	what can I buy
+WHATCANIBUY	take me to premium content
+WHATCANIBUY	premium content
+MOVE	go {dir}
+MOVE	move {dir}
+MOVE	run {dir}
+MOVE	walk {dir}
+MOVE	let's go {dir}
+MOVE	how about {dir}
+MOVE	i want to go {dir}
+MOVE	runaway
+MOVE	run away
+MORE	more
+MORE	tell me more
+SELL	sell {what}
+SELL	sell my {what}
+SELL	drop {what}
+SELL	drop the {what}
+LOOK	look
+LOOK	surroundings
+LOOK	examine
+EQUIP	equip
+EQUIP	equip {what}
+EQUIP	give {what}
+EQUIP	wear {what}
+EQUIP	wield {what}
+EQUIP	use {what}
+EQUIP	put on {what}
+EQUIP	equip {whom} with {what}
+EQUIP	give {what} to {whom}
+EQUIP	ask {whom} to wear {what}
+EQUIP	ask {whom} to wield {what}
+EQUIP	ask {whom} to use {what}
+EQUIP	equip {whom}
+ACTIVATE	activate
+ACTIVATE	activate {whom}
+ACTIVATE	make {whom} active
+ACTIVATE	active
+ACTIVATE	active companion
+ACTIVATE	who is active
+ACTIVATE	selected
+ACTIVATE	selected companion
+ACTIVATE	who is selected
+ACTIVATE	who's active
+ACTIVATE	who is the selected companion
+ACTIVATE	who's my selected companion
+ACTIVATE	who is the active companion
+ACTIVATE	make {whom} my active companion
+WHO	companions
+WHO	who am i
+WHO	who are my companions
+WHO	who
+REFUND	cancel subscription
+REFUND	cancel my subscription

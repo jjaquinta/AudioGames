@@ -1,0 +1,120 @@
+{
+	"bad": [
+		[
+     		{ "chance": 100, "type": "cp","number": "1d10" }
+ 		],
+ 		[
+     		{ "chance": 100, "type": "sp","number": "1d12" }
+ 		],
+ 		[
+     		{ "chance": 100, "type": "ep","number": "1d6" }
+ 		],
+ 		[
+     		{ "chance": 100, "type": "gp","number": "1d8" }
+     	],
+		[
+     		{ "chance": 100, "type": "cp","number": "1d10" },
+     		{ "chance": 100, "type": "sp","number": "1d12" }
+ 		],
+ 		[
+     		{ "chance": 100, "type": "sp","number": "1d12" },
+     		{ "chance": 100, "type": "ep","number": "1d6" }
+ 		],
+ 		[
+     		{ "chance": 100, "type": "ep","number": "1d6" },
+     		{ "chance": 100, "type": "gp","number": "1d8" }
+     	],
+		[
+     		{ "chance": 100, "type": "cp","number": "1d10" },
+     		{ "chance": 100, "type": "sp","number": "1d12" },
+     		{ "chance": 100, "type": "ep","number": "1d6" }
+ 		],
+ 		[
+     		{ "chance": 100, "type": "sp","number": "1d12" },
+     		{ "chance": 100, "type": "ep","number": "1d6" },
+     		{ "chance": 100, "type": "gp","number": "1d8" }
+ 		],
+ 		[
+     		{ "chance": 100, "type": "cp","number": "1d10" },
+     		{ "chance": 100, "type": "sp","number": "1d12" },
+     		{ "chance": 100, "type": "ep","number": "1d6" },
+     		{ "chance": 100, "type": "gp","number": "1d8" }
+     	]
+	],
+	"good": [
+		[
+     		{ "chance": 100, "type": "cp","number": "1d10x100" }
+ 		],
+ 		[
+     		{ "chance": 100, "type": "sp","number": "1d12x100" }
+ 		],
+ 		[
+     		{ "chance": 100, "type": "ep","number": "1d6x100" }
+ 		],
+ 		[
+     		{ "chance": 100, "type": "gp","number": "1d8x100" }
+ 		],
+ 		[
+     		{ "chance": 100, "type": "gem","number": "1d4" }
+ 		],
+ 		[
+     		{ "chance": 100, "type": "jewelry","number": "1d2" }
+     	]
+	],
+	"plusgood": [
+		[
+     		{ "chance": 100, "type": "cp","number": "1d10x1000" }
+ 		],
+ 		[
+     		{ "chance": 100, "type": "sp","number": "1d12x1000" }
+ 		],
+ 		[
+     		{ "chance": 100, "type": "ep","number": "1d6x1000" }
+ 		],
+ 		[
+     		{ "chance": 100, "type": "gp","number": "1d8x1000" }
+ 		],
+ 		[
+     		{ "chance": 100, "type": "gem","number": "1d12" }
+ 		],
+ 		[
+     		{ "chance": 100, "type": "jewelry","number": "1d8" }
+ 		],
+ 		[
+     		{ "chance": 100, "type": "magic item","number": "1d3" }
+ 		],
+ 		[
+     		{ "chance": 100, "type": "scroll","number": "1" }
+     	]
+	],
+	"doubleplusgood": [
+		[
+     		{ "chance": 100, "type": "cp","number": "1d10x1000" },
+     		{ "chance": 100, "type": "sp","number": "1d12x1000" }
+ 		],
+ 		[
+     		{ "chance": 100, "type": "sp","number": "1d12x1000" },
+     		{ "chance": 100, "type": "ep","number": "1d6x1000" }
+ 		],
+ 		[
+     		{ "chance": 100, "type": "ep","number": "1d6x1000" },
+     		{ "chance": 100, "type": "gp","number": "1d8x1000" }
+ 		],
+ 		[
+     		{ "chance": 100, "type": "gp","number": "1d8x1000" },
+     		{ "chance": 100, "type": "gem","number": "1d12" }
+ 		],
+ 		[
+     		{ "chance": 100, "type": "gem","number": "1d12" },
+     		{ "chance": 100, "type": "jewelry","number": "1d8" }
+ 		],
+ 		[
+     		{ "chance": 100, "type": "jewelry","number": "1d8" },
+     		{ "chance": 100, "type": "magic item","number": "1d3" }
+ 		],
+ 		[
+     		{ "chance": 100, "type": "magic item","number": "1d3" },
+     		{ "chance": 100, "type": "scroll","number": "1" }
+     	]
+	]
+}

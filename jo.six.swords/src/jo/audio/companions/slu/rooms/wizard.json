@@ -1,0 +1,359 @@
+{  
+   "roomTypes":[  
+      {  
+         "name":{"ident":"WIZARD_ENTRY"},
+         "description":{"ident":"WIZARD_ENTRY_DESC"},
+         "ID":"wizardEntry",
+         "params":{"northLock":{"expr":"$user.goldPieces < 100000","trueMessage":{"message":"YOU_NEED_100000_GP"}}},
+         "type":"scenic"
+      },
+      {  
+         "name":{"ident":"WIZARD_HALL"},
+         "description":{"ident":"WIZARD_HALL_DESC"},
+         "ID":"wizardHall1",
+         "params":{
+         	"westLock":{"expr":"$companion.STR >= 18","trueMessage":{"message":"You cant increase that any further"}},
+         	"eastLock":{"expr":"$companion.INT >= 18","trueMessage":{"message":"You cant increase that any further"}}
+     	 },
+         "type":"scenic"
+      },
+      {  
+         "name":{"ident":"WIZARD_HALL"},
+         "description":{"ident":"WIZARD_HALL_DESC"},
+         "ID":"wizardHall2",
+         "params":{
+         	"westLock":{"expr":"$companion.CON >= 18","trueMessage":{"message":"You cant increase that any further"}},
+         	"eastLock":{"expr":"$companion.WIS >= 18","trueMessage":{"message":"You cant increase that any further"}}
+     	 },
+         "type":"scenic"
+      },
+      {  
+         "name":{"ident":"WIZARD_HALL"},
+         "description":{"ident":"WIZARD_HALL_DESC"},
+         "ID":"wizardHall3",
+         "params":{
+         	"westLock":{"expr":"$companion.DEX >= 18","trueMessage":{"message":"You cant increase that any further"}},
+         	"northLock":{"expr":"$user.reallyDeadCompanions.size <= 0","trueMessage":{"message":"You have no dead companions"}},
+         	"eastLock":{"expr":"$companion.CHA >= 18","trueMessage":{"message":"You cant increase that any further"}}
+     	 },
+         "type":"scenic"
+      },
+      {  
+         "name":{"ident":"WIZARD_STR"},
+         "description":{"ident":"WIZARD_STR_DESC"},
+         "ID":"wizardSTR",
+         "params":{"westLock":{"expr":"$companion.STR >= 18","trueMessage":{"message":"You cant increase that any further"}}},
+         "type":"scenic"
+      },
+      {  
+         "name":{"ident":"WIZARD_STR"},
+         "description":{"ident":"WIZARD_STR_DESC"},
+         "ID":"wizardSTR2",
+         "params":{"effects":[
+               {  
+                  "id":"set",
+                  "lval":"companion.STR",
+                  "rval":"$companion.STR + 1"
+               },
+               {  
+                  "id":"debit",
+                  "amount":100000
+               },
+               {  
+                  "id":"message",
+                  "message":"XXX now has a YYY of ZZZ",
+                  "args":[
+                  	"{{$context.companion.name$}}",
+                  	"{{STAT_STR}}",
+                  	"{{$context.companion.STR$}}"
+                  ]
+               },
+               {  
+                  "id":"teleport",
+                  "location":"$wizardEntry"
+               }
+         ]},
+         "type":"scenic"
+      },
+      {  
+         "name":{"ident":"WIZARD_INT"},
+         "description":{"ident":"WIZARD_INT_DESC"},
+         "ID":"wizardINT",
+         "params":{"eastLock":{"expr":"$companion.INT >= 18","trueMessage":{"message":"You cant increase that any further"}}},
+         "type":"scenic"
+      },
+      {  
+         "name":{"ident":"WIZARD_INT"},
+         "description":{"ident":"WIZARD_INT_DESC"},
+         "ID":"wizardINT2",
+         "params":{"effects":[
+               {  
+                  "id":"set",
+                  "lval":"companion.INT",
+                  "rval":"$companion.INT + 1"
+               },
+               {  
+                  "id":"debit",
+                  "amount":100000
+               },
+               {  
+                  "id":"message",
+                  "message":"XXX now has a YYY of ZZZ",
+                  "args":[
+                  	"{{$context.companion.name$}}",
+                  	"{{STAT_INT}}",
+                  	"{{$context.companion.INT$}}"
+                  ]
+               },
+               {  
+                  "id":"teleport",
+                  "location":"$wizardEntry"
+               }
+         ]},
+         "type":"scenic"
+      },
+      {  
+         "name":{"ident":"WIZARD_WIS"},
+         "description":{"ident":"WIZARD_WIS_DESC"},
+         "ID":"wizardWIS",
+         "params":{"eastLock":{"expr":"$companion.WIS >= 18","trueMessage":{"message":"You cant increase that any further"}}},
+         "type":"scenic"
+      },
+      {  
+         "name":{"ident":"WIZARD_WIS"},
+         "description":{"ident":"WIZARD_WIS_DESC"},
+         "ID":"wizardWIS2",
+         "params":{"effects":[
+               {  
+                  "id":"set",
+                  "lval":"companion.WIS",
+                  "rval":"$companion.WIS + 1"
+               },
+               {  
+                  "id":"debit",
+                  "amount":100000
+               },
+               {  
+                  "id":"message",
+                  "message":"XXX now has a YYY of ZZZ",
+                  "args":[
+                  	"{{$context.companion.name$}}",
+                  	"{{STAT_WIS}}",
+                  	"{{$context.companion.WIS$}}"
+                  ]
+               },
+               {  
+                  "id":"teleport",
+                  "location":"$wizardEntry"
+               }
+         ]},
+         "type":"scenic"
+      },
+      {  
+         "name":{"ident":"WIZARD_CON"},
+         "description":{"ident":"WIZARD_CON_DESC"},
+         "ID":"wizardCON",
+         "params":{"westLock":{"expr":"$companion.STR >= 18","trueMessage":{"message":"You cant increase that any further"}}},
+         "type":"scenic"
+      },
+      {  
+         "name":{"ident":"WIZARD_CON"},
+         "description":{"ident":"WIZARD_CON_DESC"},
+         "ID":"wizardCON2",
+         "params":{"effects":[
+               {  
+                  "id":"set",
+                  "lval":"companion.CON",
+                  "rval":"$companion.CON + 1"
+               },
+               {  
+                  "id":"debit",
+                  "amount":100000
+               },
+               {  
+                  "id":"message",
+                  "message":"XXX now has a YYY of ZZZ",
+                  "args":[
+                  	"{{$context.companion.name$}}",
+                  	"{{STAT_CON}}",
+                  	"{{$context.companion.CON$}}"
+                  ]
+               },
+               {  
+                  "id":"teleport",
+                  "location":"$wizardEntry"
+               }
+         ]},
+         "type":"scenic"
+      },
+      {  
+         "name":{"ident":"WIZARD_DEX"},
+         "description":{"ident":"WIZARD_DEX_DESC"},
+         "ID":"wizardDEX",
+         "params":{"westLock":{"expr":"$companion.DEX >= 18","trueMessage":{"message":"You cant increase that any further"}}},
+         "type":"scenic"
+      },
+      {  
+         "name":{"ident":"WIZARD_DEX"},
+         "description":{"ident":"WIZARD_DEX_DESC"},
+         "ID":"wizardDEX2",
+         "params":{"effects":[
+               {  
+                  "id":"set",
+                  "lval":"companion.DEX",
+                  "rval":"$companion.DEX + 1"
+               },
+               {  
+                  "id":"debit",
+                  "amount":100000
+               },
+               {  
+                  "id":"message",
+                  "message":"XXX now has a YYY of ZZZ",
+                  "args":[
+                  	"{{$context.companion.name$}}",
+                  	"{{STAT_DEX}}",
+                  	"{{$context.companion.DEX$}}"
+                  ]
+               },
+               {  
+                  "id":"teleport",
+                  "location":"$wizardEntry"
+               }
+         ]},
+         "type":"scenic"
+      },
+      {  
+         "name":{"ident":"WIZARD_CHA"},
+         "description":{"ident":"WIZARD_CHA_DESC"},
+         "ID":"wizardCHA",
+         "params":{"eastLock":{"expr":"$companion.CHA >= 18","trueMessage":{"message":"You cant increase that any further"}}},
+         "type":"scenic"
+      },
+      {  
+         "name":{"ident":"WIZARD_CHA"},
+         "description":{"ident":"WIZARD_CHA_DESC"},
+         "ID":"wizardCHA2",
+         "params":{"effects":[
+               {  
+                  "id":"set",
+                  "lval":"companion.CHA",
+                  "rval":"$companion.CHA + 1"
+               },
+               {  
+                  "id":"debit",
+                  "amount":100000
+               },
+               {  
+                  "id":"message",
+                  "message":"XXX now has a YYY of ZZZ",
+                  "args":[
+                  	"{{$context.companion.name$}}",
+                  	"{{STAT_CHA}}",
+                  	"{{$context.companion.CHA$}}"
+                  ]
+               },
+               {  
+                  "id":"teleport",
+                  "location":"$wizardEntry"
+               }
+         ]},
+         "type":"scenic"
+      },
+      {  
+         "name":{"ident":"WIZARD_DEAD"},
+         "description":{"ident":"WIZARD_DEAD_DESC"},
+         "ID":"wizardDead",
+         "params":{"northLock":{"expr":"$user.reallyDeadCompanions.size <= 0","trueMessage":{"message":"You have no dead companions"}}},
+         "type":"scenic"
+      },
+      {  
+         "name":{"ident":"WIZARD_DEAD"},
+         "description":{"ident":"WIZARD_DEAD_DESC"},
+         "ID":"wizardDead2",
+         "params":{"effects":[
+               {  
+                  "id":"resurrect",
+                  "idx":"0"
+               },
+               {  
+                  "id":"debit",
+                  "amount":100000
+               },
+               {  
+                  "id":"message",
+                  "message":"XXX is back from the dead",
+                  "args":[
+                  	"{{$context.user.companions.0.name$}}"
+                  ]
+               },
+               {  
+                  "id":"teleport",
+                  "location":"$wizardEntry"
+               }
+         ]},
+         "type":"scenic"
+      }
+   ],
+   "text":{  
+      "en_US":{  
+      	 "SOUND_WIZARD":[
+      	 	"[[background-sound=https://s3.amazonaws.com/tsatsatzu-alexa/sound/fantasy/62282__robinhood76__00517-alchemist-laboratory-arrangement.mp3]]"
+      	 ],
+         "WIZARD_ENTRY":[  
+            "Wizard Shop"
+         ],
+         "WIZARD_HALL":[  
+            "Long Hall"
+         ],
+         "WIZARD_STR":[  
+            "Wish for Strength"
+         ],
+         "WIZARD_INT":[  
+            "Wish for Intelligence"
+         ],
+         "WIZARD_WIS":[  
+            "Wish for Wisdom"
+         ],
+         "WIZARD_CON":[  
+            "Wish for Constitution"
+         ],
+         "WIZARD_DEX":[  
+            "Wish for Dexterity"
+         ],
+         "WIZARD_CHA":[  
+            "Wish for Charisma"
+         ],
+         "WIZARD_DEAD":[  
+            "Ressurection"
+         ],
+         "WIZARD_ENTRY_DESC":[  
+            "A mystical sign hangs in the air informing you that the further rooms will grant you wishes, if you have the gold for them.{{room$SOUND_WIZARD}}"
+         ],
+         "WIZARD_HALL_DESC":[  
+            "This long hall is paneled with exotic wood.{{room$SOUND_WIZARD}}"
+         ],
+         "WIZARD_STR_DESC":[  
+            "If you wish to raise the strength of {{$context.companion.name$}} from {{$context.companion.STR$}}, proceed.{{room$SOUND_WIZARD}}"
+         ],
+         "WIZARD_INT_DESC":[  
+            "If you wish to raise the intelligence of {{$context.companion.name$}} from {{$context.companion.INT$}}, proceed.{{room$SOUND_WIZARD}}"
+         ],
+         "WIZARD_WIS_DESC":[  
+            "If you wish to raise the wisdom of {{$context.companion.name$}} from {{$context.companion.WIS$}}, proceed.{{room$SOUND_WIZARD}}"
+         ],
+         "WIZARD_CON_DESC":[  
+            "If you wish to raise the constitution of {{$context.companion.name$}} from {{$context.companion.CON$}}, proceed.{{room$SOUND_WIZARD}}"
+         ],
+         "WIZARD_DEX_DESC":[  
+            "If you wish to raise the dexterity of {{$context.companion.name$}} from {{$context.companion.DEX$}}, proceed.{{room$SOUND_WIZARD}}"
+         ],
+         "WIZARD_CHA_DESC":[  
+            "If you wish to raise the charisma of {{$context.companion.name$}} from {{$context.companion.CHA$}}, proceed.{{room$SOUND_WIZARD}}"
+         ],
+         "WIZARD_DEAD_DESC":[  
+            "If you wish to resurrect {{$context.user.reallyDeadCompanions.0.name$}}, proceede.{{room$SOUND_WIZARD}}"
+         ]
+      }
+   }
+}

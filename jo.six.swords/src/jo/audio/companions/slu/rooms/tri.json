@@ -1,0 +1,267 @@
+{  
+   "roomTypes":[  
+      {  
+         "south":"$exit",
+         "north":"triArch",
+         "name":{  
+            "args":[  
+               "IT_NAME#82"
+            ],
+            "ident":"TRI_ENTRY_NAME"
+         },
+         "description":{  
+            "args":[  
+               "{{IT_NAME#82}}",
+               "{{JA_NAME#367}}",
+               "{{AKK_NAME#1007}}",
+               "{{EG_NAME#447}}"
+            ],
+            "ident":"TRI_ENTRY_DESC"
+         },
+         "ID":"triEntry",
+         "type":"scenic",
+         "params":{  
+            "northLock":{  
+               "expr":"$user.goldpieces < 1000",
+               "trueMessage":{  
+                  "message":"You dont have enough gold"
+               }
+            }
+         }
+      },
+      {  
+         "east":"triThree",
+         "south":"triEntry",
+         "north":"triTwo",
+         "name":{  
+            "ident":"TRI_ARCH_NAME"
+         },
+         "west":"triOne",
+         "description":{  
+            "ident":"TRI_ARCH_DESC"
+         },
+         "ID":"triArch",
+         "type":"scenic",
+         "params":{  
+
+         }
+      },
+      {  
+         "east":"triArch",
+         "name":{  
+            "args":[  
+               "{{JA_NAME#367}}"
+            ],
+            "ident":"TRI_ONE_NAME"
+         },
+         "description":{  
+            "ident":"TRI_ONE_DESC"
+         },
+         "ID":"triOne",
+         "type":"scenic",
+         "params":{  
+            "effects":[  
+               {  
+                  "amount":1000,
+                  "id":"debit"
+               },
+               {  
+                  "id":"message",
+                  "message":"{{room$TRI_ONE_DESC}}"
+               },
+               {  
+                  "location":"103,164,0",
+                  "id":"teleport"
+               }
+            ]
+         }
+      },
+      {  
+         "south":"triArch",
+         "name":{  
+            "args":[  
+               "{{AKK_NAME#1007}}"
+            ],
+            "ident":"TRI_TWO_NAME"
+         },
+         "description":{  
+            "ident":"TRI_TWO_DESC"
+         },
+         "ID":"triTwo",
+         "type":"scenic",
+         "params":{  
+            "effects":[  
+               {  
+                  "amount":1000,
+                  "id":"debit"
+               },
+               {  
+                  "id":"message",
+                  "message":"{{room$TRI_TWO_DESC}}"
+               },
+               {  
+                  "location":"730,893,2",
+                  "id":"teleport"
+               }
+            ]
+         }
+      },
+      {  
+         "name":{  
+            "args":[  
+               "{{EG_NAME#447}}"
+            ],
+            "ident":"TRI_THREE_NAME"
+         },
+         "west":"triArch",
+         "description":{  
+            "ident":"TRI_THREE_DESC"
+         },
+         "ID":"triThree",
+         "type":"scenic",
+         "params":{  
+            "effects":[  
+               {  
+                  "amount":1000,
+                  "id":"debit"
+               },
+               {  
+                  "id":"message",
+                  "message":"{{room$TRI_THREE_DESC}}"
+               },
+               {  
+                  "location":"1245,441,2",
+                  "id":"teleport"
+               }
+            ]
+         }
+      },
+      {  
+         "name":{  
+            "ident":"TRI_PREMIUM_ENTRY"
+         },
+         "description":{  
+            "ident":"TRI_PREMIUM_ENTRY_DESC"
+         },
+         "ID":"triPremiumEntry",
+         "type":"scenic",
+         "params":{  
+         }
+      },
+      {  
+         "name":{  
+            "ident":"TRI_PREMIUM_ARCH"
+         },
+         "description":{  
+            "ident":"TRI_PREMIUM_ARCH_DESC"
+         },
+         "ID":"triPremiumArch",
+         "type":"scenic",
+         "params":{ 
+         	"postEnter": {
+         		"if":["getValue($premium)", "==", true],
+         		"then":[  
+	               "respond(room$TRI_PREMIUM_ARCH_DESC)",
+                   "teleport(751,927,2)"
+	            ],
+	            "else":[
+	               "upsell(amzn1.adg.product.e77c49c6-7140-48d4-8b97-dd358da0b8bb,room$TRI_PREMIUM_ARCH_UPSELL)",
+	               "teleport($triPremiumEntry)"
+	            ]
+     		}
+         }
+      },
+      {  
+         "name":{  
+            "ident":"DIM_ARCH_ENTRY"
+         },
+         "description":{  
+            "ident":"DIM_ARCH_ENTRY_DESC"
+         },
+         "south":"$exit",
+         "north":"dimArchPortal",
+         "ID":"dimArchEntry",
+         "type":"scenic",
+         "params":{ 
+         }
+      },
+      {  
+         "name":{  
+            "ident":"DIM_ARCH_PORTAL"
+         },
+         "description":{  
+            "ident":"DIM_ARCH_PORTAL_DESC"
+         },
+         "south":"dimArchEntry",
+         "ID":"dimArchPortal",
+         "type":"scenic",
+         "params":{ 
+         	"postEnter": [  
+	               "respond(room$DIM_ARCH_PORTAL_DESC)",
+                   "dimensionReturn(1)"
+	            ]
+         }
+      }
+   ],
+   "text":{  
+      "en_US":{  
+         "TRI_PREMIUM_ENTRY":[  
+            "Tri-form arch"
+         ],
+         "TRI_PREMIUM_ENTRY_DESC":[  
+            "A triple arch rises high above you. Mystical light illuminates a gateway to the premium content area."
+         ],
+         "TRI_PREMIUM_ARCH":[  
+            "Gateway"
+         ],
+         "TRI_PREMIUM_ARCH_DESC":[  
+            "<audio src=\"https:\/\/s3.amazonaws.com\/tsatsatzu-alexa\/sound\/misc\/WHOOSH.mp3\"\/>The air shimmers around you and you appear to be somewhere else."
+         ],
+         "TRI_PREMIUM_ARCH_UPSELL":[  
+            "This monthly subscription with gain you entry to the premium area with many new adventures and areas to explore. Say 'yes' if you want more details and 'no' if you are not interested."
+         ],
+         "TRI_ARCH_DESC":[  
+            "The triple arch rises high above you. Eldrich light glows from the gateways and what lies beyond does not seem to be simply what is on the other side."
+         ],
+         "TRI_TWO_NAME":[  
+            "%s Arch"
+         ],
+         "TRI_THREE_DESC":[  
+            "<audio src=\"https:\/\/s3.amazonaws.com\/tsatsatzu-alexa\/sound\/misc\/WHOOSH.mp3\"\/>The air shimmers around you and you appear to be somewhere else."
+         ],
+         "TRI_ONE_DESC":[  
+            "<audio src=\"https:\/\/s3.amazonaws.com\/tsatsatzu-alexa\/sound\/misc\/WHOOSH.mp3\"\/>The air shimmers around you and you appear to be somewhere else."
+         ],
+         "TRI_TWO_DESC":[  
+            "<audio src=\"https:\/\/s3.amazonaws.com\/tsatsatzu-alexa\/sound\/misc\/WHOOSH.mp3\"\/>The air shimmers around you and you appear to be somewhere else."
+         ],
+         "TRI_ENTRY_NAME":[  
+            "%s Arch Entry"
+         ],
+         "TRI_ENTRY_DESC":[  
+            "Fences restrict access to the %s arch. A sign says that 1000 gold is required for passage to %s, %s, or %s."
+         ],
+         "TRI_THREE_NAME":[  
+            "%s Arch"
+         ],
+         "TRI_ONE_NAME":[  
+            "%s Arch"
+         ],
+         "TRI_ARCH_NAME":[  
+            "Tri Form Arch"
+         ],
+         "DIM_ARCH_ENTRY":[  
+            "Dimensional Arch"
+         ],
+         "DIM_ARCH_ENTRY_DESC":[  
+            "A strange warped arch of non-euclidian geometry stands nearby. The space within it seems distorted."
+         ],
+         "DIM_ARCH_PORTAL":[  
+            "Dimensional Arch"
+         ],
+         "DIM_ARCH_PORTAL_DESC":[  
+            "Space around you warps with gut wrenching strength. You now appear elsewhere."
+         ]
+      }
+   }
+}

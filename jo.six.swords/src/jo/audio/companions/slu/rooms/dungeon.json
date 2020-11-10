@@ -1,0 +1,423 @@
+{"roomTypes":[
+      {"name":{"ident":"DUNGEON_ROOM_1_NAME"},"description":{"ident":"DUNGEON_ROOM_1_DESC"},"ID":"DUNGEON_ROOM_1","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_2_NAME"},"description":{"ident":"DUNGEON_ROOM_2_DESC"},"ID":"DUNGEON_ROOM_2","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_3_NAME"},"description":{"ident":"DUNGEON_ROOM_3_DESC"},"ID":"DUNGEON_ROOM_3","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_4_NAME"},"description":{"ident":"DUNGEON_ROOM_4_DESC"},"ID":"DUNGEON_ROOM_4","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_5_NAME"},"description":{"ident":"DUNGEON_ROOM_5_DESC"},"ID":"DUNGEON_ROOM_5","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_6_NAME"},"description":{"ident":"DUNGEON_ROOM_6_DESC"},"ID":"DUNGEON_ROOM_6","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_7_NAME"},"description":{"ident":"DUNGEON_ROOM_7_DESC"},"ID":"DUNGEON_ROOM_7","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_8_NAME"},"description":{"ident":"DUNGEON_ROOM_8_DESC"},"ID":"DUNGEON_ROOM_8","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_9_NAME"},"description":{"ident":"DUNGEON_ROOM_9_DESC"},"ID":"DUNGEON_ROOM_9","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_10_NAME"},"description":{"ident":"DUNGEON_ROOM_10_DESC"},"ID":"DUNGEON_ROOM_10","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_11_NAME"},"description":{"ident":"DUNGEON_ROOM_11_DESC"},"ID":"DUNGEON_ROOM_11","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_12_NAME"},"description":{"ident":"DUNGEON_ROOM_12_DESC"},"ID":"DUNGEON_ROOM_12","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_13_NAME"},"description":{"ident":"DUNGEON_ROOM_13_DESC"},"ID":"DUNGEON_ROOM_13","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_14_NAME"},"description":{"ident":"DUNGEON_ROOM_14_DESC"},"ID":"DUNGEON_ROOM_14","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_15_NAME"},"description":{"ident":"DUNGEON_ROOM_15_DESC"},"ID":"DUNGEON_ROOM_15","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_16_NAME"},"description":{"ident":"DUNGEON_ROOM_16_DESC"},"ID":"DUNGEON_ROOM_16","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_17_NAME"},"description":{"ident":"DUNGEON_ROOM_17_DESC"},"ID":"DUNGEON_ROOM_17","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_18_NAME"},"description":{"ident":"DUNGEON_ROOM_18_DESC"},"ID":"DUNGEON_ROOM_18","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_19_NAME"},"description":{"ident":"DUNGEON_ROOM_19_DESC"},"ID":"DUNGEON_ROOM_19","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_20_NAME"},"description":{"ident":"DUNGEON_ROOM_20_DESC"},"ID":"DUNGEON_ROOM_20","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_21_NAME"},"description":{"ident":"DUNGEON_ROOM_21_DESC"},"ID":"DUNGEON_ROOM_21","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_22_NAME"},"description":{"ident":"DUNGEON_ROOM_22_DESC"},"ID":"DUNGEON_ROOM_22","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_23_NAME"},"description":{"ident":"DUNGEON_ROOM_23_DESC"},"ID":"DUNGEON_ROOM_23","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_24_NAME"},"description":{"ident":"DUNGEON_ROOM_24_DESC"},"ID":"DUNGEON_ROOM_24","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_25_NAME"},"description":{"ident":"DUNGEON_ROOM_25_DESC"},"ID":"DUNGEON_ROOM_25","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_26_NAME"},"description":{"ident":"DUNGEON_ROOM_26_DESC"},"ID":"DUNGEON_ROOM_26","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_27_NAME"},"description":{"ident":"DUNGEON_ROOM_27_DESC"},"ID":"DUNGEON_ROOM_27","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_28_NAME"},"description":{"ident":"DUNGEON_ROOM_28_DESC"},"ID":"DUNGEON_ROOM_28","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_29_NAME"},"description":{"ident":"DUNGEON_ROOM_29_DESC"},"ID":"DUNGEON_ROOM_29","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_30_NAME"},"description":{"ident":"DUNGEON_ROOM_30_DESC"},"ID":"DUNGEON_ROOM_30","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_31_NAME"},"description":{"ident":"DUNGEON_ROOM_31_DESC"},"ID":"DUNGEON_ROOM_31","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_32_NAME"},"description":{"ident":"DUNGEON_ROOM_32_DESC"},"ID":"DUNGEON_ROOM_32","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_33_NAME"},"description":{"ident":"DUNGEON_ROOM_33_DESC"},"ID":"DUNGEON_ROOM_33","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_34_NAME"},"description":{"ident":"DUNGEON_ROOM_34_DESC"},"ID":"DUNGEON_ROOM_34","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_35_NAME"},"description":{"ident":"DUNGEON_ROOM_35_DESC"},"ID":"DUNGEON_ROOM_35","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_36_NAME"},"description":{"ident":"DUNGEON_ROOM_36_DESC"},"ID":"DUNGEON_ROOM_36","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_37_NAME"},"description":{"ident":"DUNGEON_ROOM_37_DESC"},"ID":"DUNGEON_ROOM_37","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_38_NAME"},"description":{"ident":"DUNGEON_ROOM_38_DESC"},"ID":"DUNGEON_ROOM_38","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_39_NAME"},"description":{"ident":"DUNGEON_ROOM_39_DESC"},"ID":"DUNGEON_ROOM_39","type":"scenic"},
+      {"name":{"ident":"DUNGEON_ROOM_40_NAME"},"description":{"ident":"DUNGEON_ROOM_40_DESC"},"ID":"DUNGEON_ROOM_40","type":"scenic"},
+      {"name":{"ident":"DUNGEON_CORRIDOR_EW_1_NAME"},"description":{"ident":"DUNGEON_CORRIDOR_EW_1_DESC"},"ID":"DUNGEON_CORRIDOR_EW_1","type":"scenic"},
+      {"name":{"ident":"DUNGEON_CORRIDOR_EW_2_NAME"},"description":{"ident":"DUNGEON_CORRIDOR_EW_2_DESC"},"ID":"DUNGEON_CORRIDOR_EW_2","type":"scenic"},
+      {"name":{"ident":"DUNGEON_CORRIDOR_EW_3_NAME"},"description":{"ident":"DUNGEON_CORRIDOR_EW_3_DESC"},"ID":"DUNGEON_CORRIDOR_EW_3","type":"scenic"},
+      {"name":{"ident":"DUNGEON_CORRIDOR_EW_4_NAME"},"description":{"ident":"DUNGEON_CORRIDOR_EW_4_DESC"},"ID":"DUNGEON_CORRIDOR_EW_4","type":"scenic"},
+      {"name":{"ident":"DUNGEON_CORRIDOR_EW_5_NAME"},"description":{"ident":"DUNGEON_CORRIDOR_EW_5_DESC"},"ID":"DUNGEON_CORRIDOR_EW_5","type":"scenic"},
+      {
+         "name":{
+            "ident":"DUNGEON_CORRIDOR_NS_1_NAME"
+         },
+         "description":{
+            "ident":"DUNGEON_CORRIDOR_NS_1_DESC"
+         },
+         "ID":"DUNGEON_CORRIDOR_NS_1",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"DUNGEON_JUNCTION_1_NAME"
+         },
+         "description":{
+            "ident":"DUNGEON_JUNCTION_1_DESC"
+         },
+         "ID":"DUNGEON_JUNCTION_1",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"DUNGEON_CHEST_NAME"
+         },
+         "description":{
+            "ident":"DUNGEON_CHEST_DESC"
+         },
+         "ID":"DUNGEON_CHEST",
+         "params":{
+            "postEnter":{"cmd": "function(dungeon,chest)"}
+     	 },
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"DUNGEON_THRONE_NAME"
+         },
+         "description":{
+            "ident":"DUNGEON_THRONE_DESC"
+         },
+         "ID":"DUNGEON_THRONE",
+         "params":{
+            "postEnter":{"cmd": "function(dungeon,throne)"}
+     	 },
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"DUNGEON_POOL_NAME"
+         },
+         "description":{
+            "ident":"DUNGEON_POOL_DESC"
+         },
+         "ID":"DUNGEON_POOL",
+         "params":{
+            "postEnter":{"cmd": "function(dungeon,pool)"}
+     	 },
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"DUNGEON_STAIRS_1_NAME"
+         },
+         "description":{
+            "ident":"DUNGEON_STAIRS_1_DESC"
+         },
+         "ID":"DUNGEON_STAIRS_1",
+         "type":"scenic"
+      }
+],"text":{"en_US":{
+         "DUNGEON_ROOM_1_NAME":[
+            "Chamber"
+         ],
+         "DUNGEON_ROOM_1_DESC":[
+            "This %d by %d room has illegible chalk writing on the wall."
+         ],
+         "DUNGEON_ROOM_2_NAME":[
+            "Paved Room"
+         ],
+         "DUNGEON_ROOM_2_DESC":[
+            "This room is %d by %d with a deep gouge down the centre of the paved floor."
+         ],
+         "DUNGEON_ROOM_3_NAME":[
+            "Slime Room"
+         ],
+         "DUNGEON_ROOM_3_DESC":[
+            "This %d by %d room is coated in sheets of thick black slime that seem to ooze out of the surface of the rock itself."
+         ],
+         "DUNGEON_ROOM_4_NAME":[
+            "Fungus Room"
+         ],
+         "DUNGEON_ROOM_4_DESC":[
+            "This a %d by %d room. The air smells of fungus and mould, and the temperature is a few degrees warmer than the corridor outside."
+         ],
+         "DUNGEON_ROOM_5_NAME":[
+            "Cage Chamber"
+         ],
+         "DUNGEON_ROOM_5_DESC":[
+            "This %d by %d chamber has the rusted remains of a huge iron cage against the western wall."
+         ],
+         "DUNGEON_ROOM_6_NAME":[
+            "Chain Chamber"
+         ],
+         "DUNGEON_ROOM_6_DESC":[
+            "This %d by %d chamber. A few bones are still bound in rusted chains that hang from the ceiling."
+         ],
+         "DUNGEON_ROOM_7_NAME":[
+            "Spike Room"
+         ],
+         "DUNGEON_ROOM_7_DESC":[
+            "A vicious spike trap lies sprung and inert in this %d by %d room."
+         ],
+         "DUNGEON_ROOM_8_NAME":[
+            "Arena"
+         ],
+         "DUNGEON_ROOM_8_DESC":[
+            "This %d by %d room has a wide, deep basin that was once an arena of some kind."
+         ],
+         "DUNGEON_ROOM_9_NAME":[
+            "Colorful Room"
+         ],
+         "DUNGEON_ROOM_9_DESC":[
+            "This %d by %d room is painted with vibrant colours depicting disembodied eyes and mouths."
+         ],
+         "DUNGEON_ROOM_10_NAME":[
+            "Abattoir"
+         ],
+         "DUNGEON_ROOM_10_DESC":[
+            "This %d by %d room is choked with corpses that appear far too fresh for comfort."
+         ],
+         "DUNGEON_ROOM_11_NAME":[
+            "Altar"
+         ],
+         "DUNGEON_ROOM_11_DESC":[
+            "This %d by %d has a crude alter in the center. The scent of insence hangs in the air."
+         ],
+         "DUNGEON_ROOM_12_NAME":[
+            "Cracked Room"
+         ],
+         "DUNGEON_ROOM_12_DESC":[
+            "Several sections of floor in this %d by %d room are cracked and pitted."
+         ],
+         "DUNGEON_ROOM_13_NAME":[
+            "Dump"
+         ],
+         "DUNGEON_ROOM_13_DESC":[
+            "This %d by %d is filled with rotting wood and rubble and appears to be a dumping ground of sorts."
+         ],
+         "DUNGEON_ROOM_14_NAME":[
+            "Damp Room"
+         ],
+         "DUNGEON_ROOM_14_DESC":[
+            "This %d by %d room has an uneven floor. Several small puddles have gathered in the deeper depressions."
+         ],
+         "DUNGEON_ROOM_15_NAME":[
+            "Empty Room"
+         ],
+         "DUNGEON_ROOM_15_DESC":[
+            "Small pieces of rubble litter the floor of this otherwise empty %d by %d room."
+         ],
+         "DUNGEON_ROOM_16_NAME":[
+            "Arched Chamber"
+         ],
+         "DUNGEON_ROOM_16_DESC":[
+            "The arched ceiling of this %d by %d chamber rises to a height of 20 feet in the centre of the room, but is barely man-high where it meets the walls."
+         ],
+         "DUNGEON_ROOM_17_NAME":[
+            "Arched Room"
+         ],
+         "DUNGEON_ROOM_17_DESC":[
+            "The arches holding the ceiling of this %d by %d room aloft are carved to represent writhing tentacles; a few have been defaced but the upper portions of all remain untouched."
+         ],
+         "DUNGEON_ROOM_18_NAME":[
+            "Cracked Chamber"
+         ],
+         "DUNGEON_ROOM_18_DESC":[
+            "A jagged, one-foot crack runs across this %d by %d chamber’s floor."
+         ],
+         "DUNGEON_ROOM_19_NAME":[
+            "Garbage Room"
+         ],
+         "DUNGEON_ROOM_19_DESC":[
+            "A pile of rotting wood, rubbish and other detritus partially obscures the floor of this %d by %d chamber."
+         ],
+         "DUNGEON_ROOM_20_NAME":[
+            "Mortared Room"
+         ],
+         "DUNGEON_ROOM_20_DESC":[
+            "A low mortared walls and wooden timebers hold up the ceiling of this %d by %d room."
+         ],
+         "DUNGEON_ROOM_21_NAME":[
+            "Unfinished Room"
+         ],
+         "DUNGEON_ROOM_21_DESC":[
+            "This %d by %d room’s ceiling and walls are of natural unworked stone; as if the chamber had not been finished."
+         ],
+         "DUNGEON_ROOM_22_NAME":[
+            "Battle Chamber"
+         ],
+         "DUNGEON_ROOM_22_DESC":[
+            "This %d by %d chamber was the scene of an ancient battle."
+         ],
+         "DUNGEON_ROOM_23_NAME":[
+            "Boneyard"
+         ],
+         "DUNGEON_ROOM_23_DESC":[
+            "Skeletal remains of at least a dozen humanoids lie scattered about the room where they fell in this %d by %d chamber."
+         ],
+         "DUNGEON_ROOM_24_NAME":[
+            "Weapon Chamber"
+         ],
+         "DUNGEON_ROOM_24_DESC":[
+            "Several rusting broken spears and shattered, rotting shields lie in this %d by %d chamber."
+         ],
+         "DUNGEON_ROOM_25_NAME":[
+            "Collapsed Room"
+         ],
+         "DUNGEON_ROOM_25_DESC":[
+            "Part of one wall of this %d by %d room has collapsed, revealing the natural rock behind the dressed stone wall."
+         ],
+         "DUNGEON_ROOM_26_NAME":[
+            "Defended Room"
+         ],
+         "DUNGEON_ROOM_26_DESC":[
+            "Rubble has been moved to create a breastwork across one of the %d by %d room’s exits."
+         ],
+         "DUNGEON_ROOM_27_NAME":[
+            "Bloodied Room"
+         ],
+         "DUNGEON_ROOM_27_DESC":[
+            "Splatters of old, dried blood decorate the floor of this %d by %d room."
+         ],
+         "DUNGEON_ROOM_28_NAME":[
+            "Camp Room"
+         ],
+         "DUNGEON_ROOM_28_DESC":[
+            "A tattered cloak along with two empty wineskins and the stripped bones of a chicken and crusts of mouldy bread bear testimony to an explorer’s rest in this %d by %d room."
+         ],
+         "DUNGEON_ROOM_29_NAME":[
+            "Scorched Room"
+         ],
+         "DUNGEON_ROOM_29_DESC":[
+            "Scorch marks on two of the room’s walls and the floor bear mute testimony to some kind of fire magic being used in this %d by %d room."
+         ],
+         "DUNGEON_ROOM_30_NAME":[
+            "Busy Chamber"
+         ],
+         "DUNGEON_ROOM_30_DESC":[
+            "Scuff marks and a slight worn sheen to the floor show where many people have crossed this %d by %d chamber."
+         ],
+         "DUNGEON_ROOM_31_NAME":[
+            "Carved Room"
+         ],
+         "DUNGEON_ROOM_31_DESC":[
+            "A narrow strip of carved runes surround each archwayof this %d by %d room."
+         ],
+         "DUNGEON_ROOM_32_NAME":[
+            "Pillared Chamber"
+         ],
+         "DUNGEON_ROOM_32_DESC":[
+            "Two lines of pillars run down the sides of this %d by %d chamber, holding the ceiling aloft."
+         ],
+         "DUNGEON_ROOM_33_NAME":[
+            "Domed Chamber"
+         ],
+         "DUNGEON_ROOM_33_DESC":[
+            "The center of this %d by %d chamber rises to a 30 foot high dome."
+         ],
+         "DUNGEON_ROOM_34_NAME":[
+            "Damaged Room"
+         ],
+         "DUNGEON_ROOM_34_DESC":[
+            "The walls of this %d by %d room appear to have been struck repeatedly with a heavy object."
+         ],
+         "DUNGEON_ROOM_35_NAME":[
+            "Dias Chamber"
+         ],
+         "DUNGEON_ROOM_35_DESC":[
+            "A raised dais dominates the centre of this %d by %d chamber."
+         ],
+         "DUNGEON_ROOM_36_NAME":[
+            "Triskelion Chamber"
+         ],
+         "DUNGEON_ROOM_36_DESC":[
+            "Three carved and intertwined faces of hideous humanoids dominate one wall of this %d by %d chamber."
+         ],
+         "DUNGEON_ROOM_37_NAME":[
+            "Pillared Room"
+         ],
+         "DUNGEON_ROOM_37_DESC":[
+            "Four pillars once held the ceiling aloft, here. Three yet stand, but one has fallen scattering rubble about the %d by %d area."
+         ],
+         "DUNGEON_ROOM_38_NAME":[
+            "Damp Chamber"
+         ],
+         "DUNGEON_ROOM_38_DESC":[
+            "Water oozes down one of this %d by %d chamber’s walls."
+         ],
+         "DUNGEON_ROOM_39_NAME":[
+            "Moldy Room"
+         ],
+         "DUNGEON_ROOM_39_DESC":[
+            "A mottled black and brown mould covers the wall and is slowly growing outwards across the %d by %d floor."
+         ],
+         "DUNGEON_ROOM_40_NAME":[
+            "Nymph Room"
+         ],
+         "DUNGEON_ROOM_40_DESC":[
+            "Beautiful carvings of dancing nymphs line the walls of this %d by %d room."
+         ],
+         "DUNGEON_CORRIDOR_EW_1_NAME":[
+            "Corridor"
+         ],
+         "DUNGEON_CORRIDOR_EW_1_DESC":[
+            "This is a %d foot by %d foot corridor."
+         ],
+         "DUNGEON_CORRIDOR_EW_2_NAME":[
+            "Pillared Corridor"
+         ],
+         "DUNGEON_CORRIDOR_EW_2_DESC":[
+            "This %d foot corridor is %d foot wide. The ceiling is propped up by regularly spaced obsidian pillars."
+         ],
+         "DUNGEON_CORRIDOR_EW_3_NAME":[
+            "Engraved Passage"
+         ],
+         "DUNGEON_CORRIDOR_EW_3_DESC":[
+            "This %d foot corridor is %d foot wide and engraved with running figures along its length."
+         ],
+         "DUNGEON_CORRIDOR_EW_4_NAME":[
+            "Hall of Mirrors"
+         ],
+         "DUNGEON_CORRIDOR_EW_4_DESC":[
+            "This %d by %d foot hall is completely covered in mirrors set at odd angles, so that you can never see your own reflection but see multiple versions of anybody else with you."
+         ],
+         "DUNGEON_CORRIDOR_EW_5_NAME":[
+            "Miniature Hall"
+         ],
+         "DUNGEON_CORRIDOR_EW_5_DESC":[
+            "This %d by %d foot hall has dozens of dimunitive doors at places along its length."
+         ],
+         "DUNGEON_CORRIDOR_NS_1_NAME":[
+            "Corridor"
+         ],
+         "DUNGEON_CORRIDOR_NS_1_DESC":[
+            "This is a %d foot by %d foot corridor."
+         ],
+         "DUNGEON_JUNCTION_1_NAME":[
+            "Junction"
+         ],
+         "DUNGEON_JUNCTION_1_DESC":[
+            "Several corridors meet together here."
+         ],
+         "DUNGEON_THRONE_NAME":[
+            "Throne Niche"
+         ],
+         "DUNGEON_THRONE_DESC":[
+            "An ancient stone throne fills this niche."
+         ],
+         "DUNGEON_POOL_NAME":[
+            "Magic Pool"
+         ],
+         "DUNGEON_POOL_DESC":[
+            "A mystically carved basin of mystic water lies in this niche."
+         ],
+         "DUNGEON_CHEST_NAME":[
+            "Treasure Niche"
+         ],
+         "DUNGEON_CHEST_DESC":[
+            "A large oak chest lies in this niche."
+         ],
+         "DUNGEON_STAIRS_1_NAME":[
+            "Stairs"
+         ],
+         "DUNGEON_STAIRS_1_DESC":[
+            "These stairs lead between level %d and %d."
+         ]
+}}}

@@ -1,0 +1,11 @@
+ammunition
+magic
+shield
+weapon
+hand held
+potion
+armor
+hurled
+permit
+deed
+launcher

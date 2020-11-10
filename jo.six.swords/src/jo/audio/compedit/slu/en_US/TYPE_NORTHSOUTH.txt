@@ -1,0 +1,4 @@
+s
+south
+north
+n

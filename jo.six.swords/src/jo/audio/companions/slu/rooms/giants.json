@@ -1,0 +1,364 @@
+{  
+   "roomTypes":[  
+      {  
+         "name":{  
+            "ident":"GIANT_ENTRY_HALL"
+         },
+         "description":{  
+            "ident":"GIANT_ENTRY_HALL_DESC"
+         },
+         "ID":"giantEntryHall",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"GIANT_FEAST_HALL"
+         },
+         "description":{  
+            "ident":"GIANT_FEAST_HALL_DESC"
+         },
+         "ID":"giantFeastHall",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"GIANT_CHIEF_ROOM"
+         },
+         "description":{  
+            "ident":"GIANT_CHIEF_ROOM_DESC"
+         },
+         "ID":"giantChiefRoom",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"GIANT_TREASURE_ROOM"
+         },
+         "description":{  
+            "ident":"GIANT_TREASURE_ROOM_DESC"
+         },
+         "ID":"giantTreasureRoom",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"GIANT_BATTLEMENTS"
+         },
+         "description":{  
+            "ident":"GIANT_BATTLEMENTS_DESC"
+         },
+         "ID":"giantBattlements",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"GIANT_TOWER"
+         },
+         "description":{  
+            "ident":"GIANT_TOWER_DESC"
+         },
+         "ID":"giantTower",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"GIANT_KITCHEN"
+         },
+         "description":{  
+            "ident":"GIANT_KITCHEN_DESC"
+         },
+         "ID":"giantKitchen",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"GIANT_TEMPLE"
+         },
+         "description":{  
+            "ident":"GIANT_TEMPLE_DESC"
+         },
+         "ID":"giantTemple",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"GIANT_PRIEST_ROOM"
+         },
+         "description":{  
+            "ident":"GIANT_PRIEST_ROOM_DESC"
+         },
+         "ID":"giantPriestRoom",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"GIANT_LARDER"
+         },
+         "description":{  
+            "ident":"GIANT_LARDER_DESC"
+         },
+         "ID":"giantLarder",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"GIANT_THRONE_ROOM"
+         },
+         "description":{  
+            "ident":"GIANT_THRONE_ROOM_DESC"
+         },
+         "ID":"giantThroneRoom",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"GIANT_SMITHY"
+         },
+         "description":{  
+            "ident":"GIANT_SMITHY_DESC"
+         },
+         "ID":"giantSmithy",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"GIANT_ARMORY"
+         },
+         "description":{  
+            "ident":"GIANT_ARMORY_DESC"
+         },
+         "ID":"giantArmory",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"GIANT_NURSERY"
+         },
+         "description":{  
+            "ident":"GIANT_NURSERY_DESC"
+         },
+         "ID":"giantNursery",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"GIANT_BREWERY"
+         },
+         "description":{  
+            "ident":"GIANT_BREWERY_DESC"
+         },
+         "ID":"giantBrewery",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"GIANT_SLAVE_QUARTERS"
+         },
+         "description":{  
+            "ident":"GIANT_SLAVE_QUARTERS_DESC"
+         },
+         "ID":"giantSlaveQuarters",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"GIANT_BUTCHERY"
+         },
+         "description":{  
+            "ident":"GIANT_BUTCHERY_DESC"
+         },
+         "ID":"giantButchery",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"GIANT_STABLE"
+         },
+         "description":{  
+            "ident":"GIANT_STABLE_DESC"
+         },
+         "ID":"giantStable",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"GIANT_FORGE"
+         },
+         "description":{  
+            "ident":"GIANT_FORGE_DESC"
+         },
+         "ID":"giantForge",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"GIANT_TO_ICELAND_NAME"
+         },
+         "description":{
+            "ident":"GIANT_TO_ICELAND_DESC"
+         },
+         "ID":"giant_to_iceland",
+         "params":{ 
+         	"postEnter": [
+         		"respond(GIANT_TO_ICELAND_MSG)", 
+         		"dimensionGo(14)"
+         	],
+         	"populate": "skip"
+         },
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"GIANT_FROM_ICELAND_NAME"
+         },
+         "description":{
+            "ident":"GIANT_FROM_ICELAND_DESC"
+         },
+         "ID":"giant_from_iceland",
+         "params":{ 
+         	"postEnter": [ 
+         		"respond(GIANT_FROM_ICELAND_MSG)", 
+         		"dimensionReturn(14)"
+     		 ],
+         	"populate": "skip"
+         },
+         "type":"scenic"
+      }
+   ],
+   "text":{  
+      "en_US":{  
+         "GIANT_BREWERY":[  
+            "Brewery"
+         ],
+         "GIANT_ENTRY_HALL_DESC":[  
+            "Massive doors open into a huge room with a few oversized boots stacked up and coats hung on the wall."
+         ],
+         "GIANT_SMITHY_DESC":[  
+            "A mountain of coal glows orange here near an anvil the size of a cow."
+         ],
+         "GIANT_LARDER_DESC":[  
+            "Whole cured moose and cows hang from the roof of this smoky room."
+         ],
+         "GIANT_TOWER":[  
+            "Tower"
+         ],
+         "GIANT_ENTRY_HALL":[  
+            "Entry Hall"
+         ],
+         "GIANT_KITCHEN_DESC":[  
+            "Enormous untensils hang from the ceiling over a stove the size of a cart. Propped up next to a butcher's block made from an oak tree is a book titled 'To Serve Man'."
+         ],
+         "GIANT_TEMPLE_DESC":[  
+            "Large carved stone faces look down somberly at you between pillars carved with religious texts."
+         ],
+         "GIANT_SLAVE_QUARTERS_DESC":[  
+            "Filthy straw pallets are stacked in this room amongst meager belongings."
+         ],
+         "GIANT_FORGE_DESC":[  
+            "The heat in here is oppressive as the draft from the massive chimney fans the fire to metal metling temperatures."
+         ],
+         "GIANT_KITCHEN":[  
+            "Kitchen"
+         ],
+         "GIANT_ARMORY":[  
+            "Armory"
+         ],
+         "GIANT_LARDER":[  
+            "Larder"
+         ],
+         "GIANT_NURSERY_DESC":[  
+            "Large wicker cribs and rattles the size of a small child are littered around this room."
+         ],
+         "GIANT_THRONE_ROOM_DESC":[  
+            "A gargantual chair sits on a low dias here in front of a large, open space."
+         ],
+         "GIANT_FEAST_HALL_DESC":[  
+            "Huge trestle tables line this room laden with all manner of food and drink."
+         ],
+         "GIANT_SLAVE_QUARTERS":[  
+            "Slave Quarters"
+         ],
+         "GIANT_BATTLEMENTS_DESC":[  
+            "This walkway runs along a defensive part of the dwelling afforing a view of the surroundings. If you could see over the wall."
+         ],
+         "GIANT_PRIEST_ROOM_DESC":[  
+            "Robes and pigments line this room along with a small, votive shrine."
+         ],
+         "GIANT_BUTCHERY":[  
+            "Slaughterhouse"
+         ],
+         "GIANT_FORGE":[  
+            "Forge"
+         ],
+         "GIANT_CHIEF_ROOM_DESC":[  
+            "Furs of a wide variety of creatures insulate this room and make the hard furniture soft here."
+         ],
+         "GIANT_TREASURE_ROOM_DESC":[  
+            "A massive stone chest guards the wealth of these giants."
+         ],
+         "GIANT_THRONE_ROOM":[  
+            "Throne Room"
+         ],
+         "GIANT_BATTLEMENTS":[  
+            "Battlements"
+         ],
+         "GIANT_TEMPLE":[  
+            "Temple"
+         ],
+         "GIANT_STABLE_DESC":[  
+            "Large stalls and straw provide a comfortable home for the pets the giants keep."
+         ],
+         "GIANT_BREWERY_DESC":[  
+            "Large butts and tuns of ale rest here and the smell of fermentation is heavy in the air."
+         ],
+         "GIANT_CHIEF_ROOM":[  
+            "Chieftan's Room"
+         ],
+         "GIANT_TREASURE_ROOM":[  
+            "Treasure Room"
+         ],
+         "GIANT_ARMORY_DESC":[  
+            "Rank upon rank of spears and other weapons lie ready along the walls of this room."
+         ],
+         "GIANT_PRIEST_ROOM":[  
+            "Priest's Room"
+         ],
+         "GIANT_FEAST_HALL":[  
+            "Feast Hall"
+         ],
+         "GIANT_BUTCHERY_DESC":[  
+            "Heavy knives hang from the walls and a full animal carcas is half dismembered on the table here."
+         ],
+         "GIANT_NURSERY":[  
+            "Nursery"
+         ],
+         "GIANT_STABLE":[  
+            "Stable"
+         ],
+         "GIANT_TOWER_DESC":[  
+            "Huge stone blocks make up a defensive tower in this corner of the dwelling."
+         ],
+         "GIANT_SMITHY":[  
+            "Smithy"
+          ],
+         "GIANT_TO_ICELAND_NAME":[
+            "Ornately Carved Door"
+         ],
+         "GIANT_TO_ICELAND_DESC":[
+            "The slabs of this room are carved in ribbons of runes."
+         ],
+         "GIANT_FROM_ICELAND_NAME":[
+            "Ornately Carved Door"
+         ],
+         "GIANT_FROM_ICELAND_DESC":[
+            "The slabs of this room are carved in ribbons of runes."
+         ],
+         "GIANT_TO_ICELAND_MSG":[
+            "A cold wind blows and strange chanting fills the air. <audio src=\"https:\/\/s3.amazonaws.com\/tsatsatzu-alexa\/sound\/fantasy\/Numa_rimur_extract.mp3\"\/> When you regain your senses, you are somewhere else."
+         ],
+         "GIANT_FROM_ICELAND_MSG":[
+            "A straing music surrounds you, confusing you. <audio src=\"https:\/\/s3.amazonaws.com\/tsatsatzu-alexa\/sound\/fantasy\/Numa_rimur_extract.mp3\"\/> When your head clears, everything looks different."
+         ]
+      }
+   }
+}

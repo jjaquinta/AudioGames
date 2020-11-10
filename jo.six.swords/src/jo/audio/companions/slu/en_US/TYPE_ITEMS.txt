@@ -1,0 +1,224 @@
+Humanoid Control Potion
+Potion of Humanoid Control
+Humanoid Control
+Staff
+Dragon Control Potion
+Potion of Dragon Control
+Dragon Control
+Demon Control Potion
+Potion of Demon Control
+Demon Control
+Clairvoyance Potion
+Potion of Clairvoyance
+Clairvoyance
+Hand Axe
+Axe
+Sling
+Game Room Deed
+Ring Armor
+Ring
+Divination Room Deed
+Entry Deed
+Long Sword
+Sword
+Trident
+1 Way Door Permit
+Medium Shield
+Shield
+Small Shield
+Storage Deed
+Study Deed
+Arrow
+Arrows
+Golem Control Potion
+Potion of Golem Control
+Golem Control
+Hill Giant Strength Potion
+Potion of Hill Giant Strength
+Hill Giant Strength
+Healing Potion
+Potion of Healing
+Healing
+Shrine Deed
+Demi-Human Control Potion
+Potion of Demi-Human Control
+Demi-Human Control
+Labratory Deed
+Leather Armor
+Leather
+Library Deed
+Medium Level Door Permit
+Vault Deed
+Chantry Deed
+Dagger
+Long Bow
+Great Hall Deed
+Crypt Deed
+Dressing Room Deed
+Invisibility Potion
+Potion of Invisibility
+Invisibility
+Poison Resistance Potion
+Potion of Poison Resistance
+Poison Resistance
+Invulnerability Potion
+Potion of Invulnerability
+Invulnerability
+Antechamber Deed
+Armory Deed
+Bath Deed
+Stable Deed
+Javelin
+Closet Deed
+Frost Resistance Potion
+Potion of Frost Resistance
+Frost Resistance
+Conjuring Room Deed
+Hallway Deed
+Door Permit
+Barracks Deed
+Scimitar
+Frost Giant Strength Potion
+Potion of Frost Giant Strength
+Frost Giant Strength
+Banded Armor
+Banded Mail
+Lightning Resistance Potion
+Potion of Lightning Resistance
+Lightning Resistance
+Pantry Deed
+Observatory Deed
+Aviary Deed
+Extra Healing Potion
+Potion of Extra Healing
+Extra Healing
+Broad Sword
+Kitchen Deed
+Heavy Pick
+Dormitory Deed
+Two Handed Sword
+War Hammer
+warhammer
+Clairaudience Potion
+Potion of Clairaudience
+Clairaudience
+Padded Armor
+Padded
+Bedroom Deed
+Bastard Sword
+Heavy Crossbow Bolt
+Heavy Bolt
+Corridor Deed
+Heavy Crossbow
+Spear
+Office Deed
+Smithy Deed
+Refectory Deed
+Battle Axe
+Prison Deed
+Cistern Deed
+Hall Deed
+Mark Permit
+Giant Control Potion
+Potion of Giant Control
+Giant Control
+Audience Deed
+Toilet Deed
+Robing Room Deed
+Low Level Door Permit
+Chain Mail
+Chainmail
+Heavy Mace
+Acid Resistance Potion
+Potion of Acid Resistance
+Acid Resistance
+Well Deed
+Heavy Flail
+Short Bow
+Bow
+Light Crossbow
+Crossbow
+Lounge Deed
+Composite Long Bow
+Meditation Deed
+Gallery Deed
+High Level Door Permit
+Lycanthrope Control Potion
+Potion of Lycanthrope Control
+Lycanthrope Control
+Light Crossbow Bolt
+Light Bolt
+Composite Short Bow
+Seraglio Deed
+Storm Giant Strength Potion
+Potion of Storm Giant Strength
+Storm Giant Strength
+Beastiary Deed
+Throne Room Deed
+Short Sword
+Dart
+Splint Mail
+Sylvan Control Potion
+Potion of Sylvan Control
+Sylvan Control
+Chapel Deed
+Lance
+Torture Chamber Deed
+Sitting Room Deed
+Halberd
+Cell Deed
+Banquet Deed
+Plate Armor
+Plate Mail
+Plate
+Sling Stone
+Stone Giant Strength Potion
+Potion of Stone Giant Strength
+Stone Giant Strength
+Light Mace
+Mace
+Undead Control Potion
+Potion of Undead Control
+Undead Control
+Temple Deed
+Devil Control Potion
+Potion of Devil Control
+Devil Control
+Fire Resistance Potion
+Potion of Fire Resistance
+Fire Resistance
+Sling bullet
+Classroom Deed
+Large Shield
+Studded Armor
+Studded Leather
+Guard Room Deed
+Dinosaur Control Potion
+Potion of Dinosaur Control
+Dinosaur Control
+Dining Room Deed
+Cloud Giant Strength Potion
+Potion of Cloud Giant Strength
+Cloud Giant Strength
+Pole Arm
+Light Pick
+Pick
+Trophy Room Deed
+Club
+Light Flail
+Flail
+Morning star
+Scale Mail
+Scale
+Animal Control Potion
+Potion of Animal Control
+Animal Control
+Courtyard Deed
+Kennel Deed
+Elfin Chain Mail
+Fire Giant Strength Potion
+Potion of Fire Giant Strength
+Fire Giant Strength
+Speed Potion
+Potion of Speed
+Speed

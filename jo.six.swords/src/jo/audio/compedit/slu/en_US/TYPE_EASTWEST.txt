@@ -1,0 +1,4 @@
+east
+e
+w
+west

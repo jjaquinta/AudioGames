@@ -1,0 +1,3590 @@
+{
+  "appName": "tsatsatzu.companions.road",
+  "description": { "en_US": "Hacking and slashing away we go." },
+  "keywords": { "en_US": "hack,slash" },
+  "displayName": { "en_US": "Six Swords" },
+  "invocationName": { "en": "six swords" },
+  "url": "https://api-staging.111george.com/companions/road/app/v1",
+  "supportedLanguages": [ "en_US", "en_IN", "en_UK", "en_AZ", "en_CA" ],
+  "include": [ "personal_names.model", "place_names.model", "effects.model", "rumors.model",
+  	"content/enuma_names.model", "content/irl_names.model" ],
+  "dictionaries":{
+  	"direction":[
+		"north",
+	  	"south",
+		"east",
+		"west"
+		],
+  	"items":[
+		["Arrow", "Arrows"],
+		"Battle Axe",
+		["Hand Axe","Axe"],
+		["Heavy Crossbow Bolt","Heavy Bolt"],
+		["Light Crossbow Bolt","Light Bolt"],
+		"Club",
+		"Dagger",
+		"Dart",
+		"Heavy Flail",
+		["Light Flail","Flail"],
+		"Halberd",
+		["War Hammer", "warhammer" ],
+		"Javelin",
+		"Lance",
+		"Heavy Mace",
+		["Light Mace","Mace"],
+		"Morning star",
+		"Heavy Pick",
+		["Light Pick","Pick"],
+		"Pole Arm",
+		"Sling bullet",
+		"Sling Stone",
+		"Spear",
+		"Staff",
+		"Bastard Sword",
+		"Broad Sword",
+		["Long Sword","Sword"],
+		"Scimitar",
+		"Short Sword",
+		"Two Handed Sword",
+		"Trident",
+		"Long Bow",
+		"Sling",
+		["Short Bow","Bow"],
+		"Composite Long Bow",
+		"Composite Short Bow",
+		"Heavy Crossbow",
+		["Light Crossbow","Crossbow"],
+		["Banded Armor","Banded Mail"],
+		["Chain Mail","Chainmail"],
+		"Elfin Chain Mail",
+		["Leather Armor","Leather"],
+		["Padded Armor","Padded"],
+		["Plate Armor","Plate Mail","Plate"],
+		["Ring Armor","Ring"],
+		["Scale Mail","Scale"],
+		"Large Shield",
+		["Medium Shield","Shield"],
+		"Small Shield",
+		"Splint Mail",
+		["Studded Armor","Studded Leather"],
+		["Healing Potion", "Potion of Healing", "Healing" ],
+		["Extra Healing Potion", "Potion of Extra Healing", "Extra Healing" ],
+		["Animal Control Potion", "Potion of Animal Control", "Animal Control" ],
+		["Demi-Human Control Potion", "Potion of Demi-Human Control", "Demi-Human Control" ],
+		["Demon Control Potion", "Potion of Demon Control", "Demon Control" ],
+		["Devil Control Potion", "Potion of Devil Control", "Devil Control" ],
+		["Dinosaur Control Potion", "Potion of Dinosaur Control", "Dinosaur Control" ],
+		["Dragon Control Potion", "Potion of Dragon Control", "Dragon Control" ],
+		["Giant Control Potion", "Potion of Giant Control", "Giant Control" ],
+		["Golem Control Potion", "Potion of Golem Control", "Golem Control" ],
+		["Humanoid Control Potion", "Potion of Humanoid Control", "Humanoid Control" ],
+		["Lycanthrope Control Potion", "Potion of Lycanthrope Control", "Lycanthrope Control" ],
+		["Sylvan Control Potion", "Potion of Sylvan Control", "Sylvan Control" ],
+		["Undead Control Potion", "Potion of Undead Control", "Undead Control" ],
+		["Clairaudience Potion", "Potion of Clairaudience", "Clairaudience" ],
+		["Clairvoyance Potion", "Potion of Clairvoyance", "Clairvoyance" ],
+		["Hill Giant Strength Potion", "Potion of Hill Giant Strength", "Hill Giant Strength" ],
+		["Stone Giant Strength Potion", "Potion of Stone Giant Strength", "Stone Giant Strength" ],
+		["Frost Giant Strength Potion", "Potion of Frost Giant Strength", "Frost Giant Strength" ],
+		["Fire Giant Strength Potion", "Potion of Fire Giant Strength", "Fire Giant Strength" ],
+		["Cloud Giant Strength Potion", "Potion of Cloud Giant Strength", "Cloud Giant Strength" ],
+		["Storm Giant Strength Potion", "Potion of Storm Giant Strength", "Storm Giant Strength" ],
+		["Fire Resistance Potion", "Potion of Fire Resistance", "Fire Resistance" ],
+		["Frost Resistance Potion", "Potion of Frost Resistance", "Frost Resistance" ],
+		["Acid Resistance Potion", "Potion of Acid Resistance", "Acid Resistance" ],
+		["Poison Resistance Potion", "Potion of Poison Resistance", "Poison Resistance" ],
+		["Lightning Resistance Potion", "Potion of Lightning Resistance", "Lightning Resistance" ],
+		["Invisibility Potion", "Potion of Invisibility", "Invisibility" ],
+		["Invulnerability Potion", "Potion of Invulnerability", "Invulnerability" ],
+		["Speed Potion", "Potion of Speed", "Speed" ],
+		"Antechamber Deed",
+		"Armory Deed",
+		"Audience Deed",
+		"Aviary Deed",
+		"Banquet Deed",
+		"Barracks Deed",
+		"Bath Deed",
+		"Bedroom Deed",
+		"Beastiary Deed",
+		"Cell Deed",
+		"Chantry Deed",
+		"Chapel Deed",
+		"Cistern Deed",
+		"Classroom Deed",
+		"Closet Deed",
+		"Conjuring Room Deed",
+		"Corridor Deed",
+		"Courtyard Deed",
+		"Crypt Deed",
+		"Dining Room Deed",
+		"Divination Room Deed",
+		"Dormitory Deed",
+		"Dressing Room Deed",
+		"Entry Deed",
+		"Gallery Deed",
+		"Game Room Deed",
+		"Guard Room Deed",
+		"Hall Deed",
+		"Great Hall Deed",
+		"Hallway Deed",
+		"Seraglio Deed",
+		"Kennel Deed",
+		"Kitchen Deed",
+		"Labratory Deed",
+		"Library Deed",
+		"Lounge Deed",
+		"Meditation Deed",
+		"Observatory Deed",
+		"Office Deed",
+		"Pantry Deed",
+		"Prison Deed",
+		"Refectory Deed",
+		"Robing Room Deed",
+		"Shrine Deed",
+		"Sitting Room Deed",
+		"Smithy Deed",
+		"Stable Deed",
+		"Storage Deed",
+		"Vault Deed",
+		"Study Deed",
+		"Temple Deed",
+		"Throne Room Deed",
+		"Torture Chamber Deed",
+		"Trophy Room Deed",
+		"Toilet Deed",
+		"Well Deed",
+		"Mark Permit",
+		"Door Permit",
+		"1 Way Door Permit",
+		"Low Level Door Permit",
+		"Medium Level Door Permit",
+		"High Level Door Permit",
+		],
+	  "types_en_US":[
+		"ammunition",
+		"hand held",
+		"hurled",
+		"launcher",
+		"armor",
+		"shield",
+		"potion",
+		"deed",
+		"permit",
+		"weapon",
+		"magic"
+		],
+	  "anything_en_US":[
+		"vanish plate",
+		"warm brainy",
+		"direful rabid bottle",
+		"judicious cart glass",
+		"flagrant abiding utter thundering",
+		"shrug calculator explode quince",
+		"woebegone support throat weight oil",
+		"arithmetic love receipt possessive envious",
+		"rainstorm next laugh press hill cut",
+		"cause precede daily mute grouchy direction",
+		"zany sun mixed flavor note clean industrious believe",
+		"scarecrow real swift digestion snotty oranges hover",
+		"cool pine separate observe harbor receptive hour stone",
+		"heap screw knotty outrageous laborer tame broken zephyr"
+      ]		
+  },
+  "intents": [
+    {
+      "intent": "MOVE",
+      "slots": [
+        {
+          "name": "dir",
+          "type": "CUSTOM",
+          "dictionary": "direction"
+        }
+      ],
+      "utterances": {
+	      "en_US": [
+      	"go {dir}",
+      	"move {dir}",
+      	"run {dir}",
+      	"walk {dir}",
+      	"let's go {dir}",
+      	"how about {dir}",
+      	"i want to go {dir}",
+      	"runaway",
+      	"run away"
+      ]},
+      "examples": { "en_US": [ "To go somewhere, try saying \"<>\". " ] }
+    },
+    {
+      "intent": "MORE",
+      "slots": [],
+      "utterances": {
+	      "en_US": [
+      	"more",
+      	"tell me more"
+      ]},
+      "examples": { "en_US": [ "To find out more, try saying \"<>\". ", "For more details, say \"<>\". " ] }
+    },
+    {
+      "intent": "NEWS",
+      "slots": [],
+      "utterances": {
+	      "en_US": [
+      	"news",
+      	"new features",
+      	"updates",
+      	"today's news"
+      ]},
+      "examples": { "en_US": [ "To find out about the latest updates, try saying \"<>\". ", "For details on the newest features, say \"<>\". " ] }
+    },
+    {
+      "intent": "SLEEP",
+      "slots": [],
+      "utterances": {
+	      "en_US": [
+      	"sleep",
+      	"rest"
+      ]},
+      "examples": { "en_US": [ "To rest for the night, try saying \"<>\". ", "To sleep, say \"<>\". " ] }
+    },
+    {
+      "intent": "NORTH",
+      "slots": [],
+      "utterances": {
+	      "en_US": [
+      	"north"
+      ]},
+      "examples": { "en_US": [ "To go north, say \"<>\". " ] }
+    },
+    {
+      "intent": "SOUTH",
+      "slots": [],
+      "utterances": {
+	      "en_US": [
+      	"south"
+      ]},
+      "examples": { "en_US": [ "To go south, say \"<>\". " ] }
+    },
+    {
+      "intent": "EAST",
+      "slots": [],
+      "utterances": {
+	      "en_US": [
+      	"east"
+      ]},
+      "examples": { "en_US": [ "To go east, say \"<>\". " ] }
+    },
+    {
+      "intent": "WEST",
+      "slots": [],
+      "utterances": {
+	      "en_US": [
+      	"west"
+      ]},
+      "examples": { "en_US": [ "To go west, say \"<>\". " ] }
+    },
+    {
+      "intent": "LOOK",
+      "slots": [],
+      "utterances": {
+	      "en_US": [
+      	"look",
+      	"surroundings",
+      	"examine"
+      ]},
+      "examples": { "en_US": [ "To see what's here, say \"<>\". " ] }
+    },
+    {
+      "intent": "WHO",
+      "slots": [],
+      "utterances": {
+	      "en_US": [
+      	"companions",
+      	"who am i",
+      	"who are my companions",
+      	"who"
+      ]},
+      "examples": { "en_US": [ "To see who you're companions are, say \"<>\". " ] }
+    },
+    {
+      "intent": "ACTIVATE",
+      "slots": [
+        {
+          "name": "whom",
+          "type": "FirstName"
+        }
+      ],
+      "utterances": {
+	      "en_US": [
+      	"activate",
+      	"activate {whom}",
+      	"make {whom} active",
+      	"active",
+      	"active companion",
+      	"who is active",
+      	"selected",
+      	"selected companion",
+      	"who is selected",
+      	"who's active",
+      	"who is the selected companion",
+      	"who's my selected companion",
+      	"who is the active companion",
+      	"make {whom} my active companion"
+      ]},
+      "examples": { "en_US": [ "To activate a companion, say \"<>\". " ] }
+    },
+    {
+      "intent": "HIRE",
+      "slots": [
+        {
+          "name": "whom",
+          "type": "FirstName"
+        }
+      ],
+      "utterances": {
+	      "en_US": [
+      	"hire {whom}",
+      	"higher {whom}",
+      	"recruit {whom}",
+      	"select {whom}"
+      ]},
+      "examples": { "en_US": [ "To hire a companion, say \"<>\". " ] }
+    },
+    {
+      "intent": "FIRE",
+      "slots": [
+        {
+          "name": "whom",
+          "type": "FirstName"
+        }
+      ],
+      "utterances": {
+	      "en_US": [
+      	"fire {whom}",
+      	"release {whom}",
+      	"say goodbye to {whom}",
+      	"part ways with {whom}",
+      	"let {whom} go"
+      ]},
+      "examples": { "en_US": [ "To part with a companion, say \"<>\". " ] }
+    },
+    {
+      "intent": "INVENTORY",
+      "slots": [
+        {
+          "name": "whom",
+          "type": "FirstName"
+        },
+        {
+          "name": "type",
+          "type": "CUSTOM",
+          "dictionary": "types"
+        }
+      ],
+      "utterances": {
+	      "en_US": [
+      	"inventory {whom}",
+      	"inventory {type}",
+      	"list my {type}",
+      	"inventory"
+      ]},
+      "examples": { "en_US": [ "To see what you have, say \"<>\". " ] }
+    },
+    {
+      "intent": "EQUIP",
+      "slots": [
+        {
+          "name": "whom",
+          "type": "FirstName"
+        },
+        {
+          "name": "what",
+          "type": "CUSTOM",
+          "dictionary": "items"
+        }
+      ],
+      "utterances": {
+	      "en_US": [
+      	"equip",
+      	"equip {what}",
+      	"give {what}",
+      	"wear {what}",
+      	"wield {what}",
+      	"use {what}",
+      	"put on {what}",
+      	"equip {whom} with {what}",
+      	"give {what} to {whom}",
+      	"ask {whom} to wear {what}",
+      	"ask {whom} to wield {what}",
+      	"ask {whom} to use {what}",
+      	"equip {whom}"
+      ]},
+      "examples": { "en_US": [ "To use something, say \"<>\". " ] }
+    },
+    {
+      "intent": "UNEQUIP",
+      "slots": [
+        {
+          "name": "whom",
+          "type": "FirstName"
+        },
+        {
+          "name": "what",
+          "type": "CUSTOM",
+          "dictionary": "items"
+        }
+      ],
+      "utterances": {
+	      "en_US": [
+      	"unequip",
+      	"unequip {what}",
+      	"remove {what}",
+      	"take {what}",
+      	"stop wearing {what}",
+      	"take off {what}",
+      	"stop using {what}",
+      	"unequip {whom} with {what}",
+      	"tell {whom} to remove {what}",
+      	"take {what} from {whom}",
+      	"ask {whom} not to wear {what}",
+      	"ask {whom} not to wield {what}",
+      	"ask {whom} not to use {what}",
+      	"ask {whom} to stop wearing {what}",
+      	"ask {whom} to stop wielding {what}",
+      	"ask {whom} to stop using {what}"
+      ]},
+      "examples": { "en_US": [ "To stop using something, say \"<>\". " ] }
+    },
+    {
+      "intent": "FIGHT",
+      "slots": [],
+      "utterances": {
+	      "en_US": [
+      	"fight",
+      	"attack",
+      	"combat",
+      	"ready"
+      ]},
+      "examples": { "en_US": [ "To fight the next round, say \"<>\". " ] }
+    },
+    {
+      "intent": "ENTER",
+      "slots": [],
+      "utterances": {
+	      "en_US": [
+      	"enter",
+      	"go in",
+      	"inside"
+      ]},
+      "examples": { "en_US": [ "To go in, say \"<>\". " ] }
+    },
+    {
+      "intent": "BUY",
+      "slots": [
+        {
+          "name": "what",
+          "type": "CUSTOM",
+          "dictionary": "items"
+        }
+      ],
+      "utterances": {
+	      "en_US": [
+      	"buy {what}",
+      	"by {what}",
+      	"i want to buy {what}",
+      	"purchase {what}",
+      	"pick up {what}",
+      	"get {what}"
+      ]},
+      "examples": { "en_US": [ "To buy something, say \"<>\". " ] }
+    },
+    {
+      "intent": "SELL",
+      "slots": [
+        {
+          "name": "what",
+          "type": "CUSTOM",
+          "dictionary": "items"
+        }
+      ],
+      "utterances": {
+	      "en_US": [
+      	"sell {what}",
+      	"sell my {what}"
+      	"drop {what}",
+      	"drop the {what}"
+      ]},
+      "examples": { "en_US": [ "To sell something, say \"<>\". " ] }
+    },
+    {
+      "intent": "REFUND",
+      "slots": [],
+      "utterances": {
+	      "en_US": [
+      	"cancel subscription",
+      	"cancel my subscription"
+      ]},
+      "examples": { "en_US": [ "To cancel your subscription, say \"<>\". " ] }
+    },
+    {
+      "intent": "WHATCANIBUY",
+      "slots": [],
+      "utterances": {
+	      "en_US": [
+      	"what can I buy",
+      	"take me to premium content",
+      	"premium content"
+      ]},
+      "target":"alexa",
+      "examples": { "en_US": [ "To purchase premium content, say \"<>\". " ] }
+    },
+    {
+      "intent": "RepeatIntent",
+      "slots": [],
+      "utterances": {
+	      "en_US": [
+      	"say again"
+      ]},
+      "examples": { "en_US": [ "To hear what I just said again, say \"<>\". " ] }
+    },
+      {
+         "slots":[
+
+         ],
+         "intent":"NoIntent"
+      },
+      {
+         "slots":[
+
+         ],
+         "intent":"YesIntent"
+      },
+      {
+         "slots":[
+
+         ],
+         "intent":"HelpIntent"
+      },
+      {
+         "slots":[
+
+         ],
+         "intent":"StopIntent",
+	      "utterances": {
+		      "en_US": [
+	      	"quit"
+	      ]}
+      },
+      {
+         "slots":[
+
+         ],
+         "intent":"CancelIntent"
+      },
+    {
+      "intent": "ABOUT",
+      "slots": [
+        {
+          "name": "whom",
+          "type": "FirstName"
+        }
+      ],
+      "utterances": {
+	      "en_US": [
+      	"about",
+      	"about me",
+      	"give me information about {whom}",
+		"i want to know more about {whom}",
+		"tell me about my companions",
+      	"about {whom}",
+      	"about myself",
+      	"tell me about myself",
+      	"tell me about {whom}",
+      	"about companions",
+      	"tell me about companions",
+      	"about six swords",
+      	"tell me about six swords"
+      ]},
+      "examples": { "en_US": [ "To get an overview of the game or a companion, say \"<>\". " ] }
+      },
+    {
+      "intent": "WHATIS",
+      "slots": [
+        {
+          "name": "thing",
+          "type": "CUSTOM",
+          "dictionary": "anything",
+          "hint":"and then say name of object"
+        }
+      ],
+      "utterances": {
+	      "en_US": [
+      	"what's {thing}",
+      	"what's a {thing}",
+      	"what is {thing}",
+      	"what is a {thing}"
+      ]},
+      "examples": { "en_US": [ "To get an overview of the game or a companion, say \"<>\". " ] }
+      },
+    {
+      "intent": "WHEREIS",
+      "slots": [
+        {
+          "name": "thing",
+          "type": "CUSTOM",
+          "dictionary": "anything",
+          "hint":"and then say name of object"
+        }
+      ],
+      "utterances": {
+	      "en_US": [
+      	"where is {thing}",
+		"directions to {thing}"
+      ]},
+      "examples": { "en_US": [ "To get an overview of the game or a companion, say \"<>\". " ] }
+    }
+  ],
+   "text":{
+      "en_US":{
+         "Unknown operation XXX":[
+     		"Unknown operation %s!"
+         ],
+         "WELCOME_TO_COMPANIONS":[
+     		"Welcome to Six Swords.",
+     		"Six Swords welcomes you."
+         ],
+         "WELCOME_TO_CIRRANE":[
+     		"Welcome to Dungeons of Cirrane.",
+     		"Dungeons of Cirrane welcomes you."
+         ],
+         "WELCOME_SUBSCRIBER":[
+     		"Welcome to Six Swords, premium subscriber.",
+     		"Six Swords welcomes you, premium subscriber."
+         ],
+         "WELCOME_TO_IRELAND":[
+     		"Welcome to Heroic Ireland.",
+     		"Heroic Ireland welcomes you."
+         ],
+         "WELCOME_TO_ICELAND":[
+     		"Welcome to Heroic Iceland.",
+     		"Heroic Iceland welcomes you."
+         ],
+         "INTRO_TO_COMPANIONS":[
+     		"Welcome to Six Swords, a game of high adventure and challenge. You will manage a team of up to six mercenaries to explore a fantasy setting, fight dangerous monsters, and bring back their gold. You can say 'help' at any time to get suggestions about what you can say. To get to know your team, say 'who'."
+         ],
+         "INTRO_TO_CIRRANE":[
+     		"Welcome to Dungeons of Cirrane, a role playing audio game where you play as adventurers in the dark and corrupt city of Cirrane. Explore dungeons and labyrinths, fight monsters, loot gold, and uncover mysteries in this dangerous land. You can say 'help' at any time to get suggestions about what you can say. To get to know your team, say 'who'."
+         ],
+         "INTRO_TO_IRELAND":[
+     		"Welcome to Heroic Ireland, a game of high adventure and challenge. You will manage a team of up to six mercenaries to explore mystical mythical Ireland, fight dangerous monsters, and bring back their gold. You can say 'help' at any time to get suggestions about what you can say. To get to know your team, say 'who'."
+         ],
+         "INTRO_TO_ICELAND":[
+     		"Welcome to Heroic Iceland, a game of high adventure and challenge. You will manage a team of up to six mercenaries to explore mystical mythical Iceland, fight dangerous monsters, and bring back their gold. You can say 'help' at any time to get suggestions about what you can say. To get to know your team, say 'who'."
+         ],
+         "At the end of this message you will hear this short tone":[
+     		"<<speech: <break time=\"1s\"/> >>At the end of this message you will hear this short tone. <<speech:<audio  src=\"https://s3.amazonaws.com/tsatsatzu-alexa/sound/beeps/DEEK.mp3\"/> >> This means that you can say 'more' for additional info. Try it now. "
+         ],
+         "You can say north south east or west to travel in that direction":[
+     		"You can say 'north', 'south', 'east', or 'west' to travel in that direction. "
+         ],
+         "You can say inventory to find out what you are carrying":[
+     		"You can say 'inventory' to find out what you are carrying. "
+         ],
+         "You can say about for more information about your party":[
+     		"You can say 'about' for more information about your party. "
+         ],
+         "You can say activate XXX to change the active companion to XXX":[
+     		"You can say 'activate %s' to change the active companion. "
+         ],
+         "You can say equip XXX with YYY to ask a companion we weild or wear a certain item":[
+     		"You can say 'equip %s with %s' to ask a companion to wield or wear a certain item. "
+         ],
+         "You can say take XXX from YYY to uneqip an item from a companion":[
+     		"You can say 'take %s from %s' to uneqip an item from a companion. "
+         ],
+         "You can say enter to go into XXX":[
+     		"You can say 'enter' to go into %s. "
+         ],
+         "You can say hire XXX to add a new companion to your team":[
+     		"You can say 'hire %s' to add a new companion to your team. "
+         ],
+         "You can say fire XXX to remove a companion from your team":[
+     		"You can say 'fire %s' to remove a companion from your team. "
+         ],
+         "You can say buy XXX to purchase an item from this shop":[
+     		"You can say 'buy %s' to purchase an item from this shop. "
+         ],
+         "You can say sell XXX to sell an appropriate item to this shop":[
+     		"You can say 'sell %s' to sell an appropriate item to this shop. "
+         ],
+         "You can say inventory XXX to find out what they are carrying":[
+     		"You can say 'inventory %s' to find out what they are carrying. "
+         ],
+         "Say fight to fight the next round of combat or run away to flee":[
+     		"Say 'fight' to fight the next round of combat or 'run away' to flee. "
+         ],
+         "Congratulations You may continue on to the premium area":[
+     		"Congratulations! You may continue on to the premium area. "
+         ],
+         "You may continue to play in free mode":[
+     		"You may continue to play in free mode."
+         ],
+         "You may continue to play in the premium area":[
+     		"You may continue to play in the premium area. "
+         ],
+         "You may continue to play the premium area until your subscriptions runs out":[
+     		"You may continue to play in the premium area until your subscriptions runs out. After that, you will be moved to the free play area."
+         ],
+         "Im not sure what direction that is":[
+     		"I'm not recognizing that direction. I can only go north, south, east and west.",
+     		"I'm not sure what direction that is. Please try north, south, east or west."
+         ],
+         "You travel north":[
+     		"You travel north.",
+     		"North it is.",
+     		"Northward we go."
+         ],
+         "You travel up to the north":[
+     		"You travel up to the north.",
+     		"Up to the north it is.",
+     		"Up we go to the North."
+         ],
+         "You travel down to the north":[
+     		"You travel down to the north.",
+     		"Down to the north it is.",
+     		"Down we go to the North."
+         ],
+         "You travel south":[
+     		"You travel south.",
+     		"South it is.",
+     		"Southward we go."
+         ],
+         "You travel up to the south":[
+     		"You travel up to the south.",
+     		"Up to the south it is.",
+     		"Up we go to the south."
+         ],
+         "You travel down to the south":[
+     		"You travel down to the south.",
+     		"Down to the south it is.",
+     		"Down we go to the south."
+         ],
+         "You travel east":[
+     		"You travel east.",
+     		"East it is.",
+     		"Eastward we go."
+         ],
+         "You travel up to the east":[
+     		"You travel up to the east.",
+     		"Up to the east it is.",
+     		"Up we go to the east."
+         ],
+         "You travel down to the east":[
+     		"You travel down to the east.",
+     		"Down to the east it is.",
+     		"Down we go to the east."
+         ],
+         "You travel west":[
+     		"You travel west.",
+     		"West it is.",
+     		"Westward we go."
+         ],
+         "You travel up to the west":[
+     		"You travel up to the west.",
+     		"Up to the west it is.",
+     		"Up we go to the west."
+         ],
+         "You travel down to the west":[
+     		"You travel down to the west.",
+     		"Down to the west it is.",
+     		"Down we go to the west."
+         ],
+         "You are at AAA degrees BBB minutes CCC latitude and DDD degrees EEE minutes FFF longitude":[
+     		"You are at %d degrees %d minutes %s latitude and %d degrees %d minutes %s longitude."
+         ],
+         "AAA degrees BBB minutes CCC latitude and DDD degrees EEE minutes FFF longitude":[
+     		"%d degrees %d minutes %s latitude and %d degrees %d minutes %s longitude."
+         ],
+         "Around you is XXX":[
+     		"Around you is %s.",
+     		"Surrounding you is %s.",
+     		"You are in %s."
+         ],
+         "Around you continues XXX":[
+     		"You continue through %s.",
+     		"%s continues to surround you.",
+     		"You continue on through the %s."
+         ],
+         "Plains_0":[
+     		"Grasslands"
+         ],
+         "Plains_1":[
+     		"Prairie"
+         ],
+         "Plains_2":[
+     		"Fields"
+         ],
+         "Hills_0":[
+     		"Hills"
+         ],
+         "Hills_1":[
+     		"Rolling Hills"
+         ],
+         "Hills_2":[
+     		"Dense Hills"
+         ],
+         "Mountains_0":[
+     		"Mountains"
+         ],
+         "Mountains_1":[
+     		"High Mountains"
+         ],
+         "Mountains_2":[
+     		"Snowy Mountains"
+         ],
+         "Artic_0":[
+     		"Tundra"
+         ],
+         "Artic_1":[
+     		"Artic Plains"
+         ],
+         "Artic_2":[
+     		"Artic Wilderness"
+         ],
+         "Forest_0":[
+     		"Light Forest"
+         ],
+         "Forest_1":[
+     		"Forest"
+         ],
+         "Forest_2":[
+     		"Deep Forest"
+         ],
+         "Desert_0":[
+     		"Desert"
+         ],
+         "Desert_1":[
+     		"High Desert"
+         ],
+         "Desert_2":[
+     		"Barren Desert"
+         ],
+         "Jungle_0":[
+     		"Jungle"
+         ],
+         "Jungle_1":[
+     		"Dense Jungle"
+         ],
+         "Jungle_2":[
+     		"Darkest Jungle"
+         ],
+         "Swamp_0":[
+     		"Marsh"
+         ],
+         "Swamp_1":[
+     		"Swamp"
+         ],
+         "Swamp_2":[
+     		"Fetid Swamp"
+         ],
+         "Freshwater_0":[
+     		"Freshwater Coast"
+         ],
+         "Freshwater_1":[
+     		"Freshwater"
+         ],
+         "Freshwater_2":[
+     		"Freshwater Depths"
+         ],
+         "Saltwater_0":[
+     		"Saltwater Coast"
+         ],
+         "Saltwater_1":[
+     		"Saltwater"
+         ],
+         "Saltwater_2":[
+     		"Saltwater Depths"
+         ],
+         "North":[
+     		"North"
+         ],
+         "South":[
+     		"South"
+         ],
+         "East":[
+     		"East"
+         ],
+         "West":[
+     		"West"
+         ],
+         "XXX miles North":[
+     		"%d miles North"
+         ],
+         "XXX miles South":[
+     		"%d miles South"
+         ],
+         "XXX miles East":[
+     		"%d miles East"
+         ],
+         "XXX miles West":[
+     		"%d miles West"
+         ],
+         "one mile North":[
+     		"one mile North"
+         ],
+         "one mile South":[
+     		"one mile South"
+         ],
+         "one mile East":[
+     		"one mile East"
+         ],
+         "one mile West":[
+     		"one mile West"
+         ],
+         "XXX leads to YYY":[
+     		"To the %s you can see %s.",
+     		"%s of you lies %s.",
+     		"You can see %2$s to the %1$s.",
+     		"%s leads to %s."
+         ],
+         "XXX leads to the ocean":[
+     		"To the %s you can see the ocean.",
+     		"%s of you lies the ocean.",
+     		"You can see the ocean to the %1$s.",
+     		"%s leads to the ocean."
+         ],
+         "XXX leads to a lake":[
+     		"To the %s you can see a lake.",
+     		"%s of you lies a lake.",
+     		"You can see a lake to the %1$s.",
+     		"%s leads to a lake."
+         ],
+         "XXX continues YYY":[
+     		"%s continues on to the %s.",
+     		"%s continues to the %s.",
+     		"%s continues %s.",
+     		"%s continues on to the %s of here.",
+     		"%s continues to the %s of here.",
+     		"%s continues %s of here."
+         ],
+         "North leads to XXX":[
+     		"To the north you can see %s.",
+     		"North of you lies %s.",
+     		"North leads to %s."
+         ],
+         "South leads to XXX":[
+     		"To the south you can see %s.",
+     		"South of you lies %s.",
+     		"South leads to %s."
+         ],
+         "East leads to XXX":[
+     		"To the east you can see %s.",
+     		"East of you lies %s.",
+     		"East leads to %s."
+         ],
+         "West leads to XXX":[
+     		"To the west you can see %s.",
+     		"West of you lies %s.",
+     		"West leads to %s."
+         ],
+         "North leads out of here":[
+     		"North leads back to the wilderness.",
+     		"North leads out of here."
+         ],
+         "South leads out of here":[
+     		"South leads back to the wilderness.",
+     		"South leads out of here."
+         ],
+         "East leads out of here":[
+     		"East leads back to the wilderness.",
+     		"East leads out of here."
+         ],
+         "West leads out of here":[
+     		"West leads back to the wilderness.",
+     		"West leads out of here."
+         ],
+         "The track goes XXX":[
+     		"A track leads %s from here.",
+     		"To the %s a track starts.",
+     		"A track leads %s."
+         ],
+         "STRAIGHT_The track goes XXX YYY":[
+     		"A track leads from %s to %s.",
+     		"There is a track going from %s to %s.",
+     		"There is a track going %s and %s.",
+     		"There is a track going straight %s and %s.",
+     		"There is a track going due %s and %s.",
+     		"There is a track going directly %s and %s."
+         ],
+         "CURVED_The track goes XXX YYY":[
+     		"A track leads from %s to %s.",
+     		"There is a track going from %s to %s.",
+     		"A track curves from %s to %s.",
+     		"A track twists from %s to %s.",
+     		"There is a track going from %s to %s.",
+     		"A track turns from %s to %s.",
+     		"A track goes %s and %s."
+         ],
+         "FOLLOW_STRAIGHT_The track goes XXX YYY":[
+     		"The track you have been following goes %s.",
+     		"The track continues on from here to the %s.",
+     		"To the %s the track continues on."
+         ],
+         "FOLLOW_CURVED_The track goes XXX YYY":[
+     		"The track you have been following curves %s.",
+     		"The track continues on from here curving to the %s.",
+     		"Turning %s the track continues on.",
+     		"The track you have been following turns %s.",
+     		"The track continues on from here turns to the %s.",
+     		"Curving %s the track continues on."
+         ],
+         "The track goes XXX YYY ZZZ":[
+     		"There is a track going %s and %s, with a branch to the %s.",
+     		"There is a track going %s, %s, and %s."
+         ],
+         "The track goes XXX YYY ZZZ WWW":[
+     		"There is a track going in all directions.",
+     		"There is a track going %s, %s, %s, and %s."
+         ],
+         "The road goes XXX":[
+     		"A road leads %s from here.",
+     		"To the %s a road starts.",
+     		"A road leads %s."
+         ],
+         "STRAIGHT_The road goes XXX YYY":[
+     		"A road leads from %s to %s.",
+     		"A road goes from %s to %s.",
+     		"A road goes %s and %s.",
+     		"A road goes straight %s and %s.",
+     		"A road goes due %s and %s.",
+     		"A road goes directly %s and %s."
+         ],
+         "CURVED_The road goes XXX YYY":[
+     		"A road leads from %s to %s.",
+     		"A road goes from %s to %s.",
+     		"A road curves from %s to %s.",
+     		"A road twists from %s to %s.",
+     		"A road goes from %s to %s.",
+     		"A road turns from %s to %s.",
+     		"A road goes %s and %s."
+         ],
+         "FOLLOW_STRAIGHT_The road goes XXX YYY":[
+     		"The road you have been following goes %s.",
+     		"The road continues on from here to the %s.",
+     		"To the %s the road continues on."
+         ],
+         "FOLLOW_CURVED_The road goes XXX YYY":[
+     		"The road you have been following curves %s.",
+     		"The road continues on from here curving to the %s.",
+     		"Turning %s the road continues on.",
+     		"The road you have been following turns %s.",
+     		"The road continues on from here turns to the %s.",
+     		"Curving %s the road continues on."
+         ],
+         "The road goes XXX YYY ZZZ":[
+     		"A road goes %s and %s, with a branch to the %s.",
+     		"A road goes %s, %s, and %s."
+         ],
+         "The road goes XXX YYY ZZZ WWW":[
+     		"A road goes in all directions.",
+     		"A road goes %s, %s, %s, and %s."
+         ],
+         "The paved road goes XXX":[
+     		"A paved road leads %s from here.",
+     		"To the %s a paved road starts.",
+     		"A paved road leads %s."
+         ],
+         "STRAIGHT_The paved road goes XXX YYY":[
+     		"A paved road leads from %s to %s.",
+     		"A paved road goes from %s to %s.",
+     		"A paved road goes %s and %s.",
+     		"A paved road goes straight %s and %s.",
+     		"A paved road goes due %s and %s.",
+     		"A paved road goes directly %s and %s."
+         ],
+         "CURVED_The paved road goes XXX YYY":[
+     		"A paved road leads from %s to %s.",
+     		"A paved road goes from %s to %s.",
+     		"A paved road curves from %s to %s.",
+     		"A paved road twists from %s to %s.",
+     		"A paved road goes from %s to %s.",
+     		"A paved road turns from %s to %s.",
+     		"A paved road goes %s and %s."
+         ],
+         "FOLLOW_STRAIGHT_The paved road goes XXX YYY":[
+     		"The paved road you have been following goes %s.",
+     		"The paved road continues on from here to the %s.",
+     		"To the %s the paved road continues on."
+         ],
+         "FOLLOW_CURVED_The paved road goes XXX YYY":[
+     		"The paved road you have been following curves %s.",
+     		"The paved road continues on from here curving to the %s.",
+     		"Turning %s the paved road continues on.",
+     		"The paved road you have been following turns %s.",
+     		"The paved road continues on from here turns to the %s.",
+     		"Curving %s the paved road continues on."
+         ],
+         "The paved road goes XXX YYY ZZZ":[
+     		"A paved road goes %s and %s, with a branch to the %s.",
+     		"A paved road goes %s, %s, and %s."
+         ],
+         "The paved road goes XXX YYY ZZZ WWW":[
+     		"A paved road goes in all directions.",
+     		"A paved road goes %s, %s, %s, and %s."
+         ],
+         "The bridge goes XXX":[
+     		"A bridge leads %s from here.",
+     		"To the %s a bridge starts.",
+     		"A bridge leads %s."
+         ],
+         "STRAIGHT_The bridge goes XXX YYY":[
+     		"A bridge leads from %s to %s.",
+     		"There is a bridge going from %s to %s.",
+     		"There is a bridge going %s and %s.",
+     		"There is a bridge going straight %s and %s.",
+     		"There is a bridge going due %s and %s.",
+     		"There is a bridge going directly %s and %s."
+         ],
+         "CURVED_The bridge goes XXX YYY":[
+     		"A bridge leads from %s to %s.",
+     		"There is a bridge going from %s to %s.",
+     		"A bridge curves from %s to %s.",
+     		"A bridge twists from %s to %s.",
+     		"There is a bridge going from %s to %s.",
+     		"A bridge turns from %s to %s.",
+     		"A bridge goes %s and %s."
+         ],
+         "The bridge goes XXX YYY ZZZ":[
+     		"There is a bridge going %s and %s, with a branch to the %s.",
+     		"There is a bridge going %s, %s, and %s."
+         ],
+         "The bridge goes XXX YYY ZZZ WWW":[
+     		"There is a bridge going in all directions.",
+     		"There is a bridge going %s, %s, %s, and %s."
+         ],
+         "A XXX flows in from the YYY and drains into the ground here":[
+     		"A %s flows in from the %s and drains into the ground here."
+         ],
+         "A XXX flows out to the YYY from here":[
+     		"A %s flows out to the %s.",
+     		"A %s flows out to the %s from here."
+         ],
+         "A XXX flows from YYY to ZZZ":[
+     		"A %s flows from %s to %s.",
+     		"A %s flows in from the %s and out to the %s.",
+     		"A %s flows from %s to %s through here."
+         ],
+         "BROOK":[
+     		"brook"
+         ],
+         "STREAM":[
+     		"stream"
+         ],
+         "RIVER":[
+     		"river"
+         ],
+         "Hamlet":[
+     		"Hamlet"
+         ],
+        "Village":[
+     		"Village"
+         ],
+        "Town":[
+     		"Town"
+         ],
+        "City":[
+     		"City"
+         ],
+         "Hamlet of XXX":[
+     		"Hamlet of %s"
+         ],
+        "Village of XXX":[
+     		"Village of %s"
+         ],
+        "Town of XXX":[
+     		"Town of %s"
+         ],
+        "City of XXX":[
+     		"City of %s"
+         ],
+        "Ruin":[
+     		"Ruin"
+         ],
+        "Outpost":[
+     		"Outpost"
+         ],
+        "Fort":[
+     		"Fort"
+         ],
+        "Castle":[
+     		"Castle"
+         ],         
+         "TYPE_ammo":[ "ammunition" ],
+		"TYPE_hand":[ "hand held weapons" ],
+		"TYPE_hurled":[ "thrown weapons" ],
+		"TYPE_launcher":[ "bows" ],
+		"TYPE_armor":[ "armor" ],
+		"TYPE_shield":[ "shields" ],
+		"TYPE_potion":[ "potions" ],
+		"TYPE_castle":[ "deeds" ],
+		"TYPE_permit":[ "permits" ],
+         "There is a XXX here":[
+     		"There is a %s here."
+         ],         
+         "Your active companion is XXX":[
+     		"%s is your active companion.",
+     		"Your active companion is %s."
+         ],         
+         "You have no active companion":[
+     		"You haven't set an active companion.",
+     		"You have no active companion."
+         ],         
+         "Your other companions are XXX":[
+     		"Also traveling with you are %s.",
+     		"Your other companions are %s."
+         ],         
+         "Your other companion is XXX":[
+     		"Also traveling with you is %s.",
+     		"Your other companion is %s."
+         ],         
+         "Your companions are XXX":[
+     		"Traveling with you are %s",
+     		"Your companions are %s"
+         ],         
+         "Your companion is XXX":[
+     		"Your companion is %s."
+         ],         
+         "You are carrying the unconscious bodies of XXX":[
+     		"You are carrying the unconscious bodies of %s."
+         ],         
+         "You are carrying the unconscious body of XXX":[
+     		"You are carrying the unconscious body of %s."
+         ],         
+         "I dont know who XXX is":[
+     		"I'm not sure who you mean by %s.",
+     		"I don't know who %s is."
+         ],         
+         "You dont have any companions":[
+     		"You don't have any companions."
+         ],         
+         "I dont know what or who XXX is":[
+     		"I'm not sure who or what you mean by %s.",
+     		"I don't know who or what %s is."
+         ],         
+         "Your active companion already was XXX":[
+     		"Your active companion already was %s."
+         ],         
+         "Your active companion is now XXX":[
+     		"%s is now your active companion.",
+     		"Your active companion is now %s."
+         ],         
+         "Bad user id specified XXX":[
+     		"Bad user id specified '%s'."
+         ],         
+         "Which is in XXX":[
+     		"Which is ruled by %s.",
+     		"Which is located in %s.",
+     		"Which is in %s."
+         ],         
+         "You are in XXX":[
+     		"You are in %s."
+         ],         
+         "Off to the north you can see XXX":[
+     		"Northward is %s.",
+     		"To the north you can see %s.",
+     		"Off to the north you can see %s."
+         ],         
+         "Off to the south you can see XXX":[
+     		"Southward is %s.",
+     		"To the south you can see %s.",
+     		"Off to the south you can see %s."
+         ],         
+         "Off to the east you can see XXX":[
+     		"Eastward is %s.",
+     		"To the east you can see %s.",
+     		"Off to the east you can see %s."
+         ],         
+         "Off to the west you can see XXX":[
+     		"Westward is %s.",
+     		"To the west you can see %s.",
+     		"Off to the west you can see %s."
+         ],         
+         "The weather is pleasant":[
+     		"The weather is pleasant. Little puffy clouds fill the sky."
+         ],         
+         "You can see a cloud shaped":[
+     		"You can see a cloud shaped like a duck.",
+     		"A cloud shaped like a dog drifts overhead.",
+     		"You spot a cow shaped cloud.",
+     		"You can see a cloud shaped like a chicken."
+         ],         
+         "She currently has XXX hit points out of YYY":[
+     		"She currently has %d hit points out of %d."
+         ],         
+         "She doesn't have anything equipped":[
+     		"She doesn't have anything equipped."
+         ],         
+         "She has ready XXX":[
+     		"She has ready %s."
+         ],         
+         "She is carrying XXX":[
+     		"She is carrying %s."
+         ],         
+         "He currently has XXX hit points out of YYY":[
+     		"He currently has %d hit points out of %d."
+         ],         
+         "He doesn't have anything equipped":[
+     		"He doesn't have anything equipped."
+         ],         
+         "He has ready XXX":[
+     		"He has ready %s."
+         ],         
+         "He is carrying XXX":[
+     		"He is carrying %s."
+         ],         
+         "XXX is a YYY with a strength of ZZZ":[
+     		"%s is a %s level %s with a strength of %d, a dexterity of %d, a constitution of %d, a intelligence of %d, a wisdom of %d and a charisma of %d."
+         ],         
+         "XXX is a YYY level ZZZ but is currently level WWW":[
+     		"%s is a %s level %s, but is currently %s level, with a strength of %d, a dexterity of %d, a constitution of %d, a intelligence of %d, a wisdom of %d and a charisma of %d."
+         ],         
+         "XXX has a strength of YYY, a dexterity of ZZZ, and a constitution of WWW":[
+     		"%s has a strength of %d, a dexterity of %d, and a constitution of %d"
+         ],         
+         "XXX has a intelligence of YYY, a wisdom of ZZZ, and a charisma of WWW":[
+     		"%s has an intelligence of %d, a wisdom of %d, and a charisma of %d"
+         ],         
+         "XXX has YYY, ZZZ, and WWW":[
+     		"%s has %d, %d, and %d"
+         ],         
+         "XXX has YYY experience points":[
+     		"%s has %d experience points"
+         ],         
+         "XXX has YYY experience points and needs ZZZ for the next level.":[
+     		"%s has %d experience points and needs %d for the next level."
+         ],         
+         "XXX has attained maximum level":[
+     		"%s has attained maximum level."
+         ],         
+         "XXX has YYY experience points and ZZZ weapon proficiencies":[
+     		"%s has %d experience points and %d free weapon proficiencies."
+         ],         
+         "XXX in proficient in YYY":[
+     		"%s is proficient in %s."
+         ],         
+         "XXX out classed":[
+     		"%s looks furtively around, worried about danger lurking.",
+     		"%s handles their weapons, concerned if they are good enough.",
+     		"%s jumps at a nearby sound, nerves on edge."
+         ],         
+         "XXX on par":[
+     		"%s strides confidently, alert to any danger.",
+     		"%s looks eagerly about, wondering what challenge will next emerge.",
+     		"%s's hand lingers near their weapon, but moves on."
+         ],         
+         "XXX over classed":[
+     		"%s whistles as they walk, unconcerned at their surroundings.",
+     		"%s stops to take in the new vistas, smiling and at ease.",
+     		"%s swings their hands freely, not a trouble in the world."
+         ],         
+         "XXX is not equipped with anything":[
+     		"%s is not equipped with anything."
+         ],         
+         "XXX is equipped with YYY":[
+     		"%s is equipped with %s"
+         ],         
+         "XXX with YYY":[
+     		"%s with %s"
+         ],         
+         "XXX is YYY level":[
+     		"%s is %s level"
+         ],         
+         "XXX is usually YYY level but is currently ZZZ level":[
+     		"%s is usually %s level, but is currently %s level"
+         ],         
+         "Everyone is XXX level":[
+     		"Everyone is %s level."
+         ],         
+         "XXX is YYY":[
+     		"%s is %s"
+         ],         
+         "XXX is usually YYY but is currently ZZZ":[
+     		"%s is usually %s, but is currently %s"
+         ],         
+         "XXX looses a level":[
+     		"%s looses a level.",
+     		"%s looses one level of life energy.",
+     		"%s is drained a level."
+         ],         
+         "XXX looses YYY levels":[
+     		"%s looses %d levels.",
+     		"%s looses %d levels of life energy.",
+     		"%s is drained %d levels."
+         ],         
+         "XXX is completely drained They rise as a YYY":[
+     		"%s is completely drained. They rise as a %s!"
+         ],         
+         "XXX is bored":[
+     		"%s is gazing off into the distance, wondering what is over the horizon.",
+     		"%s wonders what the future holds.",
+     		"%s is itching to get on with it.",
+     		"%s looks to the sky, maybe picking out shapes in the clouds."
+         ],         
+         "MORE_SOUND":[
+     		"<<speech:<audio src=\"https://s3.amazonaws.com/tsatsatzu-alexa/sound/beeps/DEEK.mp3\"/> >>"
+         ],         
+         "INTRO_SOUND":[
+         	"<<speech:<audio src=\"https://s3.amazonaws.com/tsatsatzu-alexa/sound/sixswords/sm1.mp3\"/> >>"
+         ],
+         "INTRO_SOUND_CIRRANE":[
+         	"<<speech:<audio src=\"https://s3.amazonaws.com/tsatsatzu-alexa/sound/sixswords/sm4.mp3\"/> >>"
+         ],
+         "INTRO_SOUND_IRELAND":[
+         	"<<speech:<audio src=\"https://s3.amazonaws.com/tsatsatzu-alexa/sound/fantasy/heroic_ireland.mp3\"/> >>"
+         ],
+         "INTRO_SOUND_ICELAND":[
+         	"<<speech:<audio src=\"https://s3.amazonaws.com/tsatsatzu-alexa/sound/sixswords/sm1.mp3\"/> >>"
+         ],
+         "FIGHT_START_SOUND":[
+         	"<<speech:<audio src=\"https://s3.amazonaws.com/tsatsatzu-alexa/sound/fantasy/Civil+War+Drummer+-SoundBible.com-700036269.mp3\"/> >>",
+         	"<<speech:<audio src=\"https://s3.amazonaws.com/tsatsatzu-alexa/sound/fantasy/Swords_Collide-Sound_Explorer-2015600826.mp3\"/> >>",
+         	"<<speech:<audio src=\"https://s3.amazonaws.com/tsatsatzu-alexa/sound/fantasy/bugle-call-cavalry-charge.mp3\"/> >>"
+         ],
+         "THUD_SOUND":[
+         	"<<speech:<audio src=\"https://s3.amazonaws.com/tsatsatzu-alexa/sound/misc/THUD.mp3\"/> >>"
+         ],
+         "EVERYONE_DIED":[
+         	"Everyone in your party has died. You will need to start again.<break time=\"2s\"/>"
+         ],
+         "As the life force fades in your last character":[
+         	"As the life force fades in your last character, you are touched by the consciousness of a wizard. He offers to wish you back to full health in return for 100,000 gold."
+         ],
+         "Will you pay 100000 gold to wish you back to full health":[
+         	"Will you pay 100,000 gold to wish you back to full health?"
+         ],
+         "YOU_DIED_SOUND":[
+         	"<<speech:<audio src=\"https://s3.amazonaws.com/tsatsatzu-alexa/sound/sixswords/you_died.mp3\"/> >>"
+         ],
+         "REGISTER_SOUND":[
+         	"<<speech:<audio src=\"https://s3.amazonaws.com/tsatsatzu-alexa/sound/office/REGISTER.mp3\"/> >>"
+         ],
+         "TRY_SAYING_XXX":[
+     		"A command you could use is \"%s\".",
+     		"You might try \"%s\".",
+     		"Try saying \"%s\"."
+         ],                 
+         "XXX is carrying YYY":[
+     		"%s is carrying %s."
+         ],         
+         "XXX is not carrying anything":[
+     		"%s is not carrying anything."
+         ],         
+         "XXX is not carrying YYY":[
+     		"%s is not carrying %s."
+         ],         
+         "The group is carrying XXX":[
+     		"The group is carrying %s."
+         ],         
+         "The group is also carrying XXX":[
+     		"The group is also carrying %s."
+         ],         
+         "The group is not carrying anything":[
+     		"The group is not carrying anything."
+         ],         
+         "Im not sure who XXX is":[
+     		"I'm not sure who %s is."
+         ],         
+         "XXX is now using YYY":[
+     		"%s is now using %s."
+         ],         
+         "XXX is no longer using YYY":[
+     		"%s is no longer using %s."
+         ],         
+         "XXX is using YYY":[
+     		"%s is using %s."
+         ],         
+         "You need to tell me what you want to unequip":[
+     		"You need to tell me what you want to unequip."
+         ],         
+         "You cant sleep during combat":[
+     		"You can't sleep during combat!"
+         ],         
+         "Your sleep is interrupted":[
+     		"Your sleep is interrupted."
+         ],         
+         "You sleep for the rest of the night":[
+     		"You sleep for the rest of the night."
+         ],         
+         "You sleep for eight hours":[
+     		"You sleep for eight hours."
+         ],         
+         "There is no news":[
+     		"There is no news."
+         ],         
+         "LONG_NEWS":[
+     		"<<speech:<audio  src=\"https://s3.amazonaws.com/tsatsatzu-alexa/sound/bells/DONGER.mp3\"/> >> Say \"news\" to hear the latest news."
+         ],         
+         "SHORT_NEWS":[
+     		"<<speech:<audio  src=\"https://s3.amazonaws.com/tsatsatzu-alexa/sound/bells/DONGER.mp3\"/> >> "
+         ],         
+         "MIDNIGHT":[
+     		"It's just gone midnight.",
+     		"It's the dead of night."
+         ],         
+         "PRE_DAWN":[
+     		"There's a dim glow to the east.",
+     		"Sunrise will be soon."
+         ],         
+         "DAWN":[
+     		"The sun is just rising.",
+     		"The sun rises over the horizon.",
+     		"Here comes the sun."
+         ],         
+         "NOON":[
+     		"It's just gone noon.",
+     		"The sun is directly overhead now."
+         ],         
+         "PRE_DUSK":[
+     		"The sun is getting low on the horizon.",
+     		"It will be dark soon."
+         ],         
+         "DUSK":[
+     		"The sun is just setting.",
+     		"The setting sun paints the sky some lovely colors."
+         ],         
+         "TIME_MORNING":[
+     		"The time is now %d %d in the morning."
+         ],         
+         "TIME_AFTERNOON":[
+     		"The time is now %d %d in the afternoon."
+         ],         
+         "TIME_NIGHT":[
+     		"The time is now %d %d at night."
+         ],         
+         "You have already created a castle here":[
+     		"You have already created a castle here. To extend this castle, enter it and use the deed in the room you want to extend from."
+         ],         
+         "You cant create a castle here":[
+     		"You can't create a castle here. There is already %s here."
+         ],         
+         "XXX will be the first room of your castle":[
+     		"%s will be the first room of your castle. You cannot undo it once done. Are you sure you want to create %s here?"
+         ],         
+         "You save the XXX to use later":[
+     		"You save the %s to use later."
+         ],         
+         "Woosh A XXX appears before you":[
+     		"Woosh. A %s appears before you."
+         ],         
+         "Woosh A XXX appears to the YYY":[
+     		"Woosh. A %s appears to the %s."
+         ],         
+         "All exits from this room are taken":[
+     		"All exits from this room are taken. Please select another room to build your addition from."
+         ],         
+         "This can only be used inside a feature you own":[
+     		"This can only be used inside a feature you own."
+         ],         
+         "The current position has been marked":[
+     		"The current position has been marked. You can use another permit to extend a feature to this position."
+         ],         
+         "You must first mark a location before you can use a permit":[
+     		"You must first mark a location before you can use a permit."
+         ],         
+         "Marked room is not in this structure":[
+     		"Marked room is not in this structure."
+         ],         
+         "You do not own this castle":[
+     		"You do not own this castle. You can only add rooms to your own castle."
+         ],         
+         "Please say which direction you would like to add a XXX in":[
+     		"Please say which direction you would like to add a %s in."
+         ],         
+         "Something has already been build in direction XXX":[
+     		"Something has already been build in direction %s."
+         ],         
+         "There is no door in that direction":[
+     		"There is no door in that direction."
+         ],         
+         "That door is blocked to all but level XXX and higher":[
+     		"That door is blocked to all but level %d and higher."
+         ],         
+         "You arent high enough level to go through that door":[
+     		"You aren't high enough level to go through that door."
+         ],         
+         "BAD_TERRAIN":[
+     		"You can't go that way."
+         ],         
+         "BAD_TERRAIN_FRESHWATER":[
+     		"Unfortunately you come to a large lake and must return the way you came."
+         ],         
+         "BAD_TERRAIN_SALTWATER":[
+     		"Unfortunately you come to the sea and must return the way you came."
+         ],         
+         "BAD_NOT_IMPLEMENTED":[
+     		"This feature is not implemented yet."
+         ],         
+         "BAD_ITEM_AMMO":[
+     		"There is no need to equip ammunition."
+         ],         
+         "BAD_ITEM_AMOUNT":[
+     		"Invalid item quantity %d."
+         ],         
+         "BAD_COMPANION_ID_SPECIFIED_XXX":[
+     		"No such companion '%s'."
+         ],         
+         "BAD_ITEM_ID_SPECIFIED_XXX":[
+     		"No such item '%s'."
+         ],         
+         "BAD_DIRECTION_ID_SPECIFIED_XXX":[
+     		"No such direction %d."
+         ],         
+         "BAD_MODULE_ID_SPECIFIED_XXX":[
+     		"No such module '%s'."
+         ],         
+         "BAD_FEATURE_ID_SPECIFIED_XXX":[
+     		"No such feature at '%s'."
+         ],         
+         "BAD_ROOM_ID_SPECIFIED_XXX":[
+     		"No such room '%s'."
+         ],         
+         "You come upon XXX":[
+     		"You come upon %s."
+         ],         
+         "They attack":[
+     		"They attack!",
+     		"They rush you!",
+     		"Looks like there's going to be a fight.",
+     		"They approach with malice.",
+     		"They advance menacingly towards you!"
+         ],         
+         "It attacks":[
+     		"It attacks!",
+     		"It rushes you!",
+     		"Looks like there's going to be a fight.",
+     		"It approaches with malice.",
+     		"It advances menacingly towards you!"
+         ],         
+         "You are in combat with XXX":[
+     		"You are in combat with %s."
+         ],         
+         "There are signs of XXX here":[
+     		"There are signs of %s here.",
+     		"%s have passed here recently.",
+     		"From the tracks it looks like %s have been here."
+         ],         
+         "XXX is armed with YYY and has ZZZ hit points":[
+     		"%s is armed with %s and has %d hit points"
+         ],         
+         "XXX is armed with YYY":[
+     		"%s is armed with %s"
+         ],         
+         "XXX takes a proficiency in YYY":[
+     		"%s takes a proficiency in %s."
+         ],         
+         "nothing":[
+     		"nothing"
+         ],         
+         "XXX has no target":[
+     		"%s has no target."
+         ],         
+         "XXX has no weapon":[
+     		"%s has no weapon."
+         ],         
+         "XXX misses YYY with his ZZZ":[
+     		"%s misses %s with his %s."
+         ],         
+         "XXX misses YYY":[
+     		"%s misses %s."
+         ],         
+         "XXX misses YYY twice":[
+     		"%s misses %s twice."
+         ],         
+         "XXX misses YYY ZZZ times":[
+     		"%s misses %s %d times."
+         ],         
+         "XXX hits YYY for WWW damage":[
+     		"%s hits %s for %d damage."
+         ],         
+         "XXX verbs YYY for WWW damage":[
+     		"%s %s %s for %d damage."
+         ],         
+         "XXX hits YYY ZZZ times for WWW damage":[
+     		"%s hits %s %d times for a total of %d damage."
+         ],         
+         "XXX verbs YYY ZZZ times for WWW damage":[
+     		"%s %s %s %d times for a total of %d damage."
+         ],         
+         "XXX hits for WWW damage":[
+     		"%s hits for %d damage."
+         ],         
+         "XXX verbs for WWW damage":[
+     		"%s %s for %d damage."
+         ],         
+         "XXX hits YYY with his ZZZ for WWW damage":[
+     		"%s hits %s with his %s for %d damage."
+         ],         
+         "XXX verbs YYY with his ZZZ for WWW damage":[
+     		"%s %s %s with his %s for %d damage."
+         ],         
+         "XXX misses YYY with her ZZZ":[
+     		"%s misses %s with her %s."
+         ],         
+         "XXX hits YYY with her ZZZ for WWW damage":[
+     		"%s hits %s with her %s for %d damage."
+         ],         
+         "XXX verbs YYY with her ZZZ for WWW damage":[
+     		"%s %s %s with her %s for %d damage."
+         ],         
+         "XXX dies":[
+     		"%s dies."
+         ],         
+         "XXX is knocked out":[
+     		"%s is knocked unconscious.",
+     		"%s is knocked out cold.",
+     		"%s drops to the ground.",
+     		"%s is felled.",
+     		"%s collapses.",
+     		"%s is knocked out."
+         ],         
+         "XXX is killed":[
+     		"%s is killed outright.",
+     		"%s is killed."
+         ],         
+         "hits XXX for YYY":[
+     		"hits %s for %d",
+     		"hits %s for %d damage"
+         ],         
+         "hits XXX YYY times for YYY":[
+     		"hits %s %d times for %d",
+     		"hits %s %d times for %d damage",
+     		"hits %s for a total of %3$d damage"
+         ],         
+         "verbs XXX for YYY":[
+     		"%s %s for %d",
+     		"%s %s for %d damage"
+         ],         
+         "verbs XXX YYY times for YYY":[
+     		"%s %s %d times for %d",
+     		"%s %s %d times for %d damage",
+     		"%s %s for a total of %3$d damage"
+         ],         
+         "MONSTER_ACTIONS":[
+     		"%s %s."
+         ],         
+         "BITES":[
+     		"bites"
+         ],         
+         "CLAWS":[
+     		"claws"
+         ],         
+         "PINCHER":[
+     		"pinches"
+         ],         
+         "SQUEEZE":[
+     		"squeezes"
+         ],         
+         "PECKS":[
+     		"pecks"
+         ],         
+         "SHOOTS":[
+     		"shoots"
+         ],         
+         "HACKS":[
+     		"hacks"
+         ],         
+         "KICK":[
+     		"kicked"
+         ],         
+         "CHOPS":[
+     		"chops"
+         ],         
+         "STABS":[
+     		"stabs"
+         ],         
+         "CRUSHES":[
+     		"crushes"
+         ],         
+         "SMASH":[
+     		"smashes"
+         ],         
+         "ROAST":[
+     		"roasts"
+         ],         
+         "BASH":[
+     		"bashes"
+         ],         
+         "GORE":[
+     		"gores"
+         ],         
+         "STING":[
+     		"stings"
+         ],         
+         "SHOCK":[
+     		"shocks"
+         ],         
+         "BREATHES_ACID":[
+     		"breathes acid at"
+         ],         
+         "BREATHES_LIGHTNING":[
+     		"breathes lightning at"
+         ],         
+         "BREATHES_SONIC":[
+     		"makes a sonic roar at"
+         ],         
+         "BREATHES_FIRE":[
+     		"breathes fire at"
+         ],         
+         "BREATHES_POISON":[
+     		"breathes poison at"
+         ],         
+         "BREATHES_FROST":[
+     		"breathes frost at"
+         ],         
+         "NOUN_BITES":[
+     		"teeth"
+         ],         
+         "NOUN_CLAWS":[
+     		"claws"
+         ],         
+         "NOUN_PINCHER":[
+     		"pincher"
+         ],         
+         "NOUN_SQUEEZE":[
+     		"coils"
+         ],         
+         "NOUN_PECKS":[
+     		"beak"
+         ],         
+         "NOUN_SHOOTS":[
+     		"missiles"
+         ],         
+         "NOUN_HACKS":[
+     		"cleaver"
+         ],         
+         "NOUN_KICK":[
+     		"hoof"
+         ],         
+         "NOUN_CHOPS":[
+     		"cleaver"
+         ],         
+         "NOUN_STABS":[
+     		"spike"
+         ],         
+         "NOUN_CRUSHES":[
+     		"first"
+         ],         
+         "NOUN_SMASH":[
+     		"fist"
+         ],         
+         "NOUN_ROAST":[
+     		"fire"
+         ],         
+         "NOUN_BASH":[
+     		"fist"
+         ],         
+         "NOUN_GORE":[
+     		"horn"
+         ],         
+         "NOUN_STING":[
+     		"stinger"
+         ],         
+         "NOUN_SHOCK":[
+     		"zapper"
+         ],         
+         "NOUN_BREATHES_ACID":[
+     		"breath"
+         ],         
+         "NOUN_BREATHES_LIGHTNING":[
+     		"breath"
+         ],         
+         "NOUN_BREATHES_SONIC":[
+     		"breath"
+         ],         
+         "NOUN_BREATHES_FIRE":[
+     		"breath"
+         ],         
+         "NOUN_BREATHES_POISON":[
+     		"breath"
+         ],         
+         "NOUN_BREATHES_FROST":[
+     		"breath"
+         ],         
+         "XXX summons a YYY":[
+     		"%s summons a %s."
+         ],         
+         "The fight is over":[
+         	"Combat is finished.",
+         	"Dust settles over the battlefield.",
+     		"The fight is over."
+         ],         
+         "You have been defeated":[
+     		"You have been defeated."
+         ],         
+         "XXX regains conciousness":[
+     		"%s regains consciousness."
+         ],         
+         "XXX regain conciousness":[
+     		"%s regain consciousness."
+         ],         
+         "XXX is back on full hit points":[
+     		"%s is back on full hit points."
+         ],         
+         "XXX is already on full hit points":[
+     		"%s is already on full hit points."
+         ],         
+         "XXX is healed for YYY hit points and is now on ZZZ":[
+     		"%s is healed for %d hit points and is now on %d."
+         ],         
+         "XXX are back on full hit points":[
+     		"%s are back on full hit points."
+         ],         
+         "XXX is on YYY hit points":[
+     		"%s is on %d hit points"
+         ],         
+         "XXX is on YYY":[
+     		"%s is on %d"
+         ],         
+         "XXX is on YYY out of ZZZ hit points":[
+     		"%s is on %d out of %d hit points"
+         ],         
+         "XXX is on YYY out of ZZZ":[
+     		"%s is on %d out of %d"
+         ],         
+         "The whole party is back on full hit points":[
+     		"The whole party is back on full hit points."
+         ],         
+         "XXX goes up a level":[
+     		"%s goes up a level."
+         ],         
+         "CHALLENGE_EVEN":[
+     		"This is a walk in the park.",
+     		"You are confident that there's nothing around here you can't handle.",
+     		"You are not afraid of the challenges that lie ahead."
+         ],         
+         "CHALLENGE_P_ONE":[
+     		"Anything you meet around here is going to be a good challenge.",
+     		"This area looks challenging.",
+     		"Anything you meet around here is bound to be a challenge."
+         ],         
+         "CHALLENGE_P_TWO":[
+     		"This area is pretty dangerous.",
+     		"You hope nothing to worrying attacks you here.",
+     		"You are a bit worried about what you might find around here."
+         ],         
+         "CHALLENGE_P_THREE":[
+     		"This area looks very dangerous.",
+     		"The sooner you get to somewhere safer the better.",
+     		"Anything you run into here is going to be seriously challenging."
+         ],         
+         "CHALLENGE_P_FOUR":[
+     		"You feel your death stalking you.",
+     		"It would be easy to die around here.",
+     		"This looks to be extremely dangerous territory."
+         ],         
+         "CHALLENGE_N_ONE":[
+     		"Anything lurking around here had better watch out for you."
+         ],         
+         "Occasionally I will tell you about how dangerous an area is":[
+     		"Occasionally I will tell you about how dangerous an area is. Right now: "
+         ],         
+         "You run away from the combat":[
+     		"You run away from the combat."
+         ],         
+         "Your enemy runs away":[
+     		"You chase the rest from the battle field.",
+     		"The enemy has no stomach for further fighting.",
+     		"The enemy flees like the cowards they are.",
+     		"The cowards quit the battle field.",
+     		"Your enemy decides discretion is the better part of valor and flees.",
+     		"Your enemy runs away."
+         ],         
+         "The XXX runs away":[
+     		"You chase the %s from the battle field.",
+     		"The %s has no stomach for further fighting.",
+     		"The %s runs away."
+         ],         
+         "READ_SIGNPOST_ALEXA":[
+     		"You can read the sign post by saying 'more'."
+         ],         
+         "READ_SIGNPOST_GOOGLE":[
+     		"You can read the sign post by saying 'look at sign post'."
+         ],         
+         "WTF":[
+     		"I didn't catch what you said. Try repeating or say 'help'."
+         ],         
+         "WTF_COMBAT":[
+     		"I didn't catch what you said. Try saying 'fight' or 'run away'."
+         ],         
+         "WTF_WHATIS":[
+     		"Try saying 'what is a' and then the creature or object you would like more information on."
+         ],         
+         "HELP_BASE_ONE":[
+     		"You can move by stating the direction you wish to move. If you hear a tone like this <<speech:<audio  src=\"https://s3.amazonaws.com/tsatsatzu-alexa/sound/beeps/DEEK.mp3\"/> >> at the end of a reply, that means you can say 'more' for additional information."
+         ],         
+         "HELP_BASE_TWO":[
+     		"Say 'who' to list your companions and 'activate Diana' to make one companion your current active companion."
+         ],         
+         "HELP_BASE_THREE":[
+     		"Say 'inventory' to list what you are carrying, 'equip item' or 'unequip item' to transfer items to and from your active companion."
+         ],         
+         "HELP_BASE_FOUR":[
+     		"When you are at a town or other feature you can say 'enter' to explore within."
+         ],         
+         "HELP_BASE_FIVE":[
+     		"Say 'look' to remind yourself of what is around you."
+         ],         
+         "HELP_BASE_ACTIVATE":[
+     		"You can say 'activate' and the name of one of your companions. This will bring them to the front of your party, and other commands such as 'equip' will use them by default."
+         ],         
+         "HELP_BASE_BUY":[
+     		"When you are in a shop you say 'buy' followed by the item you want to purchase goods for sale from the shop."
+         ],         
+         "HELP_BASE_ENTER":[
+     		"When you are at a village, castle, ruin or other structure, you can say 'enter' to go inside and explore."
+         ],         
+         "HELP_BASE_EQUIP":[
+     		"You can say 'equip', then the name of your companion, then 'with' and then the name of the item to give them. A companion can only use one weapon, armor or shield at a time. Anything the can't handle goes back to party inventory."
+         ],         
+         "HELP_BASE_FIRE":[
+     		"You can say 'fire' and the name of a companion to part company with them. They will be gone forever."
+         ],         
+         "HELP_BASE_HIRE":[
+     		"When you are in a fighter's guild hiring hall you may say 'hire' and the name of a recruit there to have them join your company. Then will then seek adventure with you."
+         ],         
+         "HELP_BASE_INVENTORY":[
+     		"You can say 'inventory' to list the good held by your party. If you say 'inventory' followed by a companion's name, it will list what they are equipped with."
+         ],         
+         "HELP_BASE_SELL":[
+     		"When you are in a shop you can say 'sell' and the name of an item in your party inventory to sell it to the shopkeeper. Shops will only buy items of the same type that they sell."
+         ],         
+         "HELP_BASE_UNEQUIP":[
+     		"Say 'unequip', then the name of a companion, then 'with' and then the name of an item they are equipped with to return it to party inventory."
+         ],         
+         "HELP_BASE_WHO":[
+     		"You can say 'who' to list your companions. You can then say 'more' for additional details on your companions."
+         ],         
+         "HELP_COMBAT_ONE":[
+     		"You can shuffle the weapons your companions are using with the usual commands of 'who', 'activate', 'inventory', 'equip' and 'unequip'. Say 'fight' when you are ready for the next round of combat."
+         ],         
+         "HELP_COMBAT_TWO":[
+     		"Say 'run away' to flee combat."
+         ],         
+         "HELP_QUESTION_ONE":[
+     		"You are being asked a yes or now question. Please answer either 'yes' or 'no'."
+         ],         
+         "HELP_QUESTION_TWO":[
+     		"You are being asked a direction question. Please answer either 'north', 'south', 'east' or 'west'."
+         ],         
+         "Canceling question":[
+     		"Canceling question."
+         ],         
+         "You have XXX enemies left":[
+     		"You have %d enemies left."
+         ],         
+         "You have one enemy left":[
+     		"You have one enemy left."
+         ],         
+         "You have already entered the place":[
+     		"You have already entered the place."
+         ],         
+         "There is no place here to enter":[
+     		"There is no place here to enter."
+         ],         
+         "You enter XXX":[
+     		"You enter %s.",
+     		"Into %s we go."
+         ],         
+         "Welcome back to XXX":[
+     		"Welcome back to %s.",
+     		"You visit %s again.",
+     		"You enter %s once more."
+         ],         
+         "You exit XXX":[
+     		"You exit %s."
+         ],         
+         "You can't go that way":[
+     		"You can't go that way."
+         ],         
+         "There is no more to see here":[
+     		"There is no more to see here."
+         ],         
+         "You have no gold":[
+     		"You have no gold pieces.",
+     		"You're broke.",
+     		"You have absolutely no gold.",
+     		"You have no gold."
+         ],         
+         "You have XXX gold pieces":[
+     		"You have %d gold pieces.",
+     		"You have %d gold."
+         ],         
+         "You now have XXX gold pieces":[
+     		"You now have %d gold pieces.",
+     		"You now have %d gold."
+         ],         
+         "You only have XXX gold pieces":[
+     		"You only have %d gold pieces.",
+     		"You only have %d gold."
+         ],         
+         "You dont have XXX YYY":[
+     		"You don't have %d %s."
+         ],         
+         "You dont have enough gold to buy XXX YYY":[
+     		"You don't have enough gold to buy %d %s."
+         ],         
+         "You sell XXX YYY for ZZZ gold pieces":[
+     		"You sell %d %s for %d gold pieces."
+         ],         
+         "You store XXX YYY":[
+     		"You store %d %s."
+         ],         
+         "You take XXX YYY out of storage":[
+     		"You take %d %s out of storage."
+         ],         
+         "You can only sell items in a shop":[
+     		"You can only sell items in a shop."
+         ],         
+         "You cant store that item in this room":[
+     		"You can't store that item in this room."
+         ],         
+         "You cant sell that item in this shop":[
+     		"You can't sell that item in this shop."
+         ],         
+         "You buy XXX YYY for ZZZ gold pieces":[
+     		"You buy %d %s for %d gold pieces."
+         ],         
+         "You can only buy items in a shop":[
+     		"You can only buy items in a shop."
+         ],         
+         "You need to say what item you want to buy":[
+     		"You need to say what item you want to buy."
+         ],         
+         "You cant buy that item in this shop":[
+     		"You can't buy that item in this shop."
+         ],         
+         "You cant buy a XXX in this shop":[
+     		"You can't buy a %s in this shop."
+         ],         
+         "That item isnt stored here":[
+     		"That item isn't stored here."
+         ],         
+         "There are only XXX of that stored here":[
+     		"There are only %d of that stored here."
+         ],         
+         "This shop sells XXX":[
+     		"This shop sells %s."
+         ],         
+         "This room contains XXX":[
+     		"This room contains %s."
+         ],         
+         "There is nothing for sale in this shop":[
+     		"There is nothing for sale in this shop."
+         ],         
+         "There is nothing stored in this room":[
+     		"There is nothing stored in this room."
+         ],         
+         "Welcome to your home":[
+     		"Welcome to your home."
+         ],         
+         "You can purchase this home by continuing inwards":[
+     		"You can purchase this home by continuing to the Entry Hall. It will cost you 10,000 gold pieces."
+         ],         
+         "Congratulations The house is now yours":[
+     		"Congratulations! The house is now yours."
+         ],         
+         "You gain XXX gold pieces.":[
+     		"You gain %d gold pieces."
+         ],         
+         "You find XXX.":[
+     		"You find %s."
+         ],         
+         "You gain XXX experience points":[
+     		"You gain %d experience points."
+         ],         
+         "Im sorry I dont have any more information for you on that subject":[
+     		"I'm sorry, I don't have any more information for you on that subject."
+         ],         
+         "No one is available for hire":[
+     		"No one is available for hire."
+         ],         
+         "XXX is available for hire":[
+     		"%s is available for hire."
+         ],         
+         "XXX are available for hire":[
+     		"%s are available for hire."
+         ],         
+         "XXX with YYY hit points":[
+     		"%s with %d hit points"
+         ],         
+         "XXX has YYY hit points":[
+     		"%s has %d hit points"
+         ],         
+         "XXX has YYY hit points out of ZZZ":[
+     		"%s has %d hit points out of %d"
+         ],         
+         "XXX has YYY":[
+     		"%s has %d"
+         ],         
+         "XXX has YYY out of ZZZ":[
+     		"%s has %d out of %d"
+         ],         
+         "You can only hire people in a guild hall":[
+     		"You can only hire people in a guild hall in a town."
+         ],         
+         "There isnt anyone called XXX available for hire here":[
+     		"There isn't anyone called '%s' available for hire here."
+         ],         
+         "Guild rules allow for a maximum of XXX companions":[
+     		"Guild rules allow for a maximum of %d companions."
+         ],         
+         "Are you sure you want to fire XXX":[
+     		"Are you sure you want to fire %s?"
+         ],         
+         "You part company with XXX":[
+     		"You part company with %s."
+         ],         
+         "You decide not to part company with XXX":[
+     		"You decide not to part company with %s."
+         ],         
+         "XXX joins your company":[
+     		"%s joins your company."
+         ],         
+         "SOUND_DIE":[
+     		"https://s3.amazonaws.com/tsatsatzu-alexa/sound/fantasy/345456__artmasterrich__male-death-04.mp3",
+     		"https://s3.amazonaws.com/tsatsatzu-alexa/sound/fantasy/245807__markb258__dead-bird.mp3",
+     		"https://s3.amazonaws.com/tsatsatzu-alexa/sound/fantasy/173126__replix__death-sound-male.mp3",
+     		"https://s3.amazonaws.com/tsatsatzu-alexa/sound/fantasy/68300__robinhood76__00920-man-dying-1.mp3",
+     		"https://s3.amazonaws.com/tsatsatzu-alexa/sound/fantasy/163442__under7dude__man-dying.mp3"
+         ],         
+         "XXX kills YYY":[
+     		"<span style=\"background-sound: {{SOUND_DIE}}\">%s kills %s.</span>"
+         ],         
+         "XXX kills YYY ZZZ":[
+     		"<span style=\"background-sound: {{SOUND_DIE}}\">%s kills %d %s.</span>"
+         ],         
+         "XXX YYY":[
+     		"%d %s"
+         ],         
+         "XXXstring YYYstring":[
+     		"%s %s"
+         ],         
+         "XXX COMMA YYY":[
+     		"%s, %s"
+         ],         
+         "XXX IS A YYY":[
+     		"%s is a %s."
+         ],         
+         "XXX regenerates":[
+     		"%s regenerates."
+         ],         
+         "Please say hire and the name of the companion you wish to hire":[
+     		"Please say 'hire' and the name of the companion you wish to hire."
+         ],         
+         "You have traveled a total of XXX miles and ranged up to YYY miles from your starting point":[
+     		"%s have traveled a total of %d miles and ranged up to %d miles from your starting point."
+         ],         
+         "You now have XXX out of YYY companions":[
+     		"You now have %d out of %d companions."
+         ],         
+         "You can hire XXX more":[
+     		"You can hire %d more."
+         ],         
+         "You cant hire any more":[
+         	"You can't hire any more.",
+     		"You need to fire any before you can hire more."
+         ],         
+         "You can move around by saying north south east or west":[
+     		"You can move around by saying north, south, east or west. Try saying 'east' now."
+         ],
+         "ROOM_NSEW":[
+     		"You can go in any direction to %s.",
+     		"All directions go to %s.",
+     		"All paths lead to %s."
+         ],
+         "ROOM_NSE_":[
+     		"You can go north, south or east to %s."
+         ],
+         "ROOM_NS_W":[
+     		"You can go north, south or west to %s."
+         ],
+         "ROOM_NS__":[
+     		"You can north or south to %s."
+         ],
+         "ROOM_N_EW":[
+     		"You can go north, east, or west to %s."
+         ],
+         "ROOM_N_E_":[
+     		"You can go north or east to %s."
+         ],
+         "ROOM_N__W":[
+     		"You can go north or west to %s."
+         ],
+         "ROOM_N___":[
+     		"To the north you can see %s.",
+     		"North of you lies %s.",
+     		"North leads to %s."
+         ],
+         "ROOM__SEW":[
+     		"You can go south, east, or west to %s."
+         ],
+         "ROOM__SE_":[
+     		"You can go south or east to %s."
+         ],
+         "ROOM__S_W":[
+     		"You can go south or west to %s."
+         ],
+         "ROOM__S__":[
+     		"To the south you can see %s.",
+     		"South of you lies %s.",
+     		"South leads to %s."
+         ],
+         "ROOM___EW":[
+     		"You can go east, or west to %s."
+         ],
+         "ROOM___E_":[
+     		"To the east you can see %s.",
+     		"East of you lies %s.",
+     		"East leads to %s."
+         ],
+         "ROOM____W":[
+     		"To the west you can see %s.",
+     		"West of you lies %s.",
+     		"West leads to %s."
+         ],
+         "Everyone misses":[
+     		"Everyone misses.",
+     		"Nobody hits anything.",
+     		"There is much activity, but no blow lands."
+         ],
+         "Everyone else misses":[
+     		"Everyone else misses.",
+     		"No other strikes hit.",
+     		"The rest of the blows miss.",
+     		"No one lands any further strikes.",
+     		"The remaining strikes miss."
+         ],
+         "XXX does about YYY damage":[
+     		"%s does about %d damage",
+     		"%s averages %d damage"
+         ],
+         "XXX is sold in bundles of YYY":[
+     		"%s is sold in bundles of %d"
+         ],
+         "XXX in bundles of YYY":[
+     		"%s in bundles of %d"
+         ],
+         "XXX improves your armor by YYY":[
+     		"%s improves your armor by %d"
+         ],
+         "XXX by YYY":[
+     		"%s by %d"
+         ],
+         "XXX weighs YYY":[
+     		"%s weighs %d"
+         ],
+         "XXX requires YYY hands to wield":[
+     		"%s requires %d hands to wield",
+     		"%s needs %d hands",
+     		"%s is used with %d hands"
+         ],
+         "XXX has armor class YYY, an average of ZZZ hit points, and does WWW damage on average":[
+     		"%s has armor class %s, an average of %d hit points, and does %d damage on average."
+         ],
+         "You have crossed over into XXX":[
+     		"You have crossed over into %s."
+         ],
+         "You have killed XXX monsters of YYY different types":[
+     		"You have killed %d monsters of %d different types."
+         ],
+         "You have killed XXX boss monsters and collected YYY bounties":[
+     		"You have killed %d boss monsters and collected %d bounties."
+         ],
+         "You have fought XXX battles and won YYY of them":[
+     		"You have fought %d battles and won %d of them."
+         ],
+         "You have visited XXX locations and carried a maximum of YYY gold pieces":[
+     		"You have visited %d locations and carried a maximum of %d gold pieces."
+         ],
+         "You are out of XXX":[
+     		"You are out of %s.",
+     		"That was your last %s."
+         ],
+         "Theres a list of bounties here":[
+     		"There's a list of bounties here.",
+     		"There are some rewards posted on the wall."
+         ],
+         "Clearing the monsters out XXX of here will gain you YYY gold pieces":[
+     		"Clearing the monsters out %s of here will gain you %d gold pieces.",
+     		"Making the area %s of here safe will earn you %d gold pieces."
+         ],
+         "Congratulations You earned a XXX bounty":[
+     		"Congratulations! You earned a %d bounty.",
+     		"You collect a bounty of %d gold pieces."
+         ],
+         "MEET_BOSS":[
+     		"<<speech:<audio src=\"https://s3.amazonaws.com/tsatsatzu-alexa/sound/misc/GHOST.mp3\"/> >>"
+         ],         
+         "KILL_BOSS":[
+     		"<<speech:<audio src=\"https://s3.amazonaws.com/tsatsatzu-alexa/sound/misc/DOODADI.mp3\"/> >>"
+         ],         
+         "LEVEL_UP":[
+     		"<<speech:<audio src=\"https://s3.amazonaws.com/tsatsatzu-alexa/sound/fantasy/266454__infinitelifespan__levelup.mp3\"/> >>"
+         ],                  
+         "LEVEL_QUARTER":[
+     		"<<speech:<audio src=\"https://s3.amazonaws.com/tsatsatzu-alexa/sound/fantasy/270404__littlerobotsoundfactory__jingle-achievement-00.mp3\"/> >>"
+         ],                  
+         "XXX is now one quarter the way to level YYY":[
+     		"%s is now one quarter the way to level %d!"
+         ],         
+         "XXX is now halfway to level YYY":[
+     		"%s is now halfway to level %d!"
+         ],         
+         "XXX is now three quarters the way to level YYY":[
+     		"%s is now three quarters the way to level %d!"
+         ],         
+         "Around the landscape are ruins where monsters lurk":[
+     		"Around the landscape are ruins where monsters lurk. You can say 'enter' to explore them. If you clear it out there's a chance  you can receive a bounty at a nearby outpost, fort or castle. "
+         ],         
+         "Castles forts and outposts guard the dangerous areas of the realm":[
+     		"Castles, forts and outposts guard the dangerous areas of the realm. You can say 'enter' to explore them. You may find a notice board listing bounties available for mercenaries. "
+         ],         
+         "Cities and towns lie along the roads of the realm":[
+     		"Cities and towns lie along the roads of the realm. You can explore these and find places to recruit new members and to buy and sell gear. "
+         ],         
+         "Thank you for playing":[
+     		"Thank you for playing.",
+     		"We'll be waiting the next time you want to play.",
+     		"Goodbye. Come back soon!"
+         ],         
+         "ALEXA If you have questions or suggestions":[
+     		"If you have questions or suggestions, please visit the website listed in the companion app.<<card: http://starlanes.freeforums.net/board/5/6-swords-discussion>>",
+     		"Please report problems to the website listed in the companion app.<<card: http://starlanes.freeforums.net/board/5/6-swords-discussion>>",
+     		"You can meet your fellow players on the website listed in the companion app.<<card: http://starlanes.freeforums.net/board/5/6-swords-discussion>>"
+         ],         
+         "CIRRANE If you have questions or suggestions":[
+     		""
+         ],         
+         "ASSISTANT If you have questions or suggestions":[
+     		"If you have questions or suggestions, please visit starlanes dot freeforums dot net and join the 6 swords discussion board.",
+     		"Please report problems to starlanes dot freeforums dot net on the 6 swords discussion board.",
+     		"You can meet your fellow players at starlanes dot freeforums dot net on the 6 swords discussion board."
+         ],         
+         "ALEXA_OTHER_GAMES":[
+     		"If you enjoy card games, you can say 'Alexa, open 21 Blackjack' to try another of our games.",
+     		"If you fancy some poker, you can say 'Alexa, open friday night poker' to try one of our other games.",
+     		"If you want to try a real time strategy game, you can say 'Alexa, open sub war' to go head to head against other players.",
+     		"If you still feel you need some challenge today, say 'Alexa, open Mind Maze' to play our multi-dimensional maze game."
+         ],         
+         "ASSISTANT_OTHER_GAMES":[
+     		"If you enjoy card games, you can say 'OK Google, talk to 21 Blackjack' to try another of our games.",
+     		"If you want to try a real time strategy game, you can say 'OK Google, talk to sub war' to go head to head against other players.",
+     		"If you still feel you need some challenge today, say 'OK Google, talk to Mind Maze' to play our multi-dimensional maze game."
+         ],         
+         "SEQUENTIAL_MISSES":[
+     		", misses"
+         ],         
+         "SEQUENTIAL_KILLS":[
+     		", kills"
+         ],         
+         "SEQUENTIAL hits for XXX damage":[
+     		", hits for %d damage"
+         ],         
+         "TERMINAL_MISSES":[
+     		"and then misses."
+         ],         
+         "TERMINAL_KILLS":[
+     		"and then kills."
+         ],         
+         "TERMINAL hits for XXX damage":[
+     		"and then hits for %d damage."
+         ],         
+         "NEARLY_DEAD":[
+     		"You hear the wailing of the Banshee.",
+     		"Your life force is running out.",
+     		"You are about to die."
+         ],         
+         "PREMIUM_BLOCK":[
+ 			"Premium content is not available in this version. Please try 6 Swords."
+         ],         
+         "PREMIUM_OPTIN":[
+ 			"If you wish the enter the premium area, you must purchase premium content."
+         ],         
+         "GOD_SMILES":[
+ 			"The gods smile upon you.",
+			"You feel blessed.",
+			"A holy light briefly fills the air."
+        ],         
+         "GOD_GIVES":[
+ 			"You are granted %s.",
+			"A %s descends from on high.",
+			"A supernatural hands gifts you %s."
+        ],         
+         "GOLDEN_GLOW":[
+ 			"A golden glow surrounds you.",
+			"The spirit of the temple is pleased.",
+			"A higher power recognizes you."
+        ],         
+         "TEMPLE_BLOCK":[
+ 			"A mysterious force prevents you passing.",
+			"You feel static electricity and decided that's not a good place to go.",
+			"You feel proceeding would offend the spirit of the temple."
+        ],         
+         "If you want to take XXX as your patron deity":[
+ 			"If you want to take %s as your patron deity, proceed inward."
+        ],         
+         "XXX is now your patron deity":[
+ 			"%s is now your patron deity!"
+        ],         
+         "You feel your life energy restored":[
+ 			"You feel your life energy restored."
+        ],         
+         "You have been blessed XXX times by YYY deities":[
+ 			"You have been blessed %d times by %d deities."
+        ],         
+         "Thanks for the offer but XXX feels you need the money more":[
+ 			"Thanks for the offer, but %s feels you need the money more."
+        ],         
+         "XXX thanks you for your generous donation":[
+ 			"%s thanks you for your generous donation."
+        ],         
+         "You contemplate XXX and it is revealed to you that you have gained YYY prestige":[
+ 			"You contemplate %s and it is revealed to you that you have gained %d blessings and %d prestige."
+        ],         
+         "The hermit thanks you for your message and vanishes":[
+ 			"The hermit thanks you for your message and vanishes. You feel %s is happy with you."
+        ],         
+         "The pentacle gate collapses as the demons are banished":[
+ 			"The pentacle gate collapses as the demons are banished."
+        ],         
+         "You are not currently on a mission":[
+ 			"You are not currently on a mission.",
+ 			"You are not currently on a quest."
+        ],         
+         "Your mission is to deliver a message to a hermit of XXX at YYY longitude ZZZ latitude":[
+ 			"Your mission is to deliver a message to a hermit of %s at %s."
+        ],         
+         "Your mission is to eradicate a demon infestation at YYY longitude ZZZ latitude":[
+ 			"Your mission is to eradicate a demon infestation at %s."
+        ],         
+         "A_GOD":[
+ 			"Neptune",
+			"Jupiter",
+			"Minerva",
+			"Pluto",
+			"Apollo",
+			"Mars",
+			"Diana",
+			"Vulcan",
+			"Venus",
+			"Mercury",
+			"Juno",
+			"Ceres",
+			"Sechchest",
+			"Seta",
+			"Lachkaka",
+			"Oknadeta",
+			"<phoneme alphabet=\"ipa\" ph=\"zoːʀʌk\">ZôrukR</phoneme>",
+  			"<phoneme alphabet=\"ipa\" ph=\"beːnad\">Bênad</phoneme>",
+  			"<phoneme alphabet=\"ipa\" ph=\"kʰəzud\">Khirzud</phoneme>",
+  			"<phoneme alphabet=\"ipa\" ph=\"dom\">Dom</phoneme>",
+  			"<phoneme alphabet=\"ipa\" ph=\"siːmak\">Shîmak</phoneme>",
+  			"Sky Father",
+			"Hearth Mother",
+			"Water Bearer",
+			"Grave Keeper",
+			"Martius",
+			"Harper",
+			"Weaver",
+			"<phoneme alphabet=\"ipa\" ph=\"ɑrɑʊ̯r\">Araur</phoneme>",
+			"<phoneme alphabet=\"ipa\" ph=\"ɔrɛ\">Ore</phoneme>",
+			"<phoneme alphabet=\"ipa\" ph=\"mɔsɛnɔɑ\">Mosenoa</phoneme>",
+			"<phoneme alphabet=\"ipa\" ph=\"nɛrkkɑnɡɑ\">Nerccanga</phoneme>",
+			"<phoneme alphabet=\"ipa\" ph=\"sinɑˑnɛtɑ\">Sináneta</phoneme>",
+			"<phoneme alphabet=\"ipa\" ph=\"yɑkuilɑ\">Yacuila</phoneme>",
+			"<phoneme alphabet=\"ipa\" ph=\"lilɑɪ̯vɔ\">Lilaivo</phoneme>",
+			"<phoneme alphabet=\"ipa\" ph=\"nkwɑnnɑˑtɑ\">Nquannáta</phoneme>",
+			"<phoneme alphabet=\"ipa\" ph=\"ˌtɛzˌkætliˈpoʊkə\">Tezcatlipoca</phoneme>",
+			"<phoneme alphabet=\"ipa\" ph=\"ˌkɛtsɑːlˈkoʊɑːtəl\">Quetzalcoatl</phoneme>",
+			"<phoneme alphabet=\"ipa\" ph=\"ˈtɬaːlok\">Tlaloc</phoneme>",
+			"<phoneme alphabet=\"ipa\" ph=\"miʃˈkoːwaːt͡ɬ\">Mixcoatl</phoneme>",
+			"<phoneme alphabet=\"ipa\" ph=\"wiːt͡siloːˈpoːt͡ʃt͡ɬi\">Huitzilopochtli</phoneme>",
+			"<phoneme alphabet=\"ipa\" ph=\"ˈɛŋki\">Enki</phoneme>",
+			"Ashur",
+			"Enlil",
+			"<phoneme alphabet=\"ipa\" ph=\" (ˈɪʃtɑːr\">Ishtar</phoneme>",
+			"Marduk",
+		    "<phoneme alphabet=\"ipa\" ph=\"tomauko\">Tomauko</phoneme>",
+		    "<phoneme alphabet=\"ipa\" ph=\"kamateko\">Kamateko</phoneme>",
+		    "<phoneme alphabet=\"ipa\" ph=\"shinshimi\">Shinshimi</phoneme>",
+		    "<phoneme alphabet=\"ipa\" ph=\"omira\">Omira</phoneme>",
+			"<phoneme alphabet=\"ipa\" ph=\"ɑ.tum\">Atum</phoneme>",
+			"Shu",
+			"Tefnut",
+			"Geb",
+			"<phoneme alphabet=\"ipa\" ph=\"nuːt\">Nut</phoneme>",
+			"<phoneme alphabet=\"ipa\" ph=\"(oʊˈsaɪrɪs\">Osiris</phoneme>",
+			"<phoneme alphabet=\"ipa\" ph=\"ˈaɪsɪs\">Isis</phoneme>",
+			"<phoneme alphabet=\"ipa\" ph=\"sɛθ\">Seth</phoneme>",
+			"<phoneme alphabet=\"ipa\" ph=\"ˈnɛfθɪs\">Nephthys</phoneme>",
+			"Tilwarna",
+			"Jamano",
+			"Bhima",
+			"Devrakoot",
+			"Nindarthata",
+			"Jarama"
+        ],         
+         "CULTIC_FUNCTIONARY":[
+ 			"Priest",
+			"Priest",
+			"Priestess",
+			"Priest",
+			"Priest",
+			"Priest",
+			"Priestess",
+			"Priest",
+			"Priestess",
+			"Priest",
+			"Priestess",
+			"Priestess",
+			"Priest",
+			"Priestess",
+			"Priestess",
+			"Priest",
+			"Priest",
+			"Priestess",
+			"Priest",
+			"Priest",
+			"Priestess",
+  			"Priest",
+			"Priestess",
+			"Priestess",
+			"Priest",
+			"Priest",
+			"Priest",
+			"Priestess",
+			"Priest",
+			"Priestess",
+			"Priestess",
+			"Priest",
+			"Priestess",
+			"Priest",
+			"Priestess",
+			"Priest",
+			"Priest",
+			"Priest",
+			"Priest",
+			"Priest",
+			"Priest",
+			"Priest",
+			"Priest",
+			"Priest",
+			"Priestess",
+			"Priest",
+			"Priestess",
+			"Priestess",
+			"Priest",
+			"Priest",
+			"Priest",
+			"Priest",
+			"Priestess",
+			"Priest",
+			"Priestess",
+			"Priest",
+			"Priestess",
+			"Priest",
+			"Priestess",
+			"Priest",
+			"Priest",
+			"Priest",
+			"Priestess",
+			"Priestess",
+			"Priestess"
+        ],         
+         "A_GOD_WEAPON":[
+ 			"Neptune's Trident",
+			"Thunderbolt of Jupiter",
+			"Aegis of Minerva",
+			"Cudgel of Pluto",
+			"Apollo's Bow",
+			"Martian Blade",
+			"Moon bow of Diana",
+			"Hammer of Vulcan",
+			"Cupid's Bow",
+			"Elixir of Mercury",
+			"Breastplate of Juno",
+			"Sickle of Ceres",
+			"Sun Sword",
+			"Pick of History",
+			"Staff of Lachkaka",
+			"Hammer of Oknadeta",
+			"Hammer of <phoneme alphabet=\"ipa\" ph=\"zoːʀʌk\">ZôrukR</phoneme>",
+  			"Axe of <phoneme alphabet=\"ipa\" ph=\"beːnad\">Bênad</phoneme>",
+  			"Pick of <phoneme alphabet=\"ipa\" ph=\"kʰəzud\">Khirzud</phoneme>",
+  			"Mace of <phoneme alphabet=\"ipa\" ph=\"dom\">Dom</phoneme>",
+  			"Crossbow of <phoneme alphabet=\"ipa\" ph=\"siːmak\">Shîmak</phoneme>",
+  			"Flail of Ice",
+			"Poker of the Hearth",
+			"Water Bow",
+			"Sickle of the Grave",
+			"Sword of War",
+			"Brawler's Cudgel",
+			"Woven Steel Armor",
+			"Sword of <phoneme alphabet=\"ipa\" ph=\"ɑrɑʊ̯r\">Araur</phoneme>",
+			"Shield of <phoneme alphabet=\"ipa\" ph=\"ɔrɛ\">Ore</phoneme>",
+			"Scimatar of <phoneme alphabet=\"ipa\" ph=\"mɔsɛnɔɑ\">Mosenoa</phoneme>",
+			"Hunting Lance of <phoneme alphabet=\"ipa\" ph=\"nɛrkkɑnɡɑ\">Nerccanga</phoneme>",
+			"Dagger of <phoneme alphabet=\"ipa\" ph=\"sinɑˑnɛtɑ\">Sináneta</phoneme>",
+			"Mace of <phoneme alphabet=\"ipa\" ph=\"yɑkuilɑ\">Yacuila</phoneme>",
+			"Armor of <phoneme alphabet=\"ipa\" ph=\"lilɑɪ̯vɔ\">Lilaivo</phoneme>",
+			"Trident of <phoneme alphabet=\"ipa\" ph=\"nkwɑnnɑˑtɑ\">Nquannáta</phoneme>",
+			"Mace of <phoneme alphabet=\"ipa\" ph=\"ˌtɛzˌkætliˈpoʊkə\">Tezcatlipoca</phoneme>",
+			"Mace of <phoneme alphabet=\"ipa\" ph=\"ˌkɛtsɑːlˈkoʊɑːtəl\">Quetzalcoatl</phoneme>",
+			"Mace of <phoneme alphabet=\"ipa\" ph=\"ˈtɬaːlok\">Tlaloc</phoneme>",
+			"Mace of <phoneme alphabet=\"ipa\" ph=\"miʃˈkoːwaːt͡ɬ\">Mixcoatl</phoneme>",
+			"Mace of <phoneme alphabet=\"ipa\" ph=\"wiːt͡siloːˈpoːt͡ʃt͡ɬi\">Huitzilopochtli</phoneme>",
+			"Mace of <phoneme alphabet=\"ipa\" ph=\"ˈɛŋki\">Enki</phoneme>",
+			"Mace of Ashur",
+			"Mace of Enlil",
+			"Mace of <phoneme alphabet=\"ipa\" ph=\" (ˈɪʃtɑːr\">Ishtar</phoneme>",
+			"Mace of Marduk",
+		    "Katana of <phoneme alphabet=\"ipa\" ph=\"tomauko\">Tomauko</phoneme>",
+		    "Wakizashi of <phoneme alphabet=\"ipa\" ph=\"kamateko\">Kamateko</phoneme>",
+		    "Halberd of <phoneme alphabet=\"ipa\" ph=\"shinshimi\">Shinshimi</phoneme>",
+		    "Bow of <phoneme alphabet=\"ipa\" ph=\"omira\">Omira</phoneme>",
+			"Sword of <phoneme alphabet=\"ipa\" ph=\"ɑ.tum\">Atum</phoneme>",
+			"Morning Star of Shu",
+			"Moon Blade of Tefnut",
+			"Rod of Geb",
+			"Throwing Star of <phoneme alphabet=\"ipa\" ph=\"nuːt\">Nut</phoneme>",
+			"Spear of <phoneme alphabet=\"ipa\" ph=\"(oʊˈsaɪrɪs\">Osiris</phoneme>",
+			"Javelin of <phoneme alphabet=\"ipa\" ph=\"ˈaɪsɪs\">Isis</phoneme>",
+			"Sword of <phoneme alphabet=\"ipa\" ph=\"sɛθ\">Seth</phoneme>",
+			"Shield of <phoneme alphabet=\"ipa\" ph=\"ˈnɛfθɪs\">Nephthys</phoneme>",
+			"Sword of Tilwarna",
+			"Axe of Jamano",
+			"Sword of Bhima",
+			"Bow of Devrakoot",
+			"Morning Star of Nindarthata",
+			"Sword of Jarama"
+        ],         
+         "FORUM":[
+ 			"Forum"
+        ],         
+         "OPTION_BUY":[
+ 			"Buy:"
+        ],         
+         "OPTION_HIRE":[
+ 			"Hire:"
+        ],         
+         "visit_HELP":[
+ 			"You earn a visitor's badge based on the total number of towns, dungeons, forts and special locations you have visited."
+        ],         
+         "visit_BRONZE":[
+ 			"Bronze Vistor's Badge"
+        ],         
+         "visit_SILVER":[
+ 			"Silver Vistor's Badge"
+        ],         
+         "visit_GOLD":[
+ 			"Gold Vistor's Badge"
+        ],         
+         "visit_PLATINUM":[
+ 			"Platinum Vistor's Badge"
+        ],         
+         "ranger_HELP":[
+ 			"A ranger badge is awarded based on the furthest distance you have traveled from your starting position."
+        ],         
+         "ranger_BRONZE":[
+ 			"Bronze Ranger's Badge"
+        ],         
+         "ranger_SILVER":[
+ 			"Silver Ranger's Badge"
+        ],         
+         "ranger_GOLD":[
+ 			"Gold Ranger's Badge"
+        ],         
+         "ranger_PLATINUM":[
+ 			"Platinum Ranger's Badge"
+        ],         
+         "traveller_HELP":[
+ 			"You earn the traveller badge based on the total number of miles your adventuring party has walked."
+        ],         
+         "traveller_BRONZE":[
+ 			"Bronze Walker's Badge"
+        ],         
+         "traveller_SILVER":[
+ 			"Silver Walker's Badge"
+        ],         
+         "traveller_GOLD":[
+ 			"Gold Walker's Badge"
+        ],         
+         "traveller_PLATINUM":[
+ 			"Platinum Walker's Badge"
+        ],         
+         "banker_HELP":[
+ 			"The banker badge is awarded based on the largest amount of gold you have carried at some point."
+        ],         
+         "banker_BRONZE":[
+ 			"Bronze Hoarder's Badge"
+        ],         
+         "banker_SILVER":[
+ 			"Silver Hoarder's Badge"
+        ],         
+         "banker_GOLD":[
+ 			"Gold Hoarder's Badge"
+        ],         
+         "banker_PLATINUM":[
+ 			"Platinum Hoarder's Badge"
+        ],         
+         "prestige_BRONZE":[
+ 			"Bronze Patron's Badge for %s"
+        ],         
+         "prestige_SILVER":[
+ 			"Silver Patron's Badge for %s"
+        ],         
+         "prestige_GOLD":[
+ 			"Gold Patron's Badge for %s"
+        ],         
+         "prestige_PLATINUM":[
+ 			"Platinum Patron's Badge for %s"
+        ],         
+         "blessing_BRONZE":[
+ 			"Bronze Parishoner's Badge for %s"
+        ],         
+         "blessing_SILVER":[
+ 			"Silver Parishoner's Badge for %s"
+        ],         
+         "blessing_GOLD":[
+ 			"Gold Parishoner's Badge for %s"
+        ],         
+         "blessing_PLATINUM":[
+ 			"Platinum Parishoner's Badge for %s"
+        ],         
+         "slayer_BRONZE":[
+ 			"Bronze %s Slayer"
+        ],         
+         "slayer_SILVER":[
+ 			"Silver %s Slayer"
+        ],         
+         "slayer_GOLD":[
+ 			"Gold %s Slayer"
+        ],         
+         "slayer_PLATINUM":[
+ 			"Platinum %s Slayer"
+        ],         
+         "chest_HELP":[
+ 			"The chest badge is awarded based on the number of chests you have opened."
+        ],         
+         "chest_BRONZE":[
+ 			"Bronze Chest Badge"
+        ],         
+         "chest_SILVER":[
+ 			"Silver Chest Badge"
+        ],         
+         "chest_GOLD":[
+ 			"Gold Chest Badge"
+        ],         
+         "chest_PLATINUM":[
+ 			"Platinum Chest Badge"
+        ],         
+         "pool_HELP":[
+ 			"The pool badge is awarded based on the number of magic pools you have drunk from."
+        ],         
+         "pool_BRONZE":[
+ 			"Bronze Chest Badge"
+        ],         
+         "pool_SILVER":[
+ 			"Silver Chest Badge"
+        ],         
+         "pool_GOLD":[
+ 			"Gold Chest Badge"
+        ],         
+         "pool_PLATINUM":[
+ 			"Platinum Chest Badge"
+        ],         
+         "throne_HELP":[
+ 			"The throne badge is awarded based on the number of thrones you have sat on."
+        ],         
+         "throne_BRONZE":[
+ 			"Bronze Throne Badge"
+        ],         
+         "throne_SILVER":[
+ 			"Silver Throne Badge"
+        ],         
+         "throne_GOLD":[
+ 			"Gold Throne Badge"
+        ],         
+         "throne_PLATINUM":[
+ 			"Platinum Throne Badge"
+        ],         
+         "delver_HELP":[
+ 			"The delver badge is awarded based on the deepest dungeon you have explored."
+        ],         
+         "delver_BRONZE":[
+ 			"Bronze Delver Badge"
+        ],         
+         "delver_SILVER":[
+ 			"Silver Delver Badge"
+        ],         
+         "delver_GOLD":[
+ 			"Gold Delver Badge"
+        ],         
+         "delver_PLATINUM":[
+ 			"Platinum Delver Badge"
+        ],         
+         "You have achieved a XXX":[
+ 			"You have achieved a %s!"
+        ],         
+         "You achievements are XXX":[
+ 			"%s has achieved %s."
+        ],         
+         "You are ranked XXX":[
+ 			"%s is ranked %s."
+        ],         
+         "XXX at YYY":[
+ 			"%s at %s"
+        ],         
+         "RANK_ranger":[
+ 			"the furthest you have traveled from the start"
+        ],         
+         "RANK_visit":[
+ 			"the number of places you have visited"
+        ],         
+         "RANK_banker":[
+ 			"the amount of gold you have had"
+        ],         
+         "RANK_traveller":[
+ 			"the number of miles you have walked"
+        ],         
+         "RANK_chest":[
+ 			"the number of chests you have opened"
+        ],         
+         "RANK_pool":[
+ 			"the number of pools you have drunk from"
+        ],         
+         "RANK_throne":[
+ 			"the number of thrones you have sat in"
+        ],         
+         "RANK_delver":[
+ 			"the deepest dungeon you have explored"
+        ],         
+         "XXX copper pieces":[
+ 			"%d copper pieces"
+        ],         
+         "XXX silver pieces":[
+ 			"%d silver pieces"
+        ],         
+         "XXX electrum pieces":[
+ 			"%d electrum pieces"
+        ],         
+         "XXX gold pieces":[
+ 			"%d gold pieces"
+        ],         
+         "XXX platinum pieces":[
+ 			"%d platinum pieces"
+        ],         
+         "XXX copper piece":[
+ 			"%d copper piece"
+        ],         
+         "XXX silver piece":[
+ 			"%d silver piece"
+        ],         
+         "XXX electrum piece":[
+ 			"%d electrum piece"
+        ],         
+         "XXX gold piece":[
+ 			"%d gold piece"
+        ],         
+         "XXX platinum piece":[
+ 			"%d platinum piece"
+        ],         
+         "XXX GEM":[
+ 			"%d gem"
+        ],         
+         "XXX GEMS":[
+ 			"%d gems"
+        ],         
+         "XXX JEWELRY":[
+ 			"%d item of jewelry"
+        ],         
+         "XXX JEWELRYS":[
+ 			"%d pieces of jewelry"
+        ],         
+         "worth a total of XXX gold":[
+ 			"worth a total of %d gold"
+        ],         
+         "You search the bodies and find XXX":[
+ 			"You search the bodies and find %s.",
+ 			"A thorough search of the bodies reveals %s.",
+ 			"After looting the bodies you come across %s."
+        ],         
+         "You search the body and find XXX":[
+ 			"You search the body and find %s.",
+ 			"A thorough search of the body reveals %s.",
+ 			"As you loot the body you come across %s."
+        ],         
+         "Following tracks you find a lair which contains XXX":[
+ 			"Following tracks you find a lair which contains %s.",
+ 			"You find tracks leading to a lair where there is a hoard of %s.",
+ 			"Nearby you find a lair containing %s."
+        ],         
+         "There is a sign post here":[
+ 			"There is a sign post here."
+        ],         
+         "The sign post points XXX":[
+ 			"The sign post points %s."
+        ],         
+         "A sign post points XXX":[
+ 			"There is a sign pointing %s here.",
+ 			"There is a sign here pointing %s.",
+ 			"A sign post points %s."
+        ],         
+         "XXX to YYY":[
+ 			"%s to %s"
+        ],         
+         "Would you take a message to XXX for YYY gold":[
+ 			"Would you take a message to %s for %d gold?",
+ 			"Can you take a message to %s for %d gold?",
+ 			"There's a message for %s. Would you agree to take it for %d gold?",
+ 			"They're offering %2$d gold to take a message to %1$s. Interested?"
+        ],         
+         "OK We'll skip this message":[
+     		"Maybe next time.",
+     		"Check for more message later.",
+     		"OK. We'll skip this message."
+         ],
+         "Message taken":[
+     		"Message taken.",
+     		"Great! You can collect the gold at the other end.",
+     		"OK. When you are done with that, we'll have more for you."
+         ],
+         "Here's your XXX for delivering that message":[
+     		"Here's your %d for delivering that message.",
+     		"Thanks for the message! Have %d gold.",
+     		"Here's %d gold for that message. Thanks!"
+         ],
+         "You have a message for XXX":[
+     		"You have a message for %s.",
+     		"You are carrying a message to %s.",
+     		"You've agreed to deliver a message to %s."
+         ],
+         "You have a messages for XXX":[
+     		"You have messages for %s.",
+     		"You are carrying messages to %s.",
+     		"You've agreed to deliver messages to %s."
+         ],
+         "XXX for YYY":[
+     		"%s for %d",
+     		"%s",
+     		"%s for %d gold"
+         ],
+         "XXX for YYY gold":[
+     		"%s for %d",
+     		"%s for %d gold"
+         ],
+         "XXX feels in control of YYY":[
+     		"%s feels in control of %s."
+         ],
+         "XXX feels resistant to YYY":[
+     		"%s feels resistant to %s."
+         ],
+         "XXX feels stronger":[
+     		"%s feels stronger."
+         ],
+         "XXX feels invulnerable":[
+     		"%s feels invulnerable."
+         ],
+         "XXX fades from view":[
+     		"%s fades from view."
+         ],
+         "XXX speeds up":[
+     		"%s speeds up."
+         ],
+         "XXX compels YYY ZZZ to run away":[
+     		"%s compels %d %s to run away."
+         ],
+         "XXX's YYY doesn't seem to damage ZZZ":[
+     		"%s's %s doesn't seem to damage %s."
+         ],
+         "DOCKS":[
+     		"Port %s",
+     		"%s Docks",
+     		"%s by the Sea"
+         ],
+         "BOSUN_WHISTLE":[
+     		"<<speech:<audio src=\"https://s3.amazonaws.com/tsatsatzu-alexa/sound/subwar/BOSUN_WHISTLE.mp3\"/> >>"
+         ],
+         "CASH_REGISTER":[
+     		"<<speech:<audio src=\"https://s3.amazonaws.com/tsatsatzu-alexa/sound/office/REGISTER.mp3\"/> >>"
+         ],
+         "Everything starts to sound different":[
+     		"Everything starts to sound different."
+         ],
+         "You dont have enough gold":[
+     		"You don't have enough gold."
+         ],
+         "XXX is YYY and dies":[
+     		"%s is %s and dies.",
+     		"%s is fatally %s.",
+     		"%s is %s to death."
+         ],
+         "XXX is YYY for ZZZ damage":[
+     		"%s is %s for %d damage."
+         ],
+         "Your support ID is XXX":[
+     		"You are known as %s, and your password is %s."
+         ],
+         "Together you form XXX":[
+     		"Together you form %s."
+         ],
+         "PROMPT_SLEEP":[
+         	"More monsters come out after dark. Why don't we sleep?",
+         	"You can say 'sleep' to pass the night.",
+     		"Night time can be dangerous. You might consider saying 'sleep' to get some rest."
+         ],
+         "PROMPT_TIME":[
+         	"You can say 'about time' to get the exact time."
+         ],
+         "VERB_fire":[
+     		"burned"
+         ],
+         "VERB_cold":[
+     		"frozen"
+         ],
+         "VERB_electricity":[
+     		"zapped"
+         ],
+         "VERB_poison":[
+     		"poisoned"
+         ],
+         "VERB_acid":[
+     		"dissolved"
+         ],
+         "MOON_PHASE_0":[
+     		"new moon"
+         ],
+         "MOON_PHASE_1":[
+     		"waxing crescent moon"
+         ],
+         "MOON_PHASE_2":[
+     		"waxing half moon"
+         ],
+         "MOON_PHASE_3":[
+     		"waxing gibbous moon"
+         ],
+         "MOON_PHASE_4":[
+     		"full moon"
+         ],
+         "MOON_PHASE_5":[
+     		"waning gibbous moon"
+         ],
+         "MOON_PHASE_6":[
+     		"waning half moon"
+         ],
+         "MOON_PHASE_7":[
+     		"waning crescent moon"
+         ],
+         "MOON_IS_RISING_OVER_THE_HORIZON":[
+     		"The %s is just rising over the horizon."
+         ],
+         "MOON_IS_RISING":[
+     		"The %s is rising."
+         ],
+         "MOON_IS_OVERHEAD":[
+     		"The %s is overhead.",
+     		"The %s is directly overhead."
+         ],
+         "MOON_IS_DECLINING":[
+     		"The %s is declining."
+         ],
+         "MOON_IS_SETTING":[
+     		"The %s is just setting."
+         ],
+         "MOON_IS_BELOW_THE_HORIZON":[
+     		"The %s is below the horizon.",
+     		"The %s is not currently visible."
+         ],
+         "NOTHING_NEARBY":[
+     		"There isn't anything nearby.",
+     		"You don't see anything about the place.",
+     		"Nothing interesting around here."
+         ],
+         "XXX miles to the YYY is ZZZ":[
+     		"%d miles to the %s is %s.",
+     		"%d miles %s lies %s.",
+     		"If you go %d miles %s you will find %s."
+         ],
+         "XXX miles to the YYY and AAA miles to the BBB is ZZZ":[
+     		"%d miles to the %s and %d miles to the %s is %s.",
+     		"%d miles %s and %d miles %s lies %s.",
+     		"If you go %d miles %s and %d miles %s you will find %s."
+         ],
+         "LINKED_TO_XXX":[
+     		"Linked to %s."
+         ],
+         "COULD_NOT_LINK_TO_XXX":[
+     		"Could not link to %s."
+         ],
+         "YOU_NEED_100000_GP":[
+     		"You need one hundred thousand gold pieces to buy a wish."
+         ],
+         "You cant increase that any further":[
+     		"You can't increase that any further."
+         ],
+         "You have no dead companions":[
+     		"You have no dead companions."
+         ],
+         "XXX now has a YYY of ZZZ":[
+     		"{{REGISTER_SOUND}}%s now has a %s of %s."
+         ],
+         "XXX is back from the dead":[
+     		"{{REGISTER_SOUND}}%s is back from the dead."
+         ],
+         "STAT_STR":[
+     		"strength"
+         ],
+         "STAT_INT":[
+     		"intelligence"
+         ],
+         "STAT_WIS":[
+     		"wisdom"
+         ],
+         "STAT_CON":[
+     		"constitution"
+         ],
+         "STAT_DEX":[
+     		"dexterity"
+         ],
+         "STAT_CHA":[
+     		"charisma"
+         ],
+         "UNKNOWN_LOCATION":[
+     		"Dead End",
+     		"Good Intentions",
+     		"Disney World"
+         ],
+         "You have no subscription to cancel":[
+     		"You have no subscription to cancel."
+         ],
+         "You are already subscribed":[
+     		"You are already subscribed."
+         ],
+         "You are not currently subscribed":[
+     		"You are not currently subscribed."
+         ],
+         "Cancelling subscription":[
+     		"Canceling subscription."
+         ],
+         "Your premium access is currently a gift":[
+     		"Your premium access is currently a gift. You do not need to cancel."
+         ],
+         "You see a huge magical vortex swirling XXX of you":[
+     		"%s of you lies a giant magical vortex.",
+     		"You see a huge magical vortex swirling %s of you.",
+     		"A magical vortex darkens the sky %s of you."
+         ],
+         "Right here is a giant magical vortex":[
+     		"Right here is a giant magical vortex.",
+     		"There is a huge magical vortex right here.",
+     		"A magical vortex darkens all around you."
+         ],
+         "WIZARD_APPEARS":[
+     		"A swirling vortex spins past and a wizard appears out of it. He tells you of an amazing area with all sort of wondrous adventures called the Permium Content Area. He offers to teleport you there."
+         ],
+         "WIZARD_TELEPORT_QUESTION":[
+     		"Would you like the wizard to teleport you to the Premium Content Area?"
+         ],
+         "WIZARD_DECLINE":[
+     		"The wizard shrugs and hops back into the vortex."
+         ],
+         "WIZARD_UPSELL":[
+             "Say yes to accept this monthly subscription for entry to the premium area with many new adventures and areas to explore."
+         ],
+         "Do you want to sit in the throne":[
+             "Do you want to sit in the throne?"
+         ],
+         "Do you want to drink from the pool":[
+             "Do you want to drink from the basin?"
+         ],
+         "Do you want to open the chest":[
+             "Do you want to open the chest?"
+         ],
+         "The throne is cracked":[
+             "The throne is cracked."
+         ],
+         "The pool is empty":[
+             "The basin is empty."
+         ],
+         "The chest is empty":[
+             "The chest is empty."
+         ],
+         "You sit in the throne":[
+             "You sit on the throne."
+         ],
+         "You drink from the pool":[
+             "You drink from the pool."
+         ],
+         "You open the chest":[
+             "You open the chest."
+         ],
+         "The throne cracks":[
+             "The throne cracks!"
+         ],
+         "The pool dries up":[
+             "The pool dries up."
+         ],
+         "DRINK_NOTHING_HAPPENS":[
+             "%s has a peculiar feeling for a moment, then it passes.",
+             "The water is cool and quenches %s's thirst.",
+             "Nothing happens to %s."
+         ],
+         "DRINK_GOOD":[
+             "%s's breath becomes fresher!",
+             "%s is full of vim and vigor!",
+             "%s's eyes glow silver.",
+             "%s's feels closer to god.",
+             "%s's allergies are gone!",
+             "%s's feels fully refreshed.",
+             "%s's nose tickles.",
+             "%s sneezes.",
+             "%s feels strangely attracted to %s.",
+             "Power courses through %s's veins.",
+             "Wow. Potent.",
+             "What a refreshing tonic!",
+             "That was truly incomparable and emotionally thrilling.",             
+             "<audio src=\"https://s3.amazonaws.com/tsatsatzu-alexa/sound/space/TARDIS.mp3\"/>",
+             "%s can speak to ducks!",
+             "The liquid glides down %s's throat like an elixir of life!",
+             "It tastes like the tears of a unicorn.",
+             "It tastes better than durian. But what doesn't?",
+             "It's super effective!",
+             "%s grows an inch."
+         ],
+         "DRINK_BAD":[
+             "%s seems to have acquired halitosis.",
+             "%s's hair stands on end.",
+             "%s feels like they are on fire.",
+             "%s feels their soul is in peril.",
+             "%s feels light headed.",
+             "%s feels sad for no explicable reason.",
+             "%s's stomach is upset.",
+             "%s has a hard time staring at %s.",
+             "%s's tummy rumbles.",
+             "%s vomits suddenly.",
+             "That tasted terrible.",
+             "It's salty.",
+             "%s feels a great disturbance in the Force, as if millions of voices cried out in terror and were suddenly silenced.",
+             "Burp!",
+             "<audio src=\"https://s3.amazonaws.com/tsatsatzu-alexa/sound/misc/CAT_MEOW.mp3\"/>",
+             "You feel for a moment there is something more productive you can do with your time, then it passes.",
+             "Ashy mustard undertones with an insipid tangerine finish.",
+             "It tastes of chilled mussel and black trumpet with Tijuanan matsutake jam.",
+             "%s needs to pee!",
+             "One of %s's teeth turns grey."
+         ],
+         "THRONE_NOTHING_HAPPENS":[
+             "The throne is damp and uncomfortable.",
+             "Nothing happens to %s."
+         ],
+         "THRONE_GOOD":[
+             "%s glimpses far off visions of distant locations.",
+             "%s feels at one with the universe.",
+             "%s feels on top of the world.",
+             "%s knows exactly how many hairs are on %s's head.",
+             "%s feels the gods approve of their actions.",
+             "%s sense of hearing improves.",
+             "Snatches of poetry and verse pass through %s's head.",
+             "%s hears a pleasant melody, but can't repeat it.",
+             "%s has a breath taking vision of the future. But viewing it has made it change.",
+             "%s can see into the ethereal plane! There's nothing there.",
+             "%s can hear color!",
+             "%s feels the earth move under their feet.",
+             "The world seems to close around %s for a moment, but the walls of the universe open up.",
+             "%s and %s swap bodies momentarily.",
+             "%s's consciousness is expanded.",
+             "%s feels positive and hopeful about life today.",
+             "%s hears the heart beats of all of their companions.",
+             "%s hears the souls of dear departed loved ones.",
+             "%s hears the welcome cry of their first pet.",
+             "%s's spine tingles."
+         ],
+         "THRONE_BAD":[
+             "%s is rooted to the spot for a moment.",
+             "%s has a moment of existential dread.",
+             "%s feels the gods are watching.",
+             "%s has a past life regression that ends badly.",
+             "%s gets the impression that someone is watching them.",
+             "%s goes deaf in one ear.",
+             "%s feels an urge to do violence upon %s.",
+             "%s's teeth start to talk to each other.",
+             "%s gets a splitting headache.",
+             "%s's worst memory resurfaces.",
+             "%s feels the sky come tumbling down.",
+             "Rage and anger consume %s momentarily.",
+             "%s relives their most embarrassing moment.",
+             "%s, %1$s burning bright, in the forest of the night.",
+             "The foresight %s receives is hardly political in its fluidity",
+             "%s feels like their brain is trying to crawl out through their ears.",
+             "%s is briefly touched by an alien intellect and screams!",
+             "%s's eyes roll back in their head and they shake uncontrollable until pulled from the throne.",
+             "%s is ejected from the throne.",
+             "A duck appears on %s's head, looks confused, and flies away."
+         ],
+         "XXX feels full of healing energy":[
+             "%s feels full of healing energy."
+         ],
+         "Healing energy radiates from XXX":[
+             "Healing energy radiates from %s."
+         ],
+         "All of your companions gain a hit point":[
+             "All of your companions gain a hit point."
+         ],
+         "XXX gains a hit point":[
+             "%s gains a hit point."
+         ],
+         "The whole party feels chill for a moment":[
+             "The whole party feels chill for a moment."
+         ],
+         "XXX lose ten hit points":[
+             "%s lose ten hit points."
+         ],
+         "XXX loses ten hit points":[
+             "%s loses ten hit points."
+         ],
+         "The whole party feels very chill for a moment":[
+             "The whole party feels very chill for a moment."
+         ],
+         "XXX lose one hit points permanently":[
+             "%s lose one hit point, permanently."
+         ],
+         "XXX loses one hit point permanently":[
+             "%s loses one hit point permanently."
+         ],
+         "XXX feels stronger":[
+             "%s feels stronger."
+         ],
+         "XXX feels smarter":[
+             "%s feels smarter."
+         ],
+         "XXX feels wiser":[
+             "%s feels wiser."
+         ],
+         "XXX feels more robust":[
+             "%s feels more robust."
+         ],
+         "XXX feels more agile":[
+             "%s feels more agile."
+         ],
+         "XXX feels more confident":[
+             "%s feels more confident."
+         ],
+         "XXX feels weaker":[
+             "%s feels weaker."
+         ],
+         "XXX feels dumber":[
+             "%s feels dumber."
+         ],
+         "XXX feels foolish":[
+             "%s feels foolish."
+         ],
+         "XXX feels infirm":[
+             "%s feels infirm."
+         ],
+         "XXX feels clumsy":[
+             "%s feels clumsy."
+         ],
+         "XXX feels less confident":[
+             "%s feels less confident."
+         ],
+         "It feels permanent":[
+             "It feels permanent."
+         ],
+         "The ghost of a long dead ruler rises from the throne":[
+             "The ghost of a long dead ruler rises from the throne."
+         ],
+         "The ghost kings court is summoned":[
+             "The ghost king's court is summoned."
+         ],
+         "A goblin falls from the ceiling carrying a sack of gold":[
+             "A goblin falls from the ceiling carrying a sack of gold."
+         ],
+         "CHEST_FIRE":[
+             "The chest explodes."
+         ],
+         "CHEST_COLD":[
+             "A freezing blast comes out of the chest."
+         ],
+         "CHEST_LIGHTNING":[
+             "Lightning strikes the chest."
+         ],
+         "CHEST_POISON":[
+             "A poison gas cloud erupts from the chest."
+         ],
+         "CHEST_ACID":[
+             "Acid sprays from the chest."
+         ],
+         "Chapters XXX to YYY":[
+             "Chapters %d to %d."
+         ],
+         "Chapter XXX":[
+             "Chapter %d"
+         ],
+         "UNLOCK_XXX":[
+             "You discovered the key to chapter %d of Red Queen!",
+             "You have unlocked chapter %d of Red Queen!"
+         ],
+         "You have only unlocked up to chapter XXX":[
+             "You have only unlocked up to chapter %d."
+         ],
+         "YOU_HAVE_NOT_UNLOCKED_THAT_CHAPTER":[
+             "You have not unlocked that chapter."
+         ],
+         "SETTING_TO_CHAPTER_XXX":[
+             "Setting to chapter %s."
+         ],
+         "RED_QUEEN_CH_XXX_SEG_YYY":[
+             "<<speech:<audio src=\"https://s3.amazonaws.com/tsatsatzu-alexa/sound/sixbooks/01redqueen/ch%s%s.mp3\"/>[[notalestreamer]] >>"
+         ],         
+	     "PAUSE": [
+	        "<break strength=\"medium\"/><<card:\n>>"
+	     ],
+         "SENTANCE":[
+     		"%s."
+         ],
+         "MONSTER_TYPE_ANIMAL":[ "Animal" ],
+         "MONSTER_TYPE_DEMI-HUMAN":[ "Demi-Human" ],
+         "MONSTER_TYPE_DEMON":[ "Demon" ],
+         "MONSTER_TYPE_DEVIL":[ "Devil" ],
+         "MONSTER_TYPE_DINOSAUR":[ "Dinosaur" ],
+         "MONSTER_TYPE_DRAGON":[ "Dragon" ],
+         "MONSTER_TYPE_GIANT":[ "Giant" ],
+         "MONSTER_TYPE_GOLEM":[ "Golem" ],
+         "MONSTER_TYPE_HUMANOID":[ "Humanoid" ],
+         "MONSTER_TYPE_LYCANTHROPE":[ "Lycanthrope" ],
+         "MONSTER_TYPE_OTHER":[ "Other" ],
+         "MONSTER_TYPE_SYLVAN-OR-FAERIE":[ "Sylvan-or-Faerie" ],
+         "MONSTER_TYPE_UNDEAD":[ "Undead" ],
+         "MONSTER_TYPE_PLURAL_ANIMAL":[ "animals" ],
+         "MONSTER_TYPE_PLURAL_DEMI-HUMAN":[ "demi-Humans" ],
+         "MONSTER_TYPE_PLURAL_DEMON":[ "demons" ],
+         "MONSTER_TYPE_PLURAL_DEVIL":[ "devils" ],
+         "MONSTER_TYPE_PLURAL_DINOSAUR":[ "dinosaurs" ],
+         "MONSTER_TYPE_PLURAL_DRAGON":[ "dragons" ],
+         "MONSTER_TYPE_PLURAL_GIANT":[ "giants" ],
+         "MONSTER_TYPE_PLURAL_GOLEM":[ "golems" ],
+         "MONSTER_TYPE_PLURAL_HUMANOID":[ "humanoids" ],
+         "MONSTER_TYPE_PLURAL_LYCANTHROPE":[ "lycanthropes" ],
+         "MONSTER_TYPE_PLURAL_OTHER":[ "others" ],
+         "MONSTER_TYPE_PLURAL_SYLVAN-OR-FAERIE":[ "sylvan and faerie creatures" ],
+         "MONSTER_TYPE_PLURAL_UNDEAD":[ "the undead" ],
+         "RESISTANCE_TYPE_FIRE":[ "fire" ],
+         "RESISTANCE_TYPE_FROST":[ "frost" ],
+         "RESISTANCE_TYPE_POISON":[ "poison" ],
+         "RESISTANCE_TYPE_ACID":[ "acid" ],
+         "RESISTANCE_TYPE_LIGHTNING":[ "lightning" ],
+         "":[
+     		""
+         ]
+       }
+   }
+}

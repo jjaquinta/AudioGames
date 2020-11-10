@@ -1,0 +1,636 @@
+{
+   "roomTypes":[
+      {
+         "name":{
+            "ident":"DANK_ROOM"
+         },
+         "description":{
+            "ident":"THIS_DANK_ROOM_CONTAINS_LITTLE_OF_INTEREST_"
+         },
+         "ID":"den1",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"BURROW"
+         },
+         "description":{
+            "ident":"THIS_TIGHT_PASSAGE_WAS_DUG_OUT_OF_THE_EARTH_BY_MANY_CLAWS_"
+         },
+         "ID":"den2",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"ANIMAL_DEN"
+         },
+         "description":{
+            "ident":"GNAWED_BONES_AND_CASTINGS_LITTLE_THE_FLOOR_HERE_"
+         },
+         "ID":"den3",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"NEST"
+         },
+         "description":{
+            "ident":"A_MUSKY_SMELL_HERE_INDICATES_THIS_IS_THE_DEN_OF_SOME_ANIMAL_"
+         },
+         "ID":"den4",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"DEMON1_NAME"
+         },
+         "description":{
+            "ident":"DEMON1_DESC"
+         },
+         "ID":"demon1",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"DEMON2_NAME"
+         },
+         "description":{
+            "ident":"DEMON2_DESC"
+         },
+         "ID":"demon2",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"DEMON3_NAME"
+         },
+         "description":{
+            "ident":"DEMON3_DESC"
+         },
+         "ID":"demon3",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"DEMON4_NAME"
+         },
+         "description":{
+            "ident":"DEMON4_DESC"
+         },
+         "ID":"demon4",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"DEMON5_NAME"
+         },
+         "description":{
+            "ident":"DEMON5_DESC"
+         },
+         "ID":"demon5",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"DEMON6_NAME"
+         },
+         "description":{
+            "ident":"DEMON6_DESC"
+         },
+         "ID":"demon6",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"DEMON7_NAME"
+         },
+         "description":{
+            "ident":"DEMON7_DESC"
+         },
+         "ID":"demon7",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"DEMON8_NAME"
+         },
+         "description":{
+            "ident":"DEMON8_DESC"
+         },
+         "ID":"demon8",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"DEVIL1_NAME"
+         },
+         "description":{
+            "ident":"DEVIL1_DESC"
+         },
+         "ID":"devil1",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"DEVIL2_NAME"
+         },
+         "description":{
+            "ident":"DEVIL2_DESC"
+         },
+         "ID":"devil2",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"DEVIL3_NAME"
+         },
+         "description":{
+            "ident":"DEVIL3_DESC"
+         },
+         "ID":"devil3",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"DEVIL4_NAME"
+         },
+         "description":{
+            "ident":"DEVIL4_DESC"
+         },
+         "ID":"devil4",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"DEVIL5_NAME"
+         },
+         "description":{
+            "ident":"DEVIL5_DESC"
+         },
+         "ID":"devil5",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"DEVIL6_NAME"
+         },
+         "description":{
+            "ident":"DEVIL6_DESC"
+         },
+         "ID":"devil6",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"DEVIL7_NAME"
+         },
+         "description":{
+            "ident":"DEVIL7_DESC"
+         },
+         "ID":"devil7",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"DEVIL8_NAME"
+         },
+         "description":{
+            "ident":"DEVIL8_DESC"
+         },
+         "ID":"devil8",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"DINO1_NAME"
+         },
+         "description":{
+            "ident":"DINO1_DESC"
+         },
+         "ID":"dino1",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"DINO2_NAME"
+         },
+         "description":{
+            "ident":"DINO2_DESC"
+         },
+         "ID":"dino2",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"DINO3_NAME"
+         },
+         "description":{
+            "ident":"DINO3_DESC"
+         },
+         "ID":"dino3",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"DINO4_NAME"
+         },
+         "description":{
+            "ident":"DINO4_DESC"
+         },
+         "ID":"dino4",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"DINO5_NAME"
+         },
+         "description":{
+            "ident":"DINO5_DESC"
+         },
+         "ID":"dino5",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"DINO6_NAME"
+         },
+         "description":{
+            "ident":"DINO6_DESC"
+         },
+         "ID":"dino6",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"DINO7_NAME"
+         },
+         "description":{
+            "ident":"DINO7_DESC"
+         },
+         "ID":"dino7",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"DINO8_NAME"
+         },
+         "description":{
+            "ident":"DINO8_DESC"
+         },
+         "ID":"dino8",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"GROVE1_NAME"
+         },
+         "description":{
+            "ident":"GROVE1_DESC"
+         },
+         "ID":"grove1",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"GROVE2_NAME"
+         },
+         "description":{
+            "ident":"GROVE2_DESC"
+         },
+         "ID":"grove2",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"GROVE3_NAME"
+         },
+         "description":{
+            "ident":"GROVE3_DESC"
+         },
+         "ID":"grove3",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"GROVE4_NAME"
+         },
+         "description":{
+            "ident":"GROVE4_DESC"
+         },
+         "ID":"grove4",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"GROVE5_NAME"
+         },
+         "description":{
+            "ident":"GROVE5_DESC"
+         },
+         "ID":"grove5",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"GROVE6_NAME"
+         },
+         "description":{
+            "ident":"GROVE6_DESC"
+         },
+         "ID":"grove6",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"GROVE7_NAME"
+         },
+         "description":{
+            "ident":"GROVE7_DESC"
+         },
+         "ID":"grove7",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"GROVE8_NAME"
+         },
+         "description":{
+            "ident":"GROVE8_DESC"
+         },
+         "ID":"grove8",
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"GROVE_TO_IRELAND_NAME"
+         },
+         "description":{
+            "ident":"GROVE_TO_IRELAND_DESC"
+         },
+         "ID":"grove_to_ireland",
+         "params":{ 
+         	"postEnter": [
+         		"respond(GROVE_TO_IRELAND_MSG)", 
+         		"dimensionGo(3)"
+         	],
+         	"populate": "skip"
+         },
+         "type":"scenic"
+      },
+      {
+         "name":{
+            "ident":"GROVE_FROM_IRELAND_NAME"
+         },
+         "description":{
+            "ident":"GROVE_FROM_IRELAND_DESC"
+         },
+         "ID":"grove_from_ireland",
+         "params":{ 
+         	"postEnter": [ 
+         		"respond(GROVE_FROM_IRELAND_MSG)", 
+         		"dimensionReturn(3)"
+     		 ],
+         	"populate": "skip"
+         },
+         "type":"scenic"
+      }
+   ],
+   "text":{
+      "en_US":{
+         "THIS_TIGHT_PASSAGE_WAS_DUG_OUT_OF_THE_EARTH_BY_MANY_CLAWS_":[
+            "This tight passage was dug out of the earth by many claws."
+         ],
+         "ANIMAL_DEN":[
+            "Animal Den"
+         ],
+         "THIS_DANK_ROOM_CONTAINS_LITTLE_OF_INTEREST_":[
+            "This dank room contains little of interest."
+         ],
+         "DANK_ROOM":[
+            "Dank Room"
+         ],
+         "NEST":[
+            "Nest"
+         ],
+         "BURROW":[
+            "Burrow"
+         ],
+         "GNAWED_BONES_AND_CASTINGS_LITTLE_THE_FLOOR_HERE_":[
+            "Gnawed bones and castings little the floor here."
+         ],
+         "A_MUSKY_SMELL_HERE_INDICATES_THIS_IS_THE_DEN_OF_SOME_ANIMAL_":[
+            "A musky smell here indicates this is the den of some animal."
+         ],
+         "DEMON1_NAME":[
+            "Fetid Swamp"
+         ],
+         "DEMON1_DESC":[
+            "Slimy black ooze sticks to drab brown reeds in this dismal morass."
+         ],
+         "DEMON2_NAME":[
+            "Corrupt Jungle"
+         ],
+         "DEMON2_DESC":[
+            "Livid green and purple tendrils of plants writhe and coil as the living landscape tries to ensare and tangle you."
+         ],
+         "DEMON3_NAME":[
+            "Putrid Fungi"
+         ],
+         "DEMON3_DESC":[
+            "Mold and mushrooms coat the surface making the walking and hand holds very uncertain."
+         ],
+         "DEMON4_NAME":[
+            "Rotting Flesh"
+         ],
+         "DEMON4_DESC":[
+            "Your feet squish into the decaying flesh of what appears to be a huge putrid body that you are walking through."
+         ],
+         "DEMON5_NAME":[
+            "Land Ocean"
+         ],
+         "DEMON5_DESC":[
+            "The land swells and heaves under you in great billows like ocean swells."
+         ],
+         "DEMON6_NAME":[
+            "Acid Rain"
+         ],
+         "DEMON6_DESC":[
+            "Sheets of rain pour down smelling of molten tin causing a rash on any exposed flesh and etching your armor."
+         ],
+         "DEMON7_NAME":[
+            "Living Fire"
+         ],
+         "DEMON7_DESC":[
+            "Trees and bushes, seemingly made of living flame, brush and scrape against you leaving burning welts."
+         ],
+         "DEMON8_NAME":[
+            "Serpent Grass"
+         ],
+         "DEMON8_DESC":[
+            "The ground beneath your feet is made of writhing serpents, each with no beginning and no end."
+         ],
+         "DEVIL1_NAME":[
+            "Windy Plain"
+         ],
+         "DEVIL1_DESC":[
+            "Turbulent winds blow violently across this rocky plain knocking you around and sending grit into your eyes."
+         ],
+         "DEVIL2_NAME":[
+            "River of Slush"
+         ],
+         "DEVIL2_DESC":[
+            "Penetrating icy rain needles down on you and fills the area with thigh deep icy slush that clings to your boots."
+         ],
+         "DEVIL3_NAME":[
+            "Magnetic Boulders"
+         ],
+         "DEVIL3_DESC":[
+            "Large, rounded boulders fill this landscape that seem strangely attracted to you. If you don't keep moving, they roll weightily in your direction."
+         ],
+         "DEVIL4_NAME":[
+            "Glassy River"
+         ],
+         "DEVIL4_DESC":[
+            "You walk along the strangely resiliant surface of a river here. Dark shapes can be seen within and, occasionally a hand or limb can be seen reaching towards you from the depths."
+         ],
+         "DEVIL5_NAME":[
+            "Flaming Tombs"
+         ],
+         "DEVIL5_DESC":[
+            "Large, decrepit mausoleums crowd this area, glowing brick red with heat and erupting flames out of their doorways at random intervals."
+         ],
+         "DEVIL6_NAME":[
+            "Boiling Blood"
+         ],
+         "DEVIL6_DESC":[
+            "You wade through a lake of slowly boiling blood. With each bubble that bursts there is a small scream."
+         ],
+         "DEVIL7_NAME":[
+            "Burning Desert"
+         ],
+         "DEVIL7_DESC":[
+            "A hot desert of glass shards cuts your feet as blazing rain shows down on you from the sky."
+         ],
+         "DEVIL8_NAME":[
+            "Twisted Forest"
+         ],
+         "DEVIL8_DESC":[
+            "Black and twisted trees clutter here, their leafless limbs twisted into grotesque shapes that look disturbingly human."
+         ],
+         "DINO1_NAME":[
+            "Swamp"
+         ],
+         "DINO1_DESC":[
+            "An obscuring mist rises above the warm waters of the swamp that stretches all around you."
+         ],
+         "DINO2_NAME":[
+            "Swamp"
+         ],
+         "DINO2_DESC":[
+            "Algae covered waters ripple around you as you make your way over uncertain ground."
+         ],
+         "DINO3_NAME":[
+            "Swamp"
+         ],
+         "DINO3_DESC":[
+            "Reeds twice your height grow out of the swamp and nearly block out the sun."
+         ],
+         "DINO4_NAME":[
+            "Swamp"
+         ],
+         "DINO4_DESC":[
+            "Giant dragonflies hover motionlessly over the still waters that stretch around you."
+         ],
+         "DINO5_NAME":[
+            "Dense Forest"
+         ],
+         "DINO5_DESC":[
+            "Massive trees with bark thicker than your arms rise up above you and bring some welcome shade to the hot surroundings."
+         ],
+         "DINO6_NAME":[
+            "Fern Forest"
+         ],
+         "DINO6_DESC":[
+            "Horsetail ferns bigger than a house crowd around you enveloping you with a rich scent."
+         ],
+         "DINO7_NAME":[
+            "Grasslands"
+         ],
+         "DINO7_DESC":[
+            "Waist high grass stretches around. The wind blows ripples across its surface."
+         ],
+         "DINO8_NAME":[
+            "Lava Lake"
+         ],
+         "DINO8_DESC":[
+            "An upwelling of lava radiates strong heat in this area."
+         ],
+         "GROVE1_NAME":[
+            "Ancient Forest"
+         ],
+         "GROVE1_DESC":[
+            "Massive trees covered in moss rise from green shrouded boulders, older than time."
+         ],
+         "GROVE2_NAME":[
+            "Stream"
+         ],
+         "GROVE2_DESC":[
+            "A fast running stream purls musically over quartz pebbles and between high banks."
+         ],
+         "GROVE3_NAME":[
+            "Clearing"
+         ],
+         "GROVE3_DESC":[
+            "The sun shines brightly through a gap overhead into a small clearing."
+         ],
+         "GROVE4_NAME":[
+            "Uprooted Tree"
+         ],
+         "GROVE4_DESC":[
+            "One of the massive trees has fallen here. It's roots gape upwards like skeltal fingers reaching for the sky."
+         ],
+         "GROVE5_NAME":[
+            "Standing Stones"
+         ],
+         "GROVE5_DESC":[
+            "Huge quartz stones jut from the ground. Faint worn carvings can be seen on their surfaces."
+         ],
+         "GROVE6_NAME":[
+            "Deep Pool"
+         ],
+         "GROVE6_DESC":[
+            "A deep pool of frigid water stands here so clear it reflects the sky like a mirror."
+         ],
+         "GROVE7_NAME":[
+            "Oak Circle"
+         ],
+         "GROVE7_DESC":[
+            "A perfect circle of oak trees rings an open area with grass that looks like it has been trampled flat."
+         ],
+         "GROVE8_NAME":[
+            "Dark Grove"
+         ],
+         "GROVE8_DESC":[
+            "The trees are so dense overhead that you can barely see in the dim light that is left."
+         ],
+         "GROVE_TO_IRELAND_NAME":[
+            "Megalithic Stone"
+         ],
+         "GROVE_TO_IRELAND_DESC":[
+            "Three massive rocks hold up a fourth, making a glowing archway."
+         ],
+         "GROVE_FROM_IRELAND_NAME":[
+            "Stone Henge"
+         ],
+         "GROVE_FROM_IRELAND_DESC":[
+            "Massive lichen covered rocks form a gateway which glows with a soft light."
+         ],
+         "GROVE_TO_IRELAND_MSG":[
+            "Strange music lulls you to sleep. <audio src=\"https:\/\/s3.amazonaws.com\/tsatsatzu-alexa\/sound\/fantasy\/104588__meral__celtic-meral.mp3\"\/> When you wake up, you are somewhere else."
+         ],
+         "GROVE_FROM_IRELAND_MSG":[
+            "Small, high pitched voices chatter around you, confusing you. <audio src=\"https:\/\/s3.amazonaws.com\/tsatsatzu-alexa\/sound\/fantasy\/130108__nigelnix__irish-whistle.mp3\"\/> When your head clears, everything looks different."
+         ]
+      }
+   }
+}

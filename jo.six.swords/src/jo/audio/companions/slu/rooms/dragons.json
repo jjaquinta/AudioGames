@@ -1,0 +1,296 @@
+{  
+   "roomTypes":[  
+      {  
+         "name":{  
+            "ident":"DRAGON_CAVE_ENTRANCE"
+         },
+         "description":{  
+            "ident":"DRAGON_CAVE_ENTRANCE_DESC"
+         },
+         "ID":"dragonCaveEntrance",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"DRAGON_BONE_YARD"
+         },
+         "description":{  
+            "ident":"DRAGON_BONE_YARD_DESC"
+         },
+         "ID":"dragonBoneYard",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"DRAGON_HATCHERY"
+         },
+         "description":{  
+            "ident":"DRAGON_HATCHERY_DESC"
+         },
+         "ID":"dragonHatchery",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"DRAGON_TUNNEL1"
+         },
+         "description":{  
+            "ident":"DRAGON_TUNNEL1_DESC"
+         },
+         "ID":"dragonTunnel1",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"DRAGON_TUNNEL2"
+         },
+         "description":{  
+            "ident":"DRAGON_TUNNEL2_DESC"
+         },
+         "ID":"dragonTunnel2",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"DRAGON_TUNNEL3"
+         },
+         "description":{  
+            "ident":"DRAGON_TUNNEL3_DESC"
+         },
+         "ID":"dragonTunnel3",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"DRAGON_TUNNEL4"
+         },
+         "description":{  
+            "ident":"DRAGON_TUNNEL4_DESC"
+         },
+         "ID":"dragonTunnel4",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"DRAGON_SHEDDING_ROOM"
+         },
+         "description":{  
+            "ident":"DRAGON_SHEDDING_ROOM_DESC"
+         },
+         "ID":"dragonSheddingRoom",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"DRAGON_HALL_OF_THE_ANCESTORS"
+         },
+         "description":{  
+            "ident":"DRAGON_HALL_OF_THE_ANCESTORS_DESC"
+         },
+         "ID":"dragonHallOfTheAncestors",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"DRAGON_TREASURE_ROOM"
+         },
+         "description":{  
+            "ident":"DRAGON_TREASURE_ROOM_DESC"
+         },
+         "ID":"dragonTreasureRoom",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"DRAGON_SLEEPING_ROOM"
+         },
+         "description":{  
+            "ident":"DRAGON_SLEEPING_ROOM_DESC"
+         },
+         "ID":"dragonSleepingRoom",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"DRAGON_ALTAR"
+         },
+         "description":{  
+            "ident":"DRAGON_ALTAR_DESC"
+         },
+         "ID":"dragonAltar",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"DRAGON_EYRIE"
+         },
+         "description":{  
+            "ident":"DRAGON_EYRIE_DESC"
+         },
+         "ID":"dragonEyrie",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"DRAGON_SUPPLICANT'S_ROOM"
+         },
+         "description":{  
+            "ident":"DRAGON_SUPPLICANT'S_ROOM_DESC"
+         },
+         "ID":"dragonSupplicant'sRoom",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"DRAGON_COAL_SHED"
+         },
+         "description":{  
+            "ident":"DRAGON_COAL_SHED_DESC"
+         },
+         "ID":"dragonCoalShed",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"DRAGON_WELL"
+         },
+         "description":{  
+            "ident":"DRAGON_WELL_DESC"
+         },
+         "ID":"dragonWell",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"DRAGON_KENNEL"
+         },
+         "description":{  
+            "ident":"DRAGON_KENNEL_DESC"
+         },
+         "ID":"dragonKennel",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"DRAGON_EMPTY_ROOM"
+         },
+         "description":{  
+            "ident":"DRAGON_EMPTY_ROOM_DESC"
+         },
+         "ID":"dragonEmptyRoom",
+         "type":"scenic"
+      }
+   ],
+   "text":{  
+      "en_US":{  
+         "DRAGON_TUNNEL4_DESC":[  
+            "A wide tunnel twists through the ground."
+         ],
+         "DRAGON_HALL_OF_THE_ANCESTORS_DESC":[  
+            "This large cavern has had the rubble swept up into heaps. On each heap is a skull, some bones and a few scales."
+         ],
+         "DRAGON_TUNNEL1_DESC":[  
+            "This tunnel dips and rises, swept free of debris."
+         ],
+         "DRAGON_ALTAR":[  
+            "Altar Room"
+         ],
+         "DRAGON_EYRIE":[  
+            "Eyrie"
+         ],
+         "DRAGON_EMPTY_ROOM":[  
+            "Empty Cave"
+         ],
+         "DRAGON_BONE_YARD_DESC":[  
+            "The floor of this cave is covered in all manner of bones. Most look gnawed on."
+         ],
+         "DRAGON_SHEDDING_ROOM":[  
+            "Rough Walled Room"
+         ],
+         "DRAGON_SLEEPING_ROOM":[  
+            "Sleeping Cave"
+         ],
+         "DRAGON_SLEEPING_ROOM_DESC":[  
+            "A wide bowl has been worn in the middle of this room, filled with soft dust."
+         ],
+         "DRAGON_KENNEL_DESC":[  
+            "Pens have been hollowed into the floor of this cave. Wary animals look up from them."
+         ],
+         "DRAGON_HALL_OF_THE_ANCESTORS":[  
+            "Hall of the Ancestors"
+         ],
+         "DRAGON_SUPPLICANT'S_ROOM_DESC":[  
+            "There is a large dias taking up most of this room. Shallow steps lead up to a place of offerings just before it."
+         ],
+         "DRAGON_EYRIE_DESC":[  
+            "This openes out to a high rocky outcropping that rises above the terrain. You can see for miles."
+         ],
+         "DRAGON_KENNEL":[  
+            "Corral"
+         ],
+         "DRAGON_WELL":[  
+            "Well"
+         ],
+         "DRAGON_TUNNEL1":[  
+            "Wide Tunnel"
+         ],
+         "DRAGON_TUNNEL2":[  
+            "Low Tunnel"
+         ],
+         "DRAGON_TUNNEL3":[  
+            "Tunnel."
+         ],
+         "DRAGON_TREASURE_ROOM":[  
+            "Treasure Room"
+         ],
+         "DRAGON_HATCHERY_DESC":[  
+            "Broken stalagtites and rubble has been swept into large mounds with a dip in the top just the size for a large egg."
+         ],
+         "DRAGON_CAVE_ENTRANCE":[  
+            "Cave Entrance"
+         ],
+         "DRAGON_SHEDDING_ROOM_DESC":[  
+            "The large stalgmites in this room are very worn along the sides, and scraps of scales and skin line the floor."
+         ],
+         "DRAGON_TUNNEL4":[  
+            "Tunnel"
+         ],
+         "DRAGON_EMPTY_ROOM_DESC":[  
+            "This is an empty cave."
+         ],
+         "DRAGON_TREASURE_ROOM_DESC":[  
+            "A large mound occupies the center of this room made up of broken statuary, furniture and interesting rocks."
+         ],
+         "DRAGON_TUNNEL3_DESC":[  
+            "A well worn tunnel leads thorugh here."
+         ],
+         "DRAGON_COAL_SHED":[  
+            "Coal Shed"
+         ],
+         "DRAGON_COAL_SHED_DESC":[  
+            "Heaps of coal lie piled in here in tasty mounds."
+         ],
+         "DRAGON_CAVE_ENTRANCE_DESC":[  
+            "A foul odour wafts from this large cave mouth."
+         ],
+         "DRAGON_BONE_YARD":[  
+            "Bone Yard"
+         ],
+         "DRAGON_WELL_DESC":[  
+            "This is a low point in the cavern system. Water has gathered here in a deep depression."
+         ],
+         "DRAGON_SUPPLICANT'S_ROOM":[  
+            "Room of Supplication."
+         ],
+         "DRAGON_TUNNEL2_DESC":[  
+            "Although originally water carved, this tunnel has been further worn down by something heavy scraping the bottom, sides and roof."
+         ],
+         "DRAGON_ALTAR_DESC":[  
+            "Several stone slaps are piled in a large altar to an unknown draconic god."
+         ],
+         "DRAGON_HATCHERY":[  
+            "Hatchery"
+         ]
+      }
+   }
+}

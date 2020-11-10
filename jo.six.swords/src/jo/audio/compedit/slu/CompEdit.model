@@ -1,0 +1,1477 @@
+{
+   "appName":"tsatsatzu.companions.edit",
+   "displayName":{
+      "en_US":"Six Swords Editor"
+   },
+   "invocationName":{
+      "en_US":"Six Swords Editor"
+   },
+   "description":{
+      "en_US":"Location content editor for Six Swords "
+   },
+   "keywords":{
+      "en_US":"game"
+   },
+   "url":"http://tsatsatzu.elasticbeanstalk.com/companions/edit/app",
+   "supportedLanguages":[
+      "en_US"
+   ],
+   "include":[
+
+   ],
+   "dictionaries":{
+      "direction":[
+         "north",
+         "south",
+         "east",
+         "west",
+         "n.",
+         "s.",
+         "e.",
+         "w."
+      ],
+      "type":[
+         "scenic",
+         "encounter"
+      ],
+      "northsouth":[
+         "north",
+         "n",
+         "s",
+         "south"
+      ],
+      "eastwest":[
+         "east",
+         "e",
+         "w",
+         "west"
+      ],
+      "degrees":[
+         "degrees",
+         "degree",
+         "d"
+      ],
+      "minutes":[
+         "minutes",
+         "minute",
+         "m",
+         "min"
+      ],
+      "dimension":[
+         "free",
+         "premium"
+      ],
+      "monsters":[
+         "Achaierai",
+         "Aerial Servant",
+         "Afreet",
+         "African Elephant",
+         "Air Elemental",
+         "Al-Mi`raj",
+         "Albertosaurus",
+         "Allosaurus",
+         "Andro Sphinx",
+         "Animated Tree",
+         "Ankheg",
+         "Anklyosaurus",
+         "Annis",
+         "Anuran Batrachian",
+         "Apatosaurus",
+         "Archaeopteryx",
+         "Archelon",
+         "Argentinosaurus",
+         "Asian Elephant",
+         "Assagim",
+         "Aurumvorax",
+         "Axe Beak",
+         "Babau",
+         "Babbler",
+         "Baboon",
+         "Banshee",
+         "Barbed Devil",
+         "Barghest",
+         "Baron Sahuagin",
+         "Barracuda",
+         "Basilisk",
+         "Batrachian",
+         "Bearded Devil",
+         "Behir",
+         "Black Bear",
+         "Black Dragon",
+         "Blindheim",
+         "Blink Dog",
+         "Blue Dragon",
+         "Bone Devil",
+         "Brachiosaurus",
+         "Brass Dragon",
+         "Bronze Dragon",
+         "Brown Bear",
+         "Brownie",
+         "Buffalo",
+         "Bugbear",
+         "Bulette",
+         "Bull",
+         "Camarasaurus",
+         "Camel",
+         "Carnivorous Ape",
+         "Caryatid Column",
+         "Caterwaul",
+         "Cave Bear",
+         "Centaur",
+         "Centrosaurus",
+         "Ceratosaurus",
+         "Cetiosaurus",
+         "Charonosaurus",
+         "Chimera",
+         "Class A Demon",
+         "Class B Demon",
+         "Class C Demon",
+         "Class D Demon",
+         "Class E Demon",
+         "Class F Demon",
+         "Clay Golem",
+         "Cloud Giant",
+         "Cockatrice",
+         "Coeurl",
+         "Compsognathus",
+         "Copper Dragon",
+         "Couatl",
+         "Cougar",
+         "Crabmen",
+         "Crio Sphinx",
+         "Crypt Thing",
+         "Cyclops",
+         "Dakon",
+         "Dark Creeper",
+         "Dark Stalker",
+         "Deinonychus",
+         "Demonette",
+         "Devilcat",
+         "Diceratus",
+         "Dilophosaurus",
+         "Dimetrodon",
+         "Diplodocus",
+         "Dire Wolf",
+         "Horned Cat",
+         "Doppelganger",
+         "Dracolisk",
+         "Bison",
+         "Dragon Turtle",
+         "Dretch",
+         "Dryad",
+         "Dunkleosteus",
+         "Dwarf",
+         "Earth Elemental",
+         "Edmontosaurus",
+         "Eft Batrachian",
+         "Ekivu",
+         "Elasmosaurus",
+         "Elf",
+         "Erinyes",
+         "Ettercap",
+         "Euparkeria",
+         "Executioner's Hood",
+         "Eye of the Deep",
+         "Faun",
+         "Female Batrachian",
+         "Female Sahuagin",
+         "Fire Elemental",
+         "Fire Giant",
+         "Fire Mephit",
+         "Flesh Golem",
+         "Flind Gnoll",
+         "Frost Giant",
+         "Gargoyle",
+         "Gelatinous Cube",
+         "Genie",
+         "Ghast",
+         "Ghost",
+         "Ghoul",
+         "Giant Adder Snake",
+         "Giant Amphisbaena Snake",
+         "Giant Badger",
+         "Giant Bat",
+         "Giant Bird",
+         "Giant Blow Fly",
+         "Giant Boa Snake",
+         "Giant Boar",
+         "Giant Bombardier Beetle",
+         "Giant Boring Beetle",
+         "Giant Cave Lizard",
+         "Giant Centipede",
+         "Giant Cobra Snake",
+         "Giant Crab Crustacean",
+         "Giant Crayfish Crustacean",
+         "Giant Crocodile",
+         "Giant Death Watch Beetle",
+         "Giant Electric Eel",
+         "Giant Fire Beetle",
+         "Giant Fire Lizard",
+         "Giant Frog",
+         "Giant Gar",
+         "Giant Horsefly",
+         "Giant Hyena",
+         "Giant Jackal",
+         "Giant Leech",
+         "Giant Lizard",
+         "Giant Lynx",
+         "Giant Monitor Lizard",
+         "Giant Moray Eel",
+         "Giant Poisonous Toad",
+         "Giant Portuguese Man O War",
+         "Giant Rat",
+         "Giant Rhinoceros Beetle",
+         "Giant Sea Turtle",
+         "Giant Slug",
+         "Giant Snapping Turtle",
+         "Giant Soldier Ant",
+         "Giant Soldier Honeybee",
+         "Giant Spider",
+         "Giant Squid",
+         "Giant Stag Beetle",
+         "Giant Tick",
+         "Giant Toad",
+         "Giant Troll",
+         "Giant Wasp",
+         "Giant Water Beetle",
+         "Giant Water Spider",
+         "Giant Weasel",
+         "Giant Weed Eel",
+         "Giant Wolverine",
+         "Giant Worker Ant",
+         "Giant, Bumblebee Bee",
+         "Giant Worker Honeybee",
+         "Gnoll",
+         "Gnome",
+         "Goblin",
+         "Gold Dragon",
+         "Gorgimera",
+         "Gorgon",
+         "Gorgosaurus",
+         "Greater Otyugh",
+         "Green Dragon",
+         "Grey Ooze",
+         "Griffon",
+         "Grimlock",
+         "Guard Sahuagin",
+         "Guardian Naga",
+         "Gyno Sphinx",
+         "Halfling",
+         "Harpy",
+         "Hatchling Sahuagin",
+         "Heavy Horse",
+         "Hell Hound",
+         "Hieraco Sphinx",
+         "Hill Giant",
+         "Hippogriff",
+         "Hippopotamus",
+         "Hobgoblin",
+         "Homonculus",
+         "Horned Devil",
+         "Huge Bird",
+         "Huge Hyena",
+         "Huge Jackal",
+         "Huge Rat",
+         "Huge Scorpion",
+         "Huge Spider",
+         "Huge Weasel",
+         "Hydra",
+         "Hypacrosaurus",
+         "Ice Devil",
+         "Ice Troll",
+         "Iguanodon",
+         "Indricotherium",
+         "Invisible Stalker",
+         "Iron Golem",
+         "Jackalwere",
+         "Juju Zombie",
+         "King Sahuagin",
+         "Kobold",
+         "Kraken",
+         "Kullule",
+         "Lamia",
+         "Lammasu",
+         "Large Scorpion",
+         "Large Spider",
+         "Lava Mephit",
+         "Lemure",
+         "Lesser Otyugh",
+         "Leviathan",
+         "Lich",
+         "Light Horse",
+         "Lion",
+         "Lizard Man",
+         "Locathah",
+         "Lurker Above",
+         "Mammoth Elephant",
+         "Manticore",
+         "Mastodon Elephant",
+         "Medium Horse",
+         "Medusa",
+         "Merman",
+         "Minotaur",
+         "Mobat Bat",
+         "Mongrelman",
+         "Monoclonius",
+         "Monster Zombie",
+         "Mosasaurus",
+         "Mule",
+         "Mummy",
+         "Necrophidius",
+         "Night Hag",
+         "Nightmare",
+         "Nilbog",
+         "Nixie",
+         "Normal Ape",
+         "Normal Bird",
+         "Normal Crocodile",
+         "Normal Hyena",
+         "Jackal",
+         "Zombie",
+         "Nothosaurus",
+         "Nymph",
+         "Octopus",
+         "Ogre",
+         "Ogre Mage",
+         "Orc",
+         "Ordinary Badger",
+         "Ordinary Bat",
+         "Ornitholestes",
+         "Owlbear",
+         "Pegasus",
+         "Pentaceratops",
+         "Phase Spider",
+         "Phoenix",
+         "Piercer",
+         "Pike Giant",
+         "Pit Fiend",
+         "Pixie",
+         "Plateosaurus",
+         "Plesiosaurus",
+         "Polar Bear",
+         "Pony",
+         "Prehistoric Lion",
+         "Priestess Sahuagin",
+         "Prince Sahuagin",
+         "Pseudo-Dragon",
+         "Pteranodon",
+         "Pterodactyl",
+         "Purple Worm",
+         "Quartz Roper",
+         "Quetzalcoatlus",
+         "Quickling",
+         "Rakshasa",
+         "Red Dragon",
+         "Remorhaz",
+         "Rhamphorynchus",
+         "Rhinoceros",
+         "Roc",
+         "Roper",
+         "Saurolophus",
+         "Saurophaganax",
+         "Sea Hag",
+         "Sea Serpent",
+         "Shadow",
+         "Shaitan",
+         "Shambling Mound",
+         "Shantungosaurus",
+         "Shark",
+         "Shedu",
+         "Shub",
+         "Skeleton",
+         "Skeleton Warrior",
+         "Smilodon Tiger",
+         "Smoke Mephit",
+         "Soul Worm",
+         "Spectre",
+         "Spiked Devil",
+         "Spirit Naga",
+         "Sprite",
+         "Squealer",
+         "Steam Mephit",
+         "Stegosaurus",
+         "Stirge",
+         "Stone Giant",
+         "Stone Golem",
+         "Storm Giant",
+         "Stunjelly",
+         "Styracosaurus",
+         "Succubus",
+         "Tarbosaurus",
+         "Telmatosaurus",
+         "Tiger",
+         "Titan",
+         "Treant",
+         "Triceratops",
+         "Triton",
+         "Troglodyte",
+         "Troll",
+         "Tyrannosaurus",
+         "Uduk",
+         "Unicorn",
+         "Vampire",
+         "Velociraptor",
+         "Vilstrak",
+         "Volt",
+         "Vulchling",
+         "Walrus",
+         "War Dog",
+         "Warchief Sahuagin",
+         "Warrior Sahuagin",
+         "Warthog",
+         "Water Elemental",
+         "Water Naga",
+         "Werebear",
+         "Wereboar",
+         "Wererat",
+         "Weretiger",
+         "Werewolf",
+         "Whale",
+         "White Dragon",
+         "Wight",
+         "Wild Boar",
+         "Wild Cat",
+         "Wild Cattle",
+         "Wild Dog",
+         "Wild Horse",
+         "Will-O-the-Wisp",
+         "Wolf",
+         "Wolverine",
+         "Woolly Rhinoceros",
+         "Worg",
+         "Wraith",
+         "Wyvern",
+         "Xorn",
+         "Yeti"
+      ],
+      "anything_en_US":[
+         "vanish plate",
+         "warm brainy",
+         "direful rabid bottle",
+         "judicious cart glass",
+         "flagrant abiding utter thundering",
+         "shrug calculator explode quince",
+         "woebegone support throat weight oil",
+         "arithmetic love receipt possessive envious",
+         "rainstorm next laugh press hill cut",
+         "cause precede daily mute grouchy direction",
+         "zany sun mixed flavor note clean industrious believe",
+         "scarecrow real swift digestion snotty oranges hover",
+         "cool pine separate observe harbor receptive hour stone",
+         "heap screw knotty outrageous laborer tame broken zephyr"
+      ]
+   },
+   "intents":[
+      {
+         "intent":"SETFEATURENAME",
+         "slots":[
+            {
+               "name":"name",
+               "type":"CUSTOM",
+               "dictionary":"anything",
+               "hint":"feature name"
+            }
+         ],
+         "utterances":{
+            "en_US":[
+               "set feature name to {name}",
+               "what's the feature name",
+               "what's this feature name",
+               "feature name {name}",
+               "feature {name}"
+            ]
+         },
+         "examples":{
+            "en_US":[
+               "To set the name of this feature, try saying \"<>\". "
+            ]
+         }
+      },
+      {
+         "intent":"SETLOCATION",
+         "slots":[
+            {
+               "name":"nsdegrees",
+               "type":"NUMBER"
+            },
+            {
+               "name":"nsdname",
+               "type":"CUSTOM",
+               "dictionary":"degrees",
+               "hint":"degrees"
+            },
+            {
+               "name":"nsminutes",
+               "type":"NUMBER"
+            },
+            {
+               "name":"nsmname",
+               "type":"CUSTOM",
+               "dictionary":"minutes",
+               "hint":"minutes"
+            },
+            {
+               "name":"nsdir",
+               "type":"CUSTOM",
+               "dictionary":"northsouth",
+               "hint":"north"
+            },
+            {
+               "name":"ewdegrees",
+               "type":"NUMBER"
+            },
+            {
+               "name":"ewdname",
+               "type":"CUSTOM",
+               "dictionary":"degrees",
+               "hint":"degrees"
+            },
+            {
+               "name":"ewminutes",
+               "type":"NUMBER"
+            },
+            {
+               "name":"ewmname",
+               "type":"CUSTOM",
+               "dictionary":"minutes",
+               "hint":"minutes"
+            },
+            {
+               "name":"ewdir",
+               "type":"CUSTOM",
+               "dictionary":"eastwest",
+               "hint":"east"
+            }
+         ],
+         "utterances":{
+            "en_US":[
+               "set location to {nsdegrees} {nsdname} {nsminutes} {nsmname} {nsdir} {ewdegrees} {ewdname} {ewminutes} {ewmname} {ewdir}",
+               "location {nsdegrees} {nsdname} {nsminutes} {nsmname} {nsdir} {ewdegrees} {ewdname} {ewminutes} {ewmname} {ewdir}",
+               "set location to {nsdegrees} {nsdname} {nsminutes} {nsmname} {nsdir}",
+               "location {nsdegrees} {nsdname} {nsminutes} {nsmname} {nsdir}",
+               "set location to {ewdegrees} {ewdname} {ewminutes} {ewmname} {ewdir}",
+               "location {ewdegrees} {ewdname} {ewminutes} {ewmname} {ewdir}",
+               "location"
+            ]
+         },
+         "examples":{
+            "en_US":[
+               "To set the location of this feature, try saying \"<>\". "
+            ]
+         }
+      },
+      {
+         "intent":"SETDIMENSION",
+         "slots":[
+            {
+               "name":"dim",
+               "type":"CUSTOM",
+               "dictionary":"dimension",
+               "hint":"free"
+            }
+         ],
+         "utterances":{
+            "en_US":[
+               "set dimension to {dim}",
+               "dimension {dim}",
+               "dimension",
+               "dim",
+               "d"
+            ]
+         },
+         "examples":{
+            "en_US":[
+               "To set the dimension of this feature, try saying \"<>\". "
+            ]
+         }
+      },
+      {
+         "intent":"LOAD",
+         "slots":[
+            {
+               "name":"name",
+               "type":"CUSTOM",
+               "dictionary":"anything",
+               "hint":"feature name"
+            }
+         ],
+         "utterances":{
+            "en_US":[
+               "load {name}",
+               "load feature {name}"
+            ]
+         },
+         "examples":{
+            "en_US":[
+               "To load a saved feature, try saying \"<>\". "
+            ]
+         }
+      },
+      {
+         "intent":"NEW",
+         "slots":[
+            {
+               "name":"name",
+               "type":"CUSTOM",
+               "dictionary":"anything",
+               "hint":"feature name"
+            }
+         ],
+         "utterances":{
+            "en_US":[
+               "new feature {name}",
+               "new {name}",
+               "new"
+            ]
+         },
+         "examples":{
+            "en_US":[
+               "To create a new feature, try saying \"<>\". "
+            ]
+         }
+      },
+      {
+         "intent":"SETNAME",
+         "slots":[
+            {
+               "name":"name",
+               "type":"CUSTOM",
+               "dictionary":"anything",
+               "hint":"room name"
+            }
+         ],
+         "utterances":{
+            "en_US":[
+               "set name to {name}",
+               "name {name}",
+               "set room name to {name}",
+               "room name {name}"
+            ]
+         },
+         "examples":{
+            "en_US":[
+               "To set the name of this location, try saying \"<>\". "
+            ]
+         }
+      },
+      {
+         "intent":"SETDESC",
+         "slots":[
+            {
+               "name":"description",
+               "type":"CUSTOM",
+               "dictionary":"anything",
+               "hint":"room description"
+            }
+         ],
+         "utterances":{
+            "en_US":[
+               "what is the description",
+               "set description to {description}",
+               "description {description}",
+               "desc {description}",
+               "describe {description}"
+            ]
+         },
+         "examples":{
+            "en_US":[
+               "To set the description of this location, try saying \"<>\". "
+            ]
+         }
+      },
+      {
+         "intent":"SETTYPE",
+         "slots":[
+            {
+               "name":"type",
+               "type":"CUSTOM",
+               "dictionary":"type"
+            }
+         ],
+         "utterances":{
+            "en_US":[
+               "set type to {type}",
+               "set type {type}",
+               "type {type}"
+            ]
+         },
+         "examples":{
+            "en_US":[
+               "To set the type of this location, try saying \"<>\". "
+            ]
+         }
+      },
+      {
+         "intent":"SETMONSTER",
+         "slots":[
+            {
+               "name":"monster",
+               "type":"CUSTOM",
+               "dictionary":"anything",
+               "hint":"monster name"
+            }
+         ],
+         "utterances":{
+            "en_US":[
+               "set monster to {monster}",
+               "set monster {monster}",
+               "monster {monster}",
+               "monster"
+            ]
+         },
+         "examples":{
+            "en_US":[
+               "To set the monster of this location, try saying \"<>\". "
+            ]
+         }
+      },
+      {
+         "intent":"DIG",
+         "slots":[
+            {
+               "name":"dir",
+               "type":"CUSTOM",
+               "dictionary":"direction"
+            }
+         ],
+         "utterances":{
+            "en_US":[
+               "dig {dir}",
+               "tunnel {dir}"
+            ]
+         },
+         "examples":{
+            "en_US":[
+               "To create a new room, try saying \"<>\". "
+            ]
+         }
+      },
+      {
+         "intent":"LINK",
+         "slots":[
+            {
+               "name":"dir",
+               "type":"CUSTOM",
+               "dictionary":"direction"
+            },
+            {
+               "name":"name",
+               "type":"CUSTOM",
+               "dictionary":"anything",
+               "hint":"room name"
+            }
+         ],
+         "utterances":{
+            "en_US":[
+               "link {dir} to {name}",
+               "connect {dir} to {name}"
+            ]
+         },
+         "examples":{
+            "en_US":[
+               "To link to an existing room, try saying \"<>\". "
+            ]
+         }
+      },
+      {
+         "intent":"UNLINK",
+         "slots":[
+            {
+               "name":"dir",
+               "type":"CUSTOM",
+               "dictionary":"direction"
+            }
+         ],
+         "utterances":{
+            "en_US":[
+               "unlink {dir}",
+               "erase {dir}"
+            ]
+         },
+         "examples":{
+            "en_US":[
+               "To remove an exit, try saying \"<>\". "
+            ]
+         }
+      },
+      {
+         "intent":"MOVE",
+         "slots":[
+            {
+               "name":"dir",
+               "type":"CUSTOM",
+               "dictionary":"direction"
+            }
+         ],
+         "utterances":{
+            "en_US":[
+               "go {dir}",
+               "move {dir}",
+               "run {dir}",
+               "walk {dir}",
+               "let's go {dir}",
+               "how about {dir}",
+               "i want to go {dir}",
+               "run away"
+            ]
+         },
+         "examples":{
+            "en_US":[
+               "To go somewhere, try saying \"<>\". "
+            ]
+         }
+      },
+      {
+         "intent":"MORE",
+         "slots":[
+
+         ],
+         "utterances":{
+            "en_US":[
+               "more",
+               "tell me more"
+            ]
+         },
+         "examples":{
+            "en_US":[
+               "To find out more, try saying \"<>\". ",
+               "For more details, say \"<>\". "
+            ]
+         }
+      },
+      {
+         "intent":"LIST",
+         "slots":[
+
+         ],
+         "utterances":{
+            "en_US":[
+               "list",
+               "list features",
+               "features"
+            ]
+         },
+         "examples":{
+            "en_US":[
+               "To list saved features, say \"<>\". "
+            ]
+         }
+      },
+      {
+         "intent":"CHALLENGEUP",
+         "slots":[
+
+         ],
+         "utterances":{
+            "en_US":[
+               "increase challenge",
+               "challenge up",
+               "challenge +"
+            ]
+         },
+         "examples":{
+            "en_US":[
+               "To increase the challenge rating of this location, say \"<>\". "
+            ]
+         }
+      },
+      {
+         "intent":"CHALLENGEDOWN",
+         "slots":[
+
+         ],
+         "utterances":{
+            "en_US":[
+               "decrease challenge",
+               "challenge down",
+               "challenge -"
+            ]
+         },
+         "examples":{
+            "en_US":[
+               "To decrease the challenge rating of this location, say \"<>\". "
+            ]
+         }
+      },
+      {
+         "intent":"ENABLE",
+         "slots":[
+
+         ],
+         "utterances":{
+            "en_US":[
+               "enable",
+               "en"
+            ]
+         },
+         "examples":{
+            "en_US":[
+               "To enable this feature, say \"<>\". "
+            ]
+         }
+      },
+      {
+         "intent":"DISABLE",
+         "slots":[
+
+         ],
+         "utterances":{
+            "en_US":[
+               "disable",
+               "dis"
+            ]
+         },
+         "examples":{
+            "en_US":[
+               "To disable this feature, say \"<>\". "
+            ]
+         }
+      },
+      {
+         "intent":"NORTH",
+         "slots":[
+
+         ],
+         "utterances":{
+            "en_US":[
+               "north",
+               "n."
+            ]
+         },
+         "examples":{
+            "en_US":[
+               "To go north, say \"<>\". "
+            ]
+         }
+      },
+      {
+         "intent":"SOUTH",
+         "slots":[
+
+         ],
+         "utterances":{
+            "en_US":[
+               "south",
+               "s."
+            ]
+         },
+         "examples":{
+            "en_US":[
+               "To go south, say \"<>\". "
+            ]
+         }
+      },
+      {
+         "intent":"EAST",
+         "slots":[
+
+         ],
+         "utterances":{
+            "en_US":[
+               "east",
+               "e."
+            ]
+         },
+         "examples":{
+            "en_US":[
+               "To go east, say \"<>\". "
+            ]
+         }
+      },
+      {
+         "intent":"WEST",
+         "slots":[
+
+         ],
+         "utterances":{
+            "en_US":[
+               "west",
+               "w."
+            ]
+         },
+         "examples":{
+            "en_US":[
+               "To go west, say \"<>\". "
+            ]
+         }
+      },
+      {
+         "intent":"LOOK",
+         "slots":[
+
+         ],
+         "utterances":{
+            "en_US":[
+               "look",
+               "where am i",
+               "what is here",
+               "what's here",
+               "what can i see",
+               "what's around here",
+               "l."
+            ]
+         },
+         "examples":{
+            "en_US":[
+               "To see what's here, say \"<>\". "
+            ]
+         }
+      },
+      {
+         "intent":"RepeatIntent",
+         "slots":[
+
+         ],
+         "utterances":{
+            "en_US":[
+               "what did you say"
+            ]
+         },
+         "examples":{
+            "en_US":[
+               "To hear what I just said again, say \"<>\". "
+            ]
+         }
+      },
+      {
+         "slots":[
+
+         ],
+         "intent":"NoIntent"
+      },
+      {
+         "slots":[
+
+         ],
+         "intent":"YesIntent"
+      },
+      {
+         "slots":[
+            {
+               "name":"topic",
+               "type":"CUSTOM",
+               "dictionary":"anything",
+               "hint":"topic for help"
+            }
+         ],
+         "utterances":{
+            "en_US":[
+               "?",
+               "? {topic}",
+               "h",
+               "h {topic}",
+               "help {topic}"
+            ]
+         },
+         "intent":"HelpIntent"
+      },
+      {
+         "slots":[
+
+         ],
+         "utterances":{
+            "en_US":[
+               "q",
+               "quit",
+               "exit"
+            ]
+         },
+         "intent":"StopIntent"
+      },
+      {
+         "slots":[
+
+         ],
+         "intent":"CancelIntent"
+      }
+   ],
+   "text":{
+      "en_US":{
+         "Unknown operation XXX":[
+            "Unknown operation %s!"
+         ],
+         "WELCOME_TO_EDITOR":[
+            "Welcome to the Six Swords location editor."
+         ],
+         "INTRO_TO_EDITOR":[
+            "Welcome to the Six Swords location editor. In this you can create new locations for people to explore in Six Swords."
+         ],
+         "At the end of this message you will hear this short tone":[
+            "<<speech: <break time=\"1s\"/> >>At the end of this message you will hear this short tone. <<speech:<audio  src=\"https://s3.amazonaws.com/tsatsatzu-alexa/sound/beeps/DEEK.mp3\"/> >> This means that you can say 'more' for additional info. Try it now. "
+         ],
+         "MORE_SOUND":[
+            "<<speech:<audio src=\"https://s3.amazonaws.com/tsatsatzu-alexa/sound/beeps/DEEK.mp3\"/> >>"
+         ],
+         "TRY_SAYING_XXX":[
+            "A command you could use is \"%s\".",
+            "You might try \"%s\".",
+            "Try saying \"%s\"."
+         ],
+         "North":[
+     		"North"
+         ],
+         "South":[
+     		"South"
+         ],
+         "East":[
+     		"East"
+         ],
+         "West":[
+     		"West"
+         ],
+         "You have not yet created any features":[
+            "You have not yet created any features."
+         ],
+         "Say new feature to create a feature":[
+            "Say 'new feature' to create a feature."
+         ],
+         "You have no features to load":[
+            "You have no features to load."
+         ],
+         "You have created the following features XXX":[
+            "You have created the following features: %s."
+         ],
+         "I couldnt find feature XXX":[
+            "I couldn't find feature %s."
+         ],
+         "Say list features to find out what features you have":[
+            "Say 'list features' to find out what features you have."
+         ],
+         "If Im having trouble recognizing your feature":[
+            "If I'm having trouble recognizing your feature, you can just say the first letter of the name, or 'one', 'two', or 'three' for that place in the list."
+         ],
+         "Or say new feature to create a new one":[
+            "Or say 'new feature' to create a new one."
+         ],
+         "Say load feature followed by the name of the feature you want to load":[
+            "Say 'load feature' followed by the name of the feature you want to load."
+         ],
+         "You dont currently have a feature loaded":[
+            "You don't currently have a feature loaded."
+         ],
+         "Created feature called XXX":[
+            "Created feature called %s."
+         ],
+         "Could not create feature called XXX":[
+            "Could not create feature called %s."
+         ],
+         "This feature is called XXX":[
+            "This feature is called %s."
+         ],
+         "To change the feature name, say set feature name followed by the new name":[
+            "To change the feature name, say 'set feature name' followed by the new name."
+         ],
+         "Could not name feature XXX":[
+            "Could not name feature %s."
+         ],
+         "This room is called XXX":[
+            "This room is called %s."
+         ],
+         "To change the room name, say set room name followed by the new name":[
+            "To change the room name, say 'set room name' followed by the new name."
+         ],
+         "Could not name room XXX":[
+            "Could not name room %s."
+         ],
+         "To change the room description, say set room description followed by the new description":[
+            "To change the room description, say 'set room description' followed by the new description."
+         ],
+         "Could not describe room XXX":[
+            "Could not describe room %s."
+         ],
+         "I don't know what direction XXX is":[
+            "I don't know what direction %s is. Please dig either {{NORTH}}, {{SOUTH}}, {{EAST}} or {{WEST}}."
+         ],
+         "You already have an exit in direction XXX":[
+            "You already have an exit in direction %s. Please dig in a different direction."
+         ],
+         "There is no exit in direction XXX":[
+            "There is no exit in direction %s."
+         ],
+         "I was unable to dig XXX":[
+            "I was unable to dig %s."
+         ],
+         "I was unable to move XXX":[
+            "I was unable to move %s."
+         ],
+         "North leads out of here":[
+            "North leads back to the wilderness.",
+            "North leads out of here."
+         ],
+         "South leads out of here":[
+            "South leads back to the wilderness.",
+            "South leads out of here."
+         ],
+         "East leads out of here":[
+            "East leads back to the wilderness.",
+            "East leads out of here."
+         ],
+         "West leads out of here":[
+            "West leads back to the wilderness.",
+            "West leads out of here."
+         ],
+         "North":[
+            "North"
+         ],
+         "South":[
+            "South"
+         ],
+         "East":[
+            "East"
+         ],
+         "West":[
+            "West"
+         ],
+         "XXX leads to YYY":[
+            "To the %s you can see %s.",
+            "%s of you lies %s.",
+            "You can see %2$s to the %1$s.",
+            "%s leads to %s."
+         ],
+         "XXX continues YYY":[
+            "%s continues on to the %s.",
+            "%s continues to the %s.",
+            "%s continues %s.",
+            "%s continues on to the %s of here.",
+            "%s continues to the %s of here.",
+            "%s continues %s of here."
+         ],
+         "ERROR_NO_SUCH_FEATURE":[
+            "Error. No such feature %d."
+         ],
+         "ERROR_NO_MODULE_LOADED":[
+            "Error. No module loaded."
+         ],
+         "ERROR_NO_FEATURE_LOADED":[
+            "Error. No feature loaded."
+         ],
+         "ERROR_NO_ROOM_LOADED":[
+            "Error. No room loaded."
+         ],
+         "ERROR_NO_ROOM_LOCATED":[
+            "Error. No located: %s."
+         ],
+         "ERROR_CANT_DIG_DIR":[
+            "Error. Cannot dig %s."
+         ],
+         "ERROR_CANT_UNDIG_DIR":[
+            "Error. Cannot unlink %s."
+         ],
+         "Here are the commands you can try":[
+            "Here are the commands you can try:"
+         ],
+         "CMD_feature":[
+            "feature {name}"
+         ],
+         "CMD_location":[
+            "location 0 degrees 27 minutes north 3 degrees 19 minutes west"
+         ],
+         "CMD_dimension":[
+            "dimension {free or premium}"
+         ],
+         "CMD_load":[
+            "load {name}"
+         ],
+         "CMD_new":[
+            "new {name}"
+         ],
+         "CMD_name":[
+            "name {name}"
+         ],
+         "CMD_description":[
+            "description {description}"
+         ],
+         "CMD_type":[
+            "type {type}"
+         ],
+         "CMD_monster":[
+            "monster {monster}"
+         ],
+         "CMD_dig":[
+            "dig {dir}"
+         ],
+         "CMD_link":[
+            "link {dir} to {name}"
+         ],
+         "CMD_unlink":[
+            "unlink {dir}"
+         ],
+         "CMD_list":[
+            "list"
+         ],
+         "CMD_increase challenge":[
+            "increase challenge"
+         ],
+         "CMD_decrease challenge":[
+            "decrease challenge"
+         ],
+         "CMD_dir":[
+            "north / south / east / west"
+         ],
+         "CMD_look":[
+            "look"
+         ],
+         "CMD_help":[
+            "help {topic}"
+         ],
+         "HELP_feature":[
+            "With no argument, this lists the current feature's name. An argument may be passed to set the name of this feature."
+         ],
+         "HELP_location":[
+            "With no argument, this prints the current location this feature appears at. You can set the longitude and latitude by saying something like 'location 1 degree 1 minute north 2 degrees 2 minutes west."
+         ],
+         "HELP_dimension":[
+            "With no argument, this prints the current dimension this feature appears at. With an argument you can set it to appear in the free or premium area."
+         ],
+         "HELP_load":[
+            "Given a name, that feature will be loaded for editing."
+         ],
+         "HELP_new":[
+            "This creates a new feature. A name may be given to start it off with a name."
+         ],
+         "HELP_name":[
+            "This sets the name of the current room."
+         ],
+         "HELP_description":[
+            "This sets the description of the current room."
+         ],
+         "HELP_type":[
+            "This sets the type of the current room. Valid room types are: scenic"
+         ],
+         "HELP_monster":[
+            "This sets the monster to be found in this room. There are rather a lot. Set it to 'nothing' to remove a monster setting."
+         ],
+         "HELP_dig":[
+            "This creates a new room in the direction given."
+         ],
+         "HELP_link":[
+            "This creates a link in the direction given to the room whose name is given. A name of $exit points at the exit."
+         ],
+         "HELP_unlink":[
+            "This removes a link in the direction given."
+         ],
+         "HELP_list":[
+            "This lists the features currently stored in your account."
+         ],
+         "HELP_increase challenge":[
+            "This increases the challenge level of any monster set for this room."
+         ],
+         "HELP_decrease challenge":[
+            "This decreases the challenge level for any monster set for this room."
+         ],
+         "HELP_dir":[
+            "This moves the editor in the cardinal direction given."
+         ],
+         "HELP_look":[
+            "This gives the current room's full description."
+         ],
+         "HELP_help":[
+            "This gives general help, or help on a specific topic."
+         ],
+         "Adding XXX to room":[
+            "Adding %s to room."
+         ],
+         "Im not sure what XXX is":[
+            "I'm not sure what %s is."
+         ],
+         "Did you mean XXX":[
+            "Did you mean %s?"
+         ],
+         "The monster for this room is set to XXX":[
+            "The monster for this room is set to %s."
+         ],
+         "Cannot set the monster for this room to XXX":[
+            "Cannot set the monster for this room to %s."
+         ],
+         "There is no monster set on this room":[
+            "There is no monster set on this room."
+         ],
+         "The monster has been cleared from this room":[
+            "The monster has been cleared from this room."
+         ],
+         "Cannot clear the monster from this room":[
+            "Cannot clear the monster from this room."
+         ],
+         "The challenge rating for this room is XXX levels easier":[
+            "The challenge rating for this room is %d levels easier."
+         ],
+         "The challenge rating for this room is XXX levels harder":[
+            "The challenge rating for this room is %d levels harder."
+         ],
+         "The challenge rating for this room is XXX level easier":[
+            "The challenge rating for this room is %d level easier."
+         ],
+         "The challenge rating for this room is XXX level harder":[
+            "The challenge rating for this room is %d level harder."
+         ],
+         "Cannot set the challenge rating for this room to XXX":[
+            "Cannot set the challenge rating for this room to %d."
+         ],
+         "Location set to XXX YYY":[
+     		"Location set to %d degrees %d minutes %s latitude and %d degrees %d minutes %s longitude."
+         ],
+         "Location has not been set":[
+            "Location has not been set."
+         ],
+         "Goodbye":[
+            "Goodbye."
+         ],
+         "Dimension has not been set":[
+            "Dimension has not been set."
+         ],
+         "This feature will appear in the XXX dimension":[
+     		"This feature will appear in the %s dimension."
+         ],
+         "This feature is enabled":[
+     		"This feature is enabled."
+         ],
+         "This feature is disabled":[
+     		"This feature is disabled."
+         ],
+         "I can't find a room by the name of XXX":[
+     		"I can't find a room by the name of %s."
+         ],
+         "I was unable to link XXX to YYY":[
+     		"I was unable to link %s to %s."
+         ],
+         "You don't have an exit in direction XXX":[
+     		"You don't have an exit in direction %s."
+         ],
+         "I was unable to unlink XXX":[
+     		"I was unable to unlink %s."
+         ],
+         "DIMENSION":[
+            "Free",
+            "Cirrane",
+            "Premium",
+            "Ireland",
+            "Eternal Plains",
+            "The Washboard",
+            "Jötunheimr",
+            "Hyperborea",
+            "Arboria",
+            "Karoo",
+            "Ranthambore",
+            "Slough of Despond",
+            "The Great Lake",
+            "World Ocean",
+            "Iceland"
+         ],
+         "EOLN":[
+            "\n"
+         ],
+         "WTF":[
+            "I didn't catch what you said. Try repeating or say 'help'."
+         ],
+         "NEW_FEATURE_NAME":[
+            "New Feature"
+         ],
+         "FORUM":[
+            "Forum"
+         ],
+         "":[
+            ""
+         ]
+      }
+   }
+}

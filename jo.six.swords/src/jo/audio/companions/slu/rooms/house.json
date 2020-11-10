@@ -1,0 +1,88 @@
+{  
+   "roomTypes":[  
+      {  
+         "name":{  
+            "ident":"HOUSE_ENTRANCE_NAME"
+         },
+         "description":{  
+            "ident":"HOUSE_ENTRANCE_DESC"
+         },
+         "ID":"houseEntrance",
+         "params":{
+            "postEnter":{"cmd": "function(houseEntrance)"},
+         	"northLock":{"expr":"@getValue(OWNER_ + $user.location) ==  false && $user.goldPieces < 10000","trueMessage":{"message":"HOUSE_HALL_BLOCK"}}
+     	 },
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"HOUSE_HALL_NAME"
+         },
+         "description":{  
+            "ident":"HOUSE_HALL_DESC"
+         },
+         "ID":"houseHall",
+         "params":{
+            "postEnter":{"cmd": "function(houseHall)"}
+     	 },
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"HOUSE_SORT_HALL_NAME"
+         },
+         "description":{  
+            "ident":"HOUSE_SORT_HALL_DESC"
+         },
+         "ID":"houseSortHall",
+         "type":"scenic"
+      },
+      {  
+         "name":{  
+            "ident":"HOUSE_SORT_ROOM_NAME",
+            "args": [ "widgets" ]
+         },
+         "description":{  
+            "ident":"HOUSE_SORT_ROOM_DESC",
+            "args": [ "widgets" ]
+         },
+         "ID":"houseSortRoom",
+         "type":"shop",
+         "params":{  
+            "itemType":1,
+            "shopType":"storage"
+         }
+      }
+   ],
+   "text":{  
+      "en_US":{  
+         "HOUSE_ENTRANCE_NAME":[  
+            "Modest House Entrance"
+         ],
+         "HOUSE_ENTRANCE_DESC":[  
+            "Set in a bit from the street is a plesant looking house."
+         ],
+         "HOUSE_HALL_NAME":[  
+            "Entry Hall"
+         ],
+         "HOUSE_HALL_DESC":[  
+            "Polished wood floors, coat and weapon racks welcome you to this house."
+         ],
+         "HOUSE_SORT_HALL_NAME":[  
+            "Sorting Hall"
+         ],
+         "HOUSE_SORT_HALL_DESC":[  
+            "Rooms line this hall for storing different types of items."
+         ],
+         "HOUSE_SORT_ROOM_NAME":[  
+            "%s Storage"
+         ],
+         "HOUSE_SORT_ROOM_DESC":[  
+            "Shelves and crates are here for storing %s."
+         ],
+         "HOUSE_HALL_BLOCK":[  
+            "You don't have enough money to buy this hosue."
+         ]
+      }
+   }
+}

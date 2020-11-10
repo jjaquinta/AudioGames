@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="jo.six.swords">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../../../Program Files/eclipse-jee-oxygen/eclipse/"/>
+    <property name="jo.util.location" value="C:/Users/JoJaquinta/git/ttg/jo.util"/>
+    <property name="jo.util.ui.swing.location" value="C:/Users/JoJaquinta/git/ttg/jo.util.ui.swing"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.8"/>
+    <property name="source" value="1.8"/>
+  	<import file="build_custom.xml"/>
+    <path id="jo.util.classpath">
+        <pathelement location="${jo.util.location}/bin"/>
+    </path>
+    <path id="jo.util.ui.swing.classpath">
+        <pathelement location="${jo.util.ui.swing.location}/bin"/>
+        <path refid="jo.util.classpath"/>
+    </path>
+    <path id="jo.six.swords.classpath">
+        <pathelement location="bin"/>
+        <path refid="jo.util.classpath"/>
+        <path refid="jo.util.ui.swing.classpath"/>
+        <pathelement location="lib/commons-codec-1.10.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall">
+        <ant antfile="build.xml" dir="${jo.util.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${jo.util.ui.swing.location}" inheritAll="false" target="clean"/>
+    </target>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects">
+        <ant antfile="build.xml" dir="${jo.util.location}" inheritAll="false" target="build-project">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+        <ant antfile="build.xml" dir="${jo.util.ui.swing.location}" inheritAll="false" target="build-project">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+    </target>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="jo.six.swords.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="6Swords CompClient">
+        <java classname="jo.audio.companions.tools.gui.client.CompClient" failonerror="true" fork="yes">
+            <classpath refid="jo.six.swords.classpath"/>
+        </java>
+    </target>
+</project>
