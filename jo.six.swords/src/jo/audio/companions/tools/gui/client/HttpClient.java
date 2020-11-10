@@ -22,6 +22,7 @@ import org.json.simple.JSONObject;
 import jo.audio.util.ToJSONLogic;
 import jo.audio.util.model.data.AudioResponseBean;
 import jo.util.utils.DebugUtils;
+import jo.util.utils.io.ResourceUtils;
 import jo.util.utils.obj.StringUtils;
 import jo.util.utils.xml.EntityUtils;
 
@@ -34,7 +35,7 @@ public class HttpClient
     public HttpClient(int tcpPort)
     {
         mPort = tcpPort;
-        DebugUtils.debug("Starting Telnet Server on port "+tcpPort);
+        DebugUtils.debug("Starting HTTP Server on port "+tcpPort);
         start();
     }
     
@@ -183,6 +184,22 @@ public class HttpClient
             data = jsonText.getBytes("utf-8");
             accept = "application/json; charset=UTF-8";
         }
+        else if ("text/plain".equals(accept))
+        {
+            String outputSpeechText;
+            if (!StringUtils.isTrivial(response.getCardContent()) && (response.getCardContent().trim().length() > 0))
+            {
+                outputSpeechText = toPlainText(response.getCardContent());
+            }
+            else
+            {
+                outputSpeechText = response.getOutputSpeechText();
+                Properties props = new Properties();
+                outputSpeechText = parseProps(outputSpeechText, props);
+            }
+            data = outputSpeechText.getBytes("utf-8");
+            accept = "text/plain; charset=UTF-8";
+        }
         else
         {
             String outputSpeechText;
@@ -260,8 +277,12 @@ public class HttpClient
         return txt;
     }
     
-    private static String toHTML(String outputText)
+    private static String toHTML(String outputText) throws IOException
     {
+        String html = ResourceUtils.loadSystemResourceString("index.html", HttpClient.class);
+        html = html.replace("<!-- display -->", EntityUtils.insertEntities(outputText, true));
+        return html;
+        /*
         StringBuffer html = new StringBuffer();
         html.append("<html>");
         html.append("<header>");
@@ -278,6 +299,7 @@ public class HttpClient
         html.append("</body>");
         html.append("</html>");
         return html.toString();
+        */
     }
     
     public static void main(String[] args) throws IOException

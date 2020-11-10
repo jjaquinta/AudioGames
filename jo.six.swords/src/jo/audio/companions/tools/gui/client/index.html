@@ -1,0 +1,50 @@
+<html>
+<header>
+<title>Six Swords</title>
+</header>
+<body>
+<p id="display">
+<!-- display -->
+</p>
+<input type="text" id="text" name="text" size="40"></input>
+<script>
+function sendData() {
+  console.log( 'Sending data' );
+
+  const XHR = new XMLHttpRequest();
+
+  let data = document.getElementById("text").value;
+  document.getElementById("text").value = "";
+
+  // Combine the pairs into a single string and replace all %-encoded spaces to 
+  // the '+' character; matches the behaviour of browser form submissions.
+  urlEncodedData = encodeURIComponent(data).replace( /%20/g, '+' );
+
+  // Define what happens on successful data submission
+  XHR.addEventListener( 'load', function(event) {
+    document.getElementById("display").innerHTML = XHR.response;
+  } );
+
+  // Define what happens in case of error
+  XHR.addEventListener( 'error', function(event) {
+    document.getElementById("display").innerHTML = "Oops! Something went wrong.";
+  } );
+
+  // Set up our request
+  XHR.open( 'GET', 'http://localhost/?text='+urlEncodedData );
+  XHR.setRequestHeader( 'Accept', 'text/plain' );
+
+  // Finally, send our data.
+  XHR.send( urlEncodedData );
+}
+
+document.getElementById("text").addEventListener("keyup", function(event) {
+	event.preventDefault();
+	if (event.keyCode === 13) {
+    	sendData();
+	}
+});
+
+</script>
+</body>
+</html>

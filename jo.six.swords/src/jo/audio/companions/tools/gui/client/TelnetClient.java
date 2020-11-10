@@ -90,7 +90,7 @@ public class TelnetClient extends BaseTelnet
         printResponse(response);
         while (true)
         {
-            print(">");
+            //print(">");
             String inbuf = null;
             try
             {
@@ -189,7 +189,7 @@ public class TelnetClient extends BaseTelnet
     
     class RepromptTimer implements Runnable
     {
-        private static final long TIMEOUT = 15000L;
+        private static final long TIMEOUT = 1*60*1000L;
         
         String  mText;
         boolean mCancel;
