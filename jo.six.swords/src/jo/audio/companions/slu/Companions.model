@@ -251,7 +251,8 @@
       "slots": [],
       "utterances": {
 	      "en_US": [
-      	"north"
+      	"north",
+      	"n"
       ]},
       "examples": { "en_US": [ "To go north, say \"<>\". " ] }
     },
@@ -260,7 +261,8 @@
       "slots": [],
       "utterances": {
 	      "en_US": [
-      	"south"
+      	"south",
+      	"s"
       ]},
       "examples": { "en_US": [ "To go south, say \"<>\". " ] }
     },
@@ -269,7 +271,8 @@
       "slots": [],
       "utterances": {
 	      "en_US": [
-      	"east"
+      	"east",
+      	"e"
       ]},
       "examples": { "en_US": [ "To go east, say \"<>\". " ] }
     },
@@ -278,7 +281,8 @@
       "slots": [],
       "utterances": {
 	      "en_US": [
-      	"west"
+      	"west",
+      	"w"
       ]},
       "examples": { "en_US": [ "To go west, say \"<>\". " ] }
     },
@@ -288,10 +292,11 @@
       "utterances": {
 	      "en_US": [
       	"look",
+      	"l",
       	"surroundings",
       	"examine"
       ]},
-      "examples": { "en_US": [ "To see what's here, say \"<>\". " ] }
+      "examples": { "en_US": [ "To find out what's here, say \"<>\". " ] }
     },
     {
       "intent": "WHO",
@@ -303,7 +308,7 @@
       	"who are my companions",
       	"who"
       ]},
-      "examples": { "en_US": [ "To see who you're companions are, say \"<>\". " ] }
+      "examples": { "en_US": [ "To find out who you're companions are, say \"<>\". " ] }
     },
     {
       "intent": "ACTIVATE",
@@ -382,12 +387,14 @@
       ],
       "utterances": {
 	      "en_US": [
+      	"i {whom}",
       	"inventory {whom}",
       	"inventory {type}",
       	"list my {type}",
-      	"inventory"
+      	"inventory",
+      	"i"
       ]},
-      "examples": { "en_US": [ "To see what you have, say \"<>\". " ] }
+      "examples": { "en_US": [ "To find out what you have, say \"<>\". " ] }
     },
     {
       "intent": "EQUIP",
@@ -459,6 +466,7 @@
       "slots": [],
       "utterances": {
 	      "en_US": [
+      	"f",
       	"fight",
       	"attack",
       	"combat",
@@ -681,7 +689,7 @@
      		"Welcome to Heroic Iceland, a game of high adventure and challenge. You will manage a team of up to six mercenaries to explore mystical mythical Iceland, fight dangerous monsters, and bring back their gold. You can say 'help' at any time to get suggestions about what you can say. To get to know your team, say 'who'."
          ],
          "At the end of this message you will hear this short tone":[
-     		"<<speech: <break time=\"1s\"/> >>At the end of this message you see three dots. This means that you can say 'more' for additional info. Try it now. "
+     		"<<speech: <break time=\"1s\"/> >>At the end of this message there are three dots. This means that you can say 'more' for additional info. Try it now. "
          ],
          "You can say north south east or west to travel in that direction":[
      		"You can say 'north', 'south', 'east', or 'west' to travel in that direction. "
@@ -1430,7 +1438,7 @@
      		"%s looks to the sky, maybe picking out shapes in the clouds."
          ],         
          "MORE_SOUND":[
-     		"..."
+     		"dot dot dot"
          ],         
          "INTRO_SOUND":[
          	"<<speech:<audio src=\"https://s3.amazonaws.com/tsatsatzu-alexa/sound/sixswords/sm1.mp3\"/> >>"
@@ -2019,7 +2027,7 @@
      		"Try saying 'what is a' and then the creature or object you would like more information on."
          ],         
          "HELP_BASE_ONE":[
-     		"You can move by stating the direction you wish to move. If you see three dots at the end of a reply, that means you can say 'more' for additional information."
+     		"You can move by stating the direction you wish to move. If there are three dots at the end of a reply, that means you can say 'more' for additional information."
          ],         
          "HELP_BASE_TWO":[
      		"Say 'who' to list your companions and 'activate Diana' to make one companion your current active companion."

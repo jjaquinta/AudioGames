@@ -148,19 +148,22 @@ public abstract class DataDriver<T extends IIOBean>
         File recordFile = getRecordFile(uri);
         if (!recordFile.exists())
             return null;
-        JSONObject result;
+        JSONObject result = null;
+        String data = null;
         try
         {
-            String data = FileUtils.readFileAsString(recordFile.toString(), "utf-8");
+            data = FileUtils.readFileAsString(recordFile.toString(), "utf-8");
             result = (JSONObject)JSONUtils.readJSONString(data);
         }
-        catch (IOException e)
+        catch (Exception e)
         {
-            result = null;
+            e.printStackTrace();
         } 
         if (result == null)
         {
             trace("Could not get "+uri+" from "+mTableName);
+            if (data != null)
+                trace("Bad data="+data);
             return null;
         }
         if (star == null)

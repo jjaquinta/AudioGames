@@ -10,6 +10,7 @@ import java.util.Set;
 
 import jo.audio.util.IIOBean;
 import jo.util.utils.DebugUtils;
+import jo.util.utils.obj.StringUtils;
 
 public class DriverLogic
 {
@@ -61,6 +62,8 @@ public class DriverLogic
     
     public static void save(IIOBean bean)
     {
+        if (StringUtils.isTrivial(bean.getURI()))
+            System.out.println("Quack");
         DataDriver<?> driver = findDriver(bean);
         driver.save(bean);
     }

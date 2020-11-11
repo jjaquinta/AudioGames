@@ -15,8 +15,6 @@ import jo.audio.companions.data.CoordBean;
 import jo.audio.companions.data.FeatureBean;
 import jo.audio.companions.data.GeoBean;
 import jo.audio.companions.data.SquareBean;
-import jo.audio.companions.logic.gen.GypsyLogic;
-import jo.audio.companions.logic.gen.MissionLogic;
 import jo.audio.companions.slu.CompanionsModelConst;
 import jo.audio.util.BaseUserState;
 import jo.audio.util.ToJSONLogic;
@@ -304,8 +302,8 @@ public class CompOperationLogic
     
     public static void startBackgroundDaemons()
     {
-        GypsyLogic.startBackgroundDaemon();
-        MissionLogic.startBackgroundDaemon();
+        //GypsyLogic.startBackgroundDaemon();
+        //MissionLogic.startBackgroundDaemon();
         GenerationLogic.startBackgroundDaemon();
     }
     

@@ -189,6 +189,7 @@ class UtteranceMatcher
         mUtterance = utterance;
         mRegex = ModelToRegex.createRegex(RequestLogic.getModel(), RequestLogic.getLanguage(),
                 mUtterance);
+        System.out.println("Utterance: "+utterance.getRawUtterance()+" -> "+mRegex);
         mPattern = Pattern.compile(mRegex, Pattern.CASE_INSENSITIVE);
         mSlots = new ArrayList<>();
         for (PhraseSegmentBean p : mUtterance.getPhrase())

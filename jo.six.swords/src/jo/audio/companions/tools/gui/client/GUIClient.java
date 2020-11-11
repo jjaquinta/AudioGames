@@ -1,27 +1,25 @@
 package jo.audio.companions.tools.gui.client;
 
 import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.Frame;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
 
-import javax.swing.JFrame;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
 
 import jo.audio.util.model.data.AudioResponseBean;
 import jo.util.ui.swing.logic.FontUtils;
 import jo.util.utils.obj.StringUtils;
 
-public class GUIClient extends JFrame
+public class GUIClient extends Frame
 {
     private AudioResponseBean       mResponse;
     private String                  mLocale = "en_US";
     
-    private JTextArea               mDialog;
-    private JTextField              mInput;
+    private JTextArea                mDialog;
     
     public GUIClient()
     {
@@ -44,31 +42,31 @@ public class GUIClient extends JFrame
     private void initInstantiate()
     {
         mDialog = new JTextArea(12, 40);
-        mDialog.setEditable(false);
-        mDialog.setLineWrap(true);
-        mDialog.setWrapStyleWord(true);
+        mDialog.setEditable(true);
+        //mDialog.setLineWrap(true);
+        //mDialog.setWrapStyleWord(true);
         FontUtils.increaseFontSize(mDialog, 12);
-        mInput = new JTextField();
-        FontUtils.increaseFontSize(mInput, 8);
+        //mInput = new TextField();
+        //FontUtils.increaseFontSize(mInput, 8);
     }
 
     private void initLayout()
     {
-        getContentPane().setLayout(new BorderLayout());
-        getContentPane().add("Center", mDialog);
-        getContentPane().add("South", mInput);
+        setLayout(new BorderLayout());
+        add("Center", mDialog);
+        //add("South", mInput);
     }
 
     private void initLink()
     {
-        ActionListener send = new ActionListener(){
+        mDialog.addKeyListener(new KeyAdapter() {
             @Override
-            public void actionPerformed(ActionEvent e)
+            public void keyReleased(KeyEvent e)
             {
-                doSend();
+                if (e.getKeyChar() == '\n')
+                    doSend();
             }
-        };
-        mInput.addActionListener(send);
+        });
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e)
@@ -88,26 +86,20 @@ public class GUIClient extends JFrame
             public void windowActivated(WindowEvent e)
             {
                 super.windowActivated(e);
-                mInput.requestFocusInWindow();
+                mDialog.requestFocusInWindow();
             }
         });
     }
     
-    private void doHotKey(String txt)
-    {
-        mInput.setText(txt);
-        doSend();
-    }
-    
     private void doSend()
     {
-        String txt = mInput.getText();
-        appendToDialog(">"+txt);
+        String txt = mDialog.getText().trim();
+        int o = txt.lastIndexOf('\n');
+        txt = txt.substring(o + 1);
         try
         {
             mResponse = RequestLogic.performIntentRequest(txt, mLocale);
             appendResponseToDialog();
-            mInput.setText("");
         }
         catch (IOException e)
         {
@@ -130,7 +122,10 @@ public class GUIClient extends JFrame
     
     private void appendToDialog(String txt)
     {
-        mDialog.setText(txt);
+        //mDialog.setText("<html><body><p>"+txt+"</p></body></html>");
+        mDialog.setText(txt+"\n");
+        mDialog.setCaretPosition(mDialog.getText().length());
+        mDialog.requestFocusInWindow();
     }
     
     public static void main(String[] args) throws IOException
@@ -138,19 +133,5 @@ public class GUIClient extends JFrame
         GUIClient app = new GUIClient();
         app.setSize(1024, 768);
         app.setVisible(true);
-    }
-    
-    class TextListener implements ActionListener
-    {
-        private String mText;
-        public TextListener(String text)
-        {
-            mText = text;
-        }
-        @Override
-        public void actionPerformed(ActionEvent ae)
-        {
-            doHotKey(mText);
-        }
     }
 }

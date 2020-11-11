@@ -53,14 +53,7 @@ public class UserLogic
         String uri = "compuser://"+id.getUserID();
         CompUserBean user = new CompUserBean();
         user.setURI(uri);
-        if (flags.toLowerCase().indexOf("cirrane") >= 0)
-            user.setLocation(CompConstLogic.INITIAL_LOCATION_CIRRANE);
-        else if (flags.toLowerCase().indexOf("irl") >= 0)
-            user.setLocation(CompConstLogic.INITIAL_LOCATION_IRL);
-        else if (flags.toLowerCase().indexOf("ice") >= 0)
-            user.setLocation(CompConstLogic.INITIAL_LOCATION_ICE);
-        else
-            user.setLocation(CompConstLogic.INITIAL_ENUMA_LOCATION);
+        user.setLocation(CompConstLogic.INITIAL_ENUMA_LOCATION);
         for (int i = 0; i < CompConstLogic.INITIAL_COMPANIONS; i++)
         {
             CompCompanionBean comp = CompanionLogic.newInstance(CompConstLogic.RACE_HUMAN);
@@ -963,10 +956,7 @@ public class UserLogic
         user.getCompanions().clear();
         user.getEncounter().setRound(-1);
         user.getEncounter().getMonsters().clear();
-        if (flags.toLowerCase().indexOf("cirrane") >= 0)
-            user.setLocation(CompConstLogic.INITIAL_LOCATION_CIRRANE);
-        else
-            user.setLocation(CompConstLogic.INITIAL_LOCATION);
+        user.setLocation(CompConstLogic.INITIAL_ENUMA_LOCATION);
         for (int i = 0; i < CompConstLogic.INITIAL_COMPANIONS; i++)
         {
             CompCompanionBean comp = CompanionLogic.newInstance(CompConstLogic.RACE_HUMAN);

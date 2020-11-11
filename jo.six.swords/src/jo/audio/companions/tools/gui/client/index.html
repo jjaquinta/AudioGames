@@ -3,10 +3,12 @@
 <title>Six Swords</title>
 </header>
 <body>
-<p id="display">
+<p id="display" aria-live="polite">
 <!-- display -->
 </p>
 <input type="text" id="text" name="text" size="40"></input>
+<p id="audio">
+</p>
 <script>
 function sendData() {
   console.log( 'Sending data' );
@@ -22,7 +24,20 @@ function sendData() {
 
   // Define what happens on successful data submission
   XHR.addEventListener( 'load', function(event) {
-    document.getElementById("display").innerHTML = XHR.response;
+	  data = JSON.parse(XHR.response);
+	  console.log(data);
+      document.getElementById("display").innerHTML = data.outputSpeechText;
+      ssml = data.transactionState.rawssml;
+      o = ssml.indexOf("[[background-sound=");
+      if (o < 0)
+    	  document.getElementById("audio").innerHTML = "";
+      else
+   	  {
+   	  	href = ssml.substring(o + 19);
+   	  	o = href.indexOf("]]");
+   	  	href = href.substring(0, o);
+   	    document.getElementById("audio").innerHTML = "<audio controls autoplay loop=\"true\" src=\""+href+"\"></audio>";
+   	  }
   } );
 
   // Define what happens in case of error
@@ -32,7 +47,7 @@ function sendData() {
 
   // Set up our request
   XHR.open( 'GET', 'http://localhost/?text='+urlEncodedData );
-  XHR.setRequestHeader( 'Accept', 'text/plain' );
+  XHR.setRequestHeader( 'Accept', 'application/json' );
 
   // Finally, send our data.
   XHR.send( urlEncodedData );

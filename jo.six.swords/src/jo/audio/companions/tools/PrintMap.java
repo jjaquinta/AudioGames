@@ -32,7 +32,7 @@ public class PrintMap
     public PrintMap(String[] args)
     {
         mArgs = args;
-        CoordBean ords = new CoordBean(CompConstLogic.INITIAL_LOCATION);
+        CoordBean ords = new CoordBean(CompConstLogic.INITIAL_ENUMA_LOCATION);
         mX = ords.getX();
         mY = ords.getY();
     }

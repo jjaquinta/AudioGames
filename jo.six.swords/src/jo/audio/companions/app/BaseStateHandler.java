@@ -241,7 +241,7 @@ public class BaseStateHandler extends CompStateHandler
             whom = type;
         TeamLogic.doInventory(state, whom);
         boolean didPrompt = false;
-        if (CompConstLogic.INITIAL_LOCATION
+        if (CompConstLogic.INITIAL_ENUMA_LOCATION
                 .equals(state.getUser().getLocation()))
             didPrompt = state.prompt(CompanionsModelConst.INTENT_EAST,
                     CompanionsModelConst.TEXT_YOU_CAN_MOVE_AROUND_BY_SAYING_NORTH_SOUTH_EAST_OR_WEST);
