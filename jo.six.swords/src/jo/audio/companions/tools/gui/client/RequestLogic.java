@@ -1,5 +1,6 @@
 package jo.audio.companions.tools.gui.client;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,6 +23,7 @@ import jo.audio.util.model.data.SlotSegmentBean;
 import jo.audio.util.model.data.UtteranceBean;
 import jo.audio.util.model.logic.ModelToRegex;
 import jo.util.utils.DebugUtils;
+import jo.util.utils.io.FileUtils;
 import jo.util.utils.obj.StringUtils;
 
 public class RequestLogic
@@ -79,6 +81,7 @@ public class RequestLogic
         AudioResponseBean response = mHandler.interact(request);
         JSONObject transactionState = response.getTransactionState();
         mTransactionStates.put(username, transactionState);
+        log(username, txt, response.getCardContent());
         return response;
     }
 
@@ -99,6 +102,7 @@ public class RequestLogic
         AudioResponseBean response = mHandler.interact(request);
         JSONObject transactionState = response.getTransactionState();
         mTransactionStates.put(username, transactionState);
+        log(username, "LAUNCH", response.getCardContent());
         return response;
     }
 
@@ -182,7 +186,24 @@ public class RequestLogic
             DebugUtils.debug("  slot " + key + "=" + intent.getSlots().get(key));
         return intent;
     }
-
+    
+    private static void log(String username, String sent, String received)
+    {
+        File home = new File(System.getProperty("user.home"));
+        File ss = new File(home, ".sixswords");
+        File ts = new File(ss, "transcripts");
+        if (!ts.exists())
+            ts.mkdirs();
+        File transcript = new File(ts, username+".txt");
+        try
+        {
+            FileUtils.appendFile(">"+sent+"\n<"+received+"\n", transcript);
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
 }
 
 class UtteranceMatcher

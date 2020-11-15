@@ -2,14 +2,17 @@
 <header>
 <title>Six Swords</title>
 </header>
-<body>
+<body onload="setTimeout(function() { console.log('wakeup');sendData(); }, 500)">
 <p id="display" aria-live="polite">
 <!-- display -->
 </p>
-<input type="text" id="text" name="text" size="40"></input>
+<label for="text">Say
+	<input autocomplete="off" name="text" id="text" type="text" onkeydown="doKey(event)"/>
+</label>
 <p id="audio">
 </p>
 <script>
+var useTTS = false;
 var username = "<username>";
 var password = "<password>";
 var soundQueue = [];
@@ -20,8 +23,10 @@ var isAudioPlaying = false;
 
 var synth = window.speechSynthesis;
 var pauser;
+/*
 var audio = document.createElement("audio");
 document.body.appendChild(audio);
+*/
 
 function startSound()
 {
@@ -232,17 +237,22 @@ function sendData() {
   // Define what happens on successful data submission
   XHR.addEventListener( 'load', function(event) {
 	  data = JSON.parse(XHR.response);
-      document.getElementById("display").innerHTML = data.outputSpeechText;
-      ssml = data.transactionState.rawssml;
-      props = speak(ssml);
-      bs = props["background-sound"];
-      if (bs == null)
-    	  document.getElementById("audio").innerHTML = "";
-      else
-   	  {
-   	    document.getElementById("audio").innerHTML = "<audio controls autoplay loop=\"true\" src=\""+bs+"\"></audio>";
-   	  }
-  
+      if (useTTS)
+      {
+	      ssml = data.transactionState.rawssml;
+	      props = speak(ssml);
+	      bs = props["background-sound"];
+	      if (bs == null)
+	    	  document.getElementById("audio").innerHTML = "";
+	      else
+	   	  {
+	   	    document.getElementById("audio").innerHTML = "<audio controls autoplay loop=\"true\" src=\""+bs+"\"></audio>";
+	   	  }
+	   }
+	   else
+	   {
+      		document.getElementById("display").innerHTML = data.cardContent;
+	   }  
   } );
 
   // Define what happens in case of error
@@ -258,12 +268,12 @@ function sendData() {
   XHR.send( urlEncodedData );
 }
 
-document.getElementById("text").addEventListener("keyup", function(event) {
-	event.preventDefault();
+function doKey(event) {
 	if (event.keyCode === 13) {
     	sendData();
 	}
-});
+}
+
 
 </script>
 </body>

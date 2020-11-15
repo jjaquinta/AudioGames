@@ -50,7 +50,6 @@ public class HttpClient
         mServerThread.start();
     }
     
-    @SuppressWarnings("unused")
     private void stop()
     {
         mPleaseStop = true;
@@ -171,6 +170,8 @@ public class HttpClient
     private void handleRequest(Socket soc, Properties headers, String protocol, Reader rdr) throws Exception
     {
         StringTokenizer st = new StringTokenizer(protocol, " ");
+        if (st.countTokens() != 3)
+            return;
         String method = st.nextToken();
         String path = st.nextToken();
         System.out.println("Handle Request "+method+" - "+path);
@@ -180,6 +181,8 @@ public class HttpClient
             handleAPIRequest(soc, headers, path);
         else if (path.equals("/"))
             handleLoginRequest(soc);
+        else if (path.equals("/terminate"))
+            stop();
         else
             returnData(soc, "text/plain", "WTF?".getBytes());
     }

@@ -90,6 +90,11 @@ public class CompIOLogic
         DriverLogic.getAllIncremental(CompIdentBean.class, cb);
     }
 
+    public static void deleteIdent(CompIdentBean ident)
+    {
+        DriverLogic.delete(ident);        
+    }
+
     // Log IO
     
     public static void log(CompUserBean user, String action, String object, String amount, String comments)
