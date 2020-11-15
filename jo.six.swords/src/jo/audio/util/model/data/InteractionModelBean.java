@@ -231,8 +231,8 @@ public class InteractionModelBean
             if (mIntents.containsKey(id))
                 return mIntents.get(id);
         }
-        if (!oid.toLowerCase().endsWith("intent"))
-        {   // don't print error if default intent
+        if (!oid.toLowerCase().endsWith("intent") && !oid.equals("input.unknown"))
+        {   // don't print error if default intent, or unknown
             System.err.println("Cannot find intent '"+oid+"'");
             for (String k : mIntents.keySet())
                 System.err.println("  ="+k);
