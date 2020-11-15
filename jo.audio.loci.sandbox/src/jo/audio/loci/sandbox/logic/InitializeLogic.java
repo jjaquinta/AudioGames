@@ -12,6 +12,7 @@ import jo.audio.loci.sandbox.data.LociRoom;
 import jo.audio.loci.sandbox.data.LociThing;
 import jo.audio.loci.sandbox.verb.VerbCreateThing;
 import jo.audio.loci.sandbox.verb.VerbDescribe;
+import jo.audio.loci.sandbox.verb.VerbDrop;
 import jo.audio.loci.sandbox.verb.VerbHelpRoom;
 import jo.audio.loci.sandbox.verb.VerbInventory;
 import jo.audio.loci.sandbox.verb.VerbLogin;
@@ -19,6 +20,7 @@ import jo.audio.loci.sandbox.verb.VerbLookDO;
 import jo.audio.loci.sandbox.verb.VerbLookIO;
 import jo.audio.loci.sandbox.verb.VerbLookRoom;
 import jo.audio.loci.sandbox.verb.VerbName;
+import jo.audio.loci.sandbox.verb.VerbPickUp;
 import jo.audio.loci.sandbox.verb.VerbRegister;
 import jo.audio.loci.sandbox.vprofile.VerbProfileFoyeur;
 import jo.audio.loci.sandbox.vprofile.VerbProfilePlayer;
@@ -46,7 +48,9 @@ public class InitializeLogic
                 new VerbDescribe(), 
                 new VerbName(), 
                 new VerbCreateThing(), 
-                new VerbInventory());
+                new VerbInventory(), 
+                new VerbPickUp(), 
+                new VerbDrop());
         VerbProfileLogic.registerVerbProfile(new VerbProfileThing());
         VerbProfileLogic.registerVerbProfile(new VerbProfileRoom());
         VerbProfileLogic.registerVerbProfile(new VerbProfileFoyeur());

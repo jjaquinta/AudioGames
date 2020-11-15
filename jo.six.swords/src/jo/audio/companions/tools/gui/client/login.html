@@ -1,0 +1,21 @@
+<html>
+	<header>
+	<title>Six Swords</title>
+	</header>
+	<body>
+		<p id="display" aria-live="polite">
+			<!-- error -->
+			Welcome to Six Swords. 
+			You can log into an existing account, or create a new one.
+		</p>
+		<form method="post" action="/login">
+			<label for="username">User name
+				<input name="username" id="username" type="text"/>
+			</label>
+			<label for="password">Password
+				<input name="password" id="password" type="password"/>
+			</label>
+			<button type="submit">Login</button>
+		</form>
+	</body>
+</html>

@@ -86,7 +86,7 @@ public class TelnetClient extends BaseTelnet
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(getStdIn()));
         debug("Connection initiated");
-        AudioResponseBean response = RequestLogic.performLaunchRequest(mLocale);
+        AudioResponseBean response = RequestLogic.performLaunchRequest("amadan", "lollipop", mLocale);
         printResponse(response);
         while (true)
         {
@@ -101,7 +101,7 @@ public class TelnetClient extends BaseTelnet
                 break;
             }
             debug(inbuf);
-            response = RequestLogic.performIntentRequest(inbuf, mLocale);
+            response = RequestLogic.performIntentRequest(inbuf, "amadan", "lollipop", mLocale);
             if (response.isShouldEndSession())
                 break;
             printResponse(response);

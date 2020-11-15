@@ -7,8 +7,10 @@ import java.util.StringTokenizer;
 import org.json.simple.JSONUtils;
 
 import jo.audio.companions.data.CompCompanionBean;
+import jo.audio.companions.data.CompEncounterBean;
 import jo.audio.companions.data.CompItemInstanceBean;
 import jo.audio.companions.data.CompItemTypeBean;
+import jo.audio.companions.data.CompMonsterInstanceBean;
 import jo.audio.companions.data.CompState;
 import jo.audio.companions.data.CompUserBean;
 import jo.audio.companions.logic.CompConstLogic;
@@ -368,7 +370,11 @@ public class WhoLogic
     {
         if (doAboutGameRaw(state, raw))
             return;
-        List<AudioMessageBean> msgs = getAboutGame(state);
+        List<AudioMessageBean> msgs;
+        if (state.getState() == CompState.STATE_COMBAT)
+            msgs = getAboutCombat(state);
+        else
+            msgs = getAboutGame(state);
         state.respond(msgs.get(0));
         msgs.remove(0);
         state.setMore(msgs.toArray(new AudioMessageBean[0]));
@@ -381,6 +387,10 @@ public class WhoLogic
         if (StringUtils.isTrivial(raw))
             return false;
         raw = raw.toLowerCase();
+        int o = raw.indexOf(' ');
+        if (o < 0)
+            return false; // assume one word intent
+        raw = raw.substring(o).trim(); // remove intent word
         DebugUtils.trace("WhoLogic.doAboutGameRaw('"+raw+"')");
         /*
         CompUserBean user = state.getUser();
@@ -642,6 +652,42 @@ public class WhoLogic
         msgs.add(new AudioMessageBean(CompanionsModelConst.TEXT_YOUR_SUPPORT_ID_IS_XXX, 
                 state.getContext().getUser().getSupportIdent(), 
                 state.getContext().getUser().getSupportPassword()));
+        return msgs;
+    }
+
+    private static List<AudioMessageBean> getAboutCombat(CompState state)
+    {
+        List<AudioMessageBean> msgs = new ArrayList<>();
+        CompUserBean user = state.getUser();
+        CompEncounterBean enc = user.getEncounter();
+        int playersNum = user.getCompanions().size();
+        int allies = enc.getAllies().size();
+        int enemies = enc.getMonsters().size();
+        AudioMessageBean msg1 = new AudioMessageBean(AudioMessageBean.GROUP);
+        if (allies == 0)
+            msg1.addToGroup(new AudioMessageBean(CompanionsModelConst.TEXT_THE_XXX_OF_YOU_ARE_FIGHTING_YYY_ENEMIES, playersNum, enemies));
+        else
+            msg1.addToGroup(new AudioMessageBean(CompanionsModelConst.TEXT_THE_XXX_OF_YOU_ARE_FIGHTING_YYY_ENEMIES_WITH_ZZZ_ALLIES, 
+                    playersNum, enemies, allies));
+        int full = 0;
+        int current = 0;
+        for (CompMonsterInstanceBean monster : enc.getMonsters())
+        {
+            current += monster.getCurrentHitPoints();
+            full += monster.getFullHitPoints();
+        }
+        int pc = current*100/full;
+        if (pc < 25)
+            msg1.addToGroup(new AudioMessageBean(CompanionsModelConst.TEXT_FIGHT_UNDER_25));
+        else if (pc < 50)
+            msg1.addToGroup(new AudioMessageBean(CompanionsModelConst.TEXT_FIGHT_UNDER_50));
+        else if (pc < 75)
+            msg1.addToGroup(new AudioMessageBean(CompanionsModelConst.TEXT_FIGHT_UNDER_75));
+        else if (pc < 100)
+            msg1.addToGroup(new AudioMessageBean(CompanionsModelConst.TEXT_FIGHT_UNDER_100));
+        else
+            msg1.addToGroup(new AudioMessageBean(CompanionsModelConst.TEXT_FIGHT_AT_100));
+        msgs.add(msg1);
         return msgs;
     }
 

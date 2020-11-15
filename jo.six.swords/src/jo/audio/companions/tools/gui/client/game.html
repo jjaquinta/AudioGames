@@ -1,0 +1,270 @@
+<html>
+<header>
+<title>Six Swords</title>
+</header>
+<body>
+<p id="display" aria-live="polite">
+<!-- display -->
+</p>
+<input type="text" id="text" name="text" size="40"></input>
+<p id="audio">
+</p>
+<script>
+var username = "<username>";
+var password = "<password>";
+var soundQueue = [];
+var isTextPlaying = false;
+var isPausePlaying = false;
+var isSoundPlaying = false;
+var isAudioPlaying = false;
+
+var synth = window.speechSynthesis;
+var pauser;
+var audio = document.createElement("audio");
+document.body.appendChild(audio);
+
+function startSound()
+{
+	if (isSoundPlaying)
+		return;
+	if (soundQueue.length == 0)
+		return;
+	var sound = soundQueue[0];
+	soundQueue = soundQueue.slice(1);
+	if (sound.type == "text")
+		startText(sound);
+	else if (sound.type == "pause")
+		startPause(sound);
+	else if (sound.type == "audio")
+		startAudio(sound);
+	else
+		startSound(); 
+}
+
+function cancelSound()
+{
+	soundQueue = [];
+	if (isTextPlaying)
+		cancelText();
+	else if (isPausePlaying)
+		cancelPause();
+}
+
+function startText(sound)
+{
+   	var utterThis = new SpeechSynthesisUtterance(sound.text);
+	//utterThis.voice = voices[i];
+	//utterThis.pitch = pitch.value;
+	//utterThis.rate = rate.value;
+	utterThis.onend = function() { endText(); };
+	synth.speak(utterThis);
+	isSoundPlaying = true;
+	isTextPlaying = true;
+	console.log("Starting Text "+sound.text);
+}
+
+function cancelText()
+{
+	isSoundPlaying = false;
+	isTextPlaying = false;
+	synth.cancel();
+}
+
+function endText()
+{
+	console.log("Text ends");
+	isSoundPlaying = false;
+	isAudioPlaying = false;
+	startSound(); // move on to next
+}
+
+function startAudio(sound)
+{
+   	audio.src = sound.src;
+	audio.play();
+	isSoundPlaying = true;
+	isAudioPlaying = true;
+	audio.onended = function() { endAudio(); };
+	console.log("Starting Audio "+sound.src);
+}
+
+function cancelAudio()
+{
+	isSoundPlaying = false;
+	isAudioPlaying = false;
+	audio.stop();
+}
+
+function endAudio()
+{
+	console.log("Audio ends");
+	isSoundPlaying = false;
+	isAudioPlaying = false;
+	startSound(); // move on to next
+}
+
+function startPause(sound)
+{
+	isSoundPlaying = true;
+	isPausePlaying = true;
+	pauser = setTimeout(function(){endPause();}, sound.length);
+	console.log("Starting pause "+sound.length);
+}
+
+function cancelPause()
+{
+	isSoundPlaying = false;
+	isPausePlaying = false;
+	if (pauser != null)
+		clearTimeout(pauser);
+}
+
+function endPause()
+{
+	console.log("Pause ends");
+	isSoundPlaying = false;
+	isPausePlaying = false;
+	startSound(); // move on to next
+}
+
+function addTextToSoundQueue(txt)
+{
+	//console.log("Adding text "+txt);
+	soundQueue.push({"type":"text","text":txt});
+	startSound();
+}
+
+function addPauseToSoundQueue(len)
+{
+	//console.log("Adding pause "+len);
+	soundQueue.push({"type":"pause","text":len});
+	startSound();
+}
+
+function addAudioToSoundQueue(src)
+{
+	///console.log("Adding sound "+src);
+	soundQueue.push({"type":"audio","src":src});
+	startSound();
+}
+
+function stripProps(inbuf, props)
+{
+	var outbuf = "";
+	for (;;)
+	{
+		var o = inbuf.indexOf("[[");
+		if (o < 0)
+		{
+			outbuf += inbuf;
+			return outbuf;
+		}
+		outbuf += inbuf.substring(0, o);
+		inbuf = inbuf.substring(o);
+		o = inbuf.indexOf("]]");
+		kv = inbuf.substring(2, o);
+		inbuf = inbuf.substring(o + 2);
+		o = kv.indexOf("=");
+		k = kv.substring(0,o);
+		v = kv.substring(o + 1);
+		props[k] = v;
+	}	
+}
+
+function speak(ssml)
+{
+	console.log("Raw: "+ssml);
+	cancelSound();
+	var props = {};
+	ssml = stripProps(ssml, props);
+	for (;;)
+	{
+		var o = ssml.indexOf("<");
+		if (o < 0)
+		{
+			addTextToSoundQueue(ssml);
+			return props;
+		}
+		addTextToSoundQueue(ssml.substring(0, o));
+		tag = ssml.substring(o);
+		o = tag.indexOf(">");
+		ssml = tag.substring(o + 1);
+		if (tag.startsWith("<break"))
+		{
+			addPauseToSoundQueue(1000);
+			// TODO: add other pauses
+		}
+		else if (tag.startsWith("<audio"))
+		{
+			o = tag.indexOf("src=\"");
+			tag = tag.substring(o + 5);
+			o = tag.indexOf("\"");
+			tag = tag.substring(0, o);
+			addAudioToSoundQueue(tag);
+		}
+		else if (tag.startsWith("<span"))
+		{
+			o = tag.indexOf("background-sound:");
+			if (o > 0)
+			{
+				tag = tag.substring(o + 17);
+				o = tag.indexOf("\"");
+				tag = tag.substring(0, o);
+				addAudioToSoundQueue(tag);
+			}
+		}
+	}
+}
+
+function sendData() {
+
+  const XHR = new XMLHttpRequest();
+
+  let data = document.getElementById("text").value;
+  document.getElementById("text").value = "";
+
+  // Combine the pairs into a single string and replace all %-encoded spaces to 
+  // the '+' character; matches the behaviour of browser form submissions.
+  urlEncodedData = encodeURIComponent(data).replace( /%20/g, '+' );
+  urlEncodedUsername = encodeURIComponent(username).replace( /%20/g, '+' );
+  urlEncodedPassword = encodeURIComponent(password).replace( /%20/g, '+' );
+
+  // Define what happens on successful data submission
+  XHR.addEventListener( 'load', function(event) {
+	  data = JSON.parse(XHR.response);
+      document.getElementById("display").innerHTML = data.outputSpeechText;
+      ssml = data.transactionState.rawssml;
+      props = speak(ssml);
+      bs = props["background-sound"];
+      if (bs == null)
+    	  document.getElementById("audio").innerHTML = "";
+      else
+   	  {
+   	    document.getElementById("audio").innerHTML = "<audio controls autoplay loop=\"true\" src=\""+bs+"\"></audio>";
+   	  }
+  
+  } );
+
+  // Define what happens in case of error
+  XHR.addEventListener( 'error', function(event) {
+    document.getElementById("display").innerHTML = "Oops! Something went wrong.";
+  } );
+
+  // Set up our request
+  XHR.open( 'GET', '/api?text='+urlEncodedData+'&username='+urlEncodedUsername+"&password="+urlEncodedPassword );
+  XHR.setRequestHeader( 'Accept', 'application/json' );
+
+  // Finally, send our data.
+  XHR.send( urlEncodedData );
+}
+
+document.getElementById("text").addEventListener("keyup", function(event) {
+	event.preventDefault();
+	if (event.keyCode === 13) {
+    	sendData();
+	}
+});
+
+</script>
+</body>
+</html>

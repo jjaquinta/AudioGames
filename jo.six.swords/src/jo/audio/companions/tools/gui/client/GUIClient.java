@@ -30,7 +30,7 @@ public class GUIClient extends Frame
 
         try
         {
-            mResponse = RequestLogic.performLaunchRequest(mLocale);
+            mResponse = RequestLogic.performLaunchRequest("amadan", "lollipop", mLocale);
             appendResponseToDialog();
         }
         catch (IOException e)
@@ -98,7 +98,7 @@ public class GUIClient extends Frame
         txt = txt.substring(o + 1);
         try
         {
-            mResponse = RequestLogic.performIntentRequest(txt, mLocale);
+            mResponse = RequestLogic.performIntentRequest(txt, "amadan", "lollipop", mLocale);
             appendResponseToDialog();
         }
         catch (IOException e)

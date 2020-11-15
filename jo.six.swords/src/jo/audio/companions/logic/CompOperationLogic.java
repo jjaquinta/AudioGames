@@ -134,7 +134,7 @@ public class CompOperationLogic
             log("Can't find ident="+op.getIdentID());
             if (op.getNumParam1() != 0)
                 return false;
-            id = IdentLogic.newInstance(op.getIdentID(), op.getStrParam2(), op.getStrParam3());
+            id = IdentLogic.newInstance(op.getIdentID(), op.getStrParam2(), op.getStrParam3(), null);
             log("Creating new ident="+op.getIdentID());
             log("with name="+op.getStrParam2()+", email="+op.getStrParam3());
         }
@@ -384,7 +384,7 @@ public class CompOperationLogic
             if (id == null)
             {
                 CompOperationBean op = context.getLastOperation();
-                id = IdentLogic.newInstance(op.getIdentID(), name, email);
+                id = IdentLogic.newInstance(op.getIdentID(), name, email, null);
                 log("Creating new ident="+op.getIdentID());
                 log("with name="+op.getStrParam2()+", email="+op.getStrParam3());
             }

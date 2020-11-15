@@ -54,7 +54,7 @@ public class CompClient extends JFrame
 
         try
         {
-            mResponse = RequestLogic.performLaunchRequest((String)mLanguage.getSelectedItem());
+            mResponse = RequestLogic.performLaunchRequest("amadan", "lollipop", (String)mLanguage.getSelectedItem());
             appendResponseToDialog();
         }
         catch (IOException e)
@@ -207,7 +207,7 @@ public class CompClient extends JFrame
         appendToDialog(">"+txt);
         try
         {
-            mResponse = RequestLogic.performIntentRequest(txt, (String)mLanguage.getSelectedItem());
+            mResponse = RequestLogic.performIntentRequest(txt, "amadan", "lollipop", (String)mLanguage.getSelectedItem());
             appendResponseToDialog();
             mInput.setText("");
         }

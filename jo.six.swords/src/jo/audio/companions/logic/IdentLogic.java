@@ -28,7 +28,7 @@ public class IdentLogic
         return user;
     }
 
-    public static CompIdentBean newInstance(String id, String linkedName, String linkedEmail)
+    public static CompIdentBean newInstance(String id, String linkedName, String linkedEmail, String password)
     {
         if (!id.startsWith("scid://"))
             id = "scid://"+id;
@@ -37,6 +37,7 @@ public class IdentLogic
         user.setUserID(id.substring(6));
         user.setEmail(linkedEmail);
         user.setFamilyName(linkedName);
+        user.setPassword(password);
         CompIOLogic.saveIdent(user);
         synchronized (mCache)
         {

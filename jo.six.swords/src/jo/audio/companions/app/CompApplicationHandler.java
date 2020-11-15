@@ -32,7 +32,8 @@ public class CompApplicationHandler extends ApplicationHandler
     private static final long ACTIVE_CUTOFF = 3*60*1000L;
     private static Map<String,Long> mActiveUsers = new HashMap<>();
     protected static Map<String,String> mActiveUsersLocation = new HashMap<>();
-    public static final String mMoreSound = "dot dot dot";
+    public static final String mMoreSound = "<audio  src="
+            + "\"https://s3.amazonaws.com/tsatsatzu-alexa/sound/beeps/DEEK.mp3\"/>";
     private static final long TEXT_UPDATE_TIMEOUT = 60*60*1000L;
     private long mLastTextUpdate = 0L;
     

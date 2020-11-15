@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.BiFunction;
+import java.util.function.Function;
 
 import jo.audio.companions.data.CompCompanionBean;
 import jo.audio.companions.data.CompEncounterBean;
@@ -43,51 +45,81 @@ public class FightReportLogic
             log(i+": "+fight.responses.get(i));
     }
     
+    private static Function<Object,Boolean> firstConsecutive = (resp) -> { 
+        if (resp instanceof AudioMessageBean)
+            return false;
+        FightDetails.Attack att = (FightDetails.Attack)resp;
+        if (!att.playerAttack)
+            return false;
+        if (att.hit)
+            return false;
+        return true;
+    };
+    private static BiFunction<Object,Object,Boolean> secondConsecutiveSame = (first, resp) -> { 
+        if (resp instanceof AudioMessageBean)
+            return false;
+        FightDetails.Attack att = (FightDetails.Attack)resp;
+        if (!att.playerAttack)
+            return false;
+        if (att.hit)
+            return false;
+        FightDetails.Attack firstAtt = (FightDetails.Attack)first;
+        if (!firstAtt.attacker.getLogName().equals(att.attacker.getLogName()))
+            return false;
+        if (!firstAtt.target.getLogName().equals(att.target.getLogName()))
+            return false;
+        return true;
+    }; 
+    private static BiFunction<Object,Object,Boolean> secondConsecutiveDifferent = (first, resp) -> { 
+        if (resp instanceof AudioMessageBean)
+            return false;
+        FightDetails.Attack att = (FightDetails.Attack)resp;
+        if (!att.playerAttack)
+            return false;
+        if (att.hit)
+            return false;
+        FightDetails.Attack firstAtt = (FightDetails.Attack)first;
+        if (!firstAtt.target.getLogName().equals(att.target.getLogName()))
+            return false;
+        return true;
+    }; 
+    
     private static void reportConsecutiveMisses(FightDetails fight)
     {
-        for (int i  = 0; i < fight.responses.size() - 1; i++)
+        List<int[]> sequences = findConsecutive(fight, firstConsecutive, secondConsecutiveSame);
+        for (int i = sequences.size() - 1; i >= 0; i--)
         {
-            Object resp = fight.responses.get(i);
-            if (resp instanceof AudioMessageBean)
-                continue;
-            FightDetails.Attack att = (FightDetails.Attack)resp;
-            if (!att.playerAttack)
-                break;
-            if (att.hit)
-                continue;
-            if (!(fight.responses.get(i + 1) instanceof FightDetails.Attack))
-                continue;
-            FightDetails.Attack next = (FightDetails.Attack)fight.responses.get(i + 1);
-            if (next.hit)
-                continue;
-            if (att.attacker != next.attacker)
-                continue;
-            if (!next.playerAttack)
-                continue;
-            int misses = 2;
-            int end = i + 2;
-            while (end < fight.responses.size() - 1)
-            {
-                if (!(fight.responses.get(end) instanceof FightDetails.Attack))
-                    break;
-                next = (FightDetails.Attack)fight.responses.get(end);
-                if (next.hit)
-                    break;
-                if (att.attacker != next.attacker)
-                    break;
-                if (!next.playerAttack)
-                    break;
-                end++;
-                misses++;
-            }
-            for (int j = 0; j < misses; j++)
-                fight.responses.remove(i);
-            if (misses == 2)
-                fight.responses.add(i, new AudioMessageBean(CompanionsModelConst.TEXT_XXX_MISSES_YYY_TWICE, 
+            int[] sequence = sequences.get(i);
+            FightDetails.Attack att = (FightDetails.Attack)fight.responses.get(sequence[0]);
+            for (int j = sequence[1] - 1; j >= sequence[0]; j--)
+                fight.responses.remove(j);
+            int times = sequence[1] - sequence[0];
+            if (times == 2)
+                fight.responses.add(sequence[0], new AudioMessageBean(CompanionsModelConst.TEXT_XXX_MISSES_YYY_TWICE, 
                         att.attacker.getLogName(), att.target.getLogName()));
             else
-                fight.responses.add(i, new AudioMessageBean(CompanionsModelConst.TEXT_XXX_MISSES_YYY_ZZZ_TIMES, 
-                        att.attacker.getLogName(), att.target.getLogName(), misses));
+                fight.responses.add(sequence[0], new AudioMessageBean(CompanionsModelConst.TEXT_XXX_MISSES_YYY_ZZZ_TIMES, 
+                        att.attacker.getLogName(), att.target.getLogName(), times));
+        }
+        sequences = findConsecutive(fight, firstConsecutive, secondConsecutiveDifferent);
+        for (int i = sequences.size() - 1; i >= 0; i--)
+        {
+            int[] sequence = sequences.get(i);
+            List<String> attackerNames = new ArrayList<>();
+            String defenderName = null;
+            for (int j = sequence[1] - 1; j >= sequence[0]; j--)
+            {
+                FightDetails.Attack att = (FightDetails.Attack)fight.responses.get(j);
+                fight.responses.remove(j);
+                attackerNames.add(0, att.attacker.getLogName());
+                defenderName = att.target.getLogName();
+            }
+            if (attackerNames.size() == 2)
+                fight.responses.add(sequence[0], new AudioMessageBean(CompanionsModelConst.TEXT_XXX_BOTH_MISS_YYY, 
+                        AudioMessageBean.and(attackerNames), defenderName));
+            else
+                fight.responses.add(sequence[0], new AudioMessageBean(CompanionsModelConst.TEXT_XXX_ALL_MISS_YYY, 
+                    AudioMessageBean.and(attackerNames), defenderName));
         }
     }
     
@@ -832,6 +864,29 @@ public class FightReportLogic
        return matches;
     }
     */
+    private static List<int[]> findConsecutive(FightDetails fight, 
+            Function<Object, Boolean> isFirstCandidate, BiFunction<Object, Object, Boolean> isSubsequentCandidate)
+    {
+        List<int[]> matches = new ArrayList<>();
+        for (int i  = 0; i < fight.responses.size() - 1; i++)
+        {
+            Object first = fight.responses.get(i);
+            if (!isFirstCandidate.apply(first))
+                continue;
+            int start = i;
+            while (++i < fight.responses.size())
+            {
+                Object second = fight.responses.get(i);
+                if (!isSubsequentCandidate.apply(first, second))
+                    break;
+            }
+            int end = i;
+            if (end - start > 1)
+                matches.add(new int[] { start, end });
+            i--;
+        }
+        return matches;
+    }
     
     private static void log(String msg)
     {

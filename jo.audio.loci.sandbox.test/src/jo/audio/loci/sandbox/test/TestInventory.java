@@ -2,9 +2,6 @@ package jo.audio.loci.sandbox.test;
 
 import org.junit.jupiter.api.Test;
 
-import jo.audio.loci.core.data.ExecuteContext;
-import jo.audio.loci.core.logic.ExecuteLogic;
-
 class TestInventory extends TestBase
 {
     @Test
@@ -20,6 +17,15 @@ class TestInventory extends TestBase
         talk("inventory", "Super-Urim", "Thummim");
         talk("describe Super-Urim as A clear crystal with tiny pinpricks of light in it.", "changed");
         talk("look Super-Urim", "crystal");
+        talk("drop Super-Urim", "You dropped Super-Urim");
+        talk("look", "Super-Urim");
+        talk("drop Thummim", "You dropped Thummim");
+        talk("look", "Thummim", "Super-Urim");
+        talk("drop Thummim", "You are not carrying");
+        talk("pick up Thummim", "You are now carrying Thummim");
+        talk("i", "Thummim");
+        talk("pick up Super-Urim", "You are now carrying Super-Urim");
+        talk("i", "Thummim", "Super-Urim");
     }
 
 }

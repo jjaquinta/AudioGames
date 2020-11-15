@@ -30,7 +30,7 @@ public class RequestLogic
     private static CompApplicationHandler              mHandler;
     private static String                              mLanguage = "en_US";
     private static Map<String, List<UtteranceMatcher>> mParsers;
-    private static JSONObject                          mTransactionState = new JSONObject();
+    private static Map<String, JSONObject>             mTransactionStates = new HashMap<>();
 
     public static void setModel(InteractionModelBean model)
     {
@@ -67,17 +67,18 @@ public class RequestLogic
     }
 
     public static AudioResponseBean performIntentRequest(String txt,
-            String language) throws IOException
+            String username, String password, String language) throws IOException
     {
         setHandler(CompApplicationHandler.getInstance());
         setLanguage(language);
         CompOperationLogic.startBackgroundDaemons();
-        AudioRequestBean request = makeRequest();
+        AudioRequestBean request = makeRequest(username, password);
         request.setRawText(txt);
         IntentReqBean intent = match(txt);
         request.getIntents().add(intent);
         AudioResponseBean response = mHandler.interact(request);
-        mTransactionState = response.getTransactionState();
+        JSONObject transactionState = response.getTransactionState();
+        mTransactionStates.put(username, transactionState);
         return response;
     }
 
@@ -86,28 +87,35 @@ public class RequestLogic
         // NOP
     }
 
-    public static AudioResponseBean performLaunchRequest(String language) throws IOException
+    public static AudioResponseBean performLaunchRequest(String username, String password, String language) throws IOException
     {
         setHandler(CompApplicationHandler.getInstance());
         setLanguage(language);
         CompOperationLogic.startBackgroundDaemons();
-        AudioRequestBean request = makeRequest();
+        AudioRequestBean request = makeRequest(username, password);
         IntentReqBean intent = new IntentReqBean();
         intent.setIntentID("LAUNCHAPP");
         request.getIntents().add(intent);
         AudioResponseBean response = mHandler.interact(request);
-        mTransactionState = response.getTransactionState();
+        JSONObject transactionState = response.getTransactionState();
+        mTransactionStates.put(username, transactionState);
         return response;
     }
 
-    private static AudioRequestBean makeRequest()
+    private static AudioRequestBean makeRequest(String username, String password)
     {
+        JSONObject transactionState = mTransactionStates.get(username);
+        if (transactionState == null)
+        {
+            transactionState = new JSONObject();
+            mTransactionStates.put(username, transactionState);
+        }
         AudioRequestBean request = new AudioRequestBean();
-        request.setSessionID("12345");
-        request.setUserID(System.getProperty("user.name"));
+        request.setSessionID(username);
+        request.setUserID(username);
         request.setOriginator(AudioRequestBean.TELNET);
         request.setLanguage(mLanguage);
-        request.setTransactionState(mTransactionState);
+        request.setTransactionState(transactionState);
         return request;
     }
 

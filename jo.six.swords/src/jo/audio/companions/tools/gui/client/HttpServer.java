@@ -30,13 +30,13 @@ import jo.util.utils.obj.IntegerUtils;
 import jo.util.utils.obj.StringUtils;
 import jo.util.utils.xml.EntityUtils;
 
-public class HttpClient
+public class HttpServer
 {
     private Thread              mServerThread;
     private boolean             mPleaseStop;
     private int                 mPort;
 
-    public HttpClient(int tcpPort)
+    public HttpServer(int tcpPort)
     {
         mPort = tcpPort;
         DebugUtils.debug("Starting HTTP Server on port "+tcpPort);
@@ -211,7 +211,7 @@ public class HttpClient
         else if (!id.getPassword().equals(password))
         {
             System.out.println("Valid id for '"+username+"', but wrong password. Entered '"+password+"', should be '"+id.getEmail()+"'");
-            byte[] data = ResourceUtils.loadSystemResourceBinary("login.html", HttpClient.class);
+            byte[] data = ResourceUtils.loadSystemResourceBinary("login.html", HttpServer.class);
             String html = new String(data, "utf-8");
             html = html.replace("<!-- error -->", "That name is taken, or the password is wrong.");
             returnData(soc, "text/html;charset=utf-8", html.getBytes("utf-8"));
@@ -219,7 +219,7 @@ public class HttpClient
         }
         else
             System.out.println("Valid id and password for '"+username+"'.");
-        String html = ResourceUtils.loadSystemResourceString("game.html", HttpClient.class);
+        String html = ResourceUtils.loadSystemResourceString("game.html", HttpServer.class);
         html = html.replace("<username>", username);
         html = html.replace("<password>", password);
         returnData(soc, "text/html;charset=utf-8", html.getBytes("utf-8"));
@@ -243,7 +243,7 @@ public class HttpClient
     
     private void handleLoginRequest(Socket soc) throws IOException
     {
-        byte[] data = ResourceUtils.loadSystemResourceBinary("login.html", HttpClient.class);
+        byte[] data = ResourceUtils.loadSystemResourceBinary("login.html", HttpServer.class);
         returnData(soc, "text/html;charset=utf-8", data);
     }
     
@@ -361,7 +361,7 @@ public class HttpClient
     
     private static String toHTML(String outputText) throws IOException
     {
-        String html = ResourceUtils.loadSystemResourceString("index.html", HttpClient.class);
+        String html = ResourceUtils.loadSystemResourceString("index.html", HttpServer.class);
         html = html.replace("<!-- display -->", EntityUtils.insertEntities(outputText, true));
         return html;
         /*
@@ -391,7 +391,7 @@ public class HttpClient
             port = IntegerUtils.parseInt(args[0]);
         if (port == 0)
             port = 8080;
-        HttpClient app = new HttpClient(port);
+        HttpServer app = new HttpServer(port);
         try
         {
             Desktop.getDesktop().browse(new URI("http://127.0.0.1:"+port));

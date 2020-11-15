@@ -21,6 +21,7 @@ public class CompIdentBean implements IIOBean
     private String  mCoarseLocation;
     private String  mPreciseLocation;
     private String  mEmail;
+    private String  mPassword;
 
     public CompIdentBean()
     {
@@ -111,6 +112,8 @@ public class CompIdentBean implements IIOBean
             return new File("\\\\frey\\share\\Shared Mobile\\Virtual Assistants\\Echo\\starlanes\\logs\\active_idents.csv");   
     }
 
+    // getters and setters
+
     public String getURI()
     {
         return mURI;
@@ -191,6 +194,14 @@ public class CompIdentBean implements IIOBean
         mEmail = email;
     }
 
-    // getters and setters
+    public String getPassword()
+    {
+        return mPassword;
+    }
+
+    public void setPassword(String password)
+    {
+        mPassword = password;
+    }
     
 }
