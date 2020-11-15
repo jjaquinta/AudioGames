@@ -245,6 +245,8 @@ public class PhoneticMatchLogic
     
     public static int countWordMatches(String s1, String s2)
     {
+        if (s1.equalsIgnoreCase(s2))
+            return 100;
         List<String> w1 = new ArrayList<>();
         int count = 0;
         for (StringTokenizer st = new StringTokenizer(s1.toLowerCase(), " \t,."); st.hasMoreTokens(); )

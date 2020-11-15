@@ -36,13 +36,20 @@ public class Issue005Test extends Base
         transact("north", "To the West you can see Window");
         transact("west", "To the North you can see Pole Arm for 6");
         transact("north", "You buy 1 Pole Arm for 6 gold pieces");
+        // standard
         transact("use Pole Arm", "Jerome is now using Pole Arm");
         transact("north", "You buy 1 Pole Arm for 6 gold pieces");
         transact("activate Honesty", "Your active companion is now Honesty");
+        // alias 1
         transact("wear Pole Arm", "Honesty is now using Pole Arm");
         transact("north", "You buy 1 Pole Arm for 6 gold pieces");
         transact("activate Paris", "Your active companion is now Paris");
+        // alias 2
         transact("wield Pole Arm", "Paris is now using Pole Arm");
+        transact("north", "You buy 1 Pole Arm for 6 gold pieces");
+        transact("activate Peyton", "Peyton is now your active companion");
+        // alternative name
+        transact("wield PoleArm", "Peyton is now using Pole Arm");
     }
 
 }

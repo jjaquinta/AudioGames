@@ -535,13 +535,6 @@ public class LookLogic
         state.setMore(msgs.toArray(new AudioMessageBean[0]));
         return false;
     }
-
-    private static final String[] DIR_NAMES = {
-        CompanionsModelConst.TEXT_NORTH,
-        CompanionsModelConst.TEXT_SOUTH,
-        CompanionsModelConst.TEXT_EAST,
-        CompanionsModelConst.TEXT_WEST,
-    };
     
     private static void respondWithOrdinalDirections(CompState state, AudioMessageBean[] names, AudioMessageBean ourName)
     {
@@ -551,7 +544,7 @@ public class LookLogic
             if (name == null)
                 continue;
             state.respond(CompanionsModelConst.TEXT_XXX_LEADS_TO_YYY, 
-                    "{{"+DIR_NAMES[dir]+"}}", name);
+                    "{{"+CompConstLogic.DIR_NAMES[dir]+"}}", name);
         }        
     }
     
@@ -571,7 +564,7 @@ public class LookLogic
                 nameDests = new ArrayList<>();
                 destinations.put(name.toString(), nameDests);
             }
-            nameDests.add("{{"+DIR_NAMES[dir]+"}}");
+            nameDests.add("{{"+CompConstLogic.DIR_NAMES[dir]+"}}");
         }
         for (String ident : destinations.keySet())
         {
@@ -739,7 +732,9 @@ public class LookLogic
     public static void doMoreBounties(CompState state, JSONObject params)
     {
         List<JSONObject> bounties = getUnfilledBounties(state, params);
-        int idx = (state.getMoreDepth() - 1)%bounties.size();
+        int idx = 0;
+        if (state.getMoreDepth() > 0)
+            idx = (state.getMoreDepth() - 1)%bounties.size();
         JSONObject bounty = bounties.get(idx);
         CoordBean ords = new CoordBean(JSONUtils.getString(bounty, "ords"));
         int reward = JSONUtils.getInt(bounty, "reward");

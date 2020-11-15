@@ -4,6 +4,7 @@ import java.util.Random;
 
 import jo.audio.companions.data.CompContextBean;
 import jo.audio.companions.data.CoordBean;
+import jo.audio.companions.slu.CompanionsModelConst;
 
 public class CompConstLogic
 {
@@ -650,6 +651,13 @@ public class CompConstLogic
     public static final int PRESTIGE_HERMIT = 1;
     public static final int PRESTIGE_DEMON = 2;
     public static final int PRESTIGE_TITHE = 5;
+    
+    public static final String[] DIR_NAMES = {
+        CompanionsModelConst.TEXT_NORTH,
+        CompanionsModelConst.TEXT_SOUTH,
+        CompanionsModelConst.TEXT_EAST,
+        CompanionsModelConst.TEXT_WEST,
+    };
     
     public static Random getRandom(CoordBean ords)
     {

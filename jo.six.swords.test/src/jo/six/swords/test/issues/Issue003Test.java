@@ -15,7 +15,7 @@ public class Issue003Test extends Base
         transact("east", "East it is");
         transact("east", "Eastward we go");
         transact("north", "Bolbec Castle");
-        transact("enter", "High walls arch above you");
+        transact("Bolbec Castle", "High walls arch above you");
         transact("north", "West of you lies Office");
         transact("west", "The business of the castle is conducted in this room");
         transact("more", "Making the area 7 miles West and 5 miles North of here safe will earn you 1000 gold pieces");

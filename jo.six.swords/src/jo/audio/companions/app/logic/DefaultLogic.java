@@ -1,5 +1,7 @@
 package jo.audio.companions.app.logic;
 
+import org.json.simple.JSONObject;
+
 import jo.audio.companions.app.BaseStateHandler;
 import jo.audio.companions.app.CombatStateHandler;
 import jo.audio.companions.data.CompEncounterBean;
@@ -8,11 +10,13 @@ import jo.audio.companions.data.CompRoomBean;
 import jo.audio.companions.data.CompState;
 import jo.audio.companions.data.CompUserBean;
 import jo.audio.companions.data.FeatureBean;
+import jo.audio.companions.logic.CompConstLogic;
 import jo.audio.companions.logic.FeatureLogic;
 import jo.audio.companions.slu.CompanionsModelConst;
 import jo.audio.util.PhoneticMatchLogic;
 import jo.audio.util.model.data.AudioMessageBean;
 import jo.util.utils.DebugUtils;
+import jo.util.utils.MathUtils;
 import jo.util.utils.obj.StringUtils;
 
 public class DefaultLogic
@@ -69,76 +73,47 @@ public class DefaultLogic
     public static boolean doTacticalDefaults(CompState state, BaseStateHandler h,
             String raw)
     {
-        FeatureBean f = state.getContext().getFeature().getFeature();
+        FeatureBean feature = state.getContext().getFeature().getFeature();
         CompRoomBean room = state.getContext().getRoom();
-        if ((raw.indexOf("exit") >= 0) || (raw.indexOf("leave") >= 0) || (raw.indexOf("out") >= 0))
+        int bestDir = -1;
+        int bestCount = -1;
+        for (int dir = 0; dir < 4; dir++)
         {
-            if ("$exit".equals(room.getNorth()))
+            if ("$exit".equals(room.getDirection(dir)))
             {
-                h.doNorth(state);
-                return true;
+                int count = MathUtils.max(PhoneticMatchLogic.countWordMatches(raw, "exit"),
+                        PhoneticMatchLogic.countWordMatches(raw, "leave"),
+                        PhoneticMatchLogic.countWordMatches(raw, "out"));
+                if (count > bestCount)
+                {
+                    bestDir = dir;
+                    bestCount = count;
+                }
             }
-            if ("$exit".equals(room.getSouth()))
+            else
             {
-                h.doSouth(state);
-                return true;
-            }
-            if ("$exit".equals(room.getEast()))
-            {
-                h.doEast(state);
-                return true;
-            }
-            if ("$exit".equals(room.getWest()))
-            {
-                h.doWest(state);
-                return true;
+                AudioMessageBean name = room.getDirectionDesc(dir);
+                if (name == null)
+                {
+                    CompRoomBean north = FeatureLogic.findRoom(feature, room.getDirection(dir));
+                    if (north != null)
+                        name = north.getName();
+                }
+                if (name != null)
+                {
+                    String roomName = state.resolve(name);
+                    int count = PhoneticMatchLogic.countWordMatches(raw, roomName);
+                    if (count > bestCount)
+                    {
+                        bestDir = dir;
+                        bestCount = count;
+                    }
+                }
             }
         }
-        String bestDir = null;
-        int bestCount = 0;
-        CompRoomBean rn = FeatureLogic.findRoom(f, room.getNorth());
-        if (rn != null)
+        if (bestDir >= 0)
         {
-            int count = PhoneticMatchLogic.countWordMatches(raw, state.resolve(rn.getName()));
-            if (count > bestCount)
-            {
-                bestDir = "north";
-                bestCount = count;
-            }
-        }
-        CompRoomBean rs = FeatureLogic.findRoom(f, room.getSouth());
-        if (rs != null)
-        {
-            int count = PhoneticMatchLogic.countWordMatches(raw, state.resolve(rs.getName()));
-            if (count > bestCount)
-            {
-                bestDir = "south";
-                bestCount = count;
-            }
-        }
-        CompRoomBean re = FeatureLogic.findRoom(f, room.getEast());
-        if (re != null)
-        {
-            int count = PhoneticMatchLogic.countWordMatches(raw, state.resolve(re.getName()));
-            if (count > bestCount)
-            {
-                bestDir = "east";
-                bestCount = count;
-            }
-        }
-        CompRoomBean rw = FeatureLogic.findRoom(f, room.getWest());
-        if (rw != null)
-        {
-            int count = PhoneticMatchLogic.countWordMatches(raw, state.resolve(rw.getName()));
-            if (count > bestCount)
-            {
-                bestDir = "west";
-                bestCount = count;
-            }
-        }
-        if (bestDir != null)
-        {
-            h.doMove(state, bestDir);
+            h.doMove(state, CompConstLogic.DIR_NAMES[bestDir]);
             return true;
         }
         return false;
@@ -255,6 +230,17 @@ public class DefaultLogic
         {
             h.doStop(state);
             return true;
+        }
+        if ((raw.indexOf("bounty") >= 0) || (raw.indexOf("bounties") >= 0))
+        {
+            if ("castleOffice".equals(state.getContext().getLocation().getRoomID()))
+            {
+                CompRoomBean room = state.getContext().getRoom();
+                JSONObject params = room.getParams();
+                LookLogic.doMoreBounties(state, params);
+                return true;
+            }
+            return false;
         }
         return false;
     }
