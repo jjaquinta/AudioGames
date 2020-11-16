@@ -3,8 +3,8 @@ package jo.audio.companions.app.logic;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
-import java.util.StringTokenizer;
 import java.util.function.BiConsumer;
 
 import org.json.simple.JSONObject;
@@ -24,7 +24,6 @@ import jo.audio.companions.slu.CompanionsModelConst;
 import jo.audio.util.PhoneticMatchLogic;
 import jo.audio.util.model.data.AudioMessageBean;
 import jo.util.utils.DebugUtils;
-import jo.util.utils.MathUtils;
 import jo.util.utils.obj.StringUtils;
 
 public class DefaultLogic
@@ -43,60 +42,42 @@ public class DefaultLogic
         if (StringUtils.isTrivial(raw))
             return false;
         raw = raw.toLowerCase();
-        if (doSingleInvocations(state, h, raw))
-            return true;
+        DebugUtils.trace("Attemtping to default, raw="+raw);
+        List<FuzzyBaseMatcher> matchers = new ArrayList<>();
+        addSingleInvocations(state, h, matchers);
         if (!StringUtils.isTrivial(state.getContext().getLocation().getRoomID()) && (state.getContext().getFeature() != null))
-        {
-            if (doTacticalDefaults(state, h, raw))
-                return true;
-        }
+            addTacticalDefaults(state, h, matchers);
         else
-        {   // strategic
-            if (doStrategicDefaults(state, h, raw))
-                return true;
-        }
-        return false;
+            addStrategicDefaults(state, h, matchers);
+        return evalFuzzies(matchers, raw, h, state);
     }
 
-    public static boolean doStrategicDefaults(CompState state, BaseStateHandler h, String raw)
+    public static void addStrategicDefaults(CompState state, BaseStateHandler h, List<FuzzyBaseMatcher> matchers)
     {
         if (state.getContext().getFeature() != null)
         {
             FeatureBean f = state.getContext().getFeature().getFeature();
             AudioMessageBean feature = f.getName();
-            if (PhoneticMatchLogic.isAnyWordMatch(raw, state.resolve(feature)))
-            {
-                h.doEnter(state);
-                return true;
-            }   
-            if ((raw.indexOf("into") >= 0) || (raw.indexOf("in to") >= 0))
-            {
-                h.doEnter(state);
-                return true;
-            }
+            String featureName = state.resolve(feature);
+            FuzzyBaseMatcher fm = new FuzzyBaseMatcher((s, hh) -> hh.doEnter(s), 
+                    featureName, "into", "in to");
+            matchers.add(fm);
         }
-        return false;
     }
 
-    public static boolean doTacticalDefaults(CompState state, BaseStateHandler h,
-            String raw)
+    public static void addTacticalDefaults(CompState state, BaseStateHandler h,
+            List<FuzzyBaseMatcher> matchers)
     {
         FeatureBean feature = state.getContext().getFeature().getFeature();
         CompRoomBean room = state.getContext().getRoom();
-        int bestDir = -1;
-        int bestCount = -1;
         for (int dir = 0; dir < 4; dir++)
         {
+            final int thisDir = dir;
             if ("$exit".equals(room.getDirection(dir)))
             {
-                int count = MathUtils.max(PhoneticMatchLogic.countWordMatches(raw, "exit"),
-                        PhoneticMatchLogic.countWordMatches(raw, "leave"),
-                        PhoneticMatchLogic.countWordMatches(raw, "out"));
-                if (count > bestCount)
-                {
-                    bestDir = dir;
-                    bestCount = count;
-                }
+                FuzzyBaseMatcher fm = new FuzzyBaseMatcher((s, hh) -> hh.doMove(s, CompConstLogic.DIR_NAMES[thisDir]), 
+                        "exit", "leave", "out");
+                matchers.add(fm);
             }
             else
             {
@@ -110,28 +91,18 @@ public class DefaultLogic
                 if (name != null)
                 {
                     String roomName = state.resolve(name);
-                    int count = PhoneticMatchLogic.countWordMatches(raw, roomName);
-                    if (count > bestCount)
-                    {
-                        bestDir = dir;
-                        bestCount = count;
-                    }
+                    FuzzyBaseMatcher fm = new FuzzyBaseMatcher((s, hh) -> hh.doMove(s, CompConstLogic.DIR_NAMES[thisDir]), 
+                            roomName);
+                    matchers.add(fm);
                 }
             }
         }
-        if (bestDir >= 0)
-        {
-            h.doMove(state, CompConstLogic.DIR_NAMES[bestDir]);
-            return true;
-        }
-        return false;
     }
     
     private static List<FuzzyBaseMatcher> mBaseSingletons = new ArrayList<>();
     private static void addBaseSingleton(String names, BiConsumer<CompState, BaseStateHandler> action)
     {
-        for (StringTokenizer st = new StringTokenizer(names, ","); st.hasMoreTokens(); )
-            mBaseSingletons.add(new FuzzyBaseMatcher(st.nextToken(), action));
+        mBaseSingletons.add(new FuzzyBaseMatcher(action, names.split(",")));
     }
     static
     {
@@ -192,12 +163,19 @@ public class DefaultLogic
     @SuppressWarnings("unchecked")
     private static <T,U> boolean evalFuzzies(List<? extends FuzzyStateMatcher<U>> matchers, String raw, U h, CompState state)
     {
-        for (Object m : matchers)
+        for (Iterator<?> i = matchers.iterator(); i.hasNext(); )
         {
+            Object m = i.next();
             FuzzyStateMatcher<U> mm = (FuzzyStateMatcher<U>)m;
-            if (mm.eval(raw))
+            mm.eval(raw);
+            if (mm.count >= 100)
+            {
                 if (mm.exec(state, h))
                     return true;
+                i.remove();
+            }
+            else if (mm.count == 0)
+                i.remove();
         }
         Collections.sort(matchers, new Comparator<FuzzyStateMatcher<U>>() {
             @Override
@@ -207,21 +185,20 @@ public class DefaultLogic
             }
         });
         for (FuzzyStateMatcher<U> m : matchers)
-            if (m.count < 100)
+            if (m.count == 0)
+                return false;
+            else if (m.count < 100)
                 if (m.exec(state, h))
                     return true;
         return false;
 
     }
     
-    public static boolean doSingleInvocations(CompState state, BaseStateHandler h,
-            String raw)
+    public static void addSingleInvocations(CompState state, BaseStateHandler h,
+            List<FuzzyBaseMatcher> matchers)
     {
-        DebugUtils.trace("Attemtping to default, raw="+raw);
-        List<FuzzyBaseMatcher> matchers = new ArrayList<>();
         addContextual(matchers, state);
         matchers.addAll(mBaseSingletons);
-        return evalFuzzies(matchers, raw, h, state);
     }
 
     private static void addContextual(List<FuzzyBaseMatcher> matchers,
@@ -230,15 +207,14 @@ public class DefaultLogic
         for (CompCompanionBean comp : state.getUser().getCompanions())
         {
             final String name = state.resolve(comp.getName());
-            matchers.add(new FuzzyBaseMatcher(name, (s, h) -> h.doAbout(s, name)));
+            matchers.add(new FuzzyBaseMatcher((s, h) -> h.doAbout(s, name), name));
         }
     }
     
     private static List<FuzzyCombatMatcher> mCombatSingletons = new ArrayList<>();
     private static void addCombatSingleton(String names, BiConsumer<CompState, CombatStateHandler> action)
     {
-        for (StringTokenizer st = new StringTokenizer(names, ","); st.hasMoreTokens(); )
-            mCombatSingletons.add(new FuzzyCombatMatcher(st.nextToken(), action));
+        mCombatSingletons.add(new FuzzyCombatMatcher(action, names.split(",")));
     }
     static
     {
@@ -272,20 +248,21 @@ public class DefaultLogic
 
 class FuzzyStateMatcher<T>
 {
-    public String text;
+    public String[] text;
     public BiConsumer<CompState, T> action;
     public int count;
     
-    public FuzzyStateMatcher(String text, BiConsumer<CompState, T> action)
+    public FuzzyStateMatcher(BiConsumer<CompState, T> action, String... text)
     {
         this.text = text;
         this.action = action;
     }
     
-    public boolean eval(String raw)
+    public void eval(String raw)
     {
-        this.count = MathUtils.max(PhoneticMatchLogic.countWordMatches(raw, text));
-        return this.count == 100;
+        this.count = -1;
+        for (String t : text)
+            this.count = Math.max(this.count, PhoneticMatchLogic.countWordMatches(raw, t));
     }
     
     public boolean exec(CompState state, T h)
@@ -304,16 +281,16 @@ class FuzzyStateMatcher<T>
 
 class FuzzyBaseMatcher extends FuzzyStateMatcher<BaseStateHandler>
 {
-    public FuzzyBaseMatcher(String text, BiConsumer<CompState, BaseStateHandler> action)
+    public FuzzyBaseMatcher(BiConsumer<CompState, BaseStateHandler> action, String... text)
     {
-        super(text, action);
+        super(action, text);
     }
 }
 
 class FuzzyCombatMatcher extends FuzzyStateMatcher<CombatStateHandler>
 {
-    public FuzzyCombatMatcher(String text, BiConsumer<CompState, CombatStateHandler> action)
+    public FuzzyCombatMatcher(BiConsumer<CompState, CombatStateHandler> action, String... text)
     {
-        super(text, action);
+        super(action, text);
     }
 }

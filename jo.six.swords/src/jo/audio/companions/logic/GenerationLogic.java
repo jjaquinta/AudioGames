@@ -278,4 +278,10 @@ public class GenerationLogic
         for (IGenerator gen : GENERATORS)
             gen.cleanup();
     }
+    
+    public static void clearCache()
+    {
+        for (IGenerator gen : GENERATORS)
+            gen.clearCache();
+    }
 }

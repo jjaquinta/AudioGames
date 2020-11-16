@@ -5,7 +5,9 @@ import java.io.IOException;
 import org.junit.jupiter.api.Test;
 
 import jo.audio.companions.slu.CompanionsModelConst;
+import jo.audio.util.BaseUserState;
 import jo.six.swords.test.Base;
+import jo.util.utils.DebugUtils;
 
 public class Issue005Test extends Base
 {
@@ -16,16 +18,18 @@ public class Issue005Test extends Base
         transact("who", "Your active companion is Jerome", "Paris", "Honesty", "Peyton", "Fellowship of the Bad Swords", "inventory");
         transact("inventory", "The group is carrying", 
                 "$"+CompanionsModelConst.TEXT_YOU_HAVE_NO_GOLD);
+        DebugUtils.debug = true;
         transact("east", "$"+CompanionsModelConst.TEXT_YOU_TRAVEL_EAST, 
                 "$"+CompanionsModelConst.TEXT_AROUND_YOU_CONTINUES_XXX, 
                 "$"+CompanionsModelConst.TEXT_FOLLOW_STRAIGHT_THE_ROAD_GOES_XXX_YYY, 
                 "fight");
+        DebugUtils.debug = false;
         transact("fight", "Peyton", "Jerome", "Paris", "Honesty", "You have 3 enemies left");
         transact("kill", "Peyton", "Jerome", "Paris", "Honesty", "You have 2 enemies left");
         transact("kill Merchant", "Peyton", "Jerome", "Paris", 
-                "You chase the Merchant from the battle field",
-                "you come across 47 copper pieces, 7 electrum pieces, 13 gold pieces and 8 platinum pieces, worth a total of 56 gold",
-                "You gain 55 experience points");
+                "$"+CompanionsModelConst.TEXT_THE_XXX_RUNS_AWAY,
+                "$"+CompanionsModelConst.TEXT_YOU_SEARCH_THE_BODIES_AND_FIND_XXX,
+                "$"+CompanionsModelConst.TEXT_YOU_GAIN_XXX_EXPERIENCE_POINTS);
         west();
         south("You come upon eight Kobold");
         transact("run away", "You run away from the combat");

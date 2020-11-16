@@ -58,20 +58,20 @@ public class ModelToRegex
                 {
                     String dictName = sseg.getSlot().getDictionary();
                     if (dictName.equalsIgnoreCase("SearchQuery") || (dictName.equalsIgnoreCase("anything")))
-                    {
-                        if (i + 1 >= utterance.getPhrase().size())
-                            regex.append(".*");
-                        else
-                            regex.append("[^ ]*");
-                    }
+                        appendAny(utterance, regex, i);
                     else
                     {
                         Map<String,List<String>> dict = model.getDictionary(dictName, lang);
-                        // blank OK = empty slot
-                        for (String word : dict.keySet())
+                        if (dict.size() > 24)
+                            appendAny(utterance, regex, i);
+                        else
                         {
-                            regex.append("|");
-                            appendLiteral(regex, word);
+                            // blank OK = empty slot
+                            for (String word : dict.keySet())
+                            {
+                                regex.append("|");
+                                appendLiteral(regex, word);
+                            }
                         }
                     }
                 }
@@ -96,6 +96,15 @@ public class ModelToRegex
             }
         }
         return regex.toString();
+    }
+
+    private static void appendAny(UtteranceBean utterance, StringBuffer regex,
+            int i)
+    {
+        if (i + 1 >= utterance.getPhrase().size())
+            regex.append(".*");
+        else
+            regex.append("[^ ]*");
     }
 
     private static void appendLiteral(StringBuffer regex, String text)

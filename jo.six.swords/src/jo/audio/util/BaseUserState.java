@@ -8,6 +8,7 @@ import jo.audio.util.model.data.AudioRequestBean;
 import jo.audio.util.model.data.AudioResponseBean;
 import jo.audio.util.model.logic.ModelResolveLogic;
 import jo.audio.util.state.logic.ApplicationHandler;
+import jo.util.utils.DebugUtils;
 
 public class BaseUserState
 {
@@ -19,7 +20,16 @@ public class BaseUserState
 
     private static final String PAUSE = "<break time=\"1s\"/>";
 
-    public static final Random RND = new Random();
+    public static final Random RND = new Random();/* {
+        protected int next(int bits) {
+            int ret = super.next(bits);
+            Throwable t = new Throwable();
+            StackTraceElement[] ste = t.getStackTrace();
+            if (ste[2].toString().startsWith("jo.audio.util.model.logic.ModelResolveLogic"))
+                DebugUtils.debug("BaseUserState.RND = "+ret+", "+ste[2]+", "+ste[3]+", "+ste[4]+", "+ste[5]+", "+ste[6]+", "+ste[7]);
+            return ret;
+        };
+    };*/
     
     private boolean mDebug = false;
     

@@ -301,4 +301,10 @@ public class NullGenerator implements IGenerator
             if (mDomains.get(key).getLastUsed() < cutoff)
                 mDomains.remove(key);
     }
+
+    @Override
+    public void clearCache()
+    {
+        mDomains.clear();
+    }
 }

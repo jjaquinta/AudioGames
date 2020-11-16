@@ -43,7 +43,7 @@ public class ApplicationHandler
     protected InteractionModelBean mModel;
     protected boolean mEnforceLinking = false;
     protected long mQueryISPTimeout = 0; // 0 = never
-    protected Random mRND = new Random();
+    protected Random mRND = BaseUserState.RND;
     protected Set<String> mRequiredPermissions = new HashSet<>();
     
     private static final Map<Thread, BaseUserState> mThreadState = new HashMap<>();

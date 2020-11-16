@@ -6,13 +6,16 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 
+import jo.audio.companions.app.CompApplicationHandler;
 import jo.audio.companions.data.CompIdentBean;
 import jo.audio.companions.data.CompUserBean;
 import jo.audio.companions.logic.CompIOLogic;
+import jo.audio.companions.logic.GenerationLogic;
 import jo.audio.companions.slu.CompanionsModelConst;
 import jo.audio.companions.tools.gui.client.RequestLogic;
 import jo.audio.util.BaseUserState;
 import jo.audio.util.model.data.AudioResponseBean;
+import jo.util.utils.DebugUtils;
 import jo.util.utils.obj.StringUtils;
 
 public class Base
@@ -38,6 +41,8 @@ public class Base
         if (ident != null)
             CompIOLogic.deleteIdent(ident);
         BaseUserState.RND.setSeed(0L);
+        GenerationLogic.clearCache();
+        CompApplicationHandler.getInstance().testClearFromCache(null);
     }
     
     protected void transact(String toSay, String... toHear) throws IOException
@@ -110,5 +115,15 @@ public class Base
     {
         transact("west", "$"+CompanionsModelConst.TEXT_YOU_TRAVEL_WEST);
         assertHeard(toHear);
+    }
+    
+    protected void debugOn()
+    {
+        DebugUtils.mDebugLevel = DebugUtils.TRACE;
+    }
+    
+    protected void debugOff()
+    {
+        DebugUtils.mDebugLevel = DebugUtils.INFO;
     }
 }

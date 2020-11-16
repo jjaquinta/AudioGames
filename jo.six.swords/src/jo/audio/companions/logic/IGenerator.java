@@ -18,4 +18,5 @@ public interface IGenerator
     public int getPrecipitation(CoordBean ord, int time);
     public String dumpCache();
     public void cleanup();
+    public void clearCache();
 }
