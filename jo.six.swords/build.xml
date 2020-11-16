@@ -5,13 +5,13 @@
               directory with the processing instruction <?eclipse.ant.import?>
               as the first entry and export the buildfile again. --><project basedir="." default="build" name="jo.six.swords">
     <property environment="env"/>
-    <property name="ECLIPSE_HOME" value="../../../../Program Files/eclipse-jee-oxygen/eclipse/"/>
-    <property name="jo.util.location" value="C:/Users/JoJaquinta/git/ttg/jo.util"/>
-    <property name="jo.util.ui.swing.location" value="C:/Users/JoJaquinta/git/ttg/jo.util.ui.swing"/>
+    <property name="jo.six.swords.test.location" value="../jo.six.swords.test"/>
+    <property name="ECLIPSE_HOME" value="D:/Program Files/eclipse-jee-oxygen/eclipse/"/>
+    <property name="jo.util.location" value="../../ttg/jo.util"/>
+    <property name="jo.util.ui.swing.location" value="../../ttg/jo.util.ui.swing"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.8"/>
     <property name="source" value="1.8"/>
-  	<import file="build_custom.xml"/>
     <path id="jo.util.classpath">
         <pathelement location="${jo.util.location}/bin"/>
     </path>
@@ -21,9 +21,9 @@
     </path>
     <path id="jo.six.swords.classpath">
         <pathelement location="bin"/>
-        <path refid="jo.util.classpath"/>
         <path refid="jo.util.ui.swing.classpath"/>
         <pathelement location="lib/commons-codec-1.10.jar"/>
+        <path refid="jo.util.classpath"/>
     </path>
     <target name="init">
         <mkdir dir="bin"/>
@@ -61,7 +61,14 @@
             <classpath refid="jo.six.swords.classpath"/>
         </javac>
     </target>
-    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects">
+        <ant antfile="build.xml" dir="${jo.six.swords.test.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${jo.six.swords.test.location}" inheritAll="false" target="build">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+    </target>
     <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
         <copy todir="${ant.library.dir}">
             <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
@@ -75,8 +82,32 @@
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
     </target>
-    <target name="6Swords CompClient">
-        <java classname="jo.audio.companions.tools.gui.client.CompClient" failonerror="true" fork="yes">
+    <target name="6Swords Generate Model">
+        <java classname="jo.audio.util.model.cmd.GenerateAudioModel" failonerror="true" fork="yes">
+            <arg line="-m C:\Users\JoJaquinta\git\AudioGames\jo.six.swords\src\jo\audio\companions\slu\Companions.model"/>
+            <classpath refid="jo.six.swords.classpath"/>
+        </java>
+    </target>
+    <target name="6Swords GUIClient">
+        <java classname="jo.audio.companions.tools.gui.client.GUIClient" failonerror="true" fork="yes">
+            <jvmarg line="-Ddebug.level=5"/>
+            <classpath refid="jo.six.swords.classpath"/>
+        </java>
+    </target>
+    <target name="6Swords HttpClient">
+        <java classname="jo.audio.companions.tools.gui.client.HttpClient" failonerror="true" fork="yes">
+            <jvmarg line="-Ddebug.level=5"/>
+            <classpath refid="jo.six.swords.classpath"/>
+        </java>
+    </target>
+    <target name="6Swords Map Viewer">
+        <java classname="jo.audio.companions.tools.gui.map.MapApp" failonerror="true" fork="yes">
+            <classpath refid="jo.six.swords.classpath"/>
+        </java>
+    </target>
+    <target name="6Swords TelnetClient">
+        <java classname="jo.audio.companions.tools.gui.client.TelnetClient" failonerror="true" fork="yes">
+            <jvmarg line="-Ddebug.level=5"/>
             <classpath refid="jo.six.swords.classpath"/>
         </java>
     </target>
