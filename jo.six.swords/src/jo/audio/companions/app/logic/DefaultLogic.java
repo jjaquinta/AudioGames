@@ -185,6 +185,8 @@ public class DefaultLogic
                 else
                     throw new IllegalStateException();
             });
+        // about aliases
+        addBaseSingleton("level,gold", (state,h) -> h.doAbout(state, state.getRequest().getRawText()));
     }
 
     @SuppressWarnings("unchecked")

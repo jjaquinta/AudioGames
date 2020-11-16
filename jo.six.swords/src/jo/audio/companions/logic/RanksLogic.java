@@ -21,6 +21,12 @@ public class RanksLogic
         if ((elapsed > RANKS_TIMEOUT) || (mRanks == null))
         {
             mRanks = CommonIOLogic.getDataFromURI("sixswords://rankings");
+            if (mRanks == null)
+            {
+                mRanks = new SLDataBean();
+                mRanks.setKey("sixswords://rankings");
+                CommonIOLogic.saveData(mRanks);
+            }
             mLastLookup = now;
         }
         Map<String, Integer> ranks = new HashMap<>();

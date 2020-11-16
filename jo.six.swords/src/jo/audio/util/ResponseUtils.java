@@ -5,6 +5,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import org.json.simple.JSONObject;
+
 import jo.audio.util.model.data.AudioMessageBean;
 import jo.audio.util.model.data.AudioResponseBean;
 
@@ -199,6 +201,7 @@ public class ResponseUtils
         response.setCardContent(cardText);
         response.setShouldEndSession(true);
         response.setOutputSpeechText(toOutputSpeech(e));
+        response.setTransactionState(new JSONObject());
         return response;
     }
     

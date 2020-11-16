@@ -22,6 +22,7 @@ import jo.audio.util.model.logic.ModelToExamples;
 import jo.audio.util.model.logic.ParseModelLogic;
 import jo.util.utils.ArrayUtils;
 import jo.util.utils.BeanUtils;
+import jo.util.utils.DebugUtils;
 import jo.util.utils.io.ResourceUtils;
 import jo.util.utils.obj.BooleanUtils;
 import jo.util.utils.obj.StringUtils;
@@ -533,7 +534,7 @@ public class ApplicationHandler
 
     public void log(String msg)
     {
-        Logger.getAnonymousLogger().log(Level.FINE, msg);
+        DebugUtils.trace(msg);
     }
     
     public InteractionModelBean getModel()
