@@ -109,7 +109,7 @@ public class DefaultLogic
         addBaseSingleton("look,examine,read sign,read post", (state,h) -> h.doLook(state));
         addBaseSingleton("read deed", (state,h) -> h.doEquip(state, null, null));
         addBaseSingleton("north", (state,h) -> h.doNorth(state));
-        addBaseSingleton("south,stuff,self", (state,h) -> h.doSouth(state));
+        addBaseSingleton("south,stuff,self,soth", (state,h) -> h.doSouth(state));
         addBaseSingleton("east,beast", (state,h) -> h.doEast(state));
         addBaseSingleton("west", (state,h) -> h.doWest(state));
         addBaseSingleton("characters", (state,h) -> h.doWho(state));
@@ -158,6 +158,8 @@ public class DefaultLogic
             });
         // about aliases
         addBaseSingleton("level,gold", (state,h) -> h.doAbout(state, state.getRequest().getRawText()));
+        addBaseSingleton("inventory,inventorz", (state,h) -> h.doInventory(state, "", ""));
+        addBaseSingleton("more,mroe", (state,h) -> h.doMore(state));
     }
 
     @SuppressWarnings("unchecked")

@@ -5,7 +5,6 @@ import java.io.IOException;
 import org.junit.jupiter.api.Test;
 
 import jo.audio.companions.slu.CompanionsModelConst;
-import jo.audio.util.BaseUserState;
 import jo.six.swords.test.Base;
 import jo.util.utils.DebugUtils;
 

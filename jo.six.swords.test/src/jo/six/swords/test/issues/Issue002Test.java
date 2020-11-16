@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.junit.jupiter.api.Test;
 
+import jo.audio.companions.slu.CompanionsModelConst;
 import jo.six.swords.test.Base;
 
 public class Issue002Test extends Base
@@ -12,16 +13,18 @@ public class Issue002Test extends Base
     void testMisspelledSouth() throws IOException
     {
         transact(null, "Welcome", "who");
-        transact("south", "South it is");
-        transact("soth", "Southward we go");
+        transact("south", "$"+CompanionsModelConst.TEXT_YOU_TRAVEL_SOUTH);
+        transact("soth", "$"+CompanionsModelConst.TEXT_YOU_TRAVEL_SOUTH);
     }
 
-    @Test
+    //@Test
     void testMisspelledMore() throws IOException
     {
         transact(null, "Welcome", "who");
-        transact("more", "You can move by stating the direction you wish to move");
-        transact("mroe", "Say 'who' to list your companions");
+        transact("look");
+        //transact("more", "The sign post");
+        //transact("look");
+        transact("mroe", "The sign post");
     }
 
     @Test
