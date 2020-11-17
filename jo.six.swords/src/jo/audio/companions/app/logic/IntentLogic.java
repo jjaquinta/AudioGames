@@ -58,7 +58,7 @@ public class IntentLogic
                 if (s.indexOf('{') >= 0)
                     continue;
                 //state.getApplication().log("  Considering "+s+".");
-                if ((suggestion == null) || (suggestion.length() > s.length()))
+                if ((suggestion == null) || ((s.length() > 1) && (suggestion.length() > s.length())))
                     suggestion = s;
             }
             //state.getApplication().log("  Adding "+suggestion+".");

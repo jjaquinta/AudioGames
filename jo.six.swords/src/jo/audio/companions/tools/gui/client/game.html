@@ -2,7 +2,7 @@
 <header>
 <title>Six Swords</title>
 </header>
-<body onload="setTimeout(function() { console.log('wakeup');sendData(); }, 500)">
+<body onload="setTimeout(function() { sendData(); }, 500)">
 <p id="display" aria-live="polite">
 <!-- display -->
 </p>
@@ -11,6 +11,14 @@
 </label>
 <p id="audio">
 </p>
+<button name="fast1" id="fast1" style="visibility:hidden" onclick="sendTextData(suggestions[0]);">Fast1</button>
+<button name="fast2" id="fast2" style="visibility:hidden" onclick="sendTextData(suggestions[1]);">Fast2</button>
+<button name="fast3" id="fast3" style="visibility:hidden" onclick="sendTextData(suggestions[2]);">Fast3</button>
+<button name="fast4" id="fast4" style="visibility:hidden" onclick="sendTextData(suggestions[3]);">Fast4</button>
+<button name="fast5" id="fast5" style="visibility:hidden" onclick="sendTextData(suggestions[4]);">Fast5</button>
+<button name="fast6" id="fast6" style="visibility:hidden" onclick="sendTextData(suggestions[5]);">Fast6</button>
+<button name="fast7" id="fast7" style="visibility:hidden" onclick="sendTextData(suggestions[6]);">Fast7</button>
+<button name="fast8" id="fast8" style="visibility:hidden" onclick="sendTextData(suggestions[7]);">Fast8</button>
 <script>
 var useTTS = false;
 var username = "<username>";
@@ -27,6 +35,8 @@ var pauser;
 var audio = document.createElement("audio");
 document.body.appendChild(audio);
 */
+var NUM_BUTTONS = 8;
+var suggestions = [];
 
 function startSound()
 {
@@ -222,11 +232,15 @@ function speak(ssml)
 }
 
 function sendData() {
-
-  const XHR = new XMLHttpRequest();
-
   let data = document.getElementById("text").value;
   document.getElementById("text").value = "";
+
+	sendTextData(data);
+}
+
+function sendTextData(data) {
+
+  const XHR = new XMLHttpRequest();
 
   // Combine the pairs into a single string and replace all %-encoded spaces to 
   // the '+' character; matches the behaviour of browser form submissions.
@@ -253,6 +267,23 @@ function sendData() {
 	   {
       		document.getElementById("display").innerHTML = data.cardContent;
 	   }  
+	   suggestions = data.suggestions;
+	   for (var i = 0; i < NUM_BUTTONS; i++)
+	   {
+			var fastButton = document.getElementById("fast"+(i+1));
+	   		console.log(fastButton);
+	   		if (i < suggestions.length)
+	   		{
+	   			//console.log("Making "+i+" visible");
+	   			fastButton.style.visibility = "visible";
+	   			fastButton.innerHTML = suggestions[i];
+   			}
+   			else
+   			{
+	   			//console.log("Making "+i+" invisible");
+	   			fastButton.style.visibility = "hidden";
+   			}
+	   }
   } );
 
   // Define what happens in case of error
@@ -273,6 +304,7 @@ function doKey(event) {
     	sendData();
 	}
 }
+
 
 
 </script>

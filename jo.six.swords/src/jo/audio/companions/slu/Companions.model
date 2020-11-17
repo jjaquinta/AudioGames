@@ -387,11 +387,11 @@
       ],
       "utterances": {
 	      "en_US": [
-      	"i {whom}",
+      	"inventory",
       	"inventory {whom}",
       	"inventory {type}",
       	"list my {type}",
-      	"inventory",
+      	"i {whom}",
       	"i"
       ]},
       "examples": { "en_US": [ "To find out what you have, say \"<>\". " ] }
@@ -466,8 +466,8 @@
       "slots": [],
       "utterances": {
 	      "en_US": [
-      	"f",
       	"fight",
+      	"f",
       	"attack",
       	"combat",
       	"ready"
