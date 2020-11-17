@@ -45,6 +45,12 @@ public class Base
         CompApplicationHandler.getInstance().testClearFromCache(null);
     }
     
+    protected CompUserBean getUser()
+    {
+        CompUserBean user = CompIOLogic.getUserFromURI("compuser:///"+mUsername);
+        return user;
+    }
+    
     protected void transact(String toSay, String... toHear) throws IOException
     {
         if (StringUtils.isTrivial(toSay))
@@ -54,13 +60,32 @@ public class Base
             System.out.println(">"+toSay);
             mResponse = RequestLogic.performIntentRequest(toSay, mUsername, mPassword, mLanguage);
         }
+        System.out.println("<"+mResponse.getCardContent());
         assertHeard(toHear);
+    }
+    
+    protected boolean isHeard(String... toHear)
+    {
+        String heard = mResponse.getCardContent();
+        for (String expected : toHear)
+        {
+            if (expected.startsWith("$"))
+            {
+                if (!isContainsModelText(heard, expected.substring(1)))
+                    return false;
+            }
+            else
+            {
+                if (heard.toLowerCase().indexOf(expected.toLowerCase()) < 0)
+                    return false;
+            }
+        }
+        return true;
     }
     
     protected void assertHeard(String... toHear)
     {
         String heard = mResponse.getCardContent();
-        System.out.println("<"+heard);
         for (String expected : toHear)
         {
             if (expected.startsWith("$"))
@@ -70,14 +95,19 @@ public class Base
         }
     }
     
-    protected void assertContainsModelText(String heard, String id)
+    protected boolean isContainsModelText(String heard, String id)
     {
         heard = heard.toLowerCase();
         List<String> texts = RequestLogic.getModel().getText(mLanguage, id);
         for (String text : texts)
             if (containsModelText(heard, text))
-                return;
-        Assert.fail("Expected one of '"+StringUtils.listize(texts)+"' in '"+heard+"'");
+                return true;
+        return false;
+    }
+    
+    protected void assertContainsModelText(String heard, String id)
+    {
+        Assert.assertTrue("Expected $"+id+" in '"+heard+"'", isContainsModelText(heard, id));
     }
     
     private boolean containsModelText(String heard, String text)
