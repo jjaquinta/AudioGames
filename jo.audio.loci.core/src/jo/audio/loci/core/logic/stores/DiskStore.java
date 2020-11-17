@@ -135,4 +135,9 @@ public class DiskStore implements IDataStore
         if (f.exists())
             f.delete();
     }
+
+    @Override
+    public void clearCache()
+    {
+    }
 }

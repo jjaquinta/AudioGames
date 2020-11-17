@@ -4,14 +4,14 @@ import jo.audio.loci.core.data.ExecuteContext;
 import jo.audio.loci.core.data.Verb;
 import jo.audio.loci.core.logic.ContainmentLogic;
 import jo.audio.loci.core.logic.stores.DiskStore;
+import jo.audio.loci.sandbox.data.LociContainer;
 import jo.audio.loci.sandbox.data.LociPlayer;
-import jo.audio.loci.sandbox.data.LociThing;
 
-public class VerbCreateThing extends Verb
+public class VerbCreateContainer extends Verb
 {
-    public VerbCreateThing()
+    public VerbCreateContainer()
     {
-        super("create", "thing", "named", ".*");
+        super("create", "container", "named", ".*");
     }
 
     @Override
@@ -19,10 +19,10 @@ public class VerbCreateThing extends Verb
     {
         LociPlayer amadan = (LociPlayer)context.getInvoker();
         String name = context.getIndirectObjectText();
-        String uri = DiskStore.PREFIX+"thing/"+System.currentTimeMillis();
-        LociThing p = new LociThing(uri);
+        String uri = DiskStore.PREFIX+"container/"+System.currentTimeMillis();
+        LociContainer p = new LociContainer(uri);
         p.setName(name);
-        p.setDescription("A small, blue thing.");
+        p.setDescription("A small, blue box.");
         p.setOwner(amadan.getURI());
         ContainmentLogic.add(amadan, p);
         amadan.addMessage("You have created a "+p.getName()+".");

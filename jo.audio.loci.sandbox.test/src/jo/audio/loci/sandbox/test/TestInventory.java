@@ -9,9 +9,9 @@ class TestInventory extends TestBase
     {
         talk("register Wibble with Wobble", "Welcome Wibble");
         talk("inventory", "don't carry anything");
-        talk("create thing named Urim", "create", "Urim");
+        talk("create item named Urim", "create", "Urim");
         talk("inventory", "Urim");
-        talk("create thing named Thummim", "create", "Thummim");
+        talk("create item named Thummim", "create", "Thummim");
         talk("inventory", "Urim", "Thummim");
         talk("name Urim as Super-Urim", "changed");
         talk("inventory", "Super-Urim", "Thummim");
@@ -28,4 +28,14 @@ class TestInventory extends TestBase
         talk("i", "Thummim", "Super-Urim");
     }
 
+    @Test
+    void testContainers()
+    {
+        talk("register Wibble with Wobble", "Welcome Wibble");
+        talk("inventory", "don't carry anything");
+        talk("create container named Urim", "create", "Urim");
+        talk("inventory", "Urim");
+        talk("create container named Thummim", "create", "Thummim");
+        talk("inventory", "Urim", "Thummim");
+    }
 }

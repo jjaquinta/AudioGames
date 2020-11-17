@@ -65,4 +65,9 @@ public class MemoryStore implements IDataStore
         mStore.remove(uri);
     }
 
+    @Override
+    public void clearCache()
+    {
+        mStore.clear();
+    }
 }

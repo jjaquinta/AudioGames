@@ -1,16 +1,20 @@
 package jo.audio.loci.sandbox.logic;
 
+import jo.audio.loci.core.data.VerbProfile;
 import jo.audio.loci.core.logic.DataProfileLogic;
 import jo.audio.loci.core.logic.DataStoreLogic;
 import jo.audio.loci.core.logic.VerbLogic;
 import jo.audio.loci.core.logic.VerbProfileLogic;
 import jo.audio.loci.core.logic.stores.DiskStore;
 import jo.audio.loci.core.logic.stores.MemoryStore;
+import jo.audio.loci.sandbox.data.LociContainer;
 import jo.audio.loci.sandbox.data.LociCookie;
+import jo.audio.loci.sandbox.data.LociItem;
 import jo.audio.loci.sandbox.data.LociPlayer;
 import jo.audio.loci.sandbox.data.LociRoom;
 import jo.audio.loci.sandbox.data.LociThing;
-import jo.audio.loci.sandbox.verb.VerbCreateThing;
+import jo.audio.loci.sandbox.verb.VerbCreateContainer;
+import jo.audio.loci.sandbox.verb.VerbCreateItem;
 import jo.audio.loci.sandbox.verb.VerbDescribe;
 import jo.audio.loci.sandbox.verb.VerbDrop;
 import jo.audio.loci.sandbox.verb.VerbHelpRoom;
@@ -22,11 +26,6 @@ import jo.audio.loci.sandbox.verb.VerbLookRoom;
 import jo.audio.loci.sandbox.verb.VerbName;
 import jo.audio.loci.sandbox.verb.VerbPickUp;
 import jo.audio.loci.sandbox.verb.VerbRegister;
-import jo.audio.loci.sandbox.vprofile.VerbProfileFoyeur;
-import jo.audio.loci.sandbox.vprofile.VerbProfilePlayer;
-import jo.audio.loci.sandbox.vprofile.VerbProfilePlayerAdmin;
-import jo.audio.loci.sandbox.vprofile.VerbProfileRoom;
-import jo.audio.loci.sandbox.vprofile.VerbProfileThing;
 
 public class InitializeLogic
 {
@@ -35,10 +34,12 @@ public class InitializeLogic
 
     public static void initialize()
     {
-        DataProfileLogic.registerDataProfile(LociCookie.PROFILE, LociCookie.class);
-        DataProfileLogic.registerDataProfile(LociThing.PROFILE, LociThing.class);
-        DataProfileLogic.registerDataProfile(LociPlayer.PROFILE, LociPlayer.class);
-        DataProfileLogic.registerDataProfile(LociRoom.PROFILE, LociRoom.class);
+        DataProfileLogic.registerDataProfile(LociCookie.class);
+        DataProfileLogic.registerDataProfile(LociThing.class);
+        DataProfileLogic.registerDataProfile(LociPlayer.class);
+        DataProfileLogic.registerDataProfile(LociRoom.class);
+        DataProfileLogic.registerDataProfile(LociItem.class);
+        DataProfileLogic.registerDataProfile(LociContainer.class);
         VerbLogic.registerVerbs(new VerbLookRoom(), 
                 new VerbLookDO(), 
                 new VerbLookIO(), 
@@ -47,21 +48,32 @@ public class InitializeLogic
                 new VerbLogin(), 
                 new VerbDescribe(), 
                 new VerbName(), 
-                new VerbCreateThing(), 
+                new VerbCreateItem(), 
+                new VerbCreateContainer(), 
                 new VerbInventory(), 
                 new VerbPickUp(), 
                 new VerbDrop());
-        VerbProfileLogic.registerVerbProfile(new VerbProfileThing());
-        VerbProfileLogic.registerVerbProfile(new VerbProfileRoom());
-        VerbProfileLogic.registerVerbProfile(new VerbProfileFoyeur());
-        VerbProfileLogic.registerVerbProfile(new VerbProfilePlayer());
-        VerbProfileLogic.registerVerbProfile(new VerbProfilePlayerAdmin());
+        VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileThing").setExtendsName("VerbProfileObject")
+                .addVerbs(VerbLookDO.class, VerbLookIO.class));
+        VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileItem").setExtendsName("VerbProfileThing")
+                .addVerbs(VerbPickUp.class, VerbDrop.class));
+        VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileContainer").setExtendsName("VerbProfileItem")
+                .addVerbs());
+        VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileRoom").setExtendsName("VerbProfileObject")
+                .addVerbs(VerbLookRoom.class, VerbHelpRoom.class));
+        VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileFoyeur").setExtendsName("VerbProfileRoom")
+                .addVerbs(VerbRegister.class, VerbLogin.class));
+        VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfilePlayer").setExtendsName("VerbProfileThing")
+                .addVerbs(VerbDescribe.class, VerbName.class, VerbInventory.class, VerbCreateItem.class,
+                        VerbCreateContainer.class, VerbPickUp.class, VerbDrop.class));
+        VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfilePlayerAdmin").setExtendsName("VerbProfilePlayer")
+                .addVerbs());
         // create mandatory objects
         LociRoom foyeur = (LociRoom)DataStoreLogic.load(InitializeLogic.FOYER_URI);
         if (foyeur == null)
         {
             foyeur = new LociRoom(InitializeLogic.FOYER_URI);
-            foyeur.setVerbProfile(VerbProfileFoyeur.class.getSimpleName());
+            foyeur.setVerbProfile("VerbProfileFoyeur");
             foyeur.setName("Foyeur");
             foyeur.setDescription("You are in a nebulous grey area, outside of reality. For a list of commands, type help.");
             DataStoreLogic.save(foyeur);

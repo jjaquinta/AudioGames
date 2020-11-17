@@ -2,8 +2,6 @@ package jo.audio.loci.sandbox.data;
 
 import org.json.simple.JSONObject;
 
-import jo.audio.loci.sandbox.vprofile.VerbProfilePlayer;
-
 public class LociPlayer extends LociThing
 {
     public static final String PROFILE = "player";
@@ -14,13 +12,13 @@ public class LociPlayer extends LociThing
     public LociPlayer(String uri)
     {
         super(uri, PROFILE);       
-        setVerbProfile(VerbProfilePlayer.class);
+        setVerbProfile("VerbProfilePlayer");
     }
     
     public LociPlayer(String uri, String profile)
     {
         super(uri, profile);       
-        setVerbProfile(VerbProfilePlayer.class);
+        setVerbProfile("VerbProfilePlayer");
     }
     
     public LociPlayer(JSONObject json)

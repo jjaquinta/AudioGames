@@ -7,6 +7,7 @@ import java.util.function.Function;
 import jo.audio.loci.core.data.LociBase;
 import jo.audio.loci.core.logic.stores.DiskStore;
 import jo.audio.loci.core.logic.stores.MemoryStore;
+import jo.audio.loci.core.logic.stores.NullStore;
 import jo.util.beans.WeakCache;
 
 public class DataStoreLogic
@@ -16,6 +17,7 @@ public class DataStoreLogic
     {
         registerDataStore(new DiskStore());
         registerDataStore(new MemoryStore());
+        registerDataStore(new NullStore());
     }
     
     private static final WeakCache<String, LociBase>    mCache = new WeakCache<>();
@@ -82,5 +84,12 @@ public class DataStoreLogic
                 return DataProfileLogic.cast(ret);
         }
         return null;
+    }
+
+    public static void clearCache()
+    {
+        mCache.clear();
+        for (IDataStore store : mDataStores)
+            store.clearCache();
     }
 }

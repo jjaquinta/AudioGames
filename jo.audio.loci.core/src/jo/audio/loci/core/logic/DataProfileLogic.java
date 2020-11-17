@@ -9,6 +9,7 @@ import org.json.simple.JSONObject;
 
 import jo.audio.loci.core.data.LociBase;
 import jo.audio.loci.core.data.LociObject;
+import jo.audio.loci.core.logic.stores.NullStore;
 
 public class DataProfileLogic
 {
@@ -21,6 +22,19 @@ public class DataProfileLogic
     public static void registerDataProfile(String name, Class<? extends LociBase> archetype)
     {
         mDataProfiles.put(name, archetype);
+    }
+    
+    public static void registerDataProfile(Class<? extends LociBase> archetype)
+    {
+        try
+        {
+            LociBase base = archetype.getConstructor(String.class).newInstance(NullStore.PREFIX);
+            mDataProfiles.put(base.getDataProfile(), archetype);
+        }
+        catch (Exception e)
+        {
+            throw new IllegalArgumentException(e);
+        }
     }
     
     public static LociBase cast(LociBase ori)

@@ -11,4 +11,5 @@ public interface IDataStore
     public void save(LociBase obj);
     public void delete(String uri);
     public LociBase findFirst(String dataProfile, Function<LociBase, Boolean> matcher);
+    public void clearCache();
 }

@@ -6,7 +6,6 @@ import java.util.List;
 import org.json.simple.JSONObject;
 
 import jo.audio.loci.core.utils.ResponseUtils;
-import jo.audio.loci.sandbox.vprofile.VerbProfileRoom;
 
 public class LociRoom extends LociThing
 {
@@ -28,7 +27,7 @@ public class LociRoom extends LociThing
 
     private void init()
     {
-        setVerbProfile(VerbProfileRoom.class);
+        setVerbProfile("VerbProfileRoom");
     }
     
     @Override
