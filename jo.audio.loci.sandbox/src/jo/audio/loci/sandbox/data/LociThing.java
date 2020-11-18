@@ -15,6 +15,7 @@ public class LociThing extends LociObject
     
     public static final String ID_HELP_TEXT = "helpText";
     public static final String ID_OWNER = "owner";
+    public static final String ID_PUBLIC = "public";
 
     public LociThing(String uri)
     {
@@ -78,5 +79,15 @@ public class LociThing extends LociObject
     public void setOwner(String value)
     {
         setString(ID_OWNER, value);
+    }
+    
+    public boolean getPublic()
+    {
+        return getBoolean(ID_PUBLIC);
+    }
+    
+    public void setPublic(boolean value)
+    {
+        setBoolean(ID_PUBLIC, value);
     }
 }

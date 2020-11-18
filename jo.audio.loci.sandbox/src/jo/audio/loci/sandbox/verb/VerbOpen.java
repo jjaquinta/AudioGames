@@ -20,7 +20,7 @@ public class VerbOpen extends Verb
         LociContainer container = (LociContainer)context.getMatchedDirectObject();
         if (!StringUtils.equals(player.getURI(), container.getOwner()))
         {
-            player.addMessage("You do not own the "+container.getOwner()+".");
+            player.addMessage("You do not own the "+container.getName()+".");
             return;
         }
         if (container.getOpen())

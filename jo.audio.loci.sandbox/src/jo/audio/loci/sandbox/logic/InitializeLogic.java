@@ -29,6 +29,7 @@ import jo.audio.loci.sandbox.verb.VerbOpen;
 import jo.audio.loci.sandbox.verb.VerbPickUp;
 import jo.audio.loci.sandbox.verb.VerbPutIn;
 import jo.audio.loci.sandbox.verb.VerbRegister;
+import jo.audio.loci.sandbox.verb.VerbSet;
 import jo.audio.loci.sandbox.verb.VerbTakeOut;
 
 public class InitializeLogic
@@ -60,9 +61,10 @@ public class InitializeLogic
                 new VerbPutIn(),
                 new VerbTakeOut(),
                 new VerbOpen(),
-                new VerbShut());
+                new VerbShut(),
+                new VerbSet());
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileThing").setExtendsName("VerbProfileObject")
-                .addVerbs(VerbLookDO.class, VerbLookIO.class));
+                .addVerbs(VerbLookDO.class, VerbLookIO.class, VerbSet.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileItem").setExtendsName("VerbProfileThing")
                 .addVerbs(VerbPickUp.class, VerbDrop.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileContainer").setExtendsName("VerbProfileItem")

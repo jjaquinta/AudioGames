@@ -2,8 +2,6 @@ package jo.audio.loci.sandbox.test;
 
 import org.junit.jupiter.api.Test;
 
-import jo.util.utils.DebugUtils;
-
 class TestItems extends TestBase
 {
     @Test
@@ -79,5 +77,19 @@ class TestItems extends TestBase
         talk("open Urim", "open", "Urim");
         talk("take Thummim out of Urim", "You take", "out of");
         talk("take Thummim out of Urim", "There is no");
+    }
+    @Test
+    void testOwnership()
+    {
+        talk("register Wibble with Wobble", "Welcome Wibble");
+        talk("create container named Urim", "create", "Urim");
+        talk("drop Urim", "dropped", "Urim");
+        talk("create item named Thummim", "create", "Thummim");
+        talk("drop Thummim", "dropped", "Thummim");
+        mToken = null;
+        talk("register Wobble with Wibble", "Welcome Wobble");
+        talk("look", "Urim", "Thummim");
+        talk("take Thummim", "You do not own");
+        talk("open Urim", "You do not own");
     }
 }
