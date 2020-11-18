@@ -1,7 +1,11 @@
 package jo.audio.loci.core.data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.json.simple.JSONObject;
 
+import jo.audio.loci.core.logic.DataStoreLogic;
 import jo.audio.loci.core.logic.vprofile.VerbProfileObject;
 
 public class LociObject extends LociBase
@@ -44,7 +48,36 @@ public class LociObject extends LociBase
     {
         return "["+getDataProfile()+":"+getName()+"]";
     }
-    
+
+    @SuppressWarnings("unchecked")
+    public <T> List<T> getContainsStuff(Class<T> clazz)
+    {
+        List<T> items = new ArrayList<>();
+        String[] contents = getContains();
+        if (contents == null)
+            return items;
+        for (String itemURI : contents)
+        {
+            LociBase item = DataStoreLogic.load(itemURI);
+            if (clazz.isInstance(item))
+                items.add((T)item);
+        }
+        return items;
+    }
+
+    public List<LociObject> getContainsObjects()
+    {
+        return getContainsStuff(LociObject.class);
+    }
+
+    public List<String> getContainsNames()
+    {
+        List<String> itemNames = new ArrayList<>();
+        for (LociObject item : getContainsObjects())
+            itemNames.add(item.getName());
+        return itemNames;
+    }
+
     // getters and setters
     
     public String getName()

@@ -5,9 +5,7 @@ import java.util.List;
 
 import org.json.simple.JSONObject;
 
-import jo.audio.loci.core.data.LociBase;
 import jo.audio.loci.core.data.LociObject;
-import jo.audio.loci.core.logic.DataStoreLogic;
 
 public class LociThing extends LociObject
 {
@@ -42,21 +40,6 @@ public class LociThing extends LociObject
         desc.add(getName());
         desc.add(getDescription());
         return desc.toArray(new String[0]);
-    }
-
-    public List<String> getContainsNames()
-    {
-        List<String> itemNames = new ArrayList<>();
-        String[] contents = getContains();
-        if (contents == null)
-            return itemNames;
-        for (String itemURI : contents)
-        {
-            LociBase item = DataStoreLogic.load(itemURI);
-            if (item instanceof LociObject)
-                itemNames.add(((LociObject)item).getName());
-        }
-        return itemNames;
     }
     
     // getters and setters

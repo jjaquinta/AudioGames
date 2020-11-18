@@ -1,6 +1,8 @@
-package jo.audio.loci.sandbox.test;
+package jo.audio.loci.sandbox.test.verbs;
 
 import org.junit.jupiter.api.Test;
+
+import jo.audio.loci.sandbox.test.TestBase;
 
 class TestInventory extends TestBase
 {

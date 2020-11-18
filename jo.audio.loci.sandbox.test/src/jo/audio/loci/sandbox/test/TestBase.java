@@ -8,7 +8,7 @@ import jo.audio.loci.sandbox.data.LociPlayer;
 import jo.audio.loci.sandbox.logic.InitializeLogic;
 import jo.audio.loci.sandbox.logic.InteractLogic;
 
-class TestBase
+public class TestBase
 {
     protected static String mUserName;
     protected static String mPassword;

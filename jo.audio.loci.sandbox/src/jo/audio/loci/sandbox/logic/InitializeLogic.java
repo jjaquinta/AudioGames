@@ -9,14 +9,15 @@ import jo.audio.loci.core.logic.stores.DiskStore;
 import jo.audio.loci.core.logic.stores.MemoryStore;
 import jo.audio.loci.sandbox.data.LociContainer;
 import jo.audio.loci.sandbox.data.LociCookie;
+import jo.audio.loci.sandbox.data.LociExit;
 import jo.audio.loci.sandbox.data.LociItem;
 import jo.audio.loci.sandbox.data.LociPlayer;
 import jo.audio.loci.sandbox.data.LociRoom;
 import jo.audio.loci.sandbox.data.LociThing;
-import jo.audio.loci.sandbox.verb.VerbShut;
 import jo.audio.loci.sandbox.verb.VerbCreateContainer;
 import jo.audio.loci.sandbox.verb.VerbCreateItem;
 import jo.audio.loci.sandbox.verb.VerbDescribe;
+import jo.audio.loci.sandbox.verb.VerbDig;
 import jo.audio.loci.sandbox.verb.VerbDrop;
 import jo.audio.loci.sandbox.verb.VerbHelpRoom;
 import jo.audio.loci.sandbox.verb.VerbInventory;
@@ -30,6 +31,7 @@ import jo.audio.loci.sandbox.verb.VerbPickUp;
 import jo.audio.loci.sandbox.verb.VerbPutIn;
 import jo.audio.loci.sandbox.verb.VerbRegister;
 import jo.audio.loci.sandbox.verb.VerbSet;
+import jo.audio.loci.sandbox.verb.VerbShut;
 import jo.audio.loci.sandbox.verb.VerbTakeOut;
 
 public class InitializeLogic
@@ -43,6 +45,7 @@ public class InitializeLogic
         DataProfileLogic.registerDataProfile(LociThing.class);
         DataProfileLogic.registerDataProfile(LociPlayer.class);
         DataProfileLogic.registerDataProfile(LociRoom.class);
+        DataProfileLogic.registerDataProfile(LociExit.class);
         DataProfileLogic.registerDataProfile(LociItem.class);
         DataProfileLogic.registerDataProfile(LociContainer.class);
         VerbLogic.registerVerbs(new VerbLookRoom(), 
@@ -62,7 +65,8 @@ public class InitializeLogic
                 new VerbTakeOut(),
                 new VerbOpen(),
                 new VerbShut(),
-                new VerbSet());
+                new VerbSet(),
+                new VerbDig());
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileThing").setExtendsName("VerbProfileObject")
                 .addVerbs(VerbLookDO.class, VerbLookIO.class, VerbSet.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileItem").setExtendsName("VerbProfileThing")
@@ -73,9 +77,11 @@ public class InitializeLogic
                 .addVerbs(VerbLookRoom.class, VerbHelpRoom.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileFoyeur").setExtendsName("VerbProfileRoom")
                 .addVerbs(VerbRegister.class, VerbLogin.class));
+        VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileExit").setExtendsName("VerbProfileThing")
+                .addVerbs());
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfilePlayer").setExtendsName("VerbProfileThing")
                 .addVerbs(VerbDescribe.class, VerbName.class, VerbInventory.class, VerbCreateItem.class,
-                        VerbCreateContainer.class, VerbPickUp.class, VerbDrop.class));
+                        VerbCreateContainer.class, VerbPickUp.class, VerbDrop.class, VerbDig.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfilePlayerAdmin").setExtendsName("VerbProfilePlayer")
                 .addVerbs());
         // create mandatory objects
@@ -94,6 +100,7 @@ public class InitializeLogic
             entrance = new LociRoom(InitializeLogic.ENTRANCE_URI);
             entrance.setName("Entrance Hall");
             entrance.setDescription("This is the wonderful, welcoming, first room of the sandbox.");
+            entrance.setPublic(true);
             DataStoreLogic.save(entrance);
         }
     }
