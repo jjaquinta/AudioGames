@@ -46,7 +46,7 @@ public class ExecuteLogic
     {
         DebugUtils.trace("    Testing verb "+verb);
         String cmd = context.getCommand().trim();
-        cmd = matchVerb(context, verb, cmd);
+        cmd = matchVerb(context, obj, verb, cmd);
         if (cmd == null)
         {
             DebugUtils.trace("      Match failed on verb");
@@ -73,19 +73,35 @@ public class ExecuteLogic
         return true;
     }
     
-    private static String matchVerb(ExecuteContext context, Verb verb, String cmd)
+    private static String matchVerb(ExecuteContext context, LociObject obj, Verb verb, String cmd)
     {
-        Matcher vm = verb.getVerbPattern().matcher(cmd);
-        if (!vm.find())
-            return null;
-        if (vm.start() > 0)
-            return null;
-        context.setVerbText(vm.group(0));
-        cmd = cmd.substring(vm.end());
-        if ((cmd.length() > 0) && !Character.isWhitespace(cmd.charAt(0)))
-            return null;
-        cmd = cmd.trim();
-        return cmd;
+        if (verb.getVerbType() == Verb.ARG_TYPE_PATTERN)
+        {
+            Matcher vm = verb.getVerbPattern().matcher(cmd);
+            if (!vm.find())
+                return null;
+            if (vm.start() > 0)
+                return null;
+            context.setVerbText(vm.group(0));
+            cmd = cmd.substring(vm.end());
+            if ((cmd.length() > 0) && !Character.isWhitespace(cmd.charAt(0)))
+                return null;
+            cmd = cmd.trim();
+            return cmd;
+        }
+        else if (verb.getVerbType() == Verb.ARG_TYPE_THIS)
+        {
+            if (!cmd.toLowerCase().startsWith(obj.getName().toLowerCase()))
+                return null;
+            int end = obj.getName().length();
+            if ((end < cmd.length()) && !Character.isWhitespace(cmd.charAt(end)))
+                return null;
+            context.setVerbText(cmd.substring(0, end));
+            cmd = cmd.substring(end).trim();
+            return cmd;
+        }
+        else
+            throw new IllegalStateException("Unknown verb type: "+verb.getVerbType());
     }
 
     private static boolean matchAObject(ExecuteContext context, String cmd, LociObject obj,

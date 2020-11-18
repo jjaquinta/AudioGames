@@ -19,6 +19,7 @@ import jo.audio.loci.sandbox.verb.VerbCreateItem;
 import jo.audio.loci.sandbox.verb.VerbDescribe;
 import jo.audio.loci.sandbox.verb.VerbDig;
 import jo.audio.loci.sandbox.verb.VerbDrop;
+import jo.audio.loci.sandbox.verb.VerbGoImplicit;
 import jo.audio.loci.sandbox.verb.VerbHelpRoom;
 import jo.audio.loci.sandbox.verb.VerbInventory;
 import jo.audio.loci.sandbox.verb.VerbLogin;
@@ -66,7 +67,8 @@ public class InitializeLogic
                 new VerbOpen(),
                 new VerbShut(),
                 new VerbSet(),
-                new VerbDig());
+                new VerbDig(),
+                new VerbGoImplicit());
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileThing").setExtendsName("VerbProfileObject")
                 .addVerbs(VerbLookDO.class, VerbLookIO.class, VerbSet.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileItem").setExtendsName("VerbProfileThing")
@@ -78,7 +80,7 @@ public class InitializeLogic
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileFoyeur").setExtendsName("VerbProfileRoom")
                 .addVerbs(VerbRegister.class, VerbLogin.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileExit").setExtendsName("VerbProfileThing")
-                .addVerbs());
+                .addVerbs(VerbGoImplicit.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfilePlayer").setExtendsName("VerbProfileThing")
                 .addVerbs(VerbDescribe.class, VerbName.class, VerbInventory.class, VerbCreateItem.class,
                         VerbCreateContainer.class, VerbPickUp.class, VerbDrop.class, VerbDig.class));

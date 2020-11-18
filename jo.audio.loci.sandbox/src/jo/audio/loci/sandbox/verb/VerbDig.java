@@ -10,7 +10,6 @@ import jo.audio.loci.core.logic.stores.DiskStore;
 import jo.audio.loci.sandbox.data.LociExit;
 import jo.audio.loci.sandbox.data.LociPlayer;
 import jo.audio.loci.sandbox.data.LociRoom;
-import jo.util.utils.obj.StringUtils;
 
 public class VerbDig extends Verb
 {
@@ -25,7 +24,7 @@ public class VerbDig extends Verb
         LociPlayer player = (LociPlayer)context.getInvoker();
         String direction = context.getDirectObjectText();
         LociRoom oldRoom = (LociRoom)DataStoreLogic.load(player.getContainedBy());
-        if (!StringUtils.equals(player.getURI(), oldRoom.getOwner()) && !oldRoom.getPublic())
+        if (!oldRoom.isAccessible(player))
         {
             player.addMessage("You cannot dig from here.");
             return;

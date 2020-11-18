@@ -13,7 +13,7 @@ public abstract class VerbLookBase extends Verb
         super(verbText, directObjectText, prepositionText, indirectObjectText);
     }
 
-    protected void doLook(LociPlayer player, LociObject thing)
+    public static void doLook(LociPlayer player, LociObject thing)
     {
         if (thing instanceof LociThing)
             player.addMessage(((LociThing)thing).getExtendedDescription());

@@ -18,6 +18,7 @@ public abstract class Verb
     
     private String  mID;
     private String  mVerbText;
+    private int     mVerbType;
     private String  mDirectObjectText;
     private String  mPrepositionText;
     private String  mIndirectObjectText;
@@ -56,6 +57,12 @@ public abstract class Verb
     
     private void parseVerb()
     {
+        if (mVerbText.equals("self") || mVerbText.equals("this"))
+        {
+            mVerbType = ARG_TYPE_THIS;
+            return;
+        }
+        mVerbType = ARG_TYPE_PATTERN;
         StringBuffer verbPattern = new StringBuffer("(");
         for (StringTokenizer st = new StringTokenizer(mVerbText, ",|"); st.hasMoreTokens(); )
         {
@@ -267,5 +274,15 @@ public abstract class Verb
     public void setPrepositionType(int prepositionType)
     {
         mPrepositionType = prepositionType;
+    }
+
+    public int getVerbType()
+    {
+        return mVerbType;
+    }
+
+    public void setVerbType(int verbType)
+    {
+        mVerbType = verbType;
     }
 }

@@ -20,5 +20,27 @@ class TestDig extends TestBase
         talk("look slantwise", "space time");
         talk("set slantwise to private", "is now set to private");
         talk("set slantwise to public", "is now set to public");
+        talk("slantwise", "New Room", "new place", "exit to the South");
+        talk("look", "New Room", "new place", "exit to the South");
+        talk("South", "first room", "slantwise");
+    }
+    @Test
+    void testExitNegative()
+    {
+        talk("register Wibble with Wobble", "Welcome Wibble");
+        talk("dig north", "You dig a passage");
+        talk("dig north", "already a passage");
+        talk("set north to private", "set to private");
+        talk("north", "New Room");
+        talk("name here as North Room", "Name changed");
+        talk("south", "Entrance Hall");
+        talk("dig south", "You dig a passage");
+        talk("south", "New Room");
+        talk("name here as South Room", "Name changed");
+        mToken = null;
+        talk("register Wobble with Wibble", "Welcome Wobble");
+        talk("look", "North", "South");
+        talk("North", "cannot go");
+        talk("South", "south room");
     }
 }

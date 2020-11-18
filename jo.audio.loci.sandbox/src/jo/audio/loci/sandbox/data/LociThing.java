@@ -42,6 +42,17 @@ public class LociThing extends LociObject
         return desc.toArray(new String[0]);
     }
     
+    public boolean isAccessible(LociPlayer player)
+    {
+        if (player instanceof LociPlayerAdmin)
+            return true;
+        if (getPublic())
+            return true;
+        if (player.getURI().equals(getOwner()))
+            return true;
+        return false;
+    }
+    
     // getters and setters
     
     public String getHelpText()
