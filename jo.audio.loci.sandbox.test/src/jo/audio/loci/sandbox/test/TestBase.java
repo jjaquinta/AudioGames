@@ -32,11 +32,22 @@ class TestBase
             System.out.println(reply);
             for (int i = 0; i < validate.length; i++)
                 if (!validated[i])
-                    if (reply.toLowerCase().indexOf(validate[i].toLowerCase()) >= 0)
-                        validated[i] = true;
+                    if (validate[i].startsWith("!"))
+                    {
+                        if (reply.toLowerCase().indexOf(validate[i].substring(1).toLowerCase()) >= 0)
+                            validated[i] = true;
+                    }
+                    else
+                    {
+                        if (reply.toLowerCase().indexOf(validate[i].toLowerCase()) >= 0)
+                            validated[i] = true;
+                    }
         }
         for (int i = 0; i < validated.length; i++)
-            Assert.assertTrue("Could not find "+validate[i]+" in output", validated[i]);
+            if (validate[i].startsWith("!"))
+                Assert.assertFalse("Found "+validate[i]+" in output", validated[i]);
+            else
+                Assert.assertTrue("Could not find "+validate[i]+" in output", validated[i]);
         mToken = context.getInvoker().getURI();
         return context;
     }

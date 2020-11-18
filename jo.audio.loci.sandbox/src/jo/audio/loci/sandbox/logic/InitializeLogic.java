@@ -13,6 +13,7 @@ import jo.audio.loci.sandbox.data.LociItem;
 import jo.audio.loci.sandbox.data.LociPlayer;
 import jo.audio.loci.sandbox.data.LociRoom;
 import jo.audio.loci.sandbox.data.LociThing;
+import jo.audio.loci.sandbox.verb.VerbShut;
 import jo.audio.loci.sandbox.verb.VerbCreateContainer;
 import jo.audio.loci.sandbox.verb.VerbCreateItem;
 import jo.audio.loci.sandbox.verb.VerbDescribe;
@@ -24,8 +25,11 @@ import jo.audio.loci.sandbox.verb.VerbLookDO;
 import jo.audio.loci.sandbox.verb.VerbLookIO;
 import jo.audio.loci.sandbox.verb.VerbLookRoom;
 import jo.audio.loci.sandbox.verb.VerbName;
+import jo.audio.loci.sandbox.verb.VerbOpen;
 import jo.audio.loci.sandbox.verb.VerbPickUp;
+import jo.audio.loci.sandbox.verb.VerbPutIn;
 import jo.audio.loci.sandbox.verb.VerbRegister;
+import jo.audio.loci.sandbox.verb.VerbTakeOut;
 
 public class InitializeLogic
 {
@@ -52,13 +56,17 @@ public class InitializeLogic
                 new VerbCreateContainer(), 
                 new VerbInventory(), 
                 new VerbPickUp(), 
-                new VerbDrop());
+                new VerbDrop(),
+                new VerbPutIn(),
+                new VerbTakeOut(),
+                new VerbOpen(),
+                new VerbShut());
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileThing").setExtendsName("VerbProfileObject")
                 .addVerbs(VerbLookDO.class, VerbLookIO.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileItem").setExtendsName("VerbProfileThing")
                 .addVerbs(VerbPickUp.class, VerbDrop.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileContainer").setExtendsName("VerbProfileItem")
-                .addVerbs());
+                .addVerbs(VerbPutIn.class, VerbTakeOut.class, VerbOpen.class, VerbShut.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileRoom").setExtendsName("VerbProfileObject")
                 .addVerbs(VerbLookRoom.class, VerbHelpRoom.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileFoyeur").setExtendsName("VerbProfileRoom")

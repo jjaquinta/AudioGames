@@ -9,12 +9,11 @@ import jo.audio.loci.core.data.ExecuteContext;
 import jo.audio.loci.core.data.LociBase;
 import jo.audio.loci.core.data.LociObject;
 import jo.audio.loci.core.data.Verb;
+import jo.util.utils.DebugUtils;
 import jo.util.utils.obj.StringUtils;
 
 public class ExecuteLogic
 {
-    public static boolean DEBUG = false;
-    
     public static ExecuteContext execute(LociBase invoker, String command)
     {
         ExecuteContext context = new ExecuteContext();
@@ -31,10 +30,10 @@ public class ExecuteLogic
     
     private static boolean findVerb(ExecuteContext context)
     {
-        debug("Finding verb for "+context.getCommand());
+        DebugUtils.trace("Finding verb for "+context.getCommand());
         for (LociObject obj : context.getVisibleTo())
         {
-            debug("Searching verbs on "+obj);
+            DebugUtils.trace("Searching verbs on "+obj);
             List<Verb> verbs = VerbProfileLogic.getVerbs(obj.getVerbProfile());
             for (Verb verb : verbs)
                 if (isVerbFor(context, obj, verb))
@@ -45,28 +44,28 @@ public class ExecuteLogic
     
     private static boolean isVerbFor(ExecuteContext context, LociObject obj, Verb verb)
     {
-        debug("    Testing verb "+verb);
+        DebugUtils.trace("    Testing verb "+verb);
         String cmd = context.getCommand().trim();
         cmd = matchVerb(context, verb, cmd);
         if (cmd == null)
         {
-            debug("      Match failed on verb");
+            DebugUtils.trace("      Match failed on verb");
             return false;
         }
         String[] cmds = matchPreposition(context, obj, verb, cmd);
         if (cmds == null)
         {
-            debug("      Match failed on preposition");
+            DebugUtils.trace("      Match failed on preposition");
             return false;
         }
         if (!matchDirectObject(context, obj, verb, cmds[0]))
         {
-            debug("      Match failed on direct object");
+            DebugUtils.trace("      Match failed on direct object");
             return false;
         }
         if (!matchIndirectObject(context, obj, verb, cmds[1]))
         {
-            debug("      Match failed on indirect object");
+            DebugUtils.trace("      Match failed on indirect object");
             return false;
         }
         context.setMatchedVerb(verb);
@@ -213,11 +212,5 @@ public class ExecuteLogic
                 for (String uri : invoker.getContains())
                     context.getVisibleTo().add((LociObject)DataStoreLogic.load(uri));
         }
-    }
-    
-    private static void debug(String msg)
-    {
-        if (DEBUG)
-            System.out.println(msg);
     }
 }

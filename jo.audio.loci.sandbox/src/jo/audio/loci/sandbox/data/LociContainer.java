@@ -14,7 +14,6 @@ public class LociContainer extends LociItem
 {
     public static final String PROFILE = "container";
     
-    public static final String ID_OPENABLE = "openable";
     public static final String ID_OPEN = "open";
 
     public LociContainer(String uri)
@@ -42,19 +41,18 @@ public class LociContainer extends LociItem
         List<String> desc = new ArrayList<String>();
         for (String d : super.getExtendedDescription())
             desc.add(d);
-        if (getOpenable())
-            if (getOpen())
-            {
-                List<String> itemNames = getContainsNames();
-                if (itemNames.size() == 0)
-                    desc.add("It is empty.");
-                else if (itemNames.size() == 1)
-                    desc.add("Inside is "+itemNames.get(0)+".");
-                else
-                    desc.add("Inside are "+ResponseUtils.wordList(itemNames)+".");
-            }
+        if (getOpen())
+        {
+            List<String> itemNames = getContainsNames();
+            if (itemNames.size() == 0)
+                desc.add("It is empty.");
+            else if (itemNames.size() == 1)
+                desc.add("Inside is "+itemNames.get(0)+".");
             else
-                desc.add("It is closed");
+                desc.add("Inside are "+ResponseUtils.wordList(itemNames)+".");
+        }
+        else
+            desc.add("It is closed");
         return desc.toArray(new String[0]);
     }
 
@@ -74,16 +72,6 @@ public class LociContainer extends LociItem
     }
     
     // getters and setters
-    
-    public boolean getOpenable()
-    {
-        return getBoolean(ID_OPENABLE);
-    }
-    
-    public void setOpenable(boolean value)
-    {
-        setBoolean(ID_OPENABLE, value);
-    }
     
     public boolean getOpen()
     {

@@ -1,7 +1,13 @@
 package jo.audio.loci.core.data;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import java.util.StringTokenizer;
 import java.util.regex.Pattern;
+
+import jo.util.utils.obj.StringUtils;
 
 public abstract class Verb
 {
@@ -79,15 +85,7 @@ public abstract class Verb
             return;
         }
         mDirectObjectType = ARG_TYPE_PATTERN;
-        StringBuffer doPattern = new StringBuffer("(");
-        for (StringTokenizer st = new StringTokenizer(mDirectObjectText, ",|"); st.hasMoreTokens(); )
-        {
-            if (doPattern.length() > 1)
-                doPattern.append("|");
-            doPattern.append(st.nextToken().trim());
-        }
-        doPattern.append(")");
-        mDirectObjectPattern = Pattern.compile(doPattern.toString(), Pattern.CASE_INSENSITIVE);
+        mDirectObjectPattern = parsePattern(mDirectObjectText);
     }
     
     private void parsePreposition()
@@ -98,15 +96,7 @@ public abstract class Verb
             return;
         }
         mPrepositionType = ARG_TYPE_PATTERN;
-        StringBuffer prepPattern = new StringBuffer("(");
-        for (StringTokenizer st = new StringTokenizer(mPrepositionText, ",|"); st.hasMoreTokens(); )
-        {
-            if (prepPattern.length() > 1)
-                prepPattern.append("|");
-            prepPattern.append(st.nextToken().trim());
-        }
-        prepPattern.append(")");
-        mPrepositionPattern = Pattern.compile(prepPattern.toString(), Pattern.CASE_INSENSITIVE);
+        mPrepositionPattern = parsePattern(mPrepositionText);
     }
     
     private void parseIndirectObject()
@@ -127,15 +117,25 @@ public abstract class Verb
             return;
         }
         mIndirectObjectType = ARG_TYPE_PATTERN;
-        StringBuffer ioPattern = new StringBuffer("(");
-        for (StringTokenizer st = new StringTokenizer(mIndirectObjectText, ",|"); st.hasMoreTokens(); )
-        {
-            if (ioPattern.length() > 1)
-                ioPattern.append("|");
-            ioPattern.append(st.nextToken().trim());
-        }
-        ioPattern.append(")");
-        mIndirectObjectPattern = Pattern.compile(ioPattern.toString(), Pattern.CASE_INSENSITIVE);
+        mIndirectObjectPattern = parsePattern(mIndirectObjectText);
+    }
+
+    private Pattern parsePattern(String text)
+    {
+        StringBuffer regex = new StringBuffer("(");
+        List<String> chunks = new ArrayList<>();
+        for (StringTokenizer st = new StringTokenizer(text, ",|"); st.hasMoreTokens(); )
+            chunks.add(st.nextToken().trim());
+        Collections.sort(chunks, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2)
+            {
+                return o2.length() - o1.length();
+            }
+        });
+        regex.append(StringUtils.listize(chunks, "|"));
+        regex.append(")");
+        return Pattern.compile(regex.toString(), Pattern.CASE_INSENSITIVE);
     }
     
     public abstract void execute(ExecuteContext context);
