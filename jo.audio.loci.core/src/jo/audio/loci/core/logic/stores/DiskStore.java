@@ -4,12 +4,15 @@ import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Function;
 
 import org.json.simple.JSONObject;
 import org.json.simple.JSONUtils;
 
 import jo.audio.loci.core.data.LociBase;
+import jo.audio.loci.core.logic.DataProfileLogic;
 import jo.audio.loci.core.logic.IDataStore;
 
 public class DiskStore implements IDataStore
@@ -100,32 +103,39 @@ public class DiskStore implements IDataStore
     }
 
     @Override
-    public LociBase findFirst(String dataProfile,
-            Function<LociBase, Boolean> matcher)
+    public <T> List<T> findSome(String dataProfile,
+            Function<T, Boolean> matcher, int limit)
     {
-        return doFindFirst(mBaseDir, dataProfile, matcher);
+        return doFindSome(mBaseDir, dataProfile, matcher, limit);
     }
 
-    private LociBase doFindFirst(File dir, String dataProfile,
-            Function<LociBase, Boolean> matcher)
+    @SuppressWarnings("unchecked")
+    private <T> List<T> doFindSome(File dir, String dataProfile,
+            Function<T, Boolean> matcher, int limit)
     {
+        List<T> found = new ArrayList<>();
         File[] files = dir.listFiles();
         for (File f : files)
         {
             if (f.isDirectory())
             {
-                LociBase ret = doFindFirst(f, dataProfile, matcher);
+                List<T> ret = doFindSome(f, dataProfile, matcher, limit);
                 if (ret != null)
-                    return ret;
+                    found.addAll(ret);
             }
             else
             {
                 LociBase ret = load(f);
-                if (ret.getDataProfile().equals(dataProfile) && matcher.apply(ret))
-                    return ret;
+                if (!ret.getDataProfile().equals(dataProfile))
+                    continue;
+                T item = (T)DataProfileLogic.cast(ret);
+                if (matcher.apply(item))
+                    found.add(item);
             }
+            if ((limit > 0) && (found.size() >= limit))
+                break;
         }
-        return null;
+        return found;
     }
 
     @Override

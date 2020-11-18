@@ -1,12 +1,15 @@
 package jo.audio.loci.core.logic.stores;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
 import org.json.simple.JSONObject;
 
 import jo.audio.loci.core.data.LociBase;
+import jo.audio.loci.core.logic.DataProfileLogic;
 import jo.audio.loci.core.logic.IDataStore;
 
 public class MemoryStore implements IDataStore
@@ -46,17 +49,26 @@ public class MemoryStore implements IDataStore
         mStore.put(obj.getURI(), obj.toJSON());
     }
 
+    @SuppressWarnings("unchecked")
     @Override
-    public LociBase findFirst(String dataProfile,
-            Function<LociBase, Boolean> matcher)
+    public <T> List<T> findSome(String dataProfile,
+            Function<T, Boolean> matcher, int limit)
     {
+        List<T> found = new ArrayList<>();
         for (JSONObject json : mStore.values())
         {
             LociBase ret = load(json);
-            if (ret.getDataProfile().equals(dataProfile) && matcher.apply(ret))
-                return ret;
+            if (!ret.getDataProfile().equals(dataProfile))
+                continue;
+            T item = (T)DataProfileLogic.cast(ret);
+            if (matcher.apply(item))
+            {
+                found.add(item);
+                if ((limit > 0) && (found.size() >= limit))
+                    break;
+            }
         }
-        return null;
+        return found;
     }
 
     @Override

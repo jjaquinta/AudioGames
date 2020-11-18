@@ -1,5 +1,7 @@
 package jo.audio.loci.core.logic.stores;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Function;
 
 import jo.audio.loci.core.data.LociBase;
@@ -31,10 +33,10 @@ public class NullStore implements IDataStore
     }
 
     @Override
-    public LociBase findFirst(String dataProfile,
-            Function<LociBase, Boolean> matcher)
+    public <T> List<T> findSome(String dataProfile,
+            Function<T, Boolean> matcher, int limit)
     {
-        return null;
+        return new ArrayList<T>();
     }
 
     @Override

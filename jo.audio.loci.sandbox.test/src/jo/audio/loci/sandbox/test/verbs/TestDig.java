@@ -23,6 +23,10 @@ class TestDig extends TestBase
         talk("slantwise", "New Room", "new place", "exit to the South");
         talk("look", "New Room", "new place", "exit to the South");
         talk("South", "first room", "slantwise");
+        talk("dig south to New Room", "You dig a passage");
+        talk("look", "south");
+        talk("South", "New Room");
+        talk("South", "first room", "slantwise");
     }
     @Test
     void testExitNegative()

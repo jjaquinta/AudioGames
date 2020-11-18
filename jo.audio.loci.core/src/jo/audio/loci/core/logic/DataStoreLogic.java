@@ -1,5 +1,6 @@
 package jo.audio.loci.core.logic;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.function.Function;
@@ -70,20 +71,43 @@ public class DataStoreLogic
         store.delete(obj.getURI());
     }
     
-    public static LociBase findFirst(String dataProfile, Function<LociBase, Boolean> matcher)
+    @SuppressWarnings("unchecked")
+    public static <T> T findFirst(String dataProfile, Function<T, Boolean> matcher)
     {
         // check cache first
         for (LociBase ret : mCache.getAll())
-            if (ret.getDataProfile().equals(dataProfile) && matcher.apply(ret))
-                return DataProfileLogic.cast(ret);
+            if (ret.getDataProfile().equals(dataProfile) && matcher.apply((T)ret))
+                return (T)DataProfileLogic.cast(ret);
         // now do expensive lookup
         for (IDataStore store : mDataStores)
         {
-            LociBase ret = store.findFirst(dataProfile, matcher);
-            if (ret != null)
-                return DataProfileLogic.cast(ret);
+            List<T> ret = store.findSome(dataProfile, matcher, 1);
+            if (ret.size() > 0)
+                return ret.get(0);
         }
         return null;
+    }
+    
+    @SuppressWarnings("unchecked")
+    public static <T> List<T> findAll(String dataProfile, Function<T, Boolean> matcher)
+    {
+        List<T> found = new ArrayList<>();
+        // now do expensive lookup
+        for (IDataStore store : mDataStores)
+        {
+            List<T> ret = store.findSome(dataProfile, matcher, -1);
+            if (ret != null)
+                for (T item : ret)
+                {
+                    LociBase i = (LociBase)item;
+                    LociBase ci = mCache.get(i.getURI());
+                    if (ci != null)
+                        found.add((T)ci);
+                    else
+                        found.add(item);
+                }
+        }
+        return found;
     }
 
     public static void clearCache()
