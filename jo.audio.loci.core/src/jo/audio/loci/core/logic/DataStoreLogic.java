@@ -47,6 +47,8 @@ public class DataStoreLogic
     
     public static LociBase load(String uri)
     {
+        if (uri == null)
+            return null;
         LociBase raw = mCache.get(uri);
         if (raw != null)
             return raw;

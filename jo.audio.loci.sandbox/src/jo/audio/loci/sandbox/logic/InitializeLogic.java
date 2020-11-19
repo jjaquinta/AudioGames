@@ -12,16 +12,19 @@ import jo.audio.loci.sandbox.data.LociCookie;
 import jo.audio.loci.sandbox.data.LociExit;
 import jo.audio.loci.sandbox.data.LociItem;
 import jo.audio.loci.sandbox.data.LociPlayer;
+import jo.audio.loci.sandbox.data.LociPlayerAdmin;
 import jo.audio.loci.sandbox.data.LociRoom;
 import jo.audio.loci.sandbox.data.LociThing;
 import jo.audio.loci.sandbox.verb.VerbCreateContainer;
 import jo.audio.loci.sandbox.verb.VerbCreateItem;
+import jo.audio.loci.sandbox.verb.VerbDelete;
 import jo.audio.loci.sandbox.verb.VerbDescribe;
 import jo.audio.loci.sandbox.verb.VerbDig;
 import jo.audio.loci.sandbox.verb.VerbDigTo;
 import jo.audio.loci.sandbox.verb.VerbDrop;
 import jo.audio.loci.sandbox.verb.VerbGoImplicit;
 import jo.audio.loci.sandbox.verb.VerbHelpRoom;
+import jo.audio.loci.sandbox.verb.VerbHome;
 import jo.audio.loci.sandbox.verb.VerbInventory;
 import jo.audio.loci.sandbox.verb.VerbLogin;
 import jo.audio.loci.sandbox.verb.VerbLookDO;
@@ -38,6 +41,7 @@ import jo.audio.loci.sandbox.verb.VerbTakeOut;
 
 public class InitializeLogic
 {
+    public static final String ADMIN_URI= MemoryStore.PREFIX+"player/admin";
     public static final String FOYER_URI= MemoryStore.PREFIX+"room/foyeur";
     public static final String ENTRANCE_URI= DiskStore.PREFIX+"room/entrance";
 
@@ -70,14 +74,16 @@ public class InitializeLogic
                 new VerbSet(),
                 new VerbDig(),
                 new VerbDigTo(),
-                new VerbGoImplicit());
+                new VerbGoImplicit(),
+                new VerbDelete(),
+                new VerbHome());
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileThing").setExtendsName("VerbProfileObject")
-                .addVerbs(VerbLookDO.class, VerbLookIO.class, VerbSet.class));
+                .addVerbs(VerbLookDO.class, VerbLookIO.class, VerbSet.class, VerbDelete.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileItem").setExtendsName("VerbProfileThing")
                 .addVerbs(VerbPickUp.class, VerbDrop.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileContainer").setExtendsName("VerbProfileItem")
                 .addVerbs(VerbPutIn.class, VerbTakeOut.class, VerbOpen.class, VerbShut.class));
-        VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileRoom").setExtendsName("VerbProfileObject")
+        VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileRoom").setExtendsName("VerbProfileThing")
                 .addVerbs(VerbLookRoom.class, VerbHelpRoom.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileFoyeur").setExtendsName("VerbProfileRoom")
                 .addVerbs(VerbRegister.class, VerbLogin.class));
@@ -85,10 +91,21 @@ public class InitializeLogic
                 .addVerbs(VerbGoImplicit.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfilePlayer").setExtendsName("VerbProfileThing")
                 .addVerbs(VerbDescribe.class, VerbName.class, VerbInventory.class, VerbCreateItem.class,
-                        VerbCreateContainer.class, VerbPickUp.class, VerbDrop.class, VerbDigTo.class, VerbDig.class));
+                        VerbCreateContainer.class, VerbPickUp.class, VerbDrop.class, VerbDigTo.class, VerbDig.class,
+                        VerbHome.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfilePlayerAdmin").setExtendsName("VerbProfilePlayer")
                 .addVerbs());
         // create mandatory objects
+        LociPlayerAdmin admin = (LociPlayerAdmin)DataStoreLogic.load(InitializeLogic.ADMIN_URI);
+        if (admin == null)
+        {
+            admin = new LociPlayerAdmin(InitializeLogic.ADMIN_URI);
+            admin.setName("admin");
+            admin.setDescription("A mysterious figure in blue wizard robes.");
+            admin.setPassword("lollipop");
+            admin.setOwner(ADMIN_URI);
+            DataStoreLogic.save(admin);
+        }
         LociRoom foyeur = (LociRoom)DataStoreLogic.load(InitializeLogic.FOYER_URI);
         if (foyeur == null)
         {
@@ -96,6 +113,7 @@ public class InitializeLogic
             foyeur.setVerbProfile("VerbProfileFoyeur");
             foyeur.setName("Foyeur");
             foyeur.setDescription("You are in a nebulous grey area, outside of reality. For a list of commands, type help.");
+            foyeur.setOwner(ADMIN_URI);
             DataStoreLogic.save(foyeur);
         }
         LociRoom entrance = (LociRoom)DataStoreLogic.load(InitializeLogic.ENTRANCE_URI);
@@ -105,6 +123,7 @@ public class InitializeLogic
             entrance.setName("Entrance Hall");
             entrance.setDescription("This is the wonderful, welcoming, first room of the sandbox.");
             entrance.setPublic(true);
+            entrance.setOwner(ADMIN_URI);
             DataStoreLogic.save(entrance);
         }
     }
