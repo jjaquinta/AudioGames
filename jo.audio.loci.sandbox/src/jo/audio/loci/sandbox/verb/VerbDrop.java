@@ -12,14 +12,14 @@ public class VerbDrop extends VerbLookBase
 {
     public VerbDrop()
     {
-        super("put down,drop", "any", null, null);
+        super("put down,drop", "this", null, null);
     }
 
     @Override
     public void execute(ExecuteContext context)
     {
         LociPlayer player = (LociPlayer)context.getInvoker();
-        LociObject thing = (LociObject)context.getMatchedDirectObject();
+        LociItem thing = (LociItem)context.getMatchedDirectObject();
         if (!(thing instanceof LociItem))
         {
             player.addMessage("You cannot drop "+thing.getName()+".");

@@ -18,6 +18,44 @@ public class ExecuteContext
     private LociBase         mMatchedIndirectObject;
     private boolean          mSuccess;
 
+    // utils
+    
+    public void set(ExecuteContext c)
+    {
+        setCommand(c.getCommand());
+        setInvoker(c.getInvoker());
+        getVisibleTo().addAll(c.getVisibleTo());
+        setVerbText(c.getVerbText());
+        setDirectObjectText(c.getDirectObjectText());
+        setPrepositionText(c.getPrepositionText());
+        setIndirectObjectText(c.getIndirectObjectText());
+        setMatchedVerb(c.getMatchedVerb());
+        setMatchedVerbHost(c.getMatchedVerbHost());
+        setMatchedDirectObject(c.getMatchedDirectObject());
+        setMatchedIndirectObject(c.getMatchedIndirectObject());
+        setSuccess(c.isSuccess());
+    }
+    
+    @Override
+    public String toString()
+    {
+        StringBuffer txt = new StringBuffer();
+        if (mMatchedVerb != null)
+            txt.append(mMatchedVerb.getID()+"::");
+        txt.append(mVerbText);
+        txt.append("/");
+        if (mMatchedDirectObject != null)
+            txt.append(mMatchedDirectObject.getClass().getSimpleName()+"::");
+        txt.append(mDirectObjectText);
+        txt.append("/");
+        txt.append(mPrepositionText);
+        txt.append("/");
+        if (mMatchedIndirectObject != null)
+            txt.append(mMatchedIndirectObject.getClass().getSimpleName()+"::");
+        txt.append(mIndirectObjectText);
+        return txt.toString();
+    }
+    
     // getters and setters
 
     public String getCommand()

@@ -27,10 +27,10 @@ class TestItems extends TestBase
         talk("register Wibble with Wobble", "Welcome Wibble");
         talk("inventory", "don't carry anything");
         talk("create item named Urim", "create", "Urim");
-        talk("drop me", "you cannot");
+        talk("drop me", "I am unable to execute");
         talk("drop Urim", "dropped", "Urim");
         talk("drop Urim", "you are not carrying");
-        talk("pick up me", "you cannot");
+        talk("pick up me", "I am unable to execute");
         talk("pick up Urim", "carrying", "Urim");
         talk("pick up Urim", "not in a position to be picked up");
     }

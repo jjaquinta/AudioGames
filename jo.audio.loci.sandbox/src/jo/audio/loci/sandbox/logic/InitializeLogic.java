@@ -23,6 +23,7 @@ import jo.audio.loci.sandbox.verb.VerbDig;
 import jo.audio.loci.sandbox.verb.VerbDigTo;
 import jo.audio.loci.sandbox.verb.VerbDrop;
 import jo.audio.loci.sandbox.verb.VerbGoImplicit;
+import jo.audio.loci.sandbox.verb.VerbHelpDO;
 import jo.audio.loci.sandbox.verb.VerbHelpRoom;
 import jo.audio.loci.sandbox.verb.VerbHome;
 import jo.audio.loci.sandbox.verb.VerbInventory;
@@ -36,6 +37,7 @@ import jo.audio.loci.sandbox.verb.VerbPickUp;
 import jo.audio.loci.sandbox.verb.VerbPutIn;
 import jo.audio.loci.sandbox.verb.VerbRegister;
 import jo.audio.loci.sandbox.verb.VerbSet;
+import jo.audio.loci.sandbox.verb.VerbSetHelp;
 import jo.audio.loci.sandbox.verb.VerbShut;
 import jo.audio.loci.sandbox.verb.VerbTakeOut;
 
@@ -58,6 +60,7 @@ public class InitializeLogic
                 new VerbLookDO(), 
                 new VerbLookIO(), 
                 new VerbHelpRoom(), 
+                new VerbHelpDO(), 
                 new VerbRegister(), 
                 new VerbLogin(), 
                 new VerbDescribe(), 
@@ -76,9 +79,11 @@ public class InitializeLogic
                 new VerbDigTo(),
                 new VerbGoImplicit(),
                 new VerbDelete(),
-                new VerbHome());
+                new VerbHome(),
+                new VerbSetHelp());
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileThing").setExtendsName("VerbProfileObject")
-                .addVerbs(VerbLookDO.class, VerbLookIO.class, VerbSet.class, VerbDelete.class));
+                .addVerbs(VerbLookDO.class, VerbLookIO.class, VerbSet.class, VerbDelete.class, VerbSetHelp.class,
+                        VerbHelpDO.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileItem").setExtendsName("VerbProfileThing")
                 .addVerbs(VerbPickUp.class, VerbDrop.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileContainer").setExtendsName("VerbProfileItem")
@@ -91,7 +96,7 @@ public class InitializeLogic
                 .addVerbs(VerbGoImplicit.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfilePlayer").setExtendsName("VerbProfileThing")
                 .addVerbs(VerbDescribe.class, VerbName.class, VerbInventory.class, VerbCreateItem.class,
-                        VerbCreateContainer.class, VerbPickUp.class, VerbDrop.class, VerbDigTo.class, VerbDig.class,
+                        VerbCreateContainer.class, VerbDigTo.class, VerbDig.class,
                         VerbHome.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfilePlayerAdmin").setExtendsName("VerbProfilePlayer")
                 .addVerbs());

@@ -1,5 +1,6 @@
 package jo.audio.loci.core.logic;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.regex.Matcher;
@@ -30,16 +31,60 @@ public class ExecuteLogic
     
     private static boolean findVerb(ExecuteContext context)
     {
-        DebugUtils.trace("Finding verb for "+context.getCommand());
+        List<ExecuteContext> matches = findVerbs(context);
+        if (matches.size() == 0)
+            return false;
+        ExecuteContext match = findBestMatch(matches);
+        context.set(match);
+        return true;
+    }
+    
+    private static ExecuteContext findBestMatch(List<ExecuteContext> matches)
+    {
+        if (matches.size() == 1)
+            return matches.get(0);
+        // preference verb on invoker
+        for (ExecuteContext match : matches)
+            if (match.getInvoker().getURI().equals(match.getMatchedVerbHost().getURI()))
+                return match;
+        // preference with most matches
+        ExecuteContext best = null;
+        int bestv = 0;
+        for (ExecuteContext match : matches)
+        {
+            int score = (match.getMatchedVerb() != null ? 1 : 0)
+                    + (match.getMatchedDirectObject() != null ? 1 : 0)
+                    + (match.getMatchedIndirectObject() != null ? 1 : 0);
+            if ((best == null) || (score > bestv))
+            {
+                best = match;
+                bestv = score;
+            }
+        }
+        if (bestv > 0)
+            return best;
+        return matches.get(0);
+    }
+    
+    private static List<ExecuteContext> findVerbs(ExecuteContext context)
+    {
+        List<ExecuteContext> matches = new ArrayList<>();
+        DebugUtils.trace("Finding verbs for "+context.getCommand());
         for (LociObject obj : context.getVisibleTo())
         {
             DebugUtils.trace("Searching verbs on "+obj);
             List<Verb> verbs = VerbProfileLogic.getVerbs(obj.getVerbProfile());
             for (Verb verb : verbs)
                 if (isVerbFor(context, obj, verb))
-                    return true;
+                {
+                    ExecuteContext c = new ExecuteContext();
+                    c.set(context);
+                    matches.add(c);
+                    DebugUtils.trace("matched "+c+".");
+                }
         }
-        return false;
+        DebugUtils.trace("Found "+matches.size()+" verbs.");
+        return matches;
     }
     
     private static boolean isVerbFor(ExecuteContext context, LociObject obj, Verb verb)
@@ -220,7 +265,8 @@ public class ExecuteLogic
                 context.getVisibleTo().add(container);
                 // add what else is in container
                 for (String uri : container.getContains())
-                    context.getVisibleTo().add((LociObject)DataStoreLogic.load(uri));
+                    if (!uri.equals(invoker.getURI()))
+                        context.getVisibleTo().add((LociObject)DataStoreLogic.load(uri));
             }
             // add what invoker contains
             String[] contains = invoker.getContains();

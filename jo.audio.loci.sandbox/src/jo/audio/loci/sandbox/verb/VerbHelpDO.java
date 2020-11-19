@@ -2,9 +2,11 @@ package jo.audio.loci.sandbox.verb;
 
 import jo.audio.loci.core.data.ExecuteContext;
 import jo.audio.loci.core.data.LociObject;
+import jo.audio.loci.core.data.Verb;
 import jo.audio.loci.sandbox.data.LociPlayer;
+import jo.audio.loci.sandbox.data.LociThing;
 
-public class VerbHelpDO extends VerbHelpBase
+public class VerbHelpDO extends Verb
 {
     public VerbHelpDO()
     {
@@ -16,6 +18,9 @@ public class VerbHelpDO extends VerbHelpBase
     {
         LociPlayer player = (LociPlayer)context.getInvoker();
         LociObject thing = (LociObject)context.getMatchedDirectObject();
-        doHelp(player, thing);
+        String msg = ((LociThing)thing).getHelpText();
+        if (msg == null)
+            msg = "Try 'help commands' for a list of commands.";
+        player.addMessage(msg);
     }
 }
