@@ -10,6 +10,7 @@ import jo.audio.loci.core.logic.DataStoreLogic;
 import jo.audio.loci.core.logic.stores.DiskStore;
 import jo.audio.loci.sandbox.data.LociPlayer;
 import jo.audio.loci.sandbox.logic.InitializeLogic;
+import jo.util.utils.obj.StringUtils;
 
 public class VerbRegister extends Verb
 {
@@ -34,9 +35,7 @@ public class VerbRegister extends Verb
             if (password.equals(p.getPassword()))
             {
                 p.addMessage("Welcome back "+p.getName()+".");
-                context.setInvoker(p);
-                ContainmentLogic.remove((LociObject)DataStoreLogic.load(InitializeLogic.FOYER_URI), amadan);
-                DataStoreLogic.delete(amadan);
+                enter(context, amadan, p);
             }
             else
                 amadan.addMessage("The name '"+userName+"' is already taken.");
@@ -49,10 +48,20 @@ public class VerbRegister extends Verb
             p.setDescription("A non-descript player.");
             p.setPassword(password);
             p.setOwner(p.getURI());
-            context.setInvoker(p);
             p.addMessage("Welcome "+p.getName()+".");
-            ContainmentLogic.remove((LociObject)DataStoreLogic.load(InitializeLogic.FOYER_URI), amadan);
-            ContainmentLogic.add((LociObject)DataStoreLogic.load(InitializeLogic.ENTRANCE_URI), p);
+            enter(context, amadan, p);
         }
+    }
+
+    public static void enter(ExecuteContext context, LociPlayer amadan, LociPlayer p)
+    {
+        context.setInvoker(p);
+        p.setOnline(true);
+        LociObject foyeur = (LociObject)DataStoreLogic.load(amadan.getContainedBy());
+        LociObject entrance = (LociObject)DataStoreLogic.load(InitializeLogic.ENTRANCE_URI);
+        ContainmentLogic.remove(foyeur, amadan);
+        if (StringUtils.isTrivial(p.getContainedBy()))
+            ContainmentLogic.add(entrance, p);
+        VerbLookBase.doLook(p, entrance);
     }
 }

@@ -8,6 +8,7 @@ import jo.audio.loci.core.logic.DataStoreLogic;
 import jo.audio.loci.core.logic.ExecuteLogic;
 import jo.audio.loci.core.logic.stores.MemoryStore;
 import jo.audio.loci.sandbox.data.LociPlayer;
+import jo.audio.loci.sandbox.data.LociPlayerGhost;
 import jo.audio.loci.sandbox.data.LociRoom;
 import jo.util.utils.obj.StringUtils;
 
@@ -19,8 +20,9 @@ public class InteractLogic
     {
         LociPlayer player = getPlayer(userName, password, token);
         player.setOnline(true);
-        player.setLastActive(System.currentTimeMillis());
         ExecuteContext context = ExecuteLogic.execute(player, command);
+        player = (LociPlayer)context.getInvoker();
+        player.setLastActive(System.currentTimeMillis());
         if (!context.isSuccess())
             player.addMessage("I am unable to execute '"+command+"'");
         return context;
@@ -44,10 +46,12 @@ public class InteractLogic
                 return (LociPlayer)player;
         }
         // create a temporary player
-        LociPlayer player = new LociPlayer(TEMP_PLAYER_URI_PREFIX+System.currentTimeMillis());
+        LociPlayerGhost player = new LociPlayerGhost(TEMP_PLAYER_URI_PREFIX+System.currentTimeMillis());
         player.setName("Amadan");
         player.setDescription("A transparent entity, waiting to be made coporeal.");
         player.setPassword("");
+        player.setOnline(true);
+        player.setLastActive(System.currentTimeMillis());
         DataStoreLogic.save(player);
         ContainmentLogic.add(getFoyeur(), player);
         return player;

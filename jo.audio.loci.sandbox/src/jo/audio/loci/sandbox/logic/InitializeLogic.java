@@ -13,6 +13,7 @@ import jo.audio.loci.sandbox.data.LociExit;
 import jo.audio.loci.sandbox.data.LociItem;
 import jo.audio.loci.sandbox.data.LociPlayer;
 import jo.audio.loci.sandbox.data.LociPlayerAdmin;
+import jo.audio.loci.sandbox.data.LociPlayerGhost;
 import jo.audio.loci.sandbox.data.LociRoom;
 import jo.audio.loci.sandbox.data.LociThing;
 import jo.audio.loci.sandbox.verb.VerbCreateContainer;
@@ -22,12 +23,14 @@ import jo.audio.loci.sandbox.verb.VerbDescribe;
 import jo.audio.loci.sandbox.verb.VerbDig;
 import jo.audio.loci.sandbox.verb.VerbDigTo;
 import jo.audio.loci.sandbox.verb.VerbDrop;
+import jo.audio.loci.sandbox.verb.VerbDump;
 import jo.audio.loci.sandbox.verb.VerbGoImplicit;
 import jo.audio.loci.sandbox.verb.VerbHelpDO;
 import jo.audio.loci.sandbox.verb.VerbHelpRoom;
 import jo.audio.loci.sandbox.verb.VerbHome;
 import jo.audio.loci.sandbox.verb.VerbInventory;
 import jo.audio.loci.sandbox.verb.VerbLogin;
+import jo.audio.loci.sandbox.verb.VerbLogin2;
 import jo.audio.loci.sandbox.verb.VerbLogout;
 import jo.audio.loci.sandbox.verb.VerbLookDO;
 import jo.audio.loci.sandbox.verb.VerbLookIO;
@@ -54,6 +57,8 @@ public class InitializeLogic
         DataProfileLogic.registerDataProfile(LociCookie.class);
         DataProfileLogic.registerDataProfile(LociThing.class);
         DataProfileLogic.registerDataProfile(LociPlayer.class);
+        DataProfileLogic.registerDataProfile(LociPlayerAdmin.class);
+        DataProfileLogic.registerDataProfile(LociPlayerGhost.class);
         DataProfileLogic.registerDataProfile(LociRoom.class);
         DataProfileLogic.registerDataProfile(LociExit.class);
         DataProfileLogic.registerDataProfile(LociItem.class);
@@ -65,6 +70,7 @@ public class InitializeLogic
                 new VerbHelpDO(), 
                 new VerbRegister(), 
                 new VerbLogin(), 
+                new VerbLogin2(), 
                 new VerbDescribe(), 
                 new VerbName(), 
                 new VerbCreateItem(), 
@@ -84,7 +90,8 @@ public class InitializeLogic
                 new VerbHome(),
                 new VerbSetHelp(),
                 new VerbSay(),
-                new VerbLogout());
+                new VerbLogout(),
+                new VerbDump());
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileThing").setExtendsName("VerbProfileObject")
                 .addVerbs(VerbLookDO.class, VerbLookIO.class, VerbSet.class, VerbDelete.class, VerbSetHelp.class,
                         VerbHelpDO.class));
@@ -95,14 +102,16 @@ public class InitializeLogic
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileRoom").setExtendsName("VerbProfileThing")
                 .addVerbs(VerbLookRoom.class, VerbHelpRoom.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileFoyeur").setExtendsName("VerbProfileRoom")
-                .addVerbs(VerbRegister.class, VerbLogin.class));
+                .addVerbs(VerbRegister.class, VerbLogin.class, VerbLogin2.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileExit").setExtendsName("VerbProfileThing")
                 .addVerbs(VerbGoImplicit.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfilePlayer").setExtendsName("VerbProfileThing")
                 .addVerbs(VerbDescribe.class, VerbName.class, VerbInventory.class, VerbCreateItem.class,
                         VerbCreateContainer.class, VerbDigTo.class, VerbDig.class, VerbSay.class,
-                        VerbHome.class, VerbLogout.class));
+                        VerbHome.class, VerbLogout.class, VerbDump.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfilePlayerAdmin").setExtendsName("VerbProfilePlayer")
+                .addVerbs());
+        VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfilePlayerGhost").setExtendsName("VerbProfilePlayer")
                 .addVerbs());
         // create mandatory objects
         LociPlayerAdmin admin = (LociPlayerAdmin)DataStoreLogic.load(InitializeLogic.ADMIN_URI);

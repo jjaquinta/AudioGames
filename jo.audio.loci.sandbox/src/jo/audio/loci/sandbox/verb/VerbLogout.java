@@ -8,7 +8,7 @@ public class VerbLogout extends Verb
 {
     public VerbLogout()
     {
-        super("logout,log out", null, null, null);
+        super("logout,log out,quit", null, null, null);
     }
 
     @Override
