@@ -1,0 +1,66 @@
+<html>
+<header>
+<title>Sandbox</title>
+</header>
+<body>
+<p id="display" aria-live="polite">
+<!-- display -->
+</p>
+<label for="text">Say
+	<input autocomplete="off" name="text" id="text" type="text" onkeydown="doKey(event)"/>
+</label>
+<script>
+var token = "";
+
+function sendData() {
+  let data = document.getElementById("text").value;
+  document.getElementById("text").value = "";
+  sendTextData(data);
+}
+
+function sendTextData(data) {
+
+  const XHR = new XMLHttpRequest();
+
+  // Combine the pairs into a single string and replace all %-encoded spaces to 
+  // the '+' character; matches the behaviour of browser form submissions.
+  urlEncodedData = encodeURIComponent(data).replace( /%20/g, '+' );
+  urlEncodedToken = encodeURIComponent(token).replace( /%20/g, '+' );
+
+  // Define what happens on successful data submission
+  XHR.addEventListener( 'load', function(event) {
+	  data = JSON.parse(XHR.response);
+	  if (data.online)
+	  	token = data.uri;
+	  else
+	  	token = "";
+	  var text = "";
+	  for (var i = 0; i < data.messages.length; i++)
+	  	text += data.messages[i] + "<br/>";
+      document.getElementById("display").innerHTML = text;
+  } );
+
+  // Define what happens in case of error
+  XHR.addEventListener( 'error', function(event) {
+    document.getElementById("display").innerHTML = "Oops! Something went wrong.";
+  } );
+
+  // Set up our request
+  XHR.open( 'GET', '/api?text='+urlEncodedData+'&token='+urlEncodedToken );
+  XHR.setRequestHeader( 'Accept', 'application/json' );
+
+  // Finally, send our data.
+  XHR.send( urlEncodedData );
+}
+
+function doKey(event) {
+	if (event.keyCode === 13) {
+    	sendData();
+	}
+}
+
+
+
+</script>
+</body>
+</html>

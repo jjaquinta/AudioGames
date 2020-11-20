@@ -72,7 +72,7 @@ public class ExecuteLogic
         DebugUtils.trace("Finding verbs for "+context.getCommand());
         for (LociObject obj : context.getVisibleTo())
         {
-            DebugUtils.trace("Searching verbs on "+obj);
+            DebugUtils.trace("Searching verbs on "+obj+", "+obj.getVerbProfile());
             List<Verb> verbs = VerbProfileLogic.getVerbs(obj.getVerbProfile());
             for (Verb verb : verbs)
                 if (isVerbFor(context, obj, verb))
