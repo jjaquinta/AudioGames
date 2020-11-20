@@ -18,6 +18,8 @@ public class InteractLogic
     public static ExecuteContext interact(String userName, String password, String token, String command)
     {
         LociPlayer player = getPlayer(userName, password, token);
+        player.setOnline(true);
+        player.setLastActive(System.currentTimeMillis());
         ExecuteContext context = ExecuteLogic.execute(player, command);
         if (!context.isSuccess())
             player.addMessage("I am unable to execute '"+command+"'");

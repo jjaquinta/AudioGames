@@ -8,6 +8,8 @@ public class LociPlayer extends LociThing
     
     public static final String ID_PASSWORD = "password";
     public static final String ID_MESSAGES = "messages";
+    public static final String ID_LAST_ACTIVE = "lastActive";
+    public static final String ID_ONLINE = "online";
     
     public LociPlayer(String uri)
     {
@@ -72,5 +74,25 @@ public class LociPlayer extends LociThing
     public void setMessages(String[] value)
     {
         setStringArray(ID_MESSAGES, value);
+    }
+    
+    public long getLastActive()
+    {
+        return getLong(ID_LAST_ACTIVE);
+    }
+    
+    public void setLastActive(long value)
+    {
+        setLong(ID_LAST_ACTIVE, value);
+    }
+    
+    public boolean getOnline()
+    {
+        return getBoolean(ID_ONLINE);
+    }
+    
+    public void setOnline(boolean value)
+    {
+        setBoolean(ID_ONLINE, value);
     }
 }

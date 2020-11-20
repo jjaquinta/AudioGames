@@ -40,7 +40,17 @@ public class LociRoom extends LociThing
         List<String> itemNames = new ArrayList<>();
         for (LociObject o : getContainsObjects())
             if (o instanceof LociPlayer)
-                playerNames.add(o.getName());
+            {
+                LociPlayer p = (LociPlayer)o;
+                if (p.getOnline())
+                {
+                    String name = o.getName();
+                    long lastActiveElapsed = System.currentTimeMillis() - p.getLastActive();
+                    if (lastActiveElapsed > 60*1000L)
+                        name += " (AFK)";
+                    playerNames.add(name);
+                }
+            }
             else if (o instanceof LociExit)
                 exitNames.add(o.getName());
             else

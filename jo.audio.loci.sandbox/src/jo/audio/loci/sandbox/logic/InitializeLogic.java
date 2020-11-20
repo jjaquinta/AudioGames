@@ -28,6 +28,7 @@ import jo.audio.loci.sandbox.verb.VerbHelpRoom;
 import jo.audio.loci.sandbox.verb.VerbHome;
 import jo.audio.loci.sandbox.verb.VerbInventory;
 import jo.audio.loci.sandbox.verb.VerbLogin;
+import jo.audio.loci.sandbox.verb.VerbLogout;
 import jo.audio.loci.sandbox.verb.VerbLookDO;
 import jo.audio.loci.sandbox.verb.VerbLookIO;
 import jo.audio.loci.sandbox.verb.VerbLookRoom;
@@ -36,6 +37,7 @@ import jo.audio.loci.sandbox.verb.VerbOpen;
 import jo.audio.loci.sandbox.verb.VerbPickUp;
 import jo.audio.loci.sandbox.verb.VerbPutIn;
 import jo.audio.loci.sandbox.verb.VerbRegister;
+import jo.audio.loci.sandbox.verb.VerbSay;
 import jo.audio.loci.sandbox.verb.VerbSet;
 import jo.audio.loci.sandbox.verb.VerbSetHelp;
 import jo.audio.loci.sandbox.verb.VerbShut;
@@ -80,7 +82,9 @@ public class InitializeLogic
                 new VerbGoImplicit(),
                 new VerbDelete(),
                 new VerbHome(),
-                new VerbSetHelp());
+                new VerbSetHelp(),
+                new VerbSay(),
+                new VerbLogout());
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileThing").setExtendsName("VerbProfileObject")
                 .addVerbs(VerbLookDO.class, VerbLookIO.class, VerbSet.class, VerbDelete.class, VerbSetHelp.class,
                         VerbHelpDO.class));
@@ -96,8 +100,8 @@ public class InitializeLogic
                 .addVerbs(VerbGoImplicit.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfilePlayer").setExtendsName("VerbProfileThing")
                 .addVerbs(VerbDescribe.class, VerbName.class, VerbInventory.class, VerbCreateItem.class,
-                        VerbCreateContainer.class, VerbDigTo.class, VerbDig.class,
-                        VerbHome.class));
+                        VerbCreateContainer.class, VerbDigTo.class, VerbDig.class, VerbSay.class,
+                        VerbHome.class, VerbLogout.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfilePlayerAdmin").setExtendsName("VerbProfilePlayer")
                 .addVerbs());
         // create mandatory objects
