@@ -114,6 +114,41 @@ public class InitializeLogic
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfilePlayerGhost").setExtendsName("VerbProfilePlayer")
                 .addVerbs());
         // create mandatory objects
+        createAdmin();
+        createFoyeur();
+        createEntrance();
+    }
+
+    private static void createEntrance()
+    {
+        LociRoom entrance = (LociRoom)DataStoreLogic.load(InitializeLogic.ENTRANCE_URI);
+        if (entrance == null)
+        {
+            entrance = new LociRoom(InitializeLogic.ENTRANCE_URI);
+            entrance.setName("Entrance Hall");
+            entrance.setDescription("Coats, hats, and other outerwear hang on hooks along the walls of this comfortable room.");
+            entrance.setPublic(true);
+            entrance.setOwner(ADMIN_URI);
+            DataStoreLogic.save(entrance);
+        }
+    }
+
+    private static void createFoyeur()
+    {
+        LociRoom foyeur = (LociRoom)DataStoreLogic.load(InitializeLogic.FOYER_URI);
+        if (foyeur == null)
+        {
+            foyeur = new LociRoom(InitializeLogic.FOYER_URI);
+            foyeur.setVerbProfile("VerbProfileFoyeur");
+            foyeur.setName("Foyeur");
+            foyeur.setDescription("You are in a nebulous grey area, outside of reality. You can enter reality by saying register <username> <password> or login <username> <password>.");
+            foyeur.setOwner(ADMIN_URI);
+            DataStoreLogic.save(foyeur);
+        }
+    }
+
+    private static void createAdmin()
+    {
         LociPlayerAdmin admin = (LociPlayerAdmin)DataStoreLogic.load(InitializeLogic.ADMIN_URI);
         if (admin == null)
         {
@@ -123,26 +158,6 @@ public class InitializeLogic
             admin.setPassword("lollipop");
             admin.setOwner(ADMIN_URI);
             DataStoreLogic.save(admin);
-        }
-        LociRoom foyeur = (LociRoom)DataStoreLogic.load(InitializeLogic.FOYER_URI);
-        if (foyeur == null)
-        {
-            foyeur = new LociRoom(InitializeLogic.FOYER_URI);
-            foyeur.setVerbProfile("VerbProfileFoyeur");
-            foyeur.setName("Foyeur");
-            foyeur.setDescription("You are in a nebulous grey area, outside of reality. For a list of commands, type help.");
-            foyeur.setOwner(ADMIN_URI);
-            DataStoreLogic.save(foyeur);
-        }
-        LociRoom entrance = (LociRoom)DataStoreLogic.load(InitializeLogic.ENTRANCE_URI);
-        if (entrance == null)
-        {
-            entrance = new LociRoom(InitializeLogic.ENTRANCE_URI);
-            entrance.setName("Entrance Hall");
-            entrance.setDescription("This is the wonderful, welcoming, first room of the sandbox.");
-            entrance.setPublic(true);
-            entrance.setOwner(ADMIN_URI);
-            DataStoreLogic.save(entrance);
         }
     }
 }

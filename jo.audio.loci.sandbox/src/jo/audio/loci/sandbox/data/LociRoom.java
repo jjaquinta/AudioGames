@@ -47,7 +47,7 @@ public class LociRoom extends LociThing
                     String name = o.getName();
                     long lastActiveElapsed = System.currentTimeMillis() - p.getLastActive();
                     if (lastActiveElapsed > 60*1000L)
-                        name += " (AFK)";
+                        name += " (AFK "+lastActiveElapsed+")";
                     playerNames.add(name);
                 }
             }

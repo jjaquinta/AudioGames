@@ -22,11 +22,11 @@ class TestDig extends TestBase
         talk("set slantwise to public", "is now set to public");
         talk("slantwise", "New Room", "new place", "exit to the South");
         talk("look", "New Room", "new place", "exit to the South");
-        talk("South", "first room", "slantwise");
+        talk("South", "Entrance Hall", "slantwise");
         talk("dig south to New Room", "You dig a passage");
         talk("look", "south");
         talk("South", "New Room");
-        talk("South", "first room", "slantwise");
+        talk("South", "Entrance Hall", "slantwise");
     }
     @Test
     void testExitNegative()

@@ -20,6 +20,7 @@ public class InteractLogic
     {
         LociPlayer player = getPlayer(userName, password, token);
         player.setOnline(true);
+        player.setLastActive(System.currentTimeMillis());
         ExecuteContext context = ExecuteLogic.execute(player, command);
         player = (LociPlayer)context.getInvoker();
         player.setLastActive(System.currentTimeMillis());

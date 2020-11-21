@@ -15,7 +15,7 @@ class TestHelp extends TestBase
         talk("help Urim", "info message one");
         talk("set help on me to info message two", "info message two");
         talk("help me", "info message two");
-        talk("help", "for a list of");
+        talk("help", "You can ask for help on");
         talk("help help", "You can ask for help on", "create container", "create item");
         talk("help create", "create container", "create item");
         talk("help create container", "create container", "!create item");

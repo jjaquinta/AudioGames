@@ -10,17 +10,17 @@ class TestScenario extends TestBase
     void testWalkthrough()
     {
         talk("look", "Foyeur", "nebulous grey area", "Amadan");
-        talk("help", "list of commands");
-        talk("?", "list of commands");
+        talk("help", "You can ask for help on");
+        talk("?", "You can ask for help on");
         talk("look Amadan", "Amadan", "transparent entity");
         talk("register Wibble with Wobble", "Welcome Wibble");
-        talk("look", "Entrance Hall", "wonderful, welcoming", "Wibble");
+        talk("look", "Entrance Hall", "Wibble");
         mToken = null;
         mUserName = null;
         mPassword = null;
         talk("look", "Foyeur", "nebulous grey area", "Amadan");
         talk("login Wibble with Wobble", "Welcome back");
-        talk("look", "Entrance Hall", "wonderful, welcoming", "Wibble");
+        talk("look", "Entrance Hall", "Wibble");
         talk("look me", "Wibble", "non-descript");
         talk("describe me as Tall, statuesque, and devilishly handsome nerd", "description changed");
         talk("look me", "Wibble", "statuesque");
