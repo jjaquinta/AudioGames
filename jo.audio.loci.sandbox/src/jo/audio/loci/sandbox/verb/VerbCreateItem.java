@@ -11,7 +11,7 @@ public class VerbCreateItem extends Verb
 {
     public VerbCreateItem()
     {
-        super("create", "item", "named", ".*");
+        super("create,make", "item,thing", "named", ".*");
     }
 
     @Override

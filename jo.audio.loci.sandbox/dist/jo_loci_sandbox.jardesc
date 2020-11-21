@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="WINDOWS-1252" standalone="no"?>
+<jardesc>
+    <jar path="jo.audio.loci.sandbox/dist/jo_loci_sandbox.jar"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/jo.audio.loci.sandbox/dist/jo_loci_sandbox.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="false" overwrite="true" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="true" mainClassHandleIdentifier="=jo.audio.loci.sandbox/src&lt;jo.audio.loci.sandbox.server{TelnetServer.java[TelnetServer" manifestLocation="" manifestVersion="1.0" reuseManifest="false" saveManifest="false" usesManifest="true">
+        <sealing sealJar="false">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="true" exportOutputFolder="false">
+        <javaElement handleIdentifier="=jo.util/src"/>
+        <javaElement handleIdentifier="=jo.audio.loci.core/src"/>
+        <javaElement handleIdentifier="=jo.audio.loci.sandbox/src"/>
+    </selectedElements>
+</jardesc>

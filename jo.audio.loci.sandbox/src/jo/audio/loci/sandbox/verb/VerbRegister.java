@@ -22,9 +22,14 @@ public class VerbRegister extends Verb
     @Override
     public void execute(ExecuteContext context)
     {
-        LociPlayer amadan = (LociPlayer)context.getInvoker();
         String userName = context.getDirectObjectText();
         String password = context.getIndirectObjectText();
+        doRegister(context, userName, password);
+    }
+    
+    public static void doRegister(ExecuteContext context, String userName, String password)
+    {
+        LociPlayer amadan = (LociPlayer)context.getInvoker();
         LociBase player = DataStoreLogic.findFirst(LociPlayer.PROFILE, (obj) -> {
             LociPlayer p = (LociPlayer)DataProfileLogic.cast(obj);
             return userName.equalsIgnoreCase(p.getName());
@@ -48,6 +53,7 @@ public class VerbRegister extends Verb
             p.setDescription("A non-descript player.");
             p.setPassword(password);
             p.setOwner(p.getURI());
+            p.setLastActive(System.currentTimeMillis());
             p.addMessage("Welcome "+p.getName()+".");
             enter(context, amadan, p);
         }
@@ -57,6 +63,7 @@ public class VerbRegister extends Verb
     {
         context.setInvoker(p);
         p.setOnline(true);
+        p.setLastActive(System.currentTimeMillis());
         LociObject foyeur = (LociObject)DataStoreLogic.load(amadan.getContainedBy());
         LociObject entrance = (LociObject)DataStoreLogic.load(InitializeLogic.ENTRANCE_URI);
         ContainmentLogic.remove(foyeur, amadan);

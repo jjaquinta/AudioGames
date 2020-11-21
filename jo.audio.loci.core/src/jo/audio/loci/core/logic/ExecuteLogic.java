@@ -258,21 +258,31 @@ public class ExecuteLogic
         {
             // add what contains the invoker
             LociObject invoker = (LociObject)context.getInvoker();
-            context.getVisibleTo().add(invoker);
+            if (invoker != null)
+                context.getVisibleTo().add(invoker);
             if (!StringUtils.isTrivial(invoker.getContainedBy()))
             {
                 LociObject container = (LociObject)DataStoreLogic.load(invoker.getContainedBy());
-                context.getVisibleTo().add(container);
+                if (container != null)
+                    context.getVisibleTo().add(container);
                 // add what else is in container
                 for (String uri : container.getContains())
                     if (!uri.equals(invoker.getURI()))
-                        context.getVisibleTo().add((LociObject)DataStoreLogic.load(uri));
+                    {
+                        LociObject child = (LociObject)DataStoreLogic.load(uri);
+                        if (child != null)
+                            context.getVisibleTo().add(child);
+                    }
             }
             // add what invoker contains
             String[] contains = invoker.getContains();
             if (contains != null)
                 for (String uri : invoker.getContains())
-                    context.getVisibleTo().add((LociObject)DataStoreLogic.load(uri));
+                {
+                    LociObject child = (LociObject)DataStoreLogic.load(uri);
+                    if (child != null)
+                        context.getVisibleTo().add(child);
+                }
         }
     }
 }
