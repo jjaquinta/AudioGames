@@ -26,9 +26,9 @@ public class LociItem extends LociThing
     
     // utilities
     @Override
-    public String[] getExtendedDescription()
+    public String[] getExtendedDescription(LociPlayer wrt)
     {
-        String[] desc = super.getExtendedDescription();
+        String[] desc = super.getExtendedDescription(wrt);
         return desc;
     }
     

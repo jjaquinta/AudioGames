@@ -16,7 +16,7 @@ public abstract class VerbLookBase extends Verb
     public static void doLook(LociPlayer player, LociObject thing)
     {
         if (thing instanceof LociThing)
-            player.addMessage(((LociThing)thing).getExtendedDescription());
+            player.addMessage(((LociThing)thing).getExtendedDescription(player));
         else
             player.addMessage(thing.getDescription());
     }

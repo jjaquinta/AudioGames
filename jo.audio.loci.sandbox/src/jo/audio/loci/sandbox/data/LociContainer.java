@@ -36,10 +36,10 @@ public class LociContainer extends LociItem
     
     // utilities
     @Override
-    public String[] getExtendedDescription()
+    public String[] getExtendedDescription(LociPlayer wrt)
     {
         List<String> desc = new ArrayList<String>();
-        for (String d : super.getExtendedDescription())
+        for (String d : super.getExtendedDescription(wrt))
             desc.add(d);
         if (getOpen())
         {

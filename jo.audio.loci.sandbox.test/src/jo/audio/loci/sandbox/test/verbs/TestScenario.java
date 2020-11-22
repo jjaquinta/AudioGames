@@ -9,18 +9,18 @@ class TestScenario extends TestBase
     @Test
     void testWalkthrough()
     {
-        talk("look", "Foyeur", "nebulous grey area", "Amadan");
+        talk("look", "Foyeur", "nebulous grey area");
         talk("help", "You can ask for help on");
         talk("?", "You can ask for help on");
         talk("look Amadan", "Amadan", "transparent entity");
         talk("register Wibble Wobble", "Welcome Wibble");
-        talk("look", "Entrance Hall", "Wibble");
+        talk("look", "Entrance Hall");
         mToken = null;
         mUserName = null;
         mPassword = null;
-        talk("look", "Foyeur", "nebulous grey area", "Amadan");
+        talk("look", "Foyeur", "nebulous grey area");
         talk("login Wibble Wobble", "Welcome back");
-        talk("look", "Entrance Hall", "Wibble");
+        talk("look", "Entrance Hall", "!Wibble");
         talk("look me", "Wibble", "non-descript");
         talk("describe me as Tall, statuesque, and devilishly handsome nerd", "description changed");
         talk("look me", "Wibble", "statuesque");
