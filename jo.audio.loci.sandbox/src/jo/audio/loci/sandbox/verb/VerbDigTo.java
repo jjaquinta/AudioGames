@@ -24,6 +24,10 @@ public class VerbDigTo extends Verb
     {
         LociPlayer player = (LociPlayer)context.getInvoker();
         String direction = context.getDirectObjectText();
+        String primaryDirection = direction;
+        int o = primaryDirection.indexOf(',');
+        if (o > 0)
+            primaryDirection = primaryDirection.substring(0, o);
         String target = context.getIndirectObjectText();
         LociRoom oldRoom = (LociRoom)DataStoreLogic.load(player.getContainedBy());
         if (!oldRoom.isAccessible(player))
@@ -33,12 +37,12 @@ public class VerbDigTo extends Verb
         }
         List<LociExit> exits = oldRoom.getContainsStuff(LociExit.class);
         for (LociExit exit : exits)
-            if (exit.getName().equalsIgnoreCase(direction))
+            if (exit.getPrimaryName().equalsIgnoreCase(primaryDirection))
             {
                 player.addMessage("There is already a passage leading in direction "+direction+".");
                 return;
             }
-        List<LociRoom> rooms = DataStoreLogic.findAll(LociRoom.PROFILE, (e) -> ((LociObject)e).getName().equalsIgnoreCase(target));
+        List<LociRoom> rooms = DataStoreLogic.findAll(LociRoom.PROFILE, (e) -> ((LociObject)e).getNamePattern().matcher(target).matches());
         LociRoom newRoom = null;
         for (LociRoom r : rooms)
         {

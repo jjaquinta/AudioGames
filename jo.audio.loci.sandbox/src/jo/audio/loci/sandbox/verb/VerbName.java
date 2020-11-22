@@ -10,7 +10,7 @@ public class VerbName extends Verb
 {
     public VerbName()
     {
-        super("name", "any", "as", ".*");
+        super("name", "any", "as,with", ".*");
     }
 
     @Override

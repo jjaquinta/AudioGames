@@ -41,7 +41,7 @@ public class InteractLogic
         {
             LociBase player = DataStoreLogic.findFirst(LociPlayer.PROFILE, (obj) -> {
                 LociPlayer p = (LociPlayer)DataProfileLogic.cast(obj);
-                return (userName.equalsIgnoreCase(p.getName()) && password.equals(p.getPassword()));
+                return (userName.equalsIgnoreCase(p.getPrimaryName()) && password.equals(p.getPassword()));
                 });
             if (player instanceof LociPlayer)
                 return (LociPlayer)player;

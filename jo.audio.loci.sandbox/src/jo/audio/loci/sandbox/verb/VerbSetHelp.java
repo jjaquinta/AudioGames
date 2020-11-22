@@ -21,7 +21,7 @@ public class VerbSetHelp extends Verb
         String help = context.getIndirectObjectText();
         if (!StringUtils.equals(player.getURI(), thing.getOwner()))
         {
-            player.addMessage("You do not own the "+thing.getName()+".");
+            player.addMessage("You do not own the "+thing.getPrimaryName()+".");
             return;
         }
         thing.setHelpText(help);

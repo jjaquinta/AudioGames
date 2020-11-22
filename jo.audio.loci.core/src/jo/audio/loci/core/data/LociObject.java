@@ -2,6 +2,7 @@ package jo.audio.loci.core.data;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import org.json.simple.JSONObject;
 
@@ -18,6 +19,8 @@ public class LociObject extends LociBase
     public static final String ID_CONTAINEDBY = "containedBy";
     public static final String ID_CONTAINS = "containeds";
 
+    private Pattern mNamePattern = null;
+    
     public LociObject(String uri)
     {
         super(uri, PROFILE);
@@ -38,6 +41,22 @@ public class LociObject extends LociBase
     
     // utils
     
+    public String getPrimaryName()
+    {
+        String name = getName();
+        int o = name.indexOf(',');
+        if (o > 0)
+            name = name.substring(0, o);
+        return name;
+    }
+    
+    public Pattern getNamePattern()
+    {
+        if (mNamePattern == null)
+            mNamePattern = Verb.commaListToPattern(getName());
+        return mNamePattern;
+    }
+    
     public void setVerbProfile(Class<? extends VerbProfile> clazz)
     {
         setVerbProfile(clazz.getSimpleName());
@@ -46,7 +65,14 @@ public class LociObject extends LociBase
     @Override
     public String toString()
     {
-        return "["+getDataProfile()+":"+getName()+"]";
+        return "["+getDataProfile()+":"+getPrimaryName()+"]";
+    }
+    
+    @Override
+    public void fromJSON(JSONObject o)
+    {
+        super.fromJSON(o);
+        mNamePattern = null;
     }
 
     @SuppressWarnings("unchecked")
@@ -74,7 +100,7 @@ public class LociObject extends LociBase
     {
         List<String> itemNames = new ArrayList<>();
         for (LociObject item : getContainsObjects())
-            itemNames.add(item.getName());
+            itemNames.add(item.getPrimaryName());
         return itemNames;
     }
 
@@ -88,6 +114,7 @@ public class LociObject extends LociBase
     public void setName(String value)
     {
         setString(ID_NAME, value);
+        mNamePattern = null;
     }
 
     public String getDescription()

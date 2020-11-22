@@ -26,7 +26,7 @@ public class VerbDelete extends Verb
         LociThing item = (LociThing)context.getMatchedDirectObject();
         if (!item.isAccessible(player))
         {
-            player.addMessage("You cannot delete "+item.getName()+".");
+            player.addMessage("You cannot delete "+item.getPrimaryName()+".");
             return;
         }
         if (item instanceof LociPlayer)
@@ -63,6 +63,6 @@ public class VerbDelete extends Verb
         // remove item
         if (oldContainer != null)
             ContainmentLogic.remove(oldContainer, item);
-        player.addMessage("You deleted the "+item.getName()+".");
+        player.addMessage("You deleted the "+item.getPrimaryName()+".");
     }
 }

@@ -22,16 +22,16 @@ public class VerbDrop extends VerbLookBase
         LociItem thing = (LociItem)context.getMatchedDirectObject();
         if (!(thing instanceof LociItem))
         {
-            player.addMessage("You cannot drop "+thing.getName()+".");
+            player.addMessage("You cannot drop "+thing.getPrimaryName()+".");
         }
         if (!StringUtils.equals(player.getURI(), thing.getContainedBy()))
         {
-            player.addMessage("You are not carrying "+thing.getName()+".");
+            player.addMessage("You are not carrying "+thing.getPrimaryName()+".");
             return;
         }
         LociObject here = (LociObject)DataStoreLogic.load(player.getContainedBy());
         ContainmentLogic.remove(player, thing);
         ContainmentLogic.add(here, thing);
-        player.addMessage("You dropped "+thing.getName()+".");
+        player.addMessage("You dropped "+thing.getPrimaryName()+".");
     }
 }

@@ -31,17 +31,17 @@ public class VerbPutIn extends Verb
         LociItem item = (LociItem)thing;
         if (!StringUtils.equals(player.getURI(), item.getOwner()))
         {
-            player.addMessage("You do not own the "+item.getName()+".");
+            player.addMessage("You do not own the "+item.getPrimaryName()+".");
             return;
         }
         if (!StringUtils.equals(player.getURI(), container.getOwner()))
         {
-            player.addMessage("You do not own the "+container.getOwner()+".");
+            player.addMessage("You do not own the "+container.getPrimaryName()+".");
             return;
         }
         if (!container.getOpen())
         {
-            player.addMessage("The "+container.getName()+" is not open.");
+            player.addMessage("The "+container.getPrimaryName()+" is not open.");
             return;
         }
         if (StringUtils.equals(thing.getURI(), container.getURI()))
@@ -51,12 +51,12 @@ public class VerbPutIn extends Verb
         }
         if (StringUtils.equals(thing.getContainedBy(), container.getURI()))
         {
-            player.addMessage("The "+thing.getName()+" is already in the "+container.getOwner()+".");
+            player.addMessage("The "+thing.getPrimaryName()+" is already in the "+container.getOwner()+".");
             return;
         }
         LociObject parent = (LociObject)DataStoreLogic.load(item.getContainedBy());
         ContainmentLogic.remove(parent, item);
         ContainmentLogic.add(container, item);
-        player.addMessage("You put "+item.getName()+" into "+container.getName()+".");
+        player.addMessage("You put "+item.getPrimaryName()+" into "+container.getPrimaryName()+".");
     }
 }

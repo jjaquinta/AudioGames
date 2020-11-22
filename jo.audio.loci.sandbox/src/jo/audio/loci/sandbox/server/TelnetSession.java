@@ -47,7 +47,7 @@ public class TelnetSession
             if (!mPlayer.getOnline())
             {
                 printMessages();
-                DebugUtils.debug(mPlayer.getName()+" is offline");
+                DebugUtils.debug(mPlayer.getPrimaryName()+" is offline");
                 break;
             }
             // print(">");

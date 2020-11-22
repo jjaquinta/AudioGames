@@ -21,27 +21,27 @@ public class VerbSet extends Verb
         String op = context.getIndirectObjectText();
         if (!StringUtils.equals(player.getURI(), thing.getOwner()))
         {
-            player.addMessage("You do not own the "+thing.getName()+".");
+            player.addMessage("You do not own the "+thing.getPrimaryName()+".");
             return;
         }
         switch (op.toLowerCase())
         {
             case "public":
                 if (thing.getPublic())
-                    player.addMessage(thing.getName()+" is already set to public.");
+                    player.addMessage(thing.getPrimaryName()+" is already set to public.");
                 else
                 {
                     thing.setPublic(true);
-                    player.addMessage(thing.getName()+" is now set to public.");
+                    player.addMessage(thing.getPrimaryName()+" is now set to public.");
                 }
                 break;
             case "private":
                 if (!thing.getPublic())
-                    player.addMessage(thing.getName()+" is already set to private.");
+                    player.addMessage(thing.getPrimaryName()+" is already set to private.");
                 else
                 {
                     thing.setPublic(false);
-                    player.addMessage(thing.getName()+" is now set to private.");
+                    player.addMessage(thing.getPrimaryName()+" is now set to private.");
                 }
                 break;
             default:

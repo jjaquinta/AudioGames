@@ -27,7 +27,7 @@ public class VerbTakeOut extends Verb
         for (String containedURI : container.getContains())
         {
             LociItem i = (LociItem)DataStoreLogic.load(containedURI);
-            if (i.getName().equalsIgnoreCase(thingName))
+            if (i.getNamePattern().matcher(thingName).matches())
             {
                 item = i;
                 break;
@@ -35,12 +35,12 @@ public class VerbTakeOut extends Verb
         }
         if (item == null)
         {
-            player.addMessage("There is no "+thingName+" in the "+container.getName()+".");
+            player.addMessage("There is no "+thingName+" in the "+container.getPrimaryName()+".");
             return;
         }
         if (!StringUtils.equals(player.getURI(), item.getOwner()))
         {
-            player.addMessage("You do not own the "+item.getName()+".");
+            player.addMessage("You do not own the "+item.getPrimaryName()+".");
             return;
         }
         if (!StringUtils.equals(player.getURI(), container.getOwner()))
@@ -50,17 +50,17 @@ public class VerbTakeOut extends Verb
         }
         if (!container.getOpen())
         {
-            player.addMessage("The "+container.getName()+" is not open.");
+            player.addMessage("The "+container.getPrimaryName()+" is not open.");
             return;
         }
         if (!StringUtils.equals(item.getContainedBy(), container.getURI()))
         {
-            player.addMessage("The "+item.getName()+" is not in the "+container.getOwner()+".");
+            player.addMessage("The "+item.getPrimaryName()+" is not in the "+container.getOwner()+".");
             return;
         }
         LociObject parent = (LociObject)DataStoreLogic.load(container.getContainedBy());
         ContainmentLogic.remove(container, item);
         ContainmentLogic.add(parent, item);
-        player.addMessage("You take "+item.getName()+" out of "+container.getName()+".");
+        player.addMessage("You take "+item.getPrimaryName()+" out of "+container.getPrimaryName()+".");
     }
 }

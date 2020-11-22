@@ -36,7 +36,7 @@ public class VerbSay extends Verb
                 if (p2.getURI().equals(player.getURI()))
                     p2.addMessage("You say \""+text+"\".");
                 else
-                    p2.addMessage(player.getName()+" says \""+text+"\".");
+                    p2.addMessage(player.getPrimaryName()+" says \""+text+"\".");
             }
         }
     }

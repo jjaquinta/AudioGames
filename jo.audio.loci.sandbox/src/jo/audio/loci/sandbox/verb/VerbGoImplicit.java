@@ -27,9 +27,15 @@ public class VerbGoImplicit extends Verb
             player.addMessage("You cannot go that way.");
             return;
         }
+        for (LociPlayer p : oldRoom.getContainsStuff(LociPlayer.class))
+            if (!p.getURI().equals(player.getURI()))
+                p.addMessage(player.getPrimaryName()+" leaves the room.");
         ContainmentLogic.remove(oldRoom, player);
         ContainmentLogic.add(newRoom, player);
-        player.addMessage("You go "+exit.getName());
+        player.addMessage("You go "+exit.getPrimaryName()+".");
+        for (LociPlayer p : newRoom.getContainsStuff(LociPlayer.class))
+            if (!p.getURI().equals(player.getURI()))
+                p.addMessage(player.getPrimaryName()+" enters the room.");
         VerbLookBase.doLook(player, newRoom);
     }
 }

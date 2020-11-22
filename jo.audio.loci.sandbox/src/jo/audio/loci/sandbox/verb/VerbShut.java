@@ -25,10 +25,10 @@ public class VerbShut extends Verb
         }
         if (!container.getOpen())
         {
-            player.addMessage("The "+container.getName()+" is already closed.");
+            player.addMessage("The "+container.getPrimaryName()+" is already closed.");
             return;
         }
         container.setOpen(false);
-        player.addMessage("You close the "+container.getName()+".");
+        player.addMessage("You close the "+container.getPrimaryName()+".");
     }
 }

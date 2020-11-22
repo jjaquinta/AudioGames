@@ -37,7 +37,7 @@ public class LociThing extends LociObject
     public String[] getExtendedDescription(LociPlayer wrt)
     {
         List<String> desc = new ArrayList<String>();
-        desc.add(getName());
+        desc.add(getPrimaryName());
         desc.add(getDescription());
         return desc.toArray(new String[0]);
     }

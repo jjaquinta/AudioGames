@@ -34,7 +34,7 @@ public class LociRoom extends LociThing
     public String[] getExtendedDescription(LociPlayer wrt)
     {
         List<String> desc = new ArrayList<String>();
-        desc.add(getName());
+        desc.add(getPrimaryName());
         desc.add(getDescription());
         if (!InitializeLogic.FOYER_URI.equals(getURI()))
         {
@@ -49,17 +49,17 @@ public class LociRoom extends LociThing
                         continue;
                     if (p.getOnline())
                     {
-                        String name = o.getName();
+                        String name = o.getPrimaryName();
                         long lastActiveElapsed = System.currentTimeMillis() - p.getLastActive();
                         if (lastActiveElapsed > 60*1000L)
-                            name += " (AFK "+lastActiveElapsed+")";
+                            name += " (AFK)";
                         playerNames.add(name);
                     }
                 }
                 else if (o instanceof LociExit)
-                    exitNames.add(o.getName());
+                    exitNames.add(o.getPrimaryName());
                 else
-                    itemNames.add(o.getName());
+                    itemNames.add(o.getPrimaryName());
             if (itemNames.size() > 0)
                 if (itemNames.size() == 1)
                     desc.add("There is "+itemNames.get(0)+" here.");

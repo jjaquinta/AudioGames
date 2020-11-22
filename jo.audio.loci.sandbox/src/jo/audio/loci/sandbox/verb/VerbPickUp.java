@@ -23,17 +23,17 @@ public class VerbPickUp extends Verb
         LociItem item = (LociItem)context.getMatchedDirectObject();
         if (!StringUtils.equals(player.getURI(), item.getOwner()))
         {
-            player.addMessage("You do not own the "+item.getName()+".");
+            player.addMessage("You do not own the "+item.getPrimaryName()+".");
             return;
         }
         if (!StringUtils.equals(player.getContainedBy(), item.getContainedBy()))
         {
-            player.addMessage(item.getName()+" is not in a position to be picked up.");
+            player.addMessage(item.getPrimaryName()+" is not in a position to be picked up.");
             return;
         }
         LociObject here = (LociObject)DataStoreLogic.load(player.getContainedBy());
         ContainmentLogic.remove(here, item);
         ContainmentLogic.add(player, item);
-        player.addMessage("You are now carrying "+item.getName()+".");
+        player.addMessage("You are now carrying "+item.getPrimaryName()+".");
     }
 }

@@ -23,6 +23,62 @@ public class VerbDig extends Verb
     {
         LociPlayer player = (LociPlayer)context.getInvoker();
         String direction = context.getDirectObjectText();
+        String primaryDirection = direction;
+        int o = primaryDirection.indexOf(',');
+        if (o > 0)
+            primaryDirection = primaryDirection.substring(0, o);
+        String antiDirection = "Anti-"+direction;
+        switch (primaryDirection.toLowerCase())
+        {
+            case "north":
+                direction = "North,n";
+                antiDirection = "South,s";
+                break;
+            case "south":
+                direction = "South,s";
+                antiDirection = "North,n";
+                break;
+            case "east":
+                direction = "East,e";
+                antiDirection = "West,w";
+                break;
+            case "west":
+                direction = "West,w";
+                antiDirection = "East,e";
+                break;
+            case "up":
+                direction = "Up,u";
+                antiDirection = "Down,d";
+                break;
+            case "down":
+                direction = "Down,d";
+                antiDirection = "Up,u";
+                break;
+            case "north-east":
+            case "northeast":
+            case "north east":
+                direction = "Northeast,North-east,north east,ne";
+                antiDirection = "Southwest,South-west,south west,sw";
+                break;
+            case "south-west":
+            case "southwest":
+            case "south west":
+                direction = "Southwest,South-west,south west,sw";
+                antiDirection = "Northeast,North-east,north east,ne";
+                break;
+            case "south-east":
+            case "southeast":
+            case "south east":
+                direction = "Southeast,South-east,south east,se";
+                antiDirection = "Northwest,North-west,north west,nw";
+                break;
+            case "north-west":
+            case "northwest":
+            case "north west":
+                direction = "Northwest,north-west,north west,nw";
+                antiDirection = "Southeast,South-east,south east,se";
+                break;
+        }
         LociRoom oldRoom = (LociRoom)DataStoreLogic.load(player.getContainedBy());
         if (!oldRoom.isAccessible(player))
         {
@@ -31,7 +87,7 @@ public class VerbDig extends Verb
         }
         List<LociExit> exits = oldRoom.getContainsStuff(LociExit.class);
         for (LociExit exit : exits)
-            if (exit.getName().equalsIgnoreCase(direction))
+            if (exit.getPrimaryName().equalsIgnoreCase(primaryDirection))
             {
                 player.addMessage("There is already a passage leading in direction "+direction+".");
                 return;
@@ -46,20 +102,7 @@ public class VerbDig extends Verb
         newRoom.setDescription("A bright, shiny, new place.");
         newRoom.setOwner(player.getURI());
         LociExit fromNew = new LociExit(DiskStore.PREFIX+"exits/"+System.currentTimeMillis());
-        if ("north".equalsIgnoreCase(direction))
-            fromNew.setName("South");
-        else if ("south".equalsIgnoreCase(direction))
-            fromNew.setName("North");
-        else if ("east".equalsIgnoreCase(direction))
-            fromNew.setName("West");
-        else if ("west".equalsIgnoreCase(direction))
-            fromNew.setName("East");
-        else if ("up".equalsIgnoreCase(direction))
-            fromNew.setName("Down");
-        else if ("down".equalsIgnoreCase(direction))
-            fromNew.setName("Up");
-        else
-            fromNew.setName("Anti-"+direction);
+        fromNew.setName(antiDirection);
         fromNew.setDescription("A rough hewn passage.");
         fromNew.setOwner(player.getURI());
         fromNew.setPublic(true);

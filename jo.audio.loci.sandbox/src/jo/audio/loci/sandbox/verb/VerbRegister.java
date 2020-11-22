@@ -32,14 +32,14 @@ public class VerbRegister extends Verb
         LociPlayer amadan = (LociPlayer)context.getInvoker();
         LociBase player = DataStoreLogic.findFirst(LociPlayer.PROFILE, (obj) -> {
             LociPlayer p = (LociPlayer)DataProfileLogic.cast(obj);
-            return userName.equalsIgnoreCase(p.getName());
+            return userName.equalsIgnoreCase(p.getPrimaryName());
             });
         if (player instanceof LociPlayer)
         {
             LociPlayer p = (LociPlayer)player;
             if (password.equals(p.getPassword()))
             {
-                p.addMessage("Welcome back "+p.getName()+".");
+                p.addMessage("Welcome back "+p.getPrimaryName()+".");
                 enter(context, amadan, p);
             }
             else
@@ -54,7 +54,7 @@ public class VerbRegister extends Verb
             p.setPassword(password);
             p.setOwner(p.getURI());
             p.setLastActive(System.currentTimeMillis());
-            p.addMessage("Welcome "+p.getName()+".");
+            p.addMessage("Welcome "+p.getPrimaryName()+".");
             enter(context, amadan, p);
         }
     }

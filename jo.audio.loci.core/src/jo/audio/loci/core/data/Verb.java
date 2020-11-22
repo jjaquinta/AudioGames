@@ -63,15 +63,7 @@ public abstract class Verb
             return;
         }
         mVerbType = ARG_TYPE_PATTERN;
-        StringBuffer verbPattern = new StringBuffer("(");
-        for (StringTokenizer st = new StringTokenizer(mVerbText, ",|"); st.hasMoreTokens(); )
-        {
-            if (verbPattern.length() > 1)
-                verbPattern.append("|");
-            verbPattern.append(st.nextToken());
-        }
-        verbPattern.append(")");
-        mVerbPattern = Pattern.compile(verbPattern.toString(), Pattern.CASE_INSENSITIVE);
+        mVerbPattern = commaListToPattern(mVerbText);
     }
     
     private void parseDirectObject()
@@ -92,7 +84,7 @@ public abstract class Verb
             return;
         }
         mDirectObjectType = ARG_TYPE_PATTERN;
-        mDirectObjectPattern = parsePattern(mDirectObjectText);
+        mDirectObjectPattern = commaListToPattern(mDirectObjectText);
     }
     
     private void parsePreposition()
@@ -103,7 +95,7 @@ public abstract class Verb
             return;
         }
         mPrepositionType = ARG_TYPE_PATTERN;
-        mPrepositionPattern = parsePattern(mPrepositionText);
+        mPrepositionPattern = commaListToPattern(mPrepositionText);
     }
     
     private void parseIndirectObject()
@@ -124,10 +116,19 @@ public abstract class Verb
             return;
         }
         mIndirectObjectType = ARG_TYPE_PATTERN;
-        mIndirectObjectPattern = parsePattern(mIndirectObjectText);
+        mIndirectObjectPattern = commaListToPattern(mIndirectObjectText);
+    }
+    
+    public abstract void execute(ExecuteContext context);
+    
+    // utils
+    @Override
+    public String toString()
+    {
+        return mVerbText+":"+mDirectObjectText+":"+mPrepositionText+":"+mIndirectObjectText;
     }
 
-    private Pattern parsePattern(String text)
+    public static Pattern commaListToPattern(String text)
     {
         StringBuffer regex = new StringBuffer("(");
         List<String> chunks = new ArrayList<>();
@@ -143,15 +144,6 @@ public abstract class Verb
         regex.append(StringUtils.listize(chunks, "|"));
         regex.append(")");
         return Pattern.compile(regex.toString(), Pattern.CASE_INSENSITIVE);
-    }
-    
-    public abstract void execute(ExecuteContext context);
-    
-    // utils
-    @Override
-    public String toString()
-    {
-        return mVerbText+":"+mDirectObjectText+":"+mPrepositionText+":"+mIndirectObjectText;
     }
     
     // getters and setters

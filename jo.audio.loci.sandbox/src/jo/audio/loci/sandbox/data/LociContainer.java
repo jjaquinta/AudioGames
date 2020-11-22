@@ -66,7 +66,7 @@ public class LociContainer extends LociItem
         {
             LociBase item = DataStoreLogic.load(itemURI);
             if (item instanceof LociObject)
-                itemNames.add(((LociObject)item).getName());
+                itemNames.add(((LociObject)item).getPrimaryName());
         }
         return itemNames;
     }

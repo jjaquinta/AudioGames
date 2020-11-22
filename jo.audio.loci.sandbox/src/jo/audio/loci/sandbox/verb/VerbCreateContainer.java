@@ -25,6 +25,6 @@ public class VerbCreateContainer extends Verb
         p.setDescription("A small, blue box.");
         p.setOwner(amadan.getURI());
         ContainmentLogic.add(amadan, p);
-        amadan.addMessage("You have created a "+p.getName()+".");
+        amadan.addMessage("You have created a "+p.getPrimaryName()+".");
     }
 }

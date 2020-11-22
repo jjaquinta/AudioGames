@@ -136,9 +136,12 @@ public class ExecuteLogic
         }
         else if (verb.getVerbType() == Verb.ARG_TYPE_THIS)
         {
-            if (!cmd.toLowerCase().startsWith(obj.getName().toLowerCase()))
+            Matcher m = obj.getNamePattern().matcher(cmd);
+            if (!m.find())
                 return null;
-            int end = obj.getName().length();
+            if (m.start() > 0)
+                return null;
+            int end = m.end();
             if ((end < cmd.length()) && !Character.isWhitespace(cmd.charAt(end)))
                 return null;
             context.setVerbText(cmd.substring(0, end));
@@ -170,10 +173,9 @@ public class ExecuteLogic
             setMatchedObject.accept(here);
             return true;
         }
-        if (!cmd.toLowerCase().equals(obj.getName().toLowerCase()))
+        if (!obj.getNamePattern().matcher(cmd).matches())
             return false;
-        setObjectText.accept(obj.getName());
-        cmd = cmd.substring(obj.getName().length());
+        setObjectText.accept(cmd);
         setMatchedObject.accept(obj);
         return true;
     }

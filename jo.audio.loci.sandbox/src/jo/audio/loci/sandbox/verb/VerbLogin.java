@@ -22,14 +22,14 @@ public class VerbLogin extends Verb
         String password = context.getIndirectObjectText();
         LociBase player = DataStoreLogic.findFirst(LociPlayer.PROFILE, (obj) -> {
             LociPlayer p = (LociPlayer)DataProfileLogic.cast(obj);
-            return userName.equalsIgnoreCase(p.getName());
+            return userName.equalsIgnoreCase(p.getPrimaryName());
             });
         if (player instanceof LociPlayer)
         {
             LociPlayer p = (LociPlayer)player;
             if (password.equals(p.getPassword()))
             {
-                p.addMessage("Welcome back "+p.getName()+".");
+                p.addMessage("Welcome back "+p.getPrimaryName()+".");
                 VerbRegister.enter(context, amadan, p);
             }
             else

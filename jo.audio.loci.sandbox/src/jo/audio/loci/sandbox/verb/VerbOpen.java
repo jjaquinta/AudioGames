@@ -20,15 +20,15 @@ public class VerbOpen extends Verb
         LociContainer container = (LociContainer)context.getMatchedDirectObject();
         if (!StringUtils.equals(player.getURI(), container.getOwner()))
         {
-            player.addMessage("You do not own the "+container.getName()+".");
+            player.addMessage("You do not own the "+container.getPrimaryName()+".");
             return;
         }
         if (container.getOpen())
         {
-            player.addMessage("The "+container.getName()+" is already open.");
+            player.addMessage("The "+container.getPrimaryName()+" is already open.");
             return;
         }
         container.setOpen(true);
-        player.addMessage("You open the "+container.getName()+".");
+        player.addMessage("You open the "+container.getPrimaryName()+".");
     }
 }
