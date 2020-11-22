@@ -8,7 +8,7 @@ public class VerbLookRoom extends VerbLookBase
 {
     public VerbLookRoom()
     {
-        super("look", null, null, null);
+        super("look,l", null, null, null);
     }
 
     @Override
