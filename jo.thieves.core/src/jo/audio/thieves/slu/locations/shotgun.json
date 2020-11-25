@@ -1,0 +1,262 @@
+{
+  "apatures":[  ],
+  "colorMap":{
+      "B":"#ffff66",
+      "C":"#ffcccc",
+      "D":"#9999ff",
+      "E":"#ff6666",
+      "F":"#ffff00",
+      "H":"#999900",
+      "K":"#ffcc00",
+      "L":"#ffff",
+      "R":"#ff3300",
+      "T":"#cccc",
+      "W":"#999900",
+      "b":"#ccffcc",
+      "f":"#33ff00",
+      "S":"#99ff99"
+    },
+  "idMap":{
+      " ":"EMPTY",
+      "#":"WINDOW",
+      "$":"EXIT",
+      "-":"INNER_DOOR",
+      "=":"OUTER_DOOR",
+      "B":"BACK_PORCH",
+      "C":"CLOSET",
+      "D":"BED_ROOM",
+      "E":"ROOF_EDGE",
+      "F":"FRONT_PORCH",
+      "H":"HALL",
+      "K":"KITCHEN",
+      "L":"LIVING_ROOM",
+      "R":"ROOF",
+      "T":"BATHROOM",
+      "W":"BREESWAY",
+      "_":".",
+      "b":"BACK_YARD",
+      "f":"FRONT_YARD",
+      "S":"SIDE_YARD",
+      "|":"."
+    },
+  "locations":[ {
+          "ID":"KITCHEN",
+          "Inside":true
+        }, {
+          "ID":"BACK_YARD"
+        }, {
+          "ID":"LIVING_ROOM",
+          "Inside":true
+        }, {
+          "HideInShadowsMod":-10,
+          "ID":"ROOF_EDGE",
+          "MoveSilentlyMod":-10
+        }, {
+          "ID":"FRONT_YARD"
+        }, {
+          "HideInShadowsMod":-10,
+          "ID":"ROOF",
+          "MoveSilentlyMod":-10
+        }, {
+          "HideInShadowsMod":10,
+          "ID":"SIDE_YARD"
+        }, {
+          "ID":"BREESWAY"
+        }, {
+          "ID":"CLOSET",
+          "Inside":true
+        }, {
+          "ID":"BATHROOM",
+          "Inside":true
+        }, {
+          "ID":"HALL",
+          "Inside":true
+        }, {
+          "ID":"BACK_PORCH",
+          "MoveSilentlyMod":-20
+        }, {
+          "Bedroom":true,
+          "ID":"BED_ROOM",
+          "Inside":true
+        }, {
+          "ID":"FRONT_PORCH",
+          "MoveSilentlyMod":-10
+        } ],
+  "prefix":"SHOTGUN_",
+  "templates":[ {
+          "ID":"SHOTGUN_HOUSE",
+          "floors":[ [ " _ _ _ _ _ _ _ _ _ _ ", 
+                       "|f S S S S S S S S b|", 
+                       "|    _ # _ # _ #    |", 
+                       "|f F=L L-D D-K K=B b|", 
+                       "|            -      |", 
+                       "$f F|L L|D D|T_K#B b|", 
+                       "|    # _ # _ _ _    |", 
+                       "|f S S S S S S S S b|", 
+                       " _ _ _ _ _ _ _ _ _ _ " ], 
+                     [ "_                 _  ", 
+                       " _                 _ ", 
+                       "                     ", 
+                       "   _ _ _ _ _ _ _ _   ", 
+                       "                     ", 
+                       "   _ _ _ _ _ _ _ _   ", 
+                       "_                 _  ", 
+                       " _                 _ ", 
+                       "                     " ], 
+                     [ " _ _ _ _ _ _ _ _ _ _ ", 
+                       "|.|E E E E E E E E|.|", 
+                       " _                 _ ", 
+                       "|E R R R R R R R R E|", 
+                       "                     ", 
+                       "|E R R R R R R R R E|", 
+                       " _                 _ ", 
+                       "|.|E E E E E E E E|.|", 
+                       " _ _ _ _ _ _ _ _ _ _ " ] ]
+        }, {
+          "ID":"SINGLE_PEN",
+          "floors":[ [ " _ _ _ _ ", 
+                       "|f S S b_", 
+                       "|  #|_   ", 
+                       "$f=L K#b_", 
+                       "         ", 
+                       "_f_D T_b_", 
+                       "   # _   ", 
+                       "_f S S b_", 
+                       " _ _ _ _ " ], 
+                     [ "         ", 
+                       " _     _ ", 
+                       "         ", 
+                       "   _ _   ", 
+                       "         ", 
+                       "   _ _   ", 
+                       "         ", 
+                       " _     _ ", 
+                       "         " ], 
+                     [ " _ _ _ _ ", 
+                       "_ _E E_ _", 
+                       " _     _ ", 
+                       "_E R R E_", 
+                       "         ", 
+                       "_E R R E_", 
+                       " _     _ ", 
+                       "_ _E E___", 
+                       " _ _ _ _ " ] ]
+        }, {
+          "ID":"DOUBLE_PEN",
+          "floors":[ [ " _ _ | | ", 
+                       "|S S S S|", 
+                       "|  #|_   ", 
+                       "|f_L L#b|", 
+                       "         ", 
+                       "$f=L T_b|", 
+                       "   - _   ", 
+                       "|f_D K=b|", 
+                       "         ", 
+                       "|f#D D_b|", 
+                       "   _ #   ", 
+                       "|S S S S|", 
+                       " | | | | " ], 
+                     [ "         ", 
+                       " _     _ ", 
+                       "         ", 
+                       "   _ _   ", 
+                       "         ", 
+                       "   _ _   ", 
+                       "         ", 
+                       "   _ _   ", 
+                       "         ", 
+                       "   _ _   ", 
+                       "         ", 
+                       " _     _ ", 
+                       "         " ], 
+                     [ " _ _ _ _ ", 
+                       "_ _E E_ _", 
+                       " _     _ ", 
+                       "_E R R E_", 
+                       "         ", 
+                       "_E R R E_", 
+                       "         ", 
+                       "_E R R E_", 
+                       "         ", 
+                       "_E R R E_", 
+                       " _     _ ", 
+                       "_ _E E___", 
+                       " _ _ _ _ " ] ]
+        }, {
+          "ID":"HALL_PARLOR",
+          "floors":[ [ " _ _ _ _ ", "|f S.S S_", "|  #|_   ", "|f_L.T_b_", " . .     ", "$f=L K=b_", "   - _   ", "_f_D D#b_", "   # _   ", "_f S S S_", " _ _ _ _ " ], [ "         ", " _     _ ", "         ", "   _ _   ", "         ", "   _ _   ", "         ", "   _ _   ", "         ", " _     _ ", "         " ], [ " _ _ _ _ ", "_ _E E_ _", " _     _ ", "_E R R E_", "         ", "_E R R E_", "         ", "_E R R E_", " _     _ ", "_ _E E_ _", " _ _ _ _ " ] ]
+        }, {
+          "ID":"CENTRAL_PASSAGE",
+          "floors":[ [ " _ _ _ _ ", 
+                       "|S S.S S_", 
+                       "|  _|#   ", 
+                       "_f#L.L_b_", 
+                       " . .     ", 
+                       "_f_L T#b_", 
+                       "   - _   ", 
+                       "$f=H H=b_", 
+                       "   - _   ", 
+                       "_f_D K#b_", 
+                       "         ", 
+                       "_f#D K_b_", 
+                       "   _ #   ", 
+                       "_S S S S_", 
+                       " _ _ _ _ " ], [ "         ", " _     _ ", "         ", "   _ _   ", "         ", "   _ _   ", "         ", "   _ _   ", "         ", "   _ _   ", "         ", "   _ _   ", "         ", " _     _ ", "         " ], [ " _ _ _ _ ", "___E E_ _", " _     _ ", "_E R R E_", "         ", "_E R R E_", "         ", "_E R R E_", "         ", "_E R R E_", "         ", "_E R R E_", " _     _ ", "_ _E E_ _", " _ _ _ _ " ] ]
+        }, {
+          "ID":"DOGTROT",
+          "floors":[ [ " _ _ | | | | ", "|f S.S S S S|", "|   |_ # _   ", "|f F#L L_K#b|", " . .         ", "|f F_L L-K_b|", "     - _ -   ", "$f F W W W b|", " .   - _ -   ", "|f F_D D-C#b|", "             ", "|f F#D D_T_b|", "     _ # _   ", "|f S S S S S|", " | | | | | | " ], [ "             ", " .         . ", "             ", "   . . . .   ", "             ", "   . . . .   ", "             ", "   . . . .   ", "             ", "   . . . .   ", "             ", "   . . . .   ", "             ", " .         . ", "             " ], [ " _ _ _ _ _ _ ", "_ _E E E E___", " _         _ ", "_E R R R R E_", "             ", "_E R R R R E_", "             ", "_E R R R R E_", "             ", "_E R R R R E_", "             ", "_E R R R R E_", " _         _ ", "_._E E E E_ _", " _ _ _ _ _ _ " ] ]
+        }, {
+          "ID":"COTTAGE",
+          "floors":[ [ " _ _ _ _ _ _ _ ", 
+                       "_b b.b b b b b_", 
+                       "|   |          ", 
+                       "_b B.B B B B b_", 
+                       " . = _ _ # _   ", 
+                       "_S_K K H_D D_S_", 
+                       "               ", 
+                       "_S_K K_H_D D_S_", 
+                       "   _ - _ - _   ", 
+                       "_S_L L L H-T_S_", 
+                       "         _ _   ", 
+                       "_S_L L L-D D_S_", 
+                       "               ", 
+                       "_S_L L L_D D_S_", 
+                       "   # _ = _ #   ", 
+                       "_f F F F F F f_", 
+                       "               ", 
+                       "_f f f f f f f_", 
+                       " _ _ _ $ _ _ _ " ], [ "               ", " _ _ _ _ _ _ _ ", "               ", " _           _ ", "               ", "   _ _ _ _ _   ", "               ", "   _ _   _ _   ", "               ", "   . . . . .   ", "               ", "   . . . . .   ", "               ", "   _ _ _ _ _   ", "               ", " _           _ ", "               ", " _ _ _ _ _ _ _ ", "               " ], [ " _ _ _ _ _ _ _ ", "_ _ _ _ _ _ _ _", " _ _ _ _ _ _ _ ", "_ _E E E E E_ _", " _           _ ", "_E R R R R R E_", "       _       ", "_E R R_H_R R E_", "   # _   _ #   ", "_E_D D-H-D D_E_", "       -       ", "_E_D D_T_D D_E_", "   # _ _ _ #   ", "_E R R R R R E_", " _           _ ", "_ _E E E E E_ _", " _ _ _ _ _ _ _ ", "_ _ _ _ _ _ _ _", " _ _ _ _ _ _ _ " ], [ "               ", " _ _ _ _ _ _ _ ", "               ", " _ _ _ _ _ _ _ ", "               ", " _ _ _   _ _ _ ", "               ", " _     _     _ ", "               ", "   _ _ _ _ _   ", "               ", "   _ _ _ _ _   ", "               ", " _           _ ", "               ", " _ _ _ _ _ _ _ ", "               ", " _ _ _ _ _ _ _ ", "               " ], [ " _ _ _ _ _ _ _ ", "_ _ _ _ _ _ _ _", " _ _ _ _ _ _ _ ", "_ _ _ _ _ _ _ _", " _ _ _ _ _ _ _ ", "_ _ _ _E_ _ _ _", " _ _ _   _ _ _ ", "_ _E E R E.E_ _", " _           _ ", "_E R R R R R E_", "               ", "_E R R R R R E_", " _           _ ", "_ _E E E E E_ _", " _ _ _ _ _ _ _ ", "_ _ _ _ _ _ _ _", " _ _ _ _ _ _ _ ", "_ _ _ _ _ _ _ _", " _ _ _ _ _ _ _ " ] ]
+        } ],
+  "text":{
+      "en_US":{
+          "BACK_PORCH_DESC":[ "A dilapidated wood work area is here." ],
+          "BACK_PORCH_NAME":[ "Back Porch" ],
+          "BACK_YARD_DESC":[ "The ground is largely bare here with occasional weeds." ],
+          "BACK_YARD_NAME":[ "Back Yard" ],
+          "BATHROOM_DESC":[ "A plain tin bath and chamber pot are here." ],
+          "BATHROOM_NAME":[ "Bathroom" ],
+          "BED_ROOM_DESC":[ "This is the room where everyone sleeps." ],
+          "BED_ROOM_NAME":[ "Bedroom" ],
+          "BREESWAY_DESC":[ "This open area ." ],
+          "BREESWAY_NAME":[ "Breesway" ],
+          "CLOSET_DESC":[ "This is a small storage room." ],
+          "CLOSET_NAME":[ "Closet" ],
+          "FRONT_PORCH_DESC":[ "A well worn wood platform lines the front of the house." ],
+          "FRONT_PORCH_NAME":[ "Front Porch" ],
+          "FRONT_YARD_DESC":[ "Sparse grass covers the ground here." ],
+          "FRONT_YARD_NAME":[ "Front Yard" ],
+          "HALL_DESC":[ "This corridor connects portions of the house." ],
+          "HALL_NAME":[ "Hall" ],
+          "KITCHEN_DESC":[ "A modest cooking area is here." ],
+          "KITCHEN_NAME":[ "Kitchen" ],
+          "LIVING_ROOM_DESC":[ "This is the main living room of the house." ],
+          "LIVING_ROOM_NAME":[ "Living Room" ],
+          "ROOF_DESC":[ "Weathered boards lie at a slant to shed water." ],
+          "ROOF_EDGE_DESC":[ "A simple rim goes along the edge of the roof." ],
+          "ROOF_EDGE_NAME":[ "Roof" ],
+          "ROOF_NAME":[ "Roof" ],
+          "SIDE_YARD_DESC":[ "Overgrown grass and weeds shield the side of the house." ],
+          "SIDE_YARD_NAME":[ "Side Yard" ]
+        }
+    }
+}

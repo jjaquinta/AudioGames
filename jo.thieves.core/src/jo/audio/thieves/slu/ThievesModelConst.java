@@ -8,6 +8,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONUtils;
 
+import jo.audio.thieves.logic.LocationLogic;
 import jo.util.utils.obj.IntegerUtils;
 
 public class ThievesModelConst
@@ -188,6 +189,8 @@ public class ThievesModelConst
         String[] texts = getTexts(id);
         if (texts == null)
             return null;
+        if (off < 0)
+            return texts[LocationLogic.getCity().getRND().nextInt(texts.length)];
         return texts[off%texts.length];
     }
     
@@ -216,7 +219,7 @@ public class ThievesModelConst
             inbuf = inbuf.substring(o + 2);
             o = id.indexOf("#");
             if (o < 0)
-                outbuf.append(getText(id, 0));
+                outbuf.append(getText(id, -1));
             else
                 outbuf.append(getText(id.substring(0, o), IntegerUtils.parseInt(id.substring(o + 1))));
         }

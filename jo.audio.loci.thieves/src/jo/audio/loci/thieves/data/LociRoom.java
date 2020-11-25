@@ -8,7 +8,7 @@ import org.json.simple.JSONObject;
 import jo.audio.loci.core.data.LociObject;
 import jo.audio.loci.core.utils.ResponseUtils;
 
-public class LociRoom extends LociThing
+public class LociRoom extends LociLocality
 {
     public static final String PROFILE = "room";
     

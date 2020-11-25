@@ -105,6 +105,16 @@ public class LociBase implements IJSONAble
     {
         setThing(key, value);
     }
+
+    protected int getInt(String key)
+    {
+        return JSONUtils.getInt(mProperties, key);
+    }
+    
+    protected void setInt(String key, Integer value)
+    {
+        setThing(key, value);
+    }
     
     // getters and setters
     

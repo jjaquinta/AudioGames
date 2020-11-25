@@ -38,6 +38,7 @@ public class CityLogic
     {
         Random rnd = new Random(seed);
         City city = new City();
+        city.setRND(rnd);
         city.setID("CITY"+seed);
         city.setName("{{CITY_NAME#"+seed+"}}");
         city.setRiverName("{{RIVER_NAME#"+seed+"}}");

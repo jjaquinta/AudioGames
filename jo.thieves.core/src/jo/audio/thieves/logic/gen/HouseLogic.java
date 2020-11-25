@@ -1,8 +1,7 @@
 package jo.audio.thieves.logic.gen;
 
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
@@ -18,10 +17,8 @@ import jo.audio.thieves.data.gen.House;
 import jo.audio.thieves.data.gen.Location;
 import jo.audio.thieves.data.gen.Street;
 import jo.audio.thieves.logic.ThievesConstLogic;
-import jo.audio.thieves.slu.ThievesModelConst;
 import jo.util.utils.DebugUtils;
 import jo.util.utils.MathUtils;
-import jo.util.utils.io.ResourceUtils;
 import jo.util.utils.obj.IntegerUtils;
 
 public class HouseLogic
@@ -103,7 +100,7 @@ public class HouseLogic
     
     private static void readLocations()
     {
-        readLocationsFrom("locationTypes.json");
+        readLocationsFrom("resource://jo/audio/thieves/slu/locationTypes.json");
         Comparator<String> cmp = new Comparator<String>() {            
             @Override
             public int compare(String s1, String s2)
@@ -124,9 +121,7 @@ public class HouseLogic
         DebugUtils.trace("Reading locations from "+source);
         try
         {
-            InputStream is = ResourceUtils.loadSystemResourceStream(source, ThievesModelConst.class);
-            JSONObject json = (JSONObject)JSONUtils.PARSER.parse(new InputStreamReader(is, "utf-8"));
-            is.close();
+            JSONObject json = (JSONObject)JSONUtils.readJSON(source);
             String PREFIX = makePrefix(json, source);
             JSONArray items = JSONUtils.getArray(json, "locations");
             if (items != null)
@@ -280,7 +275,7 @@ public class HouseLogic
             JSONArray tFloor = (JSONArray)tFloors.get(f);
             if (f%2 == 0)
             {   // horizontal apatures
-                for (int r = 1; r < tFloor.size(); r++)
+                for (int r = 1; r < tFloor.size() - 1; r++)
                 {
                     String tRow = (String)tFloor.get(r);
                     if (r%2 == 0)
@@ -347,7 +342,19 @@ public class HouseLogic
         {
             typeApature = mLocationTypeIndex.get(PREFIX+tApature);
             if (typeApature == null)
-                throw new IllegalArgumentException("Unknown location ID '"+tApature+"' or '"+(PREFIX+tApature)+"'");
+            {
+                System.err.println("Apatures:");
+                String[] keys = mApatureTypeIndex.keySet().toArray(new String[0]);
+                Arrays.sort(keys);
+                for (String key : keys)
+                    System.err.println(key+"="+mApatureTypeIndex.get(key));
+                System.err.println("Locations:");
+                keys = mLocationTypeIndex.keySet().toArray(new String[0]);
+                Arrays.sort(keys);
+                for (String key : keys)
+                    System.err.println(key+"="+mLocationTypeIndex.get(key));
+                throw new IllegalArgumentException("Unknown apature/location ID '"+tApature+"' or '"+(PREFIX+tApature)+"' row="+tRow+", col="+c);
+            }
         }
         return typeApature;
     }
@@ -377,7 +384,15 @@ public class HouseLogic
                     {
                         typeLocation = mLocationTypeIndex.get(PREFIX+idLocation);
                         if (typeLocation == null)
-                            throw new IllegalArgumentException("Unknown location ID '"+tLocation+"' -> '"+idLocation+"' or '"+(PREFIX+idLocation)+"'");
+                        {
+                            System.err.println("Types:");
+                            String[] keys = mLocationTypeIndex.keySet().toArray(new String[0]);
+                            Arrays.sort(keys);
+                            for (String key : keys)
+                                System.err.println(key+"="+mLocationTypeIndex.get(key));
+                            throw new IllegalArgumentException("Unknown location ID '"+tLocation+"' -> '"+idLocation+"' or '"+(PREFIX+idLocation)+"'"
+                                    + ", floor="+f+", row="+r+", col="+c);
+                        }
                     }
                     Location l = makeLocation(typeLocation, h);
                     floors[f][r][c] = l;

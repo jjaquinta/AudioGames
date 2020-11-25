@@ -1,0 +1,52 @@
+{
+  "apatures":[  ],
+  "colorMap":{
+      "C":"#999999",
+      "O":"#ffff00",
+      "W":"#ccffff",
+      "w":"#c0c0c0"
+    },
+  "idMap":{
+      " ":"EMPTY",
+      "#":"WINDOW",
+      "$":"EXIT",
+      "-":"INNER_DOOR",
+      "=":"OUTER_DOOR",
+      "C":"COURTYARD",
+      "O":"OFFICE",
+      "W":"WAREHOUSE",
+      "_":".",
+      "s":"STAIRWAY",
+      "w":"WALKWAY",
+      "|":"."
+    },
+  "locations":[ {
+          "ID":"WAREHOUSE",
+          "Inside":true
+        }, {
+          "ID":"OFFICE",
+          "Inside":true
+        }, {
+          "ID":"COURTYARD"
+        }, {
+          "ID":"WALKWAY",
+          "Inside":true
+        } ],
+  "prefix":"WAREHOUSE_",
+  "templates":[ {
+          "ID":"SMALL_WARE_HOUSE",
+          "floors":[ [ " _ _ _ _ _ _ _ ", "|W W W W W W W|", "|             |", "|W W W W W W W|", "|_            |", "|O-W W W W W W|", "|_            |", "$C=W W W W W W|", " _ _ _ _ _ _ _ " ], [ " _ _ _ _ _ _ _ ", "|_ _ _ _ _ _ _|", "|             |", "|_ _ _ _ _ _ _|", "|             |", "|_ _ _ _ _ _ _|", "|             |", "|_ _ _ _ _ _ _|", " _ _ _ _ _ _ _ " ], [ " _ _ _ _ _ _ _ ", "|.|.|.|.|.|.|.|", "|_ _ _ _ _ _ _|", "|.|.|.|.|.|.|.|", "|_ _ _ _ _ _ _|", "|.|.|.|.|.|.|.|", "|_ _ _ _ _ _ _|", "|.|.|.|.|.|.|.|", " _ _ _ _ _ _ _ " ] ]
+        } ],
+  "text":{
+      "en_US":{
+          "COURTYARD_DESC":[ "Well trafficed cobbles line this courtyard." ],
+          "COURTYARD_NAME":[ "Courtyard" ],
+          "OFFICE_DESC":[ "This is small administrative section." ],
+          "OFFICE_NAME":[ "Office" ],
+          "WALKWAY_DESC":[ "Narrow beams stretch between empty space." ],
+          "WALKWAY_NAME":[ "Walkway" ],
+          "WAREHOUSE_DESC":[ "This isle winds its way between large crates in this warehouse." ],
+          "WAREHOUSE_NAME":[ "Isle" ]
+        }
+    }
+}

@@ -365,6 +365,18 @@
          	"Dreary",
          	"Dirty",
          	"Dirt",
+         ],
+         "DIRECTION_NAME": [
+		    "east", 
+		    "southeast", 
+		    "south",
+		    "southwest", 
+		    "west",
+		    "northwest", 
+		    "north",
+		    "northeast",
+		    "up",
+		    "down"
          ]         
        }
    }

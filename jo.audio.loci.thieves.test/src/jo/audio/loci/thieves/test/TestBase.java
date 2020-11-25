@@ -19,6 +19,9 @@ public class TestBase
     {
         SetupLogic.cleanup();
         InitializeLogic.initialize();
+        mToken = null;
+        mUserName = null;
+        mPassword = null;
     }
 
     protected ExecuteContext talk(String command, String... validate)

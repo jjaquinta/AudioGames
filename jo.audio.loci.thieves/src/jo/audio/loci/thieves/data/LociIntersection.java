@@ -11,10 +11,9 @@ import jo.audio.loci.thieves.stores.ExitStore;
 import jo.audio.loci.thieves.stores.SquareStore;
 import jo.audio.thieves.data.gen.Intersection;
 import jo.audio.thieves.logic.LocationLogic;
-import jo.audio.thieves.slu.ThievesModelConst;
 import jo.util.utils.obj.StringUtils;
 
-public class LociIntersection extends LociThing
+public class LociIntersection extends LociLocality
 {
     public static final String PROFILE = "intersection";
     
@@ -47,11 +46,11 @@ public class LociIntersection extends LociThing
     private void init()
     {
         setVerbProfile("VerbProfileIntersection");
-        mProperties.put(ID_NAME, ThievesModelConst.expand(mIntersection.getName()));
+        mProperties.put(ID_NAME, mIntersection.getName());
         if (StringUtils.isTrivial(mIntersection.getDescription()))
             mProperties.put(ID_DECRIPTION, "");
         else
-            mProperties.put(ID_DECRIPTION, ThievesModelConst.expand(mIntersection.getDescription()));
+            mProperties.put(ID_DECRIPTION, mIntersection.getDescription());
     }
     
     @Override
@@ -108,5 +107,15 @@ public class LociIntersection extends LociThing
     }
 
     // getters and setters
+
+    public Intersection getIntersection()
+    {
+        return mIntersection;
+    }
+
+    public void setIntersection(Intersection intersection)
+    {
+        mIntersection = intersection;
+    }
     
 }

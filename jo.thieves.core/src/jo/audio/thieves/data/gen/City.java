@@ -2,6 +2,7 @@ package jo.audio.thieves.data.gen;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 public class City
 {
@@ -11,6 +12,7 @@ public class City
     private Map<String, Intersection>   mIntersections = new HashMap<>();
     private Map<String, Street>         mStreets = new HashMap<>();
     private long                        mSeed;
+    private Random                      mRND;
     
     public String getID()
     {
@@ -59,5 +61,13 @@ public class City
     public void setSeed(long seed)
     {
         mSeed = seed;
+    }
+    public Random getRND()
+    {
+        return mRND;
+    }
+    public void setRND(Random rND)
+    {
+        mRND = rND;
     }
 }

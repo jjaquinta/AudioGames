@@ -1,0 +1,234 @@
+{
+  "apatures":[  ],
+  "colorMap":{
+      "A":"#ccffcc",
+      "B":"#33ccff",
+      "C":"#3333ff",
+      "D":"#99ff99",
+      "E":"#ff9999",
+      "F":"#ffff33",
+      "H":"#999900",
+      "K":"#ffff00",
+      "L":"#ff9999",
+      "O":"#ffff99",
+      "P":"#9999ff",
+      "R":"#cc0033",
+      "S":"#ffff",
+      "T":"#990099",
+      "U":"#ccff",
+      "X":"#ffff99",
+      "a":"#ccffcc",
+      "b":"#66ff00",
+      "f":"#ff99",
+      "g":"#ff66"
+    },
+  "idMap":{
+      " ":"EMPTY",
+      "#":"WINDOW",
+      "$":"EXIT",
+      "-":"INNER_DOOR",
+      ":":"BALUSTRADE",
+      "=":"OUTER_DOOR",
+      "A":"BALCONY",
+      "B":"BED_ROOM",
+      "C":"CLOSET",
+      "D":"DINING_ROOM",
+      "E":"ROOF_EDGE",
+      "F":"FRONT_PORCH",
+      "H":"HALL",
+      "K":"KITCHEN",
+      "L":"LIVING_ROOM",
+      "O":"OFFICE",
+      "P":"PARLOR",
+      "R":"ROOF",
+      "S":"STOREROOM",
+      "T":"BATHROOM",
+      "U":"STABLE",
+      "X":"BACK_PORCH",
+      "_":".",
+      "a":"BALCONY_EDGE",
+      "b":"BACK_YARD",
+      "f":"FRONT_YARD",
+      "g":"GARDEN",
+      "s":"STAIRWAY",
+      "|":"."
+    },
+  "locations":[ {
+          "ID":"KITCHEN",
+          "Inside":true
+        }, {
+          "ID":"BACK_YARD"
+        }, {
+          "ID":"STOREROOM"
+        }, {
+          "ID":"LIVING_ROOM",
+          "Inside":true
+        }, {
+          "ID":"BALCONY_EDGE"
+        }, {
+          "HideInShadowsMod":-10,
+          "ID":"ROOF_EDGE",
+          "MoveSilentlyMod":-10
+        }, {
+          "ID":"DINING_ROOM",
+          "Inside":true
+        }, {
+          "ID":"FRONT_YARD"
+        }, {
+          "ID":"PARLOR",
+          "Inside":true
+        }, {
+          "ID":"BALCONY"
+        }, {
+          "HideInShadowsMod":-10,
+          "ID":"ROOF",
+          "MoveSilentlyMod":-10
+        }, {
+          "ID":"CLOSET",
+          "Inside":true
+        }, {
+          "ID":"OFFICE",
+          "Inside":true
+        }, {
+          "ID":"GARDEN"
+        }, {
+          "ID":"HALL",
+          "Inside":true
+        }, {
+          "ID":"BATHROOM",
+          "Inside":true
+        }, {
+          "ID":"BACK_PORCH"
+        }, {
+          "ID":"STABLE"
+        }, {
+          "ID":"FRONT_PORCH"
+        }, {
+          "Bedroom":true,
+          "ID":"BED_ROOM",
+          "Inside":true
+        } ],
+  "prefix":"TERRACE_",
+  "templates":[ {
+          "ID":"TERRACE_HOUSE",
+          "floors":[ [ " _ _ _ _ _ _ _ ", "|g#P P|T|D D#g|", "|      -      |", "|g#P P H-D D=b|", "|  _ - _      |", "$f=H H H|K K#g|", " _ _ _ _ _ _ _ " ], [ " _ _ _ _ _ _ _ ", "|  _ _ _ _ _  |", "|             |", "|  _ _ _ _ _  |", "|             |", "|  _ _ s _ _  |", " _ _ _ _ _ _ _ " ], [ " _ _ _ _ _ _ _ ", "|E#B B|B B#R E|", "|             |", "|E|B B|B B#R E|", "|      - _    |", "|E#B B-H H|R E|", " _ _ _ _ _ _ _ " ], [ " _ _ _ _ _ _ _ ", "|  _ _ _ _   _|", "|             |", "|  _ _ _ _   _|", "|             |", "|  _ _ _ s   _|", " _ _ _ _ _ _ _ " ], [ " _ _ _ _ _ _ _ ", "|E R#B B#R E|.|", "|        _   _|", "|E R|B B-H#E|.|", "|            _|", "|E R#B B|H|E|.|", " _ _ _ _ _ _ _ " ], [ " _ _ _ _ _ _ _ ", "|_   _ _   _ _|", "|             |", "|_   _ _ _   _|", "|             |", "|_   _ _ _   _|", " _ _ _ _ _ _ _ " ], [ " _ _ _ _ _ _ _ ", "|.|E R R E|.|.|", "|_         _ _|", "|.|E R R R E|.|", "|_           _|", "|.|E R R R E|.|", " _ _ _ _ _ _ _ " ] ]
+        }, {
+          "ID":"BEACH_HOUSE",
+          "floors":[ [ " _ _ _ _ _ _ _ _ ", 
+                       "_b b.b b b b b b_", 
+                       "|   |            ", 
+                       "_b X.X X X b b b_", 
+                       " . . _ # = # _   ", 
+                       "_g X_D D D_B B_g_", 
+                       "                 ", 
+                       "_g X#D D D-B B#g_", 
+                       "     _ _ - - _   ", 
+                       "_g X=K K K_T T_g_", 
+                       "     _ _ - - _   ", 
+                       "_g X#L L L H-C_g_", 
+                       "           - _   ", 
+                       "_g g_L L L_B B_g_", 
+                       "                 ", 
+                       "_f g#L L L_B B_g_", 
+                       "     # # = # #   ", 
+                       "_f f F F F F F f_", 
+                       "                 ", 
+                       "_f f f f f f f f_", 
+                       " _ _ _ _ $ _ _ _ " ], 
+                     [ "                 ", 
+                       " _ _ _ _ _ _ _ _ ", 
+                       "                 ", 
+                       " _ _           _ ", 
+                       "                 ", 
+                       " _   _ _ _ _ _   ", 
+                       "                 ", 
+                       " _   _ _ _ _ _   ", 
+                       "                 ", 
+                       " _   . _ _ _ _   ", 
+                       "                 ", 
+                       " _   _ _ _ _ _   ", 
+                       "                 ", 
+                       " _   _ _ _ _ _   ", 
+                       "                 ", 
+                       " _   _ _ _ _ _   ", 
+                       "                 ", 
+                       " _ _           _ ", 
+                       "                 ", 
+                       " _ _ _ _ _ _ _ _ ", 
+                       "                 " ], 
+                     [ " _ _ _ _ _ _ _ _ ", 
+                       "_ _ _ _ _ _ _ _ _", 
+                       " _ _ _ _ _ _ _ _ ", 
+                       "_ ___E E E E E_ _", 
+                       " _ _           _ ", 
+                       "_ _E R R R R R E_", 
+                       " _               ", 
+                       "_ _E R R R R R E_", 
+                       " _               ", 
+                       "_ _E R R R R R E_", 
+                       " _               ", 
+                       "_ _E R R R R R E_", 
+                       " _               ", 
+                       "_ _E R R R R R E_", 
+                       " _               ", 
+                       "_ _E R R R R R E_", 
+                       " _ _           _ ", 
+                       "_ _ _E E E E E_ _", 
+                       " _ _ _ _ _ _ _ _ ", 
+                       "_ _ _ _ _ _ _ _ _", 
+                       " _ _ _ _ _ _ _ _ " ] ]
+        }, {
+          "ID":"PLAN_924",
+          "floors":[ [ " _ _ _ _ $ _ _ _ _ _ _ ", "_f f f f f f f f f f f_", "|   |      _ _ #       ", "_f f f f f_T_B B_f f f_", "           -           ", "_f f f F F#H-B B#f f f_", "   _ _ _ =   _ _       ", "_g_T T_C_H_H-B B_g g g_", "   _ - -               ", "_g#B B-H H H_B B#g g g_", "       _ _   _ _ _ #   ", "_g_B B-C_K K D D O O_b_", "   # _ _               ", "_b F F F_K K D D O O_b_", "         = #     _ #   ", "_b b b F F F_L L_b b b_", "                       ", "_b b b b b b_L L_b b b_", "             # #       ", "_b b b b b b b b b b b_", " _ _ _ _ _ _ _ _ _ _ _ " ], [ "                       ", " . _ _ _ _       _ _ _ ", "                       ", " . _ _ _   _ _ _   _ _ ", "                       ", " .         _ _ _   _ _ ", "                       ", "   _ _ _ _ _ _ _   _ _ ", "                       ", "   _ _ _ _ _ _ _     _ ", "                       ", "   _ _ _ _ _ _ _ _ _   ", "                       ", " _       _ _ _ _ _ _   ", "                       ", " _ _ _ _     _ _     _ ", "                       ", " _ _ _ _ _   _ _   _ _ ", "                       ", " _ _ _ _ _ _     _ _ _ ", "                       " ], [ " _ _ _ _ _ _ _ _ _ _ _ ", "_ _ _ _ _ _E E E_ _ _ _", " _ _ _ _ _       _ _ _ ", "_ _ _ _ _E R R R E_ _ _", " _ _ _ _ .         _ _ ", "_ _E E E E R R R E_ _ _", " _                 _ _ ", "_E R R R R R R R E_ _ _", "                   _ _ ", "_E R R R R R R R E.E_ _", "                     _ ", "_E R R R R R R R R R E_", " _                     ", "_ _E E E R R R R R R E_", " _ _ _ _             _ ", "_ _ _ _ _E E R R E.E_ _", " _ _ _ _ _         _ _ ", "_ _ _ _ _ _E R R E_ _ _", " _ _ _ _ _ _     _ _ _ ", "_ _ _ _ _ _ _E E_ _ _ _", " _ _ _ _ _ _ _ _ _ _ _ " ] ]
+        }, {
+          "ID":"COLONIAL",
+          "floors":[ [ " _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ", "_b b.b b b b b b b b b b b b b_", "|   |        _ # _             ", "_b X.X X X X#B B B#b b b b b b_", " . .                           ", "_b X X X X X_B B B_b b b b b b_", "   # _ = # _ - - -             ", "_g_L L L_K K_H_C_T_b b b b b b_", "               _ _ _ _ _ # _   ", "_g#L L L K K H H H H H-U S S_g_", "   _ _ - _   _ - _ _           ", "_g_P P P_T-H_H_D D_C-H_S U U#g_", "         _         _ =         ", "_g#P P P_C-H_H_D D#f f_U U S_g_", "         _             _ = _   ", "_g_P P P-H.H H-D D_f f f f f f_", "   # _ # _ = _ # _             ", "_f K K K K K K K K f f f f f f_", "                               ", "_f f f f f f f f f f f f f f f_", " _ _ _ _ _ $ _ _ _ _ _ _ _ _ _ " ], [ "                               ", " _ _ _ _ _ .       . . . . . . ", "                               ", " . . . . .   _ _ _   . . . . . ", "                               ", " .           _ _ _   . . . . . ", "                               ", "         |   _ _ _           _ ", "                               ", "                       _ _ _   ", "                               ", "     .       s         _ _ _   ", "                               ", "                       _ _ _   ", "                               ", "                     .       _ ", "                               ", "       .     .       _ _ _ _ _ ", "                               ", " _                 _ _ _ _ _ _ ", "                               " ], [ " _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ", "_ _ _ _ _ _ _E E E_ _ _ _ _ _ _", " _ _ _ _ _ _       _ _ _ _ _ _ ", "_._ _ _ _ _E R R R E_ _ _ _ _ _", " _ _ _ _ _           _ _ _ _ _ ", "___E E E E E R R R E_ _ _ _ _ _", " _ _ # _ _ _         _ _ _ _ _ ", "_E_B B B_a.a_R R R E E E E E_ _", "         : : _ _ _ _ _       _ ", "_E#B B B-H H H H H S S_R R R E_", "   - -     :   _ _             ", "_E_T_C_C_H:a:H_C_T_S S_R R R E_", "   -   -     _ - - _ _         ", "_E#B B B_H:a_B B B#E E R R R E_", "           :         _       _ ", "_E_B B B-H H-B B B_E___E E E_ _", " _ # = # = _ # = # _ | _ _ _ _ ", "_a:A A A A A A A A:a_ _ _ _ _ _", " _ : : : : : : : : _ _ _ _ _ _ ", "_ _a a a a a a a a_ _ _ _ _ _ _", " _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ " ], [ "                               ", " _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ", "                               ", " . _ _ _ _ _ _ _ _ _ _ _ _ _ _ ", "                               ", " .           _ _ _ _ _ _ _ _ _ ", "                               ", "   _ _ _ _ _           _ _ _ _ ", "                               ", "   _ _ _ _ _ _ _ _ _ _   _ _ _ ", "                               ", "   _ _ _ _ _ _ _ _ _ _   _ _ _ ", "                               ", "   _ _ _ _ _ . _ _     _ _ _ _ ", "                               ", "   _ _ _ _ _ _ _ _   _ _ _ _ _ ", "                               ", " _                 _ _ _ _ _ _ ", "                               ", " _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ", "                               " ], [ " _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ", "_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _", " _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ", "_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _", " _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ", "_ _E E E E E_ _ _ _ _ _ _ _ _ _", " _           _ _ _ _ _ _ _ _ _ ", "_E R R R R R E.E E E E_ _ _ _ _", "                       _ _ _ _ ", "_E R R R R R R R R R R E_ _ _ _", "                         _ _ _ ", "_E R R R R R R R R R R E_ _ _ _", "                       _ _ _ _ ", "_E R R R R R R R R E.E_ _ _ _ _", "                     _ _ _ _ _ ", "_E R R R R R R R R E_ _ _ _ _ _", " _                 _ _ _ _ _ _ ", "_ _E E E E E E E E_ _ _ _ _ _ _", " _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ", "_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _", " _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ " ] ]
+        }, {
+          "ID":"CONTEMPORARY",
+          "floors":[ [ " _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ", "_b b.b b b b b g g g g g g g g_", "|   |          = #             ", "|b b.b.b b b b|K K|g g g g g g_", " . .       # |     | | | # |   ", "_b b b b b|D D|K K|S S|U U U|g_", "               - | - |         ", "_b b b b b#D D-H H H H-U U U|g_", "         | - | | | | |         ", "_b b b b|P P P#f f f f|U U U|g_", "                       | = |   ", "_b b b b#P P P=f f f f f f f f_", "                               ", "_b b b b|P P P#f f f f f f f f_", "   | # |   |   | #             ", "_g|B B B-H|T-H-B B|f f f f f f$", "         | | -                 ", "_g#B B B-C|B B B B#f f f f f f_", "               | |             ", "_g|B B B-T|B B#f f f f f f f f_", "   | # | | # |                 ", "_g g g g g g g f f f f f f f f_", " _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ " ], [ "                               ", " _ _ _ _ _ _ _     _ _ _ _ _ _ ", "                               ", " _ _ _ _ _     _ _           _ ", "                               ", " _ _ _ _   _ _ _ _ _ _ _ _ _   ", "                               ", " _ _ _ _   _ _ _ _ _ _ _ _ _   ", "                               ", " _ _ _   _ _ _         _ _ _   ", "                               ", " _ _ _   _ _ _   _ _ _       _ ", "                               ", " _       _ _ _     _ _ _ _ _ _ ", "                               ", "   _ _ _ _ _ _ _ _   _ _ _ _ _ ", "                               ", "   _ _ _ _ _ _ _ _   _ _ _ _ _ ", "                               ", "   _ _ _ _ _ _     _ _ _ _ _ _ ", "                               ", " _             _ _ _ _ _ _ _ _ ", "                               " ], [ " _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ ", "_ _ _ _ _ _ _ _E E_ _ _ _ _ _ _", " _ _ _ _ _ _ _     _ _ _ _ _ _ ", "_ _ _ _ _ _E E R R E_E E E E_ _", " _ _ _ _ _                   _ ", "_ _ _ _ _E R R R R R R R R R E_", " _ _ _ _ .                     ", "_ _ _ _ _E R R R R R R R R R E_", " _ _ _ _                       ", "_ _ _ _E R R R E.E E E R R R E_", " _ _ _           _ _ _       _ ", "_ _ _ _E R R R E_ _ _ _E E E_ _", " _ _ _ .         _ _ _ _ _ _ _ ", "_ _E E E R R R E.E_ _ _ _ _ _ _", " _                 _ _ _ _ _ _ ", "_E R.R R R R R R R E_ _ _ _ _ _", "                     _ _ _ _ _ ", "_E R R R.R R R R R E_ _ _ _ _ _", "                   _ _ _ _ _ _ ", "_E R R R R R R E.E_ _ _ _ _ _ _", " _             _ _ _ _ _ _ _ _ ", "_ _E E E E E E_ _ _ _ _ _ _ _ _", " _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ " ] ]
+        } ],
+  "text":{
+      "en_US":{
+          "BACK_PORCH_DESC":[ "This raised wooden platform provides a work area in the back of the house." ],
+          "BACK_PORCH_NAME":[ "Back Porch" ],
+          "BACK_YARD_DESC":[ "A small clear area gives access to the garden." ],
+          "BACK_YARD_NAME":[ "Back Yard" ],
+          "BALCONY_DESC":[ "This raised platform looks over the grounds." ],
+          "BALCONY_EDGE_DESC":[ "You are perched on the ouside of an ornamental railing." ],
+          "BALCONY_EDGE_NAME":[ "Balcony" ],
+          "BALCONY_NAME":[ "Balcony" ],
+          "BATHROOM_DESC":[ "A ceramic bath and chamber pot are here." ],
+          "BATHROOM_NAME":[ "Bathroom" ],
+          "BED_ROOM_DESC":[ "This is a personal sleeping room." ],
+          "BED_ROOM_NAME":[ "Bedroom" ],
+          "CLOSET_DESC":[ "This is a small storage place." ],
+          "CLOSET_NAME":[ "Closet" ],
+          "DINING_ROOM_DESC":[ "The main meals of the house are eaten here." ],
+          "DINING_ROOM_NAME":[ "Dining Room" ],
+          "FRONT_PORCH_DESC":[ "This raised wooden platform provides a work area in the front of the house." ],
+          "FRONT_PORCH_NAME":[ "Front Porch" ],
+          "FRONT_YARD_DESC":[ "A brick walkway leads from the gate to the front door." ],
+          "FRONT_YARD_NAME":[ "Front Yard" ],
+          "GARDEN_DESC":[ "There is a small, but tidy, flower bed here." ],
+          "GARDEN_NAME":[ "Garden" ],
+          "HALL_DESC":[ "This narrow panneled corridor leads between rooms." ],
+          "HALL_NAME":[ "Hall" ],
+          "KITCHEN_DESC":[ "Meals are prepared here." ],
+          "KITCHEN_NAME":[ "Kitchen" ],
+          "LIVING_ROOM_DESC":[ "This is the main living area of the house." ],
+          "LIVING_ROOM_NAME":[ "Living Room" ],
+          "OFFICE_DESC":[ "Paperwork and ledgers are filed here." ],
+          "OFFICE_NAME":[ "Office" ],
+          "PARLOR_DESC":[ "This neat and tidy room is where visitors are entertained." ],
+          "PARLOR_NAME":[ "Parlor" ],
+          "ROOF_DESC":[ "Tiles shed water in channels off the edge of the roof." ],
+          "ROOF_EDGE_DESC":[ "A simple rim goes along the edge of the roof." ],
+          "ROOF_EDGE_NAME":[ "Roof" ],
+          "ROOF_NAME":[ "Roof" ],
+          "STABLE_DESC":[ "This is where the horses of the house are kept." ],
+          "STABLE_NAME":[ "Stable" ],
+          "STOREROOM_DESC":[ "This room contains occasionally used items." ],
+          "STOREROOM_NAME":[ "Storeroom" ]
+        }
+    }
+}

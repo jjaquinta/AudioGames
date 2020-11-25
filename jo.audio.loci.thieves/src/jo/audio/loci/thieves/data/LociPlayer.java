@@ -1,6 +1,11 @@
 package jo.audio.loci.thieves.data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.json.simple.JSONObject;
+
+import jo.audio.thieves.slu.ThievesModelConst;
 
 public class LociPlayer extends LociThing
 {
@@ -31,15 +36,25 @@ public class LociPlayer extends LociThing
     // utils
     public void addMessage(String... msgs)
     {
+        if (msgs == null)
+            return;
+        if (msgs.length == 0)
+            return;
         synchronized (this)
         {
             String[] oldMessages = getMessages();
             if (oldMessages == null)
                 oldMessages = new String[0];
-            String[] newMessages = new String[oldMessages.length + msgs.length];
-            System.arraycopy(oldMessages, 0, newMessages, 0, oldMessages.length);
-            System.arraycopy(msgs, 0, newMessages, oldMessages.length, msgs.length);
-            setMessages(newMessages);
+            List<String> newMessages = new ArrayList<>();
+            for (String m : oldMessages)
+                newMessages.add(m);
+            for (String m : msgs)
+                if (m != null)
+                {
+                    m = ThievesModelConst.expand(m);
+                    newMessages.add(m);
+                }
+            setMessages(newMessages.toArray(new String[0]));
         }
     }
     

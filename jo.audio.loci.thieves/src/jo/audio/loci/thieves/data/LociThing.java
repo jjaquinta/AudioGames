@@ -2,10 +2,13 @@ package jo.audio.loci.thieves.data;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import org.json.simple.JSONObject;
 
 import jo.audio.loci.core.data.LociObject;
+import jo.audio.loci.core.data.Verb;
+import jo.audio.thieves.slu.ThievesModelConst;
 
 public class LociThing extends LociObject
 {
@@ -34,6 +37,14 @@ public class LociThing extends LociObject
     }
     
     // utilities
+
+    public Pattern getNamePattern()
+    {
+        if (mNamePattern == null)
+            mNamePattern = Verb.listToPattern(ThievesModelConst.expand(getName()), NAME_DELIM);
+        return mNamePattern;
+    }
+
     public String[] getExtendedDescription(LociPlayer wrt)
     {
         List<String> desc = new ArrayList<String>();

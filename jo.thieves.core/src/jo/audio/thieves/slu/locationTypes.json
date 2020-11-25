@@ -1,0 +1,55 @@
+{
+  "apatures":[ {
+          "ID":"STAIRWAY"
+        }, {
+          "ID":"OUTER_DOOR"
+        }, {
+          "ID":"INNER_DOOR"
+        }, {
+          "ID":"ROOF_EDGE"
+        }, {
+          "ID":"BALUSTRADE"
+        }, {
+          "ID":"EMPTY"
+        }, {
+          "ID":"WINDOW"
+        } ],
+  "colorMap":{
+      " ":"#c0c0c0",
+      "#":"#8080ff",
+      "-":"#c0c0c0",
+      ":":"#c0c0c0",
+      "=":"#808080",
+      "r":"#ff8080",
+      "s":"#ffff"
+    },
+  "idMap":{
+      " ":"EMPTY",
+      "#":"WINDOW",
+      "-":"INNER_DOOR",
+      ":":"BALUSTRADE",
+      "=":"OUTER_DOOR",
+      "r":"ROOF_EDGE",
+      "s":"STAIRWAY"
+    },
+  "include":[ "locations/shotgun.json", "locations/standalone.json", "locations/terrace.json", "locations/warehouse.json" ],
+  "locations":[  ],
+  "prefix":"",
+  "templates":[  ],
+  "text":{
+      "en_US":{
+          "BALUSTRADE_DESC":[ "You step over the ornamental railing." ],
+          "BALUSTRADE_NAME":[ "Balustrade" ],
+          "INNER_DOOR_DESC":[ "You go through the door." ],
+          "INNER_DOOR_NAME":[ "Door" ],
+          "OUTER_DOOR_DESC":[ "You go through the door." ],
+          "OUTER_DOOR_NAME":[ "Outer Door" ],
+          "ROOF_EDGE_DESC":[ "You carefully maneuver the roof edge." ],
+          "ROOF_EDGE_NAME":[ "Roof" ],
+          "STAIRWAY_DESC":[ "You use the stairs to get to the next floor." ],
+          "STAIRWAY_NAME":[ "Starway" ],
+          "WINDOW_DESC":[ "You climb through the window." ],
+          "WINDOW_NAME":[ "Window" ]
+        }
+    }
+}

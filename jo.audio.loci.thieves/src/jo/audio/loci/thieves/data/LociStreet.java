@@ -11,9 +11,9 @@ import jo.audio.loci.thieves.stores.ExitStore;
 import jo.audio.loci.thieves.stores.StreetStore;
 import jo.audio.thieves.data.gen.Street;
 import jo.audio.thieves.logic.LocationLogic;
-import jo.audio.thieves.slu.ThievesModelConst;
+import jo.audio.thieves.logic.ThievesConstLogic;
 
-public class LociStreet extends LociThing
+public class LociStreet extends LociLocality
 {
     public static final String PROFILE = "street";
     
@@ -31,10 +31,10 @@ public class LociStreet extends LociThing
         init();
     }
     
-    public LociStreet(JSONObject json, Street intersection)
+    public LociStreet(JSONObject json, Street street)
     {
         super(json);
-        mStreet = intersection;
+        mStreet = street;
         init();
         String[] contains = new String[2];
         contains[0] = ExitStore.toURI(mStreet.getID(), mStreet.getHighIntersection().getID());
@@ -45,8 +45,22 @@ public class LociStreet extends LociThing
     private void init()
     {
         setVerbProfile("VerbProfileStreet");
-        mProperties.put(ID_NAME, ThievesModelConst.expand(mStreet.getName()));
-        mProperties.put(ID_DECRIPTION, "");
+        mProperties.put(ID_NAME, mStreet.getName());
+        if (mStreet.getType() == Street.STREET)
+            mProperties.put(ID_DECRIPTION, mStreet.getHouses()+" houses line this street from "
+                    +ThievesConstLogic.dirToName(mStreet.getHighDir())+" to "
+                    +ThievesConstLogic.dirToName(mStreet.getLowDir())+".");
+        else if (mStreet.getType() == Street.QUAY)
+            mProperties.put(ID_DECRIPTION, mStreet.getHouses()+" warehouses stand next to the river from "
+                    +ThievesConstLogic.dirToName(mStreet.getHighDir())+" to "
+                    +ThievesConstLogic.dirToName(mStreet.getLowDir())+".");
+        else if (mStreet.getType() == Street.BRIDGE)
+            mProperties.put(ID_DECRIPTION, "This bridge crosses the river "
+                    +LocationLogic.getCity().getRiverName()+" from "
+                    +ThievesConstLogic.dirToName(mStreet.getHighDir())+" to "
+                    +ThievesConstLogic.dirToName(mStreet.getLowDir())+".");
+        else
+            throw new IllegalArgumentException("Unknown street type: "+mStreet.getType());
     }
     
     @Override
@@ -96,5 +110,15 @@ public class LociStreet extends LociThing
     }
 
     // getters and setters
+
+    public Street getStreet()
+    {
+        return mStreet;
+    }
+
+    public void setStreet(Street street)
+    {
+        mStreet = street;
+    }
     
 }

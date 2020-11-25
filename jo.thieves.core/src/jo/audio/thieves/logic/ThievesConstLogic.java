@@ -250,4 +250,9 @@ public class ThievesConstLogic
         System.out.println(CARDINAL_NAMES[bearing(0, -1)]+", expected NORTH");
         System.out.println(CARDINAL_NAMES[bearing(1, -1)]+", expected NORTHEAST");
     }
+
+    public static String dirToName(int dir)
+    {
+        return "{{DIRECTION_NAME#"+dir+"}}";
+    }
 }

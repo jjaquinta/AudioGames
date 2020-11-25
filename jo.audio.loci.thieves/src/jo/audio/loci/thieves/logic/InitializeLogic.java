@@ -27,6 +27,17 @@ import jo.audio.loci.thieves.verbs.VerbLogout;
 import jo.audio.loci.thieves.verbs.VerbLookFoyeur;
 import jo.audio.loci.thieves.verbs.VerbRegister;
 import jo.audio.loci.thieves.verbs.VerbRegister2;
+import jo.audio.loci.thieves.verbs.go.VerbGoDown;
+import jo.audio.loci.thieves.verbs.go.VerbGoEast;
+import jo.audio.loci.thieves.verbs.go.VerbGoImplicit;
+import jo.audio.loci.thieves.verbs.go.VerbGoNorth;
+import jo.audio.loci.thieves.verbs.go.VerbGoNorthEast;
+import jo.audio.loci.thieves.verbs.go.VerbGoNorthWest;
+import jo.audio.loci.thieves.verbs.go.VerbGoSouth;
+import jo.audio.loci.thieves.verbs.go.VerbGoSouthEast;
+import jo.audio.loci.thieves.verbs.go.VerbGoSouthWest;
+import jo.audio.loci.thieves.verbs.go.VerbGoUp;
+import jo.audio.loci.thieves.verbs.go.VerbGoWest;
 import jo.audio.thieves.logic.ThievesConstLogic;
 
 public class InitializeLogic
@@ -69,13 +80,23 @@ public class InitializeLogic
                 //new VerbSet(),
                 //new VerbDig(),
                 //new VerbDigTo(),
-                //new VerbGoImplicit(),
+                new VerbGoImplicit(),
                 //new VerbDelete(),
                 //new VerbHome(),
                 //new VerbSetHelp(),
                 //new VerbSay(),
                 new VerbLogout(),
                 //new VerbDump(),
+                new VerbGoNorth(), 
+                new VerbGoNorthWest(), 
+                new VerbGoNorthEast(), 
+                new VerbGoSouth(), 
+                new VerbGoSouthEast(), 
+                new VerbGoSouthWest(), 
+                new VerbGoEast(), 
+                new VerbGoWest(), 
+                new VerbGoUp(), 
+                new VerbGoDown(), 
                 new VerbLookFoyeur(), 
                 new VerbRegister(), 
                 new VerbRegister2(), 
@@ -88,16 +109,29 @@ public class InitializeLogic
                 .addVerbs());
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileContainer").setExtendsName("VerbProfileItem")
                 .addVerbs());
-        VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileRoom").setExtendsName("VerbProfileThing")
+        VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileLocality").setExtendsName("VerbProfileThing")
+                .addVerbs(
+                        VerbGoNorth.class, 
+                        VerbGoNorthWest.class, 
+                        VerbGoNorthEast.class, 
+                        VerbGoSouth.class, 
+                        VerbGoSouthEast.class, 
+                        VerbGoSouthWest.class, 
+                        VerbGoEast.class, 
+                        VerbGoWest.class, 
+                        VerbGoUp.class, 
+                        VerbGoDown.class
+                        ));
+        VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileRoom").setExtendsName("VerbProfileLocality")
                 .addVerbs());
-        VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileIntersection").setExtendsName("VerbProfileRoom")
+        VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileIntersection").setExtendsName("VerbProfileLocality")
                 .addVerbs());
-        VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileStreet").setExtendsName("VerbProfileRoom")
+        VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileStreet").setExtendsName("VerbProfileLocality")
                 .addVerbs());
-        VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileFoyeur").setExtendsName("VerbProfileRoom")
+        VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileFoyeur").setExtendsName("VerbProfileLocality")
                 .addVerbs(VerbRegister.class, VerbRegister2.class, VerbLogin.class, VerbLogin2.class, VerbLookFoyeur.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileExit").setExtendsName("VerbProfileThing")
-                .addVerbs());
+                .addVerbs(VerbGoImplicit.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfilePlayer").setExtendsName("VerbProfileThing")
                 .addVerbs(VerbLogout.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfilePlayerAdmin").setExtendsName("VerbProfilePlayer")

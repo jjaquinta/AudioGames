@@ -21,7 +21,7 @@ public class LociObject extends LociBase
     public static final String ID_CONTAINEDBY = "containedBy";
     public static final String ID_CONTAINS = "containeds";
 
-    private Pattern mNamePattern = null;
+    protected Pattern mNamePattern = null;
     
     public LociObject(String uri)
     {
