@@ -13,6 +13,8 @@ public class LociObject extends LociBase
 {
     public static final String PROFILE = "object";
     
+    public static String NAME_DELIM = ",";
+    
     public static final String ID_NAME = "name";
     public static final String ID_DECRIPTION = "description";
     public static final String ID_VERB_PROFILE = "verbProfile";
@@ -44,7 +46,7 @@ public class LociObject extends LociBase
     public String getPrimaryName()
     {
         String name = getName();
-        int o = name.indexOf(',');
+        int o = name.indexOf(NAME_DELIM);
         if (o > 0)
             name = name.substring(0, o);
         return name;
@@ -53,7 +55,7 @@ public class LociObject extends LociBase
     public Pattern getNamePattern()
     {
         if (mNamePattern == null)
-            mNamePattern = Verb.commaListToPattern(getName());
+            mNamePattern = Verb.listToPattern(getName(), NAME_DELIM);
         return mNamePattern;
     }
     

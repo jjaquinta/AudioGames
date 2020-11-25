@@ -130,9 +130,14 @@ public abstract class Verb
 
     public static Pattern commaListToPattern(String text)
     {
+        return listToPattern(text, ",|");
+    }
+
+    public static Pattern listToPattern(String text, String delim)
+    {
         StringBuffer regex = new StringBuffer("(");
         List<String> chunks = new ArrayList<>();
-        for (StringTokenizer st = new StringTokenizer(text, ",|"); st.hasMoreTokens(); )
+        for (StringTokenizer st = new StringTokenizer(text, delim); st.hasMoreTokens(); )
             chunks.add(st.nextToken().trim());
         Collections.sort(chunks, new Comparator<String>() {
             @Override

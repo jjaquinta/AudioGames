@@ -1,6 +1,7 @@
 package jo.audio.loci.core.utils;
 
 import java.util.Collection;
+import java.util.function.BiFunction;
 
 public class ResponseUtils
 {
@@ -47,4 +48,32 @@ public class ResponseUtils
         return resp.toString();
     }
 
+    public static <T> String filterText(String inbuf, T payload, BiFunction<T, String, String> proc)
+    {
+        StringBuffer outbuf = new StringBuffer();
+        for (;;)
+        {
+            int o = inbuf.indexOf("[[");
+            if (o < 0)
+            {
+                outbuf.append(inbuf);
+                break;
+            }
+            outbuf.append(inbuf.substring(0, o));
+            inbuf = inbuf.substring(o + 2);
+            o = inbuf.indexOf("]]");
+            if (o < 0)
+            {
+                outbuf.append("[[");
+                outbuf.append(inbuf);
+                break;
+            }
+            String arg = inbuf.substring(0, o);
+            inbuf = inbuf.substring(o + 2);
+            String ret = proc.apply(payload, arg);
+            if (ret != null)
+                outbuf.append(ret);
+        }
+        return outbuf.toString();
+    }
 }

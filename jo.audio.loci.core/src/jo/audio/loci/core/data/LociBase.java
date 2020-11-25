@@ -12,7 +12,7 @@ public class LociBase implements IJSONAble
     public static final String ID_URI = "uri";
     public static final String ID_DATA_PROFILE = "dataProfile";
 
-    private JSONObject  mProperties = new JSONObject();
+    protected JSONObject  mProperties = new JSONObject();
 
     public LociBase(String uri, String profile)
     {

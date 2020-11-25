@@ -70,6 +70,17 @@ public class DiskStore implements IDataStore
     }
     private LociBase load(File f)
     {
+        JSONObject json = loadJSON(f);
+        LociBase obj = new LociBase(json);
+        return obj;
+    }
+    public JSONObject loadJSON(String uri)
+    {
+        File f = getFile(uri);
+        return loadJSON(f);
+    }
+    private JSONObject loadJSON(File f)
+    {
         if (!f.exists())
             return null;
         JSONObject json;
@@ -82,8 +93,7 @@ public class DiskStore implements IDataStore
             e.printStackTrace();
             return null;
         }
-        LociBase obj = new LociBase(json);
-        return obj;
+        return json;
     }
 
     @Override
@@ -92,6 +102,19 @@ public class DiskStore implements IDataStore
         File f = getFile(obj.getURI());
         f.getParentFile().mkdirs();
         JSONObject json = obj.toJSON();
+        try
+        {
+            JSONUtils.writeJSON(f, json);
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+    public void saveJSON(JSONObject json)
+    {
+        File f = getFile(json.getString(LociBase.ID_URI));
+        f.getParentFile().mkdirs();
         try
         {
             JSONUtils.writeJSON(f, json);
@@ -115,6 +138,8 @@ public class DiskStore implements IDataStore
     {
         List<T> found = new ArrayList<>();
         File[] files = dir.listFiles();
+        if (files == null)
+            return null;
         for (File f : files)
         {
             if (f.isDirectory())

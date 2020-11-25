@@ -32,7 +32,7 @@ public class DataStoreLogic
         mDataStores.add(0, store);
     }
 
-    private static IDataStore getStore(String uri)
+    public static IDataStore getStore(String uri)
     {
         for (IDataStore store : mDataStores)
             if (store.isStoreFor(uri))
@@ -84,7 +84,7 @@ public class DataStoreLogic
         for (IDataStore store : mDataStores)
         {
             List<T> ret = store.findSome(dataProfile, matcher, 1);
-            if (ret.size() > 0)
+            if ((ret != null) && (ret.size() > 0))
                 return ret.get(0);
         }
         return null;

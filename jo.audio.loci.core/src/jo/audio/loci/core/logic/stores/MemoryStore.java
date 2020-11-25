@@ -31,9 +31,16 @@ public class MemoryStore implements IDataStore
     @Override
     public LociBase load(String uri)
     {
-        JSONObject json = mStore.get(uri);
+        JSONObject json = loadJSON(uri);
         return load(json);
     }
+
+    public JSONObject loadJSON(String uri)
+    {
+        JSONObject json = mStore.get(uri);
+        return json;
+    }
+    
     private LociBase load(JSONObject json)
     {
         if (json == null)
@@ -46,7 +53,12 @@ public class MemoryStore implements IDataStore
     @Override
     public void save(LociBase obj)
     {
-        mStore.put(obj.getURI(), obj.toJSON());
+        saveJSON(obj.getURI(), obj.toJSON());
+    }
+
+    public void saveJSON(String uri, JSONObject json)
+    {
+        mStore.put(uri, json);
     }
 
     @SuppressWarnings("unchecked")
