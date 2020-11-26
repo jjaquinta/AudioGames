@@ -17,6 +17,7 @@ import jo.audio.loci.thieves.data.LociThing;
 import jo.audio.thieves.data.gen.Intersection;
 import jo.audio.thieves.data.gen.Street;
 import jo.audio.thieves.logic.LocationLogic;
+import jo.util.beans.WeakCache;
 
 public class ExitStore implements IDataStore
 {
@@ -148,17 +149,23 @@ public class ExitStore implements IDataStore
         //NOP Generated objects cannot be deleted
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public <T> List<T> findSome(String dataProfile,
-            Function<T, Boolean> matcher, int limit)
+            Function<T, Boolean> matcher, int limit, WeakCache<String, LociBase> cache)
     {
         List<T> found = new ArrayList<>();
         if (!dataProfile.equals(LociExit.PROFILE))
             return found;
         for (Intersection i : LocationLogic.getCity().getIntersections().values())
         {
-            @SuppressWarnings("unchecked")
-            T base = (T)load(PREFIX+i.getID());
+            String uri = PREFIX+i.getID();
+            T base = (T)cache.get(uri);
+            if (base == null)
+            {
+                base = (T)load(uri);
+                cache.put(uri, (LociBase)base);
+            }
             if (matcher.apply(base))
             {
                 found.add(base);

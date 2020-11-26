@@ -16,13 +16,13 @@ import jo.audio.thieves.data.gen.Intersection;
 import jo.audio.thieves.logic.LocationLogic;
 import jo.util.beans.WeakCache;
 
-public class SquareStore implements IDataStore
+public class HouseStore implements IDataStore
 {
-    public static final String PREFIX = "square://";
+    public static final String PREFIX = "house://";
     
     private DiskStore   mDisk;
     
-    public SquareStore()
+    public HouseStore()
     {
         mDisk = (DiskStore)DataStoreLogic.getStore(DiskStore.PREFIX);
     }
@@ -30,14 +30,8 @@ public class SquareStore implements IDataStore
     private String toDiskURI(String squareURI)
     {
         String base = squareURI.substring(PREFIX.length());
-        return DiskStore.PREFIX+"square/"+base;
+        return DiskStore.PREFIX+"house/"+base;
     }
-    
-//    private String toSquareURI(String diskURI)
-//    {
-//        String base = diskURI.substring(DiskStore.PREFIX.length()+7);
-//        return DiskStore.PREFIX+base;
-//    }
     
     @Override
     public boolean isStoreFor(String uri)

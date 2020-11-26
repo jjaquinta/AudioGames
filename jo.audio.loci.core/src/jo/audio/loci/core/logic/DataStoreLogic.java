@@ -65,6 +65,7 @@ public class DataStoreLogic
     {
         IDataStore store = getStore(obj);
         store.save(obj);
+        mCache.put(obj.getURI(), obj);
     }
     
     public static void delete(LociBase obj)
@@ -83,7 +84,7 @@ public class DataStoreLogic
         // now do expensive lookup
         for (IDataStore store : mDataStores)
         {
-            List<T> ret = store.findSome(dataProfile, matcher, 1);
+            List<T> ret = store.findSome(dataProfile, matcher, 1, mCache);
             if ((ret != null) && (ret.size() > 0))
                 return ret.get(0);
         }
@@ -97,7 +98,7 @@ public class DataStoreLogic
         // now do expensive lookup
         for (IDataStore store : mDataStores)
         {
-            List<T> ret = store.findSome(dataProfile, matcher, -1);
+            List<T> ret = store.findSome(dataProfile, matcher, -1, mCache);
             if (ret != null)
                 for (T item : ret)
                 {

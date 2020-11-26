@@ -6,6 +6,7 @@ import java.util.function.Function;
 
 import jo.audio.loci.core.data.LociBase;
 import jo.audio.loci.core.logic.IDataStore;
+import jo.util.beans.WeakCache;
 
 public class NullStore implements IDataStore
 {
@@ -34,7 +35,7 @@ public class NullStore implements IDataStore
 
     @Override
     public <T> List<T> findSome(String dataProfile,
-            Function<T, Boolean> matcher, int limit)
+            Function<T, Boolean> matcher, int limit, WeakCache<String, LociBase> cache)
     {
         return new ArrayList<T>();
     }

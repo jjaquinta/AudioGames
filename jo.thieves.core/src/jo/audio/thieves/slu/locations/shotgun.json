@@ -41,45 +41,73 @@
     },
   "locations":[ {
           "ID":"KITCHEN",
+          "description": "A modest cooking area is here.",
+          "name": "Kitchen",
           "Inside":true
         }, {
+          "description": "The ground is largely bare here with occasional weeds.",
+          "name": "Back Yard",
           "ID":"BACK_YARD"
         }, {
           "ID":"LIVING_ROOM",
+          "description": "This is the main living room of the house.",
+          "name": "Living Room",
           "Inside":true
         }, {
           "HideInShadowsMod":-10,
           "ID":"ROOF_EDGE",
+          "description": "A simple rim goes along the edge of the roof.",
+          "name": "Roof",
           "MoveSilentlyMod":-10
         }, {
+          "description": "Sparse grass covers the ground here.",
+          "name": "Front Yard",
           "ID":"FRONT_YARD"
         }, {
           "HideInShadowsMod":-10,
           "ID":"ROOF",
+          "description": "Weathered boards lie at a slant to shed water.",
+          "name": "Roof",
           "MoveSilentlyMod":-10
         }, {
           "HideInShadowsMod":10,
+          "description": "Overgrown grass and weeds shield the side of the house.",
+          "name": "Side Yard",
           "ID":"SIDE_YARD"
         }, {
+          "description": "This open area .",
+          "name": "Breesway",
           "ID":"BREESWAY"
         }, {
           "ID":"CLOSET",
+          "description": "This is a small storage room.",
+          "name": "Closet",
           "Inside":true
         }, {
           "ID":"BATHROOM",
+          "description": "A plain tin bath and chamber pot are here.",
+          "name": "Bathroom",
           "Inside":true
         }, {
           "ID":"HALL",
+          "description": "This corridor connects portions of the house.",
+          "name": "Hall",
           "Inside":true
         }, {
           "ID":"BACK_PORCH",
+          "description": "A dilapidated wood work area is here.",
+          "name": "Back Porch",
           "MoveSilentlyMod":-20
         }, {
           "Bedroom":true,
+          "description": "This is the room where everyone sleeps.",
+          "name": "Bedroom",
           "ID":"BED_ROOM",
           "Inside":true
         }, {
           "ID":"FRONT_PORCH",
+          "description": "A well worn wood platform lines the front of the house.",
+          "name": "Front Porch",
           "MoveSilentlyMod":-10
         } ],
   "prefix":"SHOTGUN_",

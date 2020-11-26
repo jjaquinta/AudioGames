@@ -14,6 +14,7 @@ import jo.audio.loci.core.logic.stores.DiskStore;
 import jo.audio.loci.thieves.data.LociStreet;
 import jo.audio.thieves.data.gen.Street;
 import jo.audio.thieves.logic.LocationLogic;
+import jo.util.beans.WeakCache;
 
 public class StreetStore implements IDataStore
 {
@@ -78,17 +79,23 @@ public class StreetStore implements IDataStore
         // NOP Generated objects cannot be deleted
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public <T> List<T> findSome(String dataProfile,
-            Function<T, Boolean> matcher, int limit)
+            Function<T, Boolean> matcher, int limit, WeakCache<String, LociBase> cache)
     {
         List<T> found = new ArrayList<>();
         if (!dataProfile.equals(LociStreet.PROFILE))
             return found;
         for (Street i : LocationLogic.getCity().getStreets().values())
         {
-            @SuppressWarnings("unchecked")
-            T base = (T)load(PREFIX+i.getID());
+            String uri = PREFIX+i.getID();
+            T base = (T)cache.get(uri);
+            if (base == null)
+            {
+                base = (T)load(uri);
+                cache.put(uri, (LociBase)base);
+            }
             if (matcher.apply(base))
             {
                 found.add(base);

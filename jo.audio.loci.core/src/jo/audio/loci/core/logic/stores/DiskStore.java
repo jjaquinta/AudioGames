@@ -14,6 +14,7 @@ import org.json.simple.JSONUtils;
 import jo.audio.loci.core.data.LociBase;
 import jo.audio.loci.core.logic.DataProfileLogic;
 import jo.audio.loci.core.logic.IDataStore;
+import jo.util.beans.WeakCache;
 
 public class DiskStore implements IDataStore
 {
@@ -61,6 +62,22 @@ public class DiskStore implements IDataStore
         }
         return f;
     }
+    
+    private String getURI(File f)
+    {
+        StringBuffer uri = new StringBuffer();
+        while (!f.equals(mBaseDir))
+        {
+            String fname = f.getName();
+            if (uri.length() == 0)
+                uri.append(fname.substring(0, fname.length() - 5));
+            else
+                uri.insert(0, fname+"/");
+            f = f.getParentFile();
+        }
+        uri.insert(0, PREFIX);
+        return uri.toString();
+    }
 
     @Override
     public LociBase load(String uri)
@@ -71,6 +88,8 @@ public class DiskStore implements IDataStore
     private LociBase load(File f)
     {
         JSONObject json = loadJSON(f);
+        if (json == null)
+            return null;
         LociBase obj = new LociBase(json);
         return obj;
     }
@@ -127,14 +146,14 @@ public class DiskStore implements IDataStore
 
     @Override
     public <T> List<T> findSome(String dataProfile,
-            Function<T, Boolean> matcher, int limit)
+            Function<T, Boolean> matcher, int limit, WeakCache<String, LociBase> cache)
     {
-        return doFindSome(mBaseDir, dataProfile, matcher, limit);
+        return doFindSome(mBaseDir, dataProfile, matcher, limit, cache);
     }
 
     @SuppressWarnings("unchecked")
     private <T> List<T> doFindSome(File dir, String dataProfile,
-            Function<T, Boolean> matcher, int limit)
+            Function<T, Boolean> matcher, int limit, WeakCache<String, LociBase> cache)
     {
         List<T> found = new ArrayList<>();
         File[] files = dir.listFiles();
@@ -144,16 +163,20 @@ public class DiskStore implements IDataStore
         {
             if (f.isDirectory())
             {
-                List<T> ret = doFindSome(f, dataProfile, matcher, limit);
+                List<T> ret = doFindSome(f, dataProfile, matcher, limit, cache);
                 if (ret != null)
                     found.addAll(ret);
             }
             else
             {
-                LociBase ret = load(f);
+                String uri = getURI(f);
+                LociBase ret = cache.get(uri);
+                if (ret == null)
+                    ret = load(f);
                 if (!ret.getDataProfile().equals(dataProfile))
                     continue;
                 T item = (T)DataProfileLogic.cast(ret);
+                cache.put(uri, (LociBase)item);
                 if (matcher.apply(item))
                     found.add(item);
             }

@@ -11,6 +11,7 @@ import org.json.simple.JSONObject;
 import jo.audio.loci.core.data.LociBase;
 import jo.audio.loci.core.logic.DataProfileLogic;
 import jo.audio.loci.core.logic.IDataStore;
+import jo.util.beans.WeakCache;
 
 public class MemoryStore implements IDataStore
 {
@@ -64,7 +65,7 @@ public class MemoryStore implements IDataStore
     @SuppressWarnings("unchecked")
     @Override
     public <T> List<T> findSome(String dataProfile,
-            Function<T, Boolean> matcher, int limit)
+            Function<T, Boolean> matcher, int limit, WeakCache<String, LociBase> cache)
     {
         List<T> found = new ArrayList<>();
         for (JSONObject json : mStore.values())
