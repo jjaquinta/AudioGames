@@ -10,6 +10,7 @@ public class LociExit extends LociThing
     public static final String ID_DESTINATION = "destination";
     public static final String ID_DIRECTION = "direction";
     public static final String ID_ELEVATION = "elevation";
+    public static final String ID_APATURE = "apature";
     
     public LociExit(String uri)
     {
@@ -68,5 +69,15 @@ public class LociExit extends LociThing
     public void setElevation(int value)
     {
         setInt(ID_ELEVATION, value);
+    }
+    
+    public String getApature()
+    {
+        return getString(ID_APATURE);
+    }
+    
+    public void setApature(String value)
+    {
+        setString(ID_APATURE, value);
     }
 }

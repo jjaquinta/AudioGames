@@ -39,7 +39,7 @@ public class LocationLogic
         return p;
     }
     
-    public static Object getLocation(String id)
+    public static Object getFromURI(String id)
     {
         if (id == null)
             return null;
@@ -49,7 +49,22 @@ public class LocationLogic
             return getIntersection(id);
         if (id.startsWith(ThievesConstLogic.HOUSE_URI))
             return getHouse(id, null);
+        if (id.startsWith(ThievesConstLogic.LOCATION_URI))
+            return getLocation(id);
         return null;
+    }
+    
+    public static Location getLocation(String id)
+    {
+        if (id == null)
+            return null;
+        if (id.startsWith(ThievesConstLogic.LOCATION_URI))
+            id = id.substring(ThievesConstLogic.LOCATION_URI.length());
+        int o = id.lastIndexOf('/');
+        String locationID = id.substring(o + 1);
+        String houseID = id.substring(0, o);
+        House h = LocationLogic.getHouse(houseID, null);
+        return h.getLocations().get(locationID);
     }
     
     public static Street getStreet(String id)

@@ -37,8 +37,8 @@ public class LociStreet extends LociLocality
         mStreet = street;
         init();
         String[] contains = new String[2];
-        contains[0] = ExitStore.toURI(mStreet.getID(), mStreet.getHighIntersection().getID());
-        contains[1] = ExitStore.toURI(mStreet.getID(), mStreet.getLowIntersection().getID());
+        contains[0] = ExitStore.toURI(mStreet, mStreet.getHighIntersection(), mStreet.getHighDir());
+        contains[1] = ExitStore.toURI(mStreet, mStreet.getLowIntersection(), mStreet.getLowDir());
         setContains(contains);
     }
 

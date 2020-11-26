@@ -7,26 +7,58 @@ import org.json.simple.JSONObject;
 
 import jo.audio.loci.core.data.LociObject;
 import jo.audio.loci.core.utils.ResponseUtils;
+import jo.audio.loci.thieves.stores.ExitStore;
+import jo.audio.loci.thieves.stores.HouseStore;
+import jo.audio.thieves.data.gen.Location;
+import jo.audio.thieves.logic.LocationLogic;
+import jo.audio.thieves.logic.ThievesConstLogic;
+import jo.util.utils.obj.StringUtils;
 
 public class LociRoom extends LociLocality
 {
     public static final String PROFILE = "room";
     
+    private Location mLocation;
+    
     public LociRoom(String uri)
     {
         super(uri, PROFILE);        
-        init();
     }
     
     public LociRoom(JSONObject json)
     {
         super(json);
+        mLocation = LocationLogic.getLocation(getURI().substring(HouseStore.PREFIX.length()));
         init();
+    }
+    
+    public LociRoom(JSONObject json, Location location)
+    {
+        super(json);
+        mLocation = location;
+        init();
+        List<String> contains = new ArrayList<>();
+        for (int dir : ThievesConstLogic.ORTHOGONAL_DIRS)
+        {
+            String exit = mLocation.getApature(dir);
+            if (!StringUtils.isTrivial(exit))
+            {
+                String euri;
+                euri = ExitStore.toURI(getURI(), dir, exit);
+                contains.add(euri);
+            }
+        }
+        setContains(contains.toArray(new String[0]));
     }
 
     private void init()
     {
         setVerbProfile("VerbProfileRoom");
+        mProperties.put(ID_NAME, mLocation.getName());
+        if (StringUtils.isTrivial(mLocation.getDescription()))
+            mProperties.put(ID_DECRIPTION, "");
+        else
+            mProperties.put(ID_DECRIPTION, mLocation.getDescription());
     }
     
     @Override
@@ -53,6 +85,14 @@ public class LociRoom extends LociLocality
                     playerNames.add(name);
                 }
             }
+            else if (o instanceof LociExit)
+            {
+                LociExit exit = (LociExit)o;
+                if (exit.getDirection() >= 0)
+                    exitNames.add("{{DIRECTION_NAME#"+exit.getDirection()+"}} to "+o.getPrimaryName());
+                else
+                    exitNames.add(o.getPrimaryName());
+            }
             else
                 itemNames.add(o.getPrimaryName());
         if (itemNames.size() > 0)
@@ -66,11 +106,18 @@ public class LociRoom extends LociLocality
             else
                 desc.add(ResponseUtils.wordList(playerNames)+" are here.");
         if (exitNames.size() > 0)
-            if (exitNames.size() == 1)
-                desc.add("There is an exit to the "+exitNames.get(0)+".");
-            else
-                desc.add("There are exits to the "+ResponseUtils.wordList(exitNames)+".");
+            desc.add("You can go "+ResponseUtils.wordList(exitNames.toArray(), -1, "or ")+".");
         return desc.toArray(new String[0]);
+    }
+
+    public Location getLocation()
+    {
+        return mLocation;
+    }
+
+    public void setLocation(Location location)
+    {
+        mLocation = location;
     }
 
     // getters and setters

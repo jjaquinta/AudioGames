@@ -39,7 +39,7 @@ public class LociIntersection extends LociLocality
         init();
         String[] contains = new String[mIntersection.getStreets().size()];
         for (int i = 0; i < contains.length; i++)
-            contains[i] = ExitStore.toURI(mIntersection.getID(), mIntersection.getStreets().get(i).getID());
+            contains[i] = ExitStore.toURI(mIntersection, mIntersection.getStreets().get(i));
         setContains(contains);
     }
 

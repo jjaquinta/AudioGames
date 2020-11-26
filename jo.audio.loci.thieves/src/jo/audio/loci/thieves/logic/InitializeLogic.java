@@ -19,14 +19,17 @@ import jo.audio.loci.thieves.data.LociRoom;
 import jo.audio.loci.thieves.data.LociStreet;
 import jo.audio.loci.thieves.data.LociThing;
 import jo.audio.loci.thieves.stores.ExitStore;
+import jo.audio.loci.thieves.stores.HouseStore;
 import jo.audio.loci.thieves.stores.SquareStore;
 import jo.audio.loci.thieves.stores.StreetStore;
+import jo.audio.loci.thieves.verbs.VerbDump;
 import jo.audio.loci.thieves.verbs.VerbLogin;
 import jo.audio.loci.thieves.verbs.VerbLogin2;
 import jo.audio.loci.thieves.verbs.VerbLogout;
 import jo.audio.loci.thieves.verbs.VerbLookFoyeur;
 import jo.audio.loci.thieves.verbs.VerbRegister;
 import jo.audio.loci.thieves.verbs.VerbRegister2;
+import jo.audio.loci.thieves.verbs.go.VerbEnter;
 import jo.audio.loci.thieves.verbs.go.VerbGoDown;
 import jo.audio.loci.thieves.verbs.go.VerbGoEast;
 import jo.audio.loci.thieves.verbs.go.VerbGoImplicit;
@@ -53,9 +56,9 @@ public class InitializeLogic
         DataProfileLogic.registerDataProfile(LociPlayer.class);
         DataProfileLogic.registerDataProfile(LociPlayerAdmin.class);
         DataProfileLogic.registerDataProfile(LociPlayerGhost.class);
-        DataProfileLogic.registerDataProfile(LociRoom.class);
         DataProfileLogic.registerDataProfile(LociIntersection.class);
         DataProfileLogic.registerDataProfile(LociStreet.class);
+        DataProfileLogic.registerDataProfile(LociRoom.class);
         DataProfileLogic.registerDataProfile(LociExit.class);
         DataProfileLogic.registerDataProfile(LociFoyeur.class);
         DataProfileLogic.registerDataProfile(LociItem.class);
@@ -86,7 +89,8 @@ public class InitializeLogic
                 //new VerbSetHelp(),
                 //new VerbSay(),
                 new VerbLogout(),
-                //new VerbDump(),
+                new VerbDump(),
+                new VerbEnter(), 
                 new VerbGoNorth(), 
                 new VerbGoNorthWest(), 
                 new VerbGoNorthEast(), 
@@ -110,6 +114,10 @@ public class InitializeLogic
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileContainer").setExtendsName("VerbProfileItem")
                 .addVerbs());
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileLocality").setExtendsName("VerbProfileThing")
+                .addVerbs());
+        VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileRoom").setExtendsName("VerbProfileLocality")
+                .addVerbs());
+        VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileIntersection").setExtendsName("VerbProfileLocality")
                 .addVerbs(
                         VerbGoNorth.class, 
                         VerbGoNorthWest.class, 
@@ -122,18 +130,25 @@ public class InitializeLogic
                         VerbGoUp.class, 
                         VerbGoDown.class
                         ));
-        VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileRoom").setExtendsName("VerbProfileLocality")
-                .addVerbs());
-        VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileIntersection").setExtendsName("VerbProfileLocality")
-                .addVerbs());
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileStreet").setExtendsName("VerbProfileLocality")
-                .addVerbs());
+                .addVerbs(
+                        VerbGoNorth.class, 
+                        VerbGoNorthWest.class, 
+                        VerbGoNorthEast.class, 
+                        VerbGoSouth.class, 
+                        VerbGoSouthEast.class, 
+                        VerbGoSouthWest.class, 
+                        VerbGoEast.class, 
+                        VerbGoWest.class, 
+                        VerbGoUp.class, 
+                        VerbGoDown.class,
+                        VerbEnter.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileFoyeur").setExtendsName("VerbProfileLocality")
                 .addVerbs(VerbRegister.class, VerbRegister2.class, VerbLogin.class, VerbLogin2.class, VerbLookFoyeur.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileExit").setExtendsName("VerbProfileThing")
                 .addVerbs(VerbGoImplicit.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfilePlayer").setExtendsName("VerbProfileThing")
-                .addVerbs(VerbLogout.class));
+                .addVerbs(VerbLogout.class, VerbDump.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfilePlayerAdmin").setExtendsName("VerbProfilePlayer")
                 .addVerbs());
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfilePlayerGhost").setExtendsName("VerbProfilePlayer")
@@ -141,6 +156,7 @@ public class InitializeLogic
         DataStoreLogic.registerDataStore(new SquareStore());
         DataStoreLogic.registerDataStore(new ExitStore());
         DataStoreLogic.registerDataStore(new StreetStore());
+        DataStoreLogic.registerDataStore(new HouseStore());
         // create mandatory objects
         createAdmin();
         createFoyeur();

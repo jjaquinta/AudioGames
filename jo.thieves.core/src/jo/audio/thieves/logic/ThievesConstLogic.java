@@ -36,6 +36,16 @@ public class ThievesConstLogic
             "SOUTHEAST", 
             "SOUTH", 
             "SOUTHWEST", 
+            "UP", 
+            "DOWN", 
+    };
+    public static final int[] ORTHOGONAL_DIRS = {
+            EAST, 
+            SOUTH, 
+            WEST, 
+            NORTH, 
+            UP,
+            DOWN,      
     };
     public static final int MAX_INTERSECTION_DESCRIPTIONS = 62;
     

@@ -377,6 +377,18 @@
 		    "northeast",
 		    "up",
 		    "down"
+         ],         
+         "DIRECTION_ABBREVIATION": [
+		    "e", 
+		    "se", 
+		    "s",
+		    "sw", 
+		    "w",
+		    "nw", 
+		    "n",
+		    "ne",
+		    "u",
+		    "d"
          ]         
        }
    }

@@ -10,21 +10,27 @@ import jo.audio.thieves.logic.ThievesConstLogic;
 
 public class Location extends Actionable
 {
-    private String      mID;
-    private String mName;
-    private String mDescription;
-    private List<Observer>    mOccupants = new ArrayList<>();
-    private Treasure    mBooty;
-    private boolean     mInside;
-    private boolean     mBedroom;
+    private String         mID;
+    private House          mHouse;
+    private String         mName;
+    private String         mDescription;
+    private List<Observer> mOccupants = new ArrayList<>();
+    private Treasure       mBooty;
+    private boolean        mInside;
+    private boolean        mBedroom;
     // apatures
-    private String      mNorth;
-    private String      mSouth;
-    private String      mEast;
-    private String      mWest;
-    private String      mUp;
-    private String      mDown;
+    private String         mNorth;
+    private String         mSouth;
+    private String         mEast;
+    private String         mWest;
+    private String         mUp;
+    private String         mDown;
     
+    public Location(House house)
+    {
+        mHouse = house;
+    }
+
     // utilities
     public void fromJSON(JSONObject o)
     {
@@ -38,7 +44,7 @@ public class Location extends Actionable
         mBedroom = JSONUtils.getBoolean(o, "Bedroom");
         super.fromJSON(o);
     }
-    
+
     public String getApature(int dir)
     {
         switch (dir)
@@ -56,9 +62,9 @@ public class Location extends Actionable
             case ThievesConstLogic.DOWN:
                 return getDown();
         }
-        throw new IllegalArgumentException("Unknown dir="+dir);
+        throw new IllegalArgumentException("Unknown dir=" + dir);
     }
-    
+
     public void setApature(int dir, String val)
     {
         switch (dir)
@@ -82,9 +88,9 @@ public class Location extends Actionable
                 setDown(val);
                 return;
         }
-        throw new IllegalArgumentException("Unknown dir="+dir);
+        throw new IllegalArgumentException("Unknown dir=" + dir);
     }
-    
+
     public List<String> getApatures()
     {
         List<String> aps = new ArrayList<>();
@@ -102,29 +108,52 @@ public class Location extends Actionable
             aps.add(mDown);
         return aps;
     }
-    
+
+    public int dirTo(Location location)
+    {
+        String toID = location.getID();
+        if ((getNorth() != null) && getNorth().endsWith(toID))
+            return ThievesConstLogic.NORTH;
+        if ((getSouth() != null) && getSouth().endsWith(toID))
+            return ThievesConstLogic.SOUTH;
+        if ((getEast() != null) && getEast().endsWith(toID))
+            return ThievesConstLogic.EAST;
+        if ((getWest() != null) && getWest().endsWith(toID))
+            return ThievesConstLogic.WEST;
+        if ((getUp() != null) && getUp().endsWith(toID))
+            return ThievesConstLogic.UP;
+        if ((getDown() != null) && getDown().endsWith(toID))
+            return ThievesConstLogic.DOWN;
+        return -1;
+    }
+
     // getters and setters
-    
-    public String  getName()
+
+    public String getName()
     {
         return mName;
     }
-    public void setName(String  name)
+
+    public void setName(String name)
     {
         mName = name;
     }
+
     public String getDescription()
     {
         return mDescription;
     }
+
     public void setDescription(String description)
     {
         mDescription = description;
     }
+
     public Treasure getBooty()
     {
         return mBooty;
     }
+
     public void setBooty(Treasure booty)
     {
         mBooty = booty;
@@ -228,5 +257,15 @@ public class Location extends Actionable
     public void setOccupants(List<Observer> occupants)
     {
         mOccupants = occupants;
+    }
+
+    public House getHouse()
+    {
+        return mHouse;
+    }
+
+    public void setHouse(House house)
+    {
+        mHouse = house;
     }
 }

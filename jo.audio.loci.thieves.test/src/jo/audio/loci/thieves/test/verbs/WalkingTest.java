@@ -10,18 +10,25 @@ class WalkingTest extends TestBase
     @Test
     void amble()
     {
-        talk("look", "nebulous grey area");
         talk("register Wibble with Wobble", "Welcome Wibble", "Flagged Square", "Maple", "Park", "Pine");
         talk("Maple Street", "Flagged Square", "Paved Junction");
         talk("Paved Junction", "Maple Street", "Rosemary Lane");
         talk("Rosemary Lane", "Paved Junction", "Paved Circle");
         talk("Paved Circle", "Rosemary Lane", "Herring Street");
     }
+    @Test
+    void ambleAbbreviations()
+    {
+        talk("register Wibble with Wobble", "Welcome Wibble", "Flagged Square", "Maple", "Park", "Pine");
+        talk("Maple", "Flagged Square", "Paved Junction");
+        talk("Paved", "Maple Street", "Rosemary Lane");
+        talk("Rosemary", "Paved Junction", "Paved Circle");
+        talk("Paved", "Rosemary Lane", "Herring Street");
+    }
 
     @Test
     void down()
     {
-        talk("look", "nebulous grey area");
         talk("register Wibble with Wobble", "Welcome Wibble", "Flagged Square", "Maple", "Park", "Pine");
         talk("down", "Pine Street");
         talk("down", "High Class Junction");
@@ -42,6 +49,33 @@ class WalkingTest extends TestBase
         talk("up", "Peacock Lane");
         talk("up", "Gravel Square");
         talk("up", "Cherry Lane");
+    }
+
+    @Test
+    void circleTheHouse()
+    {
+        talk("register Wibble with Wobble", "Welcome Wibble", "Flagged Square", "Maple", "Park", "Pine");
+        talk("Maple Street", "Flagged Square", "Paved Junction");
+        talk("enter 1", "brick walkway");
+        talk("north", "brick walkway");
+        talk("north", "brick walkway");
+        talk("west", "grass and weeds");
+        talk("west", "grass and weeds");
+        talk("west", "grass and weeds");
+        talk("south", "garden");
+        talk("south", "garden");
+        talk("south", "garden");
+        talk("south", "grass and weeds");
+        talk("east", "grass and weeds");
+        talk("up", "simple rim");
+        talk("east", "simple rim");
+        talk("down", "grass and weeds");
+        talk("east", "brick walkway");
+        talk("north", "brick walkway");
+        talk("up", "simple rim");
+        talk("north", "simple rim");
+        talk("down", "brick walkway");
+        talk("Maple", "Flagged Square", "Paved Junction");
     }
 
 }

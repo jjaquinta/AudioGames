@@ -190,7 +190,7 @@ public class HouseLogic
 
     private static Location makeLocation(JSONObject json, House h)
     {
-        Location l = new Location();
+        Location l = new Location(h);
         l.fromJSON(json);
         l.setID(l.getID()+"$"+h.getLocations().size());
         h.getLocations().put(l.getID(), l);
