@@ -15,6 +15,7 @@ import jo.audio.loci.thieves.data.LociStreet;
 import jo.audio.thieves.data.gen.Street;
 import jo.audio.thieves.logic.LocationLogic;
 import jo.util.beans.WeakCache;
+import jo.util.utils.DebugUtils;
 
 public class StreetStore implements IDataStore
 {
@@ -54,7 +55,12 @@ public class StreetStore implements IDataStore
         String diskURL = toDiskURI(uri);
         JSONObject json = mDisk.loadJSON(diskURL);
         if (json == null)
+        {
+            DebugUtils.debug("Loading "+uri+", no disk image");
             json = new JSONObject();
+        }
+        else
+            DebugUtils.debug("Loading "+uri+", with disk image "+json.toJSONString());
         json.put(LociBase.ID_URI, uri);
         json.put(LociBase.ID_DATA_PROFILE, LociStreet.PROFILE);
         LociStreet obj = new LociStreet(json, i);

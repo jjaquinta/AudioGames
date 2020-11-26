@@ -29,24 +29,25 @@ import jo.audio.loci.thieves.verbs.VerbLogout;
 import jo.audio.loci.thieves.verbs.VerbLookFoyeur;
 import jo.audio.loci.thieves.verbs.VerbRegister;
 import jo.audio.loci.thieves.verbs.VerbRegister2;
-import jo.audio.loci.thieves.verbs.go.VerbEnter;
-import jo.audio.loci.thieves.verbs.go.VerbGoDown;
-import jo.audio.loci.thieves.verbs.go.VerbGoEast;
-import jo.audio.loci.thieves.verbs.go.VerbGoImplicit;
-import jo.audio.loci.thieves.verbs.go.VerbGoNorth;
-import jo.audio.loci.thieves.verbs.go.VerbGoNorthEast;
-import jo.audio.loci.thieves.verbs.go.VerbGoNorthWest;
-import jo.audio.loci.thieves.verbs.go.VerbGoSouth;
-import jo.audio.loci.thieves.verbs.go.VerbGoSouthEast;
-import jo.audio.loci.thieves.verbs.go.VerbGoSouthWest;
-import jo.audio.loci.thieves.verbs.go.VerbGoUp;
-import jo.audio.loci.thieves.verbs.go.VerbGoWest;
+import jo.audio.loci.thieves.verbs.move.VerbEnter;
+import jo.audio.loci.thieves.verbs.move.VerbGoDown;
+import jo.audio.loci.thieves.verbs.move.VerbGoEast;
+import jo.audio.loci.thieves.verbs.move.VerbGoImplicit;
+import jo.audio.loci.thieves.verbs.move.VerbGoNorth;
+import jo.audio.loci.thieves.verbs.move.VerbGoNorthEast;
+import jo.audio.loci.thieves.verbs.move.VerbGoNorthWest;
+import jo.audio.loci.thieves.verbs.move.VerbGoSouth;
+import jo.audio.loci.thieves.verbs.move.VerbGoSouthEast;
+import jo.audio.loci.thieves.verbs.move.VerbGoSouthWest;
+import jo.audio.loci.thieves.verbs.move.VerbGoUp;
+import jo.audio.loci.thieves.verbs.move.VerbGoWest;
+import jo.audio.loci.thieves.verbs.room.VerbLookRoom;
 import jo.audio.thieves.logic.ThievesConstLogic;
 
 public class InitializeLogic
 {
     public static final String ADMIN_URI= MemoryStore.PREFIX+"player/admin";
-    public static final String FOYER_URI= MemoryStore.PREFIX+"room/foyeur";
+    private static final String FOYER_URI= MemoryStore.PREFIX+"room/foyeur";
     public static final String ENTRANCE_URI= ThievesConstLogic.INITIAL_LOCATION;
 
     public static void initialize()
@@ -105,7 +106,8 @@ public class InitializeLogic
                 new VerbRegister(), 
                 new VerbRegister2(), 
                 new VerbLogin(), 
-                new VerbLogin2() 
+                new VerbLogin2(),
+                new VerbLookRoom()
                 );
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileThing").setExtendsName("VerbProfileObject")
                 .addVerbs());
@@ -116,7 +118,9 @@ public class InitializeLogic
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileLocality").setExtendsName("VerbProfileThing")
                 .addVerbs());
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileRoom").setExtendsName("VerbProfileLocality")
-                .addVerbs());
+                .addVerbs(
+                        VerbLookRoom.class
+                        ));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileIntersection").setExtendsName("VerbProfileLocality")
                 .addVerbs(
                         VerbGoNorth.class, 
@@ -174,6 +178,13 @@ public class InitializeLogic
             foyeur.setOwner(ADMIN_URI);
             DataStoreLogic.save(foyeur);
         }
+    }
+    
+    public static LociFoyeur getFoyeur()
+    {
+        createFoyeur();
+        LociFoyeur foyeur = (LociFoyeur)DataStoreLogic.load(InitializeLogic.FOYER_URI);
+        return foyeur;
     }
 
     private static void createAdmin()

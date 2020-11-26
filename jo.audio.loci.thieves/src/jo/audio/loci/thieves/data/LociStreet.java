@@ -1,7 +1,9 @@
 package jo.audio.loci.thieves.data;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.json.simple.JSONObject;
 
@@ -36,10 +38,15 @@ public class LociStreet extends LociLocality
         super(json);
         mStreet = street;
         init();
-        String[] contains = new String[2];
-        contains[0] = ExitStore.toURI(mStreet, mStreet.getHighIntersection(), mStreet.getHighDir());
-        contains[1] = ExitStore.toURI(mStreet, mStreet.getLowIntersection(), mStreet.getLowDir());
-        setContains(contains);
+        Set<String> contains = new HashSet<>();
+        String[] cs = getContains();
+        if (cs != null)
+            for (String c : cs)
+                if (!c.startsWith(ExitStore.PREFIX))
+                    contains.add(c);
+        contains.add(ExitStore.toURI(mStreet, mStreet.getHighIntersection(), mStreet.getHighDir()));
+        contains.add(ExitStore.toURI(mStreet, mStreet.getLowIntersection(), mStreet.getLowDir()));
+        setContains(contains.toArray(contains.toArray(new String[0])));
     }
 
     private void init()

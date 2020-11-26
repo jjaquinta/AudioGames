@@ -1,4 +1,4 @@
-package jo.audio.loci.thieves.verbs.go;
+package jo.audio.loci.thieves.verbs.move;
 
 import jo.audio.loci.core.data.ExecuteContext;
 import jo.audio.loci.core.data.Verb;

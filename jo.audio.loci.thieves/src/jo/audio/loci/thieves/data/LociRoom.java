@@ -1,7 +1,9 @@
 package jo.audio.loci.thieves.data;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.json.simple.JSONObject;
 
@@ -37,7 +39,12 @@ public class LociRoom extends LociLocality
         super(json);
         mLocation = location;
         init();
-        List<String> contains = new ArrayList<>();
+        Set<String> contains = new HashSet<>();
+        String[] cs = getContains();
+        if (cs != null)
+            for (String c : cs)
+                if (!c.startsWith(ExitStore.PREFIX))
+                    contains.add(c);
         for (int dir : ThievesConstLogic.ORTHOGONAL_DIRS)
         {
             String exit = mLocation.getApature(dir);

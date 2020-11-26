@@ -65,10 +65,17 @@ public class VerbRegister extends Verb
         p.setOnline(true);
         p.setLastActive(System.currentTimeMillis());
         LociObject foyeur = (LociObject)DataStoreLogic.load(amadan.getContainedBy());
-        LociObject entrance = (LociObject)DataStoreLogic.load(InitializeLogic.ENTRANCE_URI);
         ContainmentLogic.remove(foyeur, amadan);
+        LociObject entrance;
         if (StringUtils.isTrivial(p.getContainedBy()))
+        {
+            entrance = (LociObject)DataStoreLogic.load(p.getContainedBy());
+        }
+        else
+        {
+            entrance = (LociObject)DataStoreLogic.load(InitializeLogic.ENTRANCE_URI);
             ContainmentLogic.add(entrance, p);
+        }
         VerbLookBase.doLook(p, entrance);
     }
 }

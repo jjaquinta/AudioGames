@@ -1,17 +1,29 @@
 {
   "apatures":[ {
+          "description": "You use the stairs to get to the next floor.",
+          "name": "Starway",
           "ID":"STAIRWAY"
         }, {
+          "description": "You go through the door.",
+          "name": "Outer Door",
           "ID":"OUTER_DOOR"
         }, {
+          "description": "You go through the door.",
+          "name": "Door",
           "ID":"INNER_DOOR"
         }, {
+          "description": "You carefully maneuver the roof edge.",
+          "name": "Roof",
           "ID":"ROOF_EDGE"
         }, {
+          "description": "You step over the ornamental railing.",
+          "name": "Balustrade",
           "ID":"BALUSTRADE"
         }, {
           "ID":"EMPTY"
         }, {
+          "description": "You climb through the window.",
+          "name": "Window",
           "ID":"WINDOW"
         } ],
   "colorMap":{
