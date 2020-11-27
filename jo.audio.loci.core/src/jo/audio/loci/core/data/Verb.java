@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 import java.util.regex.Pattern;
 
+import jo.audio.loci.core.logic.DataProfileLogic;
 import jo.util.utils.obj.StringUtils;
 
 public abstract class Verb
@@ -15,6 +16,7 @@ public abstract class Verb
     public static final int ARG_TYPE_THIS = 1;
     public static final int ARG_TYPE_ANY = 2;
     public static final int ARG_TYPE_PATTERN = 3;
+    public static final int ARG_TYPE_CLASS = 4;
     
     private String  mID;
     private String  mVerbText;
@@ -29,6 +31,8 @@ public abstract class Verb
     private Pattern mDirectObjectPattern;
     private Pattern mPrepositionPattern;
     private Pattern mIndirectObjectPattern;
+    private List<Class<? extends LociBase>> mDirectObjectClasses;
+    private List<Class<? extends LociBase>> mIndirectObjectClasses;
     
     public Verb(String id, String verbText, String directObjectText, String prepositionText, String indirectObjectText)
     {
@@ -83,10 +87,35 @@ public abstract class Verb
             mDirectObjectType = ARG_TYPE_ANY;
             return;
         }
+        if (mDirectObjectText.startsWith("$"))
+        {
+            mDirectObjectType = ARG_TYPE_CLASS;
+            mDirectObjectClasses = parseClassList(mDirectObjectText);
+            return;
+        }
         mDirectObjectType = ARG_TYPE_PATTERN;
         mDirectObjectPattern = commaListToPattern(mDirectObjectText);
     }
     
+    private List<Class<? extends LociBase>> parseClassList(String directObjectText)
+    {
+        List<Class<? extends LociBase>> classes = new ArrayList<>();
+        for (StringTokenizer st = new StringTokenizer(directObjectText, ","); st.hasMoreTokens(); )
+        {
+            String name = st.nextToken();
+            if (name.startsWith("$"))
+                name = name.substring(1);
+            int o = name.lastIndexOf('.');
+            if (o > 0)
+                name = name.substring(o + 1);
+            Class<? extends LociBase> type = DataProfileLogic.getArchetype(name);
+            if (type == null)
+                throw new IllegalArgumentException("Unknown type '"+name+"'");
+            classes.add(type);
+        }
+        return classes;
+    }
+
     private void parsePreposition()
     {
         if ((mPrepositionText == null) || mPrepositionText.equals("none") || mPrepositionText.equals("null"))
@@ -113,6 +142,12 @@ public abstract class Verb
         if (mIndirectObjectText.equals("any"))
         {
             mIndirectObjectType = ARG_TYPE_ANY;
+            return;
+        }
+        if (mIndirectObjectText.startsWith("$"))
+        {
+            mIndirectObjectType = ARG_TYPE_CLASS;
+            mIndirectObjectClasses = parseClassList(mIndirectObjectText);
             return;
         }
         mIndirectObjectType = ARG_TYPE_PATTERN;
@@ -281,5 +316,27 @@ public abstract class Verb
     public void setVerbType(int verbType)
     {
         mVerbType = verbType;
+    }
+
+    public List<Class<? extends LociBase>> getDirectObjectClasses()
+    {
+        return mDirectObjectClasses;
+    }
+
+    public void setDirectObjectClasses(
+            List<Class<? extends LociBase>> directObjectClasses)
+    {
+        mDirectObjectClasses = directObjectClasses;
+    }
+
+    public List<Class<? extends LociBase>> getIndirectObjectClasses()
+    {
+        return mIndirectObjectClasses;
+    }
+
+    public void setIndirectObjectClasses(
+            List<Class<? extends LociBase>> indirectObjectClasses)
+    {
+        mIndirectObjectClasses = indirectObjectClasses;
     }
 }

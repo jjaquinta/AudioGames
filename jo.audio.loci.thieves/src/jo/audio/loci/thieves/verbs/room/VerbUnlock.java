@@ -11,7 +11,7 @@ public class VerbUnlock extends VerbLookBase
 {
     public VerbUnlock()
     {
-        super("unlock", "any", null, null);
+        super("unlock", "$"+LociExit.class, null, null);
     }
 
     @Override

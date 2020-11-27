@@ -63,6 +63,8 @@ public class InitializeLogic
                 );
         VerbLogic.registerVerbs(LociContainer.class
                 );
+        VerbLogic.registerVerbs(LociExit.class,
+                new VerbGoImplicit());
         VerbLogic.registerVerbs(LociLocality.class,
                 new VerbLookDO());
         VerbLogic.registerVerbs(LociRoom.class,                
@@ -98,8 +100,6 @@ public class InitializeLogic
                         new VerbEnter());
         VerbLogic.registerVerbs(LociFoyeur.class,
                 new VerbRegister(), new VerbRegister2(), new VerbLogin(), new VerbLogin2(), new VerbLookFoyeur());
-        VerbLogic.registerVerbs(LociExit.class,
-                new VerbGoImplicit());
         VerbLogic.registerVerbs(LociPlayer.class,
                 new VerbLogout(), new VerbDump(), new VerbLookHere());
         VerbLogic.registerVerbs(LociPlayerAdmin.class);

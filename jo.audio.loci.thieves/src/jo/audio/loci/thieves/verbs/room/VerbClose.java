@@ -11,7 +11,7 @@ public class VerbClose extends VerbLookBase
 {
     public VerbClose()
     {
-        super("close,c", "any", null, null);
+        super("close,c", "$"+LociExit.class, null, null);
     }
 
     @Override
@@ -25,7 +25,7 @@ public class VerbClose extends VerbLookBase
             Apature a = exit.getApatureObject();
             if ((a == null) || !a.isOpenable())
             {
-                player.addMessage("You can't close that.");
+                player.addMessage("You can't close "+exit.getPrimaryName()+".");
                 return;
             }
             if (!exit.getOpen())

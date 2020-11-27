@@ -3,7 +3,6 @@ package jo.audio.loci.sandbox.test.verbs;
 import org.junit.jupiter.api.Test;
 
 import jo.audio.loci.sandbox.test.TestBase;
-import jo.util.utils.DebugUtils;
 
 class TestDig extends TestBase
 {
@@ -29,7 +28,6 @@ class TestDig extends TestBase
         talk("dig south to Test Room", "You dig a passage");
         talk("look", "south");
         talk("South", "Test Room");
-        DebugUtils.mDebugLevel = DebugUtils.TRACE;
         talk("South", "Entrance Hall", "slantwise");
     }
     @Test

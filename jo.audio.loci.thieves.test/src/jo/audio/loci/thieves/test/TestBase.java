@@ -56,4 +56,9 @@ public class TestBase
         mToken = context.getInvoker().getURI();
         return context;
     }
+    
+    public void trace()
+    {
+        DebugUtils.mDebugLevel = DebugUtils.TRACE;
+    }
 }

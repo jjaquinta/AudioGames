@@ -179,8 +179,23 @@ public class ExecuteLogic
         setMatchedObject.accept(obj);
         return true;
     }
+
+    private static boolean matchAObject(ExecuteContext context, String cmd, LociObject obj,
+            List<Class<? extends LociBase>> objectClasses, Consumer<String> setObjectText, Consumer<LociObject> setMatchedObject)
+    {
+        for (Class<? extends LociBase> objectClass : objectClasses)
+            if (objectClass.isAssignableFrom(obj.getClass()))
+                if (obj.getNamePattern().matcher(cmd).matches())
+                {
+                    setObjectText.accept(cmd);
+                    setMatchedObject.accept(obj);
+                    return true;
+                }
+        return false;
+    }
     
-    private static boolean matchObject(ExecuteContext context, LociObject obj, Verb verb, String cmd, int objectType, Pattern objectPattern,
+    private static boolean matchObject(ExecuteContext context, LociObject obj, Verb verb, String cmd, 
+            int objectType, Pattern objectPattern, List<Class<? extends LociBase>> objectClasses,
             Consumer<String> setObjectText, Consumer<LociObject> setMatchedObject)
     {
         if (objectType == Verb.ARG_TYPE_PATTERN)
@@ -194,6 +209,16 @@ public class ExecuteLogic
         else if (objectType == Verb.ARG_TYPE_THIS)
         {
             return matchAObject(context, cmd, obj, setObjectText, setMatchedObject);
+        }
+        else if (objectType == Verb.ARG_TYPE_CLASS)
+        {
+            for (LociObject o : context.getVisibleTo())
+            {
+                boolean matched = matchAObject(context, cmd, o, objectClasses, setObjectText, setMatchedObject);
+                if (matched)
+                    return true;
+            }
+            return false;
         }
         else if (objectType == Verb.ARG_TYPE_ANY)
         {
@@ -216,7 +241,7 @@ public class ExecuteLogic
     private static boolean matchDirectObject(ExecuteContext context, LociObject obj, Verb verb, String cmd)
     {
         return matchObject(context, obj, verb, cmd, 
-                verb.getDirectObjectType(), verb.getDirectObjectPattern(), 
+                verb.getDirectObjectType(), verb.getDirectObjectPattern(), verb.getDirectObjectClasses(),
                 (e) -> context.setDirectObjectText(e), 
                 (e) -> context.setMatchedDirectObject(e));
     }
@@ -249,7 +274,7 @@ public class ExecuteLogic
     private static boolean matchIndirectObject(ExecuteContext context, LociObject obj, Verb verb, String cmd)
     {
         return matchObject(context, obj, verb, cmd, 
-                verb.getIndirectObjectType(), verb.getIndirectObjectPattern(), 
+                verb.getIndirectObjectType(), verb.getIndirectObjectPattern(), verb.getIndirectObjectClasses(), 
                 (e) -> context.setIndirectObjectText(e), 
                 (e) -> context.setMatchedIndirectObject(e));
     }

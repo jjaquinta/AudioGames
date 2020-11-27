@@ -51,4 +51,9 @@ public class DataProfileLogic
         }
         return copy;
     }
+
+    public static Class<? extends LociBase> getArchetype(String name)
+    {
+        return mDataProfiles.get(name);
+    }
 }

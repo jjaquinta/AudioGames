@@ -11,7 +11,7 @@ public class VerbOpen extends VerbLookBase
 {
     public VerbOpen()
     {
-        super("open,o", "any", null, null);
+        super("open,o", "$"+LociExit.class, null, null);
     }
 
     @Override

@@ -11,7 +11,7 @@ public class VerbLookThrough extends VerbLookBase
 {
     public VerbLookThrough()
     {
-        super("look,l", null, "through,at", "any");
+        super("look,l", null, "through,at", "$"+LociExit.class);
     }
 
     @Override
