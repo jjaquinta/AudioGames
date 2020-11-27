@@ -49,9 +49,9 @@ import jo.audio.loci.sandbox.verb.VerbTakeOut;
 
 public class InitializeLogic
 {
-    public static final String ADMIN_URI= MemoryStore.PREFIX+"player/admin";
+    private static final String ADMIN_URI= MemoryStore.PREFIX+"player/admin";
     public static final String FOYER_URI= MemoryStore.PREFIX+"room/foyeur";
-    public static final String ENTRANCE_URI= DiskStore.PREFIX+"room/entrance";
+    private static final String ENTRANCE_URI= DiskStore.PREFIX+"room/entrance";
 
     public static void initialize()
     {
@@ -121,7 +121,7 @@ public class InitializeLogic
         createEntrance();
     }
 
-    private static void createEntrance()
+    private static LociRoom createEntrance()
     {
         LociRoom entrance = (LociRoom)DataStoreLogic.load(InitializeLogic.ENTRANCE_URI);
         if (entrance == null)
@@ -133,9 +133,10 @@ public class InitializeLogic
             entrance.setOwner(ADMIN_URI);
             DataStoreLogic.save(entrance);
         }
+        return entrance;
     }
 
-    private static void createFoyeur()
+    private static LociRoom createFoyeur()
     {
         LociRoom foyeur = (LociRoom)DataStoreLogic.load(InitializeLogic.FOYER_URI);
         if (foyeur == null)
@@ -147,9 +148,10 @@ public class InitializeLogic
             foyeur.setOwner(ADMIN_URI);
             DataStoreLogic.save(foyeur);
         }
+        return foyeur;
     }
 
-    private static void createAdmin()
+    private static LociPlayerAdmin createAdmin()
     {
         LociPlayerAdmin admin = (LociPlayerAdmin)DataStoreLogic.load(InitializeLogic.ADMIN_URI);
         if (admin == null)
@@ -161,5 +163,16 @@ public class InitializeLogic
             admin.setOwner(ADMIN_URI);
             DataStoreLogic.save(admin);
         }
+        return admin;
+    }
+    
+    public static LociRoom getFoyeur()
+    {
+        return createFoyeur();
+    }
+
+    public static LociRoom geEntrance()
+    {
+        return createEntrance();
     }
 }

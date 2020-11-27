@@ -9,7 +9,6 @@ import jo.audio.loci.core.logic.ExecuteLogic;
 import jo.audio.loci.core.logic.stores.MemoryStore;
 import jo.audio.loci.sandbox.data.LociPlayer;
 import jo.audio.loci.sandbox.data.LociPlayerGhost;
-import jo.audio.loci.sandbox.data.LociRoom;
 import jo.util.utils.obj.StringUtils;
 
 public class InteractLogic
@@ -54,13 +53,7 @@ public class InteractLogic
         player.setOnline(true);
         player.setLastActive(System.currentTimeMillis());
         DataStoreLogic.save(player);
-        ContainmentLogic.add(getFoyeur(), player);
+        ContainmentLogic.add(InitializeLogic.getFoyeur(), player);
         return player;
-    }
-    
-    private static LociRoom getFoyeur()
-    {
-        LociRoom foyeur = (LociRoom)DataStoreLogic.load(InitializeLogic.FOYER_URI);
-        return foyeur;
     }
 }

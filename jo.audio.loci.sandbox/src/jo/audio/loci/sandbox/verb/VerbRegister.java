@@ -67,13 +67,13 @@ public class VerbRegister extends Verb
         LociObject foyeur = (LociObject)DataStoreLogic.load(amadan.getContainedBy());
         ContainmentLogic.remove(foyeur, amadan);
         LociObject entrance;
-        if (StringUtils.isTrivial(p.getContainedBy()))
+        if (!StringUtils.isTrivial(p.getContainedBy()))
         {
             entrance = (LociObject)DataStoreLogic.load(p.getContainedBy());
         }
         else
         {
-            entrance = (LociObject)DataStoreLogic.load(InitializeLogic.ENTRANCE_URI);
+            entrance = InitializeLogic.geEntrance();
             ContainmentLogic.add(entrance, p);
         }
         VerbLookBase.doLook(p, entrance);

@@ -50,7 +50,7 @@ public class VerbDelete extends Verb
         LociObject oldContainer = (LociObject)DataStoreLogic.load(item.getContainedBy());
         LociObject newContainer = (LociObject)DataStoreLogic.load(player.getContainedBy());
         if (newContainer.getURI().equals(item.getURI()))
-            newContainer = (LociObject)DataStoreLogic.load(InitializeLogic.ENTRANCE_URI);
+            newContainer = InitializeLogic.geEntrance();
         // move contents
         String[] contains = item.getContains();
         if (contains != null)

@@ -20,7 +20,7 @@ public class VerbHome extends Verb
     {
         LociPlayer player = (LociPlayer)context.getInvoker();
         LociRoom oldRoom = (LociRoom)DataStoreLogic.load(player.getContainedBy());
-        LociRoom newRoom = (LociRoom)DataStoreLogic.load(InitializeLogic.ENTRANCE_URI);
+        LociRoom newRoom = InitializeLogic.geEntrance();
         if (oldRoom != null)
             ContainmentLogic.remove(oldRoom, player);
         ContainmentLogic.add(newRoom, player);
