@@ -2,12 +2,13 @@ package jo.audio.loci.thieves.verbs.room;
 
 import jo.audio.loci.core.data.ExecuteContext;
 import jo.audio.loci.core.data.LociObject;
+import jo.audio.loci.core.logic.DataStoreLogic;
 import jo.audio.loci.thieves.data.LociPlayer;
 import jo.audio.loci.thieves.verbs.VerbLookBase;
 
-public class VerbLookRoom extends VerbLookBase
+public class VerbLookHere extends VerbLookBase
 {
-    public VerbLookRoom()
+    public VerbLookHere()
     {
         super("look,l", null, null, null);
     }
@@ -16,7 +17,7 @@ public class VerbLookRoom extends VerbLookBase
     public void execute(ExecuteContext context)
     {
         LociPlayer player = (LociPlayer)context.getInvoker();
-        LociObject thing = (LociObject)context.getMatchedVerbHost();
+        LociObject thing = (LociObject)DataStoreLogic.load(player.getContainedBy());
         doLook(player, thing);
     }
 }

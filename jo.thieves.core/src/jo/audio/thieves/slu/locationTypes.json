@@ -1,29 +1,56 @@
 {
   "apatures":[ {
-          "description": "You use the stairs to get to the next floor.",
+          "transition": "You use the stairs to get to the next floor.",
+          "description": "A narrow set of wooden stairs connect the floors of this building.",
           "name": "Starway",
+          "openable": false,
+          "lockable": false,
+          "transparent": true,
           "ID":"STAIRWAY"
         }, {
-          "description": "You go through the door.",
+          "transition": "You go through the door.",
+          "description": "A sturdy oak door protects the inside from the elements.",
           "name": "Outer Door",
+          "openable": true,
+          "lockable": true,
+          "transparent": false,
           "ID":"OUTER_DOOR"
         }, {
-          "description": "You go through the door.",
+          "transition": "You go through the door.",
+          "description": "A light wooden door keeps the drafts out.",
           "name": "Door",
+          "openable": true,
+          "lockable": false,
+          "transparent": false,
           "ID":"INNER_DOOR"
         }, {
-          "description": "You carefully maneuver the roof edge.",
+          "transition": "You carefully maneuver the roof edge.",
+          "description": "Shingle directs water of the edge of the roof.",
           "name": "Roof",
+          "openable": false,
+          "lockable": false,
+          "transparent": true,
           "ID":"ROOF_EDGE"
         }, {
-          "description": "You step over the ornamental railing.",
+          "transition": "You step over the ornamental railing.",
+          "description": "An ornamental railing lines the edge.",
           "name": "Balustrade",
+          "openable": false,
+          "lockable": false,
+          "transparent": true,
           "ID":"BALUSTRADE"
         }, {
+          "openable": false,
+          "lockable": false,
+          "transparent": true,
           "ID":"EMPTY"
         }, {
-          "description": "You climb through the window.",
+          "transition": "You climb through the window.",
+          "description": "Wavy glass panes let through some light.",
           "name": "Window",
+          "openable": true,
+          "lockable": false,
+          "transparent": true,
           "ID":"WINDOW"
         } ],
   "colorMap":{

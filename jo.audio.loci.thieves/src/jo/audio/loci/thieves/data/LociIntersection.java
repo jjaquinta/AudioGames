@@ -57,7 +57,7 @@ public class LociIntersection extends LociLocality
     public String[] getExtendedDescription(LociPlayer wrt)
     {
         List<String> desc = new ArrayList<String>();
-        desc.add(getPrimaryName());
+        desc.add(getPrimaryName()+".");
         String description = getDescription();
         if (!StringUtils.isTrivial(description))
             desc.add(description);

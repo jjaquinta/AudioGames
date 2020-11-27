@@ -22,14 +22,14 @@ public class VerbGoDir extends Verb
     public void execute(ExecuteContext context)
     {
         LociPlayer player = (LociPlayer)context.getInvoker();
-        LociLocality oldRoom = (LociLocality)DataStoreLogic.load(player.getContainedBy());
+        LociLocality oldRoom = player.getContainedByObject();
         LociExit exit = findExit(oldRoom);
         if (exit == null)
         {
             player.addMessage("You cannot go in that direction.");
             return;
         }
-        LociLocality newRoom = (LociLocality)DataStoreLogic.load(exit.getDestination());
+        LociLocality newRoom = exit.getDestinationObject();
         VerbGoImplicit.transition(player, exit, oldRoom, newRoom);
     }
     

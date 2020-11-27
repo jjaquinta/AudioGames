@@ -30,7 +30,7 @@ public class LociFoyeur extends LociThing
     public String[] getExtendedDescription(LociPlayer wrt)
     {
         List<String> desc = new ArrayList<String>();
-        desc.add(getPrimaryName());
+        desc.add(getPrimaryName()+".");
         desc.add(getDescription());
         return desc.toArray(new String[0]);
     }

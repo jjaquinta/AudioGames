@@ -74,7 +74,7 @@ public class LociStreet extends LociLocality
     public String[] getExtendedDescription(LociPlayer wrt)
     {
         List<String> desc = new ArrayList<String>();
-        desc.add(getPrimaryName());
+        desc.add(getPrimaryName()+".");
         desc.add(getDescription());
         List<String> playerNames = new ArrayList<>();
         List<String> exitNames = new ArrayList<>();
@@ -95,7 +95,13 @@ public class LociStreet extends LociLocality
                 }
             }
             else if (o instanceof LociExit)
-                exitNames.add(o.getPrimaryName());
+            {
+                LociExit exit = (LociExit)o;
+                if (exit.getDirection() >= 0)
+                    exitNames.add("{{DIRECTION_NAME#"+exit.getDirection()+"}} to "+o.getPrimaryName());
+                else
+                    exitNames.add(o.getPrimaryName());
+            }
             else
                 itemNames.add(o.getPrimaryName());
         if (itemNames.size() > 0)
@@ -110,9 +116,9 @@ public class LociStreet extends LociLocality
                 desc.add(ResponseUtils.wordList(playerNames)+" are here.");
         if (exitNames.size() > 0)
             if (exitNames.size() == 1)
-                desc.add("There is an exit to the "+exitNames.get(0)+".");
+                desc.add("You can go "+exitNames.get(0)+".");
             else
-                desc.add("There are exits to the "+ResponseUtils.wordList(exitNames)+".");
+                desc.add("You can go "+ResponseUtils.wordList(exitNames)+".");
         return desc.toArray(new String[0]);
     }
 

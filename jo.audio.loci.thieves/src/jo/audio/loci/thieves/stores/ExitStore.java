@@ -5,6 +5,7 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 import java.util.function.Function;
 
 import org.json.simple.JSONObject;
@@ -13,6 +14,7 @@ import jo.audio.loci.core.data.LociBase;
 import jo.audio.loci.core.data.LociObject;
 import jo.audio.loci.core.logic.DataStoreLogic;
 import jo.audio.loci.core.logic.IDataStore;
+import jo.audio.loci.core.logic.stores.DiskStore;
 import jo.audio.loci.thieves.data.LociExit;
 import jo.audio.loci.thieves.data.LociIntersection;
 import jo.audio.loci.thieves.data.LociRoom;
@@ -25,6 +27,7 @@ import jo.audio.thieves.data.gen.Street;
 import jo.audio.thieves.logic.LocationLogic;
 import jo.audio.thieves.slu.ThievesModelConst;
 import jo.util.beans.WeakCache;
+import jo.util.utils.DebugUtils;
 import jo.util.utils.obj.IntegerUtils;
 import jo.util.utils.obj.StringUtils;
 
@@ -32,8 +35,17 @@ public class ExitStore implements IDataStore
 {
     public static final String PREFIX = "exit://";
     
+    private DiskStore   mDisk;
+    
     public ExitStore()
     {
+        mDisk = (DiskStore)DataStoreLogic.getStore(DiskStore.PREFIX);
+    }
+
+    private String toDiskURI(String streetURI)
+    {
+        String base = streetURI.substring(PREFIX.length());
+        return DiskStore.PREFIX+"exit/"+base;
     }
     
     private static String encode(String txt)
@@ -157,7 +169,15 @@ public class ExitStore implements IDataStore
         String[] uris = fromURI(uri);
         LociObject source = (LociObject)DataStoreLogic.load(uris[0]);
         LociObject target = (LociObject)DataStoreLogic.load(uris[1]);
-        JSONObject json = new JSONObject();                
+        String diskURL = toDiskURI(uri);
+        JSONObject json = mDisk.loadJSON(diskURL);
+        if (json == null)
+        {
+            DebugUtils.debug("Loading "+uri+", no disk image");
+            json = new JSONObject();
+        }
+        else
+            DebugUtils.debug("Loading "+uri+", with disk image "+json.toJSONString());
         json.put(LociBase.ID_URI, uri);
         json.put(LociBase.ID_DATA_PROFILE, LociExit.PROFILE);
         json.put(LociExit.ID_SOURCE, uris[0]);
@@ -197,9 +217,8 @@ public class ExitStore implements IDataStore
             {
                 name = ThievesModelConst.expand(name);
                 names.add(name);
-                int o = name.indexOf(' ');
-                if (o > 0)
-                    names.add(name.substring(0, o));
+                for (StringTokenizer st = new StringTokenizer(name, " "); st.hasMoreTokens(); )
+                    names.add(st.nextToken());
             }
         }
         if (dir >= 0)

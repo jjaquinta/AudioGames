@@ -1,15 +1,18 @@
 package jo.audio.thieves.data.gen;
 
 import org.json.simple.JSONObject;
+import org.json.simple.JSONUtils;
 
 import jo.audio.thieves.logic.ThievesConstLogic;
 
 public class Apature extends Actionable
 {
     private String           mID;
-    private String mName;
-    private String mDescription;
-    private boolean          mOpen;
+    private String           mName;
+    private String           mDescription;
+    private boolean          mOpenable;
+    private boolean          mLockable;
+    private boolean          mTransparent;
     // locations
     private String           mNorth;
     private String           mSouth;
@@ -27,6 +30,12 @@ public class Apature extends Actionable
             mName = new String(o.getString("name"));
         if (o.containsKey("description"))
             mDescription = new String(o.getString("description"));
+        if (o.containsKey("openable"))
+            mOpenable = JSONUtils.getBoolean(o, "openable");
+        if (o.containsKey("lockable"))
+            mLockable = JSONUtils.getBoolean(o, "lockable");
+        if (o.containsKey("transparent"))
+            mTransparent = JSONUtils.getBoolean(o, "transparent");
         super.fromJSON(o);
     }
 
@@ -170,16 +179,6 @@ public class Apature extends Actionable
         mDescription = description;
     }
 
-    public boolean isOpen()
-    {
-        return mOpen;
-    }
-
-    public void setOpen(boolean open)
-    {
-        mOpen = open;
-    }
-
     public String getID()
     {
         return mID;
@@ -188,6 +187,36 @@ public class Apature extends Actionable
     public void setID(String iD)
     {
         mID = iD;
+    }
+
+    public boolean isOpenable()
+    {
+        return mOpenable;
+    }
+
+    public void setOpenable(boolean openable)
+    {
+        mOpenable = openable;
+    }
+
+    public boolean isLockable()
+    {
+        return mLockable;
+    }
+
+    public void setLockable(boolean lockable)
+    {
+        mLockable = lockable;
+    }
+
+    public boolean isTransparent()
+    {
+        return mTransparent;
+    }
+
+    public void setTransparent(boolean transparent)
+    {
+        mTransparent = transparent;
     }
 
 }

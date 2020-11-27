@@ -72,7 +72,7 @@ public class LociRoom extends LociLocality
     public String[] getExtendedDescription(LociPlayer wrt)
     {
         List<String> desc = new ArrayList<String>();
-        desc.add(getPrimaryName());
+        desc.add(getPrimaryName()+".");
         desc.add(getDescription());
         List<String> playerNames = new ArrayList<>();
         List<String> exitNames = new ArrayList<>();

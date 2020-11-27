@@ -3,7 +3,6 @@ package jo.audio.loci.thieves.verbs.move;
 import jo.audio.loci.core.data.ExecuteContext;
 import jo.audio.loci.core.data.Verb;
 import jo.audio.loci.core.logic.ContainmentLogic;
-import jo.audio.loci.core.logic.DataStoreLogic;
 import jo.audio.loci.thieves.data.LociExit;
 import jo.audio.loci.thieves.data.LociLocality;
 import jo.audio.loci.thieves.data.LociPlayer;
@@ -22,8 +21,8 @@ public class VerbGoImplicit extends Verb
     {
         LociPlayer player = (LociPlayer)context.getInvoker();
         LociExit exit = (LociExit)context.getMatchedVerbHost();
-        LociLocality oldRoom = (LociLocality)DataStoreLogic.load(player.getContainedBy());
-        LociLocality newRoom = (LociLocality)DataStoreLogic.load(exit.getDestination());
+        LociLocality oldRoom = player.getContainedByObject();
+        LociLocality newRoom = exit.getDestinationObject();
         VerbGoImplicit.transition(player, exit, oldRoom, newRoom);
     }
 

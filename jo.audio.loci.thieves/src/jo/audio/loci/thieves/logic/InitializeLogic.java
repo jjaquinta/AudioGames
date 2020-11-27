@@ -26,6 +26,7 @@ import jo.audio.loci.thieves.verbs.VerbDump;
 import jo.audio.loci.thieves.verbs.VerbLogin;
 import jo.audio.loci.thieves.verbs.VerbLogin2;
 import jo.audio.loci.thieves.verbs.VerbLogout;
+import jo.audio.loci.thieves.verbs.VerbLookDO;
 import jo.audio.loci.thieves.verbs.VerbLookFoyeur;
 import jo.audio.loci.thieves.verbs.VerbRegister;
 import jo.audio.loci.thieves.verbs.VerbRegister2;
@@ -41,7 +42,8 @@ import jo.audio.loci.thieves.verbs.move.VerbGoSouthEast;
 import jo.audio.loci.thieves.verbs.move.VerbGoSouthWest;
 import jo.audio.loci.thieves.verbs.move.VerbGoUp;
 import jo.audio.loci.thieves.verbs.move.VerbGoWest;
-import jo.audio.loci.thieves.verbs.room.VerbLookRoom;
+import jo.audio.loci.thieves.verbs.room.VerbLookHere;
+import jo.audio.loci.thieves.verbs.room.VerbLookThrough;
 import jo.audio.thieves.logic.ThievesConstLogic;
 
 public class InitializeLogic
@@ -65,9 +67,8 @@ public class InitializeLogic
         DataProfileLogic.registerDataProfile(LociItem.class);
         DataProfileLogic.registerDataProfile(LociContainer.class);
         VerbLogic.registerVerbs(
-                //new VerbLookRoom(), 
-                //new VerbLookDO(), 
-                //new VerbLookIO(), 
+                new VerbLookHere(), 
+                new VerbLookDO(), 
                 //new VerbHelpRoom(), 
                 //new VerbHelpDO(), 
                 //new VerbDescribe(), 
@@ -107,7 +108,7 @@ public class InitializeLogic
                 new VerbRegister2(), 
                 new VerbLogin(), 
                 new VerbLogin2(),
-                new VerbLookRoom()
+                new VerbLookThrough()
                 );
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileThing").setExtendsName("VerbProfileObject")
                 .addVerbs());
@@ -116,10 +117,10 @@ public class InitializeLogic
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileContainer").setExtendsName("VerbProfileItem")
                 .addVerbs());
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileLocality").setExtendsName("VerbProfileThing")
-                .addVerbs());
+                .addVerbs(VerbLookDO.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileRoom").setExtendsName("VerbProfileLocality")
                 .addVerbs(
-                        VerbLookRoom.class
+                        VerbLookThrough.class
                         ));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileIntersection").setExtendsName("VerbProfileLocality")
                 .addVerbs(
@@ -152,7 +153,7 @@ public class InitializeLogic
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileExit").setExtendsName("VerbProfileThing")
                 .addVerbs(VerbGoImplicit.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfilePlayer").setExtendsName("VerbProfileThing")
-                .addVerbs(VerbLogout.class, VerbDump.class));
+                .addVerbs(VerbLogout.class, VerbDump.class, VerbLookHere.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfilePlayerAdmin").setExtendsName("VerbProfilePlayer")
                 .addVerbs());
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfilePlayerGhost").setExtendsName("VerbProfilePlayer")

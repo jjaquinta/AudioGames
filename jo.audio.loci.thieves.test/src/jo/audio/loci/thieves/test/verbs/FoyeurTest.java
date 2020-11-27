@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import jo.audio.loci.core.logic.DataStoreLogic;
 import jo.audio.loci.thieves.test.TestBase;
-import jo.util.utils.DebugUtils;
 
 class FoyeurTest extends TestBase
 {

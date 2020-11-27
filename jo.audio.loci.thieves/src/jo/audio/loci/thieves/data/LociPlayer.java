@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.json.simple.JSONObject;
 
+import jo.audio.loci.core.logic.DataStoreLogic;
 import jo.audio.thieves.slu.ThievesModelConst;
 
 public class LociPlayer extends LociThing
@@ -67,6 +68,11 @@ public class LociPlayer extends LociThing
             setMessages(newMessages);
             return oldMessages;
         }
+    }
+    
+    public LociLocality getContainedByObject()
+    {
+        return (LociLocality)DataStoreLogic.load(getContainedBy());
     }
     
     // getters and setters
