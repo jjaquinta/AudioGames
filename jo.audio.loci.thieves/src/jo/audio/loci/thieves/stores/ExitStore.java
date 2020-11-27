@@ -188,7 +188,7 @@ public class ExitStore implements IDataStore
         else
             DebugUtils.debug("Loading "+uri+", with disk image "+json.toJSONString());
         json.put(LociBase.ID_URI, uri);
-        json.put(LociBase.ID_DATA_PROFILE, LociExit.PROFILE);
+        json.put(LociBase.ID_DATA_PROFILE, LociExit.class.getSimpleName());
         json.put(LociExit.ID_SOURCE, uris[0]);
         json.put(LociExit.ID_DESTINATION, uris[1]);
         json.put(LociExit.ID_ELEVATION, getElevation(source, target));
@@ -315,7 +315,7 @@ public class ExitStore implements IDataStore
             Function<T, Boolean> matcher, int limit, WeakCache<String, LociBase> cache)
     {
         List<T> found = new ArrayList<>();
-        if (!dataProfile.equals(LociExit.PROFILE))
+        if (!dataProfile.equals(LociExit.class.getSimpleName()))
             return found;
         for (Intersection i : LocationLogic.getCity().getIntersections().values())
         {

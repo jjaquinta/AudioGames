@@ -14,11 +14,11 @@ public class LociBase implements IJSONAble
 
     protected JSONObject  mProperties = new JSONObject();
 
-    public LociBase(String uri, String profile)
+    public LociBase(String uri)
     {
         // hack this for constructor, otherwise save will be triggered and fail
         mProperties.put(ID_URI, uri);
-        mProperties.put(ID_DATA_PROFILE, profile);
+        mProperties.put(ID_DATA_PROFILE, getClass().getSimpleName());
     }
 
     public LociBase(JSONObject json)

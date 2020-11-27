@@ -46,7 +46,7 @@ public class MemoryStore implements IDataStore
     {
         if (json == null)
             return null;
-        LociBase obj = DataProfileLogic.cast(json);
+        LociBase obj = DataProfileLogic.instantiate(json);
         return obj;
     }
 

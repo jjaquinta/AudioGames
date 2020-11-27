@@ -4,24 +4,14 @@ import org.json.simple.JSONObject;
 
 public class LociItem extends LociThing
 {
-    public static final String PROFILE = LociItem.class.getSimpleName();
-
     public LociItem(String uri)
     {
-        super(uri, PROFILE);
-        setVerbProfile("VerbProfileItem");
-    }
-    
-    public LociItem(String uri, String profile)
-    {
-        super(uri, profile);
-        setVerbProfile("VerbProfileItem");
+        super(uri);
     }
     
     public LociItem(JSONObject json)
     {
         super(json);
-        setVerbProfile("VerbProfileItem");
     }
     
     // utilities

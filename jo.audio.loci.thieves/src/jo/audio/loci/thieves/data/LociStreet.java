@@ -17,13 +17,11 @@ import jo.audio.thieves.logic.ThievesConstLogic;
 
 public class LociStreet extends LociLocality
 {
-    public static final String PROFILE = LociStreet.class.getSimpleName();
-    
     private Street    mStreet;
     
     public LociStreet(String uri)
     {
-        super(uri, PROFILE);
+        super(uri);
     }
     
     public LociStreet(JSONObject json)
@@ -51,7 +49,6 @@ public class LociStreet extends LociLocality
 
     private void init()
     {
-        setVerbProfile("VerbProfileStreet");
         mProperties.put(ID_NAME, mStreet.getName());
         if (mStreet.getType() == Street.STREET)
             mProperties.put(ID_DECRIPTION, mStreet.getHouses()+" houses line this street from "

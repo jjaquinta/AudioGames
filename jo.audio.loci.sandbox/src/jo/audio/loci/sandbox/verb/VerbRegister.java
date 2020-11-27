@@ -29,7 +29,7 @@ public class VerbRegister extends Verb
     public static void doRegister(ExecuteContext context, String userName, String password)
     {
         LociPlayer amadan = (LociPlayer)context.getInvoker();
-        LociBase player = DataStoreLogic.findFirst(LociPlayer.PROFILE, (obj) -> {
+        LociBase player = DataStoreLogic.findFirst(LociPlayer.class.getSimpleName(), (obj) -> {
             LociPlayer p = (LociPlayer)obj;
             return userName.equalsIgnoreCase(p.getPrimaryName());
             });

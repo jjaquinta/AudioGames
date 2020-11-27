@@ -27,7 +27,7 @@ public class VerbLogin2 extends Verb
             username = (username + " " + password.substring(0, o)).trim();
             password = password.substring(o).trim();
             final String userName = username;
-            LociBase player = DataStoreLogic.findFirst(LociPlayer.PROFILE, (obj) -> {
+            LociBase player = DataStoreLogic.findFirst(LociPlayer.class.getSimpleName(), (obj) -> {
                 LociPlayer p = (LociPlayer)obj;
                 return userName.equalsIgnoreCase(p.getPrimaryName());
                 });

@@ -8,14 +8,12 @@ public class LociPlayerAdmin extends LociPlayer
     
     public LociPlayerAdmin(String uri)
     {
-        super(uri, PROFILE);        
-        setVerbProfile("VerbProfilePlayerAdmin");
+        super(uri);        
     }
     
     public LociPlayerAdmin(JSONObject json)
     {
         super(json);
-        setVerbProfile("VerbProfilePlayerAdmin");
     }
 
     // utils

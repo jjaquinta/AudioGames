@@ -4,18 +4,14 @@ import org.json.simple.JSONObject;
 
 public class LociPlayerAdmin extends LociPlayer
 {
-    public static final String PROFILE = LociPlayerAdmin.class.getSimpleName();
-    
     public LociPlayerAdmin(String uri)
     {
-        super(uri, PROFILE);        
-        setVerbProfile("VerbProfilePlayerAdmin");
+        super(uri);        
     }
     
     public LociPlayerAdmin(JSONObject json)
     {
         super(json);
-        setVerbProfile("VerbProfilePlayerAdmin");
     }
 
     // utils

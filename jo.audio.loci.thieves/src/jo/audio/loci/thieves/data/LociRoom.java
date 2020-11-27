@@ -18,13 +18,11 @@ import jo.util.utils.obj.StringUtils;
 
 public class LociRoom extends LociLocality
 {
-    public static final String PROFILE = LociRoom.class.getSimpleName();
-    
     private Location mLocation;
     
     public LociRoom(String uri)
     {
-        super(uri, PROFILE);        
+        super(uri);        
     }
     
     public LociRoom(JSONObject json)
@@ -60,7 +58,6 @@ public class LociRoom extends LociLocality
 
     private void init()
     {
-        setVerbProfile("VerbProfileRoom");
         mProperties.put(ID_NAME, mLocation.getName());
         if (StringUtils.isTrivial(mLocation.getDescription()))
             mProperties.put(ID_DECRIPTION, "");

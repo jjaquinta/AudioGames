@@ -11,17 +11,9 @@ import jo.audio.loci.sandbox.logic.InitializeLogic;
 
 public class LociRoom extends LociThing
 {
-    public static final String PROFILE = LociRoom.class.getSimpleName();
-    
     public LociRoom(String uri)
     {
-        super(uri, PROFILE);        
-        init();
-    }
-    
-    public LociRoom(String uri, String profile)
-    {
-        super(uri, profile);        
+        super(uri);        
         init();
     }
     
@@ -33,7 +25,6 @@ public class LociRoom extends LociThing
 
     private void init()
     {
-        setVerbProfile("VerbProfileRoom");
     }
     
     @Override

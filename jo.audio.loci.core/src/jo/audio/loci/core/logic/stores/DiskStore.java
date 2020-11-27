@@ -39,7 +39,7 @@ public class DiskStore implements IDataStore
         JSONObject json = mCache.loadJSON(uri);
         if (json == null)
             return null;
-        LociBase obj = DataProfileLogic.cast(json);
+        LociBase obj = DataProfileLogic.instantiate(json);
         return obj;
     }
 
@@ -64,7 +64,7 @@ public class DiskStore implements IDataStore
     {
         if (!dataProfile.equals(json.get(LociBase.ID_DATA_PROFILE)))
             return false;
-        LociBase obj = DataProfileLogic.cast(json);
+        LociBase obj = DataProfileLogic.instantiate(json);
         cache.put(obj.getURI(), obj);
         @SuppressWarnings("unchecked")
         T item = (T)obj;

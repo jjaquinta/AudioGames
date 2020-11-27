@@ -41,7 +41,7 @@ public class SquareStore implements IDataStore
         if (json == null)
             json = new JSONObject();
         json.put(LociBase.ID_URI, uri);
-        json.put(LociBase.ID_DATA_PROFILE, LociIntersection.PROFILE);
+        json.put(LociBase.ID_DATA_PROFILE, LociIntersection.class.getSimpleName());
         LociIntersection obj = new LociIntersection(json, i);
         return obj;
     }
@@ -67,7 +67,7 @@ public class SquareStore implements IDataStore
             Function<T, Boolean> matcher, int limit, WeakCache<String, LociBase> cache)
     {
         List<T> found = new ArrayList<>();
-        if (!dataProfile.equals(LociIntersection.PROFILE))
+        if (!dataProfile.equals(LociIntersection.class.getSimpleName()))
             return found;
         for (Intersection i : LocationLogic.getCity().getIntersections().values())
         {

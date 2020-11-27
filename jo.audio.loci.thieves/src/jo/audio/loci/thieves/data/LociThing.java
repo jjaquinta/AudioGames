@@ -12,28 +12,18 @@ import jo.audio.thieves.slu.ThievesModelConst;
 
 public class LociThing extends LociObject
 {
-    public static final String PROFILE = LociThing.class.getSimpleName();
-    
     public static final String ID_HELP_TEXT = "helpText";
     public static final String ID_OWNER = "owner";
     public static final String ID_PUBLIC = "public";
 
     public LociThing(String uri)
     {
-        super(uri, PROFILE);
-        setVerbProfile("VerbProfileThing");
-    }
-    
-    public LociThing(String uri, String profile)
-    {
-        super(uri, profile);
-        setVerbProfile("VerbProfileThing");
+        super(uri);
     }
     
     public LociThing(JSONObject json)
     {
         super(json);
-        setVerbProfile("VerbProfileThing");
     }
     
     // utilities

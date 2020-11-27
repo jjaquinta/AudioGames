@@ -64,7 +64,7 @@ public class HouseStore implements IDataStore
         if (json == null)
             json = new JSONObject();
         json.put(LociBase.ID_URI, uri);
-        json.put(LociBase.ID_DATA_PROFILE, LociRoom.PROFILE);
+        json.put(LociBase.ID_DATA_PROFILE, LociRoom.class.getSimpleName());
         LociRoom obj = new LociRoom(json, location);
         return obj;
     }
@@ -90,7 +90,7 @@ public class HouseStore implements IDataStore
             Function<T, Boolean> matcher, int limit, WeakCache<String, LociBase> cache)
     {
         List<T> found = new ArrayList<>();
-        if (!dataProfile.equals(LociIntersection.PROFILE))
+        if (!dataProfile.equals(LociIntersection.class.getSimpleName()))
             return found;
         for (Street i : LocationLogic.getCity().getStreets().values())
             for (int h = 1; h <= i.getHouses(); h++)

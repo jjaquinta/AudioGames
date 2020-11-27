@@ -4,11 +4,9 @@ import org.json.simple.JSONObject;
 
 public class LociRoomFoyeur extends LociRoom
 {
-    public static final String PROFILE = LociRoomFoyeur.class.getSimpleName();
-    
     public LociRoomFoyeur(String uri)
     {
-        super(uri, PROFILE);        
+        super(uri);        
         init();
     }
     
@@ -20,7 +18,6 @@ public class LociRoomFoyeur extends LociRoom
 
     private void init()
     {
-        setVerbProfile("VerbProfileRoomFoyeur");
     }
 
     // getters and setters

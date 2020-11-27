@@ -49,7 +49,7 @@ public class StreetStore implements IDataStore
         else
             DebugUtils.debug("Loading "+uri+", with disk image "+json.toJSONString());
         json.put(LociBase.ID_URI, uri);
-        json.put(LociBase.ID_DATA_PROFILE, LociStreet.PROFILE);
+        json.put(LociBase.ID_DATA_PROFILE, LociStreet.class.getSimpleName());
         LociStreet obj = new LociStreet(json, i);
         return obj;
     }
@@ -75,7 +75,7 @@ public class StreetStore implements IDataStore
             Function<T, Boolean> matcher, int limit, WeakCache<String, LociBase> cache)
     {
         List<T> found = new ArrayList<>();
-        if (!dataProfile.equals(LociStreet.PROFILE))
+        if (!dataProfile.equals(LociStreet.class.getSimpleName()))
             return found;
         for (Street i : LocationLogic.getCity().getStreets().values())
         {

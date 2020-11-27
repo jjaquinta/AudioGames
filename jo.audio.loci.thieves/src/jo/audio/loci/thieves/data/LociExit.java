@@ -15,8 +15,6 @@ import jo.util.utils.obj.StringUtils;
 
 public class LociExit extends LociThing
 {
-    public static final String PROFILE = LociExit.class.getSimpleName();
- 
     public static final String ID_SOURCE = "source";
     public static final String ID_DESTINATION = "destination";
     public static final String ID_DIRECTION = "direction";
@@ -27,7 +25,7 @@ public class LociExit extends LociThing
     
     public LociExit(String uri)
     {
-        super(uri, PROFILE);        
+        super(uri);        
         init();
     }
     
@@ -39,7 +37,6 @@ public class LociExit extends LociThing
 
     private void init()
     {
-        setVerbProfile("VerbProfileExit");
         Apature a = getApatureObject();
         if (a != null)
         {

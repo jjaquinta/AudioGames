@@ -4,13 +4,11 @@ import org.json.simple.JSONObject;
 
 public class LociExit extends LociThing
 {
-    public static final String PROFILE = LociExit.class.getSimpleName();
- 
     public static final String ID_DESTINATION = "destination";
     
     public LociExit(String uri)
     {
-        super(uri, PROFILE);        
+        super(uri);        
         init();
     }
     
@@ -22,7 +20,6 @@ public class LociExit extends LociThing
 
     private void init()
     {
-        setVerbProfile("VerbProfileExit");
     }
 
     // getters and setters

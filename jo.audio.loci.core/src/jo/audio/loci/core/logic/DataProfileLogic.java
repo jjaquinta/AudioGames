@@ -31,7 +31,7 @@ public class DataProfileLogic
         }
     }
     
-    public static LociBase cast(JSONObject json)
+    public static LociBase instantiate(JSONObject json)
     {
         String profileName = json.getString(LociBase.ID_DATA_PROFILE);
         Class<? extends LociBase> archetype = mDataProfiles.get(profileName);

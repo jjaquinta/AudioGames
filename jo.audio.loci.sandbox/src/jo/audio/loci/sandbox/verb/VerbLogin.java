@@ -19,7 +19,7 @@ public class VerbLogin extends Verb
         LociPlayer amadan = (LociPlayer)context.getInvoker();
         String userName = context.getDirectObjectText();
         String password = context.getIndirectObjectText();
-        LociBase player = DataStoreLogic.findFirst(LociPlayer.PROFILE, (obj) -> {
+        LociBase player = DataStoreLogic.findFirst(LociPlayer.class.getSimpleName(), (obj) -> {
             LociPlayer p = (LociPlayer)obj;
             return userName.equalsIgnoreCase(p.getPrimaryName());
             });

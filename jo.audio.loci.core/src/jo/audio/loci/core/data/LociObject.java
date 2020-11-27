@@ -7,17 +7,13 @@ import java.util.regex.Pattern;
 import org.json.simple.JSONObject;
 
 import jo.audio.loci.core.logic.DataStoreLogic;
-import jo.audio.loci.core.logic.vprofile.VerbProfileObject;
 
 public class LociObject extends LociBase
 {
-    public static final String PROFILE = "object";
-    
     public static String NAME_DELIM = ",";
     
     public static final String ID_NAME = "name";
     public static final String ID_DECRIPTION = "description";
-    public static final String ID_VERB_PROFILE = "verbProfile";
     public static final String ID_CONTAINEDBY = "containedBy";
     public static final String ID_CONTAINS = "containeds";
 
@@ -25,20 +21,12 @@ public class LociObject extends LociBase
     
     public LociObject(String uri)
     {
-        super(uri, PROFILE);
-        setVerbProfile(VerbProfileObject.class.getSimpleName());
-    }
-    
-    public LociObject(String uri, String profile)
-    {
-        super(uri, profile);
-        setVerbProfile(VerbProfileObject.class.getSimpleName());
+        super(uri);
     }
     
     public LociObject(JSONObject json)
     {
         super(json);
-        setVerbProfile(VerbProfileObject.class.getSimpleName());
     }
     
     // utils
@@ -59,11 +47,6 @@ public class LociObject extends LociBase
         return mNamePattern;
     }
     
-    public void setVerbProfile(Class<? extends VerbProfile> clazz)
-    {
-        setVerbProfile(clazz.getSimpleName());
-    }
-
     @Override
     public String toString()
     {
@@ -127,16 +110,6 @@ public class LociObject extends LociBase
     public void setDescription(String value)
     {
         setString(ID_DECRIPTION, value);
-    }
-
-    public String getVerbProfile()
-    {
-        return getString(ID_VERB_PROFILE);
-    }
-    
-    public void setVerbProfile(String value)
-    {
-        setString(ID_VERB_PROFILE, value);
     }
 
     public String getContainedBy()

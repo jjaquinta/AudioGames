@@ -12,26 +12,16 @@ import jo.audio.loci.core.utils.ResponseUtils;
 
 public class LociContainer extends LociItem
 {
-    public static final String PROFILE = LociContainer.class.getSimpleName();
-    
     public static final String ID_OPEN = "open";
 
     public LociContainer(String uri)
     {
-        super(uri, PROFILE);
-        setVerbProfile("VerbProfileContainer");
-    }
-    
-    public LociContainer(String uri, String profile)
-    {
-        super(uri, profile);
-        setVerbProfile("VerbProfileContainer");
+        super(uri);
     }
     
     public LociContainer(JSONObject json)
     {
         super(json);
-        setVerbProfile("VerbProfileContainer");
     }
     
     // utilities

@@ -4,8 +4,6 @@ import org.json.simple.JSONObject;
 
 public class LociPlayer extends LociThing
 {
-    public static final String PROFILE = LociPlayer.class.getSimpleName();
-    
     public static final String ID_PASSWORD = "password";
     public static final String ID_MESSAGES = "messages";
     public static final String ID_LAST_ACTIVE = "lastActive";
@@ -13,14 +11,7 @@ public class LociPlayer extends LociThing
     
     public LociPlayer(String uri)
     {
-        super(uri, PROFILE);       
-        setVerbProfile("VerbProfilePlayer");
-    }
-    
-    public LociPlayer(String uri, String profile)
-    {
-        super(uri, profile);       
-        setVerbProfile("VerbProfilePlayer");
+        super(uri);       
     }
     
     public LociPlayer(JSONObject json)

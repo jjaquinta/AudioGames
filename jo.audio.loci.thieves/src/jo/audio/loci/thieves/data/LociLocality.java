@@ -4,11 +4,9 @@ import org.json.simple.JSONObject;
 
 public class LociLocality extends LociThing
 {
-    public static final String PROFILE = LociLocality.class.getSimpleName();
-    
-    public LociLocality(String uri, String profile)
+    public LociLocality(String uri)
     {
-        super(uri, profile);
+        super(uri);
     }
     
     public LociLocality(JSONObject json)

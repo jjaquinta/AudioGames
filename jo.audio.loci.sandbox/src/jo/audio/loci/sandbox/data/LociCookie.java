@@ -6,11 +6,9 @@ import jo.audio.loci.core.data.LociBase;
 
 public class LociCookie extends LociBase
 {
-    public static final String PROFILE = LociCookie.class.getSimpleName();
-    
     public LociCookie(String uri)
     {
-        super(uri, PROFILE);        
+        super(uri);        
     }
     
     public LociCookie(JSONObject json)

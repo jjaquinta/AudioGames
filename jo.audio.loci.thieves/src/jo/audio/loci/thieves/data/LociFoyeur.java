@@ -7,11 +7,9 @@ import org.json.simple.JSONObject;
 
 public class LociFoyeur extends LociThing
 {
-    public static final String PROFILE = LociFoyeur.class.getSimpleName();
-    
     public LociFoyeur(String uri)
     {
-        super(uri, PROFILE);        
+        super(uri);        
         init();
     }
     
@@ -23,7 +21,6 @@ public class LociFoyeur extends LociThing
 
     private void init()
     {
-        setVerbProfile("VerbProfileFoyeur");
     }
     
     @Override

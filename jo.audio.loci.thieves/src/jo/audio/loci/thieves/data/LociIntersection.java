@@ -15,14 +15,12 @@ import jo.util.utils.obj.StringUtils;
 
 public class LociIntersection extends LociLocality
 {
-    public static final String PROFILE = LociIntersection.class.getSimpleName();
-    
     private Intersection    mIntersection;
     private List<String>    mStreetNames;
     
     public LociIntersection(String uri)
     {
-        super(uri, PROFILE);
+        super(uri);
     }
     
     public LociIntersection(JSONObject json)
@@ -45,7 +43,6 @@ public class LociIntersection extends LociLocality
 
     private void init()
     {
-        setVerbProfile("VerbProfileIntersection");
         mProperties.put(ID_NAME, mIntersection.getName());
         if (StringUtils.isTrivial(mIntersection.getDescription()))
             mProperties.put(ID_DECRIPTION, "");

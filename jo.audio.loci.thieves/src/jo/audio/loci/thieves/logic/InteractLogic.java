@@ -37,7 +37,7 @@ public class InteractLogic
         }
         if (!StringUtils.isTrivial(userName) && !StringUtils.isTrivial(password))
         {
-            LociBase player = DataStoreLogic.findFirst(LociPlayer.PROFILE, (obj) -> {
+            LociBase player = DataStoreLogic.findFirst(LociPlayer.class.getSimpleName(), (obj) -> {
                 LociPlayer p = (LociPlayer)obj;
                 return (userName.equalsIgnoreCase(p.getPrimaryName()) && password.equals(p.getPassword()));
                 });

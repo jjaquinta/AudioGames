@@ -42,7 +42,7 @@ public class VerbDigTo extends Verb
                 player.addMessage("There is already a passage leading in direction "+direction+".");
                 return;
             }
-        List<LociRoom> rooms = DataStoreLogic.findAll(LociRoom.PROFILE, (e) -> ((LociObject)e).getNamePattern().matcher(target).matches());
+        List<LociRoom> rooms = DataStoreLogic.findAll(LociRoom.class.getSimpleName(), (e) -> ((LociObject)e).getNamePattern().matcher(target).matches());
         LociRoom newRoom = null;
         for (LociRoom r : rooms)
         {
