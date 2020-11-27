@@ -12,7 +12,7 @@ import jo.audio.loci.core.utils.ResponseUtils;
 
 public class LociContainer extends LociItem
 {
-    public static final String PROFILE = "container";
+    public static final String PROFILE = LociContainer.class.getSimpleName();
     
     public static final String ID_OPEN = "open";
 

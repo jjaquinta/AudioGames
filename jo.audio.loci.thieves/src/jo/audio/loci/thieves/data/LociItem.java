@@ -4,7 +4,7 @@ import org.json.simple.JSONObject;
 
 public class LociItem extends LociThing
 {
-    public static final String PROFILE = "item";
+    public static final String PROFILE = LociItem.class.getSimpleName();
 
     public LociItem(String uri)
     {

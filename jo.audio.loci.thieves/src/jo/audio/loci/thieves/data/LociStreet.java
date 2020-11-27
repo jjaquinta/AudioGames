@@ -17,7 +17,7 @@ import jo.audio.thieves.logic.ThievesConstLogic;
 
 public class LociStreet extends LociLocality
 {
-    public static final String PROFILE = "street";
+    public static final String PROFILE = LociStreet.class.getSimpleName();
     
     private Street    mStreet;
     

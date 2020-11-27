@@ -46,8 +46,7 @@ public class MemoryStore implements IDataStore
     {
         if (json == null)
             return null;
-        LociBase obj = new LociBase(json);
-        obj.fromJSON(json);
+        LociBase obj = DataProfileLogic.cast(json);
         return obj;
     }
 
@@ -73,7 +72,7 @@ public class MemoryStore implements IDataStore
             LociBase ret = load(json);
             if (!ret.getDataProfile().equals(dataProfile))
                 continue;
-            T item = (T)DataProfileLogic.cast(ret);
+            T item = (T)ret;
             if (matcher.apply(item))
             {
                 found.add(item);

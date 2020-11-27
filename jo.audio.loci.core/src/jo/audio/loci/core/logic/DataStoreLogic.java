@@ -56,9 +56,8 @@ public class DataStoreLogic
         raw = store.load(uri);
         if (raw == null)
             return null;
-        LociBase cooked = DataProfileLogic.cast(raw);
-        mCache.put(uri, cooked);
-        return cooked;
+        mCache.put(uri, raw);
+        return raw;
     }
     
     public static void save(LociBase obj)
@@ -80,7 +79,7 @@ public class DataStoreLogic
         // check cache first
         for (LociBase ret : mCache.getAll())
             if (ret.getDataProfile().equals(dataProfile) && matcher.apply((T)ret))
-                return (T)DataProfileLogic.cast(ret);
+                return (T)ret;
         // now do expensive lookup
         for (IDataStore store : mDataStores)
         {

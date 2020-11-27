@@ -15,6 +15,7 @@ import jo.audio.loci.sandbox.data.LociPlayer;
 import jo.audio.loci.sandbox.data.LociPlayerAdmin;
 import jo.audio.loci.sandbox.data.LociPlayerGhost;
 import jo.audio.loci.sandbox.data.LociRoom;
+import jo.audio.loci.sandbox.data.LociRoomFoyeur;
 import jo.audio.loci.sandbox.data.LociThing;
 import jo.audio.loci.sandbox.verb.VerbCreateContainer;
 import jo.audio.loci.sandbox.verb.VerbCreateItem;
@@ -61,6 +62,7 @@ public class InitializeLogic
         DataProfileLogic.registerDataProfile(LociPlayerAdmin.class);
         DataProfileLogic.registerDataProfile(LociPlayerGhost.class);
         DataProfileLogic.registerDataProfile(LociRoom.class);
+        DataProfileLogic.registerDataProfile(LociRoomFoyeur.class);
         DataProfileLogic.registerDataProfile(LociExit.class);
         DataProfileLogic.registerDataProfile(LociItem.class);
         DataProfileLogic.registerDataProfile(LociContainer.class);
@@ -103,7 +105,7 @@ public class InitializeLogic
                 .addVerbs(VerbPutIn.class, VerbTakeOut.class, VerbOpen.class, VerbShut.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileRoom").setExtendsName("VerbProfileThing")
                 .addVerbs(VerbLookRoom.class, VerbHelpRoom.class));
-        VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileFoyeur").setExtendsName("VerbProfileRoom")
+        VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileRoomFoyeur").setExtendsName("VerbProfileRoom")
                 .addVerbs(VerbRegister.class, VerbRegister2.class, VerbLogin.class, VerbLogin2.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileExit").setExtendsName("VerbProfileThing")
                 .addVerbs(VerbGoImplicit.class));
@@ -138,11 +140,10 @@ public class InitializeLogic
 
     private static LociRoom createFoyeur()
     {
-        LociRoom foyeur = (LociRoom)DataStoreLogic.load(InitializeLogic.FOYER_URI);
+        LociRoomFoyeur foyeur = (LociRoomFoyeur)DataStoreLogic.load(InitializeLogic.FOYER_URI);
         if (foyeur == null)
         {
-            foyeur = new LociRoom(InitializeLogic.FOYER_URI);
-            foyeur.setVerbProfile("VerbProfileFoyeur");
+            foyeur = new LociRoomFoyeur(InitializeLogic.FOYER_URI);
             foyeur.setName("Foyeur");
             foyeur.setDescription("You are in a nebulous grey area, outside of reality. You can enter reality by saying register <username> <password> or login <username> <password>.");
             foyeur.setOwner(ADMIN_URI);

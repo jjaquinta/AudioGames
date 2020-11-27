@@ -3,7 +3,6 @@ package jo.audio.loci.thieves.logic;
 import jo.audio.loci.core.data.ExecuteContext;
 import jo.audio.loci.core.data.LociBase;
 import jo.audio.loci.core.logic.ContainmentLogic;
-import jo.audio.loci.core.logic.DataProfileLogic;
 import jo.audio.loci.core.logic.DataStoreLogic;
 import jo.audio.loci.core.logic.ExecuteLogic;
 import jo.audio.loci.core.logic.stores.MemoryStore;
@@ -39,7 +38,7 @@ public class InteractLogic
         if (!StringUtils.isTrivial(userName) && !StringUtils.isTrivial(password))
         {
             LociBase player = DataStoreLogic.findFirst(LociPlayer.PROFILE, (obj) -> {
-                LociPlayer p = (LociPlayer)DataProfileLogic.cast(obj);
+                LociPlayer p = (LociPlayer)obj;
                 return (userName.equalsIgnoreCase(p.getPrimaryName()) && password.equals(p.getPassword()));
                 });
             if (player instanceof LociPlayer)

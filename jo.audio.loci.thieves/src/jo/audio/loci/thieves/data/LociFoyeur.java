@@ -7,7 +7,7 @@ import org.json.simple.JSONObject;
 
 public class LociFoyeur extends LociThing
 {
-    public static final String PROFILE = "foyeur";
+    public static final String PROFILE = LociFoyeur.class.getSimpleName();
     
     public LociFoyeur(String uri)
     {

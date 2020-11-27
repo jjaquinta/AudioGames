@@ -18,7 +18,7 @@ import jo.util.utils.obj.StringUtils;
 
 public class LociRoom extends LociLocality
 {
-    public static final String PROFILE = "room";
+    public static final String PROFILE = LociRoom.class.getSimpleName();
     
     private Location mLocation;
     

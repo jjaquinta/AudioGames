@@ -5,7 +5,6 @@ import jo.audio.loci.core.data.LociBase;
 import jo.audio.loci.core.data.LociObject;
 import jo.audio.loci.core.data.Verb;
 import jo.audio.loci.core.logic.ContainmentLogic;
-import jo.audio.loci.core.logic.DataProfileLogic;
 import jo.audio.loci.core.logic.DataStoreLogic;
 import jo.audio.loci.core.logic.stores.DiskStore;
 import jo.audio.loci.thieves.data.LociPlayer;
@@ -31,7 +30,7 @@ public class VerbRegister extends Verb
     {
         LociPlayer amadan = (LociPlayer)context.getInvoker();
         LociBase player = DataStoreLogic.findFirst(LociPlayer.PROFILE, (obj) -> {
-            LociPlayer p = (LociPlayer)DataProfileLogic.cast(obj);
+            LociPlayer p = (LociPlayer)obj;
             return userName.equalsIgnoreCase(p.getPrimaryName());
             });
         if (player instanceof LociPlayer)

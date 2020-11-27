@@ -3,7 +3,6 @@ package jo.audio.loci.thieves.verbs;
 import jo.audio.loci.core.data.ExecuteContext;
 import jo.audio.loci.core.data.LociBase;
 import jo.audio.loci.core.data.Verb;
-import jo.audio.loci.core.logic.DataProfileLogic;
 import jo.audio.loci.core.logic.DataStoreLogic;
 import jo.audio.loci.thieves.data.LociPlayer;
 
@@ -29,7 +28,7 @@ public class VerbLogin2 extends Verb
             password = password.substring(o).trim();
             final String userName = username;
             LociBase player = DataStoreLogic.findFirst(LociPlayer.PROFILE, (obj) -> {
-                LociPlayer p = (LociPlayer)DataProfileLogic.cast(obj);
+                LociPlayer p = (LociPlayer)obj;
                 return userName.equalsIgnoreCase(p.getPrimaryName());
                 });
             if (player instanceof LociPlayer)

@@ -4,7 +4,7 @@ import org.json.simple.JSONObject;
 
 public class LociLocality extends LociThing
 {
-    public static final String PROFILE = "locality";
+    public static final String PROFILE = LociLocality.class.getSimpleName();
     
     public LociLocality(String uri, String profile)
     {

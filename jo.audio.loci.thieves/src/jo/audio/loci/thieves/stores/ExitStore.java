@@ -14,6 +14,7 @@ import jo.audio.loci.core.data.LociBase;
 import jo.audio.loci.core.data.LociObject;
 import jo.audio.loci.core.logic.DataStoreLogic;
 import jo.audio.loci.core.logic.IDataStore;
+import jo.audio.loci.core.logic.stores.DiskCache;
 import jo.audio.loci.core.logic.stores.DiskStore;
 import jo.audio.loci.thieves.data.LociExit;
 import jo.audio.loci.thieves.data.LociIntersection;
@@ -36,17 +37,11 @@ public class ExitStore implements IDataStore
 {
     public static final String PREFIX = "exit://";
     
-    private DiskStore   mDisk;
+    private DiskCache   mDisk;
     
     public ExitStore()
     {
-        mDisk = (DiskStore)DataStoreLogic.getStore(DiskStore.PREFIX);
-    }
-
-    private String toDiskURI(String streetURI)
-    {
-        String base = streetURI.substring(PREFIX.length());
-        return DiskStore.PREFIX+"exit/"+base;
+        mDisk = new DiskCache(DiskStore.PREFIX, "exits");
     }
     
     private static String encode(String txt)
@@ -172,12 +167,6 @@ public class ExitStore implements IDataStore
         throw new IllegalArgumentException("Unknown ID: "+id);
     }
     
-//    private String toexitURI(String memoryURI)
-//    {
-//        String base = memoryURI.substring(MemoryStore.PREFIX.length()+7);
-//        return MemoryStore.PREFIX+base;
-//    }
-    
     @Override
     public boolean isStoreFor(String uri)
     {
@@ -190,8 +179,7 @@ public class ExitStore implements IDataStore
         String[] uris = fromURI(uri);
         LociObject source = (LociObject)DataStoreLogic.load(uris[0]);
         LociObject target = (LociObject)DataStoreLogic.load(uris[1]);
-        String diskURL = toDiskURI(uri);
-        JSONObject json = mDisk.loadJSON(diskURL);
+        JSONObject json = mDisk.loadJSON(uri);
         if (json == null)
         {
             DebugUtils.debug("Loading "+uri+", no disk image");
@@ -312,13 +300,13 @@ public class ExitStore implements IDataStore
     @Override
     public void save(LociBase obj)
     {
-        // NOP
+        mDisk.saveJSON(obj.toJSON());
     }
 
     @Override
     public void delete(String uri)
     {
-        //NOP Generated objects cannot be deleted
+        mDisk.delete(uri);
     }
 
     @SuppressWarnings("unchecked")

@@ -9,7 +9,7 @@ import jo.audio.loci.core.data.LociObject;
 
 public class LociThing extends LociObject
 {
-    public static final String PROFILE = "thing";
+    public static final String PROFILE = LociThing.class.getSimpleName();
     
     public static final String ID_HELP_TEXT = "helpText";
     public static final String ID_OWNER = "owner";

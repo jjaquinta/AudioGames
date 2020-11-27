@@ -10,7 +10,7 @@ import jo.audio.thieves.slu.ThievesModelConst;
 
 public class LociPlayer extends LociThing
 {
-    public static final String PROFILE = "player";
+    public static final String PROFILE = LociPlayer.class.getSimpleName();
     
     public static final String ID_PASSWORD = "password";
     public static final String ID_MESSAGES = "messages";
@@ -32,6 +32,7 @@ public class LociPlayer extends LociThing
     public LociPlayer(JSONObject json)
     {
         super(json);
+        setVerbProfile("VerbProfilePlayer");
     }
 
     // utils

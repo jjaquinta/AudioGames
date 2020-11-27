@@ -179,25 +179,23 @@ public class InitializeLogic
         createFoyeur();
     }
 
-    private static void createFoyeur()
+    private static LociFoyeur createFoyeur()
     {
         LociFoyeur foyeur = (LociFoyeur)DataStoreLogic.load(InitializeLogic.FOYER_URI);
         if (foyeur == null)
         {
             foyeur = new LociFoyeur(InitializeLogic.FOYER_URI);
-
             foyeur.setName("Foyeur");
             foyeur.setDescription("You are in a nebulous grey area, outside of reality. You can enter reality by saying register <username> <password> or login <username> <password>.");
             foyeur.setOwner(ADMIN_URI);
             DataStoreLogic.save(foyeur);
         }
+        return foyeur;
     }
     
     public static LociFoyeur getFoyeur()
     {
-        createFoyeur();
-        LociFoyeur foyeur = (LociFoyeur)DataStoreLogic.load(InitializeLogic.FOYER_URI);
-        return foyeur;
+        return createFoyeur();
     }
 
     private static void createAdmin()

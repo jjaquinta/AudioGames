@@ -15,7 +15,7 @@ import jo.util.utils.obj.StringUtils;
 
 public class LociIntersection extends LociLocality
 {
-    public static final String PROFILE = "intersection";
+    public static final String PROFILE = LociIntersection.class.getSimpleName();
     
     private Intersection    mIntersection;
     private List<String>    mStreetNames;

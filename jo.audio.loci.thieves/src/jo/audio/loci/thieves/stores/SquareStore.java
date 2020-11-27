@@ -8,8 +8,8 @@ import org.json.simple.JSONObject;
 
 import jo.audio.loci.core.data.LociBase;
 import jo.audio.loci.core.data.LociObject;
-import jo.audio.loci.core.logic.DataStoreLogic;
 import jo.audio.loci.core.logic.IDataStore;
+import jo.audio.loci.core.logic.stores.DiskCache;
 import jo.audio.loci.core.logic.stores.DiskStore;
 import jo.audio.loci.thieves.data.LociIntersection;
 import jo.audio.thieves.data.gen.Intersection;
@@ -20,24 +20,12 @@ public class SquareStore implements IDataStore
 {
     public static final String PREFIX = "square://";
     
-    private DiskStore   mDisk;
+    private DiskCache   mDisk;
     
     public SquareStore()
     {
-        mDisk = (DiskStore)DataStoreLogic.getStore(DiskStore.PREFIX);
+        mDisk = new DiskCache(DiskStore.PREFIX, "squares");
     }
-
-    private String toDiskURI(String squareURI)
-    {
-        String base = squareURI.substring(PREFIX.length());
-        return DiskStore.PREFIX+"square/"+base;
-    }
-    
-//    private String toSquareURI(String diskURI)
-//    {
-//        String base = diskURI.substring(DiskStore.PREFIX.length()+7);
-//        return DiskStore.PREFIX+base;
-//    }
     
     @Override
     public boolean isStoreFor(String uri)
@@ -49,8 +37,7 @@ public class SquareStore implements IDataStore
     public LociBase load(String uri)
     {
         Intersection i = LocationLogic.getIntersection(uri.substring(PREFIX.length()));
-        String diskURL = toDiskURI(uri);
-        JSONObject json = mDisk.loadJSON(diskURL);
+        JSONObject json = mDisk.loadJSON(uri);
         if (json == null)
             json = new JSONObject();
         json.put(LociBase.ID_URI, uri);
@@ -65,16 +52,13 @@ public class SquareStore implements IDataStore
         JSONObject json = obj.toJSON();
         json.remove(LociObject.ID_NAME);
         json.remove(LociObject.ID_DECRIPTION);
-        String squareURI = (String)json.get(LociBase.ID_URI);
-        String newURI = toDiskURI(squareURI);
-        json.put(LociBase.ID_URI, newURI);
         mDisk.saveJSON(json);
     }
 
     @Override
     public void delete(String uri)
     {
-        // NOP Generated objects cannot be deleted
+        mDisk.delete(uri);
     }
 
     @Override

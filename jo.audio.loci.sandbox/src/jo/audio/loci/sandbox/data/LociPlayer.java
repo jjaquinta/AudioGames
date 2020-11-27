@@ -4,7 +4,7 @@ import org.json.simple.JSONObject;
 
 public class LociPlayer extends LociThing
 {
-    public static final String PROFILE = "player";
+    public static final String PROFILE = LociPlayer.class.getSimpleName();
     
     public static final String ID_PASSWORD = "password";
     public static final String ID_MESSAGES = "messages";

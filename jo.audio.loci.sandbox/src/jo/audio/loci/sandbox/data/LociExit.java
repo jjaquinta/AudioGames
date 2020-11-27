@@ -4,7 +4,7 @@ import org.json.simple.JSONObject;
 
 public class LociExit extends LociThing
 {
-    public static final String PROFILE = "exit";
+    public static final String PROFILE = LociExit.class.getSimpleName();
  
     public static final String ID_DESTINATION = "destination";
     
