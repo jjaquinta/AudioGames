@@ -6,7 +6,6 @@ import jo.audio.loci.core.logic.ContainmentLogic;
 import jo.audio.loci.thieves.data.LociExit;
 import jo.audio.loci.thieves.data.LociLocality;
 import jo.audio.loci.thieves.data.LociPlayer;
-import jo.audio.loci.thieves.data.LociThing;
 import jo.audio.loci.thieves.verbs.VerbLookBase;
 
 public class VerbGoImplicit extends Verb
@@ -26,12 +25,20 @@ public class VerbGoImplicit extends Verb
         VerbGoImplicit.transition(player, exit, oldRoom, newRoom);
     }
 
-    public static void transition(LociPlayer player, LociThing exit, LociLocality oldRoom, LociLocality newRoom)
+    public static void transition(LociPlayer player, LociExit exit, LociLocality oldRoom, LociLocality newRoom)
     {
-        if ((exit != null) && !exit.isAccessible(player))
+        if (exit != null)
         {
-            player.addMessage("You cannot go that way.");
-            return;
+            if (!exit.isAccessible(player))
+            {
+                player.addMessage("You cannot go that way.");
+                return;
+            }
+            if (!exit.getOpen())
+            {
+                player.addMessage("The "+exit.getPrimaryName()+" is not open.");
+                return;
+            }
         }
         oldRoom.say(player.getPrimaryName()+" leaves.", player.getURI(), null);
         ContainmentLogic.remove(oldRoom, player);

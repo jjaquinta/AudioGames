@@ -42,8 +42,12 @@ import jo.audio.loci.thieves.verbs.move.VerbGoSouthEast;
 import jo.audio.loci.thieves.verbs.move.VerbGoSouthWest;
 import jo.audio.loci.thieves.verbs.move.VerbGoUp;
 import jo.audio.loci.thieves.verbs.move.VerbGoWest;
+import jo.audio.loci.thieves.verbs.room.VerbClose;
+import jo.audio.loci.thieves.verbs.room.VerbLock;
 import jo.audio.loci.thieves.verbs.room.VerbLookHere;
 import jo.audio.loci.thieves.verbs.room.VerbLookThrough;
+import jo.audio.loci.thieves.verbs.room.VerbOpen;
+import jo.audio.loci.thieves.verbs.room.VerbUnlock;
 import jo.audio.thieves.logic.ThievesConstLogic;
 
 public class InitializeLogic
@@ -90,6 +94,10 @@ public class InitializeLogic
                 //new VerbHome(),
                 //new VerbSetHelp(),
                 //new VerbSay(),
+                new VerbOpen(),
+                new VerbClose(),
+                new VerbLock(),
+                new VerbUnlock(),
                 new VerbLogout(),
                 new VerbDump(),
                 new VerbEnter(), 
@@ -120,7 +128,11 @@ public class InitializeLogic
                 .addVerbs(VerbLookDO.class));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileRoom").setExtendsName("VerbProfileLocality")
                 .addVerbs(
-                        VerbLookThrough.class
+                        VerbLookThrough.class,
+                        VerbOpen.class,
+                        VerbClose.class,
+                        VerbLock.class,
+                        VerbUnlock.class
                         ));
         VerbProfileLogic.registerVerbProfile(VerbProfile.build("VerbProfileIntersection").setExtendsName("VerbProfileLocality")
                 .addVerbs(

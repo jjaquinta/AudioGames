@@ -47,7 +47,10 @@ class LookTest extends TestBase
         talk("look w", "Outer Door", "sturdy oak", "closed", "locked");
         talk("look Outer Door", "Outer Door", "sturdy oak", "closed", "locked");
         talk("look through Outer Door", "Outer Door", "sturdy oak", "closed", "locked");
+        talk("unlock w", "you unlock");
+        talk("open w", "you open");
         talk("w", "Living Room");
+        talk("open n", "you open");
         talk("n", "Bedroom");
         talk("look north", "Window", "wavy glass");
         talk("look Window", "Window", "wavy glass");

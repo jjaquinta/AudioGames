@@ -6,6 +6,7 @@ import java.util.List;
 import org.json.simple.JSONObject;
 
 import jo.audio.loci.core.logic.DataStoreLogic;
+import jo.audio.loci.thieves.stores.ExitStore;
 import jo.audio.loci.thieves.stores.HouseStore;
 import jo.audio.thieves.data.gen.Apature;
 import jo.audio.thieves.data.gen.House;
@@ -111,6 +112,29 @@ public class LociExit extends LociThing
             return "locked";
         else
             return "unlocked";
+    }
+    
+    public LociExit getOpposite()
+    {
+        String opURI = ExitStore.flipURI(getURI());
+        LociExit op = (LociExit)DataStoreLogic.load(opURI);
+        return op;
+    }
+    
+    public void setDoubleOpen(boolean value)
+    {
+        setOpen(value);
+        LociExit op = getOpposite();
+        if (op != null)
+            op.setOpen(value);
+    }
+    
+    public void setDoubleLocked(boolean value)
+    {
+        setLocked(value);
+        LociExit op = getOpposite();
+        if (op != null)
+            op.setLocked(value);
     }
 
     // getters and setters

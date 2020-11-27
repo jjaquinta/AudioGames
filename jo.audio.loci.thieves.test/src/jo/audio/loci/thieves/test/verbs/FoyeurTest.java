@@ -38,6 +38,8 @@ class FoyeurTest extends TestBase
         DataStoreLogic.clearCache();
         talk("look", "nebulous grey area");
         talk("login Wibble Wobble", "brick walkway");
+        talk("unlock w", "you unlock");
+        talk("open w", "you open");
         talk("west", "main living area");
     }
 

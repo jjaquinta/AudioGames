@@ -2,7 +2,6 @@ package jo.audio.loci.thieves.verbs.move;
 
 import jo.audio.loci.core.data.ExecuteContext;
 import jo.audio.loci.core.data.Verb;
-import jo.audio.loci.core.logic.DataStoreLogic;
 import jo.audio.loci.thieves.data.LociExit;
 import jo.audio.loci.thieves.data.LociLocality;
 import jo.audio.loci.thieves.data.LociPlayer;

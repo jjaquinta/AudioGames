@@ -7,6 +7,7 @@ import jo.audio.loci.core.data.ExecuteContext;
 import jo.audio.loci.thieves.data.LociPlayer;
 import jo.audio.loci.thieves.logic.InitializeLogic;
 import jo.audio.loci.thieves.logic.InteractLogic;
+import jo.util.utils.DebugUtils;
 
 public class TestBase
 {
@@ -19,6 +20,7 @@ public class TestBase
     {
         SetupLogic.cleanup();
         InitializeLogic.initialize();
+        DebugUtils.debug = false;
         mToken = null;
         mUserName = null;
         mPassword = null;

@@ -25,6 +25,7 @@ import jo.audio.thieves.data.gen.House;
 import jo.audio.thieves.data.gen.Intersection;
 import jo.audio.thieves.data.gen.Street;
 import jo.audio.thieves.logic.LocationLogic;
+import jo.audio.thieves.logic.ThievesConstLogic;
 import jo.audio.thieves.slu.ThievesModelConst;
 import jo.util.beans.WeakCache;
 import jo.util.utils.DebugUtils;
@@ -137,6 +138,26 @@ public class ExitStore implements IDataStore
                 segs[i] = addPrefix(segs[i]);
         }
         return segs;
+    }
+    
+    public static String flipURI(String uri)
+    {
+        String[] segs = fromURI(uri);
+        String t = segs[0];
+        segs[0] = segs[1];
+        segs[1] = t;
+        if (segs.length > 2)
+        {
+            int dir = IntegerUtils.parseInt(segs[2]);
+            if (dir < 8)
+                dir = (dir + 4)%8;
+            else if (dir == ThievesConstLogic.UP)
+                dir = ThievesConstLogic.DOWN; 
+            else if (dir == ThievesConstLogic.DOWN)
+                dir = ThievesConstLogic.UP; 
+            segs[2] = String.valueOf(dir);
+        }
+        return makeURI(segs);
     }
     
     public static String addPrefix(String id)
