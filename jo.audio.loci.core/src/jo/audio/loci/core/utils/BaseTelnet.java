@@ -849,7 +849,7 @@ public class BaseTelnet
     // buffer, then
     // encoded to bytes in the default charset, then typically decoded again by
     // BufferedReader or Scanner.
-    private class RedirectorInputStream extends InputStream
+    public class RedirectorInputStream extends InputStream
             implements RawConsoleReader
     {
         private ByteBuffer lineBuf;
