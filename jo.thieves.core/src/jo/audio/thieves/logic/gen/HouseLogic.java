@@ -20,6 +20,7 @@ import jo.audio.thieves.logic.ThievesConstLogic;
 import jo.util.utils.DebugUtils;
 import jo.util.utils.MathUtils;
 import jo.util.utils.obj.IntegerUtils;
+import jo.util.utils.obj.StringUtils;
 
 public class HouseLogic
 {
@@ -241,7 +242,10 @@ public class HouseLogic
                         if (idMap.containsKey(tApature))
                             tApature = idMap.getString(tApature);
                         if ("EXIT".equals(tApature))
+                        {
                             floors[f][r+((r == 0) ? 1 : -1)][c].setApature((r == 0) ? north : south, "$exit");
+                            h.setEntry(floors[f][r+((r == 0) ? 1 : -1)][c].getID());
+                        }
                     }
                 }
                 else if (r%2 == 1)
@@ -258,9 +262,17 @@ public class HouseLogic
                     if (idMap.containsKey(tApature))
                         tApature = idMap.getString(tApature);
                     if ("EXIT".equals(tApature))
+                    {
                         floors[f][r][tRow.length() - 2].setApature(east, "$exit");
+                        h.setEntry(floors[f][r][tRow.length() - 2].getID());
+                    }
                 }
             }
+        }
+        if (StringUtils.isTrivial(h.getEntry()))
+        {
+            System.out.println(tFloors.toJSONString());
+            throw new IllegalStateException("No entry found in "+tFloors);
         }
     }
 

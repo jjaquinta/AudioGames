@@ -1,13 +1,8 @@
 package jo.audio.loci.core.data;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class ExecuteContext
+public class ExecuteContext extends InvocationContext
 {
     private String           mCommand;
-    private LociBase         mInvoker;
-    private List<LociObject> mVisibleTo = new ArrayList<LociObject>();
     private String           mVerbText;
     private String           mDirectObjectText;
     private String           mPrepositionText;
@@ -22,9 +17,8 @@ public class ExecuteContext
     
     public void set(ExecuteContext c)
     {
+        super.set(c);
         setCommand(c.getCommand());
-        setInvoker(c.getInvoker());
-        getVisibleTo().addAll(c.getVisibleTo());
         setVerbText(c.getVerbText());
         setDirectObjectText(c.getDirectObjectText());
         setPrepositionText(c.getPrepositionText());
@@ -66,26 +60,6 @@ public class ExecuteContext
     public void setCommand(String Command)
     {
         mCommand = Command;
-    }
-
-    public LociBase getInvoker()
-    {
-        return mInvoker;
-    }
-
-    public void setInvoker(LociBase invoker)
-    {
-        mInvoker = invoker;
-    }
-
-    public List<LociObject> getVisibleTo()
-    {
-        return mVisibleTo;
-    }
-
-    public void setVisibleTo(List<LociObject> visibleTo)
-    {
-        mVisibleTo = visibleTo;
     }
 
     public String getVerbText()

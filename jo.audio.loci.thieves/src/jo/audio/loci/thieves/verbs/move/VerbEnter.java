@@ -9,13 +9,14 @@ import jo.audio.loci.thieves.data.LociStreet;
 import jo.audio.loci.thieves.stores.HouseStore;
 import jo.audio.thieves.data.gen.House;
 import jo.audio.thieves.logic.gen.HouseLogic;
+import jo.util.utils.DebugUtils;
 import jo.util.utils.obj.IntegerUtils;
 
 public class VerbEnter extends Verb
 {
     public VerbEnter()
     {
-        super("enter,house,enter house,go into", ".*", null, null);
+        super("enter,house,enter house,go into", "[0-9]*", null, null);
     }
 
     @Override
@@ -34,6 +35,7 @@ public class VerbEnter extends Verb
             return;
         }
         House house = HouseLogic.getHouse(street.getStreet(), houseNum);
+        DebugUtils.trace("Retrieved house at "+street.getStreet().getID()+", #"+houseNum+", with entry "+house.getEntry()+".");
         String destination = HouseStore.PREFIX+street.getStreet().getID()+":"+houseNum+"/"+house.getEntry();
         LociLocality newRoom = (LociLocality)DataStoreLogic.load(destination);
         VerbGoImplicit.transition(player, null, street, newRoom);

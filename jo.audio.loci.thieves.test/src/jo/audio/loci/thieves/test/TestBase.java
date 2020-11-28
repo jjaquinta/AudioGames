@@ -1,5 +1,7 @@
 package jo.audio.loci.thieves.test;
 
+import java.util.Random;
+
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 
@@ -11,9 +13,11 @@ import jo.util.utils.DebugUtils;
 
 public class TestBase
 {
+    protected static Random mRandom;
     protected static String mUserName;
     protected static String mPassword;
     protected static String mToken;
+    protected static ExecuteContext mLastContext;
     
     @BeforeEach
     protected void init()
@@ -24,13 +28,14 @@ public class TestBase
         mToken = null;
         mUserName = null;
         mPassword = null;
+        mRandom = new Random(0);
     }
 
     protected ExecuteContext talk(String command, String... validate)
     {
         System.out.println(">"+command);
-        ExecuteContext context = InteractLogic.interact(mUserName, mPassword, mToken, command);
-        LociPlayer player = (LociPlayer)context.getInvoker();
+        mLastContext = InteractLogic.interact(mUserName, mPassword, mToken, command);
+        LociPlayer player = (LociPlayer)mLastContext.getInvoker();
         boolean[] validated = new boolean[validate.length];
         for (String reply : player.getAndClearMessages())
         {
@@ -53,12 +58,26 @@ public class TestBase
                 Assert.assertFalse("Found "+validate[i]+" in output", validated[i]);
             else
                 Assert.assertTrue("Could not find "+validate[i]+" in output", validated[i]);
-        mToken = context.getInvoker().getURI();
-        return context;
+        mToken = mLastContext.getInvoker().getURI();
+        return mLastContext;
     }
     
     public void trace()
     {
         DebugUtils.mDebugLevel = DebugUtils.TRACE;
+    }
+    
+    protected String randomWord()
+    {
+        int len = randomNumber();
+        char[] word = new char[len];
+        for (int i = 0; i < word.length; i++)
+            word[i] = (char)('a' + mRandom.nextInt(26));
+        return new String(word);
+    }
+
+    protected int randomNumber()
+    {
+        return mRandom.nextInt(6)+mRandom.nextInt(6)+mRandom.nextInt(6);
     }
 }

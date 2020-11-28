@@ -1,14 +1,21 @@
 package jo.audio.loci.core.logic;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
+import java.util.StringTokenizer;
 import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import jo.audio.loci.core.data.ExecuteContext;
+import jo.audio.loci.core.data.InvocationContext;
 import jo.audio.loci.core.data.LociBase;
 import jo.audio.loci.core.data.LociObject;
+import jo.audio.loci.core.data.TypeAheadContext;
 import jo.audio.loci.core.data.Verb;
 import jo.util.utils.DebugUtils;
 import jo.util.utils.obj.StringUtils;
@@ -29,6 +36,20 @@ public class ExecuteLogic
         return context;
     }
     
+    public static TypeAheadContext typeAhead(LociBase invoker)
+    {
+        TypeAheadContext context = new TypeAheadContext();
+        context.setInvoker(invoker);
+        populateVisible(context);
+        typeAheadVerbs(context);
+        Set<String> all = new HashSet<>();
+        all.addAll(context.getCommands());
+        context.getCommands().clear();
+        context.getCommands().addAll(all);
+        Collections.sort(context.getCommands());
+        return context;
+    }
+
     private static boolean findVerb(ExecuteContext context)
     {
         List<ExecuteContext> matches = findVerbs(context);
@@ -279,7 +300,7 @@ public class ExecuteLogic
                 (e) -> context.setMatchedIndirectObject(e));
     }
     
-    private static void populateVisible(ExecuteContext context)
+    private static void populateVisible(InvocationContext context)
     {
         if (context.getInvoker() instanceof LociObject)
         {
@@ -311,5 +332,189 @@ public class ExecuteLogic
                         context.getVisibleTo().add(child);
                 }
         }
+    }
+    
+    private static void typeAheadVerbs(TypeAheadContext context)
+    {
+        DebugUtils.trace("Finding type aheads.");
+        for (LociObject obj : context.getVisibleTo())
+        {
+            DebugUtils.trace("  Expanding verbs on "+obj+", "+obj.getDataProfile());
+            List<Verb> verbs = VerbLogic.getVerbs(obj.getClass());
+            for (Verb verb : verbs)
+                addTypeAheadsFor(context, obj, verb);
+        }
+        DebugUtils.trace("Found "+context.getCommands().size()+" type aheads.");
+    }
+    
+    private static void addTypeAheadsFor(TypeAheadContext context, LociObject obj, Verb verb)
+    {
+        DebugUtils.trace("    Expanding "+verb.getID()+"/"+verb);
+        List<String> verbs = getTypeAheadVerbs(obj, verb);
+        List<String> dos = getTypeAheadDirectObjects(context, obj, verb);
+        List<String> preps = getTypeAheadPreopositions(obj, verb);
+        List<String> idos = getTypeAheadInDirectObjects(context, obj, verb);
+        DebugUtils.trace("    "+verbs.size()+" verbs, "+dos.size()+" dos, "+preps.size()+" preps, "+idos.size()+" idos.");
+        List<List<String>> combos = new ArrayList<>();
+        if (verbs.size() > 0)
+            combos.add(verbs);
+        else if (verb.getVerbType() != Verb.ARG_TYPE_NONE)
+        {
+            DebugUtils.trace("    no match on verb.");
+            return;
+        }
+        if (dos.size() > 0)
+            combos.add(dos);
+        else if (verb.getDirectObjectType() != Verb.ARG_TYPE_NONE)
+        {
+            DebugUtils.trace("    no match on do.");
+            return;
+        }
+        if (preps.size() > 0)
+            combos.add(preps);
+        else if (verb.getPrepositionType() != Verb.ARG_TYPE_NONE)
+        {
+            DebugUtils.trace("    no match on prep.");
+            return;
+        }
+        if (idos.size() > 0)
+            combos.add(idos);
+        else if (verb.getIndirectObjectType() != Verb.ARG_TYPE_NONE)
+        {
+            DebugUtils.trace("    no match on ido.");
+            return;
+        }
+        addCombos(combos, 0, "", context.getCommands());
+    }
+    
+    private static List<String> getTypeAheadVerbs(LociObject obj, Verb verb)
+    {
+        List<String> ops = new ArrayList<>();
+        switch (verb.getVerbType())
+        {
+            case Verb.ARG_TYPE_PATTERN:
+                addPattern(ops, verb.getVerbPattern());
+                break;
+            case Verb.ARG_TYPE_THIS:
+                addPattern(ops, obj.getNamePattern());
+                break;
+            default:
+                throw new IllegalStateException("Unknown verb type: "+verb.getVerbType());
+        }
+        prune(ops);
+        return ops;
+    }
+
+    private static List<String> getTypeAheadDirectObjects(TypeAheadContext context, LociObject obj,
+            Verb verb)
+    {
+        List<String> ops = new ArrayList<>();
+        switch (verb.getDirectObjectType())
+        {
+            case Verb.ARG_TYPE_PATTERN:
+                addPattern(ops, verb.getDirectObjectPattern());
+                break;
+            case Verb.ARG_TYPE_THIS:
+                addPattern(ops, obj.getNamePattern());
+                break;
+            case Verb.ARG_TYPE_CLASS:
+                for (LociObject o : context.getVisibleTo())
+                    for (Class<? extends LociBase> objectClass : verb.getDirectObjectClasses())
+                        if (objectClass.isAssignableFrom(obj.getClass()))
+                            addPattern(ops, o.getNamePattern());
+                break;
+            case Verb.ARG_TYPE_ANY:
+                for (LociObject o : context.getVisibleTo())
+                    addPattern(ops, o.getNamePattern());
+                break;
+            case Verb.ARG_TYPE_NONE:
+                break;
+            default:
+                throw new IllegalStateException("Unknown preposition type: "+verb.getVerbType());
+        }
+        prune(ops);
+        return ops;
+    }
+
+    private static List<String> getTypeAheadPreopositions(LociObject obj,
+            Verb verb)
+    {
+        List<String> ops = new ArrayList<>();
+        switch (verb.getPrepositionType())
+        {
+            case Verb.ARG_TYPE_PATTERN:
+                addPattern(ops, verb.getPrepositionPattern());
+                break;
+            case Verb.ARG_TYPE_NONE:
+                break;
+            default:
+                throw new IllegalStateException("Unknown preposition type: "+verb.getVerbType());
+        }
+        prune(ops);
+        return ops;
+    }
+
+    private static List<String> getTypeAheadInDirectObjects(TypeAheadContext context, LociObject obj,
+            Verb verb)
+    {
+        List<String> ops = new ArrayList<>();
+        switch (verb.getIndirectObjectType())
+        {
+            case Verb.ARG_TYPE_PATTERN:
+                addPattern(ops, verb.getIndirectObjectPattern());
+                break;
+            case Verb.ARG_TYPE_THIS:
+                addPattern(ops, obj.getNamePattern());
+                break;
+            case Verb.ARG_TYPE_CLASS:
+                for (LociObject o : context.getVisibleTo())
+                    for (Class<? extends LociBase> objectClass : verb.getIndirectObjectClasses())
+                        if (objectClass.isAssignableFrom(obj.getClass()))
+                            addPattern(ops, o.getNamePattern());
+                break;
+            case Verb.ARG_TYPE_ANY:
+                for (LociObject o : context.getVisibleTo())
+                    addPattern(ops, o.getNamePattern());
+                break;
+            case Verb.ARG_TYPE_NONE:
+                break;
+            default:
+                throw new IllegalStateException("Unknown preposition type: "+verb.getVerbType());
+        }
+        prune(ops);
+        return ops;
+    }
+    
+    private static void prune(List<String> ops)
+    {
+        for (Iterator<String> i = ops.iterator(); i.hasNext(); )
+            if (StringUtils.isTrivial(i.next()))
+                i.remove();
+    }
+
+    private static void addCombos(List<List<String>> combos, int idx, String cmd, List<String> commands)
+    {
+        boolean more = idx + 1 < combos.size();
+        for (String str : combos.get(idx))
+        {
+            String c = (cmd + " " + str).trim();
+            if (more)
+                addCombos(combos, idx + 1, c, commands);
+            else
+                commands.add(c);
+        }
+    }
+
+    private static void addPattern(List<String> ops, Pattern pattern)
+    {
+        String txt = pattern.pattern();
+        if (txt.startsWith("(") && txt.endsWith(")"))
+        {
+            txt = txt.substring(1, txt.length() - 1);
+            for (StringTokenizer st = new StringTokenizer(txt, "|"); st.hasMoreTokens(); )
+                ops.add(st.nextToken());
+        }
+        else
+            ops.add(txt); // non-list pattern
     }
 }
