@@ -116,6 +116,7 @@ public class LociStreet extends LociLocality
                 desc.add("You can go "+exitNames.get(0)+".");
             else
                 desc.add("You can go "+ResponseUtils.wordList(exitNames)+".");
+        desc.add("+This is a very "+ThievesConstLogic.poshToName(mStreet.getPosh())+" part of town.");        
         return desc.toArray(new String[0]);
     }
 

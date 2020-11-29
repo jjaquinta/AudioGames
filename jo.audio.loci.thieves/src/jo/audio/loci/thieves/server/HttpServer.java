@@ -17,6 +17,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import jo.audio.loci.core.data.ExecuteContext;
+import jo.audio.loci.core.data.TypeAheadContext;
+import jo.audio.loci.core.logic.ExecuteLogic;
 import jo.audio.loci.thieves.data.LociPlayer;
 import jo.audio.loci.thieves.logic.InitializeLogic;
 import jo.audio.loci.thieves.logic.InteractLogic;
@@ -189,7 +191,8 @@ public class HttpServer
         String password = query.getProperty("password");
         String token = query.getProperty("token");
         ExecuteContext response = InteractLogic.interact(username, password, token, text);
-        printResponse(soc, headers, response);
+        TypeAheadContext typeahead = ExecuteLogic.typeAhead(response.getInvoker());
+        printResponse(soc, headers, response, typeahead);
     }
     
     private void handleGameRequest(Socket soc) throws IOException
@@ -199,7 +202,7 @@ public class HttpServer
     }
     
     @SuppressWarnings("unchecked")
-    public void printResponse(Socket soc, Properties headers, ExecuteContext response) throws IOException
+    public void printResponse(Socket soc, Properties headers, ExecuteContext response, TypeAheadContext typeahead) throws IOException
     {
         LociPlayer player = (LociPlayer)response.getInvoker();
         String accept = headers.getProperty("Accept", "text/html");
@@ -212,6 +215,10 @@ public class HttpServer
             json.put("messages", messages);
             for (String message : player.getAndClearMessages())
                 messages.add(message);
+            JSONArray prompt = new JSONArray();
+            json.put("prompt", prompt);
+            for (String message : typeahead.getCommands())
+                prompt.add(message);
             json.put("online", player.getOnline());
             String jsonText = json.toJSONString();
             data = jsonText.getBytes("utf-8");

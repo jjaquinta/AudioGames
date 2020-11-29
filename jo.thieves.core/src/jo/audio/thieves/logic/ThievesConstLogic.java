@@ -49,6 +49,10 @@ public class ThievesConstLogic
     };
     public static final int MAX_INTERSECTION_DESCRIPTIONS = 62;
     
+    public static final String RACE_HUMAN = "human";
+    public static final String RACE_DWARF = "dwarf";
+    public static final String RACE_ELF = "elf";
+    
     public static final long GAME_TIME_COMPRESSION = 24; // game day = 1 hour real time
     public static final long ONE_DAY = 24*60*60; // in seconds
     
@@ -264,5 +268,12 @@ public class ThievesConstLogic
     public static String dirToName(int dir)
     {
         return "{{DIRECTION_NAME#"+dir+"}}";
+    }
+
+    public static String poshToName(double posh)
+    {
+        String[] names = ThievesModelConst.getTexts("POSH_NAME");
+        int idx = (int)Math.round(MathUtils.interpolate(posh, 0, 1, 0, names.length-1));
+        return "{{POSH_NAME#"+idx+"}}";
     }
 }

@@ -42,7 +42,7 @@ class WalkingTest extends TestBase
     @Test
     void up()
     {
-        talk("look", "nebulous grey area");
+        talk("look", "outside of the city");
         talk("register Wibble with Wobble", "Welcome Wibble", "Flagged Square", "Maple", "Park", "Pine");
         talk("up", "Maple Street");
         talk("up", "Paved Junction");

@@ -26,6 +26,7 @@ import jo.audio.loci.thieves.verbs.VerbLogin2;
 import jo.audio.loci.thieves.verbs.VerbLogout;
 import jo.audio.loci.thieves.verbs.VerbLookDO;
 import jo.audio.loci.thieves.verbs.VerbLookFoyeur;
+import jo.audio.loci.thieves.verbs.VerbMore;
 import jo.audio.loci.thieves.verbs.VerbRegister;
 import jo.audio.loci.thieves.verbs.VerbRegister2;
 import jo.audio.loci.thieves.verbs.move.VerbEnter;
@@ -101,7 +102,7 @@ public class InitializeLogic
         VerbLogic.registerVerbs(LociFoyeur.class,
                 new VerbRegister(), new VerbRegister2(), new VerbLogin(), new VerbLogin2(), new VerbLookFoyeur());
         VerbLogic.registerVerbs(LociPlayer.class,
-                new VerbLogout(), new VerbDump(), new VerbLookHere());
+                new VerbLogout(), new VerbDump(), new VerbLookHere(), new VerbMore());
         VerbLogic.registerVerbs(LociPlayerAdmin.class);
         VerbLogic.registerVerbs(LociPlayerGhost.class);
         DataStoreLogic.registerDataStore(new SquareStore());
@@ -119,8 +120,8 @@ public class InitializeLogic
         if (foyeur == null)
         {
             foyeur = new LociFoyeur(InitializeLogic.FOYER_URI);
-            foyeur.setName("Foyeur");
-            foyeur.setDescription("You are in a nebulous grey area, outside of reality. You can enter reality by saying register <username> <password> or login <username> <password>.");
+            foyeur.setName("City Gates");
+            foyeur.setDescription("You are on a lonely froad, outside of the city. You can enter by saying register <username> <password> or login <username> <password>.");
             foyeur.setOwner(ADMIN_URI);
             DataStoreLogic.save(foyeur);
         }

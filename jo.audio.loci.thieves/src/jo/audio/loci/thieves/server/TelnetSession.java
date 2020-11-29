@@ -102,9 +102,7 @@ public class TelnetSession
                 if (inbuf.length() > 0)
                 {
                     inbuf.setLength(inbuf.length() - 1);
-                    mStdOut.write('\b');
-                    mStdOut.write(' ');
-                    mStdOut.write('\b');
+                    backspace();
                 }
             }
             else if ((ch == '\r') || (ch == '\n'))
@@ -123,6 +121,12 @@ public class TelnetSession
             {
                 performTypeAhead(inbuf);
             }
+            else if (ch == 21)
+            {
+                for (int i = 0; i < inbuf.length(); i++)
+                    backspace();
+                inbuf.setLength(0);
+            }
             else
             {
                 mStdOut.write(ch);
@@ -130,6 +134,13 @@ public class TelnetSession
             }
         }
         return inbuf.toString();
+    }
+
+    protected void backspace()
+    {
+        mStdOut.write('\b');
+        mStdOut.write(' ');
+        mStdOut.write('\b');
     }
 
     private void promptTypeAhead(String sofar) throws IOException

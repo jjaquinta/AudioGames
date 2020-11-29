@@ -9,6 +9,7 @@ import jo.audio.loci.core.logic.DataStoreLogic;
 import jo.audio.loci.core.logic.stores.DiskStore;
 import jo.audio.loci.thieves.data.LociPlayer;
 import jo.audio.loci.thieves.logic.InitializeLogic;
+import jo.audio.loci.thieves.logic.PlayerLogic;
 import jo.util.utils.obj.StringUtils;
 
 public class VerbRegister extends Verb
@@ -49,10 +50,11 @@ public class VerbRegister extends Verb
             String uri = DiskStore.PREFIX+"player/"+System.currentTimeMillis();
             LociPlayer p = new LociPlayer(uri);
             p.setName(userName);
-            p.setDescription("A non-descript player.");
+            p.setDescription("A non-descript thief.");
             p.setPassword(password);
             p.setOwner(p.getURI());
             p.setLastActive(System.currentTimeMillis());
+            PlayerLogic.rollUp(p);
             p.addMessage("Welcome "+p.getPrimaryName()+".");
             enter(context, amadan, p);
         }

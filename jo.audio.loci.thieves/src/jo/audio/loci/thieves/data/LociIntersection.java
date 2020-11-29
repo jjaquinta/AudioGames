@@ -11,6 +11,7 @@ import jo.audio.loci.thieves.stores.ExitStore;
 import jo.audio.loci.thieves.stores.SquareStore;
 import jo.audio.thieves.data.gen.Intersection;
 import jo.audio.thieves.logic.LocationLogic;
+import jo.audio.thieves.logic.ThievesConstLogic;
 import jo.util.utils.obj.StringUtils;
 
 public class LociIntersection extends LociLocality
@@ -60,6 +61,7 @@ public class LociIntersection extends LociLocality
             desc.add(description);
         List<String> playerNames = new ArrayList<>();
         List<String> exitNames = new ArrayList<>();
+        List<String> exitDirs = new ArrayList<>();
         List<String> itemNames = new ArrayList<>();
         for (LociObject o : getContainsObjects())
             if (o instanceof LociPlayer)
@@ -77,7 +79,24 @@ public class LociIntersection extends LociLocality
                 }
             }
             else if (o instanceof LociExit)
+            {
+                LociExit exit = (LociExit)o;
+                LociStreet target = (LociStreet)exit.getDestinationObject();
+                String delta;
+                int dir;
+                if (target.getStreet().getHighIntersection().getID().equals(mIntersection.getID()))
+                {
+                    delta = "down";
+                    dir = (target.getStreet().getHighDir() + 4)%8;
+                }
+                else
+                {
+                    delta = "up";
+                    dir = (target.getStreet().getLowDir() + 4)%8;
+                }
                 exitNames.add(o.getPrimaryName());
+                exitDirs.add(o.getPrimaryName()+" goes "+delta+" to the {{DIRECTION_NAME#"+dir+"}}");
+            }
             else
                 itemNames.add(o.getPrimaryName());
         if (itemNames.size() > 0)
@@ -91,10 +110,14 @@ public class LociIntersection extends LociLocality
             else
                 desc.add(ResponseUtils.wordList(playerNames)+" are here.");
         if (exitNames.size() > 0)
+        {
             if (exitNames.size() == 1)
                 desc.add(exitNames.get(0)+" leads away from here.");
             else
                 desc.add(ResponseUtils.wordList(exitNames)+" come together here.");
+            desc.add("+"+ResponseUtils.wordList(exitDirs)+".");
+        }
+        desc.add("+This is a very "+ThievesConstLogic.poshToName(mIntersection.getPosh())+" part of town.");        
         return desc.toArray(new String[0]);
     }
     

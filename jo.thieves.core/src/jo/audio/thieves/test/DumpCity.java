@@ -18,6 +18,8 @@ public class DumpCity
         System.out.println("Num Streets: "+city.getStreets().size());
         boolean firstStreet = true;
         boolean firstHouse = true;
+        int numHouses = 0;
+        int numRooms = 0;
         for (Street street : city.getStreets().values())
         {
             System.out.println("  Street "+ThievesModelConst.expand(street.getName())
@@ -25,13 +27,15 @@ public class DumpCity
                     +", houses="+street.getHouses()
                     +", type="+street.getType()
                     +", id="+street.getID());
-            if (firstStreet)
+            numHouses += street.getHouses();
+            for (int i = 1; i <= street.getHouses(); i++)
             {
-                for (int i = 1; i <= street.getHouses(); i++)
+                //DebugUtils.mDebugLevel = DebugUtils.TRACE;
+                House house = LocationLogic.getHouse(street.getID()+":"+i, null);
+                numRooms += house.getLocations().size();
+                if (firstStreet)
                 {
                     firstStreet = false;
-                    //DebugUtils.mDebugLevel = DebugUtils.TRACE;
-                    House house = LocationLogic.getHouse(street.getID()+":"+i, null);
                     System.out.println("    House: #"+house.getHouseNumber()+", locations=#"+house.getLocations().size()+", apateurs=#"+house.getApatures().size());
                     if (firstHouse)
                     {
@@ -51,6 +55,8 @@ public class DumpCity
                 +", name="+ThievesModelConst.expand(i.getName())
                 +", desc="+ThievesModelConst.expand(i.getDescription()));
         }
+        System.out.println("Total houses: "+numHouses);
+        System.out.println("Total rooms : "+numRooms);
     }
     
     public static void main(String[] argv)

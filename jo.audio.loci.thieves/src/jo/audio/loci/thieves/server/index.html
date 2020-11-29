@@ -1,13 +1,15 @@
 <html>
 <header>
-<title>Sandbox</title>
+<title>City of Thieves</title>
 </header>
 <body>
 <p id="display" aria-live="polite">
 <!-- display -->
 </p>
 <label for="text">Say
-	<input autocomplete="off" name="text" id="text" type="text" onkeydown="doKey(event)"/>
+	<input autocomplete="on" list="typeaheadList" name="text" id="text" type="text" onkeydown="doKey(event)"/>
+	<datalist id="typeaheadList">
+	</datalist>
 </label>
 <script>
 var token = "";
@@ -38,6 +40,10 @@ function sendTextData(data) {
 	  for (var i = 0; i < data.messages.length; i++)
 	  	text += data.messages[i] + "<br/>";
       document.getElementById("display").innerHTML = text;
+	  var autocomp = "";
+	  for (var i = 0; i < data.prompt.length; i++)
+	  	autocomp += "<option value='"+data.prompt[i] + "'/>";
+      document.getElementById("typeaheadList").innerHTML = autocomp;
   } );
 
   // Define what happens in case of error
