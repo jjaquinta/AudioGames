@@ -1,6 +1,7 @@
 package jo.audio.loci.thieves.logic;
 
 import jo.audio.loci.core.data.LociObject;
+import jo.audio.loci.core.logic.DataProfileLogic;
 import jo.audio.loci.core.logic.DataStoreLogic;
 import jo.audio.loci.core.logic.VerbLogic;
 import jo.audio.loci.core.logic.stores.MemoryStore;
@@ -29,6 +30,10 @@ import jo.audio.loci.thieves.verbs.VerbLookFoyeur;
 import jo.audio.loci.thieves.verbs.VerbMore;
 import jo.audio.loci.thieves.verbs.VerbRegister;
 import jo.audio.loci.thieves.verbs.VerbRegister2;
+import jo.audio.loci.thieves.verbs.item.VerbDrop;
+import jo.audio.loci.thieves.verbs.item.VerbPickUp;
+import jo.audio.loci.thieves.verbs.item.VerbPutIn;
+import jo.audio.loci.thieves.verbs.item.VerbTakeOut;
 import jo.audio.loci.thieves.verbs.move.VerbEnter;
 import jo.audio.loci.thieves.verbs.move.VerbGoDown;
 import jo.audio.loci.thieves.verbs.move.VerbGoEast;
@@ -60,9 +65,13 @@ public class InitializeLogic
         LociObject.NAME_DELIM = "|";
         VerbLogic.registerVerbs(LociThing.class
                 );
-        VerbLogic.registerVerbs(LociItem.class
-                );
-        VerbLogic.registerVerbs(LociContainer.class
+        VerbLogic.registerVerbs(LociItem.class,
+                new VerbDrop(), new VerbPickUp());
+        DataProfileLogic.registerDataProfile(LociContainer.class);
+        VerbLogic.registerVerbs(LociContainer.class,
+                new VerbPutIn(), new VerbTakeOut(), 
+                new jo.audio.loci.thieves.verbs.item.VerbClose(), new jo.audio.loci.thieves.verbs.item.VerbOpen(),
+                new jo.audio.loci.thieves.verbs.item.VerbLock(), new jo.audio.loci.thieves.verbs.item.VerbUnlock()
                 );
         VerbLogic.registerVerbs(LociExit.class,
                 new VerbGoImplicit());

@@ -13,6 +13,8 @@ import jo.audio.loci.core.utils.ResponseUtils;
 public class LociContainer extends LociItem
 {
     public static final String ID_OPEN = "open";
+    public static final String ID_LOCKED = "locked";
+    public static final String ID_LOCKABLE = "lockable";
 
     public LociContainer(String uri)
     {
@@ -71,5 +73,25 @@ public class LociContainer extends LociItem
     public void setOpen(boolean value)
     {
         setBoolean(ID_OPEN, value);
+    }
+    
+    public boolean getLockable()
+    {
+        return getBoolean(ID_LOCKABLE);
+    }
+    
+    public void setLockable(boolean value)
+    {
+        setBoolean(ID_LOCKABLE, value);
+    }
+    
+    public boolean getLocked()
+    {
+        return getBoolean(ID_LOCKED);
+    }
+    
+    public void setLocked(boolean value)
+    {
+        setBoolean(ID_LOCKED, value);
     }
 }
