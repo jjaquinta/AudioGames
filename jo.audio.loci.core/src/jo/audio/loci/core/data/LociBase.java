@@ -1,18 +1,14 @@
 package jo.audio.loci.core.data;
 
-import org.json.simple.IJSONAble;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.JSONUtils;
 
 import jo.audio.loci.core.logic.DataStoreLogic;
+import jo.util.beans.JSONBean;
 
-public class LociBase implements IJSONAble
+public class LociBase extends JSONBean
 {
     public static final String ID_URI = "uri";
     public static final String ID_DATA_PROFILE = "dataProfile";
-
-    protected JSONObject  mProperties = new JSONObject();
 
     public LociBase(String uri)
     {
@@ -26,102 +22,13 @@ public class LociBase implements IJSONAble
         fromJSON(json);
     }
     
-    // I/O
-    
-    @Override
-    public JSONObject toJSON()
-    {
-        return (JSONObject)JSONUtils.deepCopy(mProperties);
-    }
-
-    @Override
-    public void fromJSON(JSONObject o)
-    {
-        mProperties = (JSONObject)JSONUtils.deepCopy(o);
-    }
-    
     // utils
     
+    @Override
     protected void setThing(String key, Object value)
     {
-        int o = key.lastIndexOf('.');
-        if (o < 0)
-            mProperties.put(key, value);
-        else
-        {
-            JSONObject obj = JSONUtils.getObject(mProperties, key.substring(0, o));
-            if (obj == null)
-            {
-                obj = new JSONObject();
-                setThing(key.substring(0, o), obj);
-            }
-            obj.put(key.substring(o+1), value);
-        }
+        super.setThing(key, value);
         DataStoreLogic.save(this);
-    }
-
-    protected String getString(String key)
-    {
-        return JSONUtils.getString(mProperties, key);
-    }
-    
-    protected void setString(String key, String value)
-    {
-        setThing(key, value);
-    }
-    
-    protected String[] getStringArray(String key)
-    {
-        JSONArray jvalue = JSONUtils.getArray(mProperties, key);
-        if (jvalue == null)
-            return null;
-        String[] svalue = new String[jvalue.size()];
-        for (int i = 0; i < jvalue.size(); i++)
-        {
-            Object tvalue = jvalue.get(i);
-            if (tvalue != null)
-                svalue[i] = tvalue.toString();
-        }
-        return svalue;
-    }
-    
-    @SuppressWarnings("unchecked")
-    protected void setStringArray(String key, String[] value)
-    {
-        JSONArray json = new JSONArray();
-        for (String s : value)
-            json.add(s);
-        setThing(key, json);
-    }
-
-    protected boolean getBoolean(String key)
-    {
-        return JSONUtils.getBoolean(mProperties, key);
-    }
-    
-    protected void setBoolean(String key, boolean value)
-    {
-        setThing(key, value);
-    }
-
-    protected long getLong(String key)
-    {
-        return JSONUtils.getLong(mProperties, key);
-    }
-    
-    protected void setLong(String key, Long value)
-    {
-        setThing(key, value);
-    }
-
-    protected int getInt(String key)
-    {
-        return JSONUtils.getInt(mProperties, key);
-    }
-    
-    protected void setInt(String key, Integer value)
-    {
-        setThing(key, value);
     }
     
     // getters and setters
