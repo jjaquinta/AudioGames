@@ -19,7 +19,7 @@ public class RandomTest extends TestBase
         talk("register Wibble with Wobble", "Welcome Wibble", "Flagged Square", "Maple", "Park", "Pine");
         talk("xyzzy", "I am unable to execute");
         LociBase player = mLastContext.getInvoker();
-        for (int i = 0; i < 10000; i++)
+        for (int i = 0; i < 5000; i++)
         {
             TypeAheadContext typeAheads = ExecuteLogic.typeAhead(player);
             Set<String> all = new HashSet<>();

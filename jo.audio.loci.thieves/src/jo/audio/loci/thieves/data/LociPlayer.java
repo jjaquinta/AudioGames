@@ -7,9 +7,10 @@ import org.json.simple.JSONObject;
 
 import jo.audio.loci.core.logic.DataStoreLogic;
 import jo.audio.loci.core.utils.ResponseUtils;
+import jo.audio.loci.thieves.logic.MessageLogic;
 import jo.audio.thieves.slu.ThievesModelConst;
 import jo.util.utils.ArrayUtils;
-import jo.util.utils.obj.StringArrayUtils;
+import jo.util.utils.obj.StringUtils;
 
 public class LociPlayer extends LociThing
 {
@@ -19,6 +20,7 @@ public class LociPlayer extends LociThing
     public static final String ID_MESSAGES_FETCHED = "messagesFetched";
     public static final String ID_LAST_ACTIVE = "lastActive";
     public static final String ID_ONLINE = "online";
+    public static final String ID_PROMPT_FREQUENCY = "promptFrequency";
 
     public static final String ID_RACE = "race";
     public static final String ID_GENDER = "gender";
@@ -109,16 +111,25 @@ public class LociPlayer extends LociThing
     {
         synchronized (this)
         {
-            String[] oldMessages = getMessages();
+            List<String> oldMessages = new ArrayList<>();
+            ArrayUtils.addAll(oldMessages, getMessages());
             String[] newMessages = new String[0];
             String[] more = getMore();
             setMessages(newMessages);
             setMessagesFetched(true);
-            if ((oldMessages.length > 0) && (more != null) && (more.length > 0))
-                oldMessages = StringArrayUtils.append(oldMessages, "Say more for additional info.");
-            return oldMessages;
+            List<String> reply = new ArrayList<>();
+            for (String msg : oldMessages)
+            {
+                msg = MessageLogic.processMessage(this, msg);
+                if (!StringUtils.isTrivial(msg))
+                    reply.add(msg);
+            }
+            if ((reply.size() > 0) && (more != null) && (more.length > 0))
+                reply.add(MessageLogic.processMessage(this, "<<Say more for additional info.|5|More?>>"));
+            return reply.toArray(new String[0]);
         }
     }
+
     
     public LociLocality getContainedByObject()
     {
@@ -362,5 +373,15 @@ public class LociPlayer extends LociThing
     public void setMessagesFetched(boolean value)
     {
         setBoolean(ID_MESSAGES_FETCHED, value);
+    }
+    
+    public int getPromptFrequency(String prompt)
+    {
+        return getInt(ID_PROMPT_FREQUENCY+"."+StringUtils.escape(prompt, "\"\'"));
+    }
+    
+    public void setPromptFrequency(String prompt, int value)
+    {
+        setInt(ID_PROMPT_FREQUENCY+"."+StringUtils.escape(prompt, "\"\'"), value);
     }
 }

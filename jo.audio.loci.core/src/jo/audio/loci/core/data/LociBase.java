@@ -48,7 +48,15 @@ public class LociBase implements IJSONAble
         if (o < 0)
             mProperties.put(key, value);
         else
-            JSONUtils.getObject(mProperties, key.substring(0, o)).put(key.substring(o+1), value);
+        {
+            JSONObject obj = JSONUtils.getObject(mProperties, key.substring(0, o));
+            if (obj == null)
+            {
+                obj = new JSONObject();
+                setThing(key.substring(0, o), obj);
+            }
+            obj.put(key.substring(o+1), value);
+        }
         DataStoreLogic.save(this);
     }
 

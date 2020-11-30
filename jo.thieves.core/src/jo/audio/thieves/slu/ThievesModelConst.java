@@ -10,6 +10,7 @@ import org.json.simple.JSONUtils;
 
 import jo.audio.thieves.logic.LocationLogic;
 import jo.util.utils.obj.IntegerUtils;
+import jo.util.utils.obj.StringUtils;
 
 public class ThievesModelConst
 {
@@ -196,34 +197,15 @@ public class ThievesModelConst
     
     public static String expand(String inbuf)
     {
-        if (inbuf == null)
-            return null;
-        StringBuffer outbuf = new StringBuffer();
-        for (;;)
-        {
-            int o = inbuf.indexOf("{{");
+        String outbuf = StringUtils.process(inbuf, "{{", "}}", (id) -> {
+            int o = id.indexOf("#");
             if (o < 0)
-            {
-                outbuf.append(inbuf);
-                break;
-            }
-            outbuf.append(inbuf.substring(0,  o));
-            inbuf = inbuf.substring(o + 2);
-            o = inbuf.indexOf("}}");
-            if (o < 0)
-            {
-                outbuf.append("{{"+inbuf);
-                break;
-            }
-            String id = inbuf.substring(0, o);
-            inbuf = inbuf.substring(o + 2);
-            o = id.indexOf("#");
-            if (o < 0)
-                outbuf.append(getText(id, -1));
+                return getText(id, -1);
             else
-                outbuf.append(getText(id.substring(0, o), IntegerUtils.parseInt(id.substring(o + 1))));
-        }
-        return outbuf.toString();
+                return getText(id.substring(0, o), IntegerUtils.parseInt(id.substring(o + 1)));
+            
+        });
+        return outbuf;
     }
     
 }

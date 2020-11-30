@@ -18,8 +18,10 @@ class MoreTest extends TestBase
         talk("look here", "Say More");
         talk("more", "!say more");
         talk("Maple");
-        talk("look here", "Say More");
-        talk("more", "!say more");
+        talk("look here", "More?");
+        talk("more", "!More?");
+        talk("look here", "More?");
+        talk("more", "!More?");
     }
     @Test
     void negative()
