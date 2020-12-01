@@ -5,25 +5,29 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 
 import jo.audio.thieves.tools.editor.data.EditorSettings;
-import jo.audio.thieves.tools.editor.data.TLocation;
 import jo.audio.thieves.tools.editor.data.TLocations;
+import jo.audio.thieves.tools.editor.data.TLocation;
 import jo.audio.thieves.tools.editor.logic.EditorSettingsLogic;
 
 @SuppressWarnings("serial")
-public class TilesPanel extends JComponent
+public class OldTilesPanel extends JComponent
 {
+    private int              mType;
     private JComboBox<TLocation> mTiles;
     private TilePanel        mClient;
 
-    public TilesPanel()
+    public OldTilesPanel(int type)
     {
+        mType = type;
         initInstantiate();
         initLayout();
         initLink();
@@ -75,8 +79,17 @@ public class TilesPanel extends JComponent
         TLocations loc = es.getSelectedLocation();
         if (loc == null)
             setTiles(null);
+        else if (mType == TLocation.LOCATION)
+            setTiles(loc.getLocations().values());
+        else if (mType == TLocation.APATURE)
+            setTiles(loc.getApatures().values());
         else
-            setTiles(loc.getLocations());
+        {
+            List<TLocation> tiles = new ArrayList<>();
+            tiles.addAll(loc.getLocations().values());
+            tiles.addAll(loc.getApatures().values());
+            setTiles(tiles);
+        }
     }
     
     private void doNewTile()
@@ -85,7 +98,10 @@ public class TilesPanel extends JComponent
         TLocation tile = es.getSelectedTile();
         if (tile == null)
             return;
-        mTiles.setSelectedItem(tile);
+        if ((mType == 0) || (mType == tile.getType())) 
+        {
+            mTiles.setSelectedItem(tile);
+        }
     }
 
     private void setTiles(Collection<TLocation> tiles)

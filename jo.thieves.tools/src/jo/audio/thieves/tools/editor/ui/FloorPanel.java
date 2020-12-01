@@ -21,12 +21,15 @@ import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
 
 import jo.audio.thieves.tools.editor.data.EditorSettings;
-import jo.audio.thieves.tools.editor.data.PHouse;
-import jo.audio.thieves.tools.editor.data.PLocation;
-import jo.audio.thieves.tools.editor.data.PTile;
+import jo.audio.thieves.tools.editor.data.INamed;
+import jo.audio.thieves.tools.editor.data.TApature;
+import jo.audio.thieves.tools.editor.data.TLocation;
+import jo.audio.thieves.tools.editor.data.TLocations;
+import jo.audio.thieves.tools.editor.data.TTemplate;
 import jo.audio.thieves.tools.editor.logic.EditorHouseLogic;
 import jo.audio.thieves.tools.editor.logic.EditorSettingsLogic;
 import jo.audio.thieves.tools.editor.logic.EditorTileLogic;
+import jo.audio.thieves.tools.editor.logic.LocationsLogic;
 import jo.audio.thieves.tools.logic.RuntimeLogic;
 import jo.util.utils.obj.IntegerUtils;
 import jo.util.utils.obj.StringUtils;
@@ -34,38 +37,38 @@ import jo.util.utils.obj.StringUtils;
 @SuppressWarnings("serial")
 public class FloorPanel extends JComponent
 {
-    private static int      ICON_SIZE = 32;
-    private static int      DOOR_WIDTH = 4;
-    private static int      DOOR_HEIGHT = 24;
+    private static int             ICON_SIZE    = 32;
+    private static int             DOOR_WIDTH   = 4;
+    private static int             DOOR_HEIGHT  = 24;
 
-    private Dimension             mSize;
-    private PLocation             mLocation;
-    private PHouse                mHouse;
-    private int                   mNumFloors;
-    private int                   mTilesWide;
-    private int                   mTilesHigh;
-    private Map<Rectangle, int[]> mLocMap  = new HashMap<>();
-    private Map<Rectangle, PTile> mTileMap  = new HashMap<>();
-    private Rectangle             mLastClickedRect;
-    private PTile                 mLastClickedTile;
-    private int[]                 mLastClickedLocation;
-    private Character             mLastSetTile = null;
-    
-    private JPopupMenu            mBackPopup;
-    private JPopupMenu            mApaturePopup;
-    private JPopupMenu            mLocationPopup;
-    
-    private JMenuItem             mNewTile;
-    private JMenuItem             mSetTile;
-    private JMenuItem             mRemoveTile;
-    private JMenuItem             mAddFloor;
-    private JMenuItem             mRemoveFloor;
-    private JMenuItem             mSetWidth;
-    private JMenuItem             mSetHeight;
-    private JMenuItem             mAddBorder;
-    private JMenuItem             mAddEdge;
-    private JMenuItem             mCleanup;
-    
+    private Dimension              mSize;
+    private TLocations             mLocation;
+    private TTemplate              mHouse;
+    private int                    mNumFloors;
+    private int                    mTilesWide;
+    private int                    mTilesHigh;
+    private Map<Rectangle, int[]>  mLocMap      = new HashMap<>();
+    private Map<Rectangle, INamed> mTileMap     = new HashMap<>();
+    private Rectangle              mLastClickedRect;
+    private INamed                 mLastClickedTile;
+    private int[]                  mLastClickedLocation;
+    private Character              mLastSetTile = null;
+
+    private JPopupMenu             mBackPopup;
+    private JPopupMenu             mApaturePopup;
+    private JPopupMenu             mLocationPopup;
+
+    private JMenuItem              mNewTile;
+    private JMenuItem              mSetTile;
+    private JMenuItem              mRemoveTile;
+    private JMenuItem              mAddFloor;
+    private JMenuItem              mRemoveFloor;
+    private JMenuItem              mSetWidth;
+    private JMenuItem              mSetHeight;
+    private JMenuItem              mAddBorder;
+    private JMenuItem              mAddEdge;
+    private JMenuItem              mCleanup;
+
     public FloorPanel()
     {
         initInstantiate();
@@ -110,23 +113,27 @@ public class FloorPanel extends JComponent
             {
                 doMouseMoved(e);
             }
+
             @Override
             public void mouseClicked(MouseEvent e)
             {
                 doMouseClicked(e);
-            }            
+            }
+
             @Override
-            public void mousePressed(MouseEvent e) 
-            {
-                if (e.isPopupTrigger())
-                    doShowPopup(e);
-            } 
-            @Override
-            public void mouseReleased(MouseEvent e) 
+            public void mousePressed(MouseEvent e)
             {
                 if (e.isPopupTrigger())
                     doShowPopup(e);
             }
+
+            @Override
+            public void mouseReleased(MouseEvent e)
+            {
+                if (e.isPopupTrigger())
+                    doShowPopup(e);
+            }
+
             @Override
             public void mouseWheelMoved(MouseWheelEvent e)
             {
@@ -136,70 +143,70 @@ public class FloorPanel extends JComponent
         addMouseListener(ma);
         addMouseMotionListener(ma);
         addMouseWheelListener(ma);
-        mRemoveTile.addActionListener(new ActionListener() {            
+        mRemoveTile.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e)
             {
                 doRemoveTile();
             }
         });
-        mSetTile.addActionListener(new ActionListener() {            
+        mSetTile.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e)
             {
                 doSetTile();
             }
         });
-        mNewTile.addActionListener(new ActionListener() {            
+        mNewTile.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e)
             {
                 doNewTile();
             }
         });
-        mSetWidth.addActionListener(new ActionListener() {            
+        mSetWidth.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e)
             {
                 doSetWidth();
             }
         });
-        mSetHeight.addActionListener(new ActionListener() {            
+        mSetHeight.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e)
             {
                 doSetHeight();
             }
         });
-        mAddFloor.addActionListener(new ActionListener() {            
+        mAddFloor.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e)
             {
                 EditorHouseLogic.addFloor();
             }
         });
-        mRemoveFloor.addActionListener(new ActionListener() {            
+        mRemoveFloor.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e)
             {
                 EditorHouseLogic.removeFloor();
             }
         });
-        mAddBorder.addActionListener(new ActionListener() {            
+        mAddBorder.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e)
             {
                 doAddBorder();
             }
         });
-        mAddEdge.addActionListener(new ActionListener() {            
+        mAddEdge.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e)
             {
                 doAddEdge();
             }
         });
-        mCleanup.addActionListener(new ActionListener() {            
+        mCleanup.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e)
             {
@@ -207,7 +214,7 @@ public class FloorPanel extends JComponent
             }
         });
     }
-    
+
     private JPopupMenu makeLocationPopup()
     {
         mLocationPopup = new JPopupMenu();
@@ -219,7 +226,7 @@ public class FloorPanel extends JComponent
         mLocationPopup.add(mCleanup);
         return mLocationPopup;
     }
-    
+
     private JPopupMenu makeApaturePopup()
     {
         mApaturePopup = new JPopupMenu();
@@ -231,7 +238,7 @@ public class FloorPanel extends JComponent
         mApaturePopup.add(mCleanup);
         return mApaturePopup;
     }
-    
+
     private JPopupMenu makeBackPopup()
     {
         mBackPopup = new JPopupMenu();
@@ -252,7 +259,7 @@ public class FloorPanel extends JComponent
         g.setColor(Color.LIGHT_GRAY);
         g.fillRect(0, 0, mSize.width, mSize.height);
         EditorSettings es = EditorSettingsLogic.getInstance();
-        mLocation =  es.getSelectedLocation();
+        mLocation = es.getSelectedLocation();
         mHouse = es.getSelectedHouse();
         if ((mHouse == null) || (mHouse.getFloors().length == 0))
             return;
@@ -260,11 +267,12 @@ public class FloorPanel extends JComponent
         mTilesHigh = (mHouse.getFloors()[0].length - 1) / 2;
         mTilesWide = (mHouse.getFloors()[0][0].length - 1) / 2;
         g.setColor(Color.BLACK);
-        g.drawString("Floors: "+mNumFloors+", Width: "+mTilesWide+", Height: "+mTilesHigh+", Area: "+mNumFloors*mTilesWide*mTilesHigh, 
-                16, 32);
+        g.drawString("Floors: " + mNumFloors + ", Width: " + mTilesWide
+                + ", Height: " + mTilesHigh + ", Area: "
+                + mNumFloors * mTilesWide * mTilesHigh, 16, 32);
         int floorsWide = (int)Math.ceil(Math.sqrt(mNumFloors));
         int dx = mSize.width / floorsWide;
-        int dy = mTilesHigh*ICON_SIZE + 3*ICON_SIZE;
+        int dy = mTilesHigh * ICON_SIZE + 3 * ICON_SIZE;
         for (int i = 0; i < mNumFloors; i++)
         {
             int nx = i % floorsWide;
@@ -281,8 +289,8 @@ public class FloorPanel extends JComponent
 
     private void paintFloor(Graphics2D g, int ox, int oy, int f)
     {
-        g.drawString(String.valueOf(f+1), ox-16, oy);
-        char[][] floor = mHouse.getFloors()[f*2];
+        g.drawString(String.valueOf(f + 1), ox - 16, oy);
+        char[][] floor = mHouse.getFloors()[f * 2];
         paintLocations(g, ox, oy, f, floor);
         paintGrid(g, ox, oy);
         paintVerticalDoors(g, ox, oy, f, floor);
@@ -293,30 +301,33 @@ public class FloorPanel extends JComponent
 
     public void paintUpDoors(Graphics2D g, int ox, int oy, int f)
     {
-        if (f*2 + 1 >= mHouse.getFloors().length)
+        if (f * 2 + 1 >= mHouse.getFloors().length)
             return;
-        char[][] floor = mHouse.getFloors()[f*2 + 1];
+        char[][] floor = mHouse.getFloors()[f * 2 + 1];
         for (int x = 0; x < mTilesWide; x++)
             for (int y = 0; y < mTilesHigh; y++)
             {
                 Rectangle r = new Rectangle(ox + x * ICON_SIZE + DOOR_WIDTH,
-                        oy + y * ICON_SIZE + DOOR_WIDTH, DOOR_WIDTH*2, DOOR_WIDTH*2);
-                int[] fyx = new int[] { f*2 + 1, y * 2 + 1, x * 2 + 1 };
+                        oy + y * ICON_SIZE + DOOR_WIDTH, DOOR_WIDTH * 2,
+                        DOOR_WIDTH * 2);
+                int[] fyx = new int[] { f * 2 + 1, y * 2 + 1, x * 2 + 1 };
                 paintDoor(g, floor, r, fyx, true);
             }
     }
 
     public void paintDownDoors(Graphics2D g, int ox, int oy, int f)
     {
-        if (f*2 - 1 < 0)
+        if (f * 2 - 1 < 0)
             return;
-        char[][] floor = mHouse.getFloors()[f*2 - 1];
+        char[][] floor = mHouse.getFloors()[f * 2 - 1];
         for (int x = 0; x < mTilesWide; x++)
             for (int y = 0; y < mTilesHigh; y++)
             {
-                Rectangle r = new Rectangle(ox + (x+1) * ICON_SIZE - DOOR_WIDTH*3,
-                        oy + (y+1) * ICON_SIZE - DOOR_WIDTH*3, DOOR_WIDTH*2, DOOR_WIDTH*2);
-                int[] fyx = new int[] { f*2 - 1, y * 2 + 1, x * 2 + 1 };
+                Rectangle r = new Rectangle(
+                        ox + (x + 1) * ICON_SIZE - DOOR_WIDTH * 3,
+                        oy + (y + 1) * ICON_SIZE - DOOR_WIDTH * 3,
+                        DOOR_WIDTH * 2, DOOR_WIDTH * 2);
+                int[] fyx = new int[] { f * 2 - 1, y * 2 + 1, x * 2 + 1 };
                 paintDoor(g, floor, r, fyx, true);
             }
     }
@@ -327,9 +338,11 @@ public class FloorPanel extends JComponent
         for (int x = 0; x < mTilesWide; x++)
             for (int y = 0; y <= mTilesHigh; y++)
             {
-                Rectangle leftr = new Rectangle(ox + x * ICON_SIZE + (ICON_SIZE - DOOR_HEIGHT)/2,
-                        oy + y * ICON_SIZE - DOOR_WIDTH/2 , DOOR_HEIGHT, DOOR_WIDTH);
-                int[] fyx = new int[] { f*2, y * 2, x * 2 + 1 };
+                Rectangle leftr = new Rectangle(
+                        ox + x * ICON_SIZE + (ICON_SIZE - DOOR_HEIGHT) / 2,
+                        oy + y * ICON_SIZE - DOOR_WIDTH / 2, DOOR_HEIGHT,
+                        DOOR_WIDTH);
+                int[] fyx = new int[] { f * 2, y * 2, x * 2 + 1 };
                 paintDoor(g, floor, leftr, fyx, false);
             }
     }
@@ -340,18 +353,21 @@ public class FloorPanel extends JComponent
         for (int x = 0; x <= mTilesWide; x++)
             for (int y = 0; y < mTilesHigh; y++)
             {
-                Rectangle leftr = new Rectangle(ox + x * ICON_SIZE - DOOR_WIDTH/2,
-                        oy + y * ICON_SIZE + (ICON_SIZE - DOOR_HEIGHT)/2, DOOR_WIDTH, DOOR_HEIGHT);
-                int[] fyx = new int[] { f*2, y * 2 + 1, x * 2 };
+                Rectangle leftr = new Rectangle(
+                        ox + x * ICON_SIZE - DOOR_WIDTH / 2,
+                        oy + y * ICON_SIZE + (ICON_SIZE - DOOR_HEIGHT) / 2,
+                        DOOR_WIDTH, DOOR_HEIGHT);
+                int[] fyx = new int[] { f * 2, y * 2 + 1, x * 2 };
                 paintDoor(g, floor, leftr, fyx, false);
             }
     }
 
-    public void paintDoor(Graphics2D g, char[][] floor, Rectangle r, int[] fyx, boolean trapdoor)
+    public void paintDoor(Graphics2D g, char[][] floor, Rectangle r, int[] fyx,
+            boolean trapdoor)
     {
         mLocMap.put(r, fyx);
-        String id = String.valueOf(floor[fyx[1]][fyx[2]]);
-        PTile tile = mLocation.getIDMap().get(id);
+        TLocation tile = LocationsLogic.getLocation(mLocation,
+                floor[fyx[1]][fyx[2]]);
         if (tile != null)
         {
             mTileMap.put(r, tile);
@@ -363,7 +379,7 @@ public class FloorPanel extends JComponent
                     if (tile.getID().equals("EMPTY"))
                         g.setColor(Color.LIGHT_GRAY);
                     else
-                        g.setColor(tile.getColor());
+                        g.setColor(LocationsLogic.getColor(tile));
                     g.fill(r);
                     g.setColor(Color.BLACK);
                     g.draw(r);
@@ -379,15 +395,15 @@ public class FloorPanel extends JComponent
                     else if (tile.getID().equals("."))
                         g.setColor(Color.BLACK);
                     else
-                        g.setColor(tile.getColor());
+                        g.setColor(LocationsLogic.getColor(tile));
                     g.fill(r);
                     g.setColor(Color.BLACK);
                     g.draw(r);
                 }
             }
         }
-        else if (!".".equals(id))
-            System.err.println("Unmapped tile '"+id+"'");
+        else if (floor[fyx[1]][fyx[2]] != ' ')
+            System.err.println("Unmapped tile '" + floor[fyx[1]][fyx[2]] + "'");
     }
 
     public void paintLocations(Graphics2D g, int ox, int oy, int f,
@@ -398,18 +414,19 @@ public class FloorPanel extends JComponent
             {
                 Rectangle r = new Rectangle(ox + x * ICON_SIZE,
                         oy + y * ICON_SIZE, ICON_SIZE, ICON_SIZE);
-                int[] fyx = new int[] { f*2, y * 2 + 1, x * 2 + 1 };
+                int[] fyx = new int[] { f * 2, y * 2 + 1, x * 2 + 1 };
                 mLocMap.put(r, fyx);
-                String id = String.valueOf(floor[y*2 + 1][x*2 + 1]);
-                PTile tile = mLocation.getIDMap().get(id);
+                TLocation tile = LocationsLogic.getLocation(mLocation,
+                        floor[y * 2 + 1][x * 2 + 1]);
                 if (tile != null)
                 {
                     mTileMap.put(r, tile);
-                    g.setColor(tile.getColor());
+                    g.setColor(LocationsLogic.getColor(tile));
                     g.fill(r);
                 }
-                else if (!".".equals(id))
-                    System.err.println("Unmapped tile '"+id+"'");
+                else if (floor[y * 2 + 1][x * 2 + 1] != ' ')
+                    System.err.println("Unmapped tile '"
+                            + floor[y * 2 + 1][x * 2 + 1] + "'");
             }
     }
 
@@ -423,16 +440,18 @@ public class FloorPanel extends JComponent
             g.drawLine(ox, oy + y * ICON_SIZE, ox + mTilesWide * ICON_SIZE,
                     oy + y * ICON_SIZE);
     }
-    
+
     private void findRect(int x, int y)
     {
         mLastClickedRect = null;
         for (Rectangle r : mLocMap.keySet())
             if (r.contains(x, y))
-                if ((mLastClickedRect == null) || (mLastClickedRect.width*mLastClickedRect.height > r.width*r.height))
+                if ((mLastClickedRect == null) || (mLastClickedRect.width
+                        * mLastClickedRect.height > r.width * r.height))
                     mLastClickedRect = r;
         mLastClickedTile = mTileMap.get(mLastClickedRect);
-        mLastClickedLocation = (mLastClickedRect == null) ? null : mLocMap.get(mLastClickedRect);
+        mLastClickedLocation = (mLastClickedRect == null) ? null
+                : mLocMap.get(mLastClickedRect);
     }
 
     private void doMouseMoved(MouseEvent e)
@@ -442,11 +461,25 @@ public class FloorPanel extends JComponent
             if (mLastClickedLocation == null)
                 RuntimeLogic.status("");
             else
-                RuntimeLogic.status("f:"+mLastClickedLocation[0]+" "+mLastClickedLocation[2]+","+mLastClickedLocation[1]);
+                RuntimeLogic.status("f:" + mLastClickedLocation[0] + " "
+                        + mLastClickedLocation[2] + ","
+                        + mLastClickedLocation[1]);
+        else if (mLastClickedTile instanceof TLocation)
+        {
+            TLocation l = (TLocation)mLastClickedTile;
+            RuntimeLogic.status((StringUtils.isTrivial(l.getName()) ? l.getID()
+                    : l.getName()) + " f:" + mLastClickedLocation[0] + " "
+                    + mLastClickedLocation[2] + "," + mLastClickedLocation[1]);
+        }
         else
-            RuntimeLogic.status((StringUtils.isTrivial(mLastClickedTile.getName()) ? mLastClickedTile.getID() : mLastClickedTile.getName())
-                    +" f:"+mLastClickedLocation[0]+" "+mLastClickedLocation[2]+","+mLastClickedLocation[1]);
+        {
+            TApature a = (TApature)mLastClickedTile;
+            RuntimeLogic.status((StringUtils.isTrivial(a.getName()) ? a.getID()
+                    : a.getName()) + " f:" + mLastClickedLocation[0] + " "
+                    + mLastClickedLocation[2] + "," + mLastClickedLocation[1]);
+        }
     }
+
     private void doMouseClicked(MouseEvent e)
     {
         findRect(e.getX(), e.getY());
@@ -454,110 +487,130 @@ public class FloorPanel extends JComponent
         {
             if (e.getClickCount() == 2)
             {
-                if ((e.getModifiers()&ActionEvent.SHIFT_MASK)!=0)
+                if ((e.getModifiers() & ActionEvent.SHIFT_MASK) != 0)
                 {
                     if (mLastClickedLocation != null)
                     {
-                        mLastSetTile = mHouse.getFloors()[mLastClickedLocation[0]][mLastClickedLocation[1]][mLastClickedLocation[2]];
-                        RuntimeLogic.status("Copied '"+mLastSetTile+"'");
+                        mLastSetTile = mHouse
+                                .getFloors()[mLastClickedLocation[0]][mLastClickedLocation[1]][mLastClickedLocation[2]];
+                        RuntimeLogic.status("Copied '" + mLastSetTile + "'");
                     }
                 }
                 else
                 {
-                    if ((mLastSetTile != null) && (mLastClickedLocation != null))
-                        EditorHouseLogic.setTile(mLastClickedLocation[0], mLastClickedLocation[1], mLastClickedLocation[2], mLastSetTile);
+                    if ((mLastSetTile != null)
+                            && (mLastClickedLocation != null))
+                        EditorHouseLogic.setTile(mLastClickedLocation[0],
+                                mLastClickedLocation[1],
+                                mLastClickedLocation[2], mLastSetTile);
                 }
             }
-            else
-                EditorTileLogic.select(mLastClickedTile);
+            else if (mLastClickedTile instanceof TLocation)
+                EditorTileLogic.select((TLocation)mLastClickedTile);
+            else if (mLastClickedTile instanceof TApature)
+                EditorTileLogic.select((TApature)mLastClickedTile);
         }
         else if (e.getButton() == MouseEvent.BUTTON2)
             doShowPopup(e);
     }
+
     public void doMouseWheelMoved(MouseWheelEvent e)
     {
         int delta = e.getWheelRotation();
         DOOR_WIDTH += delta;
         if (DOOR_WIDTH < 1)
             DOOR_WIDTH = 1;
-        DOOR_HEIGHT = DOOR_WIDTH*6;
-        ICON_SIZE = DOOR_WIDTH*8;
+        DOOR_HEIGHT = DOOR_WIDTH * 6;
+        ICON_SIZE = DOOR_WIDTH * 8;
         repaint();
     }
+
     private void doShowPopup(MouseEvent e)
     {
         findRect(e.getX(), e.getY());
-        int type = 0;
+        Class<?> type = null;
         if (mLastClickedLocation != null)
             type = inferType();
         else if (mLastClickedTile != null)
-            type = mLastClickedTile.getType();
-        System.out.println("Popup type="+type);
-        if (type == 0)
+            type = mLastClickedTile.getClass();
+        System.out.println("Popup type=" + type);
+        if (type == null)
             makeBackPopup().show(e.getComponent(), e.getX(), e.getY());
-        else if (type == PTile.APATURE)
+        else if (type == TApature.class)
             makeApaturePopup().show(e.getComponent(), e.getX(), e.getY());
-        else if (type == PTile.LOCATION)
+        else if (type == TLocation.class)
             makeLocationPopup().show(e.getComponent(), e.getX(), e.getY());
     }
 
-    public int inferType()
+    public Class<?> inferType()
     {
-        int type;
-        if (mLastClickedLocation[0]%2 == 1)
-            type = PTile.APATURE;
-        else if ((mLastClickedLocation[1]%2 == 1) && (mLastClickedLocation[2]%2 == 1))
-            type = PTile.LOCATION;
+        Class<?> type;
+        if (mLastClickedLocation[0] % 2 == 1)
+            type = TApature.class;
+        else if ((mLastClickedLocation[1] % 2 == 1)
+                && (mLastClickedLocation[2] % 2 == 1))
+            type = TLocation.class;
         else
-            type = PTile.APATURE;
+            type = TApature.class;
         return type;
     }
-    
+
     private void doRemoveTile()
     {
         if (mLastClickedLocation == null)
             return;
-        EditorHouseLogic.removeTile(mLastClickedLocation[0], mLastClickedLocation[1], mLastClickedLocation[2]);
+        EditorHouseLogic.removeTile(mLastClickedLocation[0],
+                mLastClickedLocation[1], mLastClickedLocation[2]);
     }
-    
+
     private void doSetTile()
     {
         if (mLastClickedLocation == null)
             return;
-        PTile[] choices;
-        int type = inferType();
-        if (type == PTile.LOCATION)
-            choices = mLocation.getLocations().values().toArray(new PTile[0]);
+        INamed[] choices;
+        Class<?> type = inferType();
+        if (type == TLocation.class)
+            choices = mLocation.getLocations().toArray(new TLocation[0]);
         else
-            choices = mLocation.getApatures().values().toArray(new PTile[0]);
-        PTile choice = (PTile)JOptionPane.showInputDialog(this, "Choose type",
-            "Set Map Value", JOptionPane.QUESTION_MESSAGE, null,
-            choices, // Array of choices
-            mLastClickedTile); // Initial choice
+            choices = mLocation.getApatures().toArray(new TApature[0]);
+        TLocation choice = (TLocation)JOptionPane.showInputDialog(this,
+                "Choose type", "Set Map Value", JOptionPane.QUESTION_MESSAGE,
+                null, choices, // Array of choices
+                mLastClickedTile); // Initial choice
         if (choice == null)
             return;
-        mLastSetTile = choice.getChar().charAt(0);
-        EditorHouseLogic.setTile(mLastClickedLocation[0], mLastClickedLocation[1], mLastClickedLocation[2], mLastSetTile);
+        mLastSetTile = mLocation.getIDMap().getProperty(choice.getID()).charAt(0);
+        EditorHouseLogic.setTile(mLastClickedLocation[0],
+                mLastClickedLocation[1], mLastClickedLocation[2], mLastSetTile);
     }
-    
+
     private void doNewTile()
     {
         if (mLastClickedLocation == null)
             return;
-        String newTileID = (String)JOptionPane.showInputDialog(this, "New Tile", "Create New Tile",
-                JOptionPane.QUESTION_MESSAGE, null, null, "NEW_TILE");
+        String newTileID = (String)JOptionPane.showInputDialog(this, "New Tile",
+                "Create New Tile", JOptionPane.QUESTION_MESSAGE, null, null,
+                "NEW_TILE");
         if (newTileID == null)
             return;
-        PTile tile = EditorTileLogic.newTile(newTileID, inferType());
+        Class<?> type = inferType();
+        INamed tile;
+        if (type == TLocation.class)
+            tile = EditorTileLogic.newTile(newTileID);
+        else
+            tile = EditorTileLogic.newApature(newTileID);
         if (tile != null)
-            EditorHouseLogic.setTile(mLastClickedLocation[0], mLastClickedLocation[1], mLastClickedLocation[2], mLastSetTile);
+            EditorHouseLogic.setTile(mLastClickedLocation[0],
+                    mLastClickedLocation[1], mLastClickedLocation[2],
+                    mLastSetTile);
     }
-    
+
     private void doSetWidth()
     {
         String oldWidthS = String.valueOf(mTilesWide);
-        String newWidthS = (String)JOptionPane.showInputDialog(this, "New Width", "Set Floor Width",
-                JOptionPane.QUESTION_MESSAGE, null, null, oldWidthS);
+        String newWidthS = (String)JOptionPane.showInputDialog(this,
+                "New Width", "Set Floor Width", JOptionPane.QUESTION_MESSAGE,
+                null, null, oldWidthS);
         if (newWidthS == null)
             return;
         int newWidth = IntegerUtils.parseInt(newWidthS);
@@ -565,12 +618,13 @@ public class FloorPanel extends JComponent
             return;
         EditorHouseLogic.setWidth(newWidth);
     }
-    
+
     private void doSetHeight()
     {
         String oldHeightS = String.valueOf(mTilesHigh);
-        String newHeightS = (String)JOptionPane.showInputDialog(this, "New Height", "Set Floor Height",
-                JOptionPane.QUESTION_MESSAGE, null, null, oldHeightS);
+        String newHeightS = (String)JOptionPane.showInputDialog(this,
+                "New Height", "Set Floor Height", JOptionPane.QUESTION_MESSAGE,
+                null, null, oldHeightS);
         if (newHeightS == null)
             return;
         int newHeight = IntegerUtils.parseInt(newHeightS);
@@ -578,21 +632,21 @@ public class FloorPanel extends JComponent
             return;
         EditorHouseLogic.setHeight(newHeight);
     }
-    
+
     private void doAddBorder()
     {
         if (mLastClickedLocation == null)
             return;
         EditorHouseLogic.addBorder(mLastClickedLocation[0]);
     }
-    
+
     private void doAddEdge()
     {
         if (mLastClickedLocation == null)
             return;
         EditorHouseLogic.addRoofEdge(mLastClickedLocation[0]);
     }
-    
+
     private void doCleanup()
     {
         if (mLastClickedLocation == null)

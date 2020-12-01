@@ -6,22 +6,22 @@ import java.util.List;
 import java.util.Map;
 
 import jo.audio.thieves.tools.editor.data.EditorSettings;
-import jo.audio.thieves.tools.editor.data.PLocation;
+import jo.audio.thieves.tools.editor.data.TLocations;
 
 public class EditorLocationLogic
 {
-    public static List<PLocation> getLocations()
+    public static List<TLocations> getLocations()
     {
-        List<PLocation> names = new ArrayList<>();
+        List<TLocations> names = new ArrayList<>();
         names.addAll(EditorSettingsLogic.getInstance().getSpecificLocations().values());
         Collections.sort(names);
         return names;
     }
     
-    public static PLocation getLocation(String location)
+    public static TLocations getLocation(String location)
     {
-        Map<String, PLocation> sl = EditorSettingsLogic.getInstance().getSpecificLocations();
-        PLocation loc = sl.get(location);
+        Map<String, TLocations> sl = EditorSettingsLogic.getInstance().getSpecificLocations();
+        TLocations loc = sl.get(location);
         return loc;
     }
     
@@ -30,7 +30,7 @@ public class EditorLocationLogic
         return EditorSettingsLogic.getInstance().getSpecificLocations().containsKey(location);
     }
 
-    public static void selectLocation(PLocation newLocation)
+    public static void selectLocation(TLocations newLocation)
     {
         EditorSettings es = EditorSettingsLogic.getInstance();
         if (newLocation == es.getSelectedLocation())

@@ -8,34 +8,35 @@ import jo.util.beans.PCSBean;
 
 public class EditorSettings extends PCSBean
 {
-    private File                   mProjectDir;
-    private PLocation              mGlobalLocations;
-    private Map<String, PLocation> mSpecificLocations = new HashMap<>();
-    private PTile                  mSelectedTile;
+    private File                    mProjectDir;
+    private TLocations              mGlobalLocations;
+    private Map<String, TLocations> mSpecificLocations = new HashMap<>();
+    private TLocation               mSelectedTile;
+    private TApature                mSelectedApature;
     // persistent settings
-    private PLocation              mSelectedLocation;
-    private PHouse                 mSelectedHouse;
+    private TLocations              mSelectedLocation;
+    private TTemplate               mSelectedHouse;
 
     // utilities
 
     // getters and setters
 
-    public PLocation getGlobalLocations()
+    public TLocations getGlobalLocations()
     {
         return mGlobalLocations;
     }
 
-    public void setGlobalLocations(PLocation globalLocations)
+    public void setGlobalLocations(TLocations globalLocations)
     {
         mGlobalLocations = globalLocations;
     }
 
-    public Map<String, PLocation> getSpecificLocations()
+    public Map<String, TLocations> getSpecificLocations()
     {
         return mSpecificLocations;
     }
 
-    public void setSpecificLocations(Map<String, PLocation> specificLocations)
+    public void setSpecificLocations(Map<String, TLocations> specificLocations)
     {
         mSpecificLocations = specificLocations;
     }
@@ -50,12 +51,12 @@ public class EditorSettings extends PCSBean
         mProjectDir = projectDir;
     }
 
-    public PLocation getSelectedLocation()
+    public TLocations getSelectedLocation()
     {
         return mSelectedLocation;
     }
 
-    public void setSelectedLocation(PLocation selectedLocation)
+    public void setSelectedLocation(TLocations selectedLocation)
     {
         queuePropertyChange("selectedLocation", mSelectedLocation,
                 selectedLocation);
@@ -63,27 +64,39 @@ public class EditorSettings extends PCSBean
         firePropertyChange();
     }
 
-    public PHouse getSelectedHouse()
+    public TTemplate getSelectedHouse()
     {
         return mSelectedHouse;
     }
 
-    public void setSelectedHouse(PHouse selectedHouse)
+    public void setSelectedHouse(TTemplate selectedHouse)
     {
         queuePropertyChange("selectedHouse", mSelectedHouse, selectedHouse);
         mSelectedHouse = selectedHouse;
         firePropertyChange();
     }
 
-    public PTile getSelectedTile()
+    public TLocation getSelectedTile()
     {
         return mSelectedTile;
     }
 
-    public void setSelectedTile(PTile selectedTile)
+    public void setSelectedTile(TLocation selectedTile)
     {
         queuePropertyChange("selectedTile", mSelectedTile, selectedTile);
         mSelectedTile = selectedTile;
+        firePropertyChange();
+    }
+
+    public TApature getSelectedApature()
+    {
+        return mSelectedApature;
+    }
+
+    public void setSelectedApature(TApature selectedApature)
+    {
+        queuePropertyChange("selectedApature", mSelectedApature, selectedApature);
+        mSelectedApature = selectedApature;
         firePropertyChange();
     }
 }

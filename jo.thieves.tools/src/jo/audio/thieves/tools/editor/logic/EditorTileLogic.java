@@ -1,143 +1,120 @@
 package jo.audio.thieves.tools.editor.logic;
 
 import java.awt.Color;
-import java.util.Map;
+import java.util.List;
+import java.util.function.Consumer;
 
 import jo.audio.thieves.tools.editor.data.EditorSettings;
-import jo.audio.thieves.tools.editor.data.PLocation;
-import jo.audio.thieves.tools.editor.data.PTile;
+import jo.audio.thieves.tools.editor.data.TApature;
+import jo.audio.thieves.tools.editor.data.TLocation;
+import jo.audio.thieves.tools.editor.data.TLocations;
 import jo.util.utils.obj.StringUtils;
 
 public class EditorTileLogic
 {
-    public static void select(PTile tile)
+    public static void select(TLocation tile)
     {
         EditorSettings es = EditorSettingsLogic.getInstance();
         es.setSelectedTile(tile);
     }
-    public static void updateColor(PTile tile, Color c)
+    public static void select(TApature tile)
     {
-        tile.setColor(c);
+        EditorSettings es = EditorSettingsLogic.getInstance();
+        es.setSelectedApature(tile);
+    }
+    public static void updateColor(TLocation tile, Color c)
+    {
+        String ch = LocationsLogic.getChar(tile);
+        EditorSettingsLogic.getInstance().getSelectedLocation().getColorMap().put(ch, c);
         EditorSettingsLogic.getInstance().fireMonotonicPropertyChange("location.tile");
     }
-    public static void updateChar(PTile tile, String newVal)
+    public static void updateChar(TLocation tile, String newVal)
     {
-        String oldVal = tile.getChar();
+        String oldVal = LocationsLogic.getChar(tile);
         if (StringUtils.equals(oldVal, newVal))
             return;
         EditorSettings es = EditorSettingsLogic.getInstance();
-        tile.setChar(newVal);
-        Map<String, PTile> idMap = es.getSelectedLocation().getIDMap();
-        for (String key : idMap.keySet().toArray(new String[0]))
-            if (idMap.get(key) == tile)
-                idMap.remove(key);
-        idMap.put(newVal, tile);
+        es.getSelectedLocation().getIDMap().remove(oldVal);
+        es.getSelectedLocation().getIDMap().put(newVal, tile);
         es.fireMonotonicPropertyChange("location.tile");
     }
-    public static void updateID(PTile tile, String newID)
+    private static void  updateTile(TLocation tile, Consumer<TLocation> action)
     {
-        String oldID = tile.getID();
-        if (oldID.equals(newID))
+        EditorSettings es = EditorSettingsLogic.getInstance();
+        List<TLocation> tiles = es.getSelectedLocation().getLocations();
+        for (TLocation t : tiles)
+            if (t.getID().equals(tile.getID()))
+            {
+                action.accept(tile);
+                break;
+            }
+        es.getSelectedLocation().setLocations(tiles);
+        es.fireMonotonicPropertyChange("location.tile");
+    }
+    public static void updateID(TLocation tile, String newID)
+    {
+        if (tile.getID().equals(newID))
             return;
-        EditorSettings es = EditorSettingsLogic.getInstance();
-        tile.setID(newID);
-        if (es.getSelectedLocation().getLocations().containsKey(oldID))
-        {
-            es.getSelectedLocation().getLocations().remove(oldID);
-            es.getSelectedLocation().getLocations().put(newID, tile);
-        }
-        if (es.getSelectedLocation().getApatures().containsKey(oldID))
-        {
-            es.getSelectedLocation().getApatures().remove(oldID);
-            es.getSelectedLocation().getApatures().put(newID, tile);
-        }
-        es.fireMonotonicPropertyChange("location.tile");
+        updateTile(tile, (t) -> t.setID(newID));
     }
-    public static void updateName(PTile tile, String newVal)
+    public static void updateName(TLocation tile, String newVal)
     {
-        String oldVal = tile.getName();
-        if (oldVal.equals(newVal))
+        if (tile.getName().equals(newVal))
             return;
-        EditorSettings es = EditorSettingsLogic.getInstance();
-        tile.setName(newVal);
-        es.fireMonotonicPropertyChange("location.tile");
+        updateTile(tile, (t) -> t.setName(newVal));
     }
-    public static void updateDesc(PTile tile, String newVal)
+    public static void updateDesc(TLocation tile, String newVal)
     {
-        String oldVal = tile.getDescription();
-        if (oldVal.equals(newVal))
+        if (tile.getDescription().equals(newVal))
             return;
-        EditorSettings es = EditorSettingsLogic.getInstance();
-        tile.setDescription(newVal);
-        es.fireMonotonicPropertyChange("location.tile");
+        updateTile(tile, (t) -> t.setDescription(newVal));
     }
-    public static void updateClimbWalls(PTile tile, int newVal)
+    public static void updateClimbWalls(TLocation tile, int newVal)
     {
-        int oldVal = tile.getClimbWallsMod();
-        if (oldVal == newVal)
+        if (tile.getClimbWallsMod() == newVal)
             return;
-        EditorSettings es = EditorSettingsLogic.getInstance();
-        tile.setClimbWallsMod(newVal);
-        es.fireMonotonicPropertyChange("location.tile");
+        updateTile(tile, (t) -> t.setClimbWallsMod(newVal));
     }
-    public static void updateFindTraps(PTile tile, int newVal)
+    public static void updateFindTraps(TLocation tile, int newVal)
     {
-        int oldVal = tile.getFindTrapsMod();
-        if (oldVal == newVal)
+        if (tile.getFindTrapsMod() == newVal)
             return;
-        EditorSettings es = EditorSettingsLogic.getInstance();
-        tile.setFindTrapsMod(newVal);
-        es.fireMonotonicPropertyChange("location.tile");
+        updateTile(tile, (t) -> t.setFindTrapsMod(newVal));
     }
-    public static void updateHideInShadows(PTile tile, int newVal)
+    public static void updateHideInShadows(TLocation tile, int newVal)
     {
-        int oldVal = tile.getHideInShadowsMod();
-        if (oldVal == newVal)
+        if (tile.getHideInShadowsMod() == newVal)
             return;
-        EditorSettings es = EditorSettingsLogic.getInstance();
-        tile.setHideInShadowsMod(newVal);
-        es.fireMonotonicPropertyChange("location.tile");
+        updateTile(tile, (t) -> t.setHideInShadowsMod(newVal));
     }
-    public static void updateMoveSilently(PTile tile, int newVal)
+    public static void updateMoveSilently(TLocation tile, int newVal)
     {
-        int oldVal = tile.getMoveSilentlyMod();
-        if (oldVal == newVal)
+        if (tile.getMoveSilentlyMod() == newVal)
             return;
-        EditorSettings es = EditorSettingsLogic.getInstance();
-        tile.setMoveSilentlyMod(newVal);
-        es.fireMonotonicPropertyChange("location.tile");
+        updateTile(tile, (t) -> t.setMoveSilentlyMod(newVal));
     }
-    public static void updateOpenLocks(PTile tile, int newVal)
+    public static void updateOpenLocks(TLocation tile, int newVal)
     {
-        int oldVal = tile.getOpenLocksMod();
-        if (oldVal == newVal)
+        if (tile.getOpenLocksMod() == newVal)
             return;
-        EditorSettings es = EditorSettingsLogic.getInstance();
-        tile.setOpenLocksMod(newVal);
-        es.fireMonotonicPropertyChange("location.tile");
+        updateTile(tile, (t) -> t.setOpenLocksMod(newVal));
     }
-    public static void updateInside(PTile tile, boolean newVal)
+    public static void updateInside(TLocation tile, boolean newVal)
     {
-        boolean oldVal = tile.isInside();
-        if (oldVal == newVal)
+        if (tile.getInside() == newVal)
             return;
-        EditorSettings es = EditorSettingsLogic.getInstance();
-        tile.setInside(newVal);
-        es.fireMonotonicPropertyChange("location.tile");
+        updateTile(tile, (t) -> t.setInside(newVal));
     }
-    public static void updateBedroom(PTile tile, boolean newVal)
+    public static void updateBedroom(TLocation tile, boolean newVal)
     {
-        boolean oldVal = tile.isBedroom();
-        if (oldVal == newVal)
+        if (tile.getBedroom() == newVal)
             return;
-        EditorSettings es = EditorSettingsLogic.getInstance();
-        tile.setBedroom(newVal);
-        es.fireMonotonicPropertyChange("location.tile");
+        updateTile(tile, (t) -> t.setBedroom(newVal));
     }
-    public static PTile newTile(String newTileID, int type)
+    public static TLocation newTile(String newTileID)
     {
         EditorSettings es = EditorSettingsLogic.getInstance();
-        PLocation loc = es.getSelectedLocation();
+        TLocations loc = es.getSelectedLocation();
         if (loc == null)
             return null;
         String ch = newTileID.substring(0, 1);
@@ -150,17 +127,37 @@ public class EditorTileLogic
                     break;
                 }
         }
-        PTile tile = new PTile();
+        TLocation tile = new TLocation();
         tile.setID(newTileID);
-        tile.setChar(ch);
         tile.setName("New Tile");
         tile.setDescription("New Description");
-        tile.setType(type);
-        if (type == PTile.LOCATION)
-            loc.getLocations().put(tile.getID(), tile);
-        else
-            loc.getApatures().put(tile.getID(), tile);
-        loc.getIDMap().put(tile.getChar(), tile);
+        loc.getLocations().add(tile);
+        loc.getIDMap().put(ch, tile);
+        es.fireMonotonicPropertyChange("location.tile");
+        return tile;
+    }
+    public static TApature newApature(String newTileID)
+    {
+        EditorSettings es = EditorSettingsLogic.getInstance();
+        TLocations loc = es.getSelectedLocation();
+        if (loc == null)
+            return null;
+        String ch = newTileID.substring(0, 1);
+        if (loc.getIDMap().containsKey(ch))
+        {
+            for (char c = ' '; c <= '~'; c++)
+                if (loc.getIDMap().containsKey(String.valueOf(c)))
+                {
+                    ch = String.valueOf(c);
+                    break;
+                }
+        }
+        TApature tile = new TApature();
+        tile.setID(newTileID);
+        tile.setName("New Tile");
+        tile.setDescription("New Description");
+        loc.getApatures().add(tile);
+        loc.getIDMap().put(ch, tile);
         es.fireMonotonicPropertyChange("location.tile");
         return tile;
     }

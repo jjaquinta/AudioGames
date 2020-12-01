@@ -10,7 +10,7 @@ import org.json.simple.JSONUtils;
 
 import jo.audio.thieves.tools.data.RuntimeBean;
 import jo.audio.thieves.tools.editor.data.EditorSettings;
-import jo.audio.thieves.tools.editor.data.PLocation;
+import jo.audio.thieves.tools.editor.data.TLocations;
 import jo.audio.thieves.tools.logic.RuntimeLogic;
 import jo.util.utils.io.FileUtils;
 
@@ -95,7 +95,7 @@ public class EditorSettingsLogic
         File locationTypesFile = new File(sluDir, "locationTypes.json");
         //JSONObject locationTypes = JSONUtils.readJSON(locationTypesFile);
         JSONObject jlocationTypes = (JSONObject)JSONUtils.PARSER.parse(FileUtils.readFileAsString(locationTypesFile.toString(), "utf-8"));
-        PLocation locationTypes = new PLocation();
+        TLocations locationTypes = new TLocations();
         locationTypes.setPath("<root>");
         locationTypes.fromJSON(jlocationTypes);
         es.setGlobalLocations(locationTypes);
@@ -110,10 +110,10 @@ public class EditorSettingsLogic
                 includeName = includeName.substring(10);
             if (includeName.endsWith(".json"))
                 includeName = includeName.substring(0, includeName.length() - 5);
-            PLocation includeLocations = new PLocation();
+            TLocations includeLocations = new TLocations();
             includeLocations.setPath(includeName);
             includeLocations.fromJSON(jincludeLocations);
-            includeLocations.fillPlaces(locationTypes);
+            //includeLocations.fillPlaces(locationTypes);
             es.getSpecificLocations().put(includeName, includeLocations);
         }
     }

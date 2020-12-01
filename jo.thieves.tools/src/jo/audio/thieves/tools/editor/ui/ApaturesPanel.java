@@ -12,17 +12,17 @@ import javax.swing.JComboBox;
 import javax.swing.JComponent;
 
 import jo.audio.thieves.tools.editor.data.EditorSettings;
-import jo.audio.thieves.tools.editor.data.TLocation;
+import jo.audio.thieves.tools.editor.data.TApature;
 import jo.audio.thieves.tools.editor.data.TLocations;
 import jo.audio.thieves.tools.editor.logic.EditorSettingsLogic;
 
 @SuppressWarnings("serial")
-public class TilesPanel extends JComponent
+public class ApaturesPanel extends JComponent
 {
-    private JComboBox<TLocation> mTiles;
-    private TilePanel        mClient;
+    private JComboBox<TApature> mTiles;
+    private ApaturePanel        mClient;
 
-    public TilesPanel()
+    public ApaturesPanel()
     {
         initInstantiate();
         initLayout();
@@ -32,7 +32,7 @@ public class TilesPanel extends JComponent
     private void initInstantiate()
     {
         mTiles = new JComboBox<>();
-        mClient = new TilePanel();
+        mClient = new ApaturePanel();
     }
 
     private void initLayout()
@@ -63,7 +63,7 @@ public class TilesPanel extends JComponent
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                TLocation tile = (TLocation)mTiles.getSelectedItem();
+                TApature tile = (TApature)mTiles.getSelectedItem();
                 mClient.setTile(tile);
             }
         });
@@ -76,25 +76,25 @@ public class TilesPanel extends JComponent
         if (loc == null)
             setTiles(null);
         else
-            setTiles(loc.getLocations());
+            setTiles(loc.getApatures());
     }
     
     private void doNewTile()
     {
         EditorSettings es = EditorSettingsLogic.getInstance();
-        TLocation tile = es.getSelectedTile();
+        TApature tile = es.getSelectedApature();
         if (tile == null)
             return;
         mTiles.setSelectedItem(tile);
     }
 
-    private void setTiles(Collection<TLocation> tiles)
+    private void setTiles(Collection<TApature> tiles)
     {
-        DefaultComboBoxModel<TLocation> model = (DefaultComboBoxModel<TLocation>)mTiles.getModel();
+        DefaultComboBoxModel<TApature> model = (DefaultComboBoxModel<TApature>)mTiles.getModel();
         model.removeAllElements();
         if (tiles != null)
         {
-            for (TLocation tile : tiles)
+            for (TApature tile : tiles)
                 model.addElement(tile);
             if (tiles.size() > 0)
                 model.setSelectedItem(tiles.iterator().next());

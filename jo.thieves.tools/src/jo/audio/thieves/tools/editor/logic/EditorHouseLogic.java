@@ -9,20 +9,21 @@ import org.json.simple.JSONUtils;
 import org.json.simple.parser.ParseException;
 
 import jo.audio.thieves.tools.editor.data.EditorSettings;
-import jo.audio.thieves.tools.editor.data.PHouse;
-import jo.audio.thieves.tools.editor.data.PLocation;
+import jo.audio.thieves.tools.editor.data.TLocations;
+import jo.audio.thieves.tools.editor.data.TTemplate;
 import jo.audio.thieves.tools.logic.RuntimeLogic;
+import jo.util.utils.MapUtils;
 
 public class EditorHouseLogic
 {
-    public static PHouse getHouse(String name)
+    public static TTemplate getHouse(String name)
     {
-        PLocation location = EditorSettingsLogic.getInstance().getSelectedLocation();
+        TLocations location = EditorSettingsLogic.getInstance().getSelectedLocation();
         if (location == null)
             return null;
         if (location.getTemplates().size() == 0)
             return null;
-        for (PHouse template : location.getTemplates())
+        for (TTemplate template : location.getTemplates())
         {
             if (name.equals(template.getID()))
                 return template;
@@ -33,17 +34,17 @@ public class EditorHouseLogic
     {
         return getHouse(name) != null;
     }
-    public static List<PHouse> getHouses()
+    public static List<TTemplate> getHouses()
     {
-        List<PHouse> names = new ArrayList<>();
-        PLocation location = EditorSettingsLogic.getInstance().getSelectedLocation();
+        List<TTemplate> names = new ArrayList<>();
+        TLocations location = EditorSettingsLogic.getInstance().getSelectedLocation();
         if (location == null)
             return names;
         names.addAll(location.getTemplates());
         Collections.sort(names);
         return names;
     }
-    public static void selectHouse(PHouse newHouse)
+    public static void selectHouse(TTemplate newHouse)
     {
         if ((newHouse != null) && !isHouse(newHouse.getID()))
             newHouse = null;
@@ -55,7 +56,7 @@ public class EditorHouseLogic
     public static void removeTile(int f, int y, int x)
     {
         EditorSettings es = EditorSettingsLogic.getInstance();
-        PHouse house = es.getSelectedHouse();
+        TTemplate house = es.getSelectedHouse();
         house.getFloors()[f][y][x] = '.';
         es.fireMonotonicPropertyChange("location.floor");
         RuntimeLogic.status("Clearing floor "+f+", "+x+","+y);
@@ -63,7 +64,7 @@ public class EditorHouseLogic
     public static void setTile(int f, int y, int x, char ch)
     {
         EditorSettings es = EditorSettingsLogic.getInstance();
-        PHouse house = es.getSelectedHouse();
+        TTemplate house = es.getSelectedHouse();
         if (house.getFloors()[f][y][x] == ch)
             return;
         house.getFloors()[f][y][x] = ch;
@@ -87,10 +88,10 @@ public class EditorHouseLogic
     public static void addHouse(String id)
     {
         EditorSettings es = EditorSettingsLogic.getInstance();
-        PLocation location = es.getSelectedLocation();
+        TLocations location = es.getSelectedLocation();
         if (location == null)
             return;
-        PHouse house = new PHouse();
+        TTemplate house = new TTemplate();
         try
         {
             house.fromJSON((JSONObject)JSONUtils.PARSER.parse(DEFAULT_HOUSE));
@@ -107,10 +108,10 @@ public class EditorHouseLogic
     public static void deleteHouse()
     {
         EditorSettings es = EditorSettingsLogic.getInstance();
-        PLocation location = es.getSelectedLocation();
+        TLocations location = es.getSelectedLocation();
         if (location == null)
             return;
-        PHouse house = es.getSelectedHouse();
+        TTemplate house = es.getSelectedHouse();
         if (house == null)
             return;
         location.getTemplates().remove(house);
@@ -121,7 +122,7 @@ public class EditorHouseLogic
         if (newWidthInSquares <= 0)
             return;
         EditorSettings es = EditorSettingsLogic.getInstance();
-        PHouse house = es.getSelectedHouse();
+        TTemplate house = es.getSelectedHouse();
         if (house == null)
             return;
         int newWidth = newWidthInSquares*2 + 1;
@@ -146,7 +147,7 @@ public class EditorHouseLogic
         if (newHeightInSquares <= 0)
             return;
         EditorSettings es = EditorSettingsLogic.getInstance();
-        PHouse house = es.getSelectedHouse();
+        TTemplate house = es.getSelectedHouse();
         if (house == null)
             return;
         int newHeight = newHeightInSquares*2 + 1;
@@ -171,7 +172,7 @@ public class EditorHouseLogic
     public static void removeFloor()
     {
         EditorSettings es = EditorSettingsLogic.getInstance();
-        PHouse house = es.getSelectedHouse();
+        TTemplate house = es.getSelectedHouse();
         if (house == null)
             return;
         char[][][] oldFloors = house.getFloors();
@@ -186,7 +187,7 @@ public class EditorHouseLogic
     public static void addFloor()
     {
         EditorSettings es = EditorSettingsLogic.getInstance();
-        PHouse house = es.getSelectedHouse();
+        TTemplate house = es.getSelectedHouse();
         if (house == null)
             return;
         char[][][] oldFloors = house.getFloors();
@@ -211,7 +212,7 @@ public class EditorHouseLogic
     public static void addBorder(int f)
     {
         EditorSettings es = EditorSettingsLogic.getInstance();
-        PHouse house = es.getSelectedHouse();
+        TTemplate house = es.getSelectedHouse();
         if (house == null)
             return;
         char[][] floor = house.getFloors()[f];
@@ -236,18 +237,18 @@ public class EditorHouseLogic
     public static void addRoofEdge(int f)
     {
         EditorSettings es = EditorSettingsLogic.getInstance();
-        PLocation loc = es.getSelectedLocation();
+        TLocations loc = es.getSelectedLocation();
         if (loc == null)
             return;
-        PHouse house = es.getSelectedHouse();
+        TTemplate house = es.getSelectedHouse();
         if (house == null)
             return;
         char[][][] floors = house.getFloors();
         char[][] floor = floors[f];
         int w = floor[0].length;
         int h = floor.length;
-        char roof = loc.getLocations().get("ROOF").getChar().charAt(0);
-        char roofEdge = loc.getLocations().get("ROOF_EDGE").getChar().charAt(0);
+        char roof = ((String)MapUtils.getKey(loc.getIDMap(), "ROOF")).charAt(0);
+        char roofEdge = ((String)MapUtils.getKey(loc.getIDMap(), "ROOF_EDGE")).charAt(0);
         char empty = ' ';
         char solid = '_';
         for (int x = 1; x < w; x += 2)
@@ -279,10 +280,10 @@ public class EditorHouseLogic
     public static void cleanup(int f)
     {
         EditorSettings es = EditorSettingsLogic.getInstance();
-        PLocation loc = es.getSelectedLocation();
+        TLocations loc = es.getSelectedLocation();
         if (loc == null)
             return;
-        PHouse house = es.getSelectedHouse();
+        TTemplate house = es.getSelectedHouse();
         if (house == null)
             return;
         char[][][] floors = house.getFloors();
