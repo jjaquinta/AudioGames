@@ -16,6 +16,12 @@ public class PTemplate extends JSONBean implements Comparable<PTemplate>
     // utilities
     
     @Override
+    public String toString()
+    {
+        return getName();
+    }
+    
+    @Override
     public int compareTo(PTemplate o)
     {
         return StringUtils.compareTo(getName(), o.getName());

@@ -1,102 +1,74 @@
 package jo.audio.thieves.tools.editor.data;
 
 import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
 
+import jo.audio.thieves.data.template.PApature;
+import jo.audio.thieves.data.template.PLibrary;
+import jo.audio.thieves.data.template.PSquare;
+import jo.audio.thieves.data.template.PTemplate;
 import jo.util.beans.PCSBean;
 
 public class EditorSettings extends PCSBean
 {
-    private File                    mProjectDir;
-    private TLocations              mGlobalLocations;
-    private Map<String, TLocations> mSpecificLocations = new HashMap<>();
-    private TLocation               mSelectedTile;
-    private TApature                mSelectedApature;
+    private File                    mLibraryFile;
+    private PLibrary                mLibrary;
+    private PSquare                 mSelectedSquare;
+    private PApature                mSelectedApature;
     // persistent settings
-    private TLocations              mSelectedLocation;
-    private TTemplate               mSelectedHouse;
+    private PTemplate               mSelectedHouse;
 
     // utilities
 
     // getters and setters
-
-    public TLocations getGlobalLocations()
+    
+    public File getLibraryFile()
     {
-        return mGlobalLocations;
+        return mLibraryFile;
     }
-
-    public void setGlobalLocations(TLocations globalLocations)
+    public void setLibraryFile(File libraryFile)
     {
-        mGlobalLocations = globalLocations;
-    }
-
-    public Map<String, TLocations> getSpecificLocations()
-    {
-        return mSpecificLocations;
-    }
-
-    public void setSpecificLocations(Map<String, TLocations> specificLocations)
-    {
-        mSpecificLocations = specificLocations;
-    }
-
-    public File getProjectDir()
-    {
-        return mProjectDir;
-    }
-
-    public void setProjectDir(File projectDir)
-    {
-        mProjectDir = projectDir;
-    }
-
-    public TLocations getSelectedLocation()
-    {
-        return mSelectedLocation;
-    }
-
-    public void setSelectedLocation(TLocations selectedLocation)
-    {
-        queuePropertyChange("selectedLocation", mSelectedLocation,
-                selectedLocation);
-        mSelectedLocation = selectedLocation;
+        queuePropertyChange("libraryFile", mLibraryFile, libraryFile);
+        mLibraryFile = libraryFile;
         firePropertyChange();
     }
-
-    public TTemplate getSelectedHouse()
+    public PLibrary getLibrary()
     {
-        return mSelectedHouse;
+        return mLibrary;
     }
-
-    public void setSelectedHouse(TTemplate selectedHouse)
+    public void setLibrary(PLibrary library)
     {
-        queuePropertyChange("selectedHouse", mSelectedHouse, selectedHouse);
-        mSelectedHouse = selectedHouse;
+        queuePropertyChange("library", mLibrary, library);
+        mLibrary = library;
         firePropertyChange();
     }
-
-    public TLocation getSelectedTile()
+    public PSquare getSelectedSquare()
     {
-        return mSelectedTile;
+        return mSelectedSquare;
     }
-
-    public void setSelectedTile(TLocation selectedTile)
+    public void setSelectedSquare(PSquare selectedSquare)
     {
-        queuePropertyChange("selectedTile", mSelectedTile, selectedTile);
-        mSelectedTile = selectedTile;
+        queuePropertyChange("selectedSquare", mSelectedSquare, selectedSquare);
+        mSelectedSquare = selectedSquare;
         firePropertyChange();
     }
-
-    public TApature getSelectedApature()
+    public PApature getSelectedApature()
     {
         return mSelectedApature;
     }
-
-    public void setSelectedApature(TApature selectedApature)
+    public void setSelectedApature(PApature selectedApature)
     {
         queuePropertyChange("selectedApature", mSelectedApature, selectedApature);
         mSelectedApature = selectedApature;
+        firePropertyChange();
+    }
+    public PTemplate getSelectedHouse()
+    {
+        return mSelectedHouse;
+    }
+    public void setSelectedHouse(PTemplate selectedHouse)
+    {
+        queuePropertyChange("selectedHouse", mSelectedHouse, selectedHouse);
+        mSelectedHouse = selectedHouse;
         firePropertyChange();
     }
 }

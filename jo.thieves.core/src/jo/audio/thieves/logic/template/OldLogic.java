@@ -96,6 +96,23 @@ public class OldLogic
                 for (int y = 0; y < floors[z].length; y++)
                     for (int x = 0; x < floors[z][y].length; x++)
                     {
+                        char ch = floors[z][y][x];
+                        String id = locs.getIDMap().getProperty(String.valueOf(ch));
+                        if (id == null)
+                            continue;
+                        if (squares.containsKey(id))
+                        {
+                            PSquare sq = new PSquare();
+                            sq.setID(id);
+                            sqs.put(x+","+y+","+z, sq);
+                        }
+                        else if (apatures.containsKey(id))
+                        {
+                            PApature ap = new PApature();
+                            ap.setID(id);
+                            aps.put(x+","+y+","+z, ap);
+                        }
+                        /*
                         if ((x%2 == 1) && (y%2 == 1) && (z%2 == 0))
                         {   // square
                             char ch = floors[z][y][x];
@@ -144,6 +161,7 @@ public class OldLogic
                                 aps.put(x+","+y+","+z, ap);
                             }
                         }
+                        */
                     }
             ptemp.setApatures(aps);
             ptemp.setSquares(sqs);

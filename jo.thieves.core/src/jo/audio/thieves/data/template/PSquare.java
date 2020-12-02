@@ -1,9 +1,20 @@
 package jo.audio.thieves.data.template;
 
-public class PSquare extends PLocation
+import jo.util.utils.obj.StringUtils;
+
+public class PSquare extends PLocation implements Comparable<PSquare>
 {
     public static final String ID_INSIDE = "inside";
     public static final String ID_BEDROOM = "bedroom";
+
+    // utilities
+    
+    @Override
+    public int compareTo(PSquare o)
+    {
+        return StringUtils.compareTo(getName(), o.getName());
+    }
+    
 
     // getters and setters
 

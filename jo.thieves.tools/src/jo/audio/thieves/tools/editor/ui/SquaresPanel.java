@@ -5,24 +5,24 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.util.Collection;
+import java.util.List;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 
+import jo.audio.thieves.data.template.PSquare;
 import jo.audio.thieves.tools.editor.data.EditorSettings;
-import jo.audio.thieves.tools.editor.data.TLocation;
-import jo.audio.thieves.tools.editor.data.TLocations;
 import jo.audio.thieves.tools.editor.logic.EditorSettingsLogic;
+import jo.audio.thieves.tools.editor.logic.EditorSquareLogic;
 
 @SuppressWarnings("serial")
-public class TilesPanel extends JComponent
+public class SquaresPanel extends JComponent
 {
-    private JComboBox<TLocation> mTiles;
-    private TilePanel        mClient;
+    private JComboBox<PSquare> mTiles;
+    private SquarePanel        mClient;
 
-    public TilesPanel()
+    public SquaresPanel()
     {
         initInstantiate();
         initLayout();
@@ -32,7 +32,7 @@ public class TilesPanel extends JComponent
     private void initInstantiate()
     {
         mTiles = new JComboBox<>();
-        mClient = new TilePanel();
+        mClient = new SquarePanel();
     }
 
     private void initLayout()
@@ -45,14 +45,14 @@ public class TilesPanel extends JComponent
     private void initLink()
     {
         EditorSettings es = EditorSettingsLogic.getInstance();
-        es.addPropertyChangeListener("selectedLocation", new PropertyChangeListener() {            
+        es.addPropertyChangeListener("library", new PropertyChangeListener() {            
             @Override
             public void propertyChange(PropertyChangeEvent evt)
             {
-                doNewLocation();
+                doNewLibrary();
             }
         });
-        es.addPropertyChangeListener("selectedTile", new PropertyChangeListener() {            
+        es.addPropertyChangeListener("selectedSquare", new PropertyChangeListener() {            
             @Override
             public void propertyChange(PropertyChangeEvent evt)
             {
@@ -63,41 +63,33 @@ public class TilesPanel extends JComponent
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                TLocation tile = (TLocation)mTiles.getSelectedItem();
+                PSquare tile = (PSquare)mTiles.getSelectedItem();
                 mClient.setTile(tile);
             }
         });
     }
     
-    private void doNewLocation()
-    {
-        EditorSettings es = EditorSettingsLogic.getInstance();
-        TLocations loc = es.getSelectedLocation();
-        if (loc == null)
-            setTiles(null);
-        else
-            setTiles(loc.getLocations());
-    }
-    
     private void doNewTile()
     {
         EditorSettings es = EditorSettingsLogic.getInstance();
-        TLocation tile = es.getSelectedTile();
+        PSquare tile = es.getSelectedSquare();
         if (tile == null)
             return;
         mTiles.setSelectedItem(tile);
     }
 
-    private void setTiles(Collection<TLocation> tiles)
+    private void doNewLibrary()
     {
-        DefaultComboBoxModel<TLocation> model = (DefaultComboBoxModel<TLocation>)mTiles.getModel();
+        EditorSettings es = EditorSettingsLogic.getInstance();
+        DefaultComboBoxModel<PSquare> model = (DefaultComboBoxModel<PSquare>)mTiles.getModel();
         model.removeAllElements();
-        if (tiles != null)
+        if (es != null)
         {
-            for (TLocation tile : tiles)
+            List<PSquare> squares = EditorSquareLogic.getSquares();
+            for (PSquare tile : squares)
                 model.addElement(tile);
-            if (tiles.size() > 0)
-                model.setSelectedItem(tiles.iterator().next());
+            if (squares.size() > 0)
+                model.setSelectedItem(squares.iterator().next());
         }
     }
 }

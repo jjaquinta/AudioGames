@@ -1,12 +1,22 @@
 package jo.audio.thieves.data.template;
 
-public class PApature extends PLocation
+import jo.util.utils.obj.StringUtils;
+
+public class PApature extends PLocation implements Comparable<PApature>
 { 
     public static final String ID_TRANSITION = "transition";// "You use the stairs to get to the next floor.",
     public static final String ID_OPENABLE = "openable";// false,
     public static final String ID_LOCKABLE = "lockable";// false,
     public static final String ID_TRANSPARENT = "transparent";// true,
 
+    // utilities
+    
+    @Override
+    public int compareTo(PApature o)
+    {
+        return StringUtils.compareTo(getName(), o.getName());
+    }
+    
     // getters and setters
     public boolean getTransparent()
     {

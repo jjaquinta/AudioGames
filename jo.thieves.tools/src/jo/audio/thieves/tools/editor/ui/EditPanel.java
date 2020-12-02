@@ -14,24 +14,19 @@ import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import jo.audio.thieves.data.template.PTemplate;
 import jo.audio.thieves.tools.editor.data.EditorSettings;
-import jo.audio.thieves.tools.editor.data.TLocations;
-import jo.audio.thieves.tools.editor.data.TTemplate;
 import jo.audio.thieves.tools.editor.logic.EditorHouseLogic;
-import jo.audio.thieves.tools.editor.logic.EditorLocationLogic;
 import jo.audio.thieves.tools.editor.logic.EditorSettingsLogic;
 import jo.audio.thieves.tools.logic.RuntimeLogic;
 
 @SuppressWarnings("serial")
 public class EditPanel extends JPanel
 {
-    private TilesPanel            mTiles;
+    private SquaresPanel            mTiles;
     private ApaturesPanel         mApatures;
     private FloorPanel            mClient;
-    private JComboBox<TLocations> mLocation;
-    private JButton               mAddLocation;
-    private JButton               mDelLocation;
-    private JComboBox<TTemplate>  mHouse;
+    private JComboBox<PTemplate>  mHouse;
     private JButton               mAddHouse;
     private JButton               mDelHouse;
     private JButton               mSave;
@@ -41,21 +36,17 @@ public class EditPanel extends JPanel
         initInstantiate();
         initLayout();
         initLink();
-        doNewDataLocations();
-        doNewDataHouses();
+        doNewDataLibrary();
     }
 
     private void initInstantiate()
     {
         mClient = new FloorPanel();
-        mLocation = new JComboBox<>();
-        mAddLocation = new JButton("+");
-        mDelLocation = new JButton("-");
         mHouse = new JComboBox<>();
         mAddHouse = new JButton("+");
         mDelHouse = new JButton("-");
         mSave = new JButton("Save");
-        mTiles = new TilesPanel();
+        mTiles = new SquaresPanel();
         mApatures = new ApaturesPanel();
     }
 
@@ -63,9 +54,6 @@ public class EditPanel extends JPanel
     {
         JPanel toolbar = new JPanel();
         toolbar.setLayout(new FlowLayout());
-        toolbar.add(mLocation);
-        toolbar.add(mAddLocation);
-        toolbar.add(mDelLocation);
         toolbar.add(mHouse);
         toolbar.add(mAddHouse);
         toolbar.add(mDelHouse);
@@ -81,28 +69,13 @@ public class EditPanel extends JPanel
     private void initLink()
     {
         EditorSettings es = EditorSettingsLogic.getInstance();
-        es.addPropertyChangeListener("locations", new PropertyChangeListener() {
+        es.addPropertyChangeListener("library", new PropertyChangeListener() {
             @Override
             public void propertyChange(PropertyChangeEvent evt)
             {
-                doNewDataLocations();
+                doNewDataLibrary();
             }
         });
-        es.addPropertyChangeListener("houses", new PropertyChangeListener() {
-            @Override
-            public void propertyChange(PropertyChangeEvent evt)
-            {
-                doNewDataHouses();
-            }
-        });
-        es.addPropertyChangeListener("selectedLocation",
-                new PropertyChangeListener() {
-                    @Override
-                    public void propertyChange(PropertyChangeEvent evt)
-                    {
-                        doNewDataSelectedLocation();
-                    }
-                });
         es.addPropertyChangeListener("selectedHouse",
                 new PropertyChangeListener() {
                     @Override
@@ -111,13 +84,6 @@ public class EditPanel extends JPanel
                         doNewDataSelectedHouse();
                     }
                 });
-        mLocation.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                doNewUISelectedLocation();
-            }
-        });
         mHouse.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e)
@@ -139,20 +105,6 @@ public class EditPanel extends JPanel
                 }
             }
         });
-        mAddLocation.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                doAddLocation();
-            }
-        });
-        mDelLocation.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                doDelLocation();
-            }
-        });
         mAddHouse.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e)
@@ -169,49 +121,21 @@ public class EditPanel extends JPanel
         });
     }
 
-    private void doNewDataLocations()
+    private void doNewDataLibrary()
     {
-        DefaultComboBoxModel<TLocations> locationModel = new DefaultComboBoxModel<>(
-                EditorLocationLogic.getLocations().toArray(new TLocations[0]));
-        locationModel.setSelectedItem(
-                EditorSettingsLogic.getInstance().getSelectedLocation());
-        mLocation.setModel(locationModel);
-    }
-
-    private void doNewDataHouses()
-    {
-        DefaultComboBoxModel<TTemplate> houseModel = (DefaultComboBoxModel<TTemplate>)mHouse
+        DefaultComboBoxModel<PTemplate> houseModel = (DefaultComboBoxModel<PTemplate>)mHouse
                 .getModel();
         houseModel.removeAllElements();
-        for (TTemplate house : EditorHouseLogic.getHouses())
+        for (PTemplate house : EditorHouseLogic.getHouses())
             houseModel.addElement(house);
         doNewDataSelectedHouse();
     }
 
-    private void doNewDataSelectedLocation()
-    {
-        TLocations newLocation = EditorSettingsLogic.getInstance()
-                .getSelectedLocation();
-        TLocations oldLocation = (TLocations)mLocation.getSelectedItem();
-        if (newLocation == oldLocation)
-            return;
-        if (newLocation == null)
-            mLocation.setSelectedIndex(-1);
-        else
-            mLocation.setSelectedItem(newLocation);
-    }
-
-    private void doNewUISelectedLocation()
-    {
-        TLocations newLocation = (TLocations)mLocation.getSelectedItem();
-        EditorLocationLogic.selectLocation(newLocation);
-    }
-
     private void doNewDataSelectedHouse()
     {
-        TTemplate newHouse = EditorSettingsLogic.getInstance()
+        PTemplate newHouse = EditorSettingsLogic.getInstance()
                 .getSelectedHouse();
-        TTemplate oldHouse = (TTemplate)mHouse.getSelectedItem();
+        PTemplate oldHouse = (PTemplate)mHouse.getSelectedItem();
         if (newHouse == oldHouse)
             return;
         if (newHouse == null)
@@ -222,28 +146,8 @@ public class EditPanel extends JPanel
 
     private void doNewUISelectedHouse()
     {
-        TTemplate newHouse = (TTemplate)mHouse.getSelectedItem();
+        PTemplate newHouse = (PTemplate)mHouse.getSelectedItem();
         EditorHouseLogic.selectHouse(newHouse);
-    }
-
-    private void doAddLocation()
-    {
-        EditorLocationLogic.addLocation();
-    }
-
-    private void doDelLocation()
-    {
-        TLocations loc = EditorSettingsLogic.getInstance()
-                .getSelectedLocation();
-        if (loc == null)
-            return;
-        int proceed = JOptionPane.showOptionDialog(this,
-                "Delete " + loc.getPath(), "Delete Location",
-                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
-                null, null);
-        if (proceed != JOptionPane.YES_OPTION)
-            return;
-        EditorLocationLogic.deleteLocation();
     }
 
     private void doAddHouse()
@@ -258,7 +162,7 @@ public class EditPanel extends JPanel
 
     private void doDelHouse()
     {
-        TTemplate house = EditorSettingsLogic.getInstance().getSelectedHouse();
+        PTemplate house = EditorSettingsLogic.getInstance().getSelectedHouse();
         if (house == null)
             return;
         int proceed = JOptionPane.showOptionDialog(this,

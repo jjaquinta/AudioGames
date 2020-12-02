@@ -11,15 +11,15 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 
+import jo.audio.thieves.data.template.PApature;
+import jo.audio.thieves.data.template.PLibrary;
 import jo.audio.thieves.tools.editor.data.EditorSettings;
-import jo.audio.thieves.tools.editor.data.TApature;
-import jo.audio.thieves.tools.editor.data.TLocations;
 import jo.audio.thieves.tools.editor.logic.EditorSettingsLogic;
 
 @SuppressWarnings("serial")
 public class ApaturesPanel extends JComponent
 {
-    private JComboBox<TApature> mTiles;
+    private JComboBox<PApature> mTiles;
     private ApaturePanel        mClient;
 
     public ApaturesPanel()
@@ -45,14 +45,14 @@ public class ApaturesPanel extends JComponent
     private void initLink()
     {
         EditorSettings es = EditorSettingsLogic.getInstance();
-        es.addPropertyChangeListener("selectedLocation", new PropertyChangeListener() {            
+        es.addPropertyChangeListener("library", new PropertyChangeListener() {            
             @Override
             public void propertyChange(PropertyChangeEvent evt)
             {
-                doNewLocation();
+                doNewLibrary();
             }
         });
-        es.addPropertyChangeListener("selectedTile", new PropertyChangeListener() {            
+        es.addPropertyChangeListener("selectedApature", new PropertyChangeListener() {            
             @Override
             public void propertyChange(PropertyChangeEvent evt)
             {
@@ -63,38 +63,38 @@ public class ApaturesPanel extends JComponent
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                TApature tile = (TApature)mTiles.getSelectedItem();
+                PApature tile = (PApature)mTiles.getSelectedItem();
                 mClient.setTile(tile);
             }
         });
     }
     
-    private void doNewLocation()
+    private void doNewLibrary()
     {
         EditorSettings es = EditorSettingsLogic.getInstance();
-        TLocations loc = es.getSelectedLocation();
-        if (loc == null)
+        PLibrary lib = es.getLibrary();
+        if (lib == null)
             setTiles(null);
         else
-            setTiles(loc.getApatures());
+            setTiles(lib.getApatures().values());
     }
     
     private void doNewTile()
     {
         EditorSettings es = EditorSettingsLogic.getInstance();
-        TApature tile = es.getSelectedApature();
+        PApature tile = es.getSelectedApature();
         if (tile == null)
             return;
         mTiles.setSelectedItem(tile);
     }
 
-    private void setTiles(Collection<TApature> tiles)
+    private void setTiles(Collection<PApature> tiles)
     {
-        DefaultComboBoxModel<TApature> model = (DefaultComboBoxModel<TApature>)mTiles.getModel();
+        DefaultComboBoxModel<PApature> model = (DefaultComboBoxModel<PApature>)mTiles.getModel();
         model.removeAllElements();
         if (tiles != null)
         {
-            for (TApature tile : tiles)
+            for (PApature tile : tiles)
                 model.addElement(tile);
             if (tiles.size() > 0)
                 model.setSelectedItem(tiles.iterator().next());

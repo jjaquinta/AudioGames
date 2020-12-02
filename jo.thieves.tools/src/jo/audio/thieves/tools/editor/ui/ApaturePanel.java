@@ -20,16 +20,14 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import jo.audio.thieves.tools.editor.data.TApature;
-import jo.audio.thieves.tools.editor.logic.LocationsLogic;
+import jo.audio.thieves.data.template.PApature;
 import jo.util.ui.swing.TableLayout;
 
 @SuppressWarnings("serial")
 public class ApaturePanel extends JComponent
 {
-    private TApature         mApature;
+    private PApature         mApature;
 
-    private JTextField    mChar;
     private JTextField    mID;
     private JTextField    mName;
     private JTextArea     mDescription;
@@ -52,7 +50,6 @@ public class ApaturePanel extends JComponent
 
     private void initInstantiate()
     {
-        mChar = new JTextField();
         mID = new JTextField();
         mName = new JTextField(24);
         mDescription = new JTextArea(4,24);
@@ -70,8 +67,6 @@ public class ApaturePanel extends JComponent
     private void initLayout()
     {
         setLayout(new TableLayout());
-        add("1,+", new JLabel("Char:"));
-        add("+,. fill=h", mChar);
         add("1,+", new JLabel("ID:"));
         add("+,. fill=h", mID);
         add("1,+", new JLabel("Name:"));
@@ -103,13 +98,6 @@ public class ApaturePanel extends JComponent
             public void actionPerformed(ActionEvent e)
             {
                 doColor();
-            }
-        });
-        mChar.addFocusListener(new FocusAdapter() {
-            @Override
-            public void focusLost(FocusEvent e)
-            {
-                //EditorTileLogic.updateChar(mApature, mChar.getText());
             }
         });
         mID.addFocusListener(new FocusAdapter() {
@@ -189,7 +177,7 @@ public class ApaturePanel extends JComponent
         Color newColor = JColorChooser.showDialog(
                 this,
                 "Choose Color",
-                LocationsLogic.getColor(mApature));
+                mApature.getColorObject());
         if (newColor != null)
         {
             //EditorTileLogic.updateColor(mApature, newColor);
@@ -197,17 +185,16 @@ public class ApaturePanel extends JComponent
         }
     }
 
-    public TApature getTile()
+    public PApature getTile()
     {
         return mApature;
     }
 
-    public void setTile(TApature tile)
+    public void setTile(PApature tile)
     {
         mApature = tile;
         if (mApature == null)
         {
-            mChar.setText("");
             mID.setText("");
             mName.setText("");
             mDescription.setText("");
@@ -222,7 +209,6 @@ public class ApaturePanel extends JComponent
         }
         else
         {
-            mChar.setText(LocationsLogic.getChar(mApature));
             mID.setText(mApature.getID());
             mName.setText(mApature.getName());
             mDescription.setText(mApature.getDescription());
@@ -241,7 +227,7 @@ public class ApaturePanel extends JComponent
     public void updateColorIcon()
     {
         BufferedImage img = new BufferedImage(16, 16, BufferedImage.TYPE_3BYTE_BGR);
-        int rgb = LocationsLogic.getColor(mApature).getRGB();
+        int rgb = Integer.parseInt(mApature.getColor().substring(1), 16);
         for (int x = 0; x < 16; x++)
             for (int y = 0; y < 16; y++)
                 img.setRGB(x, y, rgb);

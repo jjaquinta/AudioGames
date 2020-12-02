@@ -20,17 +20,15 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import jo.audio.thieves.tools.editor.data.TLocation;
-import jo.audio.thieves.tools.editor.logic.EditorTileLogic;
-import jo.audio.thieves.tools.editor.logic.LocationsLogic;
+import jo.audio.thieves.data.template.PSquare;
+import jo.audio.thieves.tools.editor.logic.EditorSquareLogic;
 import jo.util.ui.swing.TableLayout;
 
 @SuppressWarnings("serial")
-public class TilePanel extends JComponent
+public class SquarePanel extends JComponent
 {
-    private TLocation         mTile;
+    private PSquare       mTile;
 
-    private JTextField    mChar;
     private JTextField    mID;
     private JTextField    mName;
     private JTextArea     mDescription;
@@ -44,7 +42,7 @@ public class TilePanel extends JComponent
     private JCheckBox     mInside;
     private JCheckBox     mBedroom;
 
-    public TilePanel()
+    public SquarePanel()
     {
         initInstantiate();
         initLayout();
@@ -53,7 +51,6 @@ public class TilePanel extends JComponent
 
     private void initInstantiate()
     {
-        mChar = new JTextField();
         mID = new JTextField();
         mName = new JTextField(24);
         mDescription = new JTextArea(4,24);
@@ -71,8 +68,6 @@ public class TilePanel extends JComponent
     private void initLayout()
     {
         setLayout(new TableLayout());
-        add("1,+", new JLabel("Char:"));
-        add("+,. fill=h", mChar);
         add("1,+", new JLabel("ID:"));
         add("+,. fill=h", mID);
         add("1,+", new JLabel("Name:"));
@@ -106,81 +101,74 @@ public class TilePanel extends JComponent
                 doColor();
             }
         });
-        mChar.addFocusListener(new FocusAdapter() {
-            @Override
-            public void focusLost(FocusEvent e)
-            {
-                EditorTileLogic.updateChar(mTile, mChar.getText());
-            }
-        });
         mID.addFocusListener(new FocusAdapter() {
             @Override
             public void focusLost(FocusEvent e)
             {
-                EditorTileLogic.updateID(mTile, mID.getText());
+                EditorSquareLogic.updateID(mTile, mID.getText());
             }
         });
         mName.addFocusListener(new FocusAdapter() {
             @Override
             public void focusLost(FocusEvent e)
             {
-                EditorTileLogic.updateName(mTile, mName.getText());
+                EditorSquareLogic.updateName(mTile, mName.getText());
             }
         });
         mDescription.addFocusListener(new FocusAdapter() {
             @Override
             public void focusLost(FocusEvent e)
             {
-                EditorTileLogic.updateDesc(mTile, mDescription.getText());
+                EditorSquareLogic.updateDesc(mTile, mDescription.getText());
             }
         });
         mClimbWallsMod.addChangeListener(new ChangeListener() {            
             @Override
             public void stateChanged(ChangeEvent e)
             {
-                EditorTileLogic.updateClimbWalls(mTile, (Integer)mClimbWallsMod.getValue());
+                EditorSquareLogic.updateClimbWalls(mTile, (Integer)mClimbWallsMod.getValue());
             }
         });
         mHideInShadowsMod.addChangeListener(new ChangeListener() {            
             @Override
             public void stateChanged(ChangeEvent e)
             {
-                EditorTileLogic.updateHideInShadows(mTile, (Integer)mHideInShadowsMod.getValue());
+                EditorSquareLogic.updateHideInShadows(mTile, (Integer)mHideInShadowsMod.getValue());
             }
         });
         mFindTrapsMod.addChangeListener(new ChangeListener() {            
             @Override
             public void stateChanged(ChangeEvent e)
             {
-                EditorTileLogic.updateFindTraps(mTile, (Integer)mFindTrapsMod.getValue());
+                EditorSquareLogic.updateFindTraps(mTile, (Integer)mFindTrapsMod.getValue());
             }
         });
         mOpenLocksMod.addChangeListener(new ChangeListener() {            
             @Override
             public void stateChanged(ChangeEvent e)
             {
-                EditorTileLogic.updateOpenLocks(mTile, (Integer)mOpenLocksMod.getValue());
+                EditorSquareLogic.updateOpenLocks(mTile, (Integer)mOpenLocksMod.getValue());
             }
         });
         mMoveSilentlyMod.addChangeListener(new ChangeListener() {            
             @Override
             public void stateChanged(ChangeEvent e)
             {
-                EditorTileLogic.updateMoveSilently(mTile, (Integer)mMoveSilentlyMod.getValue());
+                EditorSquareLogic.updateMoveSilently(mTile, (Integer)mMoveSilentlyMod.getValue());
             }
         });
         mInside.addActionListener(new ActionListener() {            
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                EditorTileLogic.updateInside(mTile, mInside.isSelected());
+                EditorSquareLogic.updateInside(mTile, mInside.isSelected());
             }
         });
         mBedroom.addActionListener(new ActionListener() {            
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                EditorTileLogic.updateBedroom(mTile, mBedroom.isSelected());
+                EditorSquareLogic.updateBedroom(mTile, mBedroom.isSelected());
             }
         });
     }
@@ -190,25 +178,24 @@ public class TilePanel extends JComponent
         Color newColor = JColorChooser.showDialog(
                 this,
                 "Choose Color",
-                LocationsLogic.getColor(mTile));
+                mTile.getColorObject());
         if (newColor != null)
         {
-            EditorTileLogic.updateColor(mTile, newColor);
+            EditorSquareLogic.updateColor(mTile, newColor);
             updateColorIcon();
         }
     }
 
-    public TLocation getTile()
+    public PSquare getTile()
     {
         return mTile;
     }
 
-    public void setTile(TLocation tile)
+    public void setTile(PSquare tile)
     {
         mTile = tile;
         if (mTile == null)
         {
-            mChar.setText("");
             mID.setText("");
             mName.setText("");
             mDescription.setText("");
@@ -223,7 +210,6 @@ public class TilePanel extends JComponent
         }
         else
         {
-            mChar.setText(LocationsLogic.getChar(mTile));
             mID.setText(mTile.getID());
             mName.setText(mTile.getName());
             mDescription.setText(mTile.getDescription());
@@ -242,7 +228,7 @@ public class TilePanel extends JComponent
     public void updateColorIcon()
     {
         BufferedImage img = new BufferedImage(16, 16, BufferedImage.TYPE_3BYTE_BGR);
-        int rgb = LocationsLogic.getColor(mTile).getRGB();
+        int rgb = Integer.parseInt(mTile.getColor().substring(1), 16);
         for (int x = 0; x < 16; x++)
             for (int y = 0; y < 16; y++)
                 img.setRGB(x, y, rgb);

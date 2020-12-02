@@ -1,5 +1,7 @@
 package jo.audio.thieves.data.template;
 
+import java.awt.Color;
+
 import jo.util.beans.JSONBean;
 
 public class PLocation extends JSONBean
@@ -13,6 +15,28 @@ public class PLocation extends JSONBean
     public static final String ID_CLIMB_WALLS_MOD = "ClimbWallsMod";//-10,
     public static final String ID_FIND_TRAPS_MOD = "FindTrapsMod";//-10,
     public static final String ID_OPEN_LOCKS_MOD = "OpenLocksMod";//-10,
+
+    // utilities
+    public Color getColorObject()
+    {
+        String c = getColor();
+        Color co;
+        if (c == null)
+            co = Color.BLACK;
+        else
+        {
+            int rgb = Integer.parseInt(c.substring(1), 16);
+            co = new Color(rgb);
+        }
+        System.out.println(c+"->"+co);
+        return co;
+    }
+    
+    @Override
+    public String toString()
+    {
+        return getName();
+    }
 
     // getters and setters
 
