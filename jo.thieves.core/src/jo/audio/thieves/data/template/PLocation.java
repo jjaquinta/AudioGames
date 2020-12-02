@@ -1,6 +1,8 @@
 package jo.audio.thieves.data.template;
 
 import java.awt.Color;
+import java.util.HashMap;
+import java.util.Map;
 
 import jo.util.beans.JSONBean;
 
@@ -16,6 +18,8 @@ public class PLocation extends JSONBean
     public static final String ID_FIND_TRAPS_MOD = "FindTrapsMod";//-10,
     public static final String ID_OPEN_LOCKS_MOD = "OpenLocksMod";//-10,
 
+    private static final Map<String, Color> mColorCache = new HashMap<>();
+    
     // utilities
     public Color getColorObject()
     {
@@ -25,17 +29,21 @@ public class PLocation extends JSONBean
             co = Color.BLACK;
         else
         {
-            int rgb = Integer.parseInt(c.substring(1), 16);
-            co = new Color(rgb);
+            co = mColorCache.get(c);
+            if (co == null)
+            {
+                int rgb = Integer.parseInt(c.substring(1), 16);
+                co = new Color(rgb);
+                mColorCache.put(c, co);
+            }
         }
-        System.out.println(c+"->"+co);
         return co;
     }
     
     @Override
     public String toString()
     {
-        return getName();
+        return getName()+" ("+getID()+")";
     }
 
     // getters and setters

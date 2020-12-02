@@ -21,6 +21,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import jo.audio.thieves.data.template.PApature;
+import jo.audio.thieves.tools.editor.logic.EditorApatureLogic;
 import jo.util.ui.swing.TableLayout;
 
 @SuppressWarnings("serial")
@@ -31,6 +32,7 @@ public class ApaturePanel extends JComponent
     private JTextField    mID;
     private JTextField    mName;
     private JTextArea     mDescription;
+    private JTextArea     mTransition;
     private JLabel        mColorLabel;
     private JButton       mColor;
     private JSpinner      mClimbWallsMod;
@@ -38,8 +40,8 @@ public class ApaturePanel extends JComponent
     private JSpinner      mOpenLocksMod;
     private JSpinner      mMoveSilentlyMod;
     private JSpinner      mHideInShadowsMod;
-    private JCheckBox     mInside;
-    private JCheckBox     mBedroom;
+    private JCheckBox     mLockable;
+    private JCheckBox     mTransparent;
 
     public ApaturePanel()
     {
@@ -53,6 +55,11 @@ public class ApaturePanel extends JComponent
         mID = new JTextField();
         mName = new JTextField(24);
         mDescription = new JTextArea(4,24);
+        mDescription.setLineWrap(true);
+        mDescription.setWrapStyleWord(true);
+        mTransition = new JTextArea(4,24);
+        mTransition.setLineWrap(true);
+        mTransition.setWrapStyleWord(true);
         mColorLabel = new JLabel("\u2588\u2588\u2588\u2588");
         mColor = new JButton("Color");
         mClimbWallsMod = new JSpinner(new SpinnerNumberModel(0, -100, 100, 5));
@@ -60,8 +67,8 @@ public class ApaturePanel extends JComponent
         mOpenLocksMod = new JSpinner(new SpinnerNumberModel(0, -100, 100, 5));
         mMoveSilentlyMod = new JSpinner(new SpinnerNumberModel(0, -100, 100, 5));
         mHideInShadowsMod = new JSpinner(new SpinnerNumberModel(0, -100, 100, 5));
-        mInside = new JCheckBox("Interior");
-        mBedroom = new JCheckBox("Bedroom");
+        mLockable = new JCheckBox("Lockable");
+        mTransparent = new JCheckBox("Transparent");
     }
 
     private void initLayout()
@@ -73,12 +80,14 @@ public class ApaturePanel extends JComponent
         add("+,. fill=h", mName);
         add("1,+ 2x1 fill=h", new JLabel("Desc:"));
         add("1,+ 2x1 fill=h", mDescription);
+        add("1,+ 2x1 fill=h", new JLabel("Transition:"));
+        add("1,+ 2x1 fill=h", mTransition);
         add("1,+", mColorLabel);
         add("+,. fill=h", mColor);
         add("1,+", new JLabel(""));
-        add("+,. fill=h", mInside);
+        add("+,. fill=h", mLockable);
         add("1,+", new JLabel(""));
-        add("+,. fill=h", mBedroom);
+        add("+,. fill=h", mTransparent);
         add("1,+", new JLabel("CW:"));
         add("+,. fill=h", mClimbWallsMod);
         add("1,+", new JLabel("FT:"));
@@ -104,70 +113,70 @@ public class ApaturePanel extends JComponent
             @Override
             public void focusLost(FocusEvent e)
             {
-                //EditorTileLogic.updateID(mApature, mID.getText());
+                EditorApatureLogic.updateID(mApature, mID.getText());
             }
         });
         mName.addFocusListener(new FocusAdapter() {
             @Override
             public void focusLost(FocusEvent e)
             {
-                //EditorTileLogic.updateName(mApature, mName.getText());
+                EditorApatureLogic.updateName(mApature, mName.getText());
             }
         });
         mDescription.addFocusListener(new FocusAdapter() {
             @Override
             public void focusLost(FocusEvent e)
             {
-                //EditorTileLogic.updateDesc(mApature, mDescription.getText());
+                EditorApatureLogic.updateDesc(mApature, mDescription.getText());
             }
         });
         mClimbWallsMod.addChangeListener(new ChangeListener() {            
             @Override
             public void stateChanged(ChangeEvent e)
             {
-                //EditorTileLogic.updateClimbWalls(mApature, (Integer)mClimbWallsMod.getValue());
+                EditorApatureLogic.updateClimbWalls(mApature, (Integer)mClimbWallsMod.getValue());
             }
         });
         mHideInShadowsMod.addChangeListener(new ChangeListener() {            
             @Override
             public void stateChanged(ChangeEvent e)
             {
-                //EditorTileLogic.updateHideInShadows(mApature, (Integer)mHideInShadowsMod.getValue());
+                EditorApatureLogic.updateHideInShadows(mApature, (Integer)mHideInShadowsMod.getValue());
             }
         });
         mFindTrapsMod.addChangeListener(new ChangeListener() {            
             @Override
             public void stateChanged(ChangeEvent e)
             {
-                //EditorTileLogic.updateFindTraps(mApature, (Integer)mFindTrapsMod.getValue());
+                EditorApatureLogic.updateFindTraps(mApature, (Integer)mFindTrapsMod.getValue());
             }
         });
         mOpenLocksMod.addChangeListener(new ChangeListener() {            
             @Override
             public void stateChanged(ChangeEvent e)
             {
-                //EditorTileLogic.updateOpenLocks(mApature, (Integer)mOpenLocksMod.getValue());
+                EditorApatureLogic.updateOpenLocks(mApature, (Integer)mOpenLocksMod.getValue());
             }
         });
         mMoveSilentlyMod.addChangeListener(new ChangeListener() {            
             @Override
             public void stateChanged(ChangeEvent e)
             {
-                //EditorTileLogic.updateMoveSilently(mApature, (Integer)mMoveSilentlyMod.getValue());
+                EditorApatureLogic.updateMoveSilently(mApature, (Integer)mMoveSilentlyMod.getValue());
             }
         });
-        mInside.addActionListener(new ActionListener() {            
+        mLockable.addActionListener(new ActionListener() {            
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                //EditorTileLogic.updateInside(mApature, mInside.isSelected());
+                EditorApatureLogic.updateLockable(mApature, mLockable.isSelected());
             }
         });
-        mBedroom.addActionListener(new ActionListener() {            
+        mTransparent.addActionListener(new ActionListener() {            
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                //EditorTileLogic.updateBedroom(mApature, mBedroom.isSelected());
+                EditorApatureLogic.updateTransparent(mApature, mTransparent.isSelected());
             }
         });
     }
@@ -180,7 +189,7 @@ public class ApaturePanel extends JComponent
                 mApature.getColorObject());
         if (newColor != null)
         {
-            //EditorTileLogic.updateColor(mApature, newColor);
+            EditorApatureLogic.updateColor(mApature, newColor);
             updateColorIcon();
         }
     }
@@ -204,23 +213,24 @@ public class ApaturePanel extends JComponent
             mOpenLocksMod.setValue(0);
             mMoveSilentlyMod.setValue(0);
             mHideInShadowsMod.setValue(0);
-            mInside.setSelected(false);
-            mBedroom.setSelected(false);
+            mLockable.setSelected(false);
+            mTransparent.setSelected(false);
         }
         else
         {
             mID.setText(mApature.getID());
             mName.setText(mApature.getName());
             mDescription.setText(mApature.getDescription());
+            mTransition.setText(mApature.getTransition());
             updateColorIcon();
             mColorLabel.setVisible(true);
-            //mClimbWallsMod.setValue(mApature.getClimbWallsMod());
-            //mFindTrapsMod.setValue(mApature.getFindTrapsMod());
-            //mOpenLocksMod.setValue(mApature.getOpenLocksMod());
-            //mMoveSilentlyMod.setValue(mApature.getMoveSilentlyMod());
-            //mHideInShadowsMod.setValue(mApature.getHideInShadowsMod());
-            //mInside.setSelected(mApature.getInside());
-            //mBedroom.setSelected(mApature.getBedroom());
+            mClimbWallsMod.setValue(mApature.getClimbWallsMod());
+            mFindTrapsMod.setValue(mApature.getFindTrapsMod());
+            mOpenLocksMod.setValue(mApature.getOpenLocksMod());
+            mMoveSilentlyMod.setValue(mApature.getMoveSilentlyMod());
+            mHideInShadowsMod.setValue(mApature.getHideInShadowsMod());
+            mLockable.setSelected(mApature.getLockable());
+            mTransparent.setSelected(mApature.getTransparent());
         }
     }
 

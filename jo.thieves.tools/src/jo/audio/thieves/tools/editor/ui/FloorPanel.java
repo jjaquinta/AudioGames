@@ -24,8 +24,6 @@ import jo.audio.thieves.data.template.PLibrary;
 import jo.audio.thieves.data.template.PLocation;
 import jo.audio.thieves.data.template.PSquare;
 import jo.audio.thieves.data.template.PTemplate;
-import jo.audio.thieves.data.template.TApature;
-import jo.audio.thieves.data.template.TLocation;
 import jo.audio.thieves.tools.editor.data.EditorSettings;
 import jo.audio.thieves.tools.editor.logic.EditorApatureLogic;
 import jo.audio.thieves.tools.editor.logic.EditorHouseLogic;
@@ -380,9 +378,9 @@ public class FloorPanel extends JComponent
         System.out.println("Popup type=" + type);
         if (type == null)
             makeBackPopup().show(e.getComponent(), e.getX(), e.getY());
-        else if (type == TApature.class)
+        else if (type == PApature.class)
             makeApaturePopup().show(e.getComponent(), e.getX(), e.getY());
-        else if (type == TLocation.class)
+        else if (type == PLocation.class)
             makeLocationPopup().show(e.getComponent(), e.getX(), e.getY());
     }
 

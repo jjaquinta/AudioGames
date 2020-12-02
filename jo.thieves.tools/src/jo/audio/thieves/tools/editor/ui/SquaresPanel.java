@@ -27,6 +27,7 @@ public class SquaresPanel extends JComponent
         initInstantiate();
         initLayout();
         initLink();
+        doNewLibrary();
     }
 
     private void initInstantiate()

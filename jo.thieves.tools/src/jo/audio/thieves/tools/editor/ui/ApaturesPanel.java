@@ -27,6 +27,7 @@ public class ApaturesPanel extends JComponent
         initInstantiate();
         initLayout();
         initLink();
+        doNewLibrary();
     }
 
     private void initInstantiate()

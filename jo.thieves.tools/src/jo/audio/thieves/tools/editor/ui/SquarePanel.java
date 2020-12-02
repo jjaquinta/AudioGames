@@ -54,6 +54,8 @@ public class SquarePanel extends JComponent
         mID = new JTextField();
         mName = new JTextField(24);
         mDescription = new JTextArea(4,24);
+        mDescription.setLineWrap(true);
+        mDescription.setWrapStyleWord(true);
         mColorLabel = new JLabel("\u2588\u2588\u2588\u2588");
         mColor = new JButton("Color");
         mClimbWallsMod = new JSpinner(new SpinnerNumberModel(0, -100, 100, 5));

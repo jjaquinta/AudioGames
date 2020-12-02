@@ -73,6 +73,9 @@ public class OldLogic
             //papp.setClimbWallsMod(tapp.getClimbWallsMod());
             papp.setColor(color);
             papp.setDescription(tapp.getDescription());
+            papp.setTransition(tapp.getTransition());
+            papp.setLockable(tapp.getLockable());
+            papp.setTransparent(tapp.getTransparent());
             //papp.setFindTrapsMod(tapp.getFindTrapsMod());
             //papp.setHideInShadowsMod(tapp.getHideInShadowsMod());
             papp.setID(tapp.getID());
