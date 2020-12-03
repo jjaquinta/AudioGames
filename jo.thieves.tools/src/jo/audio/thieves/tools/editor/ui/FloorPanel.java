@@ -11,7 +11,9 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.swing.JComponent;
@@ -22,6 +24,7 @@ import javax.swing.JPopupMenu;
 import jo.audio.thieves.data.template.PApature;
 import jo.audio.thieves.data.template.PLibrary;
 import jo.audio.thieves.data.template.PLocation;
+import jo.audio.thieves.data.template.PLocationRef;
 import jo.audio.thieves.data.template.PSquare;
 import jo.audio.thieves.data.template.PTemplate;
 import jo.audio.thieves.tools.editor.data.EditorSettings;
@@ -44,8 +47,8 @@ public class FloorPanel extends JComponent
     private PTemplate                 mHouse;
     private Map<String,PSquare>       mSquareIndex;
     private Map<String,PApature>      mApatureIndex;
-    private Map<String,PSquare>       mSquares;
-    private Map<String,PApature>      mApatures;
+    private Map<String,PLocationRef>  mSquares;
+    private Map<String,PLocationRef>  mApatures;
     private int[][]                   mBounds;
     private int                       mNumFloors;
     private int                       mTilesWide;
@@ -185,7 +188,7 @@ public class FloorPanel extends JComponent
         if ((mHouse == null) || (mSquares.size() + mApatures.size() == 0))
             return;
         mBounds = EditorHouseLogic.getBoundary();
-        mNumFloors = (mBounds[1][2] - mBounds[0][2] + 1)/2;
+        mNumFloors = (mBounds[1][2] - mBounds[0][2] + 2)/2;
         mTilesHigh = (mBounds[1][1] - mBounds[0][1] - 1)/2;
         mTilesWide = (mBounds[1][0] - mBounds[0][0] - 1)/2;
         g.setColor(Color.BLACK);
@@ -197,6 +200,7 @@ public class FloorPanel extends JComponent
         int floorsWide = (int)Math.ceil(Math.sqrt(mNumFloors));
         int dx = mSize.width / floorsWide;
         int dy = mTilesHigh * ICON_SIZE + 3 * ICON_SIZE;
+        List<Rectangle> outlines = new ArrayList<>();
         for (int i = 0; i < mNumFloors; i++)
         {
             int nx = i % floorsWide;
@@ -207,8 +211,11 @@ public class FloorPanel extends JComponent
             int floorH = mTilesHigh * ICON_SIZE;
             ox += (dx - floorW) / 2;
             oy += (dy - floorH) / 2;
-            paintFloor(g, ox, oy, i);
+            paintFloor(g, ox, oy, i, outlines);
         }
+        g.setColor(Color.DARK_GRAY);
+        for (Rectangle r : outlines)
+            g.draw(r);
     }
     
     private PLocation getLocation(int x, int y, int z)
@@ -244,7 +251,7 @@ public class FloorPanel extends JComponent
         return r;
     }
 
-    private void paintFloor(Graphics2D g, int ox, int oy, int f)
+    private void paintFloor(Graphics2D g, int ox, int oy, int f, List<Rectangle> outlines)
     {
         g.drawString(String.valueOf(f + 1), ox - 16, oy);
         int z = f*2;
@@ -252,35 +259,90 @@ public class FloorPanel extends JComponent
             for (int x = mBounds[0][0]; x <= mBounds[1][0]; x++)
             {
                 Rectangle r = getRectangle(ox, oy, x, y);
-                PLocation tile = paintLocation(g, r, x, y, z);
+                if ((x%2 == 0) && (y%2 == 0))
+                {
+                    Color c = getEmptyColor(x, y, f);
+                    if (c != null)
+                    {
+                        g.setColor(c);
+                        g.fill(r);
+                    }
+                    continue;
+                }
+                PLocation tile = paintLocation(g, r, x, y, z, outlines);
                 if (tile instanceof PSquare)
                 {
-                    /*
                     Rectangle rup = new Rectangle((int)r.getX() + DOOR_WIDTH,
-                            (int)r.getY() + DOOR_WIDTH, DOOR_WIDTH * 2,
-                            DOOR_WIDTH * 2);
-                    paintLocation(g, rup, x, y, z+1);
+                            (int)r.getY() + DOOR_WIDTH, DOOR_WIDTH,
+                            DOOR_WIDTH);
+                    paintLocation(g, rup, x, y, z+1, outlines);
                     Rectangle rdown = new Rectangle((int)r.getMaxX() - DOOR_WIDTH*2,
-                            (int)r.getMaxY() - DOOR_WIDTH*2, DOOR_WIDTH * 2,
-                            DOOR_WIDTH * 2);
-                    paintLocation(g, rdown, x, y, z-1);
-                    */
+                            (int)r.getMaxY() - DOOR_WIDTH*2, DOOR_WIDTH,
+                            DOOR_WIDTH);
+                    paintLocation(g, rdown, x, y, z-1, outlines);
                 }
             }
     }
+    
+    private static final int[][] CORNER_DELTAS = { {1, 1}, {1, -1}, {-1, 1}, {-1, -1} };
+    private static final int[][] HORZ_DELTAS = { {0, 1}, {0, -1} };
+    private static final int[][] VERT_DELTAS = { {1, 0}, {-1, 0} };
+    
+    private Color getEmptyColor(int x, int y, int z)
+    {
+        int[][] deltas;
+        int type = EditorHouseLogic.getType(x, y, z);
+        if (type == EditorHouseLogic.NOTHING)
+            deltas = CORNER_DELTAS;
+        else if (type == EditorHouseLogic.APATURE_HORZ)
+            deltas = HORZ_DELTAS;
+        else if (type == EditorHouseLogic.APATURE_VERT)
+            deltas = VERT_DELTAS;
+        else
+            return null;
+        Color c = null;
+        for (int[] delta : deltas)
+        {
+            PLocation tile = getLocation(x+delta[0], y+delta[1], z);
+            Color c2;
+            if (tile == null)
+                c2 = Color.DARK_GRAY;
+            else
+                c2 = tile.getColorObject();
+            if (c == null)
+                c = c2;
+            else if (!c.equals(c2))
+                return null;
+        }
+        return c;
+    }
 
-    private PLocation paintLocation(Graphics2D g, Rectangle r, int x, int y, int z)
+    private PLocation paintLocation(Graphics2D g, Rectangle r, int x, int y, int z, List<Rectangle> outlines)
     {
         mLocMap.put(r, new int[] { x, y, z });
         PLocation tile = getLocation(x, y, z);
+        boolean skipOutline = false;
+        Color c = null;
         if (tile != null)
         {
             mTileMap.put(r, tile);
-            g.setColor(tile.getColorObject());
+            if ("EMPTY".equals(tile.getID()))
+            {
+                c = getEmptyColor(x, y, z);
+                skipOutline = true;
+            }
+            else
+                c = tile.getColorObject();
+        }
+        else
+            c = Color.DARK_GRAY;
+        if (c != null)
+        {
+            g.setColor(c);
             g.fill(r);
         }
-        g.setColor(Color.BLACK);
-        g.draw(r);
+        if (!skipOutline)
+            outlines.add(r);
         return tile;
     }
     

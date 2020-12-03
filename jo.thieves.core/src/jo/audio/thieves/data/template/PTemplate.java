@@ -10,6 +10,7 @@ public class PTemplate extends JSONBean implements Comparable<PTemplate>
     public static String ID_DESCRIPTION = "description";// "A narrow set of wooden stairs connect the tiles of this building.",
     public static String ID_NAME = "name";// "Starway",
     public static String ID_ID = "ID";//"STAIRWAY"
+    public static String ID_CATEGORY = "category";//"warehouse"
     public static String ID_SQUARES = "squares";
     public static String ID_APATURES = "apatures";
 
@@ -59,22 +60,32 @@ public class PTemplate extends JSONBean implements Comparable<PTemplate>
         setString(ID_DESCRIPTION, value);
     }
 
-    public Map<String,PSquare> getSquares()
+    public String getCategory()
     {
-        return getMap(ID_SQUARES, PSquare.class);
+        return getString(ID_CATEGORY);
     }
     
-    public void setSquares(Map<String,PSquare> value)
+    public void setCategory(String value)
+    {
+        setString(ID_CATEGORY, value);
+    }
+
+    public Map<String,PLocationRef> getSquares()
+    {
+        return getMap(ID_SQUARES, PLocationRef.class);
+    }
+    
+    public void setSquares(Map<String,PLocationRef> value)
     {
         setMap(ID_SQUARES, value);
     }
 
-    public Map<String,PApature> getApatures()
+    public Map<String,PLocationRef> getApatures()
     {
-        return getMap(ID_APATURES, PApature.class);
+        return getMap(ID_APATURES, PLocationRef.class);
     }
     
-    public void setApatures(Map<String,PApature> value)
+    public void setApatures(Map<String,PLocationRef> value)
     {
         setMap(ID_APATURES, value);
     }

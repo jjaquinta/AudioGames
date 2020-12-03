@@ -12,8 +12,8 @@ public class TLocation extends JSONBean
     public static final String ID_CLIMB_WALLS_MOD = "ClimbWallsMod";//-10,
     public static final String ID_FIND_TRAPS_MOD = "FindTrapsMod";//-10,
     public static final String ID_OPEN_LOCKS_MOD = "OpenLocksMod";//-10,
-    public static final String ID_INSIDE = "inside";
-    public static final String ID_BEDROOM = "bedroom";
+    public static final String ID_INSIDE = "Inside";
+    public static final String ID_BEDROOM = "Bedroom";
 
     // getters and setters
     public int getOpenLocksMod()

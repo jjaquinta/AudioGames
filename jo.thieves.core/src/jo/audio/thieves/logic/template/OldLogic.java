@@ -14,6 +14,7 @@ import org.json.simple.parser.ParseException;
 
 import jo.audio.thieves.data.template.PApature;
 import jo.audio.thieves.data.template.PLibrary;
+import jo.audio.thieves.data.template.PLocationRef;
 import jo.audio.thieves.data.template.PSquare;
 import jo.audio.thieves.data.template.PTemplate;
 import jo.audio.thieves.data.template.TApature;
@@ -42,7 +43,7 @@ public class OldLogic
         return locations;
     }
     
-    public static void append(PLibrary library, TLocations locs, TLocations base)
+    public static void append(PLibrary library, TLocations locs, TLocations base, String category)
     {
         Map<String,PSquare> squares = library.getSquares();
         for (TLocation loc : locs.getLocations())
@@ -92,8 +93,9 @@ public class OldLogic
             ptemp.setID(locs.getPrefix()+ttemp.getID());
             ptemp.setName(ttemp.getID());
             ptemp.setDescription(ttemp.getDescription());
-            Map<String,PSquare> sqs = new HashMap<>();
-            Map<String,PApature> aps = new HashMap<>();
+            ptemp.setCategory(category);
+            Map<String,PLocationRef> sqs = new HashMap<>();
+            Map<String,PLocationRef> aps = new HashMap<>();
             char[][][] floors = ttemp.getFloors();
             for (int z = 0; z < floors.length; z++)
                 for (int y = 0; y < floors[z].length; y++)
@@ -105,14 +107,20 @@ public class OldLogic
                             continue;
                         if (squares.containsKey(id))
                         {
-                            PSquare sq = new PSquare();
+                            PLocationRef sq = new PLocationRef();
                             sq.setID(id);
+                            sq.setX(x);
+                            sq.setY(y);
+                            sq.setZ(z);
                             sqs.put(x+","+y+","+z, sq);
                         }
                         else if (apatures.containsKey(id))
                         {
-                            PApature ap = new PApature();
+                            PLocationRef ap = new PLocationRef();
                             ap.setID(id);
+                            ap.setX(x);
+                            ap.setY(y);
+                            ap.setZ(z);
                             aps.put(x+","+y+","+z, ap);
                         }
                         /*
@@ -178,11 +186,11 @@ public class OldLogic
         String baseDir = "C:\\Users\\JoJaquinta\\git\\AudioGames\\jo.thieves.core\\src\\jo\\audio\\thieves\\slu\\";
         PLibrary library = new PLibrary();
         TLocations base = read(baseDir + "locationTypes.json");
-        append(library, base, null);
+        append(library, base, null, "core");
         for (String sub : new String[] { "shotgun", "standalone", "terrace", "warehouse" })
         {
             TLocations lib = read(baseDir + "\\locations\\"+sub+".json");
-            append(library, lib, base);
+            append(library, lib, base, sub);
         }
         JSONObject json = library.toJSON();
         File libFile = new File(baseDir+"locationLibrary.json");

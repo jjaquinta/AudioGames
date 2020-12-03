@@ -2,10 +2,6 @@ package jo.audio.thieves.tools.editor.ui;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 import java.io.IOException;
 
 import javax.swing.DefaultComboBoxModel;
@@ -13,23 +9,27 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
 
 import jo.audio.thieves.data.template.PTemplate;
 import jo.audio.thieves.tools.editor.data.EditorSettings;
 import jo.audio.thieves.tools.editor.logic.EditorHouseLogic;
 import jo.audio.thieves.tools.editor.logic.EditorSettingsLogic;
 import jo.audio.thieves.tools.logic.RuntimeLogic;
+import jo.util.ui.swing.utils.ListenerUtils;
 
 @SuppressWarnings("serial")
 public class EditPanel extends JPanel
 {
-    private SquaresPanel            mTiles;
-    private ApaturesPanel         mApatures;
-    private FloorPanel            mClient;
-    private JComboBox<PTemplate>  mHouse;
-    private JButton               mAddHouse;
-    private JButton               mDelHouse;
-    private JButton               mSave;
+    private SquaresPanel         mTiles;
+    private ApaturesPanel        mApatures;
+    private FloorPanel           mClient;
+    private FloorViewer          mViewer;
+    private JComboBox<PTemplate> mHouse;
+    private HousePanel           mHouseEdit;
+    private JButton              mAddHouse;
+    private JButton              mDelHouse;
+    private JButton              mSave;
 
     public EditPanel()
     {
@@ -42,12 +42,14 @@ public class EditPanel extends JPanel
     private void initInstantiate()
     {
         mClient = new FloorPanel();
+        mViewer = new FloorViewer();
         mHouse = new JComboBox<>();
         mAddHouse = new JButton("+");
         mDelHouse = new JButton("-");
         mSave = new JButton("Save");
         mTiles = new SquaresPanel();
         mApatures = new ApaturesPanel();
+        mHouseEdit = new HousePanel();
     }
 
     private void initLayout()
@@ -58,67 +60,40 @@ public class EditPanel extends JPanel
         toolbar.add(mAddHouse);
         toolbar.add(mDelHouse);
         toolbar.add(mSave);
+        
+        JTabbedPane tabs = new JTabbedPane();
+        tabs.addTab("Isometric", mViewer);
+        tabs.addTab("Plan", mClient);
+        JPanel client = new JPanel();
+        client.setLayout(new BorderLayout());
+        client.add("North", mHouseEdit);
+        client.add("Center", tabs);
 
         setLayout(new BorderLayout());
         add("North", toolbar);
         add("East", mTiles);
         add("West", mApatures);
-        add("Center", mClient);
+        add("Center", client);
     }
 
     private void initLink()
     {
         EditorSettings es = EditorSettingsLogic.getInstance();
-        es.addPropertyChangeListener("library", new PropertyChangeListener() {
-            @Override
-            public void propertyChange(PropertyChangeEvent evt)
+        es.listen("library", (ov,nv) -> doNewDataLibrary());
+        es.listen("selectedHouse", (ov,nv) -> doNewDataSelectedHouse());
+        ListenerUtils.listen(mHouse, (e) -> doNewUISelectedHouse());
+        ListenerUtils.listen(mSave, (e) -> {
+            try
             {
-                doNewDataLibrary();
+                EditorSettingsLogic.save();
+            }
+            catch (IOException e1)
+            {
+                RuntimeLogic.error(e1);
             }
         });
-        es.addPropertyChangeListener("selectedHouse",
-                new PropertyChangeListener() {
-                    @Override
-                    public void propertyChange(PropertyChangeEvent evt)
-                    {
-                        doNewDataSelectedHouse();
-                    }
-                });
-        mHouse.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                doNewUISelectedHouse();
-            }
-        });
-        mSave.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                try
-                {
-                    EditorSettingsLogic.save();
-                }
-                catch (IOException e1)
-                {
-                    RuntimeLogic.error(e1);
-                }
-            }
-        });
-        mAddHouse.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                doAddHouse();
-            }
-        });
-        mDelHouse.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                doDelHouse();
-            }
-        });
+        ListenerUtils.listen(mAddHouse, (e) -> doAddHouse());
+        ListenerUtils.listen(mDelHouse, (e) -> doDelHouse());
     }
 
     private void doNewDataLibrary()
@@ -135,6 +110,7 @@ public class EditPanel extends JPanel
     {
         PTemplate newHouse = EditorSettingsLogic.getInstance()
                 .getSelectedHouse();
+        mHouseEdit.setHouse(newHouse);
         PTemplate oldHouse = (PTemplate)mHouse.getSelectedItem();
         if (newHouse == oldHouse)
             return;
