@@ -291,12 +291,12 @@ public class FloorPanel extends JComponent
     private Color getEmptyColor(int x, int y, int z)
     {
         int[][] deltas;
-        int type = EditorHouseLogic.getType(x, y, z);
-        if (type == EditorHouseLogic.NOTHING)
+        int type = PTemplate.getType(x, y, z);
+        if (type == PTemplate.NOTHING)
             deltas = CORNER_DELTAS;
-        else if (type == EditorHouseLogic.APATURE_HORZ)
+        else if (type == PTemplate.APATURE_HORZ)
             deltas = HORZ_DELTAS;
-        else if (type == EditorHouseLogic.APATURE_VERT)
+        else if (type == PTemplate.APATURE_VERT)
             deltas = VERT_DELTAS;
         else
             return null;

@@ -75,6 +75,7 @@ public class OldLogic
             papp.setColor(color);
             papp.setDescription(tapp.getDescription());
             papp.setTransition(tapp.getTransition());
+            papp.setOpenable(tapp.getOpenable());
             papp.setLockable(tapp.getLockable());
             papp.setTransparent(tapp.getTransparent());
             //papp.setFindTrapsMod(tapp.getFindTrapsMod());
@@ -101,12 +102,17 @@ public class OldLogic
                 for (int y = 0; y < floors[z].length; y++)
                     for (int x = 0; x < floors[z][y].length; x++)
                     {
+                        int type = PTemplate.getType(x, y, z);
+                        if (type == PTemplate.NOTHING)
+                            continue;
                         char ch = floors[z][y][x];
                         String id = locs.getIDMap().getProperty(String.valueOf(ch));
                         if (id == null)
                             continue;
-                        if (squares.containsKey(id))
+                        if (type == PTemplate.SQUARE)
                         {
+                            if (!squares.containsKey(id))
+                                continue;
                             PLocationRef sq = new PLocationRef();
                             sq.setID(id);
                             sq.setX(x);
@@ -114,8 +120,10 @@ public class OldLogic
                             sq.setZ(z);
                             sqs.put(x+","+y+","+z, sq);
                         }
-                        else if (apatures.containsKey(id))
+                        else
                         {
+                            if (!apatures.containsKey(id))
+                                continue;
                             PLocationRef ap = new PLocationRef();
                             ap.setID(id);
                             ap.setX(x);
@@ -123,56 +131,6 @@ public class OldLogic
                             ap.setZ(z);
                             aps.put(x+","+y+","+z, ap);
                         }
-                        /*
-                        if ((x%2 == 1) && (y%2 == 1) && (z%2 == 0))
-                        {   // square
-                            char ch = floors[z][y][x];
-                            if ((ch == ' ') || (ch == '.') || (ch == '_'))
-                                continue;
-                            String id = locs.getIDMap().getProperty(String.valueOf(ch));
-                            if ((id == null) && (base != null))
-                                id = base.getIDMap().getProperty(String.valueOf(ch));
-                            if (id == null)
-                                throw new IllegalStateException(ptemp.getID()+", "+x+","+y+","+z+" ch="+ch+", has no ID");
-                            if (!squares.containsKey(id))
-                                throw new IllegalStateException(ptemp.getID()+", "+x+","+y+","+z+" ch="+ch+", id="+id+", not found in square library");
-                            PSquare sq = new PSquare();
-                            sq.setID(id);
-                            sqs.put(x+","+y+","+z, sq);
-                        }
-                        else
-                        {   // apature
-                            boolean doit = false;
-                            if (z%2 == 0)
-                            {
-                                if ((x%2 == 1) && (y%2 == 1))
-                                    doit = true;
-                            }
-                            else
-                            {
-                                if (y%2 == 0)
-                                    doit = x%2 == 1;
-                                else
-                                    doit = x%2 == 0;
-                            }
-                            if (doit)
-                            {
-                                char ch = floors[z][y][x];
-                                if ((ch == ' ') || (ch == '.') || (ch == '_') || (ch == '|'))
-                                    continue;
-                                String id = locs.getIDMap().getProperty(String.valueOf(ch));
-                                if ((id == null) && (base != null))
-                                    id = base.getIDMap().getProperty(String.valueOf(ch));
-                                if (id == null)
-                                    throw new IllegalStateException(ptemp.getID()+", "+x+","+y+","+z+" ch="+ch+", has no ID");
-                                if (!apatures.containsKey(id))
-                                    throw new IllegalStateException(ptemp.getID()+", "+x+","+y+","+z+" ch="+ch+", id="+id+", not found in apature library");
-                                PApature ap = new PApature();
-                                ap.setID(id);
-                                aps.put(x+","+y+","+z, ap);
-                            }
-                        }
-                        */
                     }
             ptemp.setApatures(aps);
             ptemp.setSquares(sqs);

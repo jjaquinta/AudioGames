@@ -16,6 +16,41 @@ public class PTemplate extends JSONBean implements Comparable<PTemplate>
 
     // utilities
     
+    public static final int NOTHING = 0;
+    public static final int SQUARE = 1;
+    public static final int APATURE_HORZ = 2;
+    public static final int APATURE_VERT = 3;
+    public static final int APATURE_TWEEN = 4;
+    
+    public static int getType(PLocationRef loc)
+    {
+        return getType(loc.getX(), loc.getY(), loc.getZ());
+    }
+    
+    public static int getType(int x, int y, int z)
+    {
+        if ((z%2) == 1)
+        {   // tween
+            if ((x%2 == 1) && (y%2 == 1))
+                return APATURE_TWEEN;
+            else
+                return NOTHING;
+        }
+        if ((x%2 == 1) && (y%2 == 0))
+            return APATURE_HORZ;
+        else if ((x%2 == 0) && (y%2 == 1))
+            return APATURE_VERT;
+        else if ((x%2 == 1) && (y%2 == 1))
+            return SQUARE;
+        else //if ((x%2 == 0) && (y%2 == 0))
+            return NOTHING;
+    }
+    
+    public static boolean isApature(int x, int y, int z)
+    {
+        return getType(x, y, z) >= APATURE_HORZ;
+    }
+    
     @Override
     public String toString()
     {

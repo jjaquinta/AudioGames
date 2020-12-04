@@ -14,7 +14,6 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.StringTokenizer;
 
 import javax.swing.JComponent;
 import javax.swing.JMenuItem;
@@ -40,7 +39,6 @@ import jo.util.geom3d.Transform3D;
 import jo.util.ui.swing.utils.ListenerUtils;
 import jo.util.ui.swing.utils.MouseUtils;
 import jo.util.utils.MathUtils;
-import jo.util.utils.obj.IntegerUtils;
 import jo.util.utils.obj.StringUtils;
 
 @SuppressWarnings("serial")
@@ -457,22 +455,13 @@ public class FloorViewer extends JComponent
         return new Point3D(gridToSize(x), gridToSize(y), gridToSize(z + 1));
     }
 
-    private int[] getZYX(String xyz)
-    {
-        if (xyz == null)
-            return null;
-        StringTokenizer st = new StringTokenizer(xyz, ",");
-        int x = IntegerUtils.parseInt(st.nextToken());
-        int y = IntegerUtils.parseInt(st.nextToken());
-        int z = IntegerUtils.parseInt(st.nextToken());
-        return new int[] { z, y, x };
-    }
-
     private void addPoly(String xyz, PLocationRef tile)
     {
-        int[] zyx = getZYX(xyz);
-        Point3D base = getBase(zyx[2], zyx[1], zyx[0]);
-        Point3D size = getSize(zyx[2], zyx[1], zyx[0]);
+        int type = PTemplate.getType(tile.getX(), tile.getY(), tile.getZ());
+        if (type == PTemplate.NOTHING)
+            System.out.println("Quack - "+tile.getID()+" "+tile.getX()+","+tile.getY()+","+tile.getZ());
+        Point3D base = getBase(tile.getX(), tile.getY(), tile.getZ());
+        Point3D size = getSize(tile.getX(), tile.getY(), tile.getZ());
         addFacet(base.x, base.y, base.z, size.x, size.y, 0, tile);
         addFacet(base.x, base.y, base.z + size.z, size.x, size.y, 0, tile);
         addFacet(base.x, base.y, base.z, size.x, 0, size.z, tile);

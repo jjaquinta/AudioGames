@@ -25,6 +25,7 @@ public class EditPanel extends JPanel
     private ApaturesPanel        mApatures;
     private FloorPanel           mClient;
     private FloorViewer          mViewer;
+    private BluePrintPanel       mBluePrint;
     private JComboBox<PTemplate> mHouse;
     private HousePanel           mHouseEdit;
     private JButton              mAddHouse;
@@ -50,6 +51,7 @@ public class EditPanel extends JPanel
         mTiles = new SquaresPanel();
         mApatures = new ApaturesPanel();
         mHouseEdit = new HousePanel();
+        mBluePrint = new BluePrintPanel();
     }
 
     private void initLayout()
@@ -63,6 +65,7 @@ public class EditPanel extends JPanel
         
         JTabbedPane tabs = new JTabbedPane();
         tabs.addTab("Isometric", mViewer);
+        tabs.addTab("Blueprint", mBluePrint);
         tabs.addTab("Plan", mClient);
         JPanel client = new JPanel();
         client.setLayout(new BorderLayout());
