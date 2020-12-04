@@ -119,6 +119,8 @@ public class OldLogic
                             sq.setX(x);
                             sq.setY(y);
                             sq.setZ(z);
+                            if (!sq.isSquare())
+                                System.out.println("Putting square in non-square "+x+","+y+","+z+".");
                             locations.put(x+","+y+","+z, sq);
                         }
                         else
@@ -130,6 +132,8 @@ public class OldLogic
                             ap.setX(x);
                             ap.setY(y);
                             ap.setZ(z);
+                            if (!ap.isApature())
+                                System.out.println("Putting apature in non-apature "+x+","+y+","+z+".");
                             locations.put(x+","+y+","+z, ap);
                         }
                     }

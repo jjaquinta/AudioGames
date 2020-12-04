@@ -84,7 +84,7 @@ public class BluePrintPanel extends JComponent
             @Override
             public void propertyChange(PropertyChangeEvent evt)
             {
-                //System.out.println("pcl repaint");
+//                System.out.println("pcl repaint");
                 repaint();
             }
         };
@@ -99,6 +99,8 @@ public class BluePrintPanel extends JComponent
     @Override
     public void paint(Graphics g1)
     {
+        Throwable t = new Throwable();
+        t.printStackTrace();
         if (mBaseFont == null)
         {
             mBaseFont = getFont();
@@ -388,7 +390,9 @@ public class BluePrintPanel extends JComponent
         mTiles.clear();
         for (PLocationRef loc : mLocations.values())
         {
-            if (PTemplate.getType(loc) != PTemplate.SQUARE)
+            int type = PTemplate.getType(loc);
+            //System.out.println(loc.getX()+","+loc.getY()+","+loc.getZ()+" "+type+" "+loc.getID());
+            if (type != PTemplate.SQUARE)
                 continue;
             for (PolyTile room : mTiles)
                 if (room.adjacent(loc))
@@ -436,7 +440,7 @@ public class BluePrintPanel extends JComponent
     {
         updateHoverTile(e);
         updateHoverSquare(e);
-        //System.out.println("mouse moved repaint");
+//        System.out.println("mouse moved repaint");
         repaint();
     }
     
@@ -507,7 +511,7 @@ public class BluePrintPanel extends JComponent
                 mMode = MODE_DEL;
             else
                 mMode = MODE_NONE;
-            //System.out.println("mode change repaint");
+//            System.out.println("mode change ");
             repaint();
         }
         else if (mMode == MODE_INSERT)
@@ -529,7 +533,7 @@ public class BluePrintPanel extends JComponent
         if (DOOR_WIDTH < 1)
             DOOR_WIDTH = 1;
         ICON_SIZE = DOOR_WIDTH * 8;
-        //System.out.println("mose wheel repaint");
+//        System.out.println("mouse wheel repaint");
         repaint();
     }
 

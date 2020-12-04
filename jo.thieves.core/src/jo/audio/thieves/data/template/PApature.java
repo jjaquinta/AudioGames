@@ -1,16 +1,47 @@
 package jo.audio.thieves.data.template;
 
+import org.json.simple.JSONObject;
+import org.json.simple.JSONUtils;
+
 import jo.util.utils.obj.StringUtils;
 
 public class PApature extends PLocation implements Comparable<PApature>
-{ 
-    public static final String ID_TRANSITION = "transition";// "You use the stairs to get to the next floor.",
-    public static final String ID_OPENABLE = "openable";// false,
-    public static final String ID_LOCKABLE = "lockable";// false,
-    public static final String ID_TRANSPARENT = "transparent";// true,
+{
+    public static final String ID_TRANSITION  = "transition"; 
+    public static final String ID_OPENABLE    = "openable";   
+    public static final String ID_LOCKABLE    = "lockable";   
+    public static final String ID_TRANSPARENT = "transparent";
+
+    private String             mTransition;
+    private boolean            mOpenable;
+    private boolean            mLockable;
+    private boolean            mTransparent;
+
+    // I/O
+
+    @Override
+    public void fromJSON(JSONObject o)
+    {
+        super.fromJSON(o);
+        setTransition(JSONUtils.getString(o, ID_TRANSITION));
+        setOpenable(JSONUtils.getBoolean(o, ID_OPENABLE));
+        setLockable(JSONUtils.getBoolean(o, ID_LOCKABLE));
+        setTransparent(JSONUtils.getBoolean(o, ID_TRANSPARENT));
+    }
+
+    @Override
+    public JSONObject toJSON()
+    {
+        JSONObject o = super.toJSON();
+        o.put(ID_TRANSITION, getTransition());
+        o.put(ID_OPENABLE, getOpenable());
+        o.put(ID_LOCKABLE, getLockable());
+        o.put(ID_TRANSPARENT, getTransparent());
+        return o;
+    }
 
     // utilities
-    
+
     @Override
     public int compareTo(PApature o)
     {
@@ -24,51 +55,58 @@ public class PApature extends PLocation implements Comparable<PApature>
                 return true;
             else
                 return false;
+        else if (a2 == null)
+            return false;
         else
-            if (a2 == null)
-                return false;
-            else
-                return a1.getID().equals(a2.getID());
+            return a1.getID().equals(a2.getID());
     }
-    
+
     // getters and setters
     public boolean getTransparent()
     {
-        return getBoolean(ID_TRANSPARENT);
+        return mTransparent;
     }
-    
+
     public void setTransparent(boolean value)
     {
-        setBoolean(ID_TRANSPARENT, value);
+        queuePropertyChange(ID_TRANSPARENT, mTransparent, value);
+        mTransparent = value;
+        firePropertyChange();
     }
 
     public boolean getLockable()
     {
-        return getBoolean(ID_LOCKABLE);
+        return mLockable;
     }
-    
+
     public void setLockable(boolean value)
     {
-        setBoolean(ID_LOCKABLE, value);
+        queuePropertyChange(ID_LOCKABLE, mLockable, value);
+        mLockable = value;
+        firePropertyChange();
     }
 
     public boolean getOpenable()
     {
-        return getBoolean(ID_OPENABLE);
+        return mOpenable;
     }
-    
+
     public void setOpenable(boolean value)
     {
-        setBoolean(ID_OPENABLE, value);
+        queuePropertyChange(ID_OPENABLE, mOpenable, value);
+        mOpenable = value;
+        firePropertyChange();
     }
 
     public String getTransition()
     {
-        return getString(ID_TRANSITION);
+        return mTransition;
     }
-    
+
     public void setTransition(String value)
     {
-        setString(ID_TRANSITION, value);
+        queuePropertyChange(ID_TRANSITION, mTransition, value);
+        mTransition = value;
+        firePropertyChange();
     }
 }

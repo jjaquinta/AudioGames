@@ -4,23 +4,70 @@ import java.awt.Color;
 import java.util.HashMap;
 import java.util.Map;
 
-import jo.util.beans.JSONBean;
+import org.json.simple.IJSONAble;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONUtils;
 
-public class PLocation extends JSONBean
-{ 
-    public static final String ID_DESCRIPTION = "description";// "A narrow set of wooden stairs connect the floors of this building.",
-    public static final String ID_NAME = "name";// "Starway",
-    public static final String ID_ID = "ID";//"STAIRWAY"
-    public static final String ID_COLOR = "color";//"#010203"
-    public static final String ID_MOVE_SILENTLY_MOD = "MoveSilentlyMod";//-10
-    public static final String ID_HIDE_IN_SHADOWS_MOD = "HideInShadowsMod";//-10,
-    public static final String ID_CLIMB_WALLS_MOD = "ClimbWallsMod";//-10,
-    public static final String ID_FIND_TRAPS_MOD = "FindTrapsMod";//-10,
-    public static final String ID_OPEN_LOCKS_MOD = "OpenLocksMod";//-10,
+import jo.util.beans.PCSBean;
 
-    private static final Map<String, Color> mColorCache = new HashMap<>();
-    
+public class PLocation extends PCSBean implements IJSONAble
+{
+    public static final String              ID_DESCRIPTION         = "description";
+    public static final String              ID_NAME                = "name";            
+    public static final String              ID_ID                  = "ID";              
+    public static final String              ID_COLOR               = "color";           
+    public static final String              ID_MOVE_SILENTLY_MOD   = "MoveSilentlyMod"; 
+    public static final String              ID_HIDE_IN_SHADOWS_MOD = "HideInShadowsMod";
+    public static final String              ID_CLIMB_WALLS_MOD     = "ClimbWallsMod";   
+    public static final String              ID_FIND_TRAPS_MOD      = "FindTrapsMod";    
+    public static final String              ID_OPEN_LOCKS_MOD      = "OpenLocksMod";    
+
+    private String                          mID;
+    private String                          mName;
+    private String                          mDescription;
+    private String                          mColor;
+    private int                             mMoveSilentlyMod;
+    private int                             mHideInShadowsMod;
+    private int                             mClimbWallsMod;
+    private int                             mFindTrapsMod;
+    private int                             mOpenLocksMod;
+
+    private static final Map<String, Color> mColorCache            = new HashMap<>();
+
+    // I/O
+
+    @Override
+    public void fromJSON(JSONObject o)
+    {
+        setDescription(JSONUtils.getString(o, ID_DESCRIPTION));
+        setName(JSONUtils.getString(o, ID_NAME));
+        setID(JSONUtils.getString(o, ID_ID));
+        setColor(JSONUtils.getString(o, ID_COLOR));
+        setMoveSilentlyMod(JSONUtils.getInt(o, ID_MOVE_SILENTLY_MOD));
+        setHideInShadowsMod(JSONUtils.getInt(o, ID_HIDE_IN_SHADOWS_MOD));
+        setClimbWallsMod(JSONUtils.getInt(o, ID_CLIMB_WALLS_MOD));
+        setFindTrapsMod(JSONUtils.getInt(o, ID_FIND_TRAPS_MOD));
+        setOpenLocksMod(JSONUtils.getInt(o, ID_OPEN_LOCKS_MOD));
+    }
+
+    @Override
+    public JSONObject toJSON()
+    {
+        JSONObject o = new JSONObject();
+        o.put(ID_DESCRIPTION, getDescription());
+        o.put(ID_NAME, getName());
+        o.put(ID_ID, getID());
+        o.put(ID_COLOR, getColor());
+        o.put(ID_MOVE_SILENTLY_MOD, getMoveSilentlyMod());
+        o.put(ID_HIDE_IN_SHADOWS_MOD, getHideInShadowsMod());
+        o.put(ID_CLIMB_WALLS_MOD, getClimbWallsMod());
+        o.put(ID_FIND_TRAPS_MOD, getFindTrapsMod());
+        o.put(ID_OPEN_LOCKS_MOD, getOpenLocksMod());
+        return o;
+    }
+
     // utilities
+
     public Color getColorObject()
     {
         String c = getColor();
@@ -39,101 +86,121 @@ public class PLocation extends JSONBean
         }
         return co;
     }
-    
+
     @Override
     public String toString()
     {
-        return getName()+" ("+getID()+")";
+        return getName() + " (" + getID() + ")";
     }
 
     // getters and setters
 
     public String getID()
     {
-        return getString(ID_ID);
+        return mID;
     }
-    
+
     public void setID(String value)
     {
-        setString(ID_ID, value);
+        queuePropertyChange(ID_ID, mID, value);
+        mID = value;
+        firePropertyChange();
     }
 
     public String getName()
     {
-        return getString(ID_NAME);
+        return mName;
     }
-    
+
     public void setName(String value)
     {
-        setString(ID_NAME, value);
+        queuePropertyChange(ID_NAME, mName, value);
+        mName = value;
+        firePropertyChange();
     }
 
     public String getDescription()
     {
-        return getString(ID_DESCRIPTION);
+        return mDescription;
     }
-    
+
     public void setDescription(String value)
     {
-        setString(ID_DESCRIPTION, value);
+        queuePropertyChange(ID_DESCRIPTION, mDescription, value);
+        mDescription = value;
+        firePropertyChange();
     }
 
     public String getColor()
     {
-        return getString(ID_COLOR);
+        return mColor;
     }
-    
+
     public void setColor(String value)
     {
-        setString(ID_COLOR, value);
+        queuePropertyChange(ID_COLOR, mColor, value);
+        mColor = value;
+        firePropertyChange();
     }
+
     public int getOpenLocksMod()
     {
-        return getInt(ID_OPEN_LOCKS_MOD);
+        return mOpenLocksMod;
     }
-    
+
     public void setOpenLocksMod(int value)
     {
-        setInt(ID_OPEN_LOCKS_MOD, value);
+        queuePropertyChange(ID_OPEN_LOCKS_MOD, mOpenLocksMod, value);
+        mOpenLocksMod = value;
+        firePropertyChange();
     }
 
     public int getFindTrapsMod()
     {
-        return getInt(ID_FIND_TRAPS_MOD);
+        return mFindTrapsMod;
     }
-    
+
     public void setFindTrapsMod(int value)
     {
-        setInt(ID_FIND_TRAPS_MOD, value);
+        queuePropertyChange(ID_FIND_TRAPS_MOD, mFindTrapsMod, value);
+        mFindTrapsMod = value;
+        firePropertyChange();
     }
 
     public int getClimbWallsMod()
     {
-        return getInt(ID_CLIMB_WALLS_MOD);
+        return mClimbWallsMod;
     }
-    
+
     public void setClimbWallsMod(int value)
     {
-        setInt(ID_CLIMB_WALLS_MOD, value);
+        queuePropertyChange(ID_CLIMB_WALLS_MOD, mClimbWallsMod, value);
+        mClimbWallsMod = value;
+        firePropertyChange();
     }
 
     public int getHideInShadowsMod()
     {
-        return getInt(ID_HIDE_IN_SHADOWS_MOD);
+        return mHideInShadowsMod;
     }
-    
+
     public void setHideInShadowsMod(int value)
     {
-        setInt(ID_HIDE_IN_SHADOWS_MOD, value);
+        queuePropertyChange(ID_HIDE_IN_SHADOWS_MOD, mHideInShadowsMod,
+                value);
+        mHideInShadowsMod = value;
+        firePropertyChange();
     }
 
     public int getMoveSilentlyMod()
     {
-        return getInt(ID_MOVE_SILENTLY_MOD);
+        return mMoveSilentlyMod;
     }
-    
+
     public void setMoveSilentlyMod(int value)
     {
-        setInt(ID_MOVE_SILENTLY_MOD, value);
+        queuePropertyChange(ID_MOVE_SILENTLY_MOD, mMoveSilentlyMod, value);
+        mMoveSilentlyMod = value;
+        firePropertyChange();
     }
 }

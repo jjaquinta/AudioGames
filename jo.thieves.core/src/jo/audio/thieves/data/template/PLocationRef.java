@@ -1,14 +1,23 @@
 package jo.audio.thieves.data.template;
 
-import jo.util.beans.JSONBean;
+import org.json.simple.IJSONAble;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONUtils;
 
-public class PLocationRef extends JSONBean
+import jo.util.beans.PCSBean;
+
+public class PLocationRef extends PCSBean implements IJSONAble
 { 
     public static final String ID_ID = "ID";
     public static final String ID_X = "x";
     public static final String ID_Y = "y";
     public static final String ID_Z = "z";
 
+    private String  mID;
+    private int     mX;
+    private int     mY;
+    private int     mZ;
+    
     // utilities
     
     @Override
@@ -16,46 +25,94 @@ public class PLocationRef extends JSONBean
     {
         return getID();
     }
+    
+    // I/O
+    
+    @Override
+    public void fromJSON(JSONObject o)
+    {
+        setID(JSONUtils.getString(o, ID_ID));
+        setX(JSONUtils.getInt(o, ID_X));
+        setY(JSONUtils.getInt(o, ID_Y));
+        setZ(JSONUtils.getInt(o, ID_Z));
+    }
+    
+    @Override
+    public JSONObject toJSON()
+    {
+        JSONObject json = new JSONObject();
+        json.put(ID_ID, getID());
+        json.put(ID_X, getX());
+        json.put(ID_Y, getY());
+        json.put(ID_Z, getZ());
+        return json;
+    }
+    
+    // utilities
+
+    public boolean isApature()
+    {
+        return PTemplate.isApature(getX(), getY(), getZ());
+    }
+
+    public boolean isSquare()
+    {
+        return PTemplate.isSquare(getX(), getY(), getZ());
+    }
+
+    public int getType()
+    {
+        return PTemplate.getType(getX(), getY(), getZ());
+    }
+
 
     // getters and setters
 
     public String getID()
     {
-        return getString(ID_ID);
+        return mID;
     }
     
     public void setID(String value)
     {
-        setString(ID_ID, value);
+        queuePropertyChange(ID_ID, mID, value);
+        mID = value;
+        firePropertyChange();
     }
 
     public int getX()
     {
-        return getInt(ID_X);
+        return mX;
     }
     
     public void setX(int value)
     {
-        setInt(ID_X, value);
+        queuePropertyChange(ID_X, mX, value);
+        mX = value;
+        firePropertyChange();
     }
 
     public int getY()
     {
-        return getInt(ID_Y);
+        return mY;
     }
     
     public void setY(int value)
     {
-        setInt(ID_Y, value);
+        queuePropertyChange(ID_Y, mY, value);
+        mY = value;
+        firePropertyChange();
     }
 
     public int getZ()
     {
-        return getInt(ID_Z);
+        return mZ;
     }
     
     public void setZ(int value)
     {
-        setInt(ID_Z, value);
+        queuePropertyChange(ID_Z, mZ, value);
+        mZ = value;
+        firePropertyChange();
     }
 }
