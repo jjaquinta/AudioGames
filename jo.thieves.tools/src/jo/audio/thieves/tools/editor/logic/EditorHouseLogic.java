@@ -71,17 +71,11 @@ public class EditorHouseLogic
         EditorSettings es = EditorSettingsLogic.getInstance();
         PTemplate house = es.getSelectedHouse();
         String k = x+","+y+","+f;
-        Map<String,PLocationRef> squares = house.getSquares();
-        if (squares.containsKey(k))
+        Map<String,PLocationRef> locations = house.getLocations();
+        if (locations.containsKey(k))
         {
-            squares.remove(k);
-            house.setSquares(squares);
-        }
-        Map<String,PLocationRef> apatures = house.getApatures();
-        if (apatures.containsKey(k))
-        {
-            apatures.remove(k);
-            house.setApatures(apatures);
+            locations.remove(k);
+            house.setLocations(locations);
         }
         es.fireMonotonicPropertyChange("location.floor");
         RuntimeLogic.status("Clearing floor "+f+", "+x+","+y);
@@ -95,8 +89,7 @@ public class EditorHouseLogic
     {
         EditorSettings es = EditorSettingsLogic.getInstance();
         PTemplate house = es.getSelectedHouse();
-        Map<String,PLocationRef> apatures = house.getApatures();
-        Map<String,PLocationRef> squares = house.getSquares();
+        Map<String,PLocationRef> locations = house.getLocations();
         Map<String,PSquare> squareIndex = es.getLibrary().getSquares();
         Map<String,PApature> apatureIndex = es.getLibrary().getApatures();
         setTile(f, y, x, square);
@@ -104,11 +97,11 @@ public class EditorHouseLogic
         {
             // check apature
             String akey = (x+ORTH_DELTA[i][0])+","+(y+ORTH_DELTA[i][1])+","+f;
-            if (apatures.containsKey(akey))
+            if (locations.containsKey(akey))
                 continue; // already there
             // check square
             String skey = (x+ORTH_DELTA[i][0]*2)+","+(y+ORTH_DELTA[i][1]*2)+","+f;
-            PLocationRef s2 = squares.get(skey);
+            PLocationRef s2 = locations.get(skey);
             if (s2 == null)
                 continue;
             PSquare square2 = squareIndex.get(s2.getID());
@@ -126,18 +119,9 @@ public class EditorHouseLogic
         ref.setX(x);
         ref.setY(y);
         ref.setZ(f);
-        if (tile instanceof PSquare)
-        {
-            Map<String,PLocationRef> squares = house.getSquares();
-            squares.put(k, ref);
-            house.setSquares(squares);
-        }
-        if (tile instanceof PApature)
-        {
-            Map<String,PLocationRef> apatures = house.getApatures();
-            apatures.put(k, ref);
-            house.setApatures(apatures);
-        }
+        Map<String,PLocationRef> locations = house.getLocations();
+        locations.put(k, ref);
+        house.setLocations(locations);
         es.fireMonotonicPropertyChange("location.floor");
         RuntimeLogic.status("Setting floor "+f+", "+x+","+y+" to "+tile.getID());
     }
@@ -667,9 +651,7 @@ public class EditorHouseLogic
         PTemplate house = es.getSelectedHouse();
         if (house == null)
             return ret;
-        for (String key : house.getApatures().keySet())
-            ret = extendBoundary(key, ret);
-        for (String key : house.getSquares().keySet())
+        for (String key : house.getLocations().keySet())
             ret = extendBoundary(key, ret);
         return ret;
     }
@@ -710,7 +692,7 @@ public class EditorHouseLogic
         if (house == null)
             return;
         int[][] bounds = getBoundary();
-        Map<String, PLocationRef> squares = house.getSquares();
+        Map<String, PLocationRef> squares = house.getLocations();
         for (int z = bounds[0][2]; z <= bounds[1][2]; z += 2)
             for (int x = bounds[0][0] + 1; x < bounds[1][0]; x += 2)
                 for (int y = bounds[0][1] + 1; y < bounds[1][1]; y += 2)

@@ -182,19 +182,7 @@ public class FloorViewer extends JComponent
         mSquareIndex = lib.getSquares();
         mApatureIndex = lib.getApatures();
         mHouse = es.getSelectedHouse();
-        Map<String, PLocationRef> squares = mHouse.getSquares();
-        Map<String, PLocationRef> apatures = mHouse.getApatures();
-        mLocations.clear();
-        for (String id : squares.keySet())
-        {
-            PLocationRef square = squares.get(id);
-            mLocations.put(id, square);
-        }
-        for (String id : apatures.keySet())
-        {
-            PLocationRef apature = apatures.get(id);
-            mLocations.put(id, apature);
-        }
+        mLocations = mHouse.getLocations();
     }
 
     private Polygon toAWT(Polygon2D p3d)

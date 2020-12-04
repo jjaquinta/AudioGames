@@ -97,8 +97,7 @@ public class OldLogic
             ptemp.setName(ttemp.getID());
             ptemp.setDescription(ttemp.getDescription());
             ptemp.setCategory(category);
-            Map<String,PLocationRef> sqs = new HashMap<>();
-            Map<String,PLocationRef> aps = new HashMap<>();
+            Map<String,PLocationRef> locations = new HashMap<>();
             char[][][] floors = ttemp.getFloors();
             for (int z = 0; z < floors.length; z++)
                 for (int y = 0; y < floors[z].length; y++)
@@ -120,7 +119,7 @@ public class OldLogic
                             sq.setX(x);
                             sq.setY(y);
                             sq.setZ(z);
-                            sqs.put(x+","+y+","+z, sq);
+                            locations.put(x+","+y+","+z, sq);
                         }
                         else
                         {
@@ -131,11 +130,10 @@ public class OldLogic
                             ap.setX(x);
                             ap.setY(y);
                             ap.setZ(z);
-                            aps.put(x+","+y+","+z, ap);
+                            locations.put(x+","+y+","+z, ap);
                         }
                     }
-            ptemp.setApatures(aps);
-            ptemp.setSquares(sqs);
+            ptemp.setLocations(locations);
             templates.put(ptemp.getID(), ptemp);
         }
         library.setTemplates(templates);

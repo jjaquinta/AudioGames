@@ -47,8 +47,7 @@ public class FloorPanel extends JComponent
     private PTemplate                 mHouse;
     private Map<String,PSquare>       mSquareIndex;
     private Map<String,PApature>      mApatureIndex;
-    private Map<String,PLocationRef>  mSquares;
-    private Map<String,PLocationRef>  mApatures;
+    private Map<String,PLocationRef>  mLocations;
     private int[][]                   mBounds;
     private int                       mNumFloors;
     private int                       mTilesWide;
@@ -183,9 +182,8 @@ public class FloorPanel extends JComponent
         mSquareIndex = lib.getSquares();
         mApatureIndex = lib.getApatures();
         mHouse = es.getSelectedHouse();
-        mSquares = mHouse.getSquares();
-        mApatures = mHouse.getApatures();
-        if ((mHouse == null) || (mSquares.size() + mApatures.size() == 0))
+        mLocations = mHouse.getLocations();
+        if ((mHouse == null) || (mLocations.size() == 0))
             return;
         mBounds = EditorHouseLogic.getBoundary();
         mNumFloors = (mBounds[1][2] - mBounds[0][2] + 2)/2;
@@ -221,15 +219,13 @@ public class FloorPanel extends JComponent
     private PLocation getLocation(int x, int y, int z)
     {
         String k = x+","+y+","+z;
-        if (mSquares.containsKey(k))
+        if (mLocations.containsKey(k))
         {
-            String id = mSquares.get(k).getID();
-            return mSquareIndex.get(id);
-        }
-        if (mApatures.containsKey(k))
-        {
-            String id = mApatures.get(k).getID();
-            return mApatureIndex.get(id);
+            String id = mLocations.get(k).getID();
+            if (PTemplate.getType(x, y, z) == PTemplate.SQUARE)
+                return mSquareIndex.get(id);
+            else
+                return mApatureIndex.get(id);
         }
         return null;
     }
@@ -474,9 +470,9 @@ public class FloorPanel extends JComponent
         PLocation[] choices;
         Class<?> type = inferType();
         if (type == PSquare.class)
-            choices = mSquares.values().toArray(new PLocation[0]);
+            choices = EditorSettingsLogic.getInstance().getLibrary().getSquares().values().toArray(new PSquare[0]);
         else
-            choices = mApatures.values().toArray(new PApature[0]);
+            choices = EditorSettingsLogic.getInstance().getLibrary().getApatures().values().toArray(new PSquare[0]);
         PLocation choice = (PLocation)JOptionPane.showInputDialog(this,
                 "Choose type", "Set Map Value", JOptionPane.QUESTION_MESSAGE,
                 null, choices, // Array of choices
