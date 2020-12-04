@@ -64,7 +64,6 @@ public class OldLogic
             sq.setOpenLocksMod(loc.getOpenLocksMod());
             squares.put(sq.getID(), sq);
         }
-        library.setSquares(squares);
         Map<String,PApature> apatures = library.getApatures();
         for (TApature tapp : locs.getApatures())
         {
@@ -88,7 +87,6 @@ public class OldLogic
         }
         PApature papp = makeExit();
         apatures.put(papp.getID(), papp);
-        library.setApatures(apatures);
         Map<String,PTemplate> templates = library.getTemplates();
         for (TTemplate ttemp : locs.getTemplates())
         {
@@ -97,7 +95,7 @@ public class OldLogic
             ptemp.setName(ttemp.getID());
             ptemp.setDescription(ttemp.getDescription());
             ptemp.setCategory(category);
-            Map<String,PLocationRef> locations = new HashMap<>();
+            Map<String,PLocationRef> locations = ptemp.getLocations();
             char[][][] floors = ttemp.getFloors();
             for (int z = 0; z < floors.length; z++)
                 for (int y = 0; y < floors[z].length; y++)
@@ -137,10 +135,8 @@ public class OldLogic
                             locations.put(x+","+y+","+z, ap);
                         }
                     }
-            ptemp.setLocations(locations);
             templates.put(ptemp.getID(), ptemp);
         }
-        library.setTemplates(templates);
     }
 
     private static PApature makeExit()

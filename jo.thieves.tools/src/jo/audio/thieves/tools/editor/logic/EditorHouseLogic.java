@@ -75,7 +75,7 @@ public class EditorHouseLogic
         if (locations.containsKey(k))
         {
             locations.remove(k);
-            house.setLocations(locations);
+            house.fireMonotonicPropertyChange("locations");
         }
         es.fireMonotonicPropertyChange("location.floor");
         RuntimeLogic.status("Clearing floor "+f+", "+x+","+y);
@@ -121,7 +121,7 @@ public class EditorHouseLogic
         ref.setZ(f);
         Map<String,PLocationRef> locations = house.getLocations();
         locations.put(k, ref);
-        house.setLocations(locations);
+        house.fireMonotonicPropertyChange("locations");
         es.fireMonotonicPropertyChange("location.floor");
         RuntimeLogic.status("Setting floor "+f+", "+x+","+y+" to "+tile.getID());
     }
@@ -132,7 +132,7 @@ public class EditorHouseLogic
         if (oldHouse != null)
             templates.remove(oldHouse);
         templates.put(newHouse.getID(), newHouse);
-        es.getLibrary().setTemplates(templates);
+        es.getLibrary().fireMonotonicPropertyChange("templates");
         es.fireMonotonicPropertyChange("location.info");
     }
         
@@ -621,7 +621,7 @@ public class EditorHouseLogic
         Map<String,PTemplate> templates = location.getTemplates();
         house.setID(id);
         templates.put(id, house);
-        location.setTemplates(templates);
+        location.fireMonotonicPropertyChange("templates");
         es.setLibrary(location);
         es.setSelectedCategory(house.getCategory());
         selectHouse(house);
@@ -638,7 +638,7 @@ public class EditorHouseLogic
             return;
         Map<String,PTemplate> templates = location.getTemplates();
         templates.remove(house.getID());
-        location.setTemplates(templates);
+        location.fireMonotonicPropertyChange("templates");
         es.fireMonotonicPropertyChange("houses");
     }
     public static int[][] getBoundary()

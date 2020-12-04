@@ -32,7 +32,7 @@ public class EditorSquareLogic
         EditorSettings es = EditorSettingsLogic.getInstance();
         Map<String,PSquare> squares = es.getLibrary().getSquares();
         squares.put(tile.getID(), tile);
-        es.getLibrary().setSquares(squares);
+        es.getLibrary().fireMonotonicPropertyChange("squares");
         EditorSettingsLogic.getInstance().fireMonotonicPropertyChange("location.square");
     }
     public static void updateColor(PSquare tile, Color c)
@@ -49,7 +49,7 @@ public class EditorSquareLogic
         squares.remove(tile.getID(), tile);
         tile.setID(newID);
         squares.put(tile.getID(), tile);
-        es.getLibrary().setSquares(squares);
+        es.getLibrary().fireMonotonicPropertyChange("squares");
         EditorSettingsLogic.getInstance().fireMonotonicPropertyChange("location.square");
     }
     public static void updateName(PSquare tile, String newVal)
@@ -125,7 +125,7 @@ public class EditorSquareLogic
         tile.setName("New Tile");
         tile.setDescription("New Description");
         squares.put(tile.getID(), tile);
-        lib.setSquares(squares);
+        lib.fireMonotonicPropertyChange("squares");
         es.fireMonotonicPropertyChange("location.square");
         return tile;
     }

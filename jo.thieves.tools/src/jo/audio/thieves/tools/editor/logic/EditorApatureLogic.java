@@ -32,7 +32,7 @@ public class EditorApatureLogic
         EditorSettings es = EditorSettingsLogic.getInstance();
         Map<String,PApature> squares = es.getLibrary().getApatures();
         squares.put(tile.getID(), tile);
-        es.getLibrary().setApatures(squares);
+        es.getLibrary().fireMonotonicPropertyChange("squares");
         EditorSettingsLogic.getInstance().fireMonotonicPropertyChange("location.apature");
     }
     public static void updateColor(PApature tile, Color c)
@@ -49,7 +49,7 @@ public class EditorApatureLogic
         squares.remove(tile.getID(), tile);
         tile.setID(newID);
         squares.put(tile.getID(), tile);
-        es.getLibrary().setApatures(squares);
+        es.getLibrary().fireMonotonicPropertyChange("squares");
         EditorSettingsLogic.getInstance().fireMonotonicPropertyChange("location.apature");
     }
     public static void updateName(PApature tile, String newVal)
@@ -139,7 +139,7 @@ public class EditorApatureLogic
         tile.setName("New Tile");
         tile.setDescription("New Description");
         apatures.put(tile.getID(), tile);
-        lib.setApatures(apatures);
+        lib.fireMonotonicPropertyChange("apatures");
         es.fireMonotonicPropertyChange("location.apature");
         return tile;
     }

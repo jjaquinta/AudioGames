@@ -17,6 +17,7 @@ import jo.audio.thieves.data.template.PTemplate;
 import jo.audio.thieves.tools.editor.data.EditorSettings;
 import jo.audio.thieves.tools.editor.logic.EditorHouseLogic;
 import jo.audio.thieves.tools.editor.logic.EditorSettingsLogic;
+import jo.audio.thieves.tools.editor.ui.bp.BluePrintPanel;
 import jo.audio.thieves.tools.logic.RuntimeLogic;
 import jo.util.ui.swing.utils.ListenerUtils;
 import jo.util.utils.obj.StringUtils;
