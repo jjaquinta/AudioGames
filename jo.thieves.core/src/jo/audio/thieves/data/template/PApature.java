@@ -16,6 +16,20 @@ public class PApature extends PLocation implements Comparable<PApature>
     {
         return StringUtils.compareTo(getName(), o.getName());
     }
+
+    public static boolean equals(PApature a1, PApature a2)
+    {
+        if (a1 == null)
+            if (a2 == null)
+                return true;
+            else
+                return false;
+        else
+            if (a2 == null)
+                return false;
+            else
+                return a1.getID().equals(a2.getID());
+    }
     
     // getters and setters
     public boolean getTransparent()

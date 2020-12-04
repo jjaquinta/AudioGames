@@ -86,6 +86,8 @@ public class OldLogic
             //papp.setOpenLocksMod(tapp.getOpenLocksMod());
             apatures.put(papp.getID(), papp);
         }
+        PApature papp = makeExit();
+        apatures.put(papp.getID(), papp);
         library.setApatures(apatures);
         Map<String,PTemplate> templates = library.getTemplates();
         for (TTemplate ttemp : locs.getTemplates())
@@ -137,6 +139,25 @@ public class OldLogic
             templates.put(ptemp.getID(), ptemp);
         }
         library.setTemplates(templates);
+    }
+
+    private static PApature makeExit()
+    {
+        PApature papp = new PApature();
+        //papp.setClimbWallsMod(tapp.getClimbWallsMod());
+        papp.setColor("#008000");
+        papp.setDescription("placeholder exit");
+        papp.setTransition("");
+        papp.setOpenable(false);
+        papp.setLockable(false);
+        papp.setTransparent(true);
+        //papp.setFindTrapsMod(tapp.getFindTrapsMod());
+        //papp.setHideInShadowsMod(tapp.getHideInShadowsMod());
+        papp.setID("EXIT");
+        //papp.setMoveSilentlyMod(tapp.getMoveSilentlyMod());
+        papp.setName("Exit");
+        //papp.setOpenLocksMod(tapp.getOpenLocksMod());
+        return papp;
     }
     
     public static void main(String[] argv) throws IOException

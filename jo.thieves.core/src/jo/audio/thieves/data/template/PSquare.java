@@ -14,7 +14,20 @@ public class PSquare extends PLocation implements Comparable<PSquare>
     {
         return StringUtils.compareTo(getName(), o.getName());
     }
-    
+
+    public static boolean equals(PSquare s1, PSquare s2)
+    {
+        if (s1 == null)
+            if (s2 == null)
+                return true;
+            else
+                return false;
+        else
+            if (s2 == null)
+                return false;
+            else
+                return s1.getID().equals(s2.getID());
+    }
 
     // getters and setters
 

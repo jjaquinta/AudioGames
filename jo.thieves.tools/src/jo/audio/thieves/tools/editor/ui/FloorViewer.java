@@ -254,6 +254,8 @@ public class FloorViewer extends JComponent
     {
         mTransform = new Transform3D();
         int[][] bounds = EditorHouseLogic.getBoundary();
+        if (bounds == null)
+            return;
         int ox = (bounds[0][0] + bounds[1][0]) / 2;
         int oy = (bounds[0][1] + bounds[1][1]) / 2;
         int oz = (bounds[0][2] + bounds[1][2]) / 2;

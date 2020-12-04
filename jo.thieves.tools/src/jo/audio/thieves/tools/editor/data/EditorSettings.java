@@ -12,6 +12,7 @@ public class EditorSettings extends PCSBean
 {
     private File                    mLibraryFile;
     private PLibrary                mLibrary;
+    private String                  mSelectedCategory;
     private PSquare                 mSelectedSquare;
     private PApature                mSelectedApature;
     // persistent settings
@@ -69,6 +70,16 @@ public class EditorSettings extends PCSBean
     {
         queuePropertyChange("selectedHouse", mSelectedHouse, selectedHouse);
         mSelectedHouse = selectedHouse;
+        firePropertyChange();
+    }
+    public String getSelectedCategory()
+    {
+        return mSelectedCategory;
+    }
+    public void setSelectedCategory(String selectedCategory)
+    {
+        queuePropertyChange("selectedCategory", mSelectedCategory, selectedCategory);
+        mSelectedCategory = selectedCategory;
         firePropertyChange();
     }
 }
