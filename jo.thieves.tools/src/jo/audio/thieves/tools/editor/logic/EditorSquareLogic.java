@@ -9,6 +9,7 @@ import java.util.Map;
 import jo.audio.thieves.data.template.PLibrary;
 import jo.audio.thieves.data.template.PSquare;
 import jo.audio.thieves.tools.editor.data.EditorSettings;
+import jo.audio.thieves.tools.logic.RuntimeLogic;
 
 public class EditorSquareLogic
 {
@@ -26,6 +27,7 @@ public class EditorSquareLogic
     {
         EditorSettings es = EditorSettingsLogic.getInstance();
         es.setSelectedSquare(tile);
+        RuntimeLogic.status("Selected "+tile.toString());
     }
     private static void updateSquare(PSquare tile)
     {

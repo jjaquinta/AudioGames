@@ -56,7 +56,7 @@ public class BluePrintMouseLogic
         {
             int x = (e.getX() - panel.mOrigins[floor][0]) / panel.ICON_SIZE * 2 + 1;
             int y = (e.getY() - panel.mOrigins[floor][1]) / panel.ICON_SIZE * 2 + 1;
-            int z = floor * 2;
+            int z = panel.mBounds[0][2] + floor * 2;
             boolean match = false;
             if (mode == BluePrintPanel.MODE_INSERT)
             {

@@ -95,7 +95,7 @@ public class PTemplate extends PCSBean implements IJSONAble,Comparable<PTemplate
     @Override
     public String toString()
     {
-        return getName();
+        return getName()+" ("+getID()+")";
     }
 
     @Override

@@ -41,7 +41,6 @@ import jo.util.ui.swing.utils.MouseUtils;
 import jo.util.utils.MathUtils;
 import jo.util.utils.obj.StringUtils;
 
-@SuppressWarnings("serial")
 public class FloorViewer extends JComponent
 {
     private static int                   ICON_SIZE       = 32;
@@ -423,7 +422,11 @@ public class FloorViewer extends JComponent
 
     private int gridToPixel(int grid)
     {
-        int pixel = (grid / 2) * ICON_SIZE;
+        int pixel;
+        if (grid >= 0)
+            pixel = (grid / 2) * ICON_SIZE;
+        else
+            pixel = ((grid - 1)/2) * ICON_SIZE;
         if (grid % 2 != 0)
             pixel += DOOR_WIDTH;
         return pixel;
@@ -447,9 +450,6 @@ public class FloorViewer extends JComponent
 
     private void addPoly(String xyz, PLocationRef tile)
     {
-        int type = PTemplate.getType(tile.getX(), tile.getY(), tile.getZ());
-        if (type == PTemplate.NOTHING)
-            System.out.println("Quack - "+tile.getID()+" "+tile.getX()+","+tile.getY()+","+tile.getZ());
         Point3D base = getBase(tile.getX(), tile.getY(), tile.getZ());
         Point3D size = getSize(tile.getX(), tile.getY(), tile.getZ());
         addFacet(base.x, base.y, base.z, size.x, size.y, 0, tile);

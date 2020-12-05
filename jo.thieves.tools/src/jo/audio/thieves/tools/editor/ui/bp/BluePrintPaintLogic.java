@@ -144,27 +144,38 @@ public class BluePrintPaintLogic
             else if (EditorSettingsLogic.getInstance().getActionMode() == EditorSettings.ACTION_APATURE)
                 locs.addAll(panel.mApatureIndex.values());
             Collections.sort(locs);
-            for (int i = 0; i < locs.size(); i++)
+            int iconsPerRow = panel.mSize.width/(panel.ICON_SIZE + panel.DOOR_WIDTH);
+            int rows = locs.size()/iconsPerRow;
+            if (locs.size()%iconsPerRow != 0)
+                rows++;
+            int y = panel.mSize.height - (panel.ICON_SIZE + panel.DOOR_WIDTH)*rows;
+            for (int row = 0; row < rows; row++)
             {
-                Rectangle rect = new Rectangle(panel.DOOR_WIDTH + (panel.ICON_SIZE + panel.DOOR_WIDTH)*i, panel.mSize.height - panel.ICON_SIZE - panel.DOOR_WIDTH,
-                        panel.ICON_SIZE, panel.ICON_SIZE);
-                PLocation item = locs.get(i);
-                PolySelect sel = new PolySelect(panel, item, rect);
-                panel.mSelectors.add(sel);
-                g.setColor(item.getColorObject());
-                g.fill(rect);
-                g.setColor(Color.DARK_GRAY);
-                g.draw(rect);
-                if (panel.mSelectorIndex == i)
+                int x = panel.DOOR_WIDTH;
+                for (int i = 0; (i < iconsPerRow) && (locs.size() > 0); i++)
                 {
-                    panel.setFont(panel.mBaseFont);
-                    FontMetrics fm = g.getFontMetrics();
-                    String txt = item.getName();
-                    if (StringUtils.isTrivial(txt))
-                        txt = item.getID();
-                    Rectangle2D w = fm.getStringBounds(txt, g);
-                    g.drawString(txt, rect.x + rect.width/2 - (int)w.getWidth()/2, rect.y - fm.getDescent() - fm.getLeading());
+                    Rectangle rect = new Rectangle(x, y, panel.ICON_SIZE, panel.ICON_SIZE);
+                    PLocation item = locs.get(0);
+                    locs.remove(0);
+                    PolySelect sel = new PolySelect(panel, item, rect);
+                    panel.mSelectors.add(sel);
+                    g.setColor(item.getColorObject());
+                    g.fill(rect);
+                    g.setColor(Color.DARK_GRAY);
+                    g.draw(rect);
+                    if (panel.mSelectorIndex == i)
+                    {
+                        panel.setFont(panel.mBaseFont);
+                        FontMetrics fm = g.getFontMetrics();
+                        String txt = item.getName();
+                        if (StringUtils.isTrivial(txt))
+                            txt = item.getID();
+                        Rectangle2D w = fm.getStringBounds(txt, g);
+                        g.drawString(txt, rect.x + rect.width/2 - (int)w.getWidth()/2, rect.y - fm.getDescent() - fm.getLeading());
+                    }
+                    x += (panel.ICON_SIZE + panel.DOOR_WIDTH);
                 }
+                y += (panel.ICON_SIZE + panel.DOOR_WIDTH);
             }
         }
     }

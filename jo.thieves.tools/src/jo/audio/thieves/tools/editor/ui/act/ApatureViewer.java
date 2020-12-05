@@ -178,7 +178,7 @@ public class ApatureViewer extends JComponent
     public void updateColorIcon()
     {
         BufferedImage img = new BufferedImage(16, 16, BufferedImage.TYPE_3BYTE_BGR);
-        int rgb = Integer.parseInt(mApature.getColor().substring(1), 16);
+        int rgb = mApature.getColorObject().getRGB();
         for (int x = 0; x < 16; x++)
             for (int y = 0; y < 16; y++)
                 img.setRGB(x, y, rgb);

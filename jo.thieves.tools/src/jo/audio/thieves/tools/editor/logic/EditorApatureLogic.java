@@ -9,6 +9,7 @@ import java.util.Map;
 import jo.audio.thieves.data.template.PApature;
 import jo.audio.thieves.data.template.PLibrary;
 import jo.audio.thieves.tools.editor.data.EditorSettings;
+import jo.audio.thieves.tools.logic.RuntimeLogic;
 
 public class EditorApatureLogic
 {
@@ -26,6 +27,7 @@ public class EditorApatureLogic
     {
         EditorSettings es = EditorSettingsLogic.getInstance();
         es.setSelectedApature(tile);
+        RuntimeLogic.status("Selected "+tile.toString());
     }
     private static void updateApature(PApature tile)
     {
