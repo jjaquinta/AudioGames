@@ -24,8 +24,10 @@ import jo.util.utils.obj.StringUtils;
 
 public class EditPanel extends JPanel
 {
-    private SquaresPanel         mTiles;
-    private ApaturesPanel        mApatures;
+    private SquarePicker         mSquarePicker;
+    private ApaturePicker        mApaturePicker;
+    private SquarePanel          mSquarePanel;
+    private ApaturePanel         mApaturePanel;
     private FloorPanel           mClient;
     private FloorViewer          mViewer;
     private BluePrintPanel       mBluePrint;
@@ -53,8 +55,10 @@ public class EditPanel extends JPanel
         mAddHouse = new JButton("+");
         mDelHouse = new JButton("-");
         mSave = new JButton("Save");
-        mTiles = new SquaresPanel();
-        mApatures = new ApaturesPanel();
+        mSquarePicker = new SquarePicker();
+        mApaturePicker = new ApaturePicker();
+        mSquarePanel = new SquarePanel();
+        mApaturePanel = new ApaturePanel();
         mHouseEdit = new HousePanel();
         mBluePrint = new BluePrintPanel();
     }
@@ -77,11 +81,21 @@ public class EditPanel extends JPanel
         client.setLayout(new BorderLayout());
         client.add("North", mHouseEdit);
         client.add("Center", tabs);
+        
+        JPanel left = new JPanel();
+        left.setLayout(new BorderLayout());
+        left.add("North", mApaturePicker);
+        left.add("Center", mApaturePanel);
+
+        JPanel right = new JPanel();
+        right.setLayout(new BorderLayout());
+        right.add("North", mSquarePicker);
+        right.add("Center", mSquarePanel);
 
         setLayout(new BorderLayout());
         add("North", toolbar);
-        add("East", mTiles);
-        add("West", mApatures);
+        add("East", right);
+        add("West", left);
         add("Center", client);
     }
 

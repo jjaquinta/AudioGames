@@ -13,13 +13,11 @@ import jo.audio.thieves.tools.editor.data.EditorSettings;
 import jo.audio.thieves.tools.editor.logic.EditorSettingsLogic;
 import jo.util.ui.swing.utils.ListenerUtils;
 
-@SuppressWarnings("serial")
-public class ApaturesPanel extends JComponent
+public class ApaturePicker extends JComponent
 {
     private JComboBox<PApature> mApatures;
-    private ApaturePanel        mClient;
 
-    public ApaturesPanel()
+    public ApaturePicker()
     {
         initInstantiate();
         initLayout();
@@ -30,14 +28,12 @@ public class ApaturesPanel extends JComponent
     private void initInstantiate()
     {
         mApatures = new JComboBox<>();
-        mClient = new ApaturePanel();
     }
 
     private void initLayout()
     {
         setLayout(new BorderLayout());
         add("North", mApatures);
-        add("Center", mClient);
     }
 
     private void initLink()
@@ -64,10 +60,7 @@ public class ApaturesPanel extends JComponent
         PApature uitile = (PApature)mApatures.getSelectedItem();
         PApature datatile = es.getSelectedApature();
         if (!PApature.equals(uitile, datatile))
-        {
             es.setSelectedApature(uitile);
-            mClient.setTile(uitile);
-        }
     }
     
     private void doNewDataApature()
@@ -76,10 +69,7 @@ public class ApaturesPanel extends JComponent
         PApature uitile = (PApature)mApatures.getSelectedItem();
         PApature datatile = es.getSelectedApature();
         if (!PApature.equals(uitile, datatile))
-        {
             mApatures.setSelectedItem(datatile);
-            mClient.setTile(datatile);
-        }
     }
 
     private void setTiles(Collection<PApature> tiles)

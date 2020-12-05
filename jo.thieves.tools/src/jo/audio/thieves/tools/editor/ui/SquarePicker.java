@@ -13,13 +13,11 @@ import jo.audio.thieves.tools.editor.logic.EditorSettingsLogic;
 import jo.audio.thieves.tools.editor.logic.EditorSquareLogic;
 import jo.util.ui.swing.utils.ListenerUtils;
 
-@SuppressWarnings("serial")
-public class SquaresPanel extends JComponent
+public class SquarePicker extends JComponent
 {
     private JComboBox<PSquare> mSquares;
-    private SquarePanel        mClient;
 
-    public SquaresPanel()
+    public SquarePicker()
     {
         initInstantiate();
         initLayout();
@@ -30,14 +28,12 @@ public class SquaresPanel extends JComponent
     private void initInstantiate()
     {
         mSquares = new JComboBox<>();
-        mClient = new SquarePanel();
     }
 
     private void initLayout()
     {
         setLayout(new BorderLayout());
-        add("North", mSquares);
-        add("Center", mClient);
+        add("Center", mSquares);
     }
 
     private void initLink()
@@ -54,10 +50,7 @@ public class SquaresPanel extends JComponent
         PSquare uitile = (PSquare)mSquares.getSelectedItem();
         PSquare datatile = es.getSelectedSquare();
         if (!PSquare.equals(uitile, datatile))
-        {
             es.setSelectedSquare(uitile);
-            mClient.setTile(uitile);
-        }
     }
     
     private void doNewDataSquare()
@@ -66,10 +59,7 @@ public class SquaresPanel extends JComponent
         PSquare uitile = (PSquare)mSquares.getSelectedItem();
         PSquare datatile = es.getSelectedSquare();
         if (!PSquare.equals(uitile, datatile))
-        {
             mSquares.setSelectedItem(datatile);
-            mClient.setTile(datatile);
-        }
     }
 
     private void doNewLibrary()

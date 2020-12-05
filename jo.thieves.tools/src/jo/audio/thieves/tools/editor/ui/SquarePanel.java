@@ -1,10 +1,6 @@
 package jo.audio.thieves.tools.editor.ui;
 
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
 import java.awt.image.BufferedImage;
 
 import javax.swing.ImageIcon;
@@ -17,14 +13,15 @@ import javax.swing.JSpinner;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 import jo.audio.thieves.data.template.PSquare;
+import jo.audio.thieves.tools.editor.data.EditorSettings;
+import jo.audio.thieves.tools.editor.logic.EditorSettingsLogic;
 import jo.audio.thieves.tools.editor.logic.EditorSquareLogic;
 import jo.util.ui.swing.TableLayout;
+import jo.util.ui.swing.utils.FocusUtils;
+import jo.util.ui.swing.utils.ListenerUtils;
 
-@SuppressWarnings("serial")
 public class SquarePanel extends JComponent
 {
     private PSquare       mTile;
@@ -96,83 +93,19 @@ public class SquarePanel extends JComponent
 
     private void initLink()
     {
-        mColor.addActionListener(new ActionListener() {            
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                doColor();
-            }
-        });
-        mID.addFocusListener(new FocusAdapter() {
-            @Override
-            public void focusLost(FocusEvent e)
-            {
-                EditorSquareLogic.updateID(mTile, mID.getText());
-            }
-        });
-        mName.addFocusListener(new FocusAdapter() {
-            @Override
-            public void focusLost(FocusEvent e)
-            {
-                EditorSquareLogic.updateName(mTile, mName.getText());
-            }
-        });
-        mDescription.addFocusListener(new FocusAdapter() {
-            @Override
-            public void focusLost(FocusEvent e)
-            {
-                EditorSquareLogic.updateDesc(mTile, mDescription.getText());
-            }
-        });
-        mClimbWallsMod.addChangeListener(new ChangeListener() {            
-            @Override
-            public void stateChanged(ChangeEvent e)
-            {
-                EditorSquareLogic.updateClimbWalls(mTile, (Integer)mClimbWallsMod.getValue());
-            }
-        });
-        mHideInShadowsMod.addChangeListener(new ChangeListener() {            
-            @Override
-            public void stateChanged(ChangeEvent e)
-            {
-                EditorSquareLogic.updateHideInShadows(mTile, (Integer)mHideInShadowsMod.getValue());
-            }
-        });
-        mFindTrapsMod.addChangeListener(new ChangeListener() {            
-            @Override
-            public void stateChanged(ChangeEvent e)
-            {
-                EditorSquareLogic.updateFindTraps(mTile, (Integer)mFindTrapsMod.getValue());
-            }
-        });
-        mOpenLocksMod.addChangeListener(new ChangeListener() {            
-            @Override
-            public void stateChanged(ChangeEvent e)
-            {
-                EditorSquareLogic.updateOpenLocks(mTile, (Integer)mOpenLocksMod.getValue());
-            }
-        });
-        mMoveSilentlyMod.addChangeListener(new ChangeListener() {            
-            @Override
-            public void stateChanged(ChangeEvent e)
-            {
-                EditorSquareLogic.updateMoveSilently(mTile, (Integer)mMoveSilentlyMod.getValue());
-            }
-        });
-        mInside.addActionListener(new ActionListener() {            
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                EditorSquareLogic.updateInside(mTile, mInside.isSelected());
-            }
-        });
-        mBedroom.addActionListener(new ActionListener() {            
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                EditorSquareLogic.updateBedroom(mTile, mBedroom.isSelected());
-            }
-        });
+        ListenerUtils.listen(mColor, (e) -> doColor());
+        FocusUtils.focusLost(mID, (e) -> EditorSquareLogic.updateID(mTile, mID.getText()));
+        FocusUtils.focusLost(mName, (e) -> EditorSquareLogic.updateName(mTile, mName.getText()));
+        FocusUtils.focusLost(mDescription, (e) -> EditorSquareLogic.updateDesc(mTile, mDescription.getText()));
+        ListenerUtils.listen(mClimbWallsMod, (e) -> EditorSquareLogic.updateClimbWalls(mTile, (Integer)mClimbWallsMod.getValue()));
+        ListenerUtils.listen(mHideInShadowsMod, (e) -> EditorSquareLogic.updateHideInShadows(mTile, (Integer)mHideInShadowsMod.getValue()));
+        ListenerUtils.listen(mFindTrapsMod, (e) -> EditorSquareLogic.updateFindTraps(mTile, (Integer)mFindTrapsMod.getValue()));
+        ListenerUtils.listen(mOpenLocksMod, (e) -> EditorSquareLogic.updateOpenLocks(mTile, (Integer)mOpenLocksMod.getValue()));
+        ListenerUtils.listen(mMoveSilentlyMod, (e) -> EditorSquareLogic.updateMoveSilently(mTile, (Integer)mMoveSilentlyMod.getValue()));
+        ListenerUtils.listen(mInside, (e) -> EditorSquareLogic.updateInside(mTile, mInside.isSelected()));
+        ListenerUtils.listen(mBedroom, (e) -> EditorSquareLogic.updateBedroom(mTile, mBedroom.isSelected()));
+        EditorSettings es = EditorSettingsLogic.getInstance();
+        es.listen("selectedSquare", (ov,nv) -> setTile(EditorSettingsLogic.getInstance().getSelectedSquare()));
     }
     
     private void doColor()

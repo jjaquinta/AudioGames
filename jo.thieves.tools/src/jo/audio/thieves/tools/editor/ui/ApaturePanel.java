@@ -15,7 +15,9 @@ import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 
 import jo.audio.thieves.data.template.PApature;
+import jo.audio.thieves.tools.editor.data.EditorSettings;
 import jo.audio.thieves.tools.editor.logic.EditorApatureLogic;
+import jo.audio.thieves.tools.editor.logic.EditorSettingsLogic;
 import jo.util.ui.swing.TableLayout;
 import jo.util.ui.swing.utils.FocusUtils;
 import jo.util.ui.swing.utils.ListenerUtils;
@@ -114,6 +116,8 @@ public class ApaturePanel extends JComponent
         ListenerUtils.listen(mLockable, (e) -> EditorApatureLogic.updateLockable(mApature, mLockable.isSelected()));
         ListenerUtils.listen(mOpenable, (e) -> EditorApatureLogic.updateOpenable(mApature, mOpenable.isSelected()));
         ListenerUtils.listen(mTransparent, (e) -> EditorApatureLogic.updateTransparent(mApature, mTransparent.isSelected()));
+        EditorSettings es = EditorSettingsLogic.getInstance();
+        es.listen("selectedApature", (ov,nv) -> setTile(EditorSettingsLogic.getInstance().getSelectedApature()));
     }
     
     private void doColor()
