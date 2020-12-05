@@ -136,11 +136,17 @@ public class EditorApatureLogic
         Map<String,PApature> apatures = lib.getApatures();
         PApature tile = new PApature();
         tile.setID(newTileID);
-        tile.setName("New Tile");
+        tile.setName("New Apature");
         tile.setDescription("New Description");
+        tile.setColor("#808080");
         apatures.put(tile.getID(), tile);
         lib.fireMonotonicPropertyChange("apatures");
         es.fireMonotonicPropertyChange("location.apature");
         return tile;
+    }
+    public static void deleteApature(PApature selected)
+    {
+        // TODO Auto-generated method stub
+        
     }
 }

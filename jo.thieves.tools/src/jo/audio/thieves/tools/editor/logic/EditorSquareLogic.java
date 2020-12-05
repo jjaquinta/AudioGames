@@ -124,9 +124,15 @@ public class EditorSquareLogic
         tile.setID(newTileID);
         tile.setName("New Tile");
         tile.setDescription("New Description");
+        tile.setColor("#808080");
         squares.put(tile.getID(), tile);
         lib.fireMonotonicPropertyChange("squares");
         es.fireMonotonicPropertyChange("location.square");
         return tile;
+    }
+    public static void deleteSquare(PSquare selected)
+    {
+        // TODO Auto-generated method stub
+        
     }
 }
