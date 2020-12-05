@@ -18,6 +18,18 @@ public class PLocationRef extends PCSBean implements IJSONAble
     private int     mY;
     private int     mZ;
     
+    public PLocationRef()
+    {        
+    }
+    
+    public PLocationRef(String id, int x, int y, int z)
+    {        
+        mID = id;
+        mX = x;
+        mY = y;
+        mZ = z;
+    }
+    
     // utilities
     
     @Override

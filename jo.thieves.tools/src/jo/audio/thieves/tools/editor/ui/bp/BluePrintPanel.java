@@ -23,18 +23,22 @@ import jo.util.ui.swing.utils.MouseUtils;
 
 public class BluePrintPanel extends JComponent
 {
-    int                       ICON_SIZE   = 32;
-    int                       DOOR_WIDTH  = 4;
+    int                       ICON_SIZE      = 32;
+    int                       DOOR_WIDTH     = 4;
 
-    static int                MODE_NONE   = 0;
-    static int                MODE_INSERT = 1;
-    static int                MODE_DEL    = 2;
+    static int                MODE_NONE      = 0;
+    static int                MODE_INSERT    = 1;
+    static int                MODE_DEL       = 2;
+
+    static int                ACTION_SQUARE  = 0;
+    static int                ACTION_APATURE = 1;
+    static int                ACTION_STUFF   = 2;
 
     Dimension                 mSize;
     PTemplate                 mHouse;
     Map<String, PSquare>      mSquareIndex;
     Map<String, PApature>     mApatureIndex;
-    Map<String, PLocationRef> mLocations  = new HashMap<>();
+    Map<String, PLocationRef> mLocations     = new HashMap<>();
     int[][]                   mBounds;
     int[][]                   mSquareBounds;
     int                       mNumFloors;
@@ -42,12 +46,18 @@ public class BluePrintPanel extends JComponent
     int                       mTilesHigh;
     Font                      mBaseFont;
     int[][]                   mOrigins;
-    List<PolyTile>            mTiles      = new ArrayList<>();
-    PolyTile                  mHoverTile;
+    List<PolySquare>          mSquares         = new ArrayList<>();
+    List<PolyApature>         mApatures         = new ArrayList<>();
+    PolySquare                mHoverTile;
+    PolyApature               mHoverApature;
+    List<PolySelect>          mSelectors = new ArrayList<>();
+    int                       mSelectorIndex = -1;
     int[]                     mHoverSquare;
 
-    int                       mMode       = MODE_NONE;
+    int                       mMode          = MODE_NONE;
     Rectangle                 mModeButton;
+    int                       mAction        = ACTION_SQUARE;
+    Rectangle                 mActionButton;
 
     public BluePrintPanel()
     {
@@ -79,8 +89,10 @@ public class BluePrintPanel extends JComponent
         es.addPropertyChangeListener("location.floor", pcl);
         es.addPropertyChangeListener("location.tile", pcl);
         MouseUtils.mouseMoved(this, (e) -> BluePrintMouseLogic.doMouseMoved(e));
-        MouseUtils.mouseClicked(this, (e) -> BluePrintMouseLogic.doMouseClicked(e));
-        MouseUtils.mouseWheelMoved(this, (e) -> BluePrintMouseLogic.doMouseWheelMoved(e));
+        MouseUtils.mouseClicked(this,
+                (e) -> BluePrintMouseLogic.doMouseClicked(e));
+        MouseUtils.mouseWheelMoved(this,
+                (e) -> BluePrintMouseLogic.doMouseWheelMoved(e));
     }
 
     @Override
@@ -89,10 +101,18 @@ public class BluePrintPanel extends JComponent
         BluePrintPaintLogic.paint(this, g1);
     }
 
-    PolyTile findTile(int x, int y)
+    PolySquare findTile(int x, int y)
     {
-        for (PolyTile tile : mTiles)
+        for (PolySquare tile : mSquares)
             if (tile.toPolygon().contains(x, y))
+                return tile;
+        return null;
+    }
+
+    PolyApature findApature(int x, int y)
+    {
+        for (PolyApature tile : mApatures)
+            if (tile.mRect.contains(x, y))
                 return tile;
         return null;
     }

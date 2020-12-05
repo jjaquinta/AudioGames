@@ -3,9 +3,7 @@ package jo.audio.thieves.data.template;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONUtils;
 
-import jo.util.utils.obj.StringUtils;
-
-public class PSquare extends PLocation implements Comparable<PSquare>
+public class PSquare extends PLocation
 {
     public static final String ID_INSIDE  = "inside";
     public static final String ID_BEDROOM = "bedroom";
@@ -33,12 +31,6 @@ public class PSquare extends PLocation implements Comparable<PSquare>
     }
 
     // utilities
-
-    @Override
-    public int compareTo(PSquare o)
-    {
-        return StringUtils.compareTo(getName(), o.getName());
-    }
 
     public static boolean equals(PSquare s1, PSquare s2)
     {

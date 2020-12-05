@@ -9,14 +9,19 @@ import java.awt.Point;
 import java.awt.Polygon;
 import java.awt.Rectangle;
 import java.awt.geom.Rectangle2D;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import jo.audio.thieves.data.template.PApature;
 import jo.audio.thieves.data.template.PLibrary;
+import jo.audio.thieves.data.template.PLocation;
 import jo.audio.thieves.data.template.PLocationRef;
 import jo.audio.thieves.data.template.PTemplate;
 import jo.audio.thieves.tools.editor.data.EditorSettings;
 import jo.audio.thieves.tools.editor.logic.EditorHouseLogic;
 import jo.audio.thieves.tools.editor.logic.EditorSettingsLogic;
+import jo.util.utils.obj.StringUtils;
 
 public class BluePrintPaintLogic
 {
@@ -103,34 +108,69 @@ public class BluePrintPaintLogic
         return panel.mLocations.get(k);
     }
 
-    private static final int MODE_MARGIN = 4;
-    private static final int MODE_WIDTH  = 48;
-    private static final int MODE_HEIGHT = 24;
+    private static final int BTN_MARGIN = 4;
+    private static final int BTN_WIDTH  = 48;
+    private static final int BTN_HEIGHT = 24;
+    
+    private static Rectangle getButton(BluePrintPanel panel, int idx)
+    {
+        return new Rectangle(panel.mSize.width - (BTN_MARGIN + BTN_WIDTH)*(idx + 1), BTN_MARGIN,
+                BTN_WIDTH, BTN_HEIGHT);
+    }
+    
+    private static Rectangle makeButton(BluePrintPanel panel, Graphics2D g, int idx, Color fg, String txt)
+    {
+        Rectangle r = getButton(panel, idx);
+        g.setColor(fg);
+        g.fill(r);
+        g.setColor(Color.DARK_GRAY);
+        g.draw(r);
+        drawCenterText(panel, g, txt, r);
+        return r;
+    }
+    
+    private static final Color[] MODE_COLOR = new Color[] { Color.LIGHT_GRAY, Color.blue, Color.red };
+    private static final String[] MODE_TEXT = new String[] { "VIEW", "INS", "DEL" };
+    private static final Color[] ACTION_COLOR = new Color[] { Color.MAGENTA, Color.CYAN, Color.YELLOW };
+    private static final String[] ACTION_TEXT = new String[] { "SQ", "DOOR", "STUFF" };
 
     private static void paintButtons(BluePrintPanel panel, Graphics2D g)
     {
-        panel.mModeButton = new Rectangle(panel.mSize.width - MODE_WIDTH - MODE_MARGIN * 2,
-                MODE_MARGIN, MODE_WIDTH, MODE_HEIGHT);
-        String txt;
-        if (panel.mMode == BluePrintPanel.MODE_DEL)
+        int idx = 0;
+        panel.mModeButton = makeButton(panel, g, idx++, MODE_COLOR[panel.mMode], MODE_TEXT[panel.mMode]);
+        panel.mActionButton = makeButton(panel, g, idx++, ACTION_COLOR[panel.mAction], ACTION_TEXT[panel.mAction]);
+        panel.mSelectors.clear();
+        if (panel.mMode == BluePrintPanel.MODE_INSERT)
         {
-            g.setColor(Color.RED);
-            txt = "DEL";
+            List<PLocation> locs = new ArrayList<>();
+            if (panel.mAction == BluePrintPanel.ACTION_SQUARE)
+                locs.addAll(panel.mSquareIndex.values());
+            else if (panel.mAction == BluePrintPanel.ACTION_APATURE)
+                locs.addAll(panel.mApatureIndex.values());
+            Collections.sort(locs);
+            for (int i = 0; i < locs.size(); i++)
+            {
+                Rectangle rect = new Rectangle(panel.DOOR_WIDTH + (panel.ICON_SIZE + panel.DOOR_WIDTH)*i, panel.mSize.height - panel.ICON_SIZE - panel.DOOR_WIDTH,
+                        panel.ICON_SIZE, panel.ICON_SIZE);
+                PLocation item = locs.get(i);
+                PolySelect sel = new PolySelect(panel, item, rect);
+                panel.mSelectors.add(sel);
+                g.setColor(item.getColorObject());
+                g.fill(rect);
+                g.setColor(Color.DARK_GRAY);
+                g.draw(rect);
+                if (panel.mSelectorIndex == i)
+                {
+                    panel.setFont(panel.mBaseFont);
+                    FontMetrics fm = g.getFontMetrics();
+                    String txt = item.getName();
+                    if (StringUtils.isTrivial(txt))
+                        txt = item.getID();
+                    Rectangle2D w = fm.getStringBounds(txt, g);
+                    g.drawString(txt, rect.x + rect.width/2 - (int)w.getWidth()/2, rect.y - fm.getDescent() - fm.getLeading());
+                }
+            }
         }
-        else if (panel.mMode == BluePrintPanel.MODE_INSERT)
-        {
-            g.setColor(Color.BLUE);
-            txt = "INS";
-        }
-        else
-        {
-            g.setColor(Color.LIGHT_GRAY);
-            txt = "VIEW";
-        }
-        g.fill(panel.mModeButton);
-        g.setColor(Color.DARK_GRAY);
-        g.draw(panel.mModeButton);
-        drawCenterText(panel, g, txt, panel.mModeButton);
     }
 
     private static void paintFloors(BluePrintPanel panel, Graphics2D g)
@@ -142,7 +182,7 @@ public class BluePrintPaintLogic
             int[] oxy = getOrigin(panel, z);
             g.drawString(String.valueOf(z + 1), oxy[0] - 16, oxy[1]);
         }
-        for (PolyTile room : panel.mTiles)
+        for (PolySquare room : panel.mSquares)
             paintRoom(panel, g, room);
         paintWalls(panel, g);
         if (panel.mHoverTile != null)
@@ -151,10 +191,28 @@ public class BluePrintPaintLogic
             g.draw(panel.mHoverTile.toPolygon());
             paintRoomLabel(panel, g, panel.mHoverTile);
         }
+        if (panel.mAction == BluePrintPanel.ACTION_SQUARE)
+            paintSquareFocus(panel, g);
+        else if (panel.mAction == BluePrintPanel.ACTION_APATURE)
+            paintApatureFocus(panel, g);
+    }
+    
+    private static void paintSquareFocus(BluePrintPanel panel, Graphics2D g)
+    {
         if (panel.mHoverSquare != null)
         {
             Rectangle r = getRectangle(panel, panel.mHoverSquare[0], panel.mHoverSquare[1],
                     panel.mHoverSquare[2], PTemplate.SQUARE);
+            g.setColor(Color.RED);
+            g.draw(r);
+        }
+    }
+    
+    private static void paintApatureFocus(BluePrintPanel panel, Graphics2D g)
+    {
+        if (panel.mHoverApature != null)
+        {
+            Rectangle r = panel.mHoverApature.mRect;
             g.setColor(Color.RED);
             g.draw(r);
         }
@@ -236,9 +294,10 @@ public class BluePrintPaintLogic
 
     private static void paintWalls(BluePrintPanel panel, Graphics2D g)
     {
+        panel.mApatures.clear();
         for (int z = panel.mBounds[0][2]; z <= panel.mBounds[1][2]; z += 2)
-            for (int y = panel.mBounds[0][1]; y <= panel.mBounds[1][1]; y++)
-                for (int x = panel.mBounds[0][0]; x <= panel.mBounds[1][0]; x++)
+            for (int y = panel.mBounds[0][1]-1; y <= panel.mBounds[1][1]+1; y++)
+                for (int x = panel.mBounds[0][0]-1; x <= panel.mBounds[1][0]+1; x++)
                 {
                     int type = PTemplate.getType(x, y, z);
                     if (type >= PTemplate.APATURE_HORZ)
@@ -247,15 +306,20 @@ public class BluePrintPaintLogic
                         if (loc == null)
                         {
                             PLocationRef[] n = getNeighbors(panel, x, y, z);
+                            Rectangle r = getRectangle(panel, x, y, z, type);
                             if ((n[0] != null) && (n[1] != null))
                             {
-                                Rectangle r = getRectangle(panel, x, y, z, type);
                                 g.setColor(Color.DARK_GRAY);
                                 g.fill(r);
                             }
+                            PolyApature pa = new PolyApature(panel, new PLocationRef(null, x, y, z), r);
+                            panel.mApatures.add(pa);
                         }
                         else if ("EMPTY".equals(loc.getID()))
                         {
+                            Rectangle r = getRectangle(panel, x, y, z, type);
+                            PolyApature pa = new PolyApature(panel, loc, r);
+                            panel.mApatures.add(pa);
                             continue;
                         }
                         else
@@ -270,6 +334,8 @@ public class BluePrintPaintLogic
                                 g.fill(r[2]);
                                 g.setColor(apature.getColorObject());
                                 g.fill(r[1]);
+                                PolyApature pa = new PolyApature(panel, loc, r[1]);
+                                panel.mApatures.add(pa);
                             }
                             else
                             {
@@ -282,7 +348,7 @@ public class BluePrintPaintLogic
                 }
     }
 
-    private static void paintRoom(BluePrintPanel panel, Graphics2D g, PolyTile room)
+    private static void paintRoom(BluePrintPanel panel, Graphics2D g, PolySquare room)
     {
         Polygon p = room.toPolygon();
         Color c = room.mTile.getColorObject();
@@ -290,7 +356,7 @@ public class BluePrintPaintLogic
         g.fill(p);
     }
 
-    private static void paintRoomLabel(BluePrintPanel panel, Graphics2D g, PolyTile room)
+    private static void paintRoomLabel(BluePrintPanel panel, Graphics2D g, PolySquare room)
     {
         Polygon p = room.toPolygon();
         drawCenterText(panel, g, room.mTile.getName(), p.getBounds());
@@ -319,7 +385,7 @@ public class BluePrintPaintLogic
 
     private static void createRooms(BluePrintPanel panel)
     {
-        panel.mTiles.clear();
+        panel.mSquares.clear();
         for (PLocationRef loc : panel.mLocations.values())
         {
             int type = PTemplate.getType(loc);
@@ -327,7 +393,7 @@ public class BluePrintPaintLogic
             // "+type+" "+loc.getID());
             if (type != PTemplate.SQUARE)
                 continue;
-            for (PolyTile room : panel.mTiles)
+            for (PolySquare room : panel.mSquares)
                 if (room.adjacent(loc))
                 {
                     room.mPoints.add(new Point(loc.getX(), loc.getY()));
@@ -336,8 +402,8 @@ public class BluePrintPaintLogic
                 }
             if (loc != null)
             {
-                PolyTile tile = new PolyTile(panel, loc);
-                panel.mTiles.add(tile);
+                PolySquare tile = new PolySquare(panel, loc);
+                panel.mSquares.add(tile);
             }
         }
         consolidateRooms(panel);
@@ -345,16 +411,16 @@ public class BluePrintPaintLogic
 
     private static void consolidateRooms(BluePrintPanel panel)
     {
-        for (int i = 0; i < panel.mTiles.size() - 1; i++)
+        for (int i = 0; i < panel.mSquares.size() - 1; i++)
         {
-            PolyTile r1 = panel.mTiles.get(i);
-            for (int j = i + 1; j < panel.mTiles.size(); j++)
+            PolySquare r1 = panel.mSquares.get(i);
+            for (int j = i + 1; j < panel.mSquares.size(); j++)
             {
-                PolyTile r2 = panel.mTiles.get(j);
+                PolySquare r2 = panel.mSquares.get(j);
                 if (r1.adjacent(r2))
                 {
                     r1.mPoints.addAll(r2.mPoints);
-                    panel.mTiles.remove(j);
+                    panel.mSquares.remove(j);
                     j--;
                 }
             }

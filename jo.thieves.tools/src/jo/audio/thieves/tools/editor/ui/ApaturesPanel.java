@@ -44,7 +44,7 @@ public class ApaturesPanel extends JComponent
     {
         EditorSettings es = EditorSettingsLogic.getInstance();
         es.listen("library", (ov,nv) -> doNewLibrary());
-        es.listen("selectedSquare", (ov,nv) -> doNewDataApature());
+        es.listen("selectedApature", (ov,nv) -> doNewDataApature());
         ListenerUtils.listen(mApatures, (e) -> doNewUIApature());
     }
     

@@ -9,7 +9,7 @@ import java.util.List;
 import jo.audio.thieves.data.template.PLocation;
 import jo.audio.thieves.data.template.PLocationRef;
 
-class PolyTile
+class PolySquare
 {
     BluePrintPanel mPanel;
     PLocation   mTile;
@@ -17,7 +17,7 @@ class PolyTile
     List<Point> mPoints = new ArrayList<>();
     Polygon     mPoly;
     
-    public PolyTile(BluePrintPanel panel, PLocationRef loc)
+    public PolySquare(BluePrintPanel panel, PLocationRef loc)
     {
         mPanel = panel;
         mTile = mPanel.mSquareIndex.get(loc.getID());
@@ -27,7 +27,7 @@ class PolyTile
         mPoints.add(new Point(loc.getX(), loc.getY()));
     }
 
-    public static boolean equals(PolyTile t1, PolyTile t2)
+    public static boolean equals(PolySquare t1, PolySquare t2)
     {
         if (t1 == null)
             if (t2 == null)
@@ -56,7 +56,7 @@ class PolyTile
         return false;
     }
     
-    public boolean adjacent(PolyTile poly)
+    public boolean adjacent(PolySquare poly)
     {
         if (!poly.mTile.getID().equals(mTile.getID()))
             return false;

@@ -3,9 +3,7 @@ package jo.audio.thieves.data.template;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONUtils;
 
-import jo.util.utils.obj.StringUtils;
-
-public class PApature extends PLocation implements Comparable<PApature>
+public class PApature extends PLocation
 {
     public static final String ID_TRANSITION  = "transition"; 
     public static final String ID_OPENABLE    = "openable";   
@@ -41,12 +39,6 @@ public class PApature extends PLocation implements Comparable<PApature>
     }
 
     // utilities
-
-    @Override
-    public int compareTo(PApature o)
-    {
-        return StringUtils.compareTo(getName(), o.getName());
-    }
 
     public static boolean equals(PApature a1, PApature a2)
     {

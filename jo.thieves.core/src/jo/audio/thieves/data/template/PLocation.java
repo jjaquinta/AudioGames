@@ -9,8 +9,9 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONUtils;
 
 import jo.util.beans.PCSBean;
+import jo.util.utils.obj.StringUtils;
 
-public class PLocation extends PCSBean implements IJSONAble
+public class PLocation extends PCSBean implements IJSONAble, Comparable<PLocation>
 {
     public static final String              ID_DESCRIPTION         = "description";
     public static final String              ID_NAME                = "name";            
@@ -67,6 +68,12 @@ public class PLocation extends PCSBean implements IJSONAble
     }
 
     // utilities
+    
+    @Override
+    public int compareTo(PLocation o)
+    {
+        return StringUtils.compareTo(getName(), o.getName());
+    }
 
     public Color getColorObject()
     {
