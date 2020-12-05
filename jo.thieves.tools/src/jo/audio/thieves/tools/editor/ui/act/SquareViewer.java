@@ -1,4 +1,4 @@
-package jo.audio.thieves.tools.editor.ui;
+package jo.audio.thieves.tools.editor.ui.act;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
@@ -22,7 +22,7 @@ import jo.util.ui.swing.TableLayout;
 import jo.util.ui.swing.utils.FocusUtils;
 import jo.util.ui.swing.utils.ListenerUtils;
 
-public class SquarePanel extends JComponent
+public class SquareViewer extends JComponent
 {
     private PSquare       mTile;
 
@@ -39,7 +39,7 @@ public class SquarePanel extends JComponent
     private JCheckBox     mInside;
     private JCheckBox     mBedroom;
 
-    public SquarePanel()
+    public SquareViewer()
     {
         initInstantiate();
         initLayout();

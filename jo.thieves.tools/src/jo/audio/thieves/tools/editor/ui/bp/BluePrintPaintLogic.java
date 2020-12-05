@@ -138,14 +138,14 @@ public class BluePrintPaintLogic
     {
         int idx = 0;
         panel.mModeButton = makeButton(panel, g, idx++, MODE_COLOR[panel.mMode], MODE_TEXT[panel.mMode]);
-        panel.mActionButton = makeButton(panel, g, idx++, ACTION_COLOR[panel.mAction], ACTION_TEXT[panel.mAction]);
+        panel.mActionButton = makeButton(panel, g, idx++, ACTION_COLOR[EditorSettingsLogic.getInstance().getActionMode()], ACTION_TEXT[EditorSettingsLogic.getInstance().getActionMode()]);
         panel.mSelectors.clear();
         if (panel.mMode == BluePrintPanel.MODE_INSERT)
         {
             List<PLocation> locs = new ArrayList<>();
-            if (panel.mAction == BluePrintPanel.ACTION_SQUARE)
+            if (EditorSettingsLogic.getInstance().getActionMode() == EditorSettings.ACTION_SQUARE)
                 locs.addAll(panel.mSquareIndex.values());
-            else if (panel.mAction == BluePrintPanel.ACTION_APATURE)
+            else if (EditorSettingsLogic.getInstance().getActionMode() == EditorSettings.ACTION_APATURE)
                 locs.addAll(panel.mApatureIndex.values());
             Collections.sort(locs);
             for (int i = 0; i < locs.size(); i++)
@@ -191,9 +191,9 @@ public class BluePrintPaintLogic
             g.draw(panel.mHoverTile.toPolygon());
             paintRoomLabel(panel, g, panel.mHoverTile);
         }
-        if (panel.mAction == BluePrintPanel.ACTION_SQUARE)
+        if (EditorSettingsLogic.getInstance().getActionMode() == EditorSettings.ACTION_SQUARE)
             paintSquareFocus(panel, g);
-        else if (panel.mAction == BluePrintPanel.ACTION_APATURE)
+        else if (EditorSettingsLogic.getInstance().getActionMode() == EditorSettings.ACTION_APATURE)
             paintApatureFocus(panel, g);
     }
     

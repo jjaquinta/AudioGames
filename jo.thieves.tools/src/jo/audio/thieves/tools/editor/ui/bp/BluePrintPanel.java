@@ -30,10 +30,6 @@ public class BluePrintPanel extends JComponent
     static int                MODE_INSERT    = 1;
     static int                MODE_DEL       = 2;
 
-    static int                ACTION_SQUARE  = 0;
-    static int                ACTION_APATURE = 1;
-    static int                ACTION_STUFF   = 2;
-
     Dimension                 mSize;
     PTemplate                 mHouse;
     Map<String, PSquare>      mSquareIndex;
@@ -56,7 +52,6 @@ public class BluePrintPanel extends JComponent
 
     int                       mMode          = MODE_NONE;
     Rectangle                 mModeButton;
-    int                       mAction        = ACTION_SQUARE;
     Rectangle                 mActionButton;
 
     public BluePrintPanel()

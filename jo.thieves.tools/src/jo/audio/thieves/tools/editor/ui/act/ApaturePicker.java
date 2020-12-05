@@ -1,4 +1,4 @@
-package jo.audio.thieves.tools.editor.ui;
+package jo.audio.thieves.tools.editor.ui.act;
 
 import java.awt.BorderLayout;
 import java.util.Collection;

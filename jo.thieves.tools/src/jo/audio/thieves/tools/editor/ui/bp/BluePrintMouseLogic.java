@@ -5,6 +5,7 @@ import java.awt.event.MouseWheelEvent;
 
 import jo.audio.thieves.data.template.PApature;
 import jo.audio.thieves.data.template.PSquare;
+import jo.audio.thieves.tools.editor.data.EditorSettings;
 import jo.audio.thieves.tools.editor.logic.EditorApatureLogic;
 import jo.audio.thieves.tools.editor.logic.EditorHouseLogic;
 import jo.audio.thieves.tools.editor.logic.EditorSettingsLogic;
@@ -42,9 +43,9 @@ public class BluePrintMouseLogic
 
     private static void updateHoverItem(BluePrintPanel panel, MouseEvent e)
     {
-        if (panel.mAction == BluePrintPanel.ACTION_SQUARE)
+        if (EditorSettingsLogic.getInstance().getActionMode() == EditorSettings.ACTION_SQUARE)
             updateHoverSquare(panel, e);
-        else if (panel.mAction == BluePrintPanel.ACTION_APATURE)
+        else if (EditorSettingsLogic.getInstance().getActionMode() == EditorSettings.ACTION_APATURE)
             updateHoverApature(panel, e);
     }
 
@@ -100,9 +101,9 @@ public class BluePrintMouseLogic
 
     private static void updateHoverTile(BluePrintPanel panel, MouseEvent e)
     {
-        if (panel.mAction == BluePrintPanel.ACTION_SQUARE)
+        if (EditorSettingsLogic.getInstance().getActionMode() == EditorSettings.ACTION_SQUARE)
             updateHoverTileSquare(panel, e);
-        else if (panel.mAction == BluePrintPanel.ACTION_APATURE)
+        else if (EditorSettingsLogic.getInstance().getActionMode() == EditorSettings.ACTION_APATURE)
             updateHoverTileApature(panel, e);
     }
     
@@ -143,9 +144,9 @@ public class BluePrintMouseLogic
             doActionButton(panel);
         else if (doMouseClickedSelector(panel, e))
             return;
-        else if (panel.mAction == BluePrintPanel.ACTION_SQUARE)
+        else if (EditorSettingsLogic.getInstance().getActionMode() == EditorSettings.ACTION_SQUARE)
             doMouseClickedSquare(panel, e);
-        else if (panel.mAction == BluePrintPanel.ACTION_APATURE)
+        else if (EditorSettingsLogic.getInstance().getActionMode() == EditorSettings.ACTION_APATURE)
             doMouseClickedApature(panel, e);
     }
     
@@ -236,12 +237,12 @@ public class BluePrintMouseLogic
 
     private static void doActionButton(BluePrintPanel panel)
     {
-        if (panel.mAction == BluePrintPanel.ACTION_SQUARE)
-            panel.mAction = BluePrintPanel.ACTION_APATURE;
-        else if (panel.mAction == BluePrintPanel.ACTION_APATURE)
-            panel.mAction = BluePrintPanel.ACTION_STUFF;
+        if (EditorSettingsLogic.getInstance().getActionMode() == EditorSettings.ACTION_SQUARE)
+            EditorSettingsLogic.getInstance().setActionMode(EditorSettings.ACTION_APATURE);
+        else if (EditorSettingsLogic.getInstance().getActionMode() == EditorSettings.ACTION_APATURE)
+            EditorSettingsLogic.getInstance().setActionMode(EditorSettings.ACTION_STUFF);
         else
-            panel.mAction = BluePrintPanel.ACTION_SQUARE;
+            EditorSettingsLogic.getInstance().setActionMode(EditorSettings.ACTION_SQUARE);
 //            System.out.println("mode change ");
         panel.repaint();
     }

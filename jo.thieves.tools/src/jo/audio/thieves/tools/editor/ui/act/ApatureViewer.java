@@ -1,4 +1,4 @@
-package jo.audio.thieves.tools.editor.ui;
+package jo.audio.thieves.tools.editor.ui.act;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
@@ -23,7 +23,7 @@ import jo.util.ui.swing.utils.FocusUtils;
 import jo.util.ui.swing.utils.ListenerUtils;
 
 @SuppressWarnings("serial")
-public class ApaturePanel extends JComponent
+public class ApatureViewer extends JComponent
 {
     private PApature         mApature;
 
@@ -42,7 +42,7 @@ public class ApaturePanel extends JComponent
     private JCheckBox     mOpenable;
     private JCheckBox     mTransparent;
 
-    public ApaturePanel()
+    public ApatureViewer()
     {
         initInstantiate();
         initLayout();

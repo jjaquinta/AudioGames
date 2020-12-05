@@ -17,6 +17,7 @@ import jo.audio.thieves.data.template.PTemplate;
 import jo.audio.thieves.tools.editor.data.EditorSettings;
 import jo.audio.thieves.tools.editor.logic.EditorHouseLogic;
 import jo.audio.thieves.tools.editor.logic.EditorSettingsLogic;
+import jo.audio.thieves.tools.editor.ui.act.ActionPanel;
 import jo.audio.thieves.tools.editor.ui.bp.BluePrintPanel;
 import jo.audio.thieves.tools.logic.RuntimeLogic;
 import jo.util.ui.swing.utils.ListenerUtils;
@@ -24,10 +25,7 @@ import jo.util.utils.obj.StringUtils;
 
 public class EditPanel extends JPanel
 {
-    private SquarePicker         mSquarePicker;
-    private ApaturePicker        mApaturePicker;
-    private SquarePanel          mSquarePanel;
-    private ApaturePanel         mApaturePanel;
+    private ActionPanel          mActions;
     private FloorPanel           mClient;
     private FloorViewer          mViewer;
     private BluePrintPanel       mBluePrint;
@@ -55,10 +53,7 @@ public class EditPanel extends JPanel
         mAddHouse = new JButton("+");
         mDelHouse = new JButton("-");
         mSave = new JButton("Save");
-        mSquarePicker = new SquarePicker();
-        mApaturePicker = new ApaturePicker();
-        mSquarePanel = new SquarePanel();
-        mApaturePanel = new ApaturePanel();
+        mActions = new ActionPanel();
         mHouseEdit = new HousePanel();
         mBluePrint = new BluePrintPanel();
     }
@@ -82,20 +77,9 @@ public class EditPanel extends JPanel
         client.add("North", mHouseEdit);
         client.add("Center", tabs);
         
-        JPanel left = new JPanel();
-        left.setLayout(new BorderLayout());
-        left.add("North", mApaturePicker);
-        left.add("Center", mApaturePanel);
-
-        JPanel right = new JPanel();
-        right.setLayout(new BorderLayout());
-        right.add("North", mSquarePicker);
-        right.add("Center", mSquarePanel);
-
         setLayout(new BorderLayout());
         add("North", toolbar);
-        add("East", right);
-        add("West", left);
+        add("East", mActions);
         add("Center", client);
     }
 

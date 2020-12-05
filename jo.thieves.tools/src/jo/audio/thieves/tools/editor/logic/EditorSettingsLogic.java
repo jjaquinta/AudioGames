@@ -6,12 +6,15 @@ import java.util.Properties;
 
 import org.json.simple.JSONUtils;
 
+import jo.audio.thieves.data.template.PApature;
 import jo.audio.thieves.data.template.PLibrary;
+import jo.audio.thieves.data.template.PSquare;
 import jo.audio.thieves.logic.template.LibraryLogic;
 import jo.audio.thieves.tools.data.RuntimeBean;
 import jo.audio.thieves.tools.editor.data.EditorSettings;
 import jo.audio.thieves.tools.logic.RuntimeLogic;
 import jo.util.utils.io.FileUtils;
+import jo.util.utils.obj.IntegerUtils;
 
 public class EditorSettingsLogic
 {
@@ -60,6 +63,15 @@ public class EditorSettingsLogic
             props.put("6thieves.tools.editor.selectedHouse", es.getSelectedHouse().getID());
         else
             props.remove("6thieves.tools.editor.selectedHouse");
+        if (es.getSelectedSquare() != null)
+            props.put("6thieves.tools.editor.selectedSquare", es.getSelectedSquare().getID());
+        else
+            props.remove("6thieves.tools.editor.selectedSquare");
+        if (es.getSelectedApature() != null)
+            props.put("6thieves.tools.editor.selectedApature", es.getSelectedApature().getID());
+        else
+            props.remove("6thieves.tools.editor.selectedApature");
+        props.put("6thieves.tools.editor.actionMode", String.valueOf(es.getActionMode()));
     }
 
     private static void fromProps()
@@ -74,6 +86,19 @@ public class EditorSettingsLogic
         }
         if ((es.getSelectedHouse() == null) && (es.getLibrary() != null) && (es.getLibrary().getTemplates().size() > 0))
             es.setSelectedHouse(es.getLibrary().getTemplates().values().iterator().next());
+        if ((es.getLibrary() != null) && props.containsKey("6thieves.tools.editor.selectedApature"))
+        {
+            String id = props.getProperty("6thieves.tools.editor.selectedApature");
+            PApature value = es.getLibrary().getApatures().get(id);
+            es.setSelectedApature(value);
+        }
+        if ((es.getLibrary() != null) && props.containsKey("6thieves.tools.editor.selectedSquare"))
+        {
+            String id = props.getProperty("6thieves.tools.editor.selectedSquare");
+            PSquare value = es.getLibrary().getSquares().get(id);
+            es.setSelectedSquare(value);
+        }
+        es.setActionMode(IntegerUtils.parseInt(props.getProperty("6thieves.tools.editor.actionMode")));
     }
     
     private static void load() throws Exception
