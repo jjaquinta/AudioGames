@@ -42,6 +42,7 @@ class PolySquare
 
     public boolean adjacent(PLocationRef loc)
     {
+
         if (!loc.getID().equals(mTile.getID()))
             return false;
         if (loc.getZ() != mZ)

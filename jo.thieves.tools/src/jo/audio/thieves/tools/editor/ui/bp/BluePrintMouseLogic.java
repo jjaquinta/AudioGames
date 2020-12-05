@@ -4,6 +4,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
 
 import jo.audio.thieves.data.template.PApature;
+import jo.audio.thieves.data.template.PLocationRef;
 import jo.audio.thieves.data.template.PSquare;
 import jo.audio.thieves.tools.editor.data.EditorSettings;
 import jo.audio.thieves.tools.editor.logic.EditorApatureLogic;
@@ -49,46 +50,46 @@ public class BluePrintMouseLogic
             updateHoverApature(panel, e);
     }
 
+    private static int[] findClosestSquare(BluePrintPanel panel, MouseEvent e, int mode)
+    {
+        for (int floor = 0; floor < panel.mOrigins.length; floor++)
+        {
+            int x = (e.getX() - panel.mOrigins[floor][0]) / panel.ICON_SIZE * 2 + 1;
+            int y = (e.getY() - panel.mOrigins[floor][1]) / panel.ICON_SIZE * 2 + 1;
+            int z = floor * 2;
+            boolean match = false;
+            if (mode == BluePrintPanel.MODE_INSERT)
+            {
+                for (int i = 0; i < INSERT_MATCH.length; i++)
+                {
+                    String k = (x + INSERT_MATCH[i][0]) + ","
+                            + (y + INSERT_MATCH[i][1]) + "," + z;
+                    // System.out.print(k+" ");
+                    match = panel.mLocations.containsKey(k);
+                    if (match)
+                        break;
+                }
+                // System.out.println(match ? "match" : "no match");
+            }
+            else if (mode == BluePrintPanel.MODE_DEL)
+            {
+                String k = x + "," + y + "," + z;
+                match = panel.mLocations.containsKey(k);
+            }
+            if (match)
+            {
+                return new int[] { x, y, z };
+            }
+        }
+        return null;
+    }
+    
     private static void updateHoverSquare(BluePrintPanel panel, MouseEvent e)
     {
         if (panel.mMode == BluePrintPanel.MODE_NONE)
-        {
             panel.mHoverSquare = null;
-        }
         else
-        {
-            for (int floor = 0; floor < panel.mOrigins.length; floor++)
-            {
-                int x = (e.getX() - panel.mOrigins[floor][0]) / panel.ICON_SIZE * 2 + 1;
-                int y = (e.getY() - panel.mOrigins[floor][1]) / panel.ICON_SIZE * 2 + 1;
-                int z = floor * 2;
-                boolean match = false;
-                if (panel.mMode == BluePrintPanel.MODE_INSERT)
-                {
-                    for (int i = 0; i < INSERT_MATCH.length; i++)
-                    {
-                        String k = (x + INSERT_MATCH[i][0]) + ","
-                                + (y + INSERT_MATCH[i][1]) + "," + z;
-                        // System.out.print(k+" ");
-                        match = panel.mLocations.containsKey(k);
-                        if (match)
-                            break;
-                    }
-                    // System.out.println(match ? "match" : "no match");
-                }
-                else if (panel.mMode == BluePrintPanel.MODE_DEL)
-                {
-                    String k = x + "," + y + "," + z;
-                    match = panel.mLocations.containsKey(k);
-                }
-                if (match)
-                {
-                    panel.mHoverSquare = new int[] { x, y, z };
-                    return;
-                }
-            }
-            panel.mHoverSquare = null;
-        }
+            panel.mHoverSquare = findClosestSquare(panel, e, panel.mMode);
     }
 
     private static void updateHoverApature(BluePrintPanel panel, MouseEvent e)
@@ -219,7 +220,7 @@ public class BluePrintMouseLogic
             if (ap.mApature == null)
                 EditorHouseLogic.setTile(ap.mLocation.getZ(), ap.mLocation.getY(), ap.mLocation.getX(), panel.mApatureIndex.get("EMPTY"));
             else
-                EditorHouseLogic.removeTile(ap.mLocation.getZ(), ap.mLocation.getY(), ap.mLocation.getX());
+                EditorHouseLogic.removeTile(ap.mLocation.toKey());
         }
     }
 
@@ -257,5 +258,27 @@ public class BluePrintMouseLogic
         panel.ICON_SIZE = panel.DOOR_WIDTH * 8;
 //        System.out.println("mouse wheel repaint");
         panel.repaint();
+    }
+    
+    static PLocationRef makeLocation(BluePrintPanel panel, int x, int y, int z)
+    {
+        PLocationRef ref = panel.mHouse.getLocation(x, y, z);
+        if (ref == null)
+            ref = new PLocationRef(null, x, y, z);
+        return ref;
+    }
+
+    static void doMousePressed(MouseEvent e)
+    {
+        if (e.getButton() != MouseEvent.BUTTON3)
+            return;
+        BluePrintPanel panel = (BluePrintPanel)e.getSource();
+        int[] xyz = findClosestSquare(panel, e, BluePrintPanel.MODE_DEL);
+        if (xyz == null)
+            return;
+        PLocationRef here = makeLocation(panel, xyz[0], xyz[1], xyz[2]);
+        PLocationRef up = makeLocation(panel, xyz[0], xyz[1], xyz[2]+1);
+        PLocationRef down = makeLocation(panel, xyz[0], xyz[1], xyz[2]-1);
+        panel.doPopUp(e.getPoint(), here, up, down);
     }
 }

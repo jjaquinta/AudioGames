@@ -49,17 +49,19 @@ public class BluePrintPaintLogic
         int dx = panel.mSize.width / floorsWide;
         int dy = panel.mTilesHigh * panel.ICON_SIZE + 3 * panel.ICON_SIZE;
         panel.mOrigins = new int[panel.mNumFloors][2];
-        for (int z = panel.mBounds[0][2]; z <= panel.mBounds[1][2]; z += 2)
+        //System.out.println("NumFloors="+panel.mNumFloors+", from "+panel.mBounds[0][2]+" to "+panel.mBounds[1][2]);
+        for (int zact = panel.mBounds[0][2]; zact <= panel.mBounds[1][2]; zact += 2)
         {
-            int nx = (z / 2) % floorsWide;
-            int ny = (z / 2) / floorsWide;
+            int znorm = zact - panel.mBounds[0][2];
+            int nx = (znorm / 2) % floorsWide;
+            int ny = (znorm / 2) / floorsWide;
             int ox = nx * dx;
             int oy = ny * dy;
             int floorW = panel.mTilesWide * panel.ICON_SIZE;
             int floorH = panel.mTilesHigh * panel.ICON_SIZE;
             ox += (dx - floorW) / 2;
             oy += (dy - floorH) / 2;
-            panel.mOrigins[(z - panel.mBounds[0][2]) / 2] = new int[] { ox, oy };
+            panel.mOrigins[znorm/2] = new int[] { ox, oy };
         }
         createRooms(panel);
         paintFloors(panel, g);
@@ -364,8 +366,7 @@ public class BluePrintPaintLogic
         for (PLocationRef loc : panel.mLocations.values())
         {
             int type = PTemplate.getType(loc);
-            // System.out.println(loc.getX()+","+loc.getY()+","+loc.getZ()+"
-            // "+type+" "+loc.getID());
+            //System.err.println(loc.getX()+","+loc.getY()+","+loc.getZ()+" "+type+" "+loc.getID());
             if (type != PTemplate.SQUARE)
                 continue;
             for (PolySquare room : panel.mSquares)

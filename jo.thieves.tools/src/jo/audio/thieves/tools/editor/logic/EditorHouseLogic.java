@@ -68,9 +68,13 @@ public class EditorHouseLogic
     }
     public static void removeTile(int f, int y, int x)
     {
+        String k = x+","+y+","+f;
+        removeTile(k);
+    }
+    public static void removeTile(String k)
+    {
         EditorSettings es = EditorSettingsLogic.getInstance();
         PTemplate house = es.getSelectedHouse();
-        String k = x+","+y+","+f;
         Map<String,PLocationRef> locations = house.getLocations();
         if (locations.containsKey(k))
         {
@@ -78,7 +82,7 @@ public class EditorHouseLogic
             house.fireMonotonicPropertyChange("locations");
         }
         es.fireMonotonicPropertyChange("location.floor");
-        RuntimeLogic.status("Clearing floor "+f+", "+x+","+y);
+        RuntimeLogic.status("Clearing floor "+k);
     }
     
     private static final int[][] ORTH_DELTA = {
@@ -113,14 +117,13 @@ public class EditorHouseLogic
     {
         EditorSettings es = EditorSettingsLogic.getInstance();
         PTemplate house = es.getSelectedHouse();
-        String k = x+","+y+","+f;
         PLocationRef ref = new PLocationRef();
         ref.setID(tile.getID());
         ref.setX(x);
         ref.setY(y);
         ref.setZ(f);
         Map<String,PLocationRef> locations = house.getLocations();
-        locations.put(k, ref);
+        locations.put(x+","+y+","+f, ref);
         house.fireMonotonicPropertyChange("locations");
         es.fireMonotonicPropertyChange("location.floor");
         RuntimeLogic.status("Setting floor "+f+", "+x+","+y+" to "+tile.getID());
@@ -744,8 +747,16 @@ public class EditorHouseLogic
             if (loc.isApature())
             {
                 PLocationRef[] neighbors = house.getNeighbors(loc);
-                if ((neighbors[0] == null) && (neighbors[1] == null))
-                    house.getLocations().remove(key);
+                if (loc.getType() == PTemplate.APATURE_TWEEN)
+                {
+                    if ((neighbors[0] == null) || (neighbors[1] == null))
+                        house.getLocations().remove(key);
+                }
+                else
+                {
+                    if ((neighbors[0] == null) && (neighbors[1] == null))
+                        house.getLocations().remove(key);
+                }
             }
         }
         es.fireMonotonicPropertyChange("location.floor");

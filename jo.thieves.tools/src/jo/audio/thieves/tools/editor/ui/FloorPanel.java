@@ -235,10 +235,10 @@ public class FloorPanel extends JComponent
         int dx = x - mBounds[0][0];
         int dy = y - mBounds[0][1];
         int px = (dx/2)*(ICON_SIZE);
-        if (dx%2 == 1)
+        if (dx%2 != 0)
             px += DOOR_WIDTH;
         int py = (dy/2)*(ICON_SIZE);
-        if (dy%2 == 1)
+        if (dy%2 != 0)
             py += DOOR_WIDTH;
         int width = (dx%2 == 0) ? DOOR_WIDTH : DOOR_HEIGHT;
         int height = (dy%2 == 0) ? DOOR_WIDTH : DOOR_HEIGHT;
@@ -445,10 +445,10 @@ public class FloorPanel extends JComponent
     public Class<?> inferType()
     {
         Class<?> type;
-        if (mLastClickedLocation[0] % 2 == 1)
+        if (mLastClickedLocation[0] % 2 != 0)
             type = PApature.class;
-        else if ((mLastClickedLocation[1] % 2 == 1)
-                && (mLastClickedLocation[2] % 2 == 1))
+        else if ((mLastClickedLocation[1] % 2 != 0)
+                && (mLastClickedLocation[2] % 2 != 0))
             type = PSquare.class;
         else
             type = PApature.class;
@@ -472,7 +472,7 @@ public class FloorPanel extends JComponent
         if (type == PSquare.class)
             choices = EditorSettingsLogic.getInstance().getLibrary().getSquares().values().toArray(new PSquare[0]);
         else
-            choices = EditorSettingsLogic.getInstance().getLibrary().getApatures().values().toArray(new PSquare[0]);
+            choices = EditorSettingsLogic.getInstance().getLibrary().getApatures().values().toArray(new PApature[0]);
         PLocation choice = (PLocation)JOptionPane.showInputDialog(this,
                 "Choose type", "Set Map Value", JOptionPane.QUESTION_MESSAGE,
                 null, choices, // Array of choices

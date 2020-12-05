@@ -38,6 +38,11 @@ public class PLocationRef extends PCSBean implements IJSONAble
         return getID();
     }
     
+    public String toKey()
+    {
+        return getX()+","+getY()+","+getZ();
+    }
+    
     // I/O
     
     @Override

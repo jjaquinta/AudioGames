@@ -65,18 +65,18 @@ public class PTemplate extends PCSBean implements IJSONAble,Comparable<PTemplate
 
     public static int getType(int x, int y, int z)
     {
-        if ((z % 2) == 1)
+        if ((z % 2) != 0)
         { // tween
-            if ((x % 2 == 1) && (y % 2 == 1))
+            if ((x % 2 != 0) && (y % 2 != 0))
                 return APATURE_TWEEN;
             else
                 return NOTHING;
         }
-        if ((x % 2 == 1) && (y % 2 == 0))
+        if ((x % 2 != 0) && (y % 2 == 0))
             return APATURE_HORZ;
-        else if ((x % 2 == 0) && (y % 2 == 1))
+        else if ((x % 2 == 0) && (y % 2 != 0))
             return APATURE_VERT;
-        else if ((x % 2 == 1) && (y % 2 == 1))
+        else if ((x % 2 != 0) && (y % 2 != 0))
             return SQUARE;
         else // if ((x%2 == 0) && (y%2 == 0))
             return NOTHING;

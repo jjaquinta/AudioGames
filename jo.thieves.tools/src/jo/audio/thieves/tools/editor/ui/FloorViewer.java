@@ -358,7 +358,7 @@ public class FloorViewer extends JComponent
     {
         if (mLastClickedTile == null)
             return;
-        EditorHouseLogic.removeTile(mLastClickedTile.getX(), mLastClickedTile.getY(), mLastClickedTile.getZ());
+        EditorHouseLogic.removeTile(mLastClickedTile.toKey());
     }
 
     private void doNewTile()
