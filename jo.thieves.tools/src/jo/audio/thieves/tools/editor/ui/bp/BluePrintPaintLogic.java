@@ -102,12 +102,6 @@ public class BluePrintPaintLogic
         return true;
     }
 
-    private static PLocationRef getLocation(BluePrintPanel panel, int x, int y, int z)
-    {
-        String k = x + "," + y + "," + z;
-        return panel.mLocations.get(k);
-    }
-
     private static final int BTN_MARGIN = 4;
     private static final int BTN_WIDTH  = 48;
     private static final int BTN_HEIGHT = 24;
@@ -273,25 +267,6 @@ public class BluePrintPaintLogic
         return ret;
     }
 
-    private static PLocationRef[] getNeighbors(BluePrintPanel panel, int x, int y, int z)
-    {
-        int type = PTemplate.getType(x, y, z);
-        PLocationRef[] ret = new PLocationRef[2];
-        if (type == PTemplate.APATURE_VERT)
-        {
-            ret[0] = getLocation(panel, x - 1, y, z);
-            ret[1] = getLocation(panel, x + 1, y, z);
-        }
-        else if (type == PTemplate.APATURE_HORZ)
-        {
-            ret[0] = getLocation(panel, x, y - 1, z);
-            ret[1] = getLocation(panel, x, y + 1, z);
-        }
-        else
-            throw new IllegalArgumentException();
-        return ret;
-    }
-
     private static void paintWalls(BluePrintPanel panel, Graphics2D g)
     {
         panel.mApatures.clear();
@@ -302,10 +277,10 @@ public class BluePrintPaintLogic
                     int type = PTemplate.getType(x, y, z);
                     if (type >= PTemplate.APATURE_HORZ)
                     {
-                        PLocationRef loc = getLocation(panel, x, y, z);
+                        PLocationRef loc = panel.mHouse.getLocation(x, y, z);
                         if (loc == null)
                         {
-                            PLocationRef[] n = getNeighbors(panel, x, y, z);
+                            PLocationRef[] n = panel.mHouse.getNeighbors(x, y, z);
                             Rectangle r = getRectangle(panel, x, y, z, type);
                             if ((n[0] != null) && (n[1] != null))
                             {

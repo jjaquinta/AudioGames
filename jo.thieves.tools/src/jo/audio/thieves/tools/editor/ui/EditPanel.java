@@ -13,6 +13,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
+import org.json.simple.JSONObject;
+import org.json.simple.JSONUtils;
+
 import jo.audio.thieves.data.template.PTemplate;
 import jo.audio.thieves.tools.editor.data.EditorSettings;
 import jo.audio.thieves.tools.editor.logic.EditorHouseLogic;
@@ -34,6 +37,8 @@ public class EditPanel extends JPanel
     private HousePanel           mHouseEdit;
     private JButton              mAddHouse;
     private JButton              mDelHouse;
+    private JButton              mDuplicate;
+    private JButton              mCleanup;
     private JButton              mSave;
 
     public EditPanel()
@@ -52,6 +57,8 @@ public class EditPanel extends JPanel
         mCategory = new JComboBox<>();
         mAddHouse = new JButton("+");
         mDelHouse = new JButton("-");
+        mDuplicate = new JButton("Dup");
+        mCleanup = new JButton("Clean");
         mSave = new JButton("Save");
         mActions = new ActionPanel();
         mHouseEdit = new HousePanel();
@@ -66,6 +73,8 @@ public class EditPanel extends JPanel
         toolbar.add(mHouse);
         toolbar.add(mAddHouse);
         toolbar.add(mDelHouse);
+        toolbar.add(mDuplicate);
+        toolbar.add(mCleanup);
         toolbar.add(mSave);
         
         JTabbedPane tabs = new JTabbedPane();
@@ -103,6 +112,8 @@ public class EditPanel extends JPanel
         });
         ListenerUtils.listen(mAddHouse, (e) -> doAddHouse());
         ListenerUtils.listen(mDelHouse, (e) -> doDelHouse());
+        ListenerUtils.listen(mCleanup, (e) -> doCleanup());
+        ListenerUtils.listen(mDuplicate, (e) -> doDuplicate());
     }
 
     private void doNewDataLibrary()
@@ -198,5 +209,22 @@ public class EditPanel extends JPanel
         if (proceed != JOptionPane.YES_OPTION)
             return;
         EditorHouseLogic.deleteHouse();
+    }
+    
+    private void doCleanup()
+    {
+        EditorHouseLogic.cleanupHouse();
+        JSONObject json = EditorSettingsLogic.getInstance().getSelectedHouse().toJSON();
+        System.out.println(JSONUtils.toFormattedString(json));
+    }
+    
+    private void doDuplicate()
+    {
+        String id = (String)JOptionPane.showInputDialog(this,
+                "ID for new House", "Duplicate House",
+                JOptionPane.QUESTION_MESSAGE, null, null, "NEW_HOUSE");
+        if (id == null)
+            return;
+        EditorHouseLogic.duplicateHouse(id);
     }
 }

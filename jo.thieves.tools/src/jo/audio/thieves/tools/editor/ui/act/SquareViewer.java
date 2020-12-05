@@ -163,7 +163,7 @@ public class SquareViewer extends JComponent
     public void updateColorIcon()
     {
         BufferedImage img = new BufferedImage(16, 16, BufferedImage.TYPE_3BYTE_BGR);
-        int rgb = Integer.parseInt(mTile.getColor().substring(1), 16);
+        int rgb = mTile.getColorObject().getRGB();
         for (int x = 0; x < 16; x++)
             for (int y = 0; y < 16; y++)
                 img.setRGB(x, y, rgb);

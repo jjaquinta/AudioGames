@@ -86,7 +86,10 @@ public class PLocation extends PCSBean implements IJSONAble, Comparable<PLocatio
             co = mColorCache.get(c);
             if (co == null)
             {
-                int rgb = Integer.parseInt(c.substring(1), 16);
+                c = c.substring(1);
+                if (c.length() > 6)
+                    c = c.substring(c.length() - 6);
+                int rgb = Integer.parseInt(c, 16);
                 co = new Color(rgb);
                 mColorCache.put(c, co);
             }

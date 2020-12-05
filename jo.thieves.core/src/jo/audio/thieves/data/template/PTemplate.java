@@ -104,6 +104,41 @@ public class PTemplate extends PCSBean implements IJSONAble,Comparable<PTemplate
         return StringUtils.compareTo(getName(), o.getName());
     }
 
+    public PLocationRef getLocation(int x, int y, int z)
+    {
+        String k = x + "," + y + "," + z;
+        return mLocations.get(k);
+    }
+
+    public PLocationRef[] getNeighbors(int x, int y, int z)
+    {
+        int type = PTemplate.getType(x, y, z);
+        PLocationRef[] ret = new PLocationRef[2];
+        if (type == PTemplate.APATURE_VERT)
+        {
+            ret[0] = getLocation(x - 1, y, z);
+            ret[1] = getLocation(x + 1, y, z);
+        }
+        else if (type == PTemplate.APATURE_HORZ)
+        {
+            ret[0] = getLocation(x, y - 1, z);
+            ret[1] = getLocation(x, y + 1, z);
+        }
+        else if (type == PTemplate.APATURE_TWEEN)
+        {
+            ret[0] = getLocation(x, y, z - 1);
+            ret[1] = getLocation(x, y, z + 1);
+        }
+        else
+            throw new IllegalArgumentException();
+        return ret;
+    }
+
+    public PLocationRef[] getNeighbors(PLocationRef loc)
+    {
+        return getNeighbors(loc.getX(), loc.getY(), loc.getZ());
+    }
+
     // getters and setters
 
     public String getID()

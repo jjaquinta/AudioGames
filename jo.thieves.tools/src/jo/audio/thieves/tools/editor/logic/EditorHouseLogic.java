@@ -601,21 +601,14 @@ public class EditorHouseLogic
             + "}"
             ;
     
-    public static void addHouse(String id)
+    private static void newHouse(String id, JSONObject clone)
     {
         EditorSettings es = EditorSettingsLogic.getInstance();
         PLibrary location = es.getLibrary();
         if (location == null)
             return;
         PTemplate house = new PTemplate();
-        try
-        {
-            house.fromJSON((JSONObject)JSONUtils.PARSER.parse(DEFAULT_HOUSE));
-        }
-        catch (ParseException e)
-        {
-            RuntimeLogic.error(e);
-        }
+        house.fromJSON(clone);
         Map<String,PTemplate> templates = location.getTemplates();
         house.setID(id);
         templates.put(id, house);
@@ -623,6 +616,19 @@ public class EditorHouseLogic
         es.setLibrary(location);
         es.setSelectedCategory(house.getCategory());
         selectHouse(house);
+    }
+    
+    public static void addHouse(String id)
+    {
+        try
+        {
+            JSONObject clone = (JSONObject)JSONUtils.PARSER.parse(DEFAULT_HOUSE);
+            newHouse(id, clone);
+        }
+        catch (ParseException e)
+        {
+            RuntimeLogic.error(e);
+        }
     }
     
     public static void deleteHouse()
@@ -709,5 +715,45 @@ public class EditorHouseLogic
                     }
                 }
         es.fireMonotonicPropertyChange("location.floor");
+    }
+    public static void cleanupHouse()
+    {
+        EditorSettings es = EditorSettingsLogic.getInstance();
+        PTemplate house = es.getSelectedHouse();
+        // clean nothings
+        for (String key : house.getLocations().keySet().toArray(new String[0]))
+        {
+            PLocationRef loc = house.getLocations().get(key);
+            if (PTemplate.getType(loc) == PTemplate.NOTHING)
+                house.getLocations().remove(key);
+        }
+        // clean squares
+        for (String key : house.getLocations().keySet().toArray(new String[0]))
+        {
+            PLocationRef loc = house.getLocations().get(key);
+            if (loc.isSquare())
+            {
+                if ("EMPTY".equals(loc.getID()))
+                    house.getLocations().remove(key);
+            }
+        }
+        // clean apatures
+        for (String key : house.getLocations().keySet().toArray(new String[0]))
+        {
+            PLocationRef loc = house.getLocations().get(key);
+            if (loc.isApature())
+            {
+                PLocationRef[] neighbors = house.getNeighbors(loc);
+                if ((neighbors[0] == null) && (neighbors[1] == null))
+                    house.getLocations().remove(key);
+            }
+        }
+        es.fireMonotonicPropertyChange("location.floor");
+    }
+    public static void duplicateHouse(String id)
+    {
+        PTemplate clone = EditorSettingsLogic.getInstance().getSelectedHouse();
+        if (clone != null)
+            newHouse(id, clone.toJSON());
     }
 }

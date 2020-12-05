@@ -252,6 +252,19 @@
           "inside":true,
           "name":"Dining Room"
         },
+      "DWARF_ENTRY":{
+          "ClimbWallsMod":0,
+          "FindTrapsMod":0,
+          "HideInShadowsMod":0,
+          "ID":"DWARF_ENTRY",
+          "MoveSilentlyMod":0,
+          "OpenLocksMod":0,
+          "bedroom":false,
+          "color":"#808080",
+          "description":"Dwarven runes of welcome inscribe the entry way.",
+          "inside":false,
+          "name":"Cave Entry"
+        },
       "FRONT_PORCH":{
           "ClimbWallsMod":0,
           "FindTrapsMod":0,
@@ -421,6 +434,19 @@
           "inside":false,
           "name":"Storeroom"
         },
+      "STUDY":{
+          "ClimbWallsMod":0,
+          "FindTrapsMod":0,
+          "HideInShadowsMod":0,
+          "ID":"STUDY",
+          "MoveSilentlyMod":0,
+          "OpenLocksMod":0,
+          "bedroom":false,
+          "color":"#ffffcc99",
+          "description":"Books line the walls and paper and ink bottles are on the tables of this room.",
+          "inside":true,
+          "name":"Study"
+        },
       "WALKWAY":{
           "ClimbWallsMod":0,
           "FindTrapsMod":0,
@@ -446,6 +472,19 @@
           "description":"This isle winds its way between large crates in this warehouse.",
           "inside":true,
           "name":"Isle"
+        },
+      "WORKSHOP":{
+          "ClimbWallsMod":0,
+          "FindTrapsMod":0,
+          "HideInShadowsMod":0,
+          "ID":"WORKSHOP",
+          "MoveSilentlyMod":0,
+          "OpenLocksMod":0,
+          "bedroom":false,
+          "color":"#ffff6666",
+          "description":"Tools are hung from the walls and rest on the heavy tables of this working area.",
+          "inside":false,
+          "name":"Workshop"
         }
     },
   "templates":{
@@ -454,35 +493,11 @@
           "category":"dwarf",
           "description":"A modest tunnel into the hill side.",
           "locations":{
-              "0,2,5":{
-                  "ID":"EMPTY",
-                  "x":0,
-                  "y":2,
-                  "z":5
-                },
               "0,3,0":{
                   "ID":"EXIT",
                   "x":0,
                   "y":3,
                   "z":0
-                },
-              "0,5,2":{
-                  "ID":"EMPTY",
-                  "x":0,
-                  "y":5,
-                  "z":2
-                },
-              "0,5,6":{
-                  "ID":"EMPTY",
-                  "x":0,
-                  "y":5,
-                  "z":6
-                },
-              "0,6,5":{
-                  "ID":"EMPTY",
-                  "x":0,
-                  "y":6,
-                  "z":5
                 },
               "1,2,0":{
                   "ID":"EMPTY",
@@ -491,7 +506,7 @@
                   "z":0
                 },
               "1,3,0":{
-                  "ID":"HALL",
+                  "ID":"DWARF_ENTRY",
                   "x":1,
                   "y":3,
                   "z":0
@@ -508,24 +523,6 @@
                   "y":4,
                   "z":0
                 },
-              "1,4,2":{
-                  "ID":"EMPTY",
-                  "x":1,
-                  "y":4,
-                  "z":2
-                },
-              "1,5,1":{
-                  "ID":"EMPTY",
-                  "x":1,
-                  "y":5,
-                  "z":1
-                },
-              "1,6,0":{
-                  "ID":"EMPTY",
-                  "x":1,
-                  "y":6,
-                  "z":0
-                },
               "2,1,0":{
                   "ID":"EMPTY",
                   "x":2,
@@ -538,28 +535,10 @@
                   "y":3,
                   "z":0
                 },
-              "2,3,2":{
-                  "ID":"EMPTY",
-                  "x":2,
-                  "y":3,
-                  "z":2
-                },
               "2,5,0":{
                   "ID":"EMPTY",
                   "x":2,
                   "y":5,
-                  "z":0
-                },
-              "2,5,2":{
-                  "ID":"EMPTY",
-                  "x":2,
-                  "y":5,
-                  "z":2
-                },
-              "2,7,0":{
-                  "ID":"EMPTY",
-                  "x":2,
-                  "y":7,
                   "z":0
                 },
               "3,1,0":{
@@ -580,12 +559,6 @@
                   "y":2,
                   "z":0
                 },
-              "3,2,2":{
-                  "ID":"EMPTY",
-                  "x":3,
-                  "y":2,
-                  "z":2
-                },
               "3,3,0":{
                   "ID":"HALL",
                   "x":3,
@@ -597,12 +570,6 @@
                   "x":3,
                   "y":4,
                   "z":0
-                },
-              "3,4,2":{
-                  "ID":"EMPTY",
-                  "x":3,
-                  "y":4,
-                  "z":2
                 },
               "3,5,0":{
                   "ID":"PARLOR",
@@ -616,29 +583,11 @@
                   "y":6,
                   "z":0
                 },
-              "3,6,2":{
-                  "ID":"EMPTY",
-                  "x":3,
-                  "y":6,
-                  "z":2
-                },
-              "3,7,1":{
-                  "ID":"EMPTY",
-                  "x":3,
-                  "y":7,
-                  "z":1
-                },
               "4,1,0":{
                   "ID":"EMPTY",
                   "x":4,
                   "y":1,
                   "z":0
-                },
-              "4,1,2":{
-                  "ID":"EMPTY",
-                  "x":4,
-                  "y":1,
-                  "z":2
                 },
               "4,3,0":{
                   "ID":"EMPTY",
@@ -646,35 +595,11 @@
                   "y":3,
                   "z":0
                 },
-              "4,3,2":{
-                  "ID":"EMPTY",
-                  "x":4,
-                  "y":3,
-                  "z":2
-                },
               "4,5,0":{
                   "ID":"EMPTY",
                   "x":4,
                   "y":5,
                   "z":0
-                },
-              "4,5,2":{
-                  "ID":"EMPTY",
-                  "x":4,
-                  "y":5,
-                  "z":2
-                },
-              "4,7,0":{
-                  "ID":"EMPTY",
-                  "x":4,
-                  "y":7,
-                  "z":0
-                },
-              "4,7,2":{
-                  "ID":"EMPTY",
-                  "x":4,
-                  "y":7,
-                  "z":2
                 },
               "5,1,0":{
                   "ID":"BED_ROOM",
@@ -694,12 +619,6 @@
                   "y":2,
                   "z":0
                 },
-              "5,2,2":{
-                  "ID":"EMPTY",
-                  "x":5,
-                  "y":2,
-                  "z":2
-                },
               "5,3,0":{
                   "ID":"HALL",
                   "x":5,
@@ -711,12 +630,6 @@
                   "x":5,
                   "y":4,
                   "z":0
-                },
-              "5,4,2":{
-                  "ID":"EMPTY",
-                  "x":5,
-                  "y":4,
-                  "z":2
                 },
               "5,5,0":{
                   "ID":"KITCHEN",
@@ -730,18 +643,6 @@
                   "y":6,
                   "z":0
                 },
-              "5,6,2":{
-                  "ID":"EMPTY",
-                  "x":5,
-                  "y":6,
-                  "z":2
-                },
-              "5,7,1":{
-                  "ID":"EMPTY",
-                  "x":5,
-                  "y":7,
-                  "z":1
-                },
               "6,1,0":{
                   "ID":"EMPTY",
                   "x":6,
@@ -754,28 +655,10 @@
                   "y":3,
                   "z":0
                 },
-              "6,3,2":{
-                  "ID":"EMPTY",
-                  "x":6,
-                  "y":3,
-                  "z":2
-                },
               "6,5,0":{
                   "ID":"EMPTY",
                   "x":6,
                   "y":5,
-                  "z":0
-                },
-              "6,5,2":{
-                  "ID":"EMPTY",
-                  "x":6,
-                  "y":5,
-                  "z":2
-                },
-              "6,7,0":{
-                  "ID":"EMPTY",
-                  "x":6,
-                  "y":7,
                   "z":0
                 },
               "7,2,0":{
@@ -801,23 +684,405 @@
                   "x":7,
                   "y":4,
                   "z":0
+                }
+            },
+          "name":"Dwarf House"
+        },
+      "DWARF_STUDY":{
+          "ID":"DWARF_STUDY",
+          "category":"dwarf",
+          "description":"A modest tunnel into the hill side.",
+          "locations":{
+              "0,3,0":{
+                  "ID":"EXIT",
+                  "x":0,
+                  "y":3,
+                  "z":0
                 },
-              "7,4,2":{
+              "1,2,0":{
+                  "ID":"EMPTY",
+                  "x":1,
+                  "y":2,
+                  "z":0
+                },
+              "1,3,0":{
+                  "ID":"DWARF_ENTRY",
+                  "x":1,
+                  "y":3,
+                  "z":0
+                },
+              "1,3,1":{
+                  "ID":"EMPTY",
+                  "x":1,
+                  "y":3,
+                  "z":1
+                },
+              "1,4,0":{
+                  "ID":"EMPTY",
+                  "x":1,
+                  "y":4,
+                  "z":0
+                },
+              "2,1,0":{
+                  "ID":"EMPTY",
+                  "x":2,
+                  "y":1,
+                  "z":0
+                },
+              "2,3,0":{
+                  "ID":"OUTER_DOOR",
+                  "x":2,
+                  "y":3,
+                  "z":0
+                },
+              "2,5,0":{
+                  "ID":"EMPTY",
+                  "x":2,
+                  "y":5,
+                  "z":0
+                },
+              "3,1,0":{
+                  "ID":"LIVING_ROOM",
+                  "x":3,
+                  "y":1,
+                  "z":0
+                },
+              "3,1,1":{
+                  "ID":"EMPTY",
+                  "x":3,
+                  "y":1,
+                  "z":1
+                },
+              "3,2,0":{
+                  "ID":"INNER_DOOR",
+                  "x":3,
+                  "y":2,
+                  "z":0
+                },
+              "3,3,0":{
+                  "ID":"HALL",
+                  "x":3,
+                  "y":3,
+                  "z":0
+                },
+              "3,4,0":{
+                  "ID":"INNER_DOOR",
+                  "x":3,
+                  "y":4,
+                  "z":0
+                },
+              "3,5,0":{
+                  "ID":"STUDY",
+                  "x":3,
+                  "y":5,
+                  "z":0
+                },
+              "3,6,0":{
+                  "ID":"EMPTY",
+                  "x":3,
+                  "y":6,
+                  "z":0
+                },
+              "4,1,0":{
+                  "ID":"EMPTY",
+                  "x":4,
+                  "y":1,
+                  "z":0
+                },
+              "4,3,0":{
+                  "ID":"EMPTY",
+                  "x":4,
+                  "y":3,
+                  "z":0
+                },
+              "4,5,0":{
+                  "ID":"EMPTY",
+                  "x":4,
+                  "y":5,
+                  "z":0
+                },
+              "5,1,0":{
+                  "ID":"BED_ROOM",
+                  "x":5,
+                  "y":1,
+                  "z":0
+                },
+              "5,1,1":{
+                  "ID":"EMPTY",
+                  "x":5,
+                  "y":1,
+                  "z":1
+                },
+              "5,2,0":{
+                  "ID":"INNER_DOOR",
+                  "x":5,
+                  "y":2,
+                  "z":0
+                },
+              "5,3,0":{
+                  "ID":"HALL",
+                  "x":5,
+                  "y":3,
+                  "z":0
+                },
+              "5,4,0":{
+                  "ID":"INNER_DOOR",
+                  "x":5,
+                  "y":4,
+                  "z":0
+                },
+              "5,5,0":{
+                  "ID":"KITCHEN",
+                  "x":5,
+                  "y":5,
+                  "z":0
+                },
+              "5,6,0":{
+                  "ID":"EMPTY",
+                  "x":5,
+                  "y":6,
+                  "z":0
+                },
+              "6,1,0":{
+                  "ID":"EMPTY",
+                  "x":6,
+                  "y":1,
+                  "z":0
+                },
+              "6,3,0":{
+                  "ID":"INNER_DOOR",
+                  "x":6,
+                  "y":3,
+                  "z":0
+                },
+              "6,5,0":{
+                  "ID":"EMPTY",
+                  "x":6,
+                  "y":5,
+                  "z":0
+                },
+              "7,2,0":{
+                  "ID":"EMPTY",
+                  "x":7,
+                  "y":2,
+                  "z":0
+                },
+              "7,3,0":{
+                  "ID":"BATHROOM",
+                  "x":7,
+                  "y":3,
+                  "z":0
+                },
+              "7,3,1":{
+                  "ID":"EMPTY",
+                  "x":7,
+                  "y":3,
+                  "z":1
+                },
+              "7,4,0":{
                   "ID":"EMPTY",
                   "x":7,
                   "y":4,
-                  "z":2
+                  "z":0
+                }
+            },
+          "name":"Dwarf Home"
+        },
+      "DWARF_WORK":{
+          "ID":"DWARF_WORK",
+          "category":"dwarf",
+          "description":"A modest tunnel into the hill side.",
+          "locations":{
+              "0,3,0":{
+                  "ID":"EXIT",
+                  "x":0,
+                  "y":3,
+                  "z":0
                 },
-              "7,5,1":{
+              "1,2,0":{
                   "ID":"EMPTY",
-                  "x":7,
-                  "y":5,
+                  "x":1,
+                  "y":2,
+                  "z":0
+                },
+              "1,3,0":{
+                  "ID":"DWARF_ENTRY",
+                  "x":1,
+                  "y":3,
+                  "z":0
+                },
+              "1,3,1":{
+                  "ID":"EMPTY",
+                  "x":1,
+                  "y":3,
                   "z":1
                 },
-              "7,6,0":{
+              "1,4,0":{
+                  "ID":"EMPTY",
+                  "x":1,
+                  "y":4,
+                  "z":0
+                },
+              "2,1,0":{
+                  "ID":"EMPTY",
+                  "x":2,
+                  "y":1,
+                  "z":0
+                },
+              "2,3,0":{
+                  "ID":"OUTER_DOOR",
+                  "x":2,
+                  "y":3,
+                  "z":0
+                },
+              "2,5,0":{
+                  "ID":"EMPTY",
+                  "x":2,
+                  "y":5,
+                  "z":0
+                },
+              "3,1,0":{
+                  "ID":"LIVING_ROOM",
+                  "x":3,
+                  "y":1,
+                  "z":0
+                },
+              "3,1,1":{
+                  "ID":"EMPTY",
+                  "x":3,
+                  "y":1,
+                  "z":1
+                },
+              "3,2,0":{
+                  "ID":"INNER_DOOR",
+                  "x":3,
+                  "y":2,
+                  "z":0
+                },
+              "3,3,0":{
+                  "ID":"HALL",
+                  "x":3,
+                  "y":3,
+                  "z":0
+                },
+              "3,4,0":{
+                  "ID":"INNER_DOOR",
+                  "x":3,
+                  "y":4,
+                  "z":0
+                },
+              "3,5,0":{
+                  "ID":"WORKSHOP",
+                  "x":3,
+                  "y":5,
+                  "z":0
+                },
+              "3,6,0":{
+                  "ID":"EMPTY",
+                  "x":3,
+                  "y":6,
+                  "z":0
+                },
+              "4,1,0":{
+                  "ID":"EMPTY",
+                  "x":4,
+                  "y":1,
+                  "z":0
+                },
+              "4,3,0":{
+                  "ID":"EMPTY",
+                  "x":4,
+                  "y":3,
+                  "z":0
+                },
+              "4,5,0":{
+                  "ID":"EMPTY",
+                  "x":4,
+                  "y":5,
+                  "z":0
+                },
+              "5,1,0":{
+                  "ID":"BED_ROOM",
+                  "x":5,
+                  "y":1,
+                  "z":0
+                },
+              "5,1,1":{
+                  "ID":"EMPTY",
+                  "x":5,
+                  "y":1,
+                  "z":1
+                },
+              "5,2,0":{
+                  "ID":"INNER_DOOR",
+                  "x":5,
+                  "y":2,
+                  "z":0
+                },
+              "5,3,0":{
+                  "ID":"HALL",
+                  "x":5,
+                  "y":3,
+                  "z":0
+                },
+              "5,4,0":{
+                  "ID":"INNER_DOOR",
+                  "x":5,
+                  "y":4,
+                  "z":0
+                },
+              "5,5,0":{
+                  "ID":"KITCHEN",
+                  "x":5,
+                  "y":5,
+                  "z":0
+                },
+              "5,6,0":{
+                  "ID":"EMPTY",
+                  "x":5,
+                  "y":6,
+                  "z":0
+                },
+              "6,1,0":{
+                  "ID":"EMPTY",
+                  "x":6,
+                  "y":1,
+                  "z":0
+                },
+              "6,3,0":{
+                  "ID":"INNER_DOOR",
+                  "x":6,
+                  "y":3,
+                  "z":0
+                },
+              "6,5,0":{
+                  "ID":"EMPTY",
+                  "x":6,
+                  "y":5,
+                  "z":0
+                },
+              "7,2,0":{
                   "ID":"EMPTY",
                   "x":7,
-                  "y":6,
+                  "y":2,
+                  "z":0
+                },
+              "7,3,0":{
+                  "ID":"BATHROOM",
+                  "x":7,
+                  "y":3,
+                  "z":0
+                },
+              "7,3,1":{
+                  "ID":"EMPTY",
+                  "x":7,
+                  "y":3,
+                  "z":1
+                },
+              "7,4,0":{
+                  "ID":"EMPTY",
+                  "x":7,
+                  "y":4,
                   "z":0
                 }
             },
