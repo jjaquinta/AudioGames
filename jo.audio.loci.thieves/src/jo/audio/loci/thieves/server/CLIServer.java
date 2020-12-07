@@ -133,8 +133,8 @@ public class CLIServer
 
     public static void main(String[] args)
     {
-        DebugUtils.debug = true;
-        DebugUtils.mDebugLevel = DebugUtils.TRACE;
+        //DebugUtils.debug = true;
+        //DebugUtils.mDebugLevel = DebugUtils.TRACE;
         InitializeLogic.initialize();
         CLIServer app = new CLIServer();
         try

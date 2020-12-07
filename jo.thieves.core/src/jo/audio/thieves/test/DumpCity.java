@@ -3,8 +3,8 @@ package jo.audio.thieves.test;
 import jo.audio.thieves.data.gen.City;
 import jo.audio.thieves.data.gen.House;
 import jo.audio.thieves.data.gen.Intersection;
-import jo.audio.thieves.data.gen.Location;
 import jo.audio.thieves.data.gen.Street;
+import jo.audio.thieves.data.template.PLocationRef;
 import jo.audio.thieves.logic.LocationLogic;
 import jo.audio.thieves.slu.ThievesModelConst;
 
@@ -31,18 +31,18 @@ public class DumpCity
             for (int i = 1; i <= street.getHouses(); i++)
             {
                 //DebugUtils.mDebugLevel = DebugUtils.TRACE;
-                House house = LocationLogic.getHouse(street.getID()+":"+i, null);
-                numRooms += house.getLocations().size();
+                House house = LocationLogic.getHouse(street.getID()+":"+i);
+                numRooms += house.getTemplate().getLocations().size();
                 if (firstStreet)
                 {
                     firstStreet = false;
-                    System.out.println("    House: #"+house.getHouseNumber()+", locations=#"+house.getLocations().size()+", apateurs=#"+house.getApatures().size());
+                    System.out.println("    House: #"+house.getHouseNumber()+", squares=#"+house.getTemplate().getNumSquares()+", apateurs=#"+house.getTemplate().getNumApatures());
                     if (firstHouse)
                     {
                         firstHouse = false;
-                        for (Location l : house.getLocations().values())
+                        for (PLocationRef l : house.getTemplate().getLocations().values())
                         {
-                            System.out.println("      "+l.getID()+", "+l.getName()+", "+l.getDescription());
+                            System.out.println("      "+l.getID()+", "+l.getX()+","+l.getY()+","+l.getZ());
                         }
                     }
                 }

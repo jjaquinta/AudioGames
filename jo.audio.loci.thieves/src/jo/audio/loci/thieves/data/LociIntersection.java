@@ -8,7 +8,7 @@ import org.json.simple.JSONObject;
 import jo.audio.loci.core.data.LociObject;
 import jo.audio.loci.core.utils.ResponseUtils;
 import jo.audio.loci.thieves.stores.ExitStore;
-import jo.audio.loci.thieves.stores.SquareStore;
+import jo.audio.loci.thieves.stores.IntersectionStore;
 import jo.audio.thieves.data.gen.Intersection;
 import jo.audio.thieves.logic.LocationLogic;
 import jo.audio.thieves.logic.ThievesConstLogic;
@@ -27,7 +27,7 @@ public class LociIntersection extends LociLocality
     public LociIntersection(JSONObject json)
     {
         super(json);
-        mIntersection = LocationLogic.getIntersection(getURI().substring(SquareStore.PREFIX.length()));
+        mIntersection = LocationLogic.getIntersection(getURI().substring(IntersectionStore.PREFIX.length()));
         init();
     }
     

@@ -18,11 +18,8 @@ import jo.audio.loci.core.logic.stores.DiskCache;
 import jo.audio.loci.core.logic.stores.DiskStore;
 import jo.audio.loci.thieves.data.LociExit;
 import jo.audio.loci.thieves.data.LociIntersection;
-import jo.audio.loci.thieves.data.LociRoom;
 import jo.audio.loci.thieves.data.LociStreet;
 import jo.audio.loci.thieves.data.LociThing;
-import jo.audio.thieves.data.gen.Apature;
-import jo.audio.thieves.data.gen.House;
 import jo.audio.thieves.data.gen.Intersection;
 import jo.audio.thieves.data.gen.Street;
 import jo.audio.thieves.logic.LocationLogic;
@@ -89,29 +86,6 @@ public class ExitStore implements IDataStore
     {
         return makeURI(from.getID(), to.getID(), String.valueOf(dir));
     }
-
-    public static String toURI(String from, int dir, String to)
-    {
-        String uri;
-        if ("$exit".equals(to))
-        {
-            to = from;
-            to = to.substring(HouseStore.PREFIX.length());
-            int o = to.indexOf(":");
-            to = StreetStore.PREFIX+to.substring(0, o);
-            uri = makeURI(from, to, String.valueOf(dir));
-        }
-        else
-        {
-            String houseID = StringUtils.stripAfterLast(StringUtils.stripBeforeFirst(from, "://"), "/");
-            House h = LocationLogic.getHouse(houseID, null);
-            Apature a = h.getApatures().get(to);
-            String toID = a.getLocation(dir);
-            to = houseID + "/" + toID;
-            uri = makeURI(from, to, String.valueOf(dir), a.getID());
-        }            
-        return uri;
-    }
     
     public static String stripPrefix(String uri)
     {
@@ -158,10 +132,10 @@ public class ExitStore implements IDataStore
     public static String addPrefix(String id)
     {
         if (id.startsWith("INT"))
-            return SquareStore.PREFIX + id;
+            return IntersectionStore.PREFIX + id;
         if (id.startsWith("STR"))
             if (id.indexOf('/') >= 0)
-                return HouseStore.PREFIX + id;
+                return SquareStore.PREFIX + id;
             else
                 return StreetStore.PREFIX + id;
         throw new IllegalArgumentException("Unknown ID: "+id);
@@ -188,7 +162,6 @@ public class ExitStore implements IDataStore
         else
             DebugUtils.debug("Loading "+uri+", with disk image "+json.toJSONString());
         json.put(LociBase.ID_URI, uri);
-        json.put(LociBase.ID_DATA_PROFILE, LociExit.class.getSimpleName());
         json.put(LociExit.ID_SOURCE, uris[0]);
         json.put(LociExit.ID_DESTINATION, uris[1]);
         json.put(LociExit.ID_ELEVATION, getElevation(source, target));
@@ -200,25 +173,14 @@ public class ExitStore implements IDataStore
             dir = getDirection(source, target);
         json.put(LociExit.ID_DIRECTION, dir);
         json.put(LociObject.ID_DECRIPTION, target.getDescription());
-        if (uris.length >= 4)
-        {
-            Apature a = ((LociRoom)source).getLocation().getHouse().getApatures().get(uris[3]);
-            json.put(LociObject.ID_NAME, getName(a, target, dir));
-            if (!StringUtils.isTrivial(a.getDescription()))
-                json.put(LociObject.ID_DECRIPTION, a.getDescription());
-            json.put(LociExit.ID_APATURE, uris[3]);
-        }
-        else
-            json.put(LociObject.ID_NAME, getName(null, target, dir));
+        json.put(LociObject.ID_NAME, getName(target, dir));
         LociExit obj = new LociExit(json);
         return obj;
     }
     
-    private String getName(Apature a, LociObject target, int dir)
+    private String getName(LociObject target, int dir)
     {
         List<String> names = new ArrayList<>();
-        if ((a != null) && !StringUtils.isTrivial(a.getName()))
-            names.add(a.getName());
         if (target != null)
         {
             String name = target.getName();
@@ -266,17 +228,6 @@ public class ExitStore implements IDataStore
                 return -1;
             }
         }
-        if (source instanceof LociRoom)
-        {
-            if (target instanceof LociRoom)
-            {
-                return ((LociRoom)source).getLocation().dirTo(((LociRoom)target).getLocation());
-            }
-            else if (target instanceof LociStreet)
-            {
-                return -1;
-            }
-        }
         throw new IllegalArgumentException("Cannot map direction from "+source+" to "+target);
     }
     
@@ -292,8 +243,6 @@ public class ExitStore implements IDataStore
             Street s = ((LociStreet)target).getStreet();
             return (s.getHighIntersection().getElevation() + s.getLowIntersection().getElevation())/2;
         }
-        else if (target instanceof LociRoom)
-            return -1;
         throw new IllegalArgumentException("Cannot map direction from "+source+" to "+target);
     }
 

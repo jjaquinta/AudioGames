@@ -170,6 +170,8 @@ public abstract class Verb
 
     public static Pattern listToPattern(String text, String delim)
     {
+        if (text == null)
+            return Pattern.compile("^$");
         StringBuffer regex = new StringBuffer("(");
         List<String> chunks = new ArrayList<>();
         for (StringTokenizer st = new StringTokenizer(text, delim); st.hasMoreTokens(); )

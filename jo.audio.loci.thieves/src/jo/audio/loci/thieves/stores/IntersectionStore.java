@@ -11,21 +11,20 @@ import jo.audio.loci.core.data.LociObject;
 import jo.audio.loci.core.logic.IDataStore;
 import jo.audio.loci.core.logic.stores.DiskCache;
 import jo.audio.loci.core.logic.stores.DiskStore;
-import jo.audio.loci.thieves.data.LociStreet;
-import jo.audio.thieves.data.gen.Street;
+import jo.audio.loci.thieves.data.LociIntersection;
+import jo.audio.thieves.data.gen.Intersection;
 import jo.audio.thieves.logic.LocationLogic;
 import jo.util.beans.WeakCache;
-import jo.util.utils.DebugUtils;
 
-public class StreetStore implements IDataStore
+public class IntersectionStore implements IDataStore
 {
-    public static final String PREFIX = "street://";
+    public static final String PREFIX = "intersection://";
     
     private DiskCache   mDisk;
     
-    public StreetStore()
+    public IntersectionStore()
     {
-        mDisk = new DiskCache(DiskStore.PREFIX, "streets");
+        mDisk = new DiskCache(DiskStore.PREFIX, "intersections");
     }
     
     @Override
@@ -37,19 +36,12 @@ public class StreetStore implements IDataStore
     @Override
     public LociBase load(String uri)
     {
-        Street i = LocationLogic.getStreet(uri.substring(PREFIX.length()));
-        if (i == null)
-            throw new IllegalArgumentException("No street for "+uri);
+        Intersection i = LocationLogic.getIntersection(uri.substring(PREFIX.length()));
         JSONObject json = mDisk.loadJSON(uri);
         if (json == null)
-        {
-            DebugUtils.debug("Loading "+uri+", no disk image");
             json = new JSONObject();
-        }
-        else
-            DebugUtils.debug("Loading "+uri+", with disk image "+json.toJSONString());
         json.put(LociBase.ID_URI, uri);
-        LociStreet obj = new LociStreet(json, i);
+        LociIntersection obj = new LociIntersection(json, i);
         return obj;
     }
 
@@ -68,15 +60,15 @@ public class StreetStore implements IDataStore
         mDisk.delete(uri);
     }
 
-    @SuppressWarnings("unchecked")
     @Override
+    @SuppressWarnings("unchecked")
     public <T> List<T> findSome(String dataProfile,
             Function<T, Boolean> matcher, int limit, WeakCache<String, LociBase> cache)
     {
         List<T> found = new ArrayList<>();
-        if (!dataProfile.equals(LociStreet.class.getSimpleName()))
+        if (!dataProfile.equals(LociIntersection.class.getSimpleName()))
             return found;
-        for (Street i : LocationLogic.getCity().getStreets().values())
+        for (Intersection i : LocationLogic.getCity().getIntersections().values())
         {
             String uri = PREFIX+i.getID();
             T base = (T)cache.get(uri);

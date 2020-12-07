@@ -1,25 +1,25 @@
 package jo.audio.loci.thieves.verbs.room;
 
 import jo.audio.loci.core.data.ExecuteContext;
-import jo.audio.loci.thieves.data.LociExit;
+import jo.audio.loci.thieves.data.LociApature;
 import jo.audio.loci.thieves.data.LociPlayer;
 import jo.audio.loci.thieves.verbs.VerbLookBase;
-import jo.audio.thieves.data.gen.Apature;
+import jo.audio.thieves.data.template.PApature;
 
 public class VerbClose extends VerbLookBase
 {
     public VerbClose()
     {
-        super("close,c", "$"+LociExit.class, null, null);
+        super("close,c", "$"+LociApature.class, null, null);
     }
 
     @Override
     public void execute(ExecuteContext context)
     {
         LociPlayer player = (LociPlayer)context.getInvoker();
-        LociExit exit = (LociExit)context.getMatchedDirectObject();
-        Apature a = exit.getApatureObject();
-        if ((a == null) || !a.isOpenable())
+        LociApature exit = (LociApature)context.getMatchedDirectObject();
+        PApature a = exit.getApatureObject();
+        if ((a == null) || !a.getOpenable())
         {
             player.addMessage("You can't close "+exit.getPrimaryName()+".");
             return;

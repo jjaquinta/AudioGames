@@ -1,33 +1,38 @@
 package jo.audio.thieves.data.gen;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
-import org.json.simple.JSONObject;
+import jo.audio.thieves.data.template.PLocationRef;
+import jo.audio.thieves.data.template.PTemplate;
+import jo.audio.thieves.logic.ThievesConstLogic;
 
 public class House
 {
     private int                   mHouseNumber;
     private String                mStreet;
-    private Map<String, Location> mLocations = new HashMap<>();
-    private Map<String, Apature>  mApatures  = new HashMap<>();
-    private String                mEntry;
     private int                   mElevation;
     private double                mPosh;
     private long                  mSeed;
-    private JSONObject            mRaw;
+    private PTemplate             mTemplate;
+    private int                   mHouseDir;
     
     // utilities
-    public Apature getApatureBetween(Location from, Location to)
+    
+    public int rotate(int dir)
     {
-        Set<String> fromAps = new HashSet<>(from.getApatures());
-        Set<String> toAps = new HashSet<>(to.getApatures());
-        fromAps.retainAll(toAps);
-        if (fromAps.size() == 0)
-            return null;
-        return mApatures.get(fromAps.iterator().next());
+        if (dir < ThievesConstLogic.UP)
+            return (dir + mHouseDir)%8;
+        else
+            return dir;
+    }
+    
+    public PLocationRef getLocation(String key)
+    {
+        return mTemplate.getLocations().get(key);
+    }
+    
+    public PLocationRef getLocation(PLocationRef wrt, int dir)
+    {
+        dir = rotate(dir);
+        return mTemplate.getLocation(wrt, dir);
     }
     
     // getters and setters
@@ -50,36 +55,6 @@ public class House
     public void setStreet(String street)
     {
         mStreet = street;
-    }
-
-    public Map<String, Location> getLocations()
-    {
-        return mLocations;
-    }
-
-    public void setLocations(Map<String, Location> locations)
-    {
-        mLocations = locations;
-    }
-
-    public Map<String, Apature> getApatures()
-    {
-        return mApatures;
-    }
-
-    public void setApatures(Map<String, Apature> apatures)
-    {
-        mApatures = apatures;
-    }
-
-    public String getEntry()
-    {
-        return mEntry;
-    }
-
-    public void setEntry(String entry)
-    {
-        mEntry = entry;
     }
 
     public int getElevation()
@@ -112,13 +87,23 @@ public class House
         mSeed = seed;
     }
 
-    public JSONObject getRaw()
+    public PTemplate getTemplate()
     {
-        return mRaw;
+        return mTemplate;
     }
 
-    public void setRaw(JSONObject raw)
+    public void setTemplate(PTemplate raw)
     {
-        mRaw = raw;
+        mTemplate = raw;
+    }
+
+    public int getHouseDir()
+    {
+        return mHouseDir;
+    }
+
+    public void setHouseDir(int houseDir)
+    {
+        mHouseDir = houseDir;
     }
 }

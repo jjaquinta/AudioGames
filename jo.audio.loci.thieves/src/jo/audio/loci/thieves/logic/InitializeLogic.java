@@ -5,6 +5,7 @@ import jo.audio.loci.core.logic.DataProfileLogic;
 import jo.audio.loci.core.logic.DataStoreLogic;
 import jo.audio.loci.core.logic.VerbLogic;
 import jo.audio.loci.core.logic.stores.MemoryStore;
+import jo.audio.loci.thieves.data.LociApature;
 import jo.audio.loci.thieves.data.LociContainer;
 import jo.audio.loci.thieves.data.LociExit;
 import jo.audio.loci.thieves.data.LociFoyeur;
@@ -14,11 +15,12 @@ import jo.audio.loci.thieves.data.LociLocality;
 import jo.audio.loci.thieves.data.LociPlayer;
 import jo.audio.loci.thieves.data.LociPlayerAdmin;
 import jo.audio.loci.thieves.data.LociPlayerGhost;
-import jo.audio.loci.thieves.data.LociRoom;
+import jo.audio.loci.thieves.data.LociSquare;
 import jo.audio.loci.thieves.data.LociStreet;
 import jo.audio.loci.thieves.data.LociThing;
+import jo.audio.loci.thieves.stores.ApatureStore;
 import jo.audio.loci.thieves.stores.ExitStore;
-import jo.audio.loci.thieves.stores.HouseStore;
+import jo.audio.loci.thieves.stores.IntersectionStore;
 import jo.audio.loci.thieves.stores.SquareStore;
 import jo.audio.loci.thieves.stores.StreetStore;
 import jo.audio.loci.thieves.verbs.VerbDump;
@@ -75,9 +77,11 @@ public class InitializeLogic
                 );
         VerbLogic.registerVerbs(LociExit.class,
                 new VerbGoImplicit());
+        VerbLogic.registerVerbs(LociApature.class,
+                new VerbGoImplicit());
         VerbLogic.registerVerbs(LociLocality.class,
                 new VerbLookDO());
-        VerbLogic.registerVerbs(LociRoom.class,                
+        VerbLogic.registerVerbs(LociSquare.class,                
                         new VerbLookThrough(),
                         new VerbOpen(),
                         new VerbClose(),
@@ -114,10 +118,11 @@ public class InitializeLogic
                 new VerbLogout(), new VerbDump(), new VerbLookHere(), new VerbMore());
         VerbLogic.registerVerbs(LociPlayerAdmin.class);
         VerbLogic.registerVerbs(LociPlayerGhost.class);
-        DataStoreLogic.registerDataStore(new SquareStore());
+        DataStoreLogic.registerDataStore(new IntersectionStore());
         DataStoreLogic.registerDataStore(new ExitStore());
         DataStoreLogic.registerDataStore(new StreetStore());
-        DataStoreLogic.registerDataStore(new HouseStore());
+        DataStoreLogic.registerDataStore(new ApatureStore());
+        DataStoreLogic.registerDataStore(new SquareStore());
         // create mandatory objects
         createAdmin();
         createFoyeur();

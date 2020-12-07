@@ -11,10 +11,12 @@ public class ThievesConstLogic
     public static final int CITY_SIZE_INTERSECTIONS = 100;
 
     public static final String STREET_URI = "street://";
-    public static final String INTERSECTION_URI = "square://";
+    public static final String INTERSECTION_URI = "intersection://";
     public static final String HOUSE_URI = "house://";
-    public static final String LOCATION_URI = "loc://";
     public static final String INITIAL_LOCATION = INTERSECTION_URI+"INT1631478226";
+
+    public static final String CAT_WAREHOUSE = "warehouse";
+    public static final String CAT_DWARF = "dwarf";
     
     public static final int EAST = 0; 
     public static final int SOUTHEAST = 1; 
@@ -47,6 +49,20 @@ public class ThievesConstLogic
             UP,
             DOWN,      
     };
+    
+    public static final int[][] ORTHOGONAL_DELTAS = {
+            { 1, 0, 0 }, //  EAST 
+            { 1, 1, 0 }, //  SOUTHEAST 
+            { 0, 1, 0 }, //  SOUTH 
+            {-1, 1, 0 }, //  SOUTHWEST 
+            {-1, 0, 0 }, //  WEST 
+            {-1,-1, 0 }, //  NORTHWEST 
+            { 0,-1, 0 }, //  NORTH 
+            { 1,-1, 0 }, //  NORTHEAST 
+            { 0, 0, 1 }, //  UP 
+            { 0, 0,-1 }, //  DOWN 
+    };
+    
     public static final int MAX_INTERSECTION_DESCRIPTIONS = 62;
     
     public static final String RACE_HUMAN = "human";

@@ -6,10 +6,7 @@ import jo.audio.loci.core.logic.DataStoreLogic;
 import jo.audio.loci.thieves.data.LociLocality;
 import jo.audio.loci.thieves.data.LociPlayer;
 import jo.audio.loci.thieves.data.LociStreet;
-import jo.audio.loci.thieves.stores.HouseStore;
-import jo.audio.thieves.data.gen.House;
-import jo.audio.thieves.logic.gen.HouseLogic;
-import jo.util.utils.DebugUtils;
+import jo.audio.loci.thieves.stores.SquareStore;
 import jo.util.utils.obj.IntegerUtils;
 
 public class VerbEnter extends Verb
@@ -34,9 +31,7 @@ public class VerbEnter extends Verb
                 player.addMessage("The buildings here number 1 to "+numHouses+".");
             return;
         }
-        House house = HouseLogic.getHouse(street.getStreet(), houseNum);
-        DebugUtils.trace("Retrieved house at "+street.getStreet().getID()+", #"+houseNum+", with entry "+house.getEntry()+".");
-        String destination = HouseStore.PREFIX+street.getStreet().getID()+":"+houseNum+"/"+house.getEntry();
+        String destination = SquareStore.makeURIEntry(street.getStreet(), houseNum);
         LociLocality newRoom = (LociLocality)DataStoreLogic.load(destination);
         VerbGoImplicit.transition(player, null, street, newRoom);
     }

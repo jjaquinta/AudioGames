@@ -1,10 +1,5 @@
 package jo.audio.thieves.logic.gen;
 
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -13,24 +8,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
-import java.util.StringTokenizer;
 
-import javax.imageio.ImageIO;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.JSONUtils;
-
-import jo.audio.thieves.data.gen.Apature;
 import jo.audio.thieves.data.gen.City;
-import jo.audio.thieves.data.gen.House;
 import jo.audio.thieves.data.gen.Intersection;
-import jo.audio.thieves.data.gen.Location;
 import jo.audio.thieves.data.gen.Street;
 import jo.audio.thieves.logic.ThievesConstLogic;
 import jo.audio.thieves.slu.ThievesModelConst;
 import jo.util.utils.MathUtils;
-import jo.util.utils.obj.IntegerUtils;
 
 public class CityLogic
 {
@@ -307,6 +291,7 @@ public class CityLogic
      }
 
     
+     /*
     public static void main(String[] argv) throws IOException
     {
         City c = generateCity(0);
@@ -478,4 +463,5 @@ public class CityLogic
         double p = (p1 + p2)/(bestD.get(0) + bestD.get(1));
         return (float)p;
     }
+    */
 }

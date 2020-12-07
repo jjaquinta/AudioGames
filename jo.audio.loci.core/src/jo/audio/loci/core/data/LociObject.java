@@ -34,6 +34,8 @@ public class LociObject extends LociBase
     public String getPrimaryName()
     {
         String name = getName();
+        if (name == null)
+            name = "";
         int o = name.indexOf(NAME_DELIM);
         if (o > 0)
             name = name.substring(0, o);

@@ -18,6 +18,7 @@ import jo.audio.thieves.data.template.PLibrary;
 import jo.audio.thieves.data.template.PLocation;
 import jo.audio.thieves.data.template.PLocationRef;
 import jo.audio.thieves.data.template.PTemplate;
+import jo.audio.thieves.logic.template.LibraryLogic;
 import jo.audio.thieves.tools.editor.data.EditorSettings;
 import jo.audio.thieves.tools.editor.logic.EditorHouseLogic;
 import jo.audio.thieves.tools.editor.logic.EditorSettingsLogic;
@@ -79,25 +80,7 @@ public class BluePrintPaintLogic
         if ((panel.mHouse == null) || (panel.mLocations.size() == 0))
             return false;
         panel.mBounds = EditorHouseLogic.getBoundary();
-        panel.mSquareBounds = new int[2][3];
-        if (panel.mBounds[0][0] % 2 == 0)
-            panel.mSquareBounds[0][0] = panel.mBounds[0][0] + 1;
-        else
-            panel.mSquareBounds[0][0] = panel.mBounds[0][0];
-        if (panel.mBounds[0][1] % 2 == 0)
-            panel.mSquareBounds[0][1] = panel.mBounds[0][1] + 1;
-        else
-            panel.mSquareBounds[0][1] = panel.mBounds[0][1];
-        panel.mSquareBounds[0][2] = panel.mBounds[0][2];
-        if (panel.mBounds[1][0] % 2 == 0)
-            panel.mSquareBounds[1][0] = panel.mBounds[1][0] - 1;
-        else
-            panel.mSquareBounds[1][0] = panel.mBounds[1][0];
-        if (panel.mBounds[1][1] % 2 == 0)
-            panel.mSquareBounds[1][1] = panel.mBounds[1][1] - 1;
-        else
-            panel.mSquareBounds[1][1] = panel.mBounds[1][1];
-        panel.mSquareBounds[1][2] = panel.mBounds[1][2];
+        panel.mSquareBounds = LibraryLogic.getSquareBoundary(panel.mBounds);
         panel.mNumFloors = (panel.mBounds[1][2] - panel.mBounds[0][2] + 2) / 2;
         panel.mTilesHigh = (panel.mBounds[1][1] - panel.mBounds[0][1] - 1) / 2;
         panel.mTilesWide = (panel.mBounds[1][0] - panel.mBounds[0][0] - 1) / 2;

@@ -8,61 +8,68 @@ import java.util.Set;
 import org.json.simple.JSONObject;
 
 import jo.audio.loci.core.data.LociObject;
+import jo.audio.loci.core.logic.DataStoreLogic;
 import jo.audio.loci.core.utils.ResponseUtils;
+import jo.audio.loci.thieves.stores.ApatureStore;
 import jo.audio.loci.thieves.stores.ExitStore;
-import jo.audio.loci.thieves.stores.HouseStore;
-import jo.audio.thieves.data.gen.Location;
-import jo.audio.thieves.logic.LocationLogic;
+import jo.audio.loci.thieves.stores.SquareStore;
+import jo.audio.thieves.data.template.PLocationRef;
+import jo.audio.thieves.data.template.PSquare;
 import jo.audio.thieves.logic.ThievesConstLogic;
+import jo.audio.thieves.slu.ThievesModelConst;
 import jo.util.utils.obj.StringUtils;
 
-public class LociRoom extends LociLocality
+public class LociSquare extends LociLocality
 {
-    private Location mLocation;
+    private SquareStore.SquareURI mURI;
     
-    public LociRoom(String uri)
+    public LociSquare(String uri)
     {
         super(uri);        
     }
     
-    public LociRoom(JSONObject json)
+    public LociSquare(JSONObject json)
     {
         super(json);
-        mLocation = LocationLogic.getLocation(getURI().substring(HouseStore.PREFIX.length()));
         init();
     }
     
-    public LociRoom(JSONObject json, Location location)
+    private void init()
     {
-        super(json);
-        mLocation = location;
-        init();
+        String u = getURI();
+        mURI = ((SquareStore)DataStoreLogic.getStore(SquareStore.PREFIX)).new SquareURI(u);
+        PSquare sq = mURI.getThis();
+        mProperties.put(ID_NAME, sq.getName());
+        if (StringUtils.isTrivial(sq.getDescription()))
+            mProperties.put(ID_DECRIPTION, "");
+        else
+            mProperties.put(ID_DECRIPTION, sq.getDescription());
         Set<String> contains = new HashSet<>();
         String[] cs = getContains();
         if (cs != null)
             for (String c : cs)
-                if (!c.startsWith(ExitStore.PREFIX))
+                if (!c.startsWith(ExitStore.PREFIX) && !c.startsWith(ApatureStore.PREFIX))
                     contains.add(c);
         for (int dir : ThievesConstLogic.ORTHOGONAL_DIRS)
         {
-            String exit = mLocation.getApature(dir);
-            if (!StringUtils.isTrivial(exit))
+            PLocationRef exit = mURI.getApatureRef(dir);
+            if (exit != null)
             {
-                String euri;
-                euri = ExitStore.toURI(getURI(), dir, exit);
-                contains.add(euri);
+                if ("EXIT".equals(exit.getID()))
+                {
+                    String streetID = StringUtils.stripAfterLast(u.substring(SquareStore.PREFIX.length()), ":");
+                    String sURI = ExitStore.PREFIX+streetID+"/"+streetID+"/"+dir;
+                    contains.add(sURI);
+                }
+                else
+                {    
+                    ApatureStore.ApatureURI aURI = ((ApatureStore)DataStoreLogic.getStore(ApatureStore.PREFIX)).new ApatureURI(
+                            mURI.mStreet, mURI.mHouseNum, exit, dir);
+                    contains.add(aURI.toURI());
+                }
             }
         }
         setContains(contains.toArray(new String[0]));
-    }
-
-    private void init()
-    {
-        mProperties.put(ID_NAME, mLocation.getName());
-        if (StringUtils.isTrivial(mLocation.getDescription()))
-            mProperties.put(ID_DECRIPTION, "");
-        else
-            mProperties.put(ID_DECRIPTION, mLocation.getDescription());
     }
     
     @Override
@@ -89,13 +96,23 @@ public class LociRoom extends LociLocality
                     playerNames.add(name);
                 }
             }
+            else if (o instanceof LociApature)
+            {
+                LociApature exit = (LociApature)o;
+                String name = ThievesModelConst.expand(exit.getPrimaryName());
+                String dirName = ThievesModelConst.expand("{{DIRECTION_NAME#"+exit.getDirection()+"}}");
+                if (dirName.equals(name))
+                    name = exit.getDestinationObject().getName();
+                if (StringUtils.isTrivial(name) || dirName.equals(name))
+                    exitNames.add(dirName);
+                else
+                    exitNames.add(dirName+" to "+name);
+            }
             else if (o instanceof LociExit)
             {
                 LociExit exit = (LociExit)o;
-                if (exit.getDirection() >= 0)
-                    exitNames.add("{{DIRECTION_NAME#"+exit.getDirection()+"}} to "+o.getPrimaryName());
-                else
-                    exitNames.add(o.getPrimaryName());
+                int dir = exit.getDirection();
+                exitNames.add("{{DIRECTION_NAME#"+dir+"}} to "+o.getPrimaryName());
             }
             else
                 itemNames.add(o.getPrimaryName());
@@ -112,16 +129,6 @@ public class LociRoom extends LociLocality
         if (exitNames.size() > 0)
             desc.add("You can go "+ResponseUtils.wordList(exitNames.toArray(), -1, "or ")+".");
         return desc.toArray(new String[0]);
-    }
-
-    public Location getLocation()
-    {
-        return mLocation;
-    }
-
-    public void setLocation(Location location)
-    {
-        mLocation = location;
     }
 
     // getters and setters

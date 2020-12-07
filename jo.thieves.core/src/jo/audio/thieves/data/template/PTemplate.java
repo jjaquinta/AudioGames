@@ -9,6 +9,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONUtils;
 import org.json.simple.ToJSONLogic;
 
+import jo.audio.thieves.logic.ThievesConstLogic;
 import jo.util.beans.PCSBean;
 import jo.util.utils.obj.StringUtils;
 
@@ -25,6 +26,10 @@ public class PTemplate extends PCSBean implements IJSONAble,Comparable<PTemplate
     private String                    mDescription;
     private String                    mCategory;
     private Map<String, PLocationRef> mLocations     = new HashMap<>();
+    // derived
+    private int                       mNumApatures;
+    private int                       mNumSquares;
+    private PLocationRef              mEntry;
 
     // I/O
 
@@ -108,6 +113,13 @@ public class PTemplate extends PCSBean implements IJSONAble,Comparable<PTemplate
     {
         String k = x + "," + y + "," + z;
         return mLocations.get(k);
+    }
+
+    public PLocationRef getLocation(PLocationRef wrt, int dir)
+    {
+        return getLocation(wrt.getX()+ThievesConstLogic.ORTHOGONAL_DELTAS[dir][0],
+                wrt.getY()+ThievesConstLogic.ORTHOGONAL_DELTAS[dir][1],
+                wrt.getZ()+ThievesConstLogic.ORTHOGONAL_DELTAS[dir][2]);
     }
 
     public PLocationRef[] getNeighbors(int x, int y, int z)
@@ -199,6 +211,36 @@ public class PTemplate extends PCSBean implements IJSONAble,Comparable<PTemplate
         queuePropertyChange(ID_LOCATIONS, mLocations, value);
         mLocations = value;
         firePropertyChange();
+    }
+
+    public int getNumApatures()
+    {
+        return mNumApatures;
+    }
+
+    public void setNumApatures(int numApatures)
+    {
+        mNumApatures = numApatures;
+    }
+
+    public int getNumSquares()
+    {
+        return mNumSquares;
+    }
+
+    public void setNumSquares(int numSquares)
+    {
+        mNumSquares = numSquares;
+    }
+
+    public PLocationRef getEntry()
+    {
+        return mEntry;
+    }
+
+    public void setEntry(PLocationRef entry)
+    {
+        mEntry = entry;
     }
 
 }

@@ -3,9 +3,11 @@ package jo.audio.loci.thieves.verbs.move;
 import jo.audio.loci.core.data.ExecuteContext;
 import jo.audio.loci.core.data.Verb;
 import jo.audio.loci.core.logic.ContainmentLogic;
+import jo.audio.loci.thieves.data.LociApature;
 import jo.audio.loci.thieves.data.LociExit;
 import jo.audio.loci.thieves.data.LociLocality;
 import jo.audio.loci.thieves.data.LociPlayer;
+import jo.audio.loci.thieves.data.LociThing;
 import jo.audio.loci.thieves.verbs.VerbLookBase;
 
 public class VerbGoImplicit extends Verb
@@ -19,13 +21,22 @@ public class VerbGoImplicit extends Verb
     public void execute(ExecuteContext context)
     {
         LociPlayer player = (LociPlayer)context.getInvoker();
-        LociExit exit = (LociExit)context.getMatchedVerbHost();
-        LociLocality oldRoom = player.getContainedByObject();
-        LociLocality newRoom = exit.getDestinationObject();
-        VerbGoImplicit.transition(player, exit, oldRoom, newRoom);
+        LociThing agent = (LociThing)context.getMatchedVerbHost();
+        if (agent instanceof LociExit)
+        {
+            LociExit exit = (LociExit)agent;
+            LociLocality oldRoom = player.getContainedByObject();
+            LociLocality newRoom = exit.getDestinationObject();
+            VerbGoImplicit.transition(player, agent, oldRoom, newRoom);
+        }
+        else if (agent instanceof LociApature)
+        {
+            LociApature exit = (LociApature)agent;
+            VerbGoImplicit.transition(player, agent, exit.getSourceObject(), exit.getDestinationObject());
+        }
     }
 
-    public static void transition(LociPlayer player, LociExit exit, LociLocality oldRoom, LociLocality newRoom)
+    public static void transition(LociPlayer player, LociThing exit, LociLocality oldRoom, LociLocality newRoom)
     {
         if (exit != null)
         {
@@ -34,7 +45,7 @@ public class VerbGoImplicit extends Verb
                 player.addMessage("You cannot go that way.");
                 return;
             }
-            if (!exit.getOpen())
+            if ((exit instanceof LociApature) && !((LociApature)exit).getOpen())
             {
                 player.addMessage("The "+exit.getPrimaryName()+" is not open.");
                 return;

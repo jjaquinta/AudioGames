@@ -5,6 +5,7 @@ public class Street
     public static final int STREET = 0;
     public static final int QUAY = 1;
     public static final int BRIDGE = 2;
+    public static final int DWARF = 3;
     
     private String          mID;
     private int             mType;

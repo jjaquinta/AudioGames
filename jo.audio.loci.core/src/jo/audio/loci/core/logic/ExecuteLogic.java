@@ -194,7 +194,8 @@ public class ExecuteLogic
             setMatchedObject.accept(here);
             return true;
         }
-        if (!obj.getNamePattern().matcher(cmd).matches())
+        Pattern p = obj.getNamePattern();
+        if ((p == null) || !p.matcher(cmd).matches())
             return false;
         setObjectText.accept(cmd);
         setMatchedObject.accept(obj);

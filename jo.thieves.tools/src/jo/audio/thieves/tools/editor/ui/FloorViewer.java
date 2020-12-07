@@ -25,6 +25,7 @@ import jo.audio.thieves.data.template.PLocation;
 import jo.audio.thieves.data.template.PLocationRef;
 import jo.audio.thieves.data.template.PSquare;
 import jo.audio.thieves.data.template.PTemplate;
+import jo.audio.thieves.logic.template.LibraryLogic;
 import jo.audio.thieves.tools.editor.data.EditorSettings;
 import jo.audio.thieves.tools.editor.logic.EditorApatureLogic;
 import jo.audio.thieves.tools.editor.logic.EditorHouseLogic;
@@ -149,7 +150,7 @@ public class FloorViewer extends JComponent
         updateInfo();
         if ((mHouse == null) || (mLocations.size() == 0))
             return;
-        mBounds = EditorHouseLogic.getBoundary(mLocations.keySet());
+        mBounds = LibraryLogic.getBoundary(mLocations.values());
         buildRawPolyStack();
         buildTransPolyStack();
         int zsize = (mBounds[1][2] - mBounds[0][2] + 1) / 2;

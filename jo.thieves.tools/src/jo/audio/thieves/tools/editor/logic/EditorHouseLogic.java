@@ -1,11 +1,9 @@
 package jo.audio.thieves.tools.editor.logic;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import java.util.StringTokenizer;
 
 import org.json.simple.JSONObject;
 import org.json.simple.JSONUtils;
@@ -17,9 +15,9 @@ import jo.audio.thieves.data.template.PLocation;
 import jo.audio.thieves.data.template.PLocationRef;
 import jo.audio.thieves.data.template.PSquare;
 import jo.audio.thieves.data.template.PTemplate;
+import jo.audio.thieves.logic.template.LibraryLogic;
 import jo.audio.thieves.tools.editor.data.EditorSettings;
 import jo.audio.thieves.tools.logic.RuntimeLogic;
-import jo.util.utils.obj.IntegerUtils;
 import jo.util.utils.obj.StringUtils;
 
 public class EditorHouseLogic
@@ -650,40 +648,8 @@ public class EditorHouseLogic
     }
     public static int[][] getBoundary()
     {
-        int[][] ret = null;
         EditorSettings es = EditorSettingsLogic.getInstance();
-        PLibrary location = es.getLibrary();
-        if (location == null)
-            return ret;
-        PTemplate house = es.getSelectedHouse();
-        if (house == null)
-            return ret;
-        for (String key : house.getLocations().keySet())
-            ret = extendBoundary(key, ret);
-        return ret;
-    }
-    public static int[][] getBoundary(Collection<String> keys)
-    {
-        int[][] ret = null;
-        for (String key : keys)
-            ret = extendBoundary(key, ret);
-        return ret;
-    }
-    private static int[][] extendBoundary(String key, int[][] edges)
-    {
-        StringTokenizer st = new StringTokenizer(key, ",");
-        int x = IntegerUtils.parseInt(st.nextToken());
-        int y = IntegerUtils.parseInt(st.nextToken());
-        int z = IntegerUtils.parseInt(st.nextToken());
-        if (edges == null)
-            return new int[][] { { x, y, z }, { x, y, z } };
-        edges[0][0] = Math.min(edges[0][0], x);
-        edges[0][1] = Math.min(edges[0][1], y);
-        edges[0][2] = Math.min(edges[0][2], z);
-        edges[1][0] = Math.max(edges[1][0], x);
-        edges[1][1] = Math.max(edges[1][1], y);
-        edges[1][2] = Math.max(edges[1][2], z);
-        return edges;
+        return LibraryLogic.getBoundary(es.getSelectedHouse());
     }
 
     private static final String ROOF = "ROOF";

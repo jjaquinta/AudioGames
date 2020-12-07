@@ -1,43 +1,43 @@
 package jo.audio.loci.thieves.verbs.room;
 
 import jo.audio.loci.core.data.ExecuteContext;
-import jo.audio.loci.thieves.data.LociExit;
+import jo.audio.loci.thieves.data.LociApature;
 import jo.audio.loci.thieves.data.LociPlayer;
 import jo.audio.loci.thieves.verbs.VerbLookBase;
-import jo.audio.thieves.data.gen.Apature;
+import jo.audio.thieves.data.template.PApature;
 
 public class VerbOpen extends VerbLookBase
 {
     public VerbOpen()
     {
-        super("open,o", "$"+LociExit.class, null, null);
+        super("open,o", "$"+LociApature.class, null, null);
     }
 
     @Override
     public void execute(ExecuteContext context)
     {
         LociPlayer player = (LociPlayer)context.getInvoker();
-        LociExit exit = (LociExit)context.getMatchedDirectObject();
-        Apature a = exit.getApatureObject();
-        if ((a == null) || !a.isOpenable())
+        LociApature Apature = (LociApature)context.getMatchedDirectObject();
+        PApature a = Apature.getApatureObject();
+        if ((a == null) || !a.getOpenable())
         {
             player.addMessage("You can't open that.");
             return;
         }
-        if (exit.getOpen())
+        if (Apature.getOpen())
         {
-            player.addMessage("The "+exit.getPrimaryName()+" is already open.");
+            player.addMessage("The "+Apature.getPrimaryName()+" is already open.");
             return;
         }
-        else if (exit.getLocked())
+        else if (Apature.getLocked())
         {
-            player.addMessage("The "+exit.getPrimaryName()+" is locked.");
+            player.addMessage("The "+Apature.getPrimaryName()+" is locked.");
             return;
         }
         else
         {
-            exit.setDoubleOpen(true);
-            player.addMessage("You open the "+exit.getPrimaryName()+".");
+            Apature.setDoubleOpen(true);
+            player.addMessage("You open the "+Apature.getPrimaryName()+".");
             return;
         }
     }

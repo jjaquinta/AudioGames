@@ -2,9 +2,12 @@ package jo.audio.loci.thieves.verbs.move;
 
 import jo.audio.loci.core.data.ExecuteContext;
 import jo.audio.loci.core.data.Verb;
+import jo.audio.loci.thieves.data.LociApature;
 import jo.audio.loci.thieves.data.LociExit;
 import jo.audio.loci.thieves.data.LociLocality;
 import jo.audio.loci.thieves.data.LociPlayer;
+import jo.audio.loci.thieves.data.LociSquare;
+import jo.audio.loci.thieves.data.LociThing;
 import jo.audio.thieves.logic.ThievesConstLogic;
 
 public class VerbGoDir extends Verb
@@ -22,17 +25,34 @@ public class VerbGoDir extends Verb
     {
         LociPlayer player = (LociPlayer)context.getInvoker();
         LociLocality oldRoom = player.getContainedByObject();
-        LociExit exit = findExit(oldRoom);
-        if (exit == null)
+        LociThing agent = findExit(oldRoom);
+        if (agent == null)
         {
             player.addMessage("You cannot go in that direction.");
             return;
         }
-        LociLocality newRoom = exit.getDestinationObject();
-        VerbGoImplicit.transition(player, exit, oldRoom, newRoom);
+        if (agent instanceof LociExit)
+        {
+            LociExit exit = (LociExit)agent;
+            LociLocality newRoom = exit.getDestinationObject();
+            VerbGoImplicit.transition(player, agent, oldRoom, newRoom);
+        }
+        else if (agent instanceof LociApature)
+        {
+            LociApature exit = (LociApature)agent;
+            VerbGoImplicit.transition(player, agent, exit.getSourceObject(), exit.getDestinationObject());
+        }
     }
     
-    private LociExit findExit(LociLocality room)
+    private LociThing findExit(LociThing room)
+    {
+        if (room instanceof LociSquare)
+            return findSquareExit((LociSquare)room);
+        else
+            return findSurfaceExit(room);
+    }
+    
+    private LociExit findSurfaceExit(LociThing room)
     {
         LociExit[] exits = room.getContainsStuff(LociExit.class).toArray(new LociExit[0]);
         if (mCardinality == ThievesConstLogic.UP)
@@ -53,6 +73,15 @@ public class VerbGoDir extends Verb
         }
         // look for exact match
         for (LociExit e : exits)
+            if (e.getDirection() == mCardinality)
+                return e;
+        return null;
+    }
+    
+    private LociThing findSquareExit(LociSquare room)
+    {
+        LociApature[] exits = room.getContainsStuff(LociApature.class).toArray(new LociApature[0]);
+        for (LociApature e : exits)
             if (e.getDirection() == mCardinality)
                 return e;
         return null;
