@@ -20,6 +20,7 @@ public class LociBase extends JSONBean
     public LociBase(JSONObject json)
     {
         fromJSON(json);
+        mProperties.put(ID_DATA_PROFILE, getClass().getSimpleName());
     }
     
     // utils

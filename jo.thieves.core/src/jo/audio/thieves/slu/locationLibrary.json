@@ -1451,7 +1451,7 @@
       "SHOTGUN_CENTRAL_PASSAGE":{
           "ID":"SHOTGUN_CENTRAL_PASSAGE",
           "category":"shotgun",
-          "description":null,
+          "description":"This single story house ceatures a central hall with attached rooms.",
           "locations":{
               "0,7,0":{
                   "ID":"EXIT",
@@ -2300,12 +2300,12 @@
                   "z":2
                 }
             },
-          "name":"CENTRAL_PASSAGE"
+          "name":"Modest House"
         },
       "SHOTGUN_COTTAGE":{
           "ID":"SHOTGUN_COTTAGE",
           "category":"shotgun",
-          "description":null,
+          "description":"This simple cottage has two floors, a front and back porch.",
           "locations":{
               "1,1,0":{
                   "ID":"BACK_YARD",
@@ -4438,12 +4438,12 @@
                   "z":4
                 }
             },
-          "name":"COTTAGE"
+          "name":"Cottage"
         },
       "SHOTGUN_DOGTROT":{
           "ID":"SHOTGUN_DOGTROT",
           "category":"shotgun",
-          "description":null,
+          "description":"This single story house has a roofed breezway between living areas.",
           "locations":{
               "0,7,0":{
                   "ID":"EXIT",
@@ -5772,12 +5772,12 @@
                   "z":2
                 }
             },
-          "name":"DOGTROT"
+          "name":"Modest House"
         },
       "SHOTGUN_DOUBLE_PEN":{
           "ID":"SHOTGUN_DOUBLE_PEN",
           "category":"shotgun",
-          "description":null,
+          "description":"This small house is made of two simple rooms.",
           "locations":{
               "0,5,0":{
                   "ID":"EXIT",
@@ -6488,12 +6488,12 @@
                   "z":2
                 }
             },
-          "name":"DOUBLE_PEN"
+          "name":"Small House"
         },
       "SHOTGUN_HALL_PARLOR":{
           "ID":"SHOTGUN_HALL_PARLOR",
           "category":"shotgun",
-          "description":null,
+          "description":"This single story house has a modest collection of small rooms.",
           "locations":{
               "0,5,0":{
                   "ID":"EXIT",
@@ -7060,12 +7060,12 @@
                   "z":0
                 }
             },
-          "name":"HALL_PARLOR"
+          "name":"Simple House"
         },
       "SHOTGUN_SHOTGUN_HOUSE":{
           "ID":"SHOTGUN_SHOTGUN_HOUSE",
           "category":"shotgun",
-          "description":null,
+          "description":"This small house has several rooms all in a line.",
           "locations":{
               "0,5,0":{
                   "ID":"EXIT",
@@ -8328,12 +8328,12 @@
                   "z":2
                 }
             },
-          "name":"SHOTGUN_HOUSE"
+          "name":"Shotgun House"
         },
       "SHOTGUN_SINGLE_PEN":{
           "ID":"SHOTGUN_SINGLE_PEN",
           "category":"shotgun",
-          "description":null,
+          "description":"This small building has all the living areas in a single room.",
           "locations":{
               "0,3,0":{
                   "ID":"EXIT",
@@ -8774,7 +8774,7 @@
                   "z":0
                 }
             },
-          "name":"SINGLE_PEN"
+          "name":"Small House"
         },
       "TERRACE_BEACH_HOUSE":{
           "ID":"TERRACE_BEACH_HOUSE",
@@ -25091,7 +25091,7 @@
       "WAREHOUSE_SMALL_WARE_HOUSE":{
           "ID":"WAREHOUSE_SMALL_WARE_HOUSE",
           "category":"warehouse",
-          "description":null,
+          "description":"This small commercial building is used to store goods.",
           "locations":{
               "0,7,0":{
                   "ID":"EXIT",
@@ -25526,7 +25526,7 @@
                   "z":0
                 }
             },
-          "name":"SMALL_WARE_HOUSE"
+          "name":"Small Warehouse"
         }
     }
 }

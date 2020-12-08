@@ -26,7 +26,10 @@ public class RandomTest extends TestBase
             all.addAll(typeAheads.getCommands());
             Assert.assertEquals("Duplicate commands returned", typeAheads.getCommands().size(), all.size());
             System.out.println(i+": "+typeAheads.getCommands().size()+" choices");
-            String cmd = typeAheads.getCommands().get(mRandom.nextInt(typeAheads.getCommands().size()));
+            String cmd;
+            do {
+                cmd = typeAheads.getCommands().get(mRandom.nextInt(typeAheads.getCommands().size()));
+            } while (cmd.startsWith("dump") || cmd.startsWith("debug"));
             int o = cmd.indexOf(".*");
             if (o >= 0)
                 cmd = cmd.substring(0, o) + randomWord() + cmd.substring(o + 2);

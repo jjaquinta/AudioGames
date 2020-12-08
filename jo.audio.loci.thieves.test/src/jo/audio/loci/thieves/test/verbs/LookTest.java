@@ -40,6 +40,11 @@ class LookTest extends TestBase
     {
         talk("register Wibble with Wobble", "Welcome Wibble", "Flagged Square", "Maple", "Park", "Pine");
         talk("Maple Street", "Flagged Square", "Paved Junction");
+        talk("look 1", "Simple House", "single story", "small rooms");
+        talk("look 100", "no address", "houses run from");
+        talk("look 0", "no address", "houses run from");
+        talk("look -1", "unable to execute");
+        talk("look one", "unable to execute");
         talk("enter 1", "brick walkway");
         talk("look", "brick walkway");
         talk("look here", "brick walkway");

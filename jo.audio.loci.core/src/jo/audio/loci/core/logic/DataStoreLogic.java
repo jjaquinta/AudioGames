@@ -78,8 +78,10 @@ public class DataStoreLogic
     {
         // check cache first
         for (LociBase ret : mCache.getAll())
+        {
             if (ret.getDataProfile().equals(dataProfile) && matcher.apply((T)ret))
                 return (T)ret;
+        }
         // now do expensive lookup
         for (IDataStore store : mDataStores)
         {
