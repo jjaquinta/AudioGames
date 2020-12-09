@@ -1,10 +1,9 @@
 package jo.audio.loci.thieves.verbs;
 
 import jo.audio.loci.core.data.ExecuteContext;
-import jo.audio.loci.core.data.LociBase;
 import jo.audio.loci.core.data.Verb;
-import jo.audio.loci.core.logic.DataStoreLogic;
 import jo.audio.loci.thieves.data.LociPlayer;
+import jo.audio.loci.thieves.logic.PlayerLogic;
 
 public class VerbLogin2 extends Verb
 {
@@ -26,12 +25,8 @@ public class VerbLogin2 extends Verb
                 break;
             username = (username + " " + password.substring(0, o)).trim();
             password = password.substring(o).trim();
-            final String userName = username;
-            LociBase player = DataStoreLogic.findFirst(LociPlayer.class.getSimpleName(), (obj) -> {
-                LociPlayer p = (LociPlayer)obj;
-                return userName.equalsIgnoreCase(p.getPrimaryName());
-                });
-            if (player instanceof LociPlayer)
+            LociPlayer player = PlayerLogic.getPlayer(username);
+            if (player != null)
             {
                 LociPlayer p = (LociPlayer)player;
                 if (password.equals(p.getPassword()))

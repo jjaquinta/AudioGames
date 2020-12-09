@@ -2,12 +2,29 @@ package jo.audio.loci.thieves.logic;
 
 import java.util.Arrays;
 
+import jo.audio.loci.core.data.LociBase;
+import jo.audio.loci.core.logic.DataStoreLogic;
 import jo.audio.loci.thieves.data.LociPlayer;
+import jo.audio.loci.thieves.data.LociPlayerAdmin;
 import jo.audio.thieves.logic.LocationLogic;
 import jo.audio.thieves.logic.ThievesConstLogic;
 
 public class PlayerLogic
 {
+    public static LociPlayer getPlayer(String userName)
+    {
+        LociBase player = DataStoreLogic.findFirst(LociPlayer.class.getSimpleName(), (obj) -> {
+            LociPlayer p = (LociPlayer)obj;
+            return userName.equalsIgnoreCase(p.getPrimaryName());
+            });
+        if (player == null)
+            player = DataStoreLogic.findFirst(LociPlayerAdmin.class.getSimpleName(), (obj) -> {
+                LociPlayer p = (LociPlayer)obj;
+                return userName.equalsIgnoreCase(p.getPrimaryName());
+                });
+        return (LociPlayer)player;
+    }
+    
     public static void rollUp(LociPlayer comp)
     {
         comp.setRace(ThievesConstLogic.RACE_HUMAN);
@@ -28,9 +45,9 @@ public class PlayerLogic
             modifyRaceElf(comp);
         // class
         comp.setLevel(1);
-        comp.setHitPoints(LocationLogic.getCity().getRND().nextInt(10)+1+getHitPointBonus(comp));
+        comp.setXP(0);
+        comp.setHitPoints(LocationLogic.getCity().getRND().nextInt(6)+1+getHitPointBonus(comp));
         comp.setCurrentHitPoints(comp.getHitPoints());
-
     }
 
     protected static void modifyRaceElf(LociPlayer comp)
@@ -138,5 +155,54 @@ public class PlayerLogic
         dice[3] = LocationLogic.getCity().getRND().nextInt(6)+1;
         Arrays.sort(dice);
         return dice[1] + dice[2] + dice[3];
+    }
+    
+    private static final int[] XP_TO_LEVEL = {
+        1250, 2500, 5000, 10000, 20000, 40000, 70000, 110000, 160000,
+        220000, 440000, 660000, 880000, 
+    };
+    
+    private static int xpForLevel(int level)
+    {
+        if (level == 1)
+            return 0;
+        if (level <= XP_TO_LEVEL.length + 1)
+            return XP_TO_LEVEL[level-2];
+        else
+            return 220000 + (level - 11)*220000;
+    }
+    
+    private static int levelForXP(int xp)
+    {
+        for (int level = 1; true; level++)
+            if (xp < xpForLevel(level))
+                return level - 1;
+    }
+    
+    public static void addXP(LociPlayer player, int xpAdd)
+    {
+        int xp = player.getXP() + xpAdd;
+        player.setXP(xp);
+        int level = levelForXP(xp);
+        if (xp == 1)
+            player.addMessage("You gain one experience point.");
+        else
+            player.addMessage("You gain "+xpAdd+" experience points.");
+        player.addMessage("+You now have a total of "+player.getXP()+".");
+        while (player.getLevel() < level)
+        {
+            player.setLevel(player.getLevel() + 1);
+            // go up a level
+            player.addMessage("You have gone up to level "+player.getLevel()+".");
+            int hp = getHitPointBonus(player);
+            if (player.getLevel() <= 10)
+                hp += LocationLogic.getCity().getRND().nextInt(6)+1;
+            else
+                hp += 2;
+            player.setCurrentHitPoints(player.getCurrentHitPoints() + hp);
+            player.setHitPoints(player.getHitPoints() + hp);            
+        }
+        int needed = xpForLevel(player.getLevel() + 1) - player.getXP();
+        player.addMessage("+You need "+needed+" more to reach level "+(player.getLevel()+1)+".");
     }
 }

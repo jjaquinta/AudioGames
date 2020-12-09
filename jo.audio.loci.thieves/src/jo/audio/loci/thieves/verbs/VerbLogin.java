@@ -1,10 +1,9 @@
 package jo.audio.loci.thieves.verbs;
 
 import jo.audio.loci.core.data.ExecuteContext;
-import jo.audio.loci.core.data.LociBase;
 import jo.audio.loci.core.data.Verb;
-import jo.audio.loci.core.logic.DataStoreLogic;
 import jo.audio.loci.thieves.data.LociPlayer;
+import jo.audio.loci.thieves.logic.PlayerLogic;
 
 public class VerbLogin extends Verb
 {
@@ -19,17 +18,13 @@ public class VerbLogin extends Verb
         LociPlayer amadan = (LociPlayer)context.getInvoker();
         String userName = context.getDirectObjectText();
         String password = context.getIndirectObjectText();
-        LociBase player = DataStoreLogic.findFirst(LociPlayer.class.getSimpleName(), (obj) -> {
-            LociPlayer p = (LociPlayer)obj;
-            return userName.equalsIgnoreCase(p.getPrimaryName());
-            });
-        if (player instanceof LociPlayer)
+        LociPlayer player = PlayerLogic.getPlayer(userName);
+        if (player != null)
         {
-            LociPlayer p = (LociPlayer)player;
-            if (password.equals(p.getPassword()))
+            if (password.equals(player.getPassword()))
             {
-                p.addMessage("Welcome back "+p.getPrimaryName()+".");
-                VerbRegister.enter(context, amadan, p);
+                player.addMessage("Welcome back "+player.getPrimaryName()+".");
+                VerbRegister.enter(context, amadan, player);
             }
             else
                 amadan.addMessage("That is a incorrect username or password.");

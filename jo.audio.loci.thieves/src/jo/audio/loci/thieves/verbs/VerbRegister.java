@@ -1,7 +1,6 @@
 package jo.audio.loci.thieves.verbs;
 
 import jo.audio.loci.core.data.ExecuteContext;
-import jo.audio.loci.core.data.LociBase;
 import jo.audio.loci.core.data.LociObject;
 import jo.audio.loci.core.data.Verb;
 import jo.audio.loci.core.logic.ContainmentLogic;
@@ -30,11 +29,8 @@ public class VerbRegister extends Verb
     public static void doRegister(ExecuteContext context, String userName, String password)
     {
         LociPlayer amadan = (LociPlayer)context.getInvoker();
-        LociBase player = DataStoreLogic.findFirst(LociPlayer.class.getSimpleName(), (obj) -> {
-            LociPlayer p = (LociPlayer)obj;
-            return userName.equalsIgnoreCase(p.getPrimaryName());
-            });
-        if (player instanceof LociPlayer)
+        LociPlayer player = PlayerLogic.getPlayer(userName);
+        if (player != null)
         {
             LociPlayer p = (LociPlayer)player;
             if (password.equals(p.getPassword()))

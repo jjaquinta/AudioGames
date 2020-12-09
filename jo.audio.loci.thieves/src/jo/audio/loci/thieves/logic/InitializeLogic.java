@@ -23,7 +23,6 @@ import jo.audio.loci.thieves.stores.ExitStore;
 import jo.audio.loci.thieves.stores.IntersectionStore;
 import jo.audio.loci.thieves.stores.SquareStore;
 import jo.audio.loci.thieves.stores.StreetStore;
-import jo.audio.loci.thieves.verbs.VerbDump;
 import jo.audio.loci.thieves.verbs.VerbLogin;
 import jo.audio.loci.thieves.verbs.VerbLogin2;
 import jo.audio.loci.thieves.verbs.VerbLogout;
@@ -33,6 +32,8 @@ import jo.audio.loci.thieves.verbs.VerbLookHouse;
 import jo.audio.loci.thieves.verbs.VerbMore;
 import jo.audio.loci.thieves.verbs.VerbRegister;
 import jo.audio.loci.thieves.verbs.VerbRegister2;
+import jo.audio.loci.thieves.verbs.admin.VerbAddXP;
+import jo.audio.loci.thieves.verbs.admin.VerbDump;
 import jo.audio.loci.thieves.verbs.item.VerbDrop;
 import jo.audio.loci.thieves.verbs.item.VerbPickUp;
 import jo.audio.loci.thieves.verbs.item.VerbPutIn;
@@ -117,8 +118,9 @@ public class InitializeLogic
         VerbLogic.registerVerbs(LociFoyeur.class,
                 new VerbRegister(), new VerbRegister2(), new VerbLogin(), new VerbLogin2(), new VerbLookFoyeur());
         VerbLogic.registerVerbs(LociPlayer.class,
-                new VerbLogout(), new VerbDump(), new VerbLookHere(), new VerbMore());
-        VerbLogic.registerVerbs(LociPlayerAdmin.class);
+                new VerbLogout(), new VerbLookHere(), new VerbMore());
+        VerbLogic.registerVerbs(LociPlayerAdmin.class,
+                new VerbDump(), new VerbAddXP());
         VerbLogic.registerVerbs(LociPlayerGhost.class);
         DataStoreLogic.registerDataStore(new IntersectionStore());
         DataStoreLogic.registerDataStore(new ExitStore());

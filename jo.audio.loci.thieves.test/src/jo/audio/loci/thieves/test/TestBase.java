@@ -80,4 +80,10 @@ public class TestBase
     {
         return mRandom.nextInt(6)+mRandom.nextInt(6)+mRandom.nextInt(6);
     }
+
+    protected void promoteToAdmin()
+    {
+        LociPlayer player = (LociPlayer)mLastContext.getInvoker();
+        player.promnoteToAdmin();
+    }
 }

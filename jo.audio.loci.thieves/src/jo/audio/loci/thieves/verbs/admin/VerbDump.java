@@ -1,10 +1,11 @@
-package jo.audio.loci.thieves.verbs;
+package jo.audio.loci.thieves.verbs.admin;
 
 import org.json.simple.JSONUtils;
 
 import jo.audio.loci.core.data.ExecuteContext;
 import jo.audio.loci.core.data.LociBase;
 import jo.audio.loci.thieves.data.LociPlayer;
+import jo.audio.loci.thieves.verbs.VerbLookBase;
 
 public class VerbDump extends VerbLookBase
 {

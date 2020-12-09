@@ -31,6 +31,7 @@ public class LociPlayer extends LociThing
     public static final String ID_DEX = "dex";
     public static final String ID_CHA = "cha";
     public static final String ID_LEVEL = "level";
+    public static final String ID_XP = "xp";
     public static final String ID_HIT_POINTS = "hitPoints";
     public static final String ID_CURRENT_HIT_POINTS = "currentHitPoints";
     
@@ -130,6 +131,12 @@ public class LociPlayer extends LociThing
         }
     }
 
+    public void promnoteToAdmin()
+    {
+        mProperties.put(ID_DATA_PROFILE, LociPlayerAdmin.class.getSimpleName());
+        DataStoreLogic.save(this);
+        DataStoreLogic.clearCache();
+    }
     
     public LociLocality getContainedByObject()
     {
@@ -343,6 +350,16 @@ public class LociPlayer extends LociThing
     public void setLevel(int value)
     {
         setInt(ID_LEVEL, value);
+    }
+    
+    public int getXP()
+    {
+        return getInt(ID_XP);
+    }
+    
+    public void setXP(int value)
+    {
+        setInt(ID_XP, value);
     }
     
     public int getHitPoints()

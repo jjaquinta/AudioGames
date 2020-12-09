@@ -1,7 +1,6 @@
 package jo.audio.loci.thieves.logic;
 
 import java.util.HashSet;
-import java.util.Random;
 import java.util.Set;
 
 import org.json.simple.JSONObject;
@@ -9,7 +8,6 @@ import org.json.simple.JSONObject;
 import jo.audio.loci.core.logic.ContainmentLogic;
 import jo.audio.loci.core.logic.DataStoreLogic;
 import jo.audio.loci.core.logic.stores.DiskStore;
-import jo.audio.loci.thieves.data.LociContainer;
 import jo.audio.loci.thieves.data.LociSquare;
 import jo.audio.loci.thieves.data.LociThing;
 import jo.audio.loci.thieves.stores.ApatureStore;
