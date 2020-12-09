@@ -85,6 +85,9 @@ class WalkingTest extends TestBase
         talk("register Wibble with Wobble", "Welcome Wibble", "Flagged Square", "Maple", "Park", "Pine");
         talk("Maple Street", "Flagged Square", "Paved Junction");
         talk("enter 1", "brick walkway");
+        talk("unlock w", "you fail to unlock");
+        talk("unlock w", "you fail to unlock");
+        talk("unlock w", "you fail to unlock");
         talk("unlock w", "you unlock");
         talk("open w", "you open");
         talk("w", "main living area");

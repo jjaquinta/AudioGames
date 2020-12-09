@@ -3,6 +3,7 @@ package jo.audio.loci.thieves.verbs.item;
 import jo.audio.loci.core.data.ExecuteContext;
 import jo.audio.loci.thieves.data.LociContainer;
 import jo.audio.loci.thieves.data.LociPlayer;
+import jo.audio.loci.thieves.logic.SkillLogic;
 import jo.audio.loci.thieves.verbs.VerbLookBase;
 
 public class VerbUnlock extends VerbLookBase
@@ -29,8 +30,13 @@ public class VerbUnlock extends VerbLookBase
         }
         else
         {
-            container.setLocked(false);
-            player.addMessage("You unlock the "+container.getPrimaryName()+".");
+            if (SkillLogic.rollOpenLocks(player, container.getOpenLocksMod()))
+            {
+                container.setLocked(false);
+                player.addMessage("You unlock the "+container.getPrimaryName()+".");
+            }
+            else
+                player.addMessage("You fail to unlock the "+container.getPrimaryName()+".");
             return;
         }
     }

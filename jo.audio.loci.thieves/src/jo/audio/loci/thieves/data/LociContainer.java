@@ -15,6 +15,7 @@ public class LociContainer extends LociItem
     public static final String ID_OPEN = "open";
     public static final String ID_LOCKED = "locked";
     public static final String ID_LOCKABLE = "lockable";
+    public static final String ID_OPEN_LOCKS_MOD = "openLocksMod";
 
     public LociContainer(String uri)
     {
@@ -93,5 +94,15 @@ public class LociContainer extends LociItem
     public void setLocked(boolean value)
     {
         setBoolean(ID_LOCKED, value);
+    }
+    
+    public int getOpenLocksMod()
+    {
+        return getInt(ID_OPEN_LOCKS_MOD);
+    }
+    
+    public void setOpenLocksMod(int value)
+    {
+        setInt(ID_OPEN_LOCKS_MOD, value);
     }
 }

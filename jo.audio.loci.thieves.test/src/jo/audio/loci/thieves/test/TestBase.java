@@ -37,8 +37,12 @@ public class TestBase
         mLastContext = InteractLogic.interact(mUserName, mPassword, mToken, command);
         LociPlayer player = (LociPlayer)mLastContext.getInvoker();
         boolean[] validated = new boolean[validate.length];
+        StringBuffer output = new StringBuffer();
         for (String reply : player.getAndClearMessages())
         {
+            if (output.length() > 0)
+                output.append(", ");
+            output.append("\""+reply+"\"");
             System.out.println(reply);
             for (int i = 0; i < validate.length; i++)
                 if (!validated[i])
@@ -55,9 +59,9 @@ public class TestBase
         }
         for (int i = 0; i < validated.length; i++)
             if (validate[i].startsWith("!"))
-                Assert.assertFalse("Found "+validate[i]+" in output", validated[i]);
+                Assert.assertFalse("Found "+validate[i]+" in output '"+output+"'", validated[i]);
             else
-                Assert.assertTrue("Could not find "+validate[i]+" in output", validated[i]);
+                Assert.assertTrue("Could not find "+validate[i]+" in output '"+output+"'", validated[i]);
         mToken = mLastContext.getInvoker().getURI();
         return mLastContext;
     }

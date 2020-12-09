@@ -1,8 +1,10 @@
 package jo.audio.loci.thieves.test;
 
 import java.io.File;
+import java.util.Random;
 
 import jo.audio.loci.core.logic.DataStoreLogic;
+import jo.audio.thieves.logic.LocationLogic;
 import jo.util.utils.io.FileUtils;
 
 public class SetupLogic
@@ -15,5 +17,6 @@ public class SetupLogic
         File data = new File(dirName);
         FileUtils.rmdir(data);
         DataStoreLogic.clearCache();
+        LocationLogic.getCity().setRND(new Random(1));
     }
 }

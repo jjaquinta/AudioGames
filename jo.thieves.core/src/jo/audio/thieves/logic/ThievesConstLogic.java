@@ -68,6 +68,10 @@ public class ThievesConstLogic
     public static final String RACE_HUMAN = "human";
     public static final String RACE_DWARF = "dwarf";
     public static final String RACE_ELF = "elf";
+    public static final String RACE_GNOME = "gnome";
+    public static final String RACE_HALF_ELF = "half-elf";
+    public static final String RACE_HALFLING = "halfling";
+    public static final String RACE_HALF_ORC = "half-orc";
     
     public static final long GAME_TIME_COMPRESSION = 24; // game day = 1 hour real time
     public static final long ONE_DAY = 24*60*60; // in seconds
