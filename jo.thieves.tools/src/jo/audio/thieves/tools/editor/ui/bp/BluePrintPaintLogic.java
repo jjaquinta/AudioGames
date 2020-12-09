@@ -149,18 +149,31 @@ public class BluePrintPaintLogic
                     if (panel.mSelectorIndex == i)
                     {
                         panel.setFont(panel.mBaseFont);
-                        FontMetrics fm = g.getFontMetrics();
                         String txt = item.getName();
                         if (StringUtils.isTrivial(txt))
                             txt = item.getID();
-                        Rectangle2D w = fm.getStringBounds(txt, g);
-                        g.drawString(txt, rect.x + rect.width/2 - (int)w.getWidth()/2, rect.y - fm.getDescent() - fm.getLeading());
+                        paintAboveText(g, rect, txt);
                     }
                     x += (panel.ICON_SIZE + panel.DOOR_WIDTH);
                 }
                 y += (panel.ICON_SIZE + panel.DOOR_WIDTH);
             }
         }
+    }
+    
+    private static void paintAboveText(Graphics2D g, Rectangle rect, String txt)
+    {
+        FontMetrics fm = g.getFontMetrics();
+        Rectangle2D w = fm.getStringBounds(txt, g);
+        g.drawString(txt, rect.x + rect.width/2 - (int)w.getWidth()/2, rect.y - fm.getDescent() - fm.getLeading());
+    }
+    
+    private static void paintCenteredText(Graphics2D g, Rectangle rect, String txt)
+    {
+        FontMetrics fm = g.getFontMetrics();
+        Rectangle2D w = fm.getStringBounds(txt, g);
+        int gap = (rect.height - fm.getAscent() - fm.getDescent())/2;
+        g.drawString(txt, rect.x + rect.width/2 - (int)w.getWidth()/2, rect.y + gap + fm.getAscent());
     }
 
     private static void paintFloors(BluePrintPanel panel, Graphics2D g)
@@ -174,6 +187,7 @@ public class BluePrintPaintLogic
         }
         for (PolySquare room : panel.mSquares)
             paintRoom(panel, g, room);
+        paintTags(panel, g);
         paintWalls(panel, g);
         if (panel.mHoverTile != null)
         {
@@ -317,6 +331,25 @@ public class BluePrintPaintLogic
                         }
                     }
                 }
+    }
+
+    private static void paintTags(BluePrintPanel panel, Graphics2D g)
+    {
+        g.setFont(panel.mBaseFont);
+        for (PLocationRef loc : panel.mHouse.getLocations().values())
+        {
+            int type = loc.getType();
+            if (type == PTemplate.SQUARE)
+            {
+                if (loc.getTags().size() > 0)
+                {
+                    String tag = loc.getTags().iterator().next().substring(0, 1);
+                    Rectangle r = getRectangle(panel, loc.getX(), loc.getY(), loc.getZ(), type);
+                    g.setColor(Color.DARK_GRAY);
+                    paintCenteredText(g, r, tag);
+                }
+            }
+        }
     }
 
     private static void paintRoom(BluePrintPanel panel, Graphics2D g, PolySquare room)

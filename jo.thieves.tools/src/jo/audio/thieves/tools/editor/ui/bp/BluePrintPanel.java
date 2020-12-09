@@ -15,6 +15,7 @@ import javax.swing.JComponent;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
+import javax.swing.JSeparator;
 
 import jo.audio.thieves.data.template.PApature;
 import jo.audio.thieves.data.template.PLocation;
@@ -66,6 +67,7 @@ public class BluePrintPanel extends JComponent
     private JMenuItem         mDigUp;
     private JMenuItem         mClearDown;
     private JMenuItem         mClearUp;
+    private JMenuItem         mTagBed;
 
     public BluePrintPanel()
     {
@@ -81,10 +83,13 @@ public class BluePrintPanel extends JComponent
         mDigUp = new JMenuItem("Dig Up...");
         mClearDown = new JMenuItem("Clear Down");
         mClearUp = new JMenuItem("Clear Up");
+        mTagBed = new JMenuItem("Set Bed");
     }
 
     private void initLayout()
     {
+        mApaturePopup.add(mTagBed);
+        mApaturePopup.add(new JSeparator());
         mApaturePopup.add(mDigDown);
         mApaturePopup.add(mDigUp);
         mApaturePopup.add(mClearDown);
@@ -108,6 +113,7 @@ public class BluePrintPanel extends JComponent
         ListenerUtils.listen(mDigUp, (e) -> doDigDir(e, 1));
         ListenerUtils.listen(mClearDown, (e) -> EditorHouseLogic.removeTile(e.getActionCommand()));
         ListenerUtils.listen(mClearUp, (e) -> EditorHouseLogic.removeTile(e.getActionCommand()));
+        ListenerUtils.listen(mTagBed, (e) -> EditorHouseLogic.toggleTileTag(e.getActionCommand(), PLocationRef.TAG_BED));
     }
 
     @Override
@@ -143,6 +149,8 @@ public class BluePrintPanel extends JComponent
         mClearUp.setActionCommand(up.toKey());
         mClearDown.setEnabled(down.getID() != null);
         mClearDown.setActionCommand(down.toKey());
+        mTagBed.setText(here.getTags().contains(PLocationRef.TAG_BED) ? "Remove Bed" : "Add Bed");
+        mTagBed.setActionCommand(here.toKey());
         mApaturePopup.show(this, point.x, point.y);
     }
     

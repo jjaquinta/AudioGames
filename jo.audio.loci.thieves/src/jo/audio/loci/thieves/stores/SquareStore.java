@@ -59,7 +59,12 @@ public class SquareStore implements IDataStore
         //SquareURI u = new SquareURI(uri);
         JSONObject json = mDisk.loadJSON(uri);
         if (json == null)
+        {
             json = new JSONObject();
+            json.put("$firstTime", true);
+        }
+        else
+            json.remove("$firstTime");
         json.put(LociBase.ID_URI, uri);
         LociSquare obj = new LociSquare(json);
         return obj;

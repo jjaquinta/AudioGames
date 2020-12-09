@@ -82,6 +82,21 @@ public class EditorHouseLogic
         es.fireMonotonicPropertyChange("location.floor");
         RuntimeLogic.status("Clearing floor "+k);
     }
+    public static void toggleTileTag(String k, String tag)
+    {
+        EditorSettings es = EditorSettingsLogic.getInstance();
+        PTemplate house = es.getSelectedHouse();
+        PLocationRef ref = house.getLocations().get(k);
+        if (ref == null)
+            throw new IllegalStateException();
+        if (ref.getTags().contains(tag))
+            ref.getTags().remove(tag);
+        else
+            ref.getTags().add(tag);
+        house.fireMonotonicPropertyChange("locations");
+        es.fireMonotonicPropertyChange("location.floor");
+        RuntimeLogic.status("Clearing floor "+k);
+    }
     
     private static final int[][] ORTH_DELTA = {
             { -1, 0 }, { 1, 0 }, { 0, -1 }, { 0, 1 }

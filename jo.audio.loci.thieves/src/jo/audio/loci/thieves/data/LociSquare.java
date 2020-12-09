@@ -1,21 +1,14 @@
 package jo.audio.loci.thieves.data;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import org.json.simple.JSONObject;
 
 import jo.audio.loci.core.data.LociObject;
-import jo.audio.loci.core.logic.DataStoreLogic;
 import jo.audio.loci.core.utils.ResponseUtils;
-import jo.audio.loci.thieves.stores.ApatureStore;
-import jo.audio.loci.thieves.stores.ExitStore;
+import jo.audio.loci.thieves.logic.PopulateSquareLogic;
 import jo.audio.loci.thieves.stores.SquareStore;
-import jo.audio.thieves.data.template.PLocationRef;
-import jo.audio.thieves.data.template.PSquare;
-import jo.audio.thieves.logic.ThievesConstLogic;
 import jo.audio.thieves.slu.ThievesModelConst;
 import jo.util.utils.obj.StringUtils;
 
@@ -31,45 +24,7 @@ public class LociSquare extends LociLocality
     public LociSquare(JSONObject json)
     {
         super(json);
-        init();
-    }
-    
-    private void init()
-    {
-        String u = getURI();
-        mURI = ((SquareStore)DataStoreLogic.getStore(SquareStore.PREFIX)).new SquareURI(u);
-        PSquare sq = mURI.getThis();
-        mProperties.put(ID_NAME, sq.getName());
-        if (StringUtils.isTrivial(sq.getDescription()))
-            mProperties.put(ID_DECRIPTION, "");
-        else
-            mProperties.put(ID_DECRIPTION, sq.getDescription());
-        Set<String> contains = new HashSet<>();
-        String[] cs = getContains();
-        if (cs != null)
-            for (String c : cs)
-                if (!c.startsWith(ExitStore.PREFIX) && !c.startsWith(ApatureStore.PREFIX))
-                    contains.add(c);
-        for (int dir : ThievesConstLogic.ORTHOGONAL_DIRS)
-        {
-            PLocationRef exit = mURI.getApatureRef(dir);
-            if (exit != null)
-            {
-                if ("EXIT".equals(exit.getID()))
-                {
-                    String streetID = StringUtils.stripAfterLast(u.substring(SquareStore.PREFIX.length()), ":");
-                    String sURI = ExitStore.PREFIX+streetID+"/"+streetID+"/"+dir;
-                    contains.add(sURI);
-                }
-                else
-                {    
-                    ApatureStore.ApatureURI aURI = ((ApatureStore)DataStoreLogic.getStore(ApatureStore.PREFIX)).new ApatureURI(
-                            mURI.mStreet, mURI.mHouseNum, exit, dir);
-                    contains.add(aURI.toURI());
-                }
-            }
-        }
-        setContains(contains.toArray(new String[0]));
+        PopulateSquareLogic.populate(this);
     }
     
     @Override
@@ -132,5 +87,19 @@ public class LociSquare extends LociLocality
     }
 
     // getters and setters
+    public JSONObject getProperties()
+    {
+        return mProperties;
+    }
+
+    public SquareStore.SquareURI getURIObject()
+    {
+        return mURI;
+    }
+
+    public void setURIObject(SquareStore.SquareURI uRI)
+    {
+        mURI = uRI;
+    }
     
 }

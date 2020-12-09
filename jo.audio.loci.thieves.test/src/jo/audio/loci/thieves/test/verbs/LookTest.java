@@ -60,5 +60,7 @@ class LookTest extends TestBase
         talk("look north", "Window", "wavy glass");
         talk("look Window", "Window", "wavy glass");
         talk("look through Window", "Window", "!wavy glass", "through the window", "side yard", "grass and weeds");
+        talk("w", "Bedroom", "There is Bed here");
+        talk("look bed", "pine", "homespun");
     }
 }
