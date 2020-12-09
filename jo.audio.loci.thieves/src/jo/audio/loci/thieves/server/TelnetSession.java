@@ -1,5 +1,6 @@
 package jo.audio.loci.thieves.server;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -17,11 +18,13 @@ import jo.audio.loci.thieves.data.LociPlayer;
 import jo.audio.loci.thieves.data.LociPlayerGhost;
 import jo.audio.loci.thieves.logic.InteractLogic;
 import jo.util.utils.DebugUtils;
+import jo.util.utils.io.FileUtils;
 
 public class TelnetSession
 {
     private BaseTelnet.RedirectorInputStream mStdIn;
     private PrintStream                      mStdOut;
+    private File                             mTranscript;
 
     private ExecuteContext                   mResponse;
     private TypeAheadContext                 mTypeAhead;
@@ -67,6 +70,14 @@ public class TelnetSession
                     break;
                 }
                 DebugUtils.debug(inbuf);
+                if (mTranscript != null)
+                    try
+                    {
+                        FileUtils.appendFile(">"+inbuf+System.getProperty("line.separator"), mTranscript);
+                    }
+                    catch (IOException e)
+                    {
+                    }
                 mResponse = InteractLogic.interact(mUsername, mPassword, mToken,
                         inbuf);
                 mTypeAhead = ExecuteLogic.typeAhead(mResponse.getInvoker());
@@ -212,6 +223,7 @@ public class TelnetSession
             mPrompter = new OutputTimer();
         else
             mPrompter.interrupt();
+        mTranscript = new File("transcripts"+System.getProperty("file.separator")+mPlayer.getPrimaryName()+".txt");
     }
 
     private synchronized void printMessages()
@@ -225,6 +237,14 @@ public class TelnetSession
     {
         mStdOut.println(msg);
         mStdOut.flush();
+        if (mTranscript != null)
+            try
+            {
+                FileUtils.appendFile("<"+msg+System.getProperty("line.separator"), mTranscript);
+            }
+            catch (IOException e)
+            {
+            }
     }
 
     class OutputTimer implements Runnable

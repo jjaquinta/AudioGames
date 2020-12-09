@@ -1,5 +1,6 @@
 package jo.audio.loci.thieves.server;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -17,6 +18,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import jo.audio.loci.core.data.ExecuteContext;
+import jo.audio.loci.core.data.LociObject;
 import jo.audio.loci.core.data.TypeAheadContext;
 import jo.audio.loci.core.logic.ExecuteLogic;
 import jo.audio.loci.thieves.data.LociPlayer;
@@ -24,6 +26,7 @@ import jo.audio.loci.thieves.logic.InitializeLogic;
 import jo.audio.loci.thieves.logic.InteractLogic;
 import jo.util.html.URIBuilder;
 import jo.util.utils.DebugUtils;
+import jo.util.utils.io.FileUtils;
 import jo.util.utils.io.ResourceUtils;
 import jo.util.utils.obj.IntegerUtils;
 import jo.util.utils.xml.EntityUtils;
@@ -191,6 +194,14 @@ public class HttpServer
         String password = query.getProperty("password");
         String token = query.getProperty("token");
         ExecuteContext response = InteractLogic.interact(username, password, token, text);
+        try
+        {
+            File transcript = new File("transcripts"+System.getProperty("file.separator")+((LociObject)response.getInvoker()).getPrimaryName()+".txt");
+            FileUtils.appendFile(">"+text+System.getProperty("line.separator"), transcript);
+        }
+        catch (IOException e)
+        {
+        }
         TypeAheadContext typeahead = ExecuteLogic.typeAhead(response.getInvoker());
         printResponse(soc, headers, response, typeahead);
     }
@@ -285,8 +296,18 @@ public class HttpServer
         html.append("<body>");
         html.append("<p>");
         LociPlayer player = (LociPlayer)response.getInvoker();
+        File transcript = new File("transcripts"+System.getProperty("file.separator")+player.getPrimaryName()+".txt");
         for (String txt : player.getAndClearMessages())
+        {
             html.append(EntityUtils.insertEntities(txt, true)+"<br/>");
+            try
+            {
+                FileUtils.appendFile("<"+txt+System.getProperty("line.separator"), transcript);
+            }
+            catch (IOException e)
+            {
+            }
+        }
         html.append("</p>");
         html.append("<form action=\"/api\">");
         if (player.getOnline())
