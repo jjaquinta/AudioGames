@@ -1655,6 +1655,13 @@
           "category":"guild",
           "description":"This non-descript buildings has hidden signs and markings indicating it is a guid hall for theives.",
           "locations":{
+              "0,3,0":{
+                  "ID":"EXIT",
+                  "tags":"",
+                  "x":0,
+                  "y":3,
+                  "z":0
+                },
               "1,-1,0":{
                   "ID":"FRONT_YARD",
                   "tags":"",
@@ -1740,7 +1747,7 @@
                   "z":0
                 },
               "2,3,0":{
-                  "ID":"OUTER_DOOR",
+                  "ID":"INNER_DOOR",
                   "tags":"",
                   "x":2,
                   "y":3,

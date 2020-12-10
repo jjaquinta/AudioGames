@@ -56,7 +56,11 @@ import jo.audio.loci.thieves.verbs.room.VerbLookHere;
 import jo.audio.loci.thieves.verbs.room.VerbLookThrough;
 import jo.audio.loci.thieves.verbs.room.VerbOpen;
 import jo.audio.loci.thieves.verbs.room.VerbUnlock;
+import jo.audio.thieves.data.gen.City;
+import jo.audio.thieves.data.gen.Street;
+import jo.audio.thieves.logic.LocationLogic;
 import jo.audio.thieves.logic.ThievesConstLogic;
+import jo.audio.thieves.slu.ThievesModelConst;
 
 public class InitializeLogic
 {
@@ -130,6 +134,9 @@ public class InitializeLogic
         // create mandatory objects
         createAdmin();
         createFoyeur();
+        City city = LocationLogic.getCity();
+        Street n = LocationLogic.getStreet(city.getNorthGuildStreet());
+        Street s = LocationLogic.getStreet(city.getSouthGuildStreet());
     }
 
     private static LociFoyeur createFoyeur()

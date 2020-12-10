@@ -29,7 +29,28 @@ public class CityLogic
         generateIntersections(rnd, city);
         generateStreets(rnd, city);
         computeCardinality(city);
+        findGuilds(city);
         return city;
+    }
+    
+    private static void findGuilds(City city)
+    {
+        Street bestN = null;
+        Street bestS = null;
+        for (Street s : city.getStreets().values())
+            if (s.getType() == Street.STREET)
+                if (s.getHighIntersection().getY() < 0)
+                {
+                    if ((bestN == null) || (s.getPosh() < bestN.getPosh()))
+                        bestN = s;
+                }
+                else
+                {
+                    if ((bestS == null) || (s.getPosh() < bestS.getPosh()))
+                        bestS = s;
+                }
+        city.setNorthGuildStreet(bestN.getID());
+        city.setSouthGuildStreet(bestS.getID());
     }
     
     private static void computeCardinality(City city)

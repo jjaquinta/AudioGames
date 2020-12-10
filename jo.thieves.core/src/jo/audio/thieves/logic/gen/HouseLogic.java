@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
+import jo.audio.thieves.data.gen.City;
 import jo.audio.thieves.data.gen.House;
 import jo.audio.thieves.data.gen.Street;
 import jo.audio.thieves.data.template.PApature;
@@ -13,6 +14,7 @@ import jo.audio.thieves.data.template.PLibrary;
 import jo.audio.thieves.data.template.PLocationRef;
 import jo.audio.thieves.data.template.PSquare;
 import jo.audio.thieves.data.template.PTemplate;
+import jo.audio.thieves.logic.LocationLogic;
 import jo.audio.thieves.logic.ThievesConstLogic;
 import jo.audio.thieves.logic.template.LibraryLogic;
 import jo.util.utils.DebugUtils;
@@ -25,6 +27,7 @@ public class HouseLogic
     private static final List<String> mStreetTemplates = new ArrayList<>();
     private static final List<String> mWarehouseTemplates = new ArrayList<>();
     private static final List<String> mDwarfTemplates = new ArrayList<>();
+    private static final List<String> mGuildTemplates = new ArrayList<>();
     static
     {
         HouseLogic.readLocations();
@@ -51,6 +54,7 @@ public class HouseLogic
         switch (street.getType())
         {
             case Street.STREET:
+            case Street.DWARF:
                 generateStreetHouse(rnd, street, h);
                 break;
             case Street.QUAY:
@@ -65,7 +69,10 @@ public class HouseLogic
     private static void generateStreetHouse(Random rnd, Street street, House h)
     {
         List<String> templates;
-        if (street.getType() == Street.STREET)
+        City city = LocationLogic.getCity();
+        if ((h.getHouseNumber() == 13) && (city.getNorthGuildStreet().equals(street.getID()) || city.getSouthGuildStreet().equals(street.getID())))
+            templates = mGuildTemplates;
+        else if (street.getType() == Street.STREET)
             templates = mStreetTemplates;
         else if (street.getType() == Street.DWARF)
             templates = mDwarfTemplates;
@@ -180,6 +187,8 @@ public class HouseLogic
                 mWarehouseTemplates.add(house.getID());
             else if (cat.equals(ThievesConstLogic.CAT_DWARF))
                 mDwarfTemplates.add(house.getID());
+            else if (cat.equals(ThievesConstLogic.CAT_GUILD))
+                mGuildTemplates.add(house.getID());
             else
                 mStreetTemplates.add(house.getID());
             if (house.getEntry() == null)

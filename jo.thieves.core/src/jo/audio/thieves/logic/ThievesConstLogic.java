@@ -17,6 +17,7 @@ public class ThievesConstLogic
 
     public static final String CAT_WAREHOUSE = "warehouse";
     public static final String CAT_DWARF = "dwarf";
+    public static final String CAT_GUILD = "guild";
     
     public static final int EAST = 0; 
     public static final int SOUTHEAST = 1; 

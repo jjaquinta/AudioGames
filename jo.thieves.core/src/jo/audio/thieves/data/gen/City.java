@@ -13,6 +13,8 @@ public class City
     private Map<String, Street>         mStreets = new HashMap<>();
     private long                        mSeed;
     private Random                      mRND;
+    private String                      mNorthGuildStreet;
+    private String                      mSouthGuildStreet;
     
     public String getID()
     {
@@ -69,5 +71,21 @@ public class City
     public void setRND(Random rND)
     {
         mRND = rND;
+    }
+    public String getNorthGuildStreet()
+    {
+        return mNorthGuildStreet;
+    }
+    public void setNorthGuildStreet(String northGuildStreet)
+    {
+        mNorthGuildStreet = northGuildStreet;
+    }
+    public String getSouthGuildStreet()
+    {
+        return mSouthGuildStreet;
+    }
+    public void setSouthGuildStreet(String southGuildStreet)
+    {
+        mSouthGuildStreet = southGuildStreet;
     }
 }
