@@ -10,7 +10,7 @@ class MoreTest extends TestBase
     @Test
     void basic()
     {
-        talk("register Wibble with Wobble", "Welcome Wibble", "Flagged Square", "Maple", "Park", "Pine");
+        talk("register Wibble with Wobble", "Welcome Wibble", "Dirty Junction", "Maple", "Park", "Pine");
         talk("look me", "Say More");
         talk("more", "say more");
         talk("more", "!say more");
@@ -26,7 +26,7 @@ class MoreTest extends TestBase
     @Test
     void negative()
     {
-        talk("register Wibble with Wobble", "Welcome Wibble", "Flagged Square", "Maple", "Park", "Pine");
+        talk("register Wibble with Wobble", "Welcome Wibble", "Dirty Junction", "Maple", "Park", "Pine");
         talk("more", "!say more");
         talk("more", "nothing further");
         talk("look me", "Say More");

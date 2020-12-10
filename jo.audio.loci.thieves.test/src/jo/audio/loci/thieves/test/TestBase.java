@@ -90,4 +90,10 @@ public class TestBase
         LociPlayer player = (LociPlayer)mLastContext.getInvoker();
         player.promnoteToAdmin();
     }
+    
+    protected void traverse(String... nodes)
+    {
+        for (int i = 0; i < nodes.length; i++)
+            talk(nodes[i], (i>0)?nodes[i-1]:"", (i<nodes.length-1)?nodes[i+1]:"");
+    }
 }

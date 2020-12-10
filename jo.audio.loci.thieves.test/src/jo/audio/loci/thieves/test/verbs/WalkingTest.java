@@ -10,32 +10,32 @@ class WalkingTest extends TestBase
     @Test
     void amble()
     {
-        talk("register Wibble with Wobble", "Welcome Wibble", "Flagged Square", "Maple", "Park", "Pine");
-        talk("Maple Street", "Flagged Square", "Paved Junction");
-        talk("Paved Junction", "Maple Street", "Rosemary Lane");
-        talk("Rosemary Lane", "Paved Junction", "Paved Circle");
-        talk("Paved Circle", "Rosemary Lane", "Herring Street");
+        talk("register Wibble with Wobble", "Welcome Wibble", "Dirty Junction", "Maple", "Park", "Pine");
+        talk("Maple Street", "Dirty Junction", "Gravel Intersection");
+        talk("Gravel Intersection", "Maple Street", "Rosemary Lane");
+        talk("Rosemary Lane", "Gravel Intersection", "Cobbled Circle");
+        talk("Cobbled Circle", "Rosemary Lane", "Herring Street");
     }
     @Test
     void ambleAbbreviations()
     {
-        talk("register Wibble with Wobble", "Welcome Wibble", "Flagged Square", "Maple", "Park", "Pine");
-        talk("Maple", "Flagged Square", "Paved Junction");
-        talk("Paved", "Maple Street", "Rosemary Lane");
-        talk("Rosemary", "Paved Junction", "Paved Circle");
-        talk("Paved", "Rosemary Lane", "Herring Street");
+        talk("register Wibble with Wobble", "Welcome Wibble", "Dirty Junction", "Maple", "Park", "Pine");
+        talk("Maple", "Dirty Junction", "Gravel Intersection");
+        talk("Gravel", "Maple Street", "Rosemary Lane");
+        talk("Rosemary", "Gravel Intersection", "Cobbled Circle");
+        talk("Cobbled", "Rosemary Lane", "Herring Street");
     }
 
     @Test
     void down()
     {
-        talk("register Wibble with Wobble", "Welcome Wibble", "Flagged Square", "Maple", "Park", "Pine");
+        talk("register Wibble with Wobble", "Welcome Wibble", "Dirty Junction", "Maple", "Park", "Pine");
         talk("down", "Pine Street");
-        talk("down", "High Class Junction");
+        talk("down", "Dirty Square");
         talk("down", "Hay Street");
-        talk("down", "High Class Junction");
+        talk("down", "Dirty Junction");
         talk("down", "Oath Road");
-        talk("down", "Elegant Crossway");
+        talk("down", "Muddy Crossway");
         talk("down", "Matthew Bridge", "Aberjona");
     }
 
@@ -43,19 +43,19 @@ class WalkingTest extends TestBase
     void up()
     {
         talk("look", "outside of the city");
-        talk("register Wibble with Wobble", "Welcome Wibble", "Flagged Square", "Maple", "Park", "Pine");
+        talk("register Wibble with Wobble", "Welcome Wibble", "Dirty Junction", "Maple", "Park", "Pine");
         talk("up", "Maple Street");
-        talk("up", "Paved Junction");
+        talk("up", "Gravel Intersection");
         talk("up", "Peacock Lane");
-        talk("up", "Gravel Square");
+        talk("up", "Paved Square");
         talk("up", "Cherry Lane");
     }
 
     @Test
     void circleTheHouse()
     {
-        talk("register Wibble with Wobble", "Welcome Wibble", "Flagged Square", "Maple", "Park", "Pine");
-        talk("Maple Street", "Flagged Square", "Paved Junction");
+        talk("register Wibble with Wobble", "Welcome Wibble", "Dirty Junction", "Maple", "Park", "Pine");
+        talk("Maple Street", "Dirty Junction", "Gravel Intersection");
         talk("enter 1", "brick walkway");
         talk("north", "brick walkway");
         talk("north", "brick walkway");
@@ -77,15 +77,15 @@ class WalkingTest extends TestBase
         talk("up", "simple rim");
         talk("north", "simple rim");
         talk("down", "brick walkway");
-        talk("Maple", "Flagged Square", "Paved Junction");
+        talk("Maple", "Dirty Junction", "Gravel Intersection");
     }
 
 
     @Test
     void throughTheHouse()
     {
-        talk("register Wibble with Wobble", "Welcome Wibble", "Flagged Square", "Maple", "Park", "Pine");
-        talk("Maple Street", "Flagged Square", "Paved Junction");
+        talk("register Wibble with Wobble", "Welcome Wibble", "Dirty Junction", "Maple", "Park", "Pine");
+        talk("Maple Street", "Dirty Junction", "Gravel Intersection");
         talk("enter 1", "brick walkway");
         talk("unlock w", "you fail to unlock");
         talk("unlock w", "you fail to unlock");

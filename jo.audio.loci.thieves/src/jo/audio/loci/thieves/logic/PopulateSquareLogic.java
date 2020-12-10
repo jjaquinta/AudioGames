@@ -73,7 +73,7 @@ public class PopulateSquareLogic
             String u = DiskStore.PREFIX+"bed/"+square.getURI().substring(SquareStore.PREFIX.length());
             LociThing bed = new LociThing(u);
             bed.setName("Bed");
-            bed.setDescription("Homespun linen on a pine frame.");
+            bed.setDescription("{{BED_DESCRIPTION#"+uri.mHouse.getPosh()+"}}");
             bed.setPublic(false);
             ContainmentLogic.add(square, bed);
         }

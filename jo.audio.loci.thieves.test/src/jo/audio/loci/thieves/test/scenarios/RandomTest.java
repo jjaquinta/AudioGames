@@ -16,7 +16,7 @@ public class RandomTest extends TestBase
     @Test
     void randomWalk()
     {
-        talk("register Wibble with Wobble", "Welcome Wibble", "Flagged Square", "Maple", "Park", "Pine");
+        talk("register Wibble with Wobble", "Welcome Wibble", "Dirty Junction", "Maple", "Park", "Pine");
         talk("xyzzy", "I am unable to execute");
         LociBase player = mLastContext.getInvoker();
         for (int i = 0; i < 5000; i++)

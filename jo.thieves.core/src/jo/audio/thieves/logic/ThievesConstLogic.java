@@ -293,8 +293,6 @@ public class ThievesConstLogic
 
     public static String poshToName(double posh)
     {
-        String[] names = ThievesModelConst.getTexts("POSH_NAME");
-        int idx = (int)Math.round(MathUtils.interpolate(posh, 0, 1, 0, names.length-1));
-        return "{{POSH_NAME#"+idx+"}}";
+        return "{{POSH_NAME#"+posh+"}}";
     }
 }

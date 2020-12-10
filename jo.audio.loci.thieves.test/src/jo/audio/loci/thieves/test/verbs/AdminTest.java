@@ -10,25 +10,25 @@ class AdminTest extends TestBase
     @Test
     void promote()
     {
-        talk("register Wibble with Wobble", "Welcome Wibble", "Flagged Square", "Maple", "Park", "Pine");
+        talk("register Wibble with Wobble", "Welcome Wibble", "Dirty Junction", "Maple", "Park", "Pine");
         talk("dump me", "unable to execute");
         talk("logout", "Thank you for playing");
         mToken = null;
         promoteToAdmin();
         talk("look", "outside of the city");
-        talk("login Wibble Wobble", "Welcome Back Wibble", "Flagged Square", "Maple", "Park", "Pine");
+        talk("login Wibble Wobble", "Welcome Back Wibble", "Dirty Junction", "Maple", "Park", "Pine");
         talk("dump me", "!unable to execute");
     }
 
     @Test
     void xp()
     {
-        talk("register Wibble with Wobble", "Welcome Wibble", "Flagged Square", "Maple", "Park", "Pine");
+        talk("register Wibble with Wobble", "Welcome Wibble", "Dirty Junction", "Maple", "Park", "Pine");
         talk("logout", "Thank you for playing");
         mToken = null;
         promoteToAdmin();
         talk("look", "outside of the city");
-        talk("login Wibble Wobble", "Welcome Back Wibble", "Flagged Square", "Maple", "Park", "Pine");
+        talk("login Wibble Wobble", "Welcome Back Wibble", "Dirty Junction", "Maple", "Park", "Pine");
         talk("xp 1", "one");
         talk("more", "You now have a total of 1", "more to reach level 2");
         talk("xp 10", "10");

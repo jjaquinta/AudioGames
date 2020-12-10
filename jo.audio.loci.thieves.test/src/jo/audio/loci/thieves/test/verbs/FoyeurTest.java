@@ -12,24 +12,24 @@ class FoyeurTest extends TestBase
     void login()
     {
         talk("look", "outside of the city");
-        talk("register Wibble with Wobble", "Welcome Wibble", "Flagged Square", "Maple", "Park", "Pine");
+        talk("register Wibble with Wobble", "Welcome Wibble", "Dirty Junction", "Maple", "Park", "Pine");
         talk("logout", "Thank you for playing");
         mToken = null;
         talk("look", "outside of the city");
-        talk("login Wibble Wobble", "Welcome Back Wibble", "Flagged Square", "Maple", "Park", "Pine");
+        talk("login Wibble Wobble", "Welcome Back Wibble", "Dirty Junction", "Maple", "Park", "Pine");
     }
 
     @Test
     void persistence()
     {
         talk("look", "outside of the city");
-        talk("register Wibble with Wobble", "Welcome Wibble", "Flagged Square", "Maple", "Park", "Pine");
-        talk("Maple Street", "Flagged Square", "Paved Junction");
+        talk("register Wibble with Wobble", "Welcome Wibble", "Dirty Junction", "Maple", "Park", "Pine");
+        talk("Maple Street", "Dirty Junction", "Gravel Intersection");
         talk("logout", "Thank you for playing");
         mToken = null;
         DataStoreLogic.clearCache();
         talk("look", "outside of the city");
-        talk("login Wibble Wobble", "Welcome Back Wibble", "Flagged Square", "Maple Street", "Paved Junction");
+        talk("login Wibble Wobble", "Welcome Back Wibble", "Dirty Junction", "Maple Street", "Gravel Intersection");
         talk("dump here", "");
         talk("dump me", "");
         talk("enter 1", "brick walkway");

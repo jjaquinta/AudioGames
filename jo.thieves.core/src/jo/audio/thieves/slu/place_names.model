@@ -352,19 +352,23 @@
          	"Intersection",
          	"Square",
          	"Junction",
+         	"Cross",
          	"Crossway",
          	"Circle"
          ]         
          "INTERSECTION_NAME": [
-         	"Elegant",
-         	"High Class",
-         	"Flagged",
-         	"Paved",
-         	"Cobbled",
-         	"Gravel",
-         	"Dreary",
-         	"Dirty",
+         	"Muddy",
          	"Dirt",
+         	"Dirty",
+         	"Dreary",
+         	"Gravel",
+         	"Cobbled",
+         	"Bricked",
+         	"Paved",
+         	"Flagged",
+         	"Set Stone",
+         	"High Class",
+         	"Elegant",
          ],
          "POSH_NAME": [
          	"luxurious",
@@ -411,7 +415,14 @@
 		    "ne",
 		    "u",
 		    "d"
-         ]         
+         ],
+         "BED_DESCRIPTION": [
+         	"Homespun sheets on a straw mattress.",
+         	"Fine cotton sheets on a pine frame.",
+         	"Good linen sheets on a oak frame.",
+         	"Fine sheets on a carved oak frame.",
+         	"Silk sheets and feather mattresses."
+     	 ]         
        }
    }
 }
