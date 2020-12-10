@@ -15,6 +15,7 @@ import jo.audio.thieves.data.template.PLocation;
 import jo.audio.thieves.data.template.PLocationRef;
 import jo.audio.thieves.data.template.PSquare;
 import jo.audio.thieves.data.template.PTemplate;
+import jo.audio.thieves.logic.ThievesConstLogic;
 import jo.audio.thieves.logic.template.LibraryLogic;
 import jo.audio.thieves.tools.editor.data.EditorSettings;
 import jo.audio.thieves.tools.logic.RuntimeLogic;
@@ -704,24 +705,16 @@ public class EditorHouseLogic
     {
         EditorSettings es = EditorSettingsLogic.getInstance();
         PTemplate house = es.getSelectedHouse();
-        // clean nothings
-        for (String key : house.getLocations().keySet().toArray(new String[0]))
-        {
-            PLocationRef loc = house.getLocations().get(key);
-            if (PTemplate.getType(loc) == PTemplate.NOTHING)
-                house.getLocations().remove(key);
-        }
-        // clean squares
-        for (String key : house.getLocations().keySet().toArray(new String[0]))
-        {
-            PLocationRef loc = house.getLocations().get(key);
-            if (loc.isSquare())
-            {
-                if ("EMPTY".equals(loc.getID()))
-                    house.getLocations().remove(key);
-            }
-        }
-        // clean apatures
+        cleanNothings(house);
+        cleanBadRoof(es, house);
+        cleanSquares(house);
+        cleanGoodRoof(es, house);
+        cleanGoodEdge(es, house);
+        cleanApatures(es, house);
+        es.fireMonotonicPropertyChange("location.floor");
+    }
+    private static void cleanApatures(EditorSettings es, PTemplate house)
+    {
         for (String key : house.getLocations().keySet().toArray(new String[0]))
         {
             PLocationRef loc = house.getLocations().get(key);
@@ -736,11 +729,131 @@ public class EditorHouseLogic
                 else
                 {
                     if ((neighbors[0] == null) && (neighbors[1] == null))
-                        house.getLocations().remove(key);
+                        house.getLocations().remove(key); // borders on nothing
+                    if ("EMPTY".equals(loc.getID()) && (neighbors[0] != null) && (neighbors[1] != null))
+                    {
+                        PSquare n1 = es.getLibrary().getSquares().get(neighbors[0].getID());
+                        PSquare n2 = es.getLibrary().getSquares().get(neighbors[1].getID());
+                        if (n1.getInside() != n2.getInside())
+                            house.getLocations().remove(key); // need wall between inside and outside
+                    }
+                }
+            }
+            else if (isRoof(loc))
+            {
+                for (int dir = 0; dir < 8; dir += 2)
+                {
+                    int rx = loc.getX() + ThievesConstLogic.ORTHOGONAL_DELTAS[dir][0]*2;
+                    int ry = loc.getY() + ThievesConstLogic.ORTHOGONAL_DELTAS[dir][1]*2;
+                    int rz = loc.getZ() + ThievesConstLogic.ORTHOGONAL_DELTAS[dir][2]*2;
+                    PLocationRef neigh = house.getLocation(rx, ry, rz);
+                    if (isRoof(neigh))
+                    {
+                        int tx = loc.getX() + ThievesConstLogic.ORTHOGONAL_DELTAS[dir][0]*1;
+                        int ty = loc.getY() + ThievesConstLogic.ORTHOGONAL_DELTAS[dir][1]*1;
+                        int tz = loc.getZ() + ThievesConstLogic.ORTHOGONAL_DELTAS[dir][2]*1;
+                        PLocationRef tween = house.getLocation(tx, ty, tz);
+                        if (tween == null)
+                            house.putLocation(new PLocationRef("EMPTY", tx, ty, tz));
+                    }
                 }
             }
         }
-        es.fireMonotonicPropertyChange("location.floor");
+    }
+    private static boolean isRoof(PLocationRef loc)
+    {
+        if (loc == null)
+            return false;
+        return ROOF.equals(loc.getID()) || ROOF_EDGE.equals(loc.getID());
+    }
+    private static void cleanSquares(PTemplate house)
+    {
+        for (String key : house.getLocations().keySet().toArray(new String[0]))
+        {
+            PLocationRef loc = house.getLocations().get(key);
+            if (loc.isSquare())
+            {
+                if ("EMPTY".equals(loc.getID()))
+                    house.getLocations().remove(key);
+            }
+        }
+    }
+    private static void cleanBadRoof(EditorSettings es, PTemplate house)
+    {
+        for (String key : house.getLocations().keySet().toArray(new String[0]))
+        {
+            PLocationRef loc = house.getLocations().get(key);
+            if (loc.isSquare())
+            {
+                if (ROOF.equals(loc.getID()))
+                {
+                    PLocationRef under = house.getLocation(loc, ThievesConstLogic.DOWN, 2);
+                    if (under == null) // roof over nothing
+                        house.getLocations().remove(key);
+                    else
+                    {
+                        PSquare s = es.getLibrary().getSquares().get(under.getID());
+                        if (!s.getInside())
+                            house.getLocations().remove(key); // roof over outside
+                    }
+                }
+            }
+        }
+    }
+    private static void cleanGoodRoof(EditorSettings es, PTemplate house)
+    {
+        for (String key : house.getLocations().keySet().toArray(new String[0]))
+        {
+            PLocationRef loc = house.getLocations().get(key);
+            if (loc.isSquare())
+            {
+                PSquare s = es.getLibrary().getSquares().get(loc.getID());
+                if (s.getInside())
+                {
+                    PLocationRef over = house.getLocation(loc, ThievesConstLogic.UP, 2);
+                    if (over == null)
+                    {
+                        PLocationRef roof = new PLocationRef(ROOF, loc.getX(), loc.getY(), loc.getZ() + 2);
+                        house.putLocation(roof);
+                    }
+                }
+            }
+        }
+    }
+    private static void cleanGoodEdge(EditorSettings es, PTemplate house)
+    {
+        System.out.println("Locations: "+house.getLocations().toString());
+        for (String key : house.getLocations().keySet().toArray(new String[0]))
+        {
+            PLocationRef loc = house.getLocations().get(key);
+            if (!key.equals(loc.toKey()))
+                System.out.println("!!! "+key+" <> "+loc);
+        }
+        for (PLocationRef loc : house.getLocations().values().toArray(new PLocationRef[0]))
+        {
+            if (loc.isSquare() && ROOF.equals(loc.getID()))
+                for (int dir = 0; dir < 8; dir += 2)
+                {
+                    int ex = loc.getX() + ThievesConstLogic.ORTHOGONAL_DELTAS[dir][0]*2; 
+                    int ey = loc.getY() + ThievesConstLogic.ORTHOGONAL_DELTAS[dir][1]*2; 
+                    int ez = loc.getZ() + ThievesConstLogic.ORTHOGONAL_DELTAS[dir][2]*2;
+                    PLocationRef next = house.getLocation(ex, ey, ez);
+                    if (next == null) // needs roof edge
+                    {
+                        PLocationRef edge = new PLocationRef(ROOF_EDGE, ex, ey, ez);
+                        house.putLocation(edge);
+                    }
+                }
+        }
+    }
+    private static void cleanNothings(PTemplate house)
+    {
+        for (String key : house.getLocations().keySet().toArray(new String[0]))
+        {
+            PLocationRef loc = house.getLocations().get(key);
+            if (PTemplate.getType(loc) == PTemplate.NOTHING)
+                house.getLocations().remove(key);
+        }
     }
     public static void duplicateHouse(String id)
     {

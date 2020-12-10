@@ -41,6 +41,7 @@ public class SquarePicker extends JComponent
         EditorSettings es = EditorSettingsLogic.getInstance();
         es.listen("library", (ov,nv) -> doNewLibrary());
         es.listen("selectedSquare", (ov,nv) -> doNewDataSquare());
+        es.listen("location.squares", (ov,nv) -> doNewLibrary());
         ListenerUtils.listen(mSquares, (e) -> doNewUISquare());
     }
     
@@ -72,8 +73,8 @@ public class SquarePicker extends JComponent
             List<PSquare> squares = EditorSquareLogic.getSquares();
             for (PSquare tile : squares)
                 model.addElement(tile);
-            if (squares.size() > 0)
-                model.setSelectedItem(squares.iterator().next());
+            if (es.getSelectedSquare() != null)
+                model.setSelectedItem(es.getSelectedSquare());
         }
     }
 }

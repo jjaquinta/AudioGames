@@ -117,9 +117,19 @@ public class PTemplate extends PCSBean implements IJSONAble,Comparable<PTemplate
 
     public PLocationRef getLocation(PLocationRef wrt, int dir)
     {
-        return getLocation(wrt.getX()+ThievesConstLogic.ORTHOGONAL_DELTAS[dir][0],
-                wrt.getY()+ThievesConstLogic.ORTHOGONAL_DELTAS[dir][1],
-                wrt.getZ()+ThievesConstLogic.ORTHOGONAL_DELTAS[dir][2]);
+        return getLocation(wrt, dir, 1);
+    }
+
+    public PLocationRef getLocation(PLocationRef wrt, int dir, int dist)
+    {
+        return getLocation(wrt.getX()+ThievesConstLogic.ORTHOGONAL_DELTAS[dir][0]*dist,
+                wrt.getY()+ThievesConstLogic.ORTHOGONAL_DELTAS[dir][1]*dist,
+                wrt.getZ()+ThievesConstLogic.ORTHOGONAL_DELTAS[dir][2]*dist);
+    }
+    
+    public void putLocation(PLocationRef ref)
+    {
+        mLocations.put(ref.toKey(), ref);
     }
 
     public PLocationRef[] getNeighbors(int x, int y, int z)

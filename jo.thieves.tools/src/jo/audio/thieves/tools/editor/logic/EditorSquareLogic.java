@@ -129,7 +129,7 @@ public class EditorSquareLogic
         tile.setColor("#808080");
         squares.put(tile.getID(), tile);
         lib.fireMonotonicPropertyChange("squares");
-        es.fireMonotonicPropertyChange("location.square");
+        es.fireMonotonicPropertyChange("location.squares");
         return tile;
     }
     public static void deleteSquare(PSquare selected)
