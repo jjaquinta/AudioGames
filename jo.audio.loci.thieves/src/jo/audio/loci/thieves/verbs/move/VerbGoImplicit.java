@@ -8,7 +8,10 @@ import jo.audio.loci.thieves.data.LociExit;
 import jo.audio.loci.thieves.data.LociLocality;
 import jo.audio.loci.thieves.data.LociPlayer;
 import jo.audio.loci.thieves.data.LociThing;
+import jo.audio.loci.thieves.logic.SkillLogic;
 import jo.audio.loci.thieves.verbs.VerbLookBase;
+import jo.audio.thieves.data.template.PApature;
+import jo.audio.thieves.logic.ThievesConstLogic;
 
 public class VerbGoImplicit extends Verb
 {
@@ -32,7 +35,17 @@ public class VerbGoImplicit extends Verb
         else if (agent instanceof LociApature)
         {
             LociApature exit = (LociApature)agent;
-            VerbGoImplicit.transition(player, agent, exit.getSourceObject(), exit.getDestinationObject());
+            PApature e = exit.getApatureObject();
+            int cardinality = exit.getDirection();
+            if ((cardinality == ThievesConstLogic.UP) || (cardinality == ThievesConstLogic.DOWN))
+                if (SkillLogic.rollClimbWalls(player, e.getClimbWallsMod()))
+                {
+                    VerbGoImplicit.transition(player, agent, exit.getSourceObject(), exit.getDestinationObject());
+                }
+                else
+                    player.addMessage("You fail your climb check.");
+            else
+                VerbGoImplicit.transition(player, agent, exit.getSourceObject(), exit.getDestinationObject());
         }
     }
 

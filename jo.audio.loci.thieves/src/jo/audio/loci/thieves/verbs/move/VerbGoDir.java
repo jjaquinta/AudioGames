@@ -37,11 +37,8 @@ public class VerbGoDir extends Verb
             LociLocality newRoom = exit.getDestinationObject();
             VerbGoImplicit.transition(player, agent, oldRoom, newRoom);
         }
-        else if (agent instanceof LociApature)
-        {
-            LociApature exit = (LociApature)agent;
-            VerbGoImplicit.transition(player, agent, exit.getSourceObject(), exit.getDestinationObject());
-        }
+        else
+            throw new IllegalStateException();
     }
     
     private LociThing findExit(LociThing room)

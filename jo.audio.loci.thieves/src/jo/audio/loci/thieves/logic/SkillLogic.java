@@ -6,9 +6,9 @@ import jo.audio.thieves.logic.ThievesConstLogic;
 
 public class SkillLogic
 {
-    public static boolean rollClimbWalls(LociPlayer player)
+    public static boolean rollClimbWalls(LociPlayer player, int mod)
     {
-        int target = modClimbWalls(player);
+        int target = modClimbWalls(player) + mod;
         int roll = LocationLogic.getCity().getRND().nextInt(100) + 1;
         player.addMessage("+You needed a "+target+" and rolled a "+roll+".");
         return roll <= target;

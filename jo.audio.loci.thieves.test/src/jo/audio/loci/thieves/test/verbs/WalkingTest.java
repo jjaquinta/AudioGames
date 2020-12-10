@@ -67,6 +67,8 @@ class WalkingTest extends TestBase
         talk("south", "garden");
         talk("south", "grass and weeds");
         talk("east", "grass and weeds");
+        talk("up", "you fail your climb check");
+        talk("more", "You needed a");
         talk("up", "simple rim");
         talk("east", "simple rim");
         talk("down", "grass and weeds");
