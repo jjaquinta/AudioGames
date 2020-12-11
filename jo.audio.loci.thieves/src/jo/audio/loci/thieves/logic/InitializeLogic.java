@@ -38,6 +38,7 @@ import jo.audio.loci.thieves.verbs.VerbRegister;
 import jo.audio.loci.thieves.verbs.VerbRegister2;
 import jo.audio.loci.thieves.verbs.admin.VerbAddXP;
 import jo.audio.loci.thieves.verbs.admin.VerbDump;
+import jo.audio.loci.thieves.verbs.item.VerbAppraise;
 import jo.audio.loci.thieves.verbs.item.VerbDrop;
 import jo.audio.loci.thieves.verbs.item.VerbPickUp;
 import jo.audio.loci.thieves.verbs.item.VerbPutIn;
@@ -80,7 +81,7 @@ public class InitializeLogic
         DataProfileLogic.registerDataProfile(LociTreasure.class);
         DataProfileLogic.registerDataProfile(LociNPC.class);
         VerbLogic.registerVerbs(LociBuyer.class,
-                new VerbSell()); 
+                new VerbSell(), new VerbAppraise()); 
         VerbLogic.registerVerbs(LociContainer.class,
                 new VerbPutIn(), new VerbTakeOut(), 
                 new jo.audio.loci.thieves.verbs.item.VerbClose(), new jo.audio.loci.thieves.verbs.item.VerbOpen(),

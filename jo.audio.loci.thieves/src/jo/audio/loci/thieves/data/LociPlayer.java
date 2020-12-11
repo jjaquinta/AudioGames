@@ -34,6 +34,7 @@ public class LociPlayer extends LociThing
     public static final String ID_XP = "xp";
     public static final String ID_HIT_POINTS = "hitPoints";
     public static final String ID_CURRENT_HIT_POINTS = "currentHitPoints";
+    public static final String ID_STANDING = "standing";
     
     public LociPlayer(String uri)
     {
@@ -400,5 +401,15 @@ public class LociPlayer extends LociThing
     public void setPromptFrequency(String prompt, int value)
     {
         setInt(ID_PROMPT_FREQUENCY+"."+StringUtils.escape(prompt, "\"\'"), value);
+    }
+    
+    public int getStanding()
+    {
+        return getInt(ID_STANDING);
+    }
+    
+    public void setStanding(int value)
+    {
+        setInt(ID_STANDING, value);
     }
 }

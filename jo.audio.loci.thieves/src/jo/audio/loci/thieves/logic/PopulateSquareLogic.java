@@ -138,6 +138,11 @@ public class PopulateSquareLogic
         ContainmentLogic.add(chest, item);
     }
 
+    public static final int COIN_COPPER = 0;
+    public static final int COIN_SILVER = 1;
+    public static final int COIN_GOLD = 2;
+    public static final int COIN_PLATINUM = 3;
+    
     private static final String[] COIN_TYPE = new String[] {
                                                "copper",
                                                "silver",
@@ -147,17 +152,23 @@ public class PopulateSquareLogic
     
     private static void addCoins(SquareURI uri, LociContainer chest)
     {
-        String u = DiskStore.PREFIX+"coins/"+LocationLogic.getCity().getRND().nextInt();
-        LociItemStackable item = new LociItemStackable(u);
         int num = (int)Math.round(MathUtils.interpolate(uri.mHouse.getPosh(), 0, 1, 1, 8));
         int die = (int)Math.round(MathUtils.interpolate(uri.mHouse.getPosh(), 0, 1, 4, 12));
         int type = (int)Math.round(MathUtils.interpolate(uri.mHouse.getPosh(), 0, 1, 0, 3));
         int count = DiceLogic.d(die, num);
+        LociItemStackable item = makeBagOfCoins(type, count);
+        ContainmentLogic.add(chest, item);
+    }
+
+    public static LociItemStackable makeBagOfCoins(int type, int count)
+    {
+        String u = DiskStore.PREFIX+"coins/"+LocationLogic.getCity().getRND().nextInt();
+        LociItemStackable item = new LociItemStackable(u);
         item.setName(COIN_TYPE[type]);
         item.setDescription("A small bag of "+COIN_TYPE[type]+" coins.");
         item.setPublic(true);
         item.setCount(count);
         item.setClassification(COIN_TYPE[type]);
-        ContainmentLogic.add(chest, item);
+        return item;
     }
 }

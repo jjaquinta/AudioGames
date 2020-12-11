@@ -41,8 +41,8 @@ class GuildTest extends TestBase
         talk("take silver necklace from chest", "you take");
         talk("Look at silver necklace", "worth 1000");
         talk("take gold from chest", "you take");
-        talk("Look at gold", "20 gold");
-        talk("inventory", "Silver necklace", "gold");
+        talk("Look at gold", "15 gold");
+        talk("inventory", "Silver necklace", "15 gold");
         talk("n", "Living Room");
         talk("n", "Living Room");
         talk("e", "Living Room");
@@ -60,13 +60,13 @@ class GuildTest extends TestBase
         talk("s", "Living Room");
         unlock("chest");
         talk("open chest", "you open");
-        talk("look chest", "iron bound", "Inside", "silver seal", "19 gold");
+        talk("look chest", "iron bound", "Inside", "silver seal", "17 gold");
         talk("take silver seal from chest", "you take");
         talk("Look at silver seal", "worth 1000");
-        talk("inventory", "Silver necklace", "silver seal", "20 gold");
+        talk("inventory", "Silver necklace", "silver seal", "15 gold");
         talk("take gold from chest", "you take");
-        talk("inventory", "Silver seal", "39 gold");
-        talk("Look at gold", "39 gold");
+        talk("inventory", "Silver seal", "32 gold");
+        talk("Look at gold", "32 gold");
         talk("n", "Living Room");
         talk("e", "Living Room");
         talk("n", "Front Porch");
@@ -82,7 +82,8 @@ class GuildTest extends TestBase
         talk("north", "prim desk");
         talk("look Louis", "buy your stolen goods");
         talk("inventory", "Silver necklace");
-        talk("sell silver necklace to louis");
-        talk("inventory", "!Silver necklace");
+        talk("ask louis to appraise silver necklace", "450");
+        talk("sell silver necklace to louis", "for 450");
+        talk("inventory", "!Silver necklace", "482 gold");
     }
 }
