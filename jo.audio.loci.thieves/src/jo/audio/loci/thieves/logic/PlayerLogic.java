@@ -205,4 +205,15 @@ public class PlayerLogic
         int needed = xpForLevel(player.getLevel() + 1) - player.getXP();
         player.addMessage("+You need "+needed+" more to reach level "+(player.getLevel()+1)+".");
     }
+    
+    public static String getGuildStandingDescription(LociPlayer player)
+    {
+        int rank;
+        int standing = player.getStanding();
+        if (standing <= 0)
+            rank = 0;
+        else
+            rank = levelForXP(player.getStanding());
+        return "{{GUILD_RANKS#"+rank+"}}";
+    }
 }

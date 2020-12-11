@@ -26,6 +26,7 @@ import jo.audio.loci.thieves.stores.ExitStore;
 import jo.audio.loci.thieves.stores.IntersectionStore;
 import jo.audio.loci.thieves.stores.SquareStore;
 import jo.audio.loci.thieves.stores.StreetStore;
+import jo.audio.loci.thieves.verbs.VerbHelp;
 import jo.audio.loci.thieves.verbs.VerbInventory;
 import jo.audio.loci.thieves.verbs.VerbLogin;
 import jo.audio.loci.thieves.verbs.VerbLogin2;
@@ -128,7 +129,7 @@ public class InitializeLogic
         VerbLogic.registerVerbs(LociFoyeur.class,
                 new VerbRegister(), new VerbRegister2(), new VerbLogin(), new VerbLogin2(), new VerbLookFoyeur());
         VerbLogic.registerVerbs(LociPlayer.class,
-                new VerbLogout(), new VerbLookHere(), new VerbMore(), new VerbInventory());
+                new VerbLogout(), new VerbLookHere(), new VerbMore(), new VerbInventory(), new VerbHelp());
         VerbLogic.registerVerbs(LociPlayerAdmin.class,
                 new VerbDump(), new VerbAddXP());
         VerbLogic.registerVerbs(LociPlayerGhost.class);

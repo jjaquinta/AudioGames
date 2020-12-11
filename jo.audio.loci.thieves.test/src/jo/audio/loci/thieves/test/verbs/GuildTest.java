@@ -83,7 +83,9 @@ class GuildTest extends TestBase
         talk("look Louis", "buy your stolen goods");
         talk("inventory", "Silver necklace");
         talk("ask louis to appraise silver necklace", "450");
+        talk("help standing", "unofficial");
         talk("sell silver necklace to louis", "for 450");
         talk("inventory", "!Silver necklace", "482 gold");
+        talk("help standing", "inferior");
     }
 }
