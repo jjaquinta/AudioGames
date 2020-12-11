@@ -37,6 +37,12 @@ public class BluePrintPanel extends JComponent
     static int                MODE_NONE      = 0;
     static int                MODE_INSERT    = 1;
     static int                MODE_DEL       = 2;
+    
+    private static String[][] TAG_DATA = {
+            { PLocationRef.TAG_BED, "Bed" },
+            { PLocationRef.TAG_CHEST, "Chest" },
+            { PLocationRef.TAG_BUYER, "Buyer" },
+    };
 
     Dimension                 mSize;
     PTemplate                 mHouse;
@@ -67,7 +73,7 @@ public class BluePrintPanel extends JComponent
     private JMenuItem         mDigUp;
     private JMenuItem         mClearDown;
     private JMenuItem         mClearUp;
-    private JMenuItem         mTagBed;
+    private List<JMenuItem>   mTags = new ArrayList<>();
 
     public BluePrintPanel()
     {
@@ -83,12 +89,14 @@ public class BluePrintPanel extends JComponent
         mDigUp = new JMenuItem("Dig Up...");
         mClearDown = new JMenuItem("Clear Down");
         mClearUp = new JMenuItem("Clear Up");
-        mTagBed = new JMenuItem("Set Bed");
+        for (int i = 0; i < TAG_DATA.length; i++)
+            mTags.add(new JMenuItem("Set "+TAG_DATA[i][1]));
     }
 
     private void initLayout()
     {
-        mApaturePopup.add(mTagBed);
+        for (int i = 0; i < TAG_DATA.length; i++)
+            mApaturePopup.add(mTags.get(i));
         mApaturePopup.add(new JSeparator());
         mApaturePopup.add(mDigDown);
         mApaturePopup.add(mDigUp);
@@ -113,7 +121,11 @@ public class BluePrintPanel extends JComponent
         ListenerUtils.listen(mDigUp, (e) -> doDigDir(e, 1));
         ListenerUtils.listen(mClearDown, (e) -> EditorHouseLogic.removeTile(e.getActionCommand()));
         ListenerUtils.listen(mClearUp, (e) -> EditorHouseLogic.removeTile(e.getActionCommand()));
-        ListenerUtils.listen(mTagBed, (e) -> EditorHouseLogic.toggleTileTag(e.getActionCommand(), PLocationRef.TAG_BED));
+        for (int i = 0; i < TAG_DATA.length; i++)
+        {
+            final String tag = TAG_DATA[i][0];
+            ListenerUtils.listen(mTags.get(i), (e) -> EditorHouseLogic.toggleTileTag(e.getActionCommand(), tag));
+        }
     }
 
     @Override
@@ -149,8 +161,11 @@ public class BluePrintPanel extends JComponent
         mClearUp.setActionCommand(up.toKey());
         mClearDown.setEnabled(down.getID() != null);
         mClearDown.setActionCommand(down.toKey());
-        mTagBed.setText(here.getTags().contains(PLocationRef.TAG_BED) ? "Remove Bed" : "Add Bed");
-        mTagBed.setActionCommand(here.toKey());
+        for (int i = 0; i < TAG_DATA.length; i++)
+        {
+            mTags.get(i).setText(here.getTags().contains(TAG_DATA[i][0]) ? "Remove "+TAG_DATA[i][1] : "Add "+TAG_DATA[i][1]);
+            mTags.get(i).setActionCommand(here.toKey());
+        }
         mApaturePopup.show(this, point.x, point.y);
     }
     

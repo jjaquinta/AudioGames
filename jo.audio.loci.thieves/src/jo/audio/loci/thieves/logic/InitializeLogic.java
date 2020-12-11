@@ -18,11 +18,15 @@ import jo.audio.loci.thieves.data.LociPlayerGhost;
 import jo.audio.loci.thieves.data.LociSquare;
 import jo.audio.loci.thieves.data.LociStreet;
 import jo.audio.loci.thieves.data.LociThing;
+import jo.audio.loci.thieves.data.LociTreasure;
+import jo.audio.loci.thieves.data.npc.LociBuyer;
+import jo.audio.loci.thieves.data.npc.LociNPC;
 import jo.audio.loci.thieves.stores.ApatureStore;
 import jo.audio.loci.thieves.stores.ExitStore;
 import jo.audio.loci.thieves.stores.IntersectionStore;
 import jo.audio.loci.thieves.stores.SquareStore;
 import jo.audio.loci.thieves.stores.StreetStore;
+import jo.audio.loci.thieves.verbs.VerbInventory;
 import jo.audio.loci.thieves.verbs.VerbLogin;
 import jo.audio.loci.thieves.verbs.VerbLogin2;
 import jo.audio.loci.thieves.verbs.VerbLogout;
@@ -37,6 +41,7 @@ import jo.audio.loci.thieves.verbs.admin.VerbDump;
 import jo.audio.loci.thieves.verbs.item.VerbDrop;
 import jo.audio.loci.thieves.verbs.item.VerbPickUp;
 import jo.audio.loci.thieves.verbs.item.VerbPutIn;
+import jo.audio.loci.thieves.verbs.item.VerbSell;
 import jo.audio.loci.thieves.verbs.item.VerbTakeOut;
 import jo.audio.loci.thieves.verbs.move.VerbEnter;
 import jo.audio.loci.thieves.verbs.move.VerbGoDown;
@@ -72,6 +77,10 @@ public class InitializeLogic
         VerbLogic.registerVerbs(LociItem.class,
                 new VerbDrop(), new VerbPickUp());
         DataProfileLogic.registerDataProfile(LociContainer.class);
+        DataProfileLogic.registerDataProfile(LociTreasure.class);
+        DataProfileLogic.registerDataProfile(LociNPC.class);
+        VerbLogic.registerVerbs(LociBuyer.class,
+                new VerbSell()); 
         VerbLogic.registerVerbs(LociContainer.class,
                 new VerbPutIn(), new VerbTakeOut(), 
                 new jo.audio.loci.thieves.verbs.item.VerbClose(), new jo.audio.loci.thieves.verbs.item.VerbOpen(),
@@ -118,7 +127,7 @@ public class InitializeLogic
         VerbLogic.registerVerbs(LociFoyeur.class,
                 new VerbRegister(), new VerbRegister2(), new VerbLogin(), new VerbLogin2(), new VerbLookFoyeur());
         VerbLogic.registerVerbs(LociPlayer.class,
-                new VerbLogout(), new VerbLookHere(), new VerbMore());
+                new VerbLogout(), new VerbLookHere(), new VerbMore(), new VerbInventory());
         VerbLogic.registerVerbs(LociPlayerAdmin.class,
                 new VerbDump(), new VerbAddXP());
         VerbLogic.registerVerbs(LociPlayerGhost.class);

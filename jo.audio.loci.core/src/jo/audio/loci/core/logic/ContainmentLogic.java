@@ -3,6 +3,8 @@ package jo.audio.loci.core.logic;
 import java.util.ArrayList;
 import java.util.List;
 
+import jo.audio.loci.core.data.IContainerAlertAdded;
+import jo.audio.loci.core.data.IContainerAlertRemoved;
 import jo.audio.loci.core.data.LociObject;
 import jo.util.utils.obj.StringUtils;
 
@@ -40,6 +42,10 @@ public class ContainmentLogic
                     newContains.add(oldContain);
             parent.setContains(newContains.toArray(new String[0]));
         }
+        if (parent instanceof IContainerAlertRemoved)
+            ((IContainerAlertRemoved)parent).itemRemoved(parent, child);
+        if (child instanceof IContainerAlertRemoved)
+            ((IContainerAlertRemoved)child).itemRemoved(parent, child);
     }
     
     public static void add(LociObject parent, LociObject child)
@@ -57,5 +63,9 @@ public class ContainmentLogic
             newContains[newContains.length - 1] = child.getURI();
             parent.setContains(newContains);
         }
+        if (parent instanceof IContainerAlertAdded)
+            ((IContainerAlertAdded)parent).itemAdded(parent, child);
+        if (child instanceof IContainerAlertAdded)
+            ((IContainerAlertAdded)child).itemAdded(parent, child);
     }
 }

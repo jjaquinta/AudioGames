@@ -87,10 +87,7 @@ class WalkingTest extends TestBase
         talk("register Wibble with Wobble", "Welcome Wibble", "Dirty Junction", "Maple", "Park", "Pine");
         talk("Maple Street", "Dirty Junction", "Gravel Intersection");
         talk("enter 1", "brick walkway");
-        talk("unlock w", "you fail to unlock");
-        talk("unlock w", "you fail to unlock");
-        talk("unlock w", "you fail to unlock");
-        talk("unlock w", "you unlock");
+        unlock("w");
         talk("open w", "you open");
         talk("w", "main living area");
         talk("open n", "you open");
@@ -101,7 +98,7 @@ class WalkingTest extends TestBase
         talk("w", "Meals are prepared here");
         talk("s", "ceramic bath and chamber pot");
         talk("n", "Meals are prepared here");
-        talk("unlock w", "you unlock");
+        unlock("w");
         talk("open w", "you open");
         talk("w", "garden");
     }

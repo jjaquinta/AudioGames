@@ -18,6 +18,7 @@ public class TestBase
     protected static String mPassword;
     protected static String mToken;
     protected static ExecuteContext mLastContext;
+    protected static String mLastReply;
     
     @BeforeEach
     protected void init()
@@ -63,6 +64,7 @@ public class TestBase
             else
                 Assert.assertTrue("Could not find "+validate[i]+" in output '"+output+"'", validated[i]);
         mToken = mLastContext.getInvoker().getURI();
+        mLastReply = output.toString();
         return mLastContext;
     }
     
@@ -95,5 +97,18 @@ public class TestBase
     {
         for (int i = 0; i < nodes.length; i++)
             talk(nodes[i], (i>0)?nodes[i-1]:"", (i<nodes.length-1)?nodes[i+1]:"");
+    }
+    
+    protected void unlock(String item)
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            talk("unlock "+item);
+            if (mLastReply.toLowerCase().indexOf("you unlock") >= 0)
+                return;
+            if (mLastReply.toLowerCase().indexOf("unable to execute") >= 0)
+                Assert.fail("Could not unlock '"+item+"': "+mLastReply);
+        }
+        Assert.fail("Too many tries to unlock");
     }
 }

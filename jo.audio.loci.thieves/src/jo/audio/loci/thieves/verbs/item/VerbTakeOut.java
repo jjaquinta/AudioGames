@@ -1,7 +1,6 @@
 package jo.audio.loci.thieves.verbs.item;
 
 import jo.audio.loci.core.data.ExecuteContext;
-import jo.audio.loci.core.data.LociObject;
 import jo.audio.loci.core.data.Verb;
 import jo.audio.loci.core.logic.ContainmentLogic;
 import jo.audio.loci.core.logic.DataStoreLogic;
@@ -22,6 +21,11 @@ public class VerbTakeOut extends Verb
         LociPlayer player = (LociPlayer)context.getInvoker();
         LociContainer container = (LociContainer)context.getMatchedIndirectObject();
         String thingName = context.getDirectObjectText();
+        if (!container.getOpen())
+        {
+            player.addMessage("The "+container.getPrimaryName()+" is not open.");
+            return;
+        }
         LociItem item = null;
         for (String containedURI : container.getContains())
         {
@@ -42,19 +46,13 @@ public class VerbTakeOut extends Verb
             player.addMessage("You do not own the "+item.getPrimaryName()+".");
             return;
         }
-        if (!container.isAccessible(player))
-        {
-            player.addMessage("You do not own the "+container.getPrimaryName()+".");
-            return;
-        }
-        if (!container.getOpen())
-        {
-            player.addMessage("The "+container.getPrimaryName()+" is not open.");
-            return;
-        }
-        LociObject parent = (LociObject)DataStoreLogic.load(container.getContainedBy());
+//        if (!container.isAccessible(player))
+//        {
+//            player.addMessage("You do not own the "+container.getPrimaryName()+".");
+//            return;
+//        }
         ContainmentLogic.remove(container, item);
-        ContainmentLogic.add(parent, item);
+        ContainmentLogic.add(player, item);
         player.addMessage("You take "+item.getPrimaryName()+" out of "+container.getPrimaryName()+".");
     }
 }

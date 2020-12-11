@@ -28,11 +28,11 @@ public class VerbPutIn extends Verb
             player.addMessage("You do not own the "+item.getPrimaryName()+".");
             return;
         }
-        if (!container.isAccessible(player))
-        {
-            player.addMessage("You do not own the "+container.getPrimaryName()+".");
-            return;
-        }
+//        if (!container.isAccessible(player))
+//        {
+//            player.addMessage("You do not own the "+container.getPrimaryName()+".");
+//            return;
+//        }
         if (!container.getOpen())
         {
             player.addMessage("The "+container.getPrimaryName()+" is not open.");

@@ -8,7 +8,7 @@ public class VerbLookDO extends VerbLookBase
 {
     public VerbLookDO()
     {
-        super("look,l", "any", null, null);
+        super("look,l,look at", "any", null, null);
     }
 
     @Override

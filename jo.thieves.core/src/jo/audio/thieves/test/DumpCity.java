@@ -18,7 +18,6 @@ import jo.audio.thieves.data.gen.Intersection;
 import jo.audio.thieves.data.gen.Street;
 import jo.audio.thieves.data.template.PLocationRef;
 import jo.audio.thieves.logic.LocationLogic;
-import jo.audio.thieves.logic.ThievesConstLogic;
 import jo.audio.thieves.slu.ThievesModelConst;
 import jo.util.utils.MathUtils;
 

@@ -422,7 +422,18 @@
          	"Good linen sheets on a oak frame.",
          	"Fine sheets on a carved oak frame.",
          	"Silk sheets and feather mattresses."
-     	 ]         
+         ],
+         "CHEST_DESCRIPTION": [
+         	"Nailed pine box with a simple lock.",
+         	"Oak box with an iron lock.",
+         	"Iron bound oak chest with an inset lock.",
+         	"An iron box with brass highlights.",
+         	"An ornamented iron box with warning brass sigils."
+         ],
+         "FENCE_NAMES": [
+         	"Louis",
+         	"Louise",
+     	 ]
        }
    }
 }

@@ -13,6 +13,8 @@ import jo.util.utils.obj.StringUtils;
 public class PLocationRef extends PCSBean implements IJSONAble
 { 
     public static final String TAG_BED = "BED";
+    public static final String TAG_CHEST = "CHEST";
+    public static final String TAG_BUYER = "$BUYER";
     
     public static final String ID_ID = "ID";
     public static final String ID_X = "x";
