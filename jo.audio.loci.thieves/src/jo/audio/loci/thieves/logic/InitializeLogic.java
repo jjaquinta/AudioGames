@@ -46,6 +46,8 @@ import jo.audio.loci.thieves.verbs.item.VerbPickUp;
 import jo.audio.loci.thieves.verbs.item.VerbPutIn;
 import jo.audio.loci.thieves.verbs.item.VerbSell;
 import jo.audio.loci.thieves.verbs.item.VerbTakeOut;
+import jo.audio.loci.thieves.verbs.misc.VerbMoon;
+import jo.audio.loci.thieves.verbs.misc.VerbTime;
 import jo.audio.loci.thieves.verbs.move.VerbEnter;
 import jo.audio.loci.thieves.verbs.move.VerbGoDown;
 import jo.audio.loci.thieves.verbs.move.VerbGoEast;
@@ -131,7 +133,8 @@ public class InitializeLogic
         VerbLogic.registerVerbs(LociFoyeur.class,
                 new VerbRegister(), new VerbRegister2(), new VerbLogin(), new VerbLogin2(), new VerbLookFoyeur());
         VerbLogic.registerVerbs(LociPlayer.class,
-                new VerbLogout(), new VerbLookHere(), new VerbMore(), new VerbInventory(), new VerbHelp());
+                new VerbLogout(), new VerbLookHere(), new VerbMore(), new VerbInventory(), new VerbHelp(),
+                new VerbTime(), new VerbMoon());
         VerbLogic.registerVerbs(LociPlayerAdmin.class,
                 new VerbDump(), new VerbAddXP());
         VerbLogic.registerVerbs(LociPlayerGhost.class);
@@ -152,7 +155,7 @@ public class InitializeLogic
         {
             foyeur = new LociFoyeur(InitializeLogic.FOYER_URI);
             foyeur.setName("City Gates");
-            foyeur.setDescription("You are on a lonely froad, outside of the city. You can enter by saying register <username> <password> or login <username> <password>.");
+            foyeur.setDescription("You are on a lonely road, outside of the city. You can enter by saying register <username> <password> or login <username> <password>.");
             foyeur.setOwner(ADMIN_URI);
             DataStoreLogic.save(foyeur);
         }

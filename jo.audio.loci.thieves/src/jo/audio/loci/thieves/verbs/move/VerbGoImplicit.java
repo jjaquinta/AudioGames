@@ -9,6 +9,7 @@ import jo.audio.loci.thieves.data.LociLocality;
 import jo.audio.loci.thieves.data.LociPlayer;
 import jo.audio.loci.thieves.data.LociThing;
 import jo.audio.loci.thieves.logic.SkillLogic;
+import jo.audio.loci.thieves.logic.TimeLogic;
 import jo.audio.loci.thieves.verbs.VerbLookBase;
 import jo.audio.thieves.data.template.PApature;
 import jo.audio.thieves.logic.ThievesConstLogic;
@@ -70,5 +71,6 @@ public class VerbGoImplicit extends Verb
         newRoom.say(player.getPrimaryName()+" enters from "+oldRoom.getPrimaryName()+".", 
                 player.getURI(), "You go to "+newRoom.getPrimaryName()+".");
         VerbLookBase.doLook(player, newRoom);
+        TimeLogic.moveCheck(player);
     }
 }

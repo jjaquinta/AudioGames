@@ -35,6 +35,7 @@ public class LociPlayer extends LociThing
     public static final String ID_HIT_POINTS = "hitPoints";
     public static final String ID_CURRENT_HIT_POINTS = "currentHitPoints";
     public static final String ID_STANDING = "standing";
+    public static final String ID_LAST_MOVE_CHECK = "lastMoveCheck";
     
     public LociPlayer(String uri)
     {
@@ -418,5 +419,15 @@ public class LociPlayer extends LociThing
     public void setStanding(int value)
     {
         setInt(ID_STANDING, value);
+    }
+    
+    public long getLastMoveCheck()
+    {
+        return getLong(ID_LAST_MOVE_CHECK);
+    }
+    
+    public void setLastMoveCheck(long value)
+    {
+        setLong(ID_LAST_MOVE_CHECK, value);
     }
 }

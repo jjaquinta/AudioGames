@@ -76,6 +76,9 @@ public class ThievesConstLogic
     
     public static final long GAME_TIME_COMPRESSION = 24; // game day = 1 hour real time
     public static final long ONE_DAY = 24*60*60; // in seconds
+    public static final long HEAL_TIME = 60*GAME_TIME_COMPRESSION; // 
+    
+    
     
     public static final double bearingDouble(int x, int y)
     {

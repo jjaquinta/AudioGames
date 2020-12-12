@@ -461,7 +461,17 @@
 	     	 "rarefied",
 	     	 "top-level",
 	     	 "elite",
-     	 ]
+     	 ],
+         "MOON_PHASE":[
+     		"new moon",
+     		"waxing crescent moon",
+     		"waxing half moon",
+     		"waxing gibbous moon",
+     		"full moon",
+     		"waning gibbous moon",
+     		"waning half moon",
+     		"waning crescent moon"
+         ]
        }
    }
 }
