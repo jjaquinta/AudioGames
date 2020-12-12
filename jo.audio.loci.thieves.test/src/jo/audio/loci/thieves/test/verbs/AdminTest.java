@@ -29,15 +29,15 @@ class AdminTest extends TestBase
         promoteToAdmin();
         talk("look", "outside of the city");
         talk("login Wibble Wobble", "Welcome Back Wibble", "Dirty Junction", "Maple", "Park", "Pine");
-        talk("xp 1", "one");
+        talk("add 1 xp", "one");
         talk("more", "You now have a total of 1", "more to reach level 2");
-        talk("xp 10", "10");
+        talk("add 10 xp", "10");
         talk("more", "You now have a total of 11", "more to reach level 2");
-        talk("xp 100", "100");
+        talk("add 100 xp", "100");
         talk("more", "You now have a total of 111", "more to reach level 2");
-        talk("xp 1000", "1000");
+        talk("add 1000 xp", "1000");
         talk("more", "You now have a total of 1111", "more to reach level 2");
-        talk("xp 1000", "1000", "level 2");
+        talk("add 1000 xp", "1000", "level 2");
         talk("more", "You now have a total of 2111", "more to reach level 3");
     }
 }

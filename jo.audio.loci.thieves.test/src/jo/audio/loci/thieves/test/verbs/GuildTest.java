@@ -22,6 +22,9 @@ class GuildTest extends TestBase
     @Test
     void loot()
     {
+        int gold1 = 15;
+        int gold2 = 12;
+        String item2 = "Silver and Gold Choker";
         talk("register Wibble with Wobble", "Welcome Wibble", "Dirty Junction", "Maple", "Park", "Pine");
         traverse("Maple", "Gravel", "Peacock", "Paved", "Cherry");
         talk("enter 1", "Front Yard");
@@ -41,8 +44,8 @@ class GuildTest extends TestBase
         talk("take silver necklace from chest", "you take");
         talk("Look at silver necklace", "worth 1000");
         talk("take gold from chest", "you take");
-        talk("Look at gold", "15 gold");
-        talk("inventory", "Silver necklace", "15 gold");
+        talk("Look at gold", gold1+" gold");
+        talk("inventory", "Silver necklace", gold1+" gold");
         talk("n", "Living Room");
         talk("n", "Living Room");
         talk("e", "Living Room");
@@ -60,13 +63,13 @@ class GuildTest extends TestBase
         talk("s", "Living Room");
         unlock("chest");
         talk("open chest", "you open");
-        talk("look chest", "iron bound", "Inside", "silver seal", "17 gold");
-        talk("take silver seal from chest", "you take");
-        talk("Look at silver seal", "worth 1000");
-        talk("inventory", "Silver necklace", "silver seal", "15 gold");
+        talk("look chest", "iron bound", "Inside", item2, gold2+" gold");
+        talk("take "+item2+" from chest", "you take");
+        talk("Look at "+item2, "worth 1000");
+        talk("inventory", "Silver necklace", item2, gold1+" gold");
         talk("take gold from chest", "you take");
-        talk("inventory", "Silver seal", "32 gold");
-        talk("Look at gold", "32 gold");
+        talk("inventory", item2, (gold1+gold2)+" gold");
+        talk("Look at gold", (gold1+gold2)+" gold");
         talk("n", "Living Room");
         talk("e", "Living Room");
         talk("n", "Front Porch");
@@ -85,12 +88,12 @@ class GuildTest extends TestBase
         talk("ask louis to appraise silver necklace", "450");
         talk("help standing", "unofficial");
         talk("sell silver necklace to louis", "for 450");
-        talk("inventory", "!Silver necklace", "482 gold");
+        talk("inventory", "!Silver necklace", (gold1+gold2+450)+" gold");
         talk("help standing", "inferior");
-        talk("ask louis about silver seal", "450");
-        talk("sell silver seal to louis", "for 450");
-        talk("more", "now have a total of 900", "you need 350 more for level 2");
-        talk("inventory", "!Silver seal", "932 gold");
+        talk("ask louis about "+item2, "450");
+        talk("sell "+item2+" to louis", "for 450");
+        talk("more", "now have a total of 900", "you need 350 more to reach level 2");
+        talk("inventory", "!"+item2, (gold1+gold2+900)+" gold");
         talk("help standing", "inferior");
     }
 }

@@ -33,6 +33,11 @@ public class VerbDrop extends Verb
         {
             LociItemStackable stack = (LociItemStackable)thing; 
             int quantity = IntegerUtils.parseInt(context.getDirectObjectMatcher().group(2));
+            if (quantity > stack.getCount())
+            {
+                player.addMessage("You cannot drop "+quantity+" of "+stack.getCount()+" items.");
+                return;
+            }
             if ((quantity > 0) && (quantity < stack.getCount()))
             {   // split
                 String u = stack.getURI();
