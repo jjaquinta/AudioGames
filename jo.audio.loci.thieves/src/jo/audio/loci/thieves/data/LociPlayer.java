@@ -138,6 +138,13 @@ public class LociPlayer extends LociThing
         DataStoreLogic.save(this);
         DataStoreLogic.clearCache();
     }
+
+    public void demoteFromAdmin()
+    {
+        mProperties.put(ID_DATA_PROFILE, LociPlayer.class.getSimpleName());
+        DataStoreLogic.save(this);
+        DataStoreLogic.clearCache();
+    }
     
     public LociLocality getContainedByObject()
     {

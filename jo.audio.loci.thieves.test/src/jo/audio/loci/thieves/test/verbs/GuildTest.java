@@ -87,5 +87,10 @@ class GuildTest extends TestBase
         talk("sell silver necklace to louis", "for 450");
         talk("inventory", "!Silver necklace", "482 gold");
         talk("help standing", "inferior");
+        talk("ask louis about silver seal", "450");
+        talk("sell silver seal to louis", "for 450");
+        talk("more", "now have a total of 900", "you need 350 more for level 2");
+        talk("inventory", "!Silver seal", "932 gold");
+        talk("help standing", "inferior");
     }
 }

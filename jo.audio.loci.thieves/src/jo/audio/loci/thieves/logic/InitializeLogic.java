@@ -11,6 +11,7 @@ import jo.audio.loci.thieves.data.LociExit;
 import jo.audio.loci.thieves.data.LociFoyeur;
 import jo.audio.loci.thieves.data.LociIntersection;
 import jo.audio.loci.thieves.data.LociItem;
+import jo.audio.loci.thieves.data.LociItemStackable;
 import jo.audio.loci.thieves.data.LociLocality;
 import jo.audio.loci.thieves.data.LociPlayer;
 import jo.audio.loci.thieves.data.LociPlayerAdmin;
@@ -80,6 +81,7 @@ public class InitializeLogic
                 new VerbDrop(), new VerbPickUp());
         DataProfileLogic.registerDataProfile(LociContainer.class);
         DataProfileLogic.registerDataProfile(LociTreasure.class);
+        DataProfileLogic.registerDataProfile(LociItemStackable.class);
         DataProfileLogic.registerDataProfile(LociNPC.class);
         VerbLogic.registerVerbs(LociBuyer.class,
                 new VerbSell(), new VerbAppraise()); 

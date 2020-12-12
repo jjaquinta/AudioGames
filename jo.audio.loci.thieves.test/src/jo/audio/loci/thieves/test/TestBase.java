@@ -92,6 +92,12 @@ public class TestBase
         LociPlayer player = (LociPlayer)mLastContext.getInvoker();
         player.promnoteToAdmin();
     }
+
+    protected void demoteFromAdmin()
+    {
+        LociPlayer player = (LociPlayer)mLastContext.getInvoker();
+        player.demoteFromAdmin();
+    }
     
     protected void traverse(String... nodes)
     {

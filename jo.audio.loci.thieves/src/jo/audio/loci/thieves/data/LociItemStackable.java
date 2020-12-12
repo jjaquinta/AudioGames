@@ -31,8 +31,13 @@ public class LociItemStackable extends LociItem implements IContainerAlertAdded
     {
         String name = super.getName();
         int o = name.indexOf(NAME_DELIM);
+        String primaryName;
         if (o > 0)
-            name += NAME_DELIM + getCount() + " " + name.substring(0, o);
+            primaryName = name.substring(0, o);
+        else
+            primaryName = name;
+        name += NAME_DELIM + getCount() + " " + primaryName;
+        name += NAME_DELIM + "([0-9]*) " + primaryName;
         return name;
     }
     
@@ -79,5 +84,6 @@ public class LociItemStackable extends LociItem implements IContainerAlertAdded
     public void setCount(int value)
     {
         setInt(ID_COUNT, value);
+        mNamePattern = null;
     }
 }

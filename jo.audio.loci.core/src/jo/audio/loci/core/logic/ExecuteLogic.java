@@ -149,6 +149,7 @@ public class ExecuteLogic
             if (vm.start() > 0)
                 return null;
             context.setVerbText(vm.group(0));
+            context.setVerbMatcher(vm);
             cmd = cmd.substring(vm.end());
             if ((cmd.length() > 0) && !Character.isWhitespace(cmd.charAt(0)))
                 return null;
@@ -166,6 +167,7 @@ public class ExecuteLogic
             if ((end < cmd.length()) && !Character.isWhitespace(cmd.charAt(end)))
                 return null;
             context.setVerbText(cmd.substring(0, end));
+            context.setVerbMatcher(m);
             cmd = cmd.substring(end).trim();
             return cmd;
         }
@@ -174,7 +176,7 @@ public class ExecuteLogic
     }
 
     private static boolean matchAObject(ExecuteContext context, String cmd, LociObject obj,
-            Consumer<String> setObjectText, Consumer<LociObject> setMatchedObject)
+            Consumer<String> setObjectText, Consumer<LociObject> setMatchedObject, Consumer<Matcher> setMatchedMatcher)
     {
         if (cmd.equalsIgnoreCase("me"))
         {
@@ -195,30 +197,36 @@ public class ExecuteLogic
             return true;
         }
         Pattern p = obj.getNamePattern();
-        if ((p == null) || !p.matcher(cmd).matches())
+        Matcher m = p.matcher(cmd);
+        if ((p == null) || !m.matches())
             return false;
         setObjectText.accept(cmd);
         setMatchedObject.accept(obj);
+        setMatchedMatcher.accept(m);
         return true;
     }
 
     private static boolean matchAObject(ExecuteContext context, String cmd, LociObject obj,
-            List<Class<? extends LociBase>> objectClasses, Consumer<String> setObjectText, Consumer<LociObject> setMatchedObject)
+            List<Class<? extends LociBase>> objectClasses, Consumer<String> setObjectText, Consumer<LociObject> setMatchedObject, Consumer<Matcher> setMatchedMatcher)
     {
         for (Class<? extends LociBase> objectClass : objectClasses)
             if (objectClass.isAssignableFrom(obj.getClass()))
-                if (obj.getNamePattern().matcher(cmd).matches())
+            {
+                Matcher m = obj.getNamePattern().matcher(cmd);
+                if (m.matches())
                 {
                     setObjectText.accept(cmd);
                     setMatchedObject.accept(obj);
+                    setMatchedMatcher.accept(m);
                     return true;
                 }
+            }
         return false;
     }
     
     private static boolean matchObject(ExecuteContext context, LociObject obj, Verb verb, String cmd, 
             int objectType, Pattern objectPattern, List<Class<? extends LociBase>> objectClasses,
-            Consumer<String> setObjectText, Consumer<LociObject> setMatchedObject)
+            Consumer<String> setObjectText, Consumer<LociObject> setMatchedObject, Consumer<Matcher> setMatchedMatcher)
     {
         if (objectType == Verb.ARG_TYPE_PATTERN)
         {
@@ -226,17 +234,18 @@ public class ExecuteLogic
             if (!dom.matches())
                 return false;
             setObjectText.accept(dom.group(0));
+            setMatchedMatcher.accept(dom);
             return true;
         }
         else if (objectType == Verb.ARG_TYPE_THIS)
         {
-            return matchAObject(context, cmd, obj, setObjectText, setMatchedObject);
+            return matchAObject(context, cmd, obj, setObjectText, setMatchedObject, setMatchedMatcher);
         }
         else if (objectType == Verb.ARG_TYPE_CLASS)
         {
             for (LociObject o : context.getVisibleTo())
             {
-                boolean matched = matchAObject(context, cmd, o, objectClasses, setObjectText, setMatchedObject);
+                boolean matched = matchAObject(context, cmd, o, objectClasses, setObjectText, setMatchedObject, setMatchedMatcher);
                 if (matched)
                     return true;
             }
@@ -246,7 +255,7 @@ public class ExecuteLogic
         {
             for (LociObject o : context.getVisibleTo())
             {
-                boolean matched = matchAObject(context, cmd, o, setObjectText, setMatchedObject);
+                boolean matched = matchAObject(context, cmd, o, setObjectText, setMatchedObject, setMatchedMatcher);
                 if (matched)
                     return true;
             }
@@ -265,7 +274,8 @@ public class ExecuteLogic
         return matchObject(context, obj, verb, cmd, 
                 verb.getDirectObjectType(), verb.getDirectObjectPattern(), verb.getDirectObjectClasses(),
                 (e) -> context.setDirectObjectText(e), 
-                (e) -> context.setMatchedDirectObject(e));
+                (e) -> context.setMatchedDirectObject(e),
+                (e) -> context.setDirectObjectMatcher(e));
     }
 
     private static String[] matchPreposition(ExecuteContext context, LociObject obj, Verb verb, String cmd)
@@ -278,6 +288,7 @@ public class ExecuteLogic
             if ((cmd.length() > pm.end()) && !Character.isWhitespace(cmd.charAt(pm.end())))
                 return null;
             context.setPrepositionText(pm.group(0));
+            context.setPrepositionMatcher(pm);
             String[] cmds = new String[2];
             cmds[0] = cmd.substring(0, pm.start()).trim();
             cmds[1] = cmd.substring(pm.end()).trim();
@@ -298,7 +309,8 @@ public class ExecuteLogic
         return matchObject(context, obj, verb, cmd, 
                 verb.getIndirectObjectType(), verb.getIndirectObjectPattern(), verb.getIndirectObjectClasses(), 
                 (e) -> context.setIndirectObjectText(e), 
-                (e) -> context.setMatchedIndirectObject(e));
+                (e) -> context.setMatchedIndirectObject(e),
+                (e) -> context.setIndirectObjectMatcher(e));
     }
     
     private static void populateVisible(InvocationContext context)

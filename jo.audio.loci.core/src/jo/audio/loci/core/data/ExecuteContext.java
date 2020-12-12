@@ -1,5 +1,7 @@
 package jo.audio.loci.core.data;
 
+import java.util.regex.Matcher;
+
 public class ExecuteContext extends InvocationContext
 {
     private String           mCommand;
@@ -7,6 +9,10 @@ public class ExecuteContext extends InvocationContext
     private String           mDirectObjectText;
     private String           mPrepositionText;
     private String           mIndirectObjectText;
+    private Matcher          mVerbMatcher;
+    private Matcher          mDirectObjectMatcher;
+    private Matcher          mPrepositionMatcher;
+    private Matcher          mIndirectObjectMatcher;
     private Verb             mMatchedVerb;
     private LociBase         mMatchedVerbHost;
     private LociBase         mMatchedDirectObject;
@@ -150,5 +156,45 @@ public class ExecuteContext extends InvocationContext
     public void setSuccess(boolean success)
     {
         mSuccess = success;
+    }
+
+    public Matcher getVerbMatcher()
+    {
+        return mVerbMatcher;
+    }
+
+    public void setVerbMatcher(Matcher verbMatcher)
+    {
+        mVerbMatcher = verbMatcher;
+    }
+
+    public Matcher getDirectObjectMatcher()
+    {
+        return mDirectObjectMatcher;
+    }
+
+    public void setDirectObjectMatcher(Matcher directObjectMatcher)
+    {
+        mDirectObjectMatcher = directObjectMatcher;
+    }
+
+    public Matcher getPrepositionMatcher()
+    {
+        return mPrepositionMatcher;
+    }
+
+    public void setPrepositionMatcher(Matcher prepositionMatcher)
+    {
+        mPrepositionMatcher = prepositionMatcher;
+    }
+
+    public Matcher getIndirectObjectMatcher()
+    {
+        return mIndirectObjectMatcher;
+    }
+
+    public void setIndirectObjectMatcher(Matcher indirectObjectMatcher)
+    {
+        mIndirectObjectMatcher = indirectObjectMatcher;
     }
 }

@@ -4,6 +4,7 @@ import org.json.simple.JSONObject;
 
 import jo.audio.loci.thieves.data.LociPlayer;
 import jo.audio.loci.thieves.data.LociTreasure;
+import jo.audio.loci.thieves.logic.PlayerLogic;
 import jo.util.utils.MathUtils;
 
 public class LociBuyer extends LociNPC
@@ -62,6 +63,8 @@ public class LociBuyer extends LociNPC
             int credit = item.getValue() - paid;
             if (credit > 0)
                 player.setStanding(player.getStanding() + credit);
+            if (paid > 0)
+                PlayerLogic.addXP(player, paid);
         }
     }
 }

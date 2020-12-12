@@ -162,7 +162,7 @@ public class PopulateSquareLogic
 
     public static LociItemStackable makeBagOfCoins(int type, int count)
     {
-        String u = DiskStore.PREFIX+"coins/"+LocationLogic.getCity().getRND().nextInt();
+        String u = DiskStore.PREFIX+"coins/"+System.currentTimeMillis();
         LociItemStackable item = new LociItemStackable(u);
         item.setName(COIN_TYPE[type]);
         item.setDescription("A small bag of "+COIN_TYPE[type]+" coins.");

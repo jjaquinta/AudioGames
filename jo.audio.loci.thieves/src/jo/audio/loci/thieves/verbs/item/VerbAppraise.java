@@ -10,7 +10,7 @@ public class VerbAppraise extends Verb
 {
     public VerbAppraise()
     {
-        super("ask", "this", "to appraise", "$"+LociTreasure.class);
+        super("ask", "this", "to appraise,about", "$"+LociTreasure.class);
     }
 
     @Override
