@@ -67,16 +67,14 @@ class WalkingTest extends TestBase
         talk("south", "garden");
         talk("south", "grass and weeds");
         talk("east", "grass and weeds");
-        talk("up", "you fail your climb check");
-        talk("more", "You needed a");
-        talk("up", "simple rim");
+        up("simple rim");
         talk("east", "simple rim");
-        talk("down", "grass and weeds");
+        down("grass and weeds");
         talk("east", "brick walkway");
         talk("north", "brick walkway");
-        talk("up", "simple rim");
+        up("simple rim");
         talk("north", "simple rim");
-        talk("down", "brick walkway");
+        down("brick walkway");
         talk("Maple", "Dirty Junction", "Gravel Intersection");
     }
 

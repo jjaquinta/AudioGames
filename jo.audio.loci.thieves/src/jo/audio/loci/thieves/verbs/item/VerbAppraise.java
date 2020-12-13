@@ -30,6 +30,6 @@ public class VerbAppraise extends Verb
             return;
         }
         int worth = buyer.calculateWorth(player, item);
-        player.addMessage(buyer.getPrimaryName()+" would give you "+worth+" for "+item.getPrimaryName()+".");
+        player.addMessage(buyer.getPrimaryName()+" would give you "+worth+" gold for "+item.getPrimaryName()+".");
     }
 }

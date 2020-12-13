@@ -41,7 +41,7 @@ public class VerbSell extends Verb
         ContainmentLogic.remove(player, item);
         LociItemStackable coins = PopulateSquareLogic.makeBagOfCoins(PopulateSquareLogic.COIN_GOLD, worth);
         ContainmentLogic.add(player, coins);
-        player.addMessage("You sell "+item.getPrimaryName()+" to "+buyer.getPrimaryName()+" for "+worth+".");
+        player.addMessage("You sell "+item.getPrimaryName()+" to "+buyer.getPrimaryName()+" for "+worth+" gold.");
         buyer.registerPurchase(player, item, worth);
     }
 }

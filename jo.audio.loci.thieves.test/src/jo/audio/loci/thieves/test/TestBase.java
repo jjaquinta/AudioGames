@@ -1,6 +1,8 @@
 package jo.audio.loci.thieves.test;
 
 import java.util.Random;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
@@ -10,6 +12,7 @@ import jo.audio.loci.thieves.data.LociPlayer;
 import jo.audio.loci.thieves.logic.InitializeLogic;
 import jo.audio.loci.thieves.logic.InteractLogic;
 import jo.util.utils.DebugUtils;
+import jo.util.utils.obj.IntegerUtils;
 
 public class TestBase
 {
@@ -116,5 +119,42 @@ public class TestBase
                 Assert.fail("Could not unlock '"+item+"': "+mLastReply);
         }
         Assert.fail("Too many tries to unlock");
+    }
+    
+    protected void climb(String dir, String expected)
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            talk(dir);
+            if (mLastReply.toLowerCase().indexOf("you fail your climb check") < 0)
+            {
+                if (mLastReply.toLowerCase().indexOf(expected.toLowerCase()) < 0)
+                    Assert.fail("Could not find '"+expected+"': "+mLastReply);
+                return;
+            }
+        }
+        Assert.fail("Too many tries to climb");
+    }
+    
+    protected void up(String expected)
+    {
+        climb("up", expected);
+    }
+    
+    protected void down(String expected)
+    {
+        climb("down", expected);
+    }
+    
+    private static Pattern mGoldPattern = Pattern.compile("([0-9]+) gold", Pattern.CASE_INSENSITIVE);
+    
+    protected int getDynamicGold()
+    {
+        Matcher m = mGoldPattern.matcher(mLastReply);
+        if (!m.find())
+            Assert.fail("Cannot find '### gold' in '"+mLastReply+"'");
+        String goldTxt = m.group(1);
+        int gold = IntegerUtils.parseInt(goldTxt);
+        return gold;
     }
 }

@@ -49,12 +49,13 @@ class StackableTest extends TestBase
         talk("put 10 gold in chest", "You cannot put 10 of 4 items into"); // ambiguity
         talk("take 4 gold", "you picked up");
         talk("inventory", "199 gold");
-        talk("look chest", "15 gold");
+        talk("look chest", "Inside");
+        int gold1 = getDynamicGold();
         talk("put 10 gold in chest", "You put 10 gold into Chest");
         talk("inventory", "189 gold");
-        talk("look chest", "25 gold");
+        talk("look chest", (10+gold1)+" gold");
         talk("take 5 gold from chest", "you take 5 gold");
         talk("inventory", "194 gold");
-        talk("look chest", "20 gold");
+        talk("look chest", (gold1+5)+" gold");
     }
 }

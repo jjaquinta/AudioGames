@@ -6,6 +6,7 @@ import jo.audio.loci.core.logic.DataStoreLogic;
 import jo.audio.loci.thieves.data.LociLocality;
 import jo.audio.loci.thieves.data.LociPlayer;
 import jo.audio.loci.thieves.data.LociStreet;
+import jo.audio.loci.thieves.logic.house.HomeLogic;
 import jo.audio.loci.thieves.stores.SquareStore;
 import jo.util.utils.obj.IntegerUtils;
 
@@ -32,6 +33,7 @@ public class VerbEnter extends Verb
             return;
         }
         String destination = SquareStore.makeURIEntry(street.getStreet(), houseNum);
+        HomeLogic.prepareHouse(street.getStreet(), houseNum);
         LociLocality newRoom = (LociLocality)DataStoreLogic.load(destination);
         VerbGoImplicit.transition(player, null, street, newRoom);
     }

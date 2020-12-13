@@ -29,16 +29,28 @@ public class SquareStore implements IDataStore
     public static final String PREFIX = "square://";
     
     private DiskCache                   mDisk;
+    private static SquareStore          mInstance;
     
     public SquareStore()
     {
         mDisk = new DiskCache(DiskStore.PREFIX, "squares");
+        mInstance = this;
+    }
+    
+    public static SquareStore getInstance()
+    {
+        return mInstance;
     }
     
     @Override
     public boolean isStoreFor(String uri)
     {
         return uri.startsWith(PREFIX);
+    }
+    
+    public static String makeURI(House house, String key)
+    {
+        return SquareStore.PREFIX+house.getStreet()+":"+house.getHouseNumber()+"/"+key;
     }
     
     public static String makeURI(Street street, int houseNum, PLocationRef location)

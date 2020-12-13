@@ -3,6 +3,7 @@ package jo.audio.loci.thieves.test.verbs;
 import org.junit.jupiter.api.Test;
 
 import jo.audio.loci.thieves.test.TestBase;
+import jo.util.utils.obj.StringUtils;
 
 class GuildTest extends TestBase
 {
@@ -22,9 +23,6 @@ class GuildTest extends TestBase
     @Test
     void loot()
     {
-        int gold1 = 15;
-        int gold2 = 12;
-        String item2 = "Silver and Gold Choker";
         talk("register Wibble with Wobble", "Welcome Wibble", "Dirty Junction", "Maple", "Park", "Pine");
         traverse("Maple", "Gravel", "Peacock", "Paved", "Cherry");
         talk("enter 1", "Front Yard");
@@ -40,12 +38,14 @@ class GuildTest extends TestBase
         unlock("chest");
         talk("look chest", "iron bound");
         talk("open chest", "you open");
-        talk("look chest", "iron bound", "Inside", "silver necklace", "gold");
-        talk("take silver necklace from chest", "you take");
-        talk("Look at silver necklace", "worth 1000");
+        talk("look chest", "iron bound", "Inside are", "and", "gold");
+        String item1 = StringUtils.extract(mLastReply.toLowerCase(), "inside are ", " and");
+        talk("take "+item1+" from chest", "you take");
+        talk("Look at "+item1, "worth");
         talk("take gold from chest", "you take");
-        talk("Look at gold", gold1+" gold");
-        talk("inventory", "Silver necklace", gold1+" gold");
+        talk("Look at gold", " gold");
+        int gold1 = getDynamicGold();
+        talk("inventory", item1, gold1+" gold");
         talk("n", "Living Room");
         talk("n", "Living Room");
         talk("e", "Living Room");
@@ -63,10 +63,12 @@ class GuildTest extends TestBase
         talk("s", "Living Room");
         unlock("chest");
         talk("open chest", "you open");
-        talk("look chest", "iron bound", "Inside", item2, gold2+" gold");
+        talk("look chest", "iron bound", "Inside are ", " and", " gold");
+        String item2 = StringUtils.extract(mLastReply.toLowerCase(), "inside are ", " and");
+        int gold2 = getDynamicGold();
         talk("take "+item2+" from chest", "you take");
         talk("Look at "+item2, "worth 1000");
-        talk("inventory", "Silver necklace", item2, gold1+" gold");
+        talk("inventory", item1, item2, gold1+" gold");
         talk("take gold from chest", "you take");
         talk("inventory", item2, (gold1+gold2)+" gold");
         talk("Look at gold", (gold1+gold2)+" gold");
@@ -84,16 +86,18 @@ class GuildTest extends TestBase
         talk("west", "common room");
         talk("north", "prim desk");
         talk("look Louis", "buy your stolen goods");
-        talk("inventory", "Silver necklace");
-        talk("ask louis to appraise silver necklace", "450");
+        talk("inventory", item1);
+        talk("ask louis to appraise "+item1, "Louis would give you", item1);
+        int gold3 = getDynamicGold();
         talk("help standing", "unofficial");
-        talk("sell silver necklace to louis", "for 450");
-        talk("inventory", "!Silver necklace", (gold1+gold2+450)+" gold");
+        talk("sell "+item1+" to louis", gold3+" gold");
+        talk("inventory", "!"+item1, (gold1+gold2+gold3)+" gold");
         talk("help standing", "inferior");
-        talk("ask louis about "+item2, "450");
-        talk("sell "+item2+" to louis", "for 450");
-        talk("more", "now have a total of 900", "you need 350 more to reach level 2");
-        talk("inventory", "!"+item2, (gold1+gold2+900)+" gold");
-        talk("help standing", "inferior");
+        talk("ask louis about "+item2, "Louis would give you", item2);
+        int gold4 = getDynamicGold();
+        talk("sell "+item2+" to louis", "for "+gold4);
+        talk("more", "now have a total of "+(gold3+gold4), "you need "+(1250-gold3-gold4)+" more to reach level 2");
+        talk("inventory", "!"+item2, (gold1+gold2+gold3+gold4)+" gold");
+        talk("help standing", "!unofficial");
     }
 }
