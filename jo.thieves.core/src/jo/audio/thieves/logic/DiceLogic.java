@@ -1,5 +1,6 @@
 package jo.audio.thieves.logic;
 
+import java.util.List;
 import java.util.Random;
 
 public class DiceLogic
@@ -18,5 +19,13 @@ public class DiceLogic
     public static int d(int die, int num)
     {
         return d(die, num, 0);
+    }
+    
+    public static <T> T oneOf(List<T> things)
+    {
+        if (things.size() == 0)
+            return null;
+        int idx = LocationLogic.getCity().getRND().nextInt(things.size());
+        return things.get(idx);
     }
 }

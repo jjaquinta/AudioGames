@@ -28,25 +28,6 @@ public class LociBuyer extends LociNPC
         String[] desc = super.getExtendedDescription(wrt);
         return desc;
     }
-    
-    // getters and setters
-    
-    public String getType()
-    {
-        return getString(ID_TYPE);
-    }
-    
-    public void setType(String value)
-    {
-        setString(ID_TYPE, value);
-    }
-
-    public int calculateWorth(LociPlayer player, LociTreasure item)
-    {
-        if ("stolen".equals(item.getType()))
-            return calculateStolenWorth(player, item);
-        return 0;
-    }
 
     private int calculateStolenWorth(LociPlayer player, LociTreasure item)
     {
@@ -66,5 +47,24 @@ public class LociBuyer extends LociNPC
             if (paid > 0)
                 PlayerLogic.addXP(player, paid);
         }
+    }
+    
+    // getters and setters
+    
+    public String getType()
+    {
+        return getString(ID_TYPE);
+    }
+    
+    public void setType(String value)
+    {
+        setString(ID_TYPE, value);
+    }
+
+    public int calculateWorth(LociPlayer player, LociTreasure item)
+    {
+        if ("stolen".equals(item.getType()))
+            return calculateStolenWorth(player, item);
+        return 0;
     }
 }

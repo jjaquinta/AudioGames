@@ -100,8 +100,7 @@ class LookTest extends TestBase
                 "Linden Street", "Paved Junction", "Clyde Road", "Flagged Square", "Dame Street", "Elegant Junction", "Mountjoy Way");
         talk("enter 1", "brick walkway");
         talk("w", "Front Porch");
-        talk("up", "fail");
-        talk("up", "Roof");
+        up("Roof");
         talk("w", "Roof");
         talk("n", "Roof");
         talk("n", "Roof");

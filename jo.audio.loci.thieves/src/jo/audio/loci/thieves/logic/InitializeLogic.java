@@ -22,6 +22,7 @@ import jo.audio.loci.thieves.data.LociThing;
 import jo.audio.loci.thieves.data.LociTreasure;
 import jo.audio.loci.thieves.data.npc.LociBuyer;
 import jo.audio.loci.thieves.data.npc.LociNPC;
+import jo.audio.loci.thieves.data.npc.LociObserver;
 import jo.audio.loci.thieves.stores.ApatureStore;
 import jo.audio.loci.thieves.stores.ExitStore;
 import jo.audio.loci.thieves.stores.IntersectionStore;
@@ -85,6 +86,7 @@ public class InitializeLogic
         DataProfileLogic.registerDataProfile(LociTreasure.class);
         DataProfileLogic.registerDataProfile(LociItemStackable.class);
         DataProfileLogic.registerDataProfile(LociNPC.class);
+        DataProfileLogic.registerDataProfile(LociObserver.class);
         VerbLogic.registerVerbs(LociBuyer.class,
                 new VerbSell(), new VerbAppraise()); 
         VerbLogic.registerVerbs(LociContainer.class,
