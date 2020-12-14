@@ -27,18 +27,17 @@ public class SkillLogic
         player.addMessage("+You needed a "+target+" and rolled a "+roll+".");
         return roll <= target;
     }
-    public static boolean rollHideShadows(LociPlayer player)
+    public static boolean rollHideShadows(LociPlayer player, int mod)
     {
-        int target = modHideShadows(player);
+        int target = modHideShadows(player) + mod;
         int roll = LocationLogic.getCity().getRND().nextInt(100) + 1;
-        player.addMessage("+You needed a "+target+" and rolled a "+roll+".");
         return roll <= target;
     }
-    public static boolean rollMoveSilently(LociPlayer player)
+    public static boolean rollMoveSilently(LociPlayer player, int mod)
     {
-        int target = modMoveSilently(player);
+        int target = modMoveSilently(player) + mod;
         int roll = LocationLogic.getCity().getRND().nextInt(100) + 1;
-        player.addMessage("+You needed a "+target+" and rolled a "+roll+".");
+        //player.addMessage("+You needed a "+target+" and rolled a "+roll+".");
         return roll <= target;
     }
     public static boolean rollOpenLocks(LociPlayer player, int mod)

@@ -24,6 +24,7 @@ import jo.audio.thieves.logic.DiceLogic;
 import jo.audio.thieves.logic.ThievesConstLogic;
 import jo.audio.thieves.logic.gen.HouseLogic;
 import jo.audio.thieves.slu.ThievesModelConst;
+import jo.util.utils.DebugUtils;
 import jo.util.utils.obj.LongUtils;
 
 public class HomeLogic
@@ -31,10 +32,10 @@ public class HomeLogic
     private static DiskCache mDisk         = new DiskCache(DiskStore.PREFIX,
             "houses");
 
-    private static final int SHIFT_NIGHT   = 0;
-    private static final int SHIFT_MORNING = 1;
-    private static final int SHIFT_WORK    = 2;
-    private static final int SHIFT_EVENING = 3;
+    static final int SHIFT_NIGHT   = 0;
+    static final int SHIFT_MORNING = 1;
+    static final int SHIFT_WORK    = 2;
+    static final int SHIFT_EVENING = 3;
 
     private static void getHouseData(HouseData h)
     {
@@ -83,7 +84,9 @@ public class HomeLogic
         h.cleanOutObservers();
         h.calcPopulation();
         h.addAnimals();
-        // TODO:
+        h.addGuards();
+        h.addResidents();
+        h.addChildren();
         return true;
     }
 
@@ -272,6 +275,7 @@ class HouseData
     
     public void addAnimals()
     {
+        int type = DiceLogic.d(1000, 1);
         for (int i = 0; i < mAnimals; i++)
         {
             String key = DiceLogic.oneOf(mYards);
@@ -279,13 +283,104 @@ class HouseData
             LociSquare square = (LociSquare)DataStoreLogic.load(squareURI);
             String observerURI = DiskStore.PREFIX+"observer/animal/"+System.currentTimeMillis();
             LociObserver observer = new LociObserver(observerURI);
-            int type = DiceLogic.d(1000, 1);
             observer.setName("{{DOG_NAMES#"+type+"}}|dog");
             observer.setDescription("{{DOG_DESCRIPTIONS#"+type+"}}");
             observer.setType(LociObserver.TYPE_ANIMAL);
             observer.setAlertness(DiceLogic.d(4, 1) - 1);
             ContainmentLogic.add(square, observer);
-            System.out.println(ThievesModelConst.expand(observer.getName())+" added to "+key);
+            DebugUtils.debug(ThievesModelConst.expand(observer.getPrimaryName())+" added to "+key);
+        }
+    }
+    
+    public void addGuards()
+    {
+        List<String> locations = new ArrayList<>();
+        if (mShift == HomeLogic.SHIFT_WORK)
+        {
+            locations.addAll(mYards);
+            locations.addAll(mLivingAreas);
+        }
+        else
+        {
+            locations.addAll(mYards);
+            locations.addAll(mWorkAreas);
+        }
+        for (int i = 0; i < mGuards; i++)
+        {
+            String key = DiceLogic.oneOf(locations);
+            String squareURI = SquareStore.makeURI(mHouse, key);
+            LociSquare square = (LociSquare)DataStoreLogic.load(squareURI);
+            String observerURI = DiskStore.PREFIX+"observer/guard/"+System.currentTimeMillis();
+            LociObserver observer = new LociObserver(observerURI);
+            observer.setName("Security Guard");
+            observer.setDescription("A stern looking piece of muscle employed to keep people out.");
+            observer.setType(LociObserver.TYPE_GUARD);
+            observer.setAlertness(DiceLogic.d(2, 1) + 1);
+            observer.setGender(DiceLogic.d(2, 1));
+            ContainmentLogic.add(square, observer);
+            DebugUtils.debug(ThievesModelConst.expand(observer.getPrimaryName())+" added to "+key);
+        }
+    }
+    
+    public void addResidents()
+    {
+        List<String> locations = new ArrayList<>();
+        if (mShift == HomeLogic.SHIFT_NIGHT)
+            locations.addAll(mBedRooms);
+        else if ((mShift == HomeLogic.SHIFT_MORNING) || (mShift == HomeLogic.SHIFT_EVENING))
+        {
+            locations.addAll(mBedRooms);
+            locations.addAll(mLivingAreas);            
+        }
+        else
+            locations.addAll(mWorkAreas);
+        for (int i = 0; i < mAdults; i++)
+        {
+            String key = DiceLogic.oneOf(locations);
+            String squareURI = SquareStore.makeURI(mHouse, key);
+            LociSquare square = (LociSquare)DataStoreLogic.load(squareURI);
+            String observerURI = DiskStore.PREFIX+"observer/resident/"+System.currentTimeMillis();
+            LociObserver observer = new LociObserver(observerURI);
+            observer.setName("Resident");
+            observer.setDescription("Someone who lives here.");
+            observer.setType(LociObserver.TYPE_RESIDENT);
+            observer.setGender(DiceLogic.d(2, 1));
+            if (mShift == HomeLogic.SHIFT_NIGHT)
+                observer.setAlertness(DiceLogic.d(2, 1) - 1);
+            else
+                observer.setAlertness(DiceLogic.d(2, 1) + 1);
+            ContainmentLogic.add(square, observer);
+            DebugUtils.debug(ThievesModelConst.expand(observer.getPrimaryName())+" added to "+key);
+        }
+    }
+    
+    public void addChildren()
+    {
+        List<String> locations = new ArrayList<>();
+        if (mShift == HomeLogic.SHIFT_NIGHT)
+            locations.addAll(mBedRooms);
+        else
+        {
+            locations.addAll(mBedRooms);
+            locations.addAll(mLivingAreas);            
+        }
+        for (int i = 0; i < mChildren; i++)
+        {
+            String key = DiceLogic.oneOf(locations);
+            String squareURI = SquareStore.makeURI(mHouse, key);
+            LociSquare square = (LociSquare)DataStoreLogic.load(squareURI);
+            String observerURI = DiskStore.PREFIX+"observer/child/"+System.currentTimeMillis();
+            LociObserver observer = new LociObserver(observerURI);
+            observer.setName("Child");
+            observer.setDescription("Someone who is growing up here.");
+            observer.setType(LociObserver.TYPE_CHILD);
+            observer.setGender(DiceLogic.d(2, 1));
+            if (mShift == HomeLogic.SHIFT_NIGHT)
+                observer.setAlertness(DiceLogic.d(2, 1) - 1);
+            else
+                observer.setAlertness(DiceLogic.d(2, 1) + 1);
+            ContainmentLogic.add(square, observer);
+            DebugUtils.debug(ThievesModelConst.expand(observer.getPrimaryName())+" added to "+key);
         }
     }
 }

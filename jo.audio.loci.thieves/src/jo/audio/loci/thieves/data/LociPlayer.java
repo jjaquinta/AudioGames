@@ -36,6 +36,8 @@ public class LociPlayer extends LociThing
     public static final String ID_CURRENT_HIT_POINTS = "currentHitPoints";
     public static final String ID_STANDING = "standing";
     public static final String ID_LAST_MOVE_CHECK = "lastMoveCheck";
+    public static final String ID_HIDING = "hiding";
+    public static final String ID_SILENT = "silent";
     
     public LociPlayer(String uri)
     {
@@ -429,5 +431,25 @@ public class LociPlayer extends LociThing
     public void setLastMoveCheck(long value)
     {
         setLong(ID_LAST_MOVE_CHECK, value);
+    }
+    
+    public boolean getHiding()
+    {
+        return getBoolean(ID_HIDING);
+    }
+    
+    public void setHiding(boolean value)
+    {
+        setBoolean(ID_HIDING, value);
+    }
+    
+    public boolean getSilent()
+    {
+        return getBoolean(ID_SILENT);
+    }
+    
+    public void setSilent(boolean value)
+    {
+        setBoolean(ID_SILENT, value);
     }
 }

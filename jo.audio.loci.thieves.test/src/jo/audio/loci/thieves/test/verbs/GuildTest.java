@@ -67,7 +67,7 @@ class GuildTest extends TestBase
         String item2 = StringUtils.extract(mLastReply.toLowerCase(), "inside are ", " and");
         int gold2 = getDynamicGold();
         talk("take "+item2+" from chest", "you take");
-        talk("Look at "+item2, "worth 1000");
+        talk("Look at "+item2, "worth");
         talk("inventory", item1, item2, gold1+" gold");
         talk("take gold from chest", "you take");
         talk("inventory", item2, (gold1+gold2)+" gold");

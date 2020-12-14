@@ -1,12 +1,18 @@
 package jo.audio.loci.thieves.logic;
 
+import jo.audio.loci.core.logic.DataStoreLogic;
+import jo.audio.loci.thieves.data.LociLocality;
 import jo.audio.loci.thieves.data.LociPlayer;
+import jo.audio.loci.thieves.data.LociSquare;
+import jo.audio.thieves.data.template.PSquare;
 import jo.audio.thieves.logic.ThievesConstLogic;
 
 public class TimeLogic
 {
-    public static void moveCheck(LociPlayer player)
+    public static void moveCheck(LociPlayer player, LociLocality location)
     {
+        updateHiding(player, location);
+        updateSilent(player, location);
         long lastMove = player.getLastMoveCheck();
         long thisMove = ThievesConstLogic.gameTime();
         if (crossedBoundary(lastMove, thisMove, ThievesConstLogic.HEAL_TIME))
@@ -15,6 +21,55 @@ public class TimeLogic
         notifyMoon(player, lastMove, thisMove);
     }
     
+    public static void updateSilent(LociPlayer player, LociLocality location)
+    {
+        if (location == null)
+            location = (LociLocality)DataStoreLogic.load(player.getContainedBy());
+        if (!(location instanceof LociSquare))
+        {
+            player.setSilent(true);
+            return;
+        }
+        LociSquare loc = (LociSquare)location;
+        PSquare sq = loc.getURIObject().getThis();
+        int mod = sq.getMoveSilentlyMod();
+        boolean silent = SkillLogic.rollMoveSilently(player, mod);
+        player.setSilent(silent);
+        if (silent)
+            return;
+        // alert nearby
+        for (int dir : ThievesConstLogic.ORTHOGONAL_DIRS)
+            ObserverLogic.alertNearby(loc, dir);
+        ObserverLogic.alertNearby(loc, -1);
+    }
+    
+    private static void updateHiding(LociPlayer player, LociLocality location)
+    {
+        if (!(location instanceof LociSquare))
+        {
+            player.setHiding(true);
+            return;
+        }
+        LociSquare loc = (LociSquare)location;
+        PSquare sq = loc.getURIObject().getThis();
+        int mod = sq.getHideInShadowsMod();
+        if (!sq.getInside())
+            mod += TimeLogic.getHideInShadowsMod();
+        boolean hiding = SkillLogic.rollHideShadows(player, mod);
+        if (hiding)
+            player.addMessage("+You are hidden in shadows.");
+        player.setHiding(hiding);
+    }
+    
+    private static int getHideInShadowsMod()
+    {
+        int hour = ThievesConstLogic.gameHour(ThievesConstLogic.gameTime());
+        double a = (hour/24.0)*Math.PI*2;
+        double m = Math.cos(a);
+        int mod = -(int)(m*15);
+        return mod;
+    }
+
     private static boolean crossedBoundary(long tick1, long tick2, long threshold)
     {
         return (tick1/threshold) != (tick2/threshold);

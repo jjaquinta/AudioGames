@@ -65,12 +65,18 @@ public class VerbGoImplicit extends Verb
                 return;
             }
         }
-        oldRoom.say(player.getPrimaryName()+" leaves.", player.getURI(), null);
-        ContainmentLogic.remove(oldRoom, player);
-        ContainmentLogic.add(newRoom, player);
-        newRoom.say(player.getPrimaryName()+" enters from "+oldRoom.getPrimaryName()+".", 
-                player.getURI(), "You go to "+newRoom.getPrimaryName()+".");
+        move(player, oldRoom, newRoom);
         VerbLookBase.doLook(player, newRoom);
-        TimeLogic.moveCheck(player);
+        TimeLogic.moveCheck(player, newRoom);
+    }
+
+    public static void move(LociThing mover, LociLocality oldRoom, LociLocality newRoom)
+    {
+        oldRoom.say(mover.getPrimaryName()+" leaves.", mover.getURI(), null);
+        ContainmentLogic.remove(oldRoom, mover);
+        ContainmentLogic.add(newRoom, mover);
+        newRoom.say(mover.getPrimaryName()+" enters from "+oldRoom.getPrimaryName()+".", 
+                mover.getURI(), "You go to "+newRoom.getPrimaryName()+".");
+        
     }
 }

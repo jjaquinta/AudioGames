@@ -3,6 +3,7 @@ package jo.audio.loci.thieves.verbs.item;
 import jo.audio.loci.core.data.ExecuteContext;
 import jo.audio.loci.thieves.data.LociContainer;
 import jo.audio.loci.thieves.data.LociPlayer;
+import jo.audio.loci.thieves.logic.TimeLogic;
 import jo.audio.loci.thieves.verbs.VerbLookBase;
 
 public class VerbOpen extends VerbLookBase
@@ -31,6 +32,7 @@ public class VerbOpen extends VerbLookBase
         {
             container.setOpen(true);
             player.addMessage("You open the "+container.getPrimaryName()+".");
+            TimeLogic.updateSilent(player, null);
             return;
         }
     }

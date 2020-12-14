@@ -121,6 +121,19 @@ public class TestBase
         Assert.fail("Too many tries to unlock");
     }
     
+    protected void lock(String item)
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            talk("lock "+item);
+            if (mLastReply.toLowerCase().indexOf("you lock") >= 0)
+                return;
+            if (mLastReply.toLowerCase().indexOf("unable to execute") >= 0)
+                Assert.fail("Could not lock '"+item+"': "+mLastReply);
+        }
+        Assert.fail("Too many tries to lock");
+    }
+    
     protected void climb(String dir, String expected)
     {
         for (int i = 0; i < 10; i++)

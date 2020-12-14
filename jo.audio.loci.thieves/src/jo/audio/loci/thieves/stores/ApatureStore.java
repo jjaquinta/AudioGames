@@ -23,7 +23,6 @@ import jo.audio.thieves.logic.LocationLogic;
 import jo.audio.thieves.logic.ThievesConstLogic;
 import jo.audio.thieves.logic.gen.HouseLogic;
 import jo.util.beans.WeakCache;
-import jo.util.utils.DebugUtils;
 import jo.util.utils.obj.IntegerUtils;
 import jo.util.utils.obj.StringUtils;
 
@@ -53,6 +52,13 @@ public class ApatureStore implements IDataStore
         return u.flip().toURI();
     }
 
+    public static ApatureURI makeURI(House house, PLocationRef location, int dir)
+    {
+        ApatureURI u = mInstance.new ApatureURI(house, location, dir);
+        return u;
+    }
+
+    
     @Override
     public LociBase load(String uri)
     {
@@ -60,11 +66,11 @@ public class ApatureStore implements IDataStore
         JSONObject json = mDisk.loadJSON(uri);
         if (json == null)
         {
-            DebugUtils.debug("Loading "+uri+", no disk image");
+            //DebugUtils.debug("Loading "+uri+", no disk image");
             json = new JSONObject();
         }
         else
-            DebugUtils.debug("Loading "+uri+", with disk image "+json.toJSONString());
+            ;//DebugUtils.debug("Loading "+uri+", with disk image "+json.toJSONString());
         PApature apature = u.getThis();
         json.put(LociBase.ID_URI, uri);
         json.put(LociExit.ID_SOURCE, SquareStore.makeURI(u.mStreet, u.mHouseNum, u.getSourceRef()));
@@ -134,6 +140,16 @@ public class ApatureStore implements IDataStore
             mStreet = street;
             mHouseNum = houseNum;
             mHouse = HouseLogic.getHouse(mStreet, mHouseNum);
+            mLocation = location;
+            mDir = dir;
+            mURI = PREFIX+mStreet.getID()+":"+mHouseNum+"/"+mLocation.toKey()+"/"+mDir;
+        }
+        
+        public ApatureURI(House house, PLocationRef location, int dir)
+        {
+            mStreet = LocationLogic.getStreet(house.getStreet());
+            mHouseNum = house.getHouseNumber();
+            mHouse = house;
             mLocation = location;
             mDir = dir;
             mURI = PREFIX+mStreet.getID()+":"+mHouseNum+"/"+mLocation.toKey()+"/"+mDir;

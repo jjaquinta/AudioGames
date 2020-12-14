@@ -3,6 +3,7 @@ package jo.audio.loci.thieves.data.npc;
 import org.json.simple.JSONObject;
 
 import jo.audio.loci.thieves.data.LociPlayer;
+import jo.audio.thieves.logic.LocationLogic;
 
 public class LociObserver extends LociNPC
 {
@@ -36,8 +37,42 @@ public class LociObserver extends LociNPC
     public String[] getExtendedDescription(LociPlayer wrt)
     {
         String[] desc = super.getExtendedDescription(wrt);
-        return desc;
+        String[] desc2 = new String[desc.length + 1];
+        System.arraycopy(desc, 0, desc2, 0, desc.length);
+        switch (getAlertness())
+        {
+            case ALERT_DEEP_SLEEP:
+                desc2[desc2.length-1] = heSheIt()+" is deeply asleep.";
+                break;
+            case ALERT_LIGHT_SLEEP:
+                desc2[desc2.length-1] = heSheIt()+" is sleeping lightly.";
+                break;
+            case ALERT_FOCUSED:
+                desc2[desc2.length-1] = heSheIt()+" is involved in what "+heSheIt().toLowerCase()+" is doing.";
+                break;
+            case ALERT_AWARE:
+                desc2[desc2.length-1] = heSheIt()+" is observing "+hisHerIts()+" suroundings.";
+                break;
+            case ALERT_ALERT:
+                desc2[desc2.length-1] = heSheIt()+" is watching you closely.";
+                break;
+            case ALERT_ALARMED:
+                desc2[desc2.length-1] = heSheIt()+" is alarmed at your presence.";
+                break;
+            default:
+                throw new IllegalStateException();
+        }
+        return desc2;
     }
+
+    public boolean rollNotice(int mod)
+    {
+        mod += (getAlertness() - ALERT_AWARE)*5;
+        int target = 50 + mod;
+        int roll = LocationLogic.getCity().getRND().nextInt(100) + 1;
+        return roll <= target;
+    }
+
     
     // getters and setters
     

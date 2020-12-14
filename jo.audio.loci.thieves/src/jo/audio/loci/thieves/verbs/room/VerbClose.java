@@ -3,6 +3,7 @@ package jo.audio.loci.thieves.verbs.room;
 import jo.audio.loci.core.data.ExecuteContext;
 import jo.audio.loci.thieves.data.LociApature;
 import jo.audio.loci.thieves.data.LociPlayer;
+import jo.audio.loci.thieves.logic.TimeLogic;
 import jo.audio.loci.thieves.verbs.VerbLookBase;
 import jo.audio.thieves.data.template.PApature;
 
@@ -35,6 +36,7 @@ public class VerbClose extends VerbLookBase
             player.addMessage("You close the "+exit.getPrimaryName()+".");
             if (exit.getLocked())
                 player.addMessage("The lock clicks shut.");
+            TimeLogic.updateSilent(player, null);
             return;
         }
     }
