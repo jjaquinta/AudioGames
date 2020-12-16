@@ -155,6 +155,7 @@ public class PopulateSquareLogic
         int num = (int)Math.round(MathUtils.interpolate(uri.mHouse.getPosh(), 0, 1, 1, 8));
         int die = (int)Math.round(MathUtils.interpolate(uri.mHouse.getPosh(), 0, 1, 4, 12));
         int type = (int)Math.round(MathUtils.interpolate(uri.mHouse.getPosh(), 0, 1, 0, 3));
+        //System.out.println("Posh "+uri.mHouse.getPosh()+" -> "+COIN_TYPE[type]);
         int count = DiceLogic.d(die, num);
         LociItemStackable item = makeBagOfCoins(type, count);
         ContainmentLogic.add(chest, item);

@@ -296,6 +296,6 @@ public class ThievesConstLogic
 
     public static String poshToName(double posh)
     {
-        return "{{POSH_NAME#"+posh+"}}";
+        return "{{POSH_NAME#"+(1.0-posh)+"}}";
     }
 }

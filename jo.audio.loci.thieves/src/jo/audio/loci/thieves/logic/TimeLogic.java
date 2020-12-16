@@ -19,6 +19,7 @@ public class TimeLogic
             doHeal(player);
         notifySun(player, lastMove, thisMove);
         notifyMoon(player, lastMove, thisMove);
+        player.setLastMoveCheck(thisMove);
     }
     
     public static void updateSilent(LociPlayer player, LociLocality location)

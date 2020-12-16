@@ -1,7 +1,9 @@
 package jo.audio.loci.thieves.data;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.json.simple.JSONObject;
 
@@ -10,7 +12,6 @@ import jo.audio.loci.core.utils.ResponseUtils;
 import jo.audio.loci.thieves.logic.PopulateSquareLogic;
 import jo.audio.loci.thieves.stores.SquareStore;
 import jo.audio.thieves.slu.ThievesModelConst;
-import jo.util.utils.obj.StringUtils;
 
 public class LociSquare extends LociLocality
 {
@@ -34,7 +35,7 @@ public class LociSquare extends LociLocality
         desc.add(getPrimaryName()+".");
         desc.add(getDescription());
         List<String> playerNames = new ArrayList<>();
-        List<String> exitNames = new ArrayList<>();
+        Map<String,List<String>> exitNames = new HashMap<>();
         List<String> itemNames = new ArrayList<>();
         for (LociObject o : getContainsObjects())
             if (o instanceof LociPlayer)
@@ -58,16 +59,26 @@ public class LociSquare extends LociLocality
                 String dirName = ThievesModelConst.expand("{{DIRECTION_NAME#"+exit.getDirection()+"}}");
                 if (dirName.equals(name))
                     name = exit.getDestinationObject().getName();
-                if (StringUtils.isTrivial(name) || dirName.equals(name))
-                    exitNames.add(dirName);
-                else
-                    exitNames.add(dirName+" to "+name);
+                List<String> dirs = exitNames.get(name);
+                if (dirs == null)
+                {
+                    dirs = new ArrayList<>();
+                    exitNames.put(name, dirs);
+                }
+                dirs.add(dirName);
             }
             else if (o instanceof LociExit)
             {
                 LociExit exit = (LociExit)o;
-                int dir = exit.getDirection();
-                exitNames.add("{{DIRECTION_NAME#"+dir+"}} to "+o.getPrimaryName());
+                String name = ThievesModelConst.expand(exit.getPrimaryName());
+                String dirName = ThievesModelConst.expand("{{DIRECTION_NAME#"+exit.getDirection()+"}}");
+                List<String> dirs = exitNames.get(name);
+                if (dirs == null)
+                {
+                    dirs = new ArrayList<>();
+                    exitNames.put(name, dirs);
+                }
+                dirs.add(dirName);
             }
             else
                 itemNames.add(o.getPrimaryName());
@@ -82,7 +93,16 @@ public class LociSquare extends LociLocality
             else
                 desc.add(ResponseUtils.wordList(playerNames)+" are here.");
         if (exitNames.size() > 0)
-            desc.add("You can go "+ResponseUtils.wordList(exitNames.toArray(), -1, "or ")+".");
+        {
+            List<String> choices = new ArrayList<>();
+            for (String exitName : exitNames.keySet())
+            {
+                List<String> dirNames = exitNames.get(exitName);
+                String directive = ResponseUtils.wordList(dirNames)+" to "+exitName;
+                choices.add(directive);
+            }
+            desc.add("You can go "+ResponseUtils.wordList(choices.toArray(), -1, "or ")+".");
+        }
         return desc.toArray(new String[0]);
     }
 
