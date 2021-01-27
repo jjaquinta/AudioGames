@@ -187,6 +187,13 @@ public class MapAssets
             return mTerrainToColor.get(new Integer(sq.getTerrain()*256 + sq.getTerrainDepth()));
     }
     
+    public Color getColorPlain(SquareBean sq)
+    {
+        if (CompConstLogic.isWater(sq.getTerrain()))
+            return Color.LIGHT_GRAY;
+        return Color.WHITE;
+    }
+    
     public Color getTerrainColor(int terrain, int depth)
     {
         return mTerrainToColor.get(new Integer(terrain*256 + depth));

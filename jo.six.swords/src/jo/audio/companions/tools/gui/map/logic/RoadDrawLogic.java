@@ -35,6 +35,8 @@ public class RoadDrawLogic
             for (int y = -yRad; y <= yRad; y++)
             {
                 SquareBean sq = MapDrawLogic.getSquareD(x, y);
+                if (!MapDrawLogic.doWeDraw(sq))
+                    continue;
                 if (CompConstLogic.isWater(sq.getTerrain()))
                     continue;
                 int px = x*MapDrawLogic.mData.getPixelScale() + ox;

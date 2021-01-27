@@ -2,28 +2,35 @@ package jo.audio.companions.tools.gui.map;
 
 import java.awt.Dimension;
 
+import jo.audio.companions.data.SquareBean;
 import jo.util.beans.PCSBean;
+import jo.util.utils.MathUtils;
 
 public class MapData extends PCSBean
 {
-    private int mX = 1018;//CompConstLogic.INITIAL_LOCATION_X;
-    private int mY = 941;//CompConstLogic.INITIAL_LOCATION_Y;
-    private int mZ = 2;//0;
-    private int mDX;
-    private int mDY;
-    private int mScale = 48;
+    private int        mX               = 1018;                      // CompConstLogic.INITIAL_LOCATION_X;
+    private int        mY               = 941;                       // CompConstLogic.INITIAL_LOCATION_Y;
+    private int        mZ               = 2;                         // 0;
+    private int        mDX;
+    private int        mDY;
+    private int        mScale           = 48;
     private Dimension  mSize;
-    private boolean mDrawRivers = true;
-    private boolean mDrawRoads = true;
-    private boolean mDrawBorders = true;
-    private boolean mDrawTownBorders = false;
-    private boolean mTownNames = true;
-    private boolean mFeatureNames = true;
-    private boolean mCountryNames = true;
-    private boolean mBorderNames = true;
-    
-    private boolean mNoTerrainIcons;
-    private boolean mNoRuinIcons;
+    private boolean    mDrawRivers      = true;
+    private boolean    mDrawRoads       = true;
+    private boolean    mDrawBorders     = true;
+    private boolean    mDrawTownBorders = false;
+    private boolean    mTownNames       = true;
+    private boolean    mFeatureNames    = true;
+    private boolean    mCountryNames    = true;
+    private boolean    mBorderNames     = true;
+    private boolean    mColorBacking    = true;
+
+    private boolean    mNoTerrainIcons;
+    private boolean    mNoRuinIcons;
+
+    private String     mDrawOnlyDemense;
+    private SquareBean mHover;
+    private int[]      mDrawBounds      = MathUtils.getEmptyBounds();
 
     // utilities
     public int getPixelScale()
@@ -35,33 +42,44 @@ public class MapData extends PCSBean
         else
             return 1;
     }
-    
+
     public int getWidth()
     {
         return mSize.width;
     }
-    
+
     public void setWidth(int w)
     {
         mSize.width = w;
     }
-    
+
     public int getHeight()
     {
         return mSize.height;
     }
-    
+
     public void setHeight(int h)
     {
         mSize.height = h;
     }
-    
+
+    public void clearDrawBounds()
+    {
+        mDrawBounds = MathUtils.getEmptyBounds();
+    }
+
+    public void extendDrawBounds(int x, int y)
+    {
+        MathUtils.extendBounds(mDrawBounds, x, y);
+    }
+
     // getters and setters
-    
+
     public int getX()
     {
         return mX;
     }
+
     public void setX(int x)
     {
         if (x == mX)
@@ -70,10 +88,12 @@ public class MapData extends PCSBean
         mX = x;
         firePropertyChange();
     }
+
     public int getY()
     {
         return mY;
     }
+
     public void setY(int y)
     {
         if (y == mY)
@@ -82,26 +102,32 @@ public class MapData extends PCSBean
         mY = y;
         firePropertyChange();
     }
+
     public int getDX()
     {
         return mDX;
     }
+
     public void setDX(int dX)
     {
         mDX = dX;
     }
+
     public int getDY()
     {
         return mDY;
     }
+
     public void setDY(int dY)
     {
         mDY = dY;
     }
+
     public int getScale()
     {
         return mScale;
     }
+
     public void setScale(int scale)
     {
         if (scale == mScale)
@@ -110,34 +136,42 @@ public class MapData extends PCSBean
         mScale = scale;
         firePropertyChange();
     }
+
     public Dimension getSize()
     {
         return mSize;
     }
+
     public void setSize(Dimension size)
     {
         mSize = size;
     }
+
     public int getZ()
     {
         return mZ;
     }
+
     public void setZ(int z)
     {
         mZ = z;
     }
+
     public boolean isNoTerrainIcons()
     {
         return mNoTerrainIcons;
     }
+
     public void setNoTerrainIcons(boolean noTerrainIcons)
     {
         mNoTerrainIcons = noTerrainIcons;
     }
+
     public boolean isNoRuinIcons()
     {
         return mNoRuinIcons;
     }
+
     public void setNoRuinIcons(boolean noRuinIcons)
     {
         mNoRuinIcons = noRuinIcons;
@@ -221,5 +255,49 @@ public class MapData extends PCSBean
     public void setTownNames(boolean townNames)
     {
         mTownNames = townNames;
+    }
+
+    public String getDrawOnlyDemense()
+    {
+        return mDrawOnlyDemense;
+    }
+
+    public void setDrawOnlyDemense(String drawOnlyDemense)
+    {
+        mDrawOnlyDemense = drawOnlyDemense;
+    }
+
+    public SquareBean getHover()
+    {
+        return mHover;
+    }
+
+    public void setHover(SquareBean hover)
+    {
+        queuePropertyChange("hover", mHover, hover);
+        mHover = hover;
+        firePropertyChange();
+    }
+
+    public boolean isColorBacking()
+    {
+        return mColorBacking;
+    }
+
+    public void setColorBacking(boolean colorBacking)
+    {
+        queuePropertyChange("colorBacking", mColorBacking, colorBacking);
+        mColorBacking = colorBacking;
+        firePropertyChange();
+    }
+
+    public int[] getDrawBounds()
+    {
+        return mDrawBounds;
+    }
+
+    public void setDrawBounds(int[] drawBounds)
+    {
+        mDrawBounds = drawBounds;
     }
 }

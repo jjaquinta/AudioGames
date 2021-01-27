@@ -21,11 +21,22 @@ public class BaseDrawLogic
             for (int y = -yRad; y <= yRad; y++)
             {
                 SquareBean sq = MapDrawLogic.getSquareD(x, y);
-                Color sqColor = MapDrawLogic.mAssets.getColor(sq, false);
                 int px = x*h + ox;
                 int py = y*h + oy;
+                if (!MapDrawLogic.doWeDraw(sq))
+                {
+                    g.setColor(Color.white);
+                    g.fillRect(px,  py, h, h);
+                    continue;
+                }
+                data.extendDrawBounds(sq.getOrds().getX(), sq.getOrds().getY());
+                Color sqColor;
+                if (data.isColorBacking())
+                    sqColor = MapDrawLogic.mAssets.getColor(sq, false);
+                else
+                    sqColor = MapDrawLogic.mAssets.getColorPlain(sq);
                 SquareBean northWest = MapDrawLogic.getSquareD(x - 1, y - 1);
-                if (h >= 12)
+                if ((h >= 12) && data.isColorBacking())
                 {
                     SquareBean north = MapDrawLogic.getSquareD(x, y - 1);
                     SquareBean south = MapDrawLogic.getSquareD(x, y + 1);

@@ -23,7 +23,7 @@ import jo.util.utils.MathUtils;
 
 public class MapDrawLogic
 {
-    static MapAssets mAssets = new MapAssets();    
+    public static MapAssets mAssets = new MapAssets();    
     static Graphics2D mG;
     static MapData mData;
 
@@ -75,6 +75,7 @@ public class MapDrawLogic
         SquareBean sq = GenerationLogic.getSquare(new CoordBean(x, y, mData.getZ()));
         if (FeatureLogic.isStaticFeature(sq.getOrds(), null))
             sq.setFeature(CompConstLogic.FEATURE_STATIC);
+        indexDemenses(sq);
         return sq;
     }
 
@@ -320,4 +321,53 @@ public class MapDrawLogic
         return groups;
     }
 
+    public static boolean doWeDraw(SquareBean sq)
+    {
+        String demenseID = mData.getDrawOnlyDemense();
+        if (demenseID == null)
+            return true;
+        for (DemenseBean d = sq.getDemense(); d != null; d = d.getLiege())
+            if (d.getID().equals(demenseID))
+                return true;
+        return false;
+    }
+
+    private static Map<String, List<String>> mDemenseTree = new HashMap<>();
+    private static Map<String, int[]> mDemenseBounds = new HashMap<>();
+    
+    private static void indexDemenses(SquareBean sq)
+    {
+        for (DemenseBean d = sq.getDemense(); d != null; d = d.getLiege())
+        {
+            String child = d.getID();
+            String parent = d.getLiegeID();
+            if (parent == null)
+                parent = "";
+            List<String> vassals = mDemenseTree.get(parent);
+            if (vassals == null)
+            {
+                vassals = new ArrayList<>();
+                mDemenseTree.put(parent, vassals);
+            }
+            if (!vassals.contains(child))
+                vassals.add(child);
+            int[] bounds = mDemenseBounds.get(child);
+            if (bounds == null)
+            {
+                bounds = MathUtils.getEmptyBounds();
+                mDemenseBounds.put(child, bounds);
+            }
+            MathUtils.extendBounds(bounds, sq.getOrds().getX(), sq.getOrds().getY());
+        }
+    }
+    
+    public static List<String> getVassals(String parent)
+    {
+        return mDemenseTree.get(parent);
+    }
+    
+    public static int[] getBounds(String parent)
+    {
+        return mDemenseBounds.get(parent);
+    }
 }

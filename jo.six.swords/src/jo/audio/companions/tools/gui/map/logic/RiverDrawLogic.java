@@ -33,7 +33,7 @@ public class RiverDrawLogic
             for (int y = -yRad; y <= yRad; y++)
             {
                 SquareBean sq = MapDrawLogic.getSquareD(x, y);
-                if (CompConstLogic.isWater(sq.getTerrain()))
+                if (!MapDrawLogic.doWeDraw(sq) || CompConstLogic.isWater(sq.getTerrain()))
                     continue;
                 int px = x*pscale + ox;
                 int py = y*pscale + oy;

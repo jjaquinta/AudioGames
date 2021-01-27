@@ -9,6 +9,7 @@ import java.util.Map;
 
 import jo.audio.companions.logic.CompConstLogic;
 import jo.audio.companions.tools.gui.map.MapData;
+import jo.util.utils.obj.IntegerUtils;
 
 public class MapTileLogic
 {
@@ -29,7 +30,54 @@ public class MapTileLogic
     
     private static void putInCache(int x, int y, BufferedImage tile)
     {
-        mMapTiles.put(makeKey(x, y), tile);
+        String key = makeKey(x, y);
+        mMapTiles.put(key, tile);
+        //System.out.println("Adding "+key);
+    }
+    
+    public static BufferedImage[][] getTiles(int[] origin)
+    {
+        Integer lowX = null;
+        Integer lowY = null;
+        Integer highX = null;
+        Integer highY = null;
+        for (String key : mMapTiles.keySet())
+        {
+            int o = key.indexOf(',');
+            int x = IntegerUtils.parseInt(key.substring(0, o));
+            int y = IntegerUtils.parseInt(key.substring(o+1));
+            if (lowX == null)
+            {
+                lowX = x;
+                highX = x;
+                lowY= y;
+                highY = y;
+            }
+            else
+            {
+                lowX = Math.min(lowX, x);
+                highX = Math.max(highX, x);
+                lowY= Math.min(lowY, y);
+                highY = Math.max(highY, y);
+            }
+        }
+        int w = (highX - lowX)/MapTileLogic.TILE_WIDTH + 1;
+        int h = (highY - lowY)/MapTileLogic.TILE_HEIGHT + 1;
+        System.out.println(mMapTiles.keySet().size()+" tiles from "+lowX+","+lowY+" to "+highX+","+highY+" or "+w+"x"+h);
+        BufferedImage[][] images = new BufferedImage[h][w];
+        for (String key : mMapTiles.keySet())
+        {
+            int o = key.indexOf(',');
+            int x = IntegerUtils.parseInt(key.substring(0, o));
+            int y = IntegerUtils.parseInt(key.substring(o+1));
+            images[(y - lowY)/MapTileLogic.TILE_HEIGHT][(x - lowX)/MapTileLogic.TILE_WIDTH] = mMapTiles.get(key);
+        }
+        if (origin != null)
+        {
+            origin[0] = lowX;
+            origin[1] = lowY;
+        }
+        return images;
     }
     
     public static BufferedImage getFromCache(int x, int y, MapData data)
@@ -47,7 +95,7 @@ public class MapTileLogic
     {
         BufferedImage tile = new BufferedImage(TILE_WIDTH*data.getPixelScale(), TILE_HEIGHT*data.getPixelScale(), BufferedImage.TYPE_INT_ARGB);
         Graphics2D g = (Graphics2D)tile.getGraphics();
-        //data.setBroadcast(false);
+        data.setSuspendNotifications(true);
         int oldX = data.getX();
         int oldY = data.getY();
         data.setX(x);
@@ -56,7 +104,7 @@ public class MapTileLogic
         g.dispose();
         data.setX(oldX);
         data.setY(oldY);
-        //data.setBroadcast(true);
+        data.setSuspendNotifications(false);
         return tile;
     }
     

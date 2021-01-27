@@ -36,6 +36,8 @@ public class NameDrawLogic
             for (int y = -yRad; y <= yRad; y++)
             {
                 SquareBean sq = MapDrawLogic.getSquareD(x, y);
+                if (!MapDrawLogic.doWeDraw(sq))
+                    continue;
                 String country = getCountry(sq);
                 if (country == null)
                     continue;
@@ -216,6 +218,8 @@ public class NameDrawLogic
             for (int y = -yRad; y <= yRad; y++)
             {
                 SquareBean sq = MapDrawLogic.getSquareD(x, y);
+                if (!MapDrawLogic.doWeDraw(sq))
+                    continue;
                 if (!data.isTownNames() && CompConstLogic.isTown(sq.getFeature()))
                     continue;
                 if (!data.isFeatureNames() && CompConstLogic.isCastle(sq.getFeature()))

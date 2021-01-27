@@ -62,6 +62,9 @@ public class BluePrintPaintLogic
             int floorH = panel.mTilesHigh * panel.ICON_SIZE;
             ox += (dx - floorW) / 2;
             oy += (dy - floorH) / 2;
+            // adjust for local offset
+            ox -= panel.mSquareBounds[0][0]*panel.ICON_SIZE/2;
+            oy -= panel.mSquareBounds[0][1]*panel.ICON_SIZE/2;
             panel.mOrigins[znorm/2] = new int[] { ox, oy };
         }
         createRooms(panel);

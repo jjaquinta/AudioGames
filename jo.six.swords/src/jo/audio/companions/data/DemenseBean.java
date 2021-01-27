@@ -32,6 +32,22 @@ public class DemenseBean implements IJSONAble
         return mID;
     }    
     
+    public String toFullString()
+    {
+        if (mLiege != null)
+            return mLiege.toFullString()+"/"+mID;
+        else
+            return mID;
+    }    
+    
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (!(obj instanceof DemenseBean))
+            return false;
+        return getID().equals(((DemenseBean)obj).getID());
+    }
+    
     @Override
     public JSONObject toJSON()
     {

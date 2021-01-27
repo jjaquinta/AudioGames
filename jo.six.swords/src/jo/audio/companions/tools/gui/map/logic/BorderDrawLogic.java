@@ -9,10 +9,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import jo.audio.companions.data.DemenseBean;
 import jo.audio.companions.data.SquareBean;
@@ -55,6 +53,8 @@ public class BorderDrawLogic
             for (int y = -yRad; y <= yRad; y++)
             {
                 SquareBean sq = MapDrawLogic.getSquareD(x, y);
+                if (!MapDrawLogic.doWeDraw(sq))
+                    continue;
                 int px = x*pscale + ox;
                 int py = y*pscale + oy;
                 calcBorderSegments(sq, px, py, borderSegments);
@@ -82,6 +82,8 @@ public class BorderDrawLogic
                 for (BorderSegment bs : bsegs)
                     if (bs.span >= 7)
                     {
+                        if ((bs.d1 == null) || (bs.d2 == null))
+                            continue;
                         if (bs.p1.y == bs.p2.y)
                         {   // horizontal
                             double x = (bs.p1.x + bs.p2.x)/2;
@@ -201,52 +203,68 @@ public class BorderDrawLogic
     {
         if (CompConstLogic.isWater(s2.getTerrain()))
             return;
-        DemenseBean d1 = s1.getDemense();
-        DemenseBean d2 = s2.getDemense();
-        if ((d1 == null) && (d2 == null))
-            return;
         int type = -1;
-        if (d1 == null)
-            type = toType(d2.getID());
-        else if (d2 == null)
-            type = toType(d1.getID());
-        else
-        {
-            Set<DemenseBean> id1 = toSet(d1);
-            Set<DemenseBean> id2 = toSet(d2);
-            Set<DemenseBean> u = new HashSet<>();
-            u.addAll(id1);
-            u.addAll(id2);
-            Set<DemenseBean> i = new HashSet<>();
-            i.addAll(id1);
-            i.retainAll(id2);
-            Set<DemenseBean> diff = new HashSet<>();
-            diff.addAll(u);
-            diff.removeAll(i);
-            for (DemenseBean d : diff)
-                type = Math.max(type,  toType(d.getID()));
-            //System.out.print("D1: "+id1+", D2: "+id2+", diff: "+diff);
-        }
+        for (int t = B_COUNTRY; t >= B_HAMLET; t--)
+            if (differentPolity(s1, s2, t))
+            {
+                type = t;
+                break;
+            }
         List<BorderSegment> segs = borderSegments.get(type);
         if (segs != null)
         {
-            BorderSegment bs = new BorderSegment(new Point2D(x1, y1), new Point2D(x2, y2), d1, d2);
+            if (((s1.getOrds().getX() == 681) && (s1.getOrds().getY() == 560))
+                    || ((s2.getOrds().getX() == 681) && (s2.getOrds().getY() == 560)))
+                System.out.println(s1.getOrds()+"->"+s2.getOrds()
+                    +" D1: "+s1.getDemense().toFullString()+", D2: "+s2.getDemense().toFullString()
+                    +", diff: "+type+", "+differentPolity(s1, s2, type));
+            BorderSegment bs = new BorderSegment(new Point2D(x1, y1), new Point2D(x2, y2), s1.getDemense(), s2.getDemense());
             segs.add(bs);
         }
         //System.out.println(" = "+type);
     }
     
-    private static Map<DemenseBean,Set<DemenseBean>> mDemenseCache = new HashMap<>();
-    
-    private static Set<DemenseBean> toSet(DemenseBean d1)
+    private static boolean differentPolity(SquareBean sq1, SquareBean sq2, int type)
     {
-        Set<DemenseBean> s = mDemenseCache.get(d1);
+        String p1 = getPolity(sq1, type);
+        String p2 = getPolity(sq2, type);
+        if ((p1 == null) && (p2 == null))
+            if (type > B_HAMLET)
+                return differentPolity(sq1, sq2, type - 1);
+            else
+                return false;
+        if ((p1 == null) || (p2 == null))
+            return true;
+        return !p1.equals(p2);
+    }
+    
+    private static String getPolity(SquareBean sq, int type)
+    {
+        DemenseBean d = sq.getDemense();
+        if (d == null)
+            return null;
+        Map<Integer,DemenseBean> m = toMap(d);
+        if (m == null)
+            return null;
+        DemenseBean dd = m.get(type);
+        if (dd == null)
+            return null;
+        return dd.getID();
+    }
+    
+    private static Map<String,Map<Integer,DemenseBean>> mDemenseCache = new HashMap<>();
+    
+    private static Map<Integer,DemenseBean> toMap(DemenseBean d1)
+    {
+        if (d1 == null)
+            return null;
+        Map<Integer,DemenseBean> s = mDemenseCache.get(d1.getID());
         if (s == null)
         {
-            s = new HashSet<>();
+            s = new HashMap<>();
             for (DemenseBean d = d1; d != null; d = d.getLiege())
-                s.add(d);
-            mDemenseCache.put(d1, s);
+                s.put(toType(d.getID()), d);
+            mDemenseCache.put(d1.getID(), s);
         }
         return s;
     }
@@ -294,18 +312,21 @@ public class BorderDrawLogic
                 if (type == B_COUNTRY)
                     return d.getID();
                 else
-                {
-                    String name = MapDrawLogic.mAssets.expandInserts(d.getName());
-                    int o = name.lastIndexOf('<');
-                    if (o >= 0)
-                        name = name.substring(0, o);
-                    o = name.lastIndexOf('>');
-                    if (o >= 0)
-                        name = name.substring(o + 1);
-                    return name;
-                }
+                    return findName(d);
             }
         return null;
+    }
+
+    public static String findName(DemenseBean d)
+    {
+        String name = MapDrawLogic.mAssets.expandInserts(d.getName());
+        int o = name.lastIndexOf('<');
+        if (o >= 0)
+            name = name.substring(0, o);
+        o = name.lastIndexOf('>');
+        if (o >= 0)
+            name = name.substring(o + 1);
+        return name;
     }
 }
 

@@ -5,8 +5,13 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
+import jo.audio.companions.data.DemenseBean;
+import jo.audio.companions.data.SquareBean;
+import jo.audio.companions.logic.CompConstLogic;
 import jo.audio.companions.tools.gui.map.MapData;
+import jo.audio.companions.tools.gui.map.logic.BorderDrawLogic;
 import jo.audio.companions.tools.gui.map.logic.MapTileLogic;
 
 @SuppressWarnings("serial")
@@ -19,6 +24,7 @@ public class MapFrame extends JFrame
     //private JLabel  mClient;
     //private JScrollPane mScroller;
     private MapCanvas   mClient;
+    private JLabel      mStatus;
     
     public MapFrame(MapData data)
     {
@@ -37,6 +43,7 @@ public class MapFrame extends JFrame
         //mScroller = new JScrollPane(mClient);
         
         mToolbar = new MapDataPanel(mData);
+        mStatus = new JLabel();
     }
 
     private void initLayout()
@@ -45,6 +52,7 @@ public class MapFrame extends JFrame
         getContentPane().add("North", mToolbar);
         //getContentPane().add("Center", mScroller);
         getContentPane().add("Center", mClient);
+        getContentPane().add("South", mStatus);
     }
 
     private void initLink()
@@ -54,6 +62,13 @@ public class MapFrame extends JFrame
             public void propertyChange(PropertyChangeEvent evt)
             {
                 updateImage();
+            }
+        });
+        mData.addPropertyChangeListener("hover", new PropertyChangeListener() {            
+            @Override
+            public void propertyChange(PropertyChangeEvent evt)
+            {
+                updateStatus();
             }
         });
     }
@@ -72,6 +87,36 @@ public class MapFrame extends JFrame
         */
         MapTileLogic.clearCache();
         mClient.repaint();
+    }
+    
+    private void updateStatus()
+    {
+        SquareBean sq = mData.getHover();
+        if (sq == null)
+        {
+            mStatus.setText("");
+            return;
+        }
+        String txt = sq.getOrds().toString();
+        txt += " " + (int)sq.getAltitude();
+        txt += " " + CompConstLogic.TERRAIN_NAMES[sq.getTerrain()];
+        if (sq.getFeature() > 0)
+            txt += " " + CompConstLogic.FEATURE_NAMES[sq.getFeature()];
+        for (DemenseBean d = sq.getDemense(); d != null; d = d.getLiege())
+            txt += " / "+BorderDrawLogic.findName(d);
+        if (sq.isAnyRivers())
+        {
+            txt += " R";
+            if (sq.isRiverNorth())
+                txt += "\u2191";
+            if (sq.isRiverSouth())
+                txt += "\u2193";
+            if (sq.isRiverWest())
+                txt += "\u2190";
+            if (sq.isRiverEast())
+                txt += "\u2192";
+        }
+        mStatus.setText(txt);
     }
     
     /*

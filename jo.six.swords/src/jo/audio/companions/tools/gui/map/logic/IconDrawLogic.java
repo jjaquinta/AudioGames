@@ -28,6 +28,8 @@ public class IconDrawLogic
             for (int y = -yRad; y <= yRad; y++)
             {
                 SquareBean sq = MapDrawLogic.getSquareD(x, y);
+                if (!MapDrawLogic.doWeDraw(sq))
+                    continue;
                 int px = x*scale + ox;
                 int py = y*scale + oy;
                 if (scale < 24)
