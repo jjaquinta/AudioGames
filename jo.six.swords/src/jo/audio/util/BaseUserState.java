@@ -8,7 +8,6 @@ import jo.audio.util.model.data.AudioRequestBean;
 import jo.audio.util.model.data.AudioResponseBean;
 import jo.audio.util.model.logic.ModelResolveLogic;
 import jo.audio.util.state.logic.ApplicationHandler;
-import jo.util.utils.DebugUtils;
 
 public class BaseUserState
 {

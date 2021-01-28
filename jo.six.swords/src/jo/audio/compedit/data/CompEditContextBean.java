@@ -7,8 +7,8 @@ import org.json.simple.IJSONAble;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONUtils;
 
-import jo.audio.companions.tools.gui.edit.data.PFeatureBean;
-import jo.audio.companions.tools.gui.edit.data.PRoomBean;
+import jo.audio.companions.data.build.PFeatureBean;
+import jo.audio.companions.data.build.PRoomBean;
 import jo.audio.util.model.data.AudioMessageBean;
 import jo.util.utils.DebugUtils;
 

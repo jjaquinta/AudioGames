@@ -1,4 +1,4 @@
-package jo.audio.companions.tools.gui.edit.data;
+package jo.audio.companions.data.build;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONUtils;
 
-import jo.audio.companions.tools.gui.edit.rich.FeatureLogic;
+import jo.audio.companions.logic.feature.BuildLogic;
 import jo.util.beans.PCSBean;
 
 public class PFeatureBean extends PCSBean
@@ -46,7 +46,7 @@ public class PFeatureBean extends PCSBean
         json.put("enabledBy", mEnabledBy);        
         if (mParams != null)
             json.put("params", mParams);        
-        json.put("name", FeatureLogic.nameToJSON(FeatureLogic.setText(module, mName)));
+        json.put("name", BuildLogic.nameToJSON(BuildLogic.setText(module, mName)));
         JSONArray rooms = new JSONArray();
         json.put("rooms", rooms);
         for (PRoomBean room : mRooms)
@@ -62,7 +62,7 @@ public class PFeatureBean extends PCSBean
         mEnabledBy = o.getString("enabledBy");
         if (o.containsKey("params"))
             mParams = (JSONObject)o.get("params");
-        mName = FeatureLogic.getText(module, FeatureLogic.nameFromJSON(o, "name"));
+        mName = BuildLogic.getText(module, BuildLogic.nameFromJSON(o, "name"));
         mRooms.clear();
         for (Object oo : JSONUtils.getArray(o, "rooms"))
         {

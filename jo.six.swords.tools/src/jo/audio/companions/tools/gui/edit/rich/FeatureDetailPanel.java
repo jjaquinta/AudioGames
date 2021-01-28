@@ -9,8 +9,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import jo.audio.companions.tools.gui.edit.data.PFeatureBean;
-import jo.audio.companions.tools.gui.edit.data.PRoomBean;
+import jo.audio.companions.data.build.PFeatureBean;
+import jo.audio.companions.data.build.PRoomBean;
 import jo.audio.companions.tools.gui.edit.data.RuntimeBean;
 import jo.audio.companions.tools.gui.edit.ui.PCSTextField;
 import jo.util.ui.swing.TableLayout;

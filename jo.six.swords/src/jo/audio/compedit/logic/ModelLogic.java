@@ -6,8 +6,8 @@ import org.json.simple.parser.ParseException;
 
 import jo.audio.companions.data.CompRoomBean;
 import jo.audio.companions.data.GeoBean;
-import jo.audio.companions.tools.gui.edit.data.PFeatureBean;
-import jo.audio.companions.tools.gui.edit.data.PRoomBean;
+import jo.audio.companions.data.build.PFeatureBean;
+import jo.audio.companions.data.build.PRoomBean;
 import jo.audio.compedit.data.CompEditContextBean;
 import jo.audio.compedit.data.CompEditModuleBean;
 import jo.audio.compedit.data.CompEditOperationBean;

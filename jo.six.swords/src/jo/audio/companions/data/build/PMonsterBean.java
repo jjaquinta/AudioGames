@@ -1,4 +1,4 @@
-package jo.audio.companions.tools.gui.edit.data;
+package jo.audio.companions.data.build;
 
 import java.util.StringTokenizer;
 

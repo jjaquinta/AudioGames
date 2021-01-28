@@ -11,7 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import jo.audio.companions.tools.gui.edit.data.PRoomBean;
+import jo.audio.companions.data.build.PRoomBean;
 import jo.audio.companions.tools.gui.edit.data.RuntimeBean;
 import jo.audio.companions.tools.gui.edit.logic.SelectionLogic;
 import jo.util.utils.obj.StringUtils;

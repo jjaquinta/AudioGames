@@ -15,8 +15,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
-import jo.audio.companions.tools.gui.edit.data.PFeatureBean;
-import jo.audio.companions.tools.gui.edit.data.PModuleBean;
+import jo.audio.companions.data.build.PFeatureBean;
+import jo.audio.companions.data.build.PModuleBean;
 import jo.audio.companions.tools.gui.edit.data.RuntimeBean;
 import jo.audio.companions.tools.gui.edit.logic.SelectionLogic;
 import jo.audio.companions.tools.gui.edit.ui.PCSComboBox;

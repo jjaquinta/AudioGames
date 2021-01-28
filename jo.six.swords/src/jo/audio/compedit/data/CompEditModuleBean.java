@@ -2,7 +2,7 @@ package jo.audio.compedit.data;
 
 import java.io.File;
 
-import jo.audio.companions.tools.gui.edit.data.PModuleBean;
+import jo.audio.companions.data.build.PModuleBean;
 import jo.audio.util.IIOBean;
 
 public class CompEditModuleBean extends PModuleBean implements IIOBean

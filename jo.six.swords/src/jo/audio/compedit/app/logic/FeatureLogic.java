@@ -3,8 +3,8 @@ package jo.audio.compedit.app.logic;
 import java.util.ArrayList;
 import java.util.List;
 
-import jo.audio.companions.tools.gui.edit.data.PFeatureBean;
-import jo.audio.companions.tools.gui.edit.data.PRoomBean;
+import jo.audio.companions.data.build.PFeatureBean;
+import jo.audio.companions.data.build.PRoomBean;
 import jo.audio.compedit.data.CompEditModuleBean;
 import jo.audio.compedit.data.CompEditState;
 import jo.audio.compedit.slu.CompEditModelConst;

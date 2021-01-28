@@ -1,10 +1,10 @@
-package jo.audio.companions.tools.gui.edit.data;
+package jo.audio.companions.data.build;
 
 import org.json.simple.JSONObject;
 import org.json.simple.JSONUtils;
 
 import jo.audio.companions.data.CompRoomBean;
-import jo.audio.companions.tools.gui.edit.rich.FeatureLogic;
+import jo.audio.companions.logic.feature.BuildLogic;
 import jo.audio.util.model.data.AudioMessageBean;
 import jo.util.beans.PCSBean;
 
@@ -32,8 +32,8 @@ public class PRoomBean extends PCSBean
     {
         JSONObject json = new JSONObject();
         json.put("ID", mID);
-        json.put("name", FeatureLogic.nameToJSON(FeatureLogic.setText(module, mName)));
-        json.put("description", FeatureLogic.nameToJSON(FeatureLogic.setText(module, mDescription)));
+        json.put("name", BuildLogic.nameToJSON(BuildLogic.setText(module, mName)));
+        json.put("description", BuildLogic.nameToJSON(BuildLogic.setText(module, mDescription)));
         json.put("type", mType);
         json.put("north", mNorth);
         json.put("south", mSouth);
@@ -47,7 +47,7 @@ public class PRoomBean extends PCSBean
             if (params.containsKey(CompRoomBean.MD_ENCOUNTER_ANNOUNCE))
             {
                 String text = params.getString(CompRoomBean.MD_ENCOUNTER_ANNOUNCE);
-                String ident = FeatureLogic.setText(module, text);
+                String ident = BuildLogic.setText(module, text);
                 params.put(CompRoomBean.MD_ENCOUNTER_ANNOUNCE, ident);
             }
             json.put("params", params);
@@ -57,8 +57,8 @@ public class PRoomBean extends PCSBean
     public void fromJSON(PModuleBean module, JSONObject o)
     {
         mID = o.getString("ID");
-        mName = FeatureLogic.getText(module, FeatureLogic.nameFromJSON(o, "name"));
-        mDescription = FeatureLogic.getText(module, FeatureLogic.nameFromJSON(o, "description"));
+        mName = BuildLogic.getText(module, BuildLogic.nameFromJSON(o, "name"));
+        mDescription = BuildLogic.getText(module, BuildLogic.nameFromJSON(o, "description"));
         mType = o.getString("type");
         mNorth = o.getString("north");
         mSouth = o.getString("south");
@@ -68,7 +68,7 @@ public class PRoomBean extends PCSBean
         if ((mParams != null) && mParams.containsKey(CompRoomBean.MD_ENCOUNTER_ANNOUNCE))
         {
             String id = mParams.getString(CompRoomBean.MD_ENCOUNTER_ANNOUNCE);
-            String text = FeatureLogic.getText(module, id);
+            String text = BuildLogic.getText(module, id);
             mParams.put(CompRoomBean.MD_ENCOUNTER_ANNOUNCE, text);
         }
     }

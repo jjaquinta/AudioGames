@@ -9,8 +9,8 @@ import org.json.simple.JSONUtils;
 
 import jo.audio.companions.data.CompMonsterTypeBean;
 import jo.audio.companions.data.CompRoomBean;
-import jo.audio.companions.tools.gui.edit.data.PFeatureBean;
-import jo.audio.companions.tools.gui.edit.data.PRoomBean;
+import jo.audio.companions.data.build.PFeatureBean;
+import jo.audio.companions.data.build.PRoomBean;
 import jo.audio.compedit.app.logic.FeatureLogic;
 import jo.audio.compedit.app.logic.LookLogic;
 import jo.audio.compedit.data.CompEditState;

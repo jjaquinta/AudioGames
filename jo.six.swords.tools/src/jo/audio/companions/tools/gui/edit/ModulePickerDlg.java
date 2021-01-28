@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.SwingUtilities;
 
-import jo.audio.companions.tools.gui.edit.data.PModuleBean;
+import jo.audio.companions.data.build.PModuleBean;
 import jo.audio.companions.tools.gui.edit.data.RuntimeBean;
 
 @SuppressWarnings("serial")

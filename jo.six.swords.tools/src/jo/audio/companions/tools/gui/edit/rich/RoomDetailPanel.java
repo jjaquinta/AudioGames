@@ -18,7 +18,7 @@ import javax.swing.JTextField;
 
 import jo.audio.companions.data.CompMonsterTypeBean;
 import jo.audio.companions.data.CompRoomBean;
-import jo.audio.companions.tools.gui.edit.data.PRoomBean;
+import jo.audio.companions.data.build.PRoomBean;
 import jo.audio.companions.tools.gui.edit.data.RuntimeBean;
 import jo.util.ui.swing.TableLayout;
 

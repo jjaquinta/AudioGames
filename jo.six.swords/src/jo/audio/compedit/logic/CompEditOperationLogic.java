@@ -1,7 +1,7 @@
 package jo.audio.compedit.logic;
 
-import jo.audio.companions.tools.gui.edit.data.PFeatureBean;
-import jo.audio.companions.tools.gui.edit.data.PRoomBean;
+import jo.audio.companions.data.build.PFeatureBean;
+import jo.audio.companions.data.build.PRoomBean;
 import jo.audio.compedit.data.CompEditContextBean;
 import jo.audio.compedit.data.CompEditIdentBean;
 import jo.audio.compedit.data.CompEditLocationBean;

@@ -16,8 +16,8 @@ import java.util.Map;
 
 import javax.swing.JPanel;
 
-import jo.audio.companions.tools.gui.edit.data.PFeatureBean;
-import jo.audio.companions.tools.gui.edit.data.PRoomBean;
+import jo.audio.companions.data.build.PFeatureBean;
+import jo.audio.companions.data.build.PRoomBean;
 import jo.audio.companions.tools.gui.edit.data.RuntimeBean;
 import jo.audio.companions.tools.gui.edit.logic.SelectionLogic;
 import jo.util.utils.ArrayUtils;

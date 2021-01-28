@@ -8,7 +8,7 @@ import java.util.Properties;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONUtils;
 
-import jo.audio.companions.tools.gui.edit.data.PModuleBean;
+import jo.audio.companions.data.build.PModuleBean;
 import jo.audio.companions.tools.gui.edit.data.RuntimeBean;
 import jo.audio.compedit.data.CompEditModuleBean;
 import jo.audio.compedit.logic.CompEditIOLogic;

@@ -5,6 +5,9 @@ import java.util.List;
 
 import org.json.simple.JSONObject;
 
+import jo.audio.companions.data.build.PFeatureBean;
+import jo.audio.companions.data.build.PModuleBean;
+import jo.audio.companions.data.build.PRoomBean;
 import jo.audio.compedit.data.CompEditModuleBean;
 import jo.util.beans.PCSBean;
 

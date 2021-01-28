@@ -1,4 +1,4 @@
-package jo.audio.companions.tools.gui.edit.rich;
+package jo.audio.companions.logic.feature;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,14 +10,13 @@ import java.util.Set;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONUtils;
 
-import jo.audio.companions.tools.gui.edit.data.PFeatureBean;
-import jo.audio.companions.tools.gui.edit.data.PModuleBean;
-import jo.audio.companions.tools.gui.edit.data.PRoomBean;
-import jo.audio.companions.tools.gui.edit.data.RuntimeBean;
+import jo.audio.companions.data.build.PFeatureBean;
+import jo.audio.companions.data.build.PModuleBean;
+import jo.audio.companions.data.build.PRoomBean;
 import jo.audio.util.model.cmd.ExternalizeStrings;
 import jo.util.utils.obj.StringUtils;
 
-public class FeatureLogic
+public class BuildLogic
 {
     public static String[] getTexts(PModuleBean module, String id)
     {
@@ -65,20 +64,6 @@ public class FeatureLogic
             if (id.equals(room.getID()))
                 return room;
         }
-        return null;
-    }
-    public static PFeatureBean findFeature(RuntimeBean rt, long id)
-    {
-        PModuleBean module = rt.getLocationRich();
-        if (module == null)
-            return null;
-        if (id == -1)
-            return null;
-        if (id == 0)
-            return rt.getSelectedFeature();
-        for (PFeatureBean feature : module.getFeatures())
-            if (feature.getOID() == id)
-                return feature;
         return null;
     }
     public static String getParam(PRoomBean room, String key)
@@ -175,7 +160,7 @@ public class FeatureLogic
         Set<String> done = new HashSet<>();
         Set<String> todo = new HashSet<>();
         String start = feature.getEntranceID();
-        PRoomBean r = FeatureLogic.findRoom(feature, start);
+        PRoomBean r = BuildLogic.findRoom(feature, start);
         if (r == null)
             return null;
         addRoom(rooms, r, 0, 0);
@@ -187,7 +172,7 @@ public class FeatureLogic
                 String dirID = r.getDir(dir);
                 if (StringUtils.isTrivial(dirID))
                     continue;
-                PRoomBean r2 = FeatureLogic.findRoom(feature, dirID);
+                PRoomBean r2 = BuildLogic.findRoom(feature, dirID);
                 if (r2 == null)
                     continue;
                 if (done.contains(dirID))
@@ -198,7 +183,7 @@ public class FeatureLogic
             if (todo.size() == 0)
                 break;
             String next = todo.iterator().next();
-            r = FeatureLogic.findRoom(feature, next);
+            r = BuildLogic.findRoom(feature, next);
             todo.remove(next);
         }
         int maxx = 0;
@@ -279,74 +264,5 @@ public class FeatureLogic
                     return new int[] { xx, yy };
             }
         return null;
-    }
-    public static void removeRoom(RuntimeBean runtime, long oid, String id)
-    {
-        PFeatureBean feature = findFeature(runtime, oid);
-        if (feature == null)
-            return;
-        PRoomBean room = findRoom(feature, id);
-        if (room == null)
-            return;
-        feature.getRooms().remove(room);
-        feature.fireMonotonicPropertyChange("rooms", feature.getRooms());
-        if (runtime.getSelectedRoom() == room)
-            runtime.setSelectedFeature(null);
-        for (PRoomBean r : feature.getRooms())
-        {
-            if (id.equals(r.getNorth()))
-                r.setNorth("");
-            if (id.equals(r.getSouth()))
-                r.setSouth("");
-            if (id.equals(r.getEast()))
-                r.setEast("");
-            if (id.equals(r.getWest()))
-                r.setWest("");
-        }
-    }
-    public static void setFeatureName(RuntimeBean runtime, long oid,
-            String text)
-    {
-        PFeatureBean feature = findFeature(runtime, oid);
-        if (feature == null)
-            return;
-        feature.setName(text);
-        runtime.getLocationRich().fireMonotonicPropertyChange("features", runtime.getLocationRich().getFeatures());
-    }
-    public static void setFeatureLocation(RuntimeBean runtime, long oid,
-            String text)
-    {
-        PFeatureBean feature = findFeature(runtime, oid);
-        if (feature == null)
-            return;
-        feature.setLocation(text);
-    }
-    public static void setFeatureEnabledBy(RuntimeBean runtime, long oid,
-            String text)
-    {
-        PFeatureBean feature = findFeature(runtime, oid);
-        if (feature == null)
-            return;
-        feature.setEnabledBy(text);
-    }
-    public static void setModuleID(RuntimeBean runtime, String text)
-    {
-        runtime.getLocationRich().setID(text);        
-    }
-    public static void setModuleName(RuntimeBean runtime, String text)
-    {
-        runtime.getLocationRich().setName(text);        
-    }
-    public static void setModuleAccount(RuntimeBean runtime, String text)
-    {
-        runtime.getLocationRich().setAccount(text);        
-    }
-    public static void setModuleEnabledBy(RuntimeBean runtime, String text)
-    {
-        runtime.getLocationRich().setEnabledBy(text);        
-    }
-    public static void setModuleAuthor(RuntimeBean runtime, String text)
-    {
-        runtime.getLocationRich().setAuthor(text);        
     }
 }

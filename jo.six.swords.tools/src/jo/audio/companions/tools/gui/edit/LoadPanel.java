@@ -13,7 +13,7 @@ import javax.swing.JTextPane;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-import jo.audio.companions.tools.gui.edit.data.PModuleBean;
+import jo.audio.companions.data.build.PModuleBean;
 import jo.audio.companions.tools.gui.edit.data.RuntimeBean;
 import jo.audio.companions.tools.gui.edit.logic.RuntimeLogic;
 import jo.audio.compedit.data.CompEditModuleBean;
